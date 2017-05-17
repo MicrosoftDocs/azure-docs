@@ -1,5 +1,5 @@
 ---
-title: Cluster setup for Hadoop, Kafka, Spark, HBase, or R Server - Azure HDInsight | Microsoft Docs
+title: Cluster setup for Hadoop, Spark, Kafka, HBase, or R Server - Azure HDInsight | Microsoft Docs
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
@@ -20,19 +20,19 @@ ms.date: 05/01/2017
 ms.author: jgao
 
 ---
-# Set up clusters in HDInsight with Hadoop, Kafka, Spark and more
+# Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to set up and configure clusters in HDInsight using Hadoop, Spark, Kafka, HBase, R Server, or Storm.
+Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, HBase, R Server, or Storm.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure HDInsight abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
 
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+
 ## Cluster setup methods
 The following table shows the different methods you can use to set up an HDInsight cluster.
-
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 | Clusters created with | Web browser | Command line | REST API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
@@ -44,24 +44,26 @@ The following table shows the different methods you can use to set up an HDInsig
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## Basic cluster set up and configuration
+## Quick create: Basic cluster set up
+This article walks you through the cluster creation in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using *Quick create* or *Custom*. 
 
-From the [Azure portal](https://portal.azure.com), you can create an HDInsight cluster using *Quick create* or *Custom*. This section covers the basic configuration settings used in the **Quick create** option. 
+Follow instructions on the screen to do a basic cluster setup. Details are provided below for:
+* [Resource group name](#resource-group-name)
+* [Cluster types and configuration](#cluster-types) 
+* [Cluster login and SSH username](#cluster-login-and-ssh-username)
+* [Location](#location)
 
-### Subscription  
-Each HDInsight cluster is tied to one Azure subscription.
-
-### Resource group name
+## Resource group name 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
+* Location
 
-### Cluster name
-The cluster name is used to identify a cluster. The cluster name must be globally unique, and it must adhere to the following naming guidelines:
+## <a name="cluster-types"></a> Cluster types and configuration
+Azure HDInsight currently provides the following cluster types, each with a set of components to provide certain functionalities.
 
-* The field must be a string that contains between 3 and 63 characters.
-* The field can contain only letters, numbers, and hyphens.
-
-### <a name="cluster-types"></a> Cluster type
-Azure HDInsight currently provides the following cluster types of, each with a set of components to provide certain functionalities:
+> [!IMPORTANT]
+> HDInsight clusters come in a variety of types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
+>
+>
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -73,7 +75,8 @@ Azure HDInsight currently provides the following cluster types of, each with a s
 | [R Server](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
 | [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
 
-Each cluster type has its own number of nodes within the cluster, terminology for nodes within the cluster, and default VM size for each node type. In the following table, the number of nodes for each node type is in parentheses.
+### Number of nodes for each cluster type
+Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.
 
 | Type | Nodes | Diagram |
 | --- | --- | --- |
@@ -82,84 +85,35 @@ Each cluster type has its own number of nodes within the cluster, terminology fo
 | Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
-The following tables list the default VM sizes for HDInsight:
+### HDInsight version
+Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-* All supported regions except Brazil South and Japan West:
+### <a name="cluster-tiers"></a>Cluster tier: HDInsight service tier
 
-  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: default VM size |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: default VM size | |A3 |A2 | | |
-  | ZooKeeper: recommended VM sizes | |A3, A4, A5 |A2, A3, A4 | | |
-  | Edge: default VM size | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: recommended VM size | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-* Brazil South and Japan West only (no v2 sizes here):
-
-  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 |D3 |A3 |D12 |D12 |
-  | Head: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Worker: default VM size |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
-  | ZooKeeper: default VM size | |A2 |A2 | | |
-  | ZooKeeper: recommended VM sizes | |A2, A3, A4 |A2, A3, A4 | | |
-  | Edge: default VM sizes | | | | |Windows: D12; Linux: D4 |
-  | Edge: recommended VM sizes | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
-
-> [!NOTE]
-> Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
-
-> [!IMPORTANT]
-> If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
->
->
-
-You can add other components such as Hue to these basic types by using [script actions](#customize-clusters-using-script-action).
-
-> [!IMPORTANT]
-> HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
->
->
-
-## Extend clusters with a virtual network
-
-If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure virtual network and create the required cluster types within the virtual network. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
-
-For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](hdinsight-extend-hadoop-virtual-network.md).
-
-For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).
-
-### Operating system
-Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-
-### Version
-This option is used to determine the version of HDInsight needed for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Cluster tier
-
-Azure HDInsight provides the big data cloud offerings in two categories: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium]](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
+Azure HDInsight provides the big data cloud offerings in two service tiers: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
 
 The following screenshot shows the Azure portal information for choosing cluster types.
 
 ![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 
-### Credentials
+## Cluster login and SSH user name
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
 * HTTP user. The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters). This is used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### Location
+## Location
 The cluster location doesn't need to specified explicitly. The cluster shares the same location of the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
+## Storage endpoints for clusters
 
-### Storage
+An on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster. In the cloud, using storage endpoints connected to clusters is much more cost-effective. HDInsight clusters use either Azure Data Lake Store or blobs in Azure Storage. Using Azure Storage or Data Lake Store means you can safely delete the HDInsight clusters used for computation without losing your data. 
 
-The original Hadoop Distributed File System (HDFS) uses many local disks on the cluster. HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store). There are some specific requirements on using Data Lake stores for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+During configuration, you specify a blob container of an Azure Storage account or a Data Lake Store as the default storage. The default storage contains application and system logs. Optionally, you can specify additional Azure Storage accounts and Data Lake Store accounts (linked storage) that the cluster can access. The HDInsight cluster and the dependent storage accounts must share the same Azure location.
+
+
+HDInsight uses either blobs in [Azure Storage](hdinsight-hadoop-provision-linux-clusters.md#azure-storage) or [Azure Data Lake Store](hdinsight-hadoop-provision-linux-clusters.md#azure-data-lake-store). There are some specific requirements on using Data Lake stores for HDInsight. For more information see the introduction section of [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ![HDInsight storage](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -281,16 +235,13 @@ Billing starts when a cluster is created, and stops when the cluster is deleted.
 > [!WARNING]
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
-## Custom cluster set up and configuration
-
-Custom cluster set up and configuration includes the following additional options:
-
+## Custom cluster setup
+Custom cluster set up builds on the Quick create settings, and adds the following options:
 - [HDInsight applications](#hdinsight-applications)
 - [Cluster size](#cluster-size)
 - Advanced settings
   - [Script actions](#customize-clusters-using-script-action)
   - [Virtual network](#use-virtual-network)
-
 
 ## Install HDInsight applications on clusters
 
@@ -298,11 +249,7 @@ An HDInsight application is an application that users can install on a Linux-bas
 
 Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
 
-## Extend cluster capabilities with a virtual network
-With [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/), you can create a secure, persistent network that contains the resources that you need for your solution. For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
-
-
-## Customize clusters using script actions
+## Advanced settings: Script actions
 
 You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -335,9 +282,50 @@ Sometimes, you want to configure the following configuration files during the cr
 
 For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
+## Advanced settings: Extend clusters with a virtual network
+If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
+For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](hdinsight-extend-hadoop-virtual-network.md).
 
-## Troubleshoot
+For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md).For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+
+## Default Virtual Machine sizes for clusters
+The following tables list the default virtual machine (VM) sizes for HDInsight:
+
+> [!IMPORTANT]
+> If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
+>
+>
+
+* All supported regions except Brazil South and Japan West:
+
+  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- |
+  | Head: default VM size |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
+  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Worker: default VM size |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: default VM size | |A3 |A2 | | |
+  | ZooKeeper: recommended VM sizes | |A3, A4, A5 |A2, A3, A4 | | |
+  | Edge: default VM size | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Edge: recommended VM size | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+* Brazil South and Japan West only (no v2 sizes here):
+
+  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- |
+  | Head: default VM size |D3 |D3 |A3 |D12 |D12 |
+  | Head: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Worker: default VM size |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Worker: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | ZooKeeper: default VM size | |A2 |A2 | | |
+  | ZooKeeper: recommended VM sizes | |A2, A3, A4 |A2, A3, A4 | | |
+  | Edge: default VM sizes | | | | |Windows: D12; Linux: D4 |
+  | Edge: recommended VM sizes | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+
+> [!NOTE]
+> Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
+
+## Troubleshoot access control issues
 
 If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
