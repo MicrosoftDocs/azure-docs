@@ -195,7 +195,7 @@ Visual Studio Team Services allows you to [manage releases across environments](
 
 4. To configure the release variables, click **Variables** and select **+Variable** to create three new variables with the info of the registry: **docker.username**, **docker.password** and **docker.registry**. Paste the values of your Registry and Cluster Agents DNS.
 
-    ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.PNG)
+    ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
     >[!IMPORTANT]
     > As shown on the previous screen, click on the **Lock** checkbox in docker.password. This is an important setting because if you don´t select it, anyone who has access to the project could see the password.
