@@ -34,9 +34,9 @@ The following is an example of the output written to the log file by the Hello W
 
 This section discusses some key sections of the code in the hello\_world sample.
 
-### Gateway creation
+### IoT Edge gateway creation
 
-The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, you must pass it the path to a JSON file that specifies the modules to load.
+The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the IoT Edge modules, and sets everything up to function correctly. IoT Edge provides the **Gateway\_Create\_From\_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway\_Create\_From\_JSON** function, you must pass it the path to a JSON file that specifies the IoT Edge modules to load.
 
 You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the following snippet shows an abbreviated version of the gateway process code. This example program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway.
 
@@ -59,16 +59,16 @@ int main(int argc, char** argv)
 }
 ```
 
-The JSON settings file contains a list of modules to load and the links between the modules. Each module must specify a:
+The JSON settings file contains a list of IoT Edge modules to load and the links between the modules. Each IoT Edge module must specify a:
 
 * **name**: a unique name for the module.
-* **loader**: a loader that knows how to load the desired module. Loaders are an extension point for loading different types of modules. We provide loaders for use with modules written in native C, Node.js, Java, and .NET. The Hello World sample only uses the native C loader because all the modules in this sample are dynamic libraries written in C. For more information about how to use modules written in different languages, see the [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/java_sample), or [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/dotnet_binding_sample) samples.
+* **loader**: a loader that knows how to load the desired module. Loaders are an extension point for loading different types of modules. We provide loaders for use with modules written in native C, Node.js, Java, and .NET. The Hello World sample only uses the native C loader because all the modules in this sample are dynamic libraries written in C. For more information about how to use IoT Edge modules written in different languages, see the [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample), or [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) samples.
     * **name**: name of the loader used to load the module.
     * **entrypoint**: the path to the library containing the module. On Linux this library is a .so file, on Windows this library is a .dll file. The entry point is specific to the type of loader being used. The Node.js loader's entry point is a .js file. The Java loader's entry point is a classpath plus a class name. The .NET loader's entry point is an assembly name plus a class name.
 
 * **args**: any configuration information the module needs.
 
-The following code shows the JSON used to declare all the modules for the Hello World sample on Linux. Whether a module requires any arguments depends on the design of the module. In this example, the logger module takes an argument that is the path to the output file and the hello\_world module has no arguments.
+The following code shows the JSON used to declare all the IoT Edge modules for the Hello World sample on Linux. Whether a module requires any arguments depends on the design of the module. In this example, the logger module takes an argument that is the path to the output file and the hello\_world module has no arguments.
 
 ```json
 "modules" :
@@ -167,7 +167,7 @@ int helloWorldThread(void *param)
 
 ### Hello\_world module message processing
 
-The hello\_world module never processes messages that other modules publish to the broker. Therefore, the implementation of the message callback in the hello\_world module is a no-op function.
+The hello\_world module never processes messages that other IoT Edge modules publish to the broker. Therefore, the implementation of the message callback in the hello\_world module is a no-op function.
 
 ```c
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -229,8 +229,8 @@ To learn about how to use the Azure IoT Edge, see the following articles:
 * [Azure IoT Edge][lnk-gateway-sdk] on GitHub.
 
 <!-- Links -->
-[lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
-[lnk-helloworld-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
-[lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-main-c]: https://github.com/Azure/iot-edge/blob/master/samples/hello_world/src/main.c
+[lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
+[lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
