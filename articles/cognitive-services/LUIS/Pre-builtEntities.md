@@ -12,7 +12,7 @@ ms.date: 03/15/2017
 ms.author: cahann
 ---
 
-# Pre-built Entities
+# Prebuilt entities
 
 LUIS includes a set of pre-built entities. When a pre-built entity is included in your application, its predictions will be included in your published application and be available to you in the LUIS web UI while labeling utterances. The behavior of pre-built entities **cannot** be modified. Unless otherwise noted, pre-built entities are available in all LUIS application locales (cultures). Below is a table of pre-built entities supported per culture.
 
@@ -32,7 +32,8 @@ URL   |   :ballot_box_with_check:   |   -   |   -   |   -   |   -   |   -   |   
 Email   |   :ballot_box_with_check:   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 Phone number   |   :ballot_box_with_check:   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
-#### Below is a table of pre-built entities with example utterances and their return values.
+## Examples of prebuilt entities
+The following table lists prebuilt entities with example utterances and their return values.
 
 Pre-built entity   |   Example utterance   |   JSON
 ------|------|------|
@@ -55,9 +56,9 @@ Pre-built entity   |   Example utterance   |   JSON
  
  The last 3 built-in entity types listed in the table above encompass multiple subtypes. These are covered next.
  
-### builtin.datetime
+## builtin.datetime
 
-The builtin.datetime pre-built entity has awareness of the current date and time. In the examples below, the current date is 2015-08-14. Also, builtin.datetimeprovides a resolution field that produces a machine-readable dictionary. 
+The `builtin.datetime` pre-built entity has awareness of the current date and time. In the examples below, the current date is 2015-08-14. Also, the `builtin.datetime` entity provides a resolution field that produces a machine-readable dictionary. 
 
 #### This pre-built entity has 3 subtypes:
 
@@ -81,9 +82,10 @@ builtin.datetime.set    |   every morning   |```{ "type": "builtin.datetime.set"
 builtin.datetime.set    |   every tuesday   |```{ "entity": "every tuesday", "type": "builtin.datetime.set", "resolution":  {"time": "XXXX-WXX-2"} }```|   
 builtin.datetime.set    |   every week   |```{ "entity": "every week", "type": "builtin.datetime.set", "resolution": {"time": "XXXX-WXX"} }```|
 
-### builtin.geography
+## builtin.geography
 
-Note: builtin.geography is available only in en-us.
+> [!NOTE]
+> `builtin.geography` is available only in the en-us locale.
 
 #### The builtin.geography built-in entity type has 3 sub-types:
 
@@ -96,9 +98,10 @@ builtin.geography.country|  japan    |```{ "type": "builtin.geography.country", 
 builtin.geography.pointOfInterest   |   amazon river |```{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }```|
 builtin.geography.pointOfInterest   |   sahara desert|```{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }```|
 
-### builtin.encyclopedia
+## builtin.encyclopedia
 
-Note: builtin.encyclopedia is available only in en-US.
+> [!NOTE]
+> `builtin.encyclopedia` is available only in the en-US locale.
 
 ##### The builtin.encyclopedia built-in entity includes over 100 sub-types, listed below. In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 ```
