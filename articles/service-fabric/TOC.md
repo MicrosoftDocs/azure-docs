@@ -70,9 +70,9 @@
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services lifecycle
-#### [Configure](service-fabric-reliable-services-configuration.md)
-#### [Send notifications](service-fabric-reliable-services-notifications.md)
-#### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
+##### [Configure](service-fabric-reliable-services-configuration.md)
+##### [Send notifications](service-fabric-reliable-services-notifications.md)
+##### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 
 #### Communicate with services
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
 #### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
