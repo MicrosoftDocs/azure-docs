@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/17/2017
 ms.author: cfreeman
 
 ---
@@ -113,7 +113,7 @@ To focus on specific events in either Search or Metrics Explorer, set the blade'
 ![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 
-## Send metrics
+## <a name="send-metrics"></a>TrackMetric
 
 Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
