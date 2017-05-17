@@ -40,15 +40,17 @@ The following table details the offer IDs that are eligible to deploy Windows 10
 | [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## Check your Azure subscription
-If you do not know your offer ID, you can obtain it through the Azure portal or the Account portal.
+If you do not know your offer ID, you can obtain it through the Azure portal in one of these two ways:  
 
-The subscription offer ID is noted on the 'Subscriptions' blade within the Azure portal:
+- On the 'Subscriptions' blade:
 
-![Offer ID details from the Azure portal](./media/client-images/offer_id_azure_portal.png) 
+  ![Offer ID details from the Azure portal](./media/client-images/offer-id-azure-portal.png) 
+
+- Or, click **Billing** and then click your subscription ID. The offer ID appears in the Billing blade.
 
 You can also view the offer ID from the ['Subscriptions' tab](http://account.windowsazure.com/Subscriptions) of the Azure Account portal:
 
-![Offer ID details from the Azure Account portal](./media/client-images/offer_id_azure_account_portal.png) 
+![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## Next steps
 You can now deploy your VMs using [PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), [Resource Manager templates](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
