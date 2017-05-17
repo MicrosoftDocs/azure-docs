@@ -112,10 +112,6 @@ This table summarizes what you can back up and recover. You can see detailed inf
 
     -   [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
 
-    -   [What's supported and what isn't for Azure Backup Server](backup-mabs-support-issues.md)
-
-    -   [Install Azure Backup Server](backup-install-mabs.md)
-
 2.  **Set up storage**-You can store backed up data on disk, on tape, and in the cloud with Azure. Read more in [Prepare data storage](http://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage.md).
 
 3.  **Set up the protection agent**-You'll need to install the protection agent on the machine you want to back up. Read [Deploy the DPM protection agent](http://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent.md)
@@ -230,4 +226,6 @@ Run Windows Server Backup
   ```wbadmin get versions -backuptarget <servername\sharename>```
   to get the version identifier.
 
-    Use the version identifier to start system state restore. At the command line type: **wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>** Confirm that you want to start the recovery. You can see the process in the command window. A restore log is created. You'll need restart the server after the restore.
+    Use the version identifier to start system state restore. At the command line type: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+
+    Confirm that you want to start the recovery. You can see the process in the command window. A restore log is created. You'll need restart the server after the restore.

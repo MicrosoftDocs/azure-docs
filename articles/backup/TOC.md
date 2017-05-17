@@ -22,7 +22,7 @@
 #### [Prepare Azure Backup Server workloads in Azure portal](backup-azure-microsoft-azure-backup.md)
 #### [Prepare Azure Backup Server workloads in classic portal](backup-azure-microsoft-azure-backup-classic.md)
 #### [Add Storage to Azure Backup Server](backup-mabs-add-storage.md)
-#### [Upgrade Azure Backup Server to v.2](backup-mabs-upgrade-to-v.2.md)
+#### [Upgrade Azure Backup Server to v.2](backup-mabs-upgrade-to-v2.md)
 #### [Unattended installation of Azure Backup Server](backup-mabs-unattended-install.md)
 ### Protect Workloads
 #### [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
