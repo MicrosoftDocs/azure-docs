@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Create a pipeline with Copy Activity using .NET API | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 services: data-factory
@@ -28,21 +28,22 @@ ms.author: spelluru
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-This tutorial shows you how to create and monitor an Azure data factory using the .NET API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
+In this article, you learn how to use [.NET API](https://portal.azure.com) to create a data factory with a pipeline that copies data from an Azure blob storage to an Azure SQL database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
+
+The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+
+This tutorial uses only one activity of type: Copy. A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.
 
 > [!NOTE]
-> This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK.
-> 
-> The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
-
+> For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 
 ## Prerequisites
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
@@ -200,6 +201,7 @@ You should have following four values from these steps:
     );
     ```
 
+	A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step.
 8. Add the following code that creates an **Azure Storage linked service** to the **Main** method.
 
    > [!IMPORTANT]
@@ -223,6 +225,11 @@ You should have following four values from these steps:
     );
     ```
 
+	You create linked services in a data factory to link your data stores and compute services to the data factory. In this tutorial, you don't use any compute service such as Azure HDInsight or Azure Data Lake Analytics. You use two data stores of type Azure Storage (source) and Azure SQL Database (destination). 
+
+	Therefore, you create two linked services named AzureStorageLinkedService and AzureSqlLinkedService of types: AzureStorage and AzureSqlDatabase.  
+
+	The AzureStorageLinkedService links your Azure storage account to the data factory. This storage account is the one in which you created a container and uploaded the data as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 9. Add the following code that creates an **Azure SQL linked service** to the **Main** method.
 
    > [!IMPORTANT]
@@ -246,6 +253,7 @@ You should have following four values from these steps:
     );
     ```
 
+	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 10. Add the following code that creates **input and output datasets** to the **Main** method.
 
     ```csharp
@@ -322,7 +330,17 @@ You should have following four values from these steps:
         });
     ```
 
-11. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
+	
+	In the previous step, you created linked services to link your Azure Storage account and Azure SQL database to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
+
+	The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset (InputDataset) specifies the container and the folder that contains the input data.  
+
+	Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. And, the output SQL table dataset (OututDataset) specifies the table in the database to which the data from the blob storage is copied.
+
+	In this step, you create a dataset named InputDataset that points to a blob file (emp.txt) in the root folder of a blob container (adftutorial) in the Azure Storage represented by the AzureStorageLinkedService linked service. If you don't specify a value for the fileName (or skip it), data from all blobs in the input folder are copied to the destination. In this tutorial, you specify a value for the fileName.    
+
+	In this step, you create an output dataset named **OutputDataset**. This dataset points to a SQL table in the Azure SQL database represented by **AzureSqlLinkedService**.
+11. Add the following code that **creates and activates a pipeline** to the **Main** method. In this step, you create a pipeline with a **copy activity** that uses **InputDataset** as an input and **OutputDataset** as an output.
 
     ```csharp
     // create a pipeline
@@ -379,6 +397,7 @@ You should have following four values from these steps:
         });
     ```
 
+	Currently, output dataset is what drives the schedule. In this tutorial, output dataset is configured to produce a slice once an hour. The pipeline has a start time and end time that are one day apart, which is 24 hours. Therefore, 24 slices of output dataset are produced by the pipeline.
 12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
 
     ```csharp
@@ -484,10 +503,12 @@ You should have following four values from these steps:
    * Pipeline: **PipelineBlobSample**
 20. Verify that the two employee records are created in the **emp** table in the specified Azure SQL database.
 
-## Next Steps
-| Topic | Description |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
-| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
-[Data Factory .NET API Reference](/dotnet/api/) | Provides details about Data Factory .NET SDK (look for Microsoft.Azure.Management.DataFactories.Models in the tree view).
+## Next steps
+For complete documentation on .NET API for Data Factory, see [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+
+In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
+
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+For details about fields/properties that you see in the copy wizard for a data store, click the link for the data store in the table.
+

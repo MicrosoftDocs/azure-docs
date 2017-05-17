@@ -263,8 +263,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
                   }
                 }
               ],
-              "start": "2016-10-02T00:00:00Z",
-              "end": "2016-10-03T00:00:00Z"
+              "start": "2017-05-02T00:00:00Z",
+              "end": "2017-05-03T00:00:00Z"
             }
           }
         ]
@@ -557,8 +557,8 @@ You define a pipeline that copies data from the Azure blob dataset to the Azure 
               }
         }
           ],
-          "start": "2016-10-02T00:00:00Z",
-          "end": "2016-10-03T00:00:00Z"
+          "start": "2017-05-02T00:00:00Z",
+          "end": "2017-05-03T00:00:00Z"
     }
 }
 ```
