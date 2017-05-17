@@ -18,7 +18,7 @@ ms.date: 05/16/2017
 ms.author: owend
 
 ---
-# Create an Azure Analysis Services server
+# Create an Azure Analysis Services server in Azure portal
 This article walks you through creating an Analysis Services server resource in your Azure subscription.
 
 ## Before you begin

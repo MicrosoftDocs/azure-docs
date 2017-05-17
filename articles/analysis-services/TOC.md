@@ -2,7 +2,7 @@
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
 
 # Quickstarts
-## [Create a server - Portal](analysis-services-create-server.md)
+## [Create a server - portal](analysis-services-create-server.md)
 ## [Deploy a model - SSDT](analysis-services-deploy.md)
 
 
