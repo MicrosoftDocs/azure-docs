@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/15/2017
+ms.date: 5/16/2017
 ms.author: msfussell
 
 ---
@@ -25,10 +25,6 @@ ms.author: msfussell
 > 
 
 This article walks you through the process of building containerized services in Windows containers.
-
-> [!NOTE]
-> This feature is in preview for Windows Server 2016.
->  
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. 
 
