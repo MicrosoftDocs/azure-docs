@@ -163,7 +163,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 [lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 
-[lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
+[lnk-physical-device]: iot-hub-iot-edge-physical-device.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md
