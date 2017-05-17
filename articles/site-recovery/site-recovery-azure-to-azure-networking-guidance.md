@@ -44,7 +44,7 @@ Below are the IP ranges that need to be white-listed depending on the source loc
 
 - Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
 
-- Ensure that you whitelist the below IPs ranges depending on your target location.
+- Ensure that you whitelist the below IPs ranges depending on your target location. 
 
 **Target Location** | **Site recovery service IPs** |  **Site recovery monitoring IP**
  --- | --- | ---
