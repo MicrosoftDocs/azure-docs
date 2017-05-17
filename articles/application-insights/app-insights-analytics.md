@@ -43,6 +43,10 @@ For example, let's find out what time of day the citizens of Hyderabad try our w
 
 We count distinct client IP addresses, grouping them by the hour of the day over the past 7 days. 
 
+> [!NOTE]
+> To get results outside the previous 24h, either include 'timestamp' explicitly in your query, or use the time range drop-down menu.
+>
+
 Let's display the results with the bar chart presentation, choosing to stack the results from different response codes:
 
 ![Choose bar chart, x and y axes, then segmentation](./media/app-insights-analytics/020.png)
@@ -51,7 +55,7 @@ Looks like our app is most popular at lunchtime and bed-time in Hyderabad. (And 
 
 There are also powerful statistical operations:
 
-![](./media/app-insights-analytics/025.png)
+![Results of statistical query](./media/app-insights-analytics/025.png)
 
 The language has many attractive features:
 
@@ -82,6 +86,8 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 ## Next steps
 * We recommend you start with the [language tour](app-insights-analytics-tour.md). 
+* More about [using Analytics](app-insights-analytics-using.md). 
+* [Language reference](app-insights-analytics-reference.md). 
 
 ### Query examples
 
