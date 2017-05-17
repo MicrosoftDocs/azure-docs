@@ -50,6 +50,7 @@
 ### [SQL Server](site-recovery-sql.md)
 ### [SharePoint](site-recovery-sharepoint.md)
 ### [Dynamics AX](site-recovery-dynamicsax.md)
+### [IIS based web applications](site-recovery-iis.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
