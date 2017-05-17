@@ -25,7 +25,7 @@ Before you map networks make sure, you have created [Azure virtual networks](../
 
 ## Map networks
 
-To map an Azure virtual network in one Azure region to another virtual network in another region, go to Site Recovery Infrastructure -> Network Mapping (For Azure Virtual Machines) and create a new network mapping.
+To map an Azure virtual network in one Azure region to another virtual network in another region, go to Site Recovery Infrastructure -> Network Mapping (For Azure Virtual Machines) and create a network mapping.
 
 ![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
@@ -65,20 +65,20 @@ If the network mapping is already done, you can't change the target virtual netw
 
 
 ## Subnet selection
-Subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If there is a subnet of the same name as that of the source virtual machine available in the target network, then that is chosen for the target virtual machine. If there is no subnet with the same name in the target network then alphabetically, first subnet is chosen. You can modify this subnet by going to Compute and Network settings of the virtual machine. 
+Subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If there is a subnet of the same name as that of the source virtual machine available in the target network, then that is chosen for the target virtual machine. If there is no subnet with the same name in the target network, then alphabetically first subnet is chosen as the target subnet. You can modify this subnet by going to Compute and Network settings of the virtual machine. 
 
 ![Modify Subnet](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## IP address 
 
-IP address for each of the network interface of the target virtual machine is chosen as following:
+IP address for each of the network interface of the target virtual machine is chosen as follows:
 
 ### DHCP
-If the network interface of the source virtual machine is using DHCP then network interface of the target virtual machine is also set as DHCP.
+If the network interface of the source virtual machine is using DHCP, then network interface of the target virtual machine is also set as DHCP.
 
 ### Static IP
-If the network interface of the source virtual machine is using Static IP then network interface of the target virtual machine is also set to use Static IP. Static IP is chosen as following:
+If the network interface of the source virtual machine is using Static IP, then network interface of the target virtual machine is also set to use Static IP. Static IP is chosen as follows:
 
 #### Same address space
 
@@ -86,7 +86,7 @@ If the source subnet and the target subnet have the same address space, then tar
 
 #### Different address space
 
-If the source subnet and the target subnet have different address space, then target IP is set as as any available IP in the target subnet.
+If the source subnet and the target subnet have different address space, then target IP is set as any available IP in the target subnet.
 
 You can modify the target IP on each network interface by going to Compute and Network settings of the virtual machine. 
 
