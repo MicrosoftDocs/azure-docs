@@ -11,7 +11,7 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 05/17/2017
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
@@ -23,12 +23,9 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 In this sample script, edit the highlighted lines to customize the admin username and password.
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for PostgreSQL, and server-level firewall rule.")]
 
-
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-```azurecli
-az group delete --name myresourcegroup
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/delete-postgresql.sh "Delete the resource group.")]
 
 ## Script explanation
 This script uses the following commands. Each command in the table links to command specific documentation.
@@ -40,7 +37,6 @@ This script uses the following commands. Each command in the table links to comm
 | [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#create) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
 | [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
-
 ## Next steps
-- For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
-- For additional scripts, see [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview)
+- Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)

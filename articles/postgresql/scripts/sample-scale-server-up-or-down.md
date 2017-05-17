@@ -6,12 +6,11 @@ author: salonisonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonh
-ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 05/17/2017
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
@@ -24,9 +23,8 @@ In this sample script, edit the highlighted lines to customize the admin usernam
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
-```azurecli
-az group delete --name myresourcegroup
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/delete-postgresql.sh "Delete the resource group.")]
+
 ## Script explanation
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -38,6 +36,6 @@ This script uses the following commands. Each command in the table links to comm
 | [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-- Additional Azure Database for PostgreSQL CLI script samples can be found in the [Azure Database for PostgreSQL documentation](../sample-scripts-azure-cli.md).
-- For more information on scaling, see [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md).
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview)
+- Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
+- Read more information on scaling: [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md)

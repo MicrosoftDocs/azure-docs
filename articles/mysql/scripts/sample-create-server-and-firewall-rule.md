@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
 ms.custom: sample
-ms.date: 05/15/2017
+ms.date: 05/17/2017
 ---
 
 # Create a MySQL server and configure a firewall rule using the Azure CLI
@@ -25,10 +25,9 @@ In this sample script, edit the highlighted lines to customize the admin usernam
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
 ## Clean up deployment
- After the script sample runs, use the following command to remove the resource group and all resources associated with it.
-```azurecli
-az group delete --name myresource
-```
+After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/delete-mysql.sh "Delete the resource group.")]
+
 ## Script explanation
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -40,5 +39,5 @@ This script uses the following commands. Each command in the table links to comm
 | [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
-- For additional scripts, see [Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview).
+- Try additional scripts: [Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)
