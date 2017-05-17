@@ -56,6 +56,7 @@ The Azure Diagnostics extension is used with other Microsoft diagnostics product
 
 ## Schemas index  
 Different versions of Azure diagnostics use different configuration schemas. 
+
 [Diagnostics 1.0 Configuration Schema](azure-diagnostics-schema-1dot0.md)  
 
 [Diagnostics 1.2 Configuration Schema](azure-diagnostics-schema-1dot2.md)  
