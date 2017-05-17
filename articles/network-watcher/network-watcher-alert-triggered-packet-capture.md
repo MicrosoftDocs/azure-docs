@@ -260,7 +260,7 @@ It's now time to make calls into Network Watcher from within the Azure function.
 
 The following example is PowerShell that can be used in the function. There are values that need to be replaced for **subscriptionId**, **resourceGroupName**, and **storageAccountName**.
 
-            ```powershell
+```powershell
             #Import Azure PowerShell modules required to make calls to Network Watcher
             Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
             Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
@@ -317,8 +317,8 @@ The following example is PowerShell that can be used in the function. There are 
                     Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
                 }
             } 
-            ``` 
-#### To add the PowerShell to your function 
+ ``` 
+#### Retrieve the function URL 
 1. After you've created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
 
     ![Finding the function url 1][functions13]
@@ -335,7 +335,7 @@ Alerts can be configured to notify individuals when a specific metric crosses a 
 
 ### Create the alert rule
 
-Go to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the blade, and then select **OK**.
+Go to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the **Alert rule** blade, and then select **OK**.
 
   |**Setting** | **Value** | **Details** |
   |---|---|---|
