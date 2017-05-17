@@ -108,10 +108,10 @@ The method returns a dictionary that can be used to chain custom activities toge
 ### Procedure
 1. Create a **.NET Class Library** project.
    <ol type="a">
-     <li>Launch <b>Visual Studio 2015</b> or <b>Visual Studio 2013</b> or <b>Visual Studio 2012</b>.</li>
+     <li>Launch <b>Visual Studio 2017</b> or <b>Visual Studio 2015</b> or <b>Visual Studio 2013</b> or <b>Visual Studio 2012</b>.</li>
      <li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li>
      <li>Expand <b>Templates</b>, and select <b>Visual C#</b>. In this walkthrough, you use C#, but you can use any .NET language to develop the custom activity.</li>
-     <li>Select <b>Class Library</b> from the list of project types on the right.</li>
+     <li>Select <b>Class Library</b> from the list of project types on the right. In VS 2017, choose <b>Class Library (.NET Framework)</b> </li>
      <li>Enter <b>MyDotNetActivity</b> for the <b>Name</b>.</li>
      <li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
      <li>Click <b>OK</b> to create the project.</li>
@@ -133,10 +133,21 @@ The method returns a dictionary that can be used to chain custom activities toge
 5. Add the following **using** statements to the source file in the project.
 
 	```csharp
-using System;
-using System.Text;
+
+// Comment these lines if using VS 2017
+using System.IO;
+using System.Globalization;
+using System.Diagnostics;
 using System.Linq;
+// --------------------
+
+// Comment these lines if using <= VS 2015
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+// ---------------------
 
 using Microsoft.Azure.Management.DataFactories.Models;
 using Microsoft.Azure.Management.DataFactories.Runtime;
