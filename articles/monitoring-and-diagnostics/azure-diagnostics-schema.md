@@ -13,21 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 05/16/2017
 ms.author: robb
 
 ---
 # List of Azure Diagnostics Versions
-This page indexes Azure Diagnostics Schema versions shipped as part of the Microsoft Azure SDK.  
+This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
 
 > [!NOTE]
-> Azure Diagnostics is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale Sets, Service
-> Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
->
+> Azure Diagnostics is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale sets, Service Fabric, Network Security Groups, and Cloud Services.  This page is only relevant if you are using one of these services.  
 
-Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information see [Microsoft Monitoring Tools Overview](mointoring-overview.md).
 
-## Azure SDK and Diagnostics versions shipping chart  
+## Azure SDK and diagnostics versions shipping chart  
 
 |Azure SDK version | Diagnostics extension version | Model|  
 |------------------|-------------------------------|------|  
@@ -45,13 +43,12 @@ Azure Diagnostics is used with other Microsoft diagnostics products like Azure M
 
 
 
- Azure Diagnostics version 1.0 first shipped in a plug-in model, meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
+ Azure Diagnostics version 1.0 first shipped in a plug-in model -- meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
 
- Starting with SDK 2.5 (diagnostics version 1.2), Azure diagnostics went to an extension model. The tools to utilize new features were only available in newer Azure SDKs, but any Cloud Service or Virtual Machine using diagnostics would pick up the latest shipping version directly from Azure.  
+ Starting with SDK 2.5 (diagnostics version 1.2), Azure diagnostics went to an extension model. The tools to utilize new features were only available in newer Azure SDKs, but any service using Azure diagnostics would pick up the latest shipping version directly from Azure. For example, anyone still using SDK 2.5 would be loading the latest version shown in the previous table, regardless if they are using the newer features.  
 
- For example, anyone still using SDK 2.5 would be loading Diagnostics 1.5, regardless if they are using the newer features.  
-
-## Azure Diagnostics schemas index  
+## Schemas index  
+Different versions of Azure diagnostics use different configuration schemas. 
 [Diagnostics 1.0 Configuration Schema](azure-diagnostics-schema-1dot0.md)  
 
 [Diagnostics 1.2 Configuration Schema](azure-diagnostics-schema-1dot2.md)  

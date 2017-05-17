@@ -154,9 +154,12 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
 
 ```  
 
-JSON equivalent of the previous XML configuration file.  
+JSON equivalent of the previous XML configuration file. 
+
+The PublicConfig and PrivateConfig are separated because in most json usage cases, they are passed as different variables. These cases include Resource Manager templates, Virtual Machine Scale set powershell, and Visual Studio. 
+
 ```json
-{
+"PublicConfig" {
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 10000,
@@ -319,8 +322,9 @@ JSON equivalent of the previous XML configuration file.
     "StorageAccount": "diagstorageaccount",
     "StorageType": "TableAndBlob"
 }
+```
 
-
+```json
 "PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
     "storageAccountKey": "{base64 encoded key}",
