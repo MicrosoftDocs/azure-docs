@@ -44,7 +44,7 @@ Patch Orchestration Application includes following salient features:
 ## Link to download the application package
 
 Download the application from [Download
-link](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/POS%20release%20v1.0/PrivatePreview-3April2017.zip)
+link](https://go.microsoft.com/fwlink/P/?linkid=849590)
 
 ## Internal details of the application
 
