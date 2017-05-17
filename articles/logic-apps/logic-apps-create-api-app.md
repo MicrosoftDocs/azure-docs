@@ -346,7 +346,7 @@ When there's new data or an event that meets the specified condition,
 your API calls back with an HTTP POST to the URL. 
 The content payload and headers are passed to the logic app for use in the workflow.
 
-* `unsubscribe` endpoint: If the logic app run is canceled, 
+* `unsubscribe` endpoint: If the webhook trigger or entire logic app is deleted, 
 the Logic Apps engine calls the `unsubscribe` endpoint. 
 Your API can then unregister the callback URL and stop any processes as necessary.
 
