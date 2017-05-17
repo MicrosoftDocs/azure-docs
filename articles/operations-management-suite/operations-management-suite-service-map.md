@@ -186,69 +186,69 @@ The **Machine Updates** pane displays data from the Operations Management Suite 
 ## Log Analytics records
 Service Map computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics. This data can be applied to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
-One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer\_CL events map to fields of the Machine resource in the ServiceMap ARM API. The fields and values in the ServiceMapProcess\_CL events map to the fields of the Process resource in the ServiceMap ARM API. The ResourceName_s field matches the name field in the corresponding ARM resource. 
+One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap ARM API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap ARM API. The ResourceName_s field matches the name field in the corresponding ARM resource. 
 
 >[!Note]
 >As Service Map features grow, these fields are subject to change.
 
 There are internally generated properties you can use to identify unique processes and computers:
 
-- Computer - Use ResourceId or ResourceName_s to uniquely identify a computer within an Operations Management Suite Workspace.
-- Process - Use ResourceId to uniquely identify a process within an Operations Management Suite Workspace. ResourceName_s is unique within the context of the machine on which the process is running (MachineResourceName_s) 
+- Computer: Use ResourceId or ResourceName_s to uniquely identify a computer within an Operations Management Suite workspace.
+- Process: Use ResourceId to uniquely identify a process within an Operations Management Suite workspace. ResourceName_s is unique within the context of the machine on which the process is running (MachineResourceName_s) 
 
-Since multiple records can exist for a given process and computer in a given time range, queries can return more than one record for the same computer or process. To include only the most recent record, add "| dedup ResourceId" to the query.
+Because multiple records can exist for a given process and computer in a given time range, queries can return more than one record for the same computer or process. To include only the most recent record, add "| dedup ResourceId" to the query.
 
 ### ServiceMapComputer_CL records
-Records with a type of **ServiceMapComputer_CL** have inventory data for servers with Service Map agents. These records have the properties in the following table:
+Records with a type of *ServiceMapComputer_CL* have inventory data for servers with Service Map agents. These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | unique identifier for machine within the workspace |
-| ResourceName_s | unique identifier for machine within workspace |
-| ComputerName_s | computer FQDN |
-| Ipv4Addresses_s | a list of the server's IPv4 addresses |
-| Ipv6Addresses_s | a list of the server's IPv6 addresses |
-| DnsNames_s | array of DNS names |
-| OperatingSystemFamily_s | windows or linux |
-| OperatingSystemFullName_s | operating system full name  |
-| Bitness_s | bitness of machine (32 bit) or (64 bit) |
-| PhysicalMemory_d | physical memory in MB |
-| Cpus_d | number of cpus |
-| CpuSpeed_d | cpu speed in MHz|
-| VirtualizationState_s | "unknown", "physical", "virtual", "hypervisor" |
-| VirtualMachineType_s | "hyperv", "vmware", etc. |
-| VirtualMachineNativeMachineId_g | VM ID as assigned by its hypervisor |
-| VirtualMachineName_s | VM name |
-| BootTime_t | boot time |
+| ResourceId | The unique identifier for a machine within the workspace |
+| ResourceName_s | The unique identifier for a machine within the workspace |
+| ComputerName_s | The computer FQDN |
+| Ipv4Addresses_s | A list of the server's IPv4 addresses |
+| Ipv6Addresses_s | A list of the server's IPv6 addresses |
+| DnsNames_s | An array of DNS names |
+| OperatingSystemFamily_s | Windows or Linux |
+| OperatingSystemFullName_s | The full name of the operating system  |
+| Bitness_s | The bitness of the machine (32 bit) or (64 bit) |
+| PhysicalMemory_d | The physical memory in MB |
+| Cpus_d | The number of CPUs |
+| CpuSpeed_d | The CPU speed in MHz|
+| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
+| VirtualMachineType_s | *hyperv*, *vmware*, and so on |
+| VirtualMachineNativeMachineId_g | The VM ID as assigned by its hypervisor |
+| VirtualMachineName_s | The name of the VM |
+| BootTime_t | The boot time |
 
 
 
 ### ServiceMapProcess_CL Type records
-Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-connected processes on servers with Service Map agents. These records have the properties in the following table:
+Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connected processes on servers with Service Map agents. These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | unique identifier for process within the workspace |
-| ResourceName_s | unique identifier for process within machine on which it is running|
-| MachineResourceName_s | machine resource name |
-| ExecutableName_s | process executable name |
-| StartTime_t | process pool start time |
-| FirstPid_d | first pid in process pool |
-| Description_s | process description |
-| CompanyName_s | company name |
-| InternalName_s | internal name |
-| ProductName_s | product name |
-| ProductVersion_s | product version |
-| FileVersion_s | file version |
-| CommandLine_s | command line |
-| ExecutablePath _s | path to executable file |
-| WorkingDirectory_s | working directory |
-| UserName | account under which the process is executing |
-| UserDomain | domain under which the process is executing |
+| ResourceId | The unique identifier for a process within the workspace |
+| ResourceName_s | The unique identifier for a process within the machine on which it is running|
+| MachineResourceName_s | The resource name of the machine |
+| ExecutableName_s | The name of the process executable |
+| StartTime_t | The process pool start time |
+| FirstPid_d | The first PID in the process pool |
+| Description_s | The process description |
+| CompanyName_s | The name of the company |
+| InternalName_s | The internal name |
+| ProductName_s | The name of the product |
+| ProductVersion_s | The product version |
+| FileVersion_s | The file version |
+| CommandLine_s | The command line |
+| ExecutablePath _s | The path to the executable file |
+| WorkingDirectory_s | The working directory |
+| UserName | The account under which the process is executing |
+| UserDomain | The domain under which the process is executing |
 
 
 ## Sample log searches
@@ -268,7 +268,7 @@ Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
 ### Find a machine (most recent record) by resource name
 Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
 
-### Find a machine (most recent record) by ip address
+### Find a machine (most recent record) by IP address
 Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
 
 ### List all known processes on a given machine
@@ -277,10 +277,10 @@ Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba
 ### List all computers running SQL
 Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
 
-### List of all unique product versions of curl in my datacenter
+### List all unique product versions of curl in my datacenter
 Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 
-### Create a Computer Group of all computers running CentOS
+### Create a computer group of all computers running CentOS
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
@@ -291,16 +291,16 @@ All the server, process, and dependency data in Service Map is available via the
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this data to provide and improve the quality, security, and integrity of the Service Map service. To provide accurate and efficient troubleshooting capabilities, the data includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
 
-For more information about data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
+For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## Next steps
-- Learn more about [log searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to retrieve data collected by Service Map.
+Learn more about [log searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to retrieve data that's collected by Service Map.
 
 
 ## Troubleshooting
-- See the [Troubleshooting section of the Configuring Service Map document](operations-management-suite-service-map-configure.md#troubleshooting).
+See the [Troubleshooting section of the Configuring Service Map document](operations-management-suite-service-map-configure.md#troubleshooting).
 
 
 ## Feedback
-Do you have any feedback for us about Service Map or this documentation?  Please visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.
+Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.
