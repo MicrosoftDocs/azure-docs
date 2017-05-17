@@ -36,7 +36,7 @@ Patch Orchestration Application includes following salient features:
     If at any time it detects health of the cluster going down due 
     to patching process, it stops the process to prevent aggravating the problem.
 
-1. **Support all Service Fabric clusters** – The application is generic enough to
+1. **Support all Service Fabric clusters**: The application is generic enough to
     work in both Azure Service Fabric clusters and standalone clusters.
     > [!NOTE]
     > Support for standalone cluster is coming soon.
@@ -77,7 +77,7 @@ performing health checks. The repair task created by Patch
 Orchestration Application tracks the Windows
 Update progress for each node.
 
-## Prerequisites for using the Application
+## Prerequisites for using the application
 
 ### Ensure Service Fabric version is 5.5 or above
 
@@ -193,7 +193,7 @@ Inside "WadCfg" section in Azure Resource Manager template, add the following se
 > In case your Service Fabric cluster comprises of multiple node types, then the above
 section has to be added for all the “WadCfg” sections.
 
-## Configuring the Application
+## Configuring the application
 
 Following are the configurations, which can be set by the user to tweak
 the behavior of Patch Orchestration Application as per their needs.
