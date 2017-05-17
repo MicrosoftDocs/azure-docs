@@ -18,55 +18,61 @@ ms.author: kapiteir
 ---
 # HTTP/2 and Token Based Authentication for APNS
 ## Overview
-This article details how to leverage the new APNS HTTP/2 protocol with token based authentication.
+This article details how to use the new APNS HTTP/2 protocol with token based authentication.
 
 The key benefits of using the new protocol include:
 -	Token generation is relatively hassle free (compared to certificates)
 -	No more expiry dates – you are in control of your authentication tokens and their revocation
--	Payloads can now be up to 4KB in size
--	You’re on Apple’s latest protocol – certificates still use the binary protocol which is marked for deprecation
+-	Payloads can now be up to 4 KB
+-	You’re on Apple’s latest protocol – certificates still use the binary protocol, which is marked for deprecation
 
-Using this new mechanism can be done in 2 steps in a few minutes:
+Using this new mechanism can be done in two steps in a few minutes:
 1.	Obtain the necessary information from the Apple Developer Account portal
 2.	Configure your notification hub with the new information
 
-Notification Hubs will then be all set to leverage the new authentication system with APNS. If your hub used certificate credentials for APNS prior to this, the token properties will overwrite your certificate in our system, but your application will continue to receive notifications seamlessly.
+Notification Hubs is now all set to use the new authentication system with APNS. 
 
-## Obtaining Auth information from Apple
+Note that if you migrated from using certificate credentials for APNS:
+- the token properties overwrite your certificate in our system,
+- but your application continues to receive notifications seamlessly.
+
+## Obtaining authentication information from Apple
 To enable token based authentication, you need the following properties from your Apple Developer Account:
 ### Key Identifier
-This can be obtained from the APNs Auth Key page in your Apple Developer Account
+The key identifier can be obtained from the APNs "Auth Key" page in your Apple Developer Account
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
 ### Application Identifier & Application Name
-These are available via the App IDs page in the Developer Account. 
+That information is available via the App IDs page in the Developer Account. 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-identifier-and-app-name.png)
 
 ### Authentication token
-This can be downloaded after you generate a token for your application. For details on how to generate this token, please refer to [Apple’s Developer documentation](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).
+The authentication token can be downloaded after you generate a token for your application. For details on how to generate this token, refer to [Apple’s Developer documentation](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).
 
 ## Configuring your notification hub to use token-based authentication
-### Configure via the Azure Management Portal
-To enable token based authentication in the portal, log in to the Azure Management Portal and go to your Notification Hub > Notification Services > APNS panel. 
+### Configure via the Azure portal
+To enable token based authentication in the portal, log in to the Azure portal and go to your Notification Hub > Notification Services > APNS panel. 
 
-You’ll see a new property – *Authentication Mode*. Selecting Token will allow you to update your hub with all the relevant token properties.
+There is a new property – *Authentication Mode*. Selecting Token allows you to update your hub with all the relevant token properties.
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
-Simply enter the properties you retrieved from your Apple developer account, choose your application mode (Production or Sandbox) and click Save to update your APNS credentials. 
+- Enter the properties you retrieved from your Apple developer account, 
+- choose your application mode (Production or Sandbox) 
+- click Save to update your APNS credentials. 
 
 ### Configure via Management API (REST)
 
 You can use our [management APIs](https://msdn.microsoft.com/en-us/library/azure/dn495827.aspx) to update your notification hub to use token based authentication.
-Depending on whether the application you’re configuring is a Sandbox or Production app (this is specified in your Apple Developer Account), please use the corresponding endpoint:
+Depending on whether the application you’re configuring is a Sandbox or Production app (specified in your Apple Developer Account), use one of the corresponding endpoints:
 
 - Sandbox Endpoint: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
 - Production Endpoint: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
-Important note: Token based authentication requires an API version of: 2017-04 or later
+Important note: Token-based authentication requires an API version of: 2017-04 or later
 > [!IMPORTANT]
-> Token based authentication requires an API version of: **2017-04 or later**.
+> Token-based authentication requires an API version of: **2017-04 or later**.
 > 
 > 
 
@@ -103,5 +109,5 @@ Here’s a code sample illustrating the correct usage:
         desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/device";
         nm.UpdateNotificationHubAsync(desc);
 
-## Reverting to using certificate based authentication
-You can revert at any time to using certificate based authentication using any method shown above by passing the certificate instead of the token properties. This will overwrite the previously stored credentials.
+## Reverting to using certificate-based authentication
+You can revert at any time to using certificate-based authentication by using any preceding method and passing the certificate instead of the token properties. That action overwrites the previously stored credentials.
