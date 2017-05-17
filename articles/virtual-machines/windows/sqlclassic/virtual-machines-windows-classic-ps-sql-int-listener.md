@@ -1,6 +1,6 @@
 ---
 title: Configure an ILB listener for Always On availability groups in Azure | Microsoft Docs
-description: This tutorial uses resources created with  the classic deployment model, and creates an Always On availability group listener in Azure by using an internal load balancer (ILB).
+description: This tutorial uses resources created with the classic deployment model, and it creates an Always On availability group listener in Azure that uses an internal load balancer.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -28,14 +28,14 @@ ms.author: mikeray
 ## Overview
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers the use of the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 To configure a listener for an Always On availability group in the Resource Manager model, see [Configure a load balancer for an Always On availability group in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
-Your availability group can contain replicas that are on-premises only or Azure only or that span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks. The following steps assume that you have already [configured an availability group](../classic/portal-sql-alwayson-availability-groups.md) but have not configured a listener.
+Your availability group can contain replicas that are on-premises only or Azure only or that span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions that use multiple virtual networks. The procedures in this article assume that you have already [configured an availability group](../classic/portal-sql-alwayson-availability-groups.md) but have not yet configured a listener.
 
 ## Guidelines and limitations for internal listeners
-Note the following guidelines on the availability group listener in Azure using an internal load balancer (ILB):
+The use of an internal load balancer (ILB) with an availability group listener in Azure is subject to the following guidelines:
 
 * The availability group listener is supported on Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.
 * Only one internal availability group listener is supported for each cloud service, because the listener is configured to the ILB, and there is only one ILB for each cloud service. However, it is possible to create multiple external listeners. For more information, see [Configure an external listener for Always On availability groups in Azure](../classic/ps-sql-ext-listener.md).
@@ -46,9 +46,9 @@ Note the following guidelines on the availability group listener in Azure using 
 This article focuses on creating a listener that uses an ILB. If you need an public or external listener, see the version of this article that discusses setting up an [external listener](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Create load-balanced VM endpoints with direct server return
-For an ILB, you first create the internal load balancer by running the script later in this section.
+You first create an ILB by running the script later in this section.
 
-Create a load-balanced endpoint for each virtual machine (VM) that hosts an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same Azure virtual network. Creating availability group replicas that span multiple Azure regions requires configuring multiple virtual networks. For more information on configuring cross virtual network connectivity, see [Configure virtual network to virtual network connectivity](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Create a load-balanced endpoint for each VM that hosts an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same Azure virtual network. Creating availability group replicas that span multiple Azure regions requires configuring multiple virtual networks. For more information on configuring cross virtual network connectivity, see [Configure virtual network to virtual network connectivity](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 1. In the Azure portal, go to each VM that hosts a replica to view the details.
 
@@ -95,7 +95,7 @@ Create a load-balanced endpoint for each virtual machine (VM) that hosts an Azur
         # Create the ILB
         Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
    
-        # Configure a load-balanced endpoint for each node in $AGNodes using ILB
+        # Configure a load-balanced endpoint for each node in $AGNodes by using ILB
         ForEach ($node in $AGNodes)
         {
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM

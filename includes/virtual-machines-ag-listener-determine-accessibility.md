@@ -2,8 +2,8 @@ It is important to realize that there are two ways to configure an availability 
 
 | Load balancer type | Implementation | Use when: |
 | --- | --- | --- |
-| **External** |Uses the *public virtual IP address* of the cloud service that hosts the virtual machines. |You need to access the listener from outside the virtual network, including from the Internet. |
-| **Internal** |Uses an *internal load balancer (ILB)* with a private address for the listener. |You can access the listener only from within the same virtual network. This access includes site-to-site VPN in hybrid scenarios. |
+| **External** |Uses the *public virtual IP address* of the cloud service that hosts the virtual machines (VMs). |You need to access the listener from outside the virtual network, including from the Internet. |
+| **Internal** |Uses an *internal load balancer* (ILB) with a private address for the listener. |You can access the listener only from within the same virtual network. This access includes site-to-site VPN in hybrid scenarios. |
 
 > [!IMPORTANT]
 > For a listener that uses the cloud service's public VIP (external load balancer), as long as the client, listener, and databases are in the same Azure region, you will not incur egress charges. Otherwise, any data returned through the listener is considered egress, and it is charged at normal data-transfer rates. 

@@ -1,4 +1,4 @@
-In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
+In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio.
 
 1. Open Failover Cluster Manager from the node that hosts the primary replica.
 
@@ -8,7 +8,7 @@ In this step, you manually create the availability group listener in Failover Cl
 
 4. In the **Roles** pane, right-click the availability group name, and then select **Add Resource** > **Client Access Point**.
    
-    ![Add Client Access Point for Availability Group](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
+    ![Add Client Access Point for availability group](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
 5. In the **Name** box, create a name for this new listener, click **Next** twice, and then click **Finish**.  
     Do not bring the listener or resource online at this point.
