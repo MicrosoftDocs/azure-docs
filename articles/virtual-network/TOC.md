@@ -18,12 +18,12 @@
 
 ## Deploy
 ### [Virtual networks](virtual-networks-create-vnet-arm-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-##### [CLI](virtual-networks-create-vnet-arm-cli.md)
-##### [Template](virtual-networks-create-vnet-arm-template-click.md)
-##### [Portal (classic)](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell (classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI (classic)](virtual-networks-create-vnet-classic-cli.md)
+#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Template](virtual-networks-create-vnet-arm-template-click.md)
+#### [Portal (classic)](virtual-networks-create-vnet-classic-pportal.md)
+#### [PowerShell (classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [CLI (classic)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Network security groups
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
