@@ -489,11 +489,11 @@ If [sampling](app-insights-sampling.md) is in operation, the itemCount property 
 exceptions | summarize sum(itemCount) by type
 ```
 
-Most of the important stack information is already extracted into separate variables, but you can pull apart the 'details' structure to get more. For example:
+Most of the important stack information is already extracted into separate variables, but you can pull apart the 'details' structure to get more. Since this is a dynamic structure, you should cast the result to the type you expect. For example:
 
 ```AIQL
 exceptions
-| extend method2 = details[0].parsedStack[1].method
+| extend method2 = tostring(details[0].parsedStack[1].method)
 ```
 
 To associate exceptions with their related requests, use a join:
