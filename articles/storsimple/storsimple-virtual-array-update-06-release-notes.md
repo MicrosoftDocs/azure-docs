@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2017
+ms.date: 05/17/2017
 ms.author: alkohli
 
 ---
@@ -28,7 +28,8 @@ The release notes are continuously updated, and as critical issues requiring a w
 Update 0.6 corresponds to the software version **10.0.10292.0**.
 
 > [!NOTE]
-> Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 0.6](storsimple-virtual-array-install-update-06.md).
+> - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 0.6](storsimple-virtual-array-install-update-06.md).
+>  - Update 0.6 is a critical update as it contains security fixes. We recommend that you install this update immediately.
 
 
 ## What's new in the Update 0.6
@@ -36,11 +37,9 @@ Update 0.6 is primarily a bug-fix build. The main bug-fixes are as follows:
 
 - **Restore fix** - In earlier releases, there was a bug that would cause the restore job to never complete. This bug has been fixed in this release.
 
-- **Windows Security fixes** - This release contains the following Windows critical security fixes.
+- **Windows Security fixes** - This release contains the following Windows critical security fixes. 
     - [Dec 2016 fix](https://support.microsoft.com/help/3205400/december-2016-security-only-quality-update-for-windows-8.1-and-windows-server-2012-r2)
-    - [March 2017 (with SMB fix)](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23).
-
-    We recommend that you install this critical update at your earliest.
+    - [March 2017 (with SMB fix)](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23)
 
 
 ## Issues fixed in the Update 0.6
@@ -50,7 +49,7 @@ The following table provides a summary of issues fixed in this release.
 | No. | Feature | Issue |
 | --- | --- | --- |
 | 1 |Restore| During restores, there was a race condition which would cause the restore job to never complete. The bug fix addresses this race condition.|
-| 2 |Security| This release contains critical Windows Security updates. Install this update immediately to protect yourself from attacks.|
+| 2 |Security| This release contains critical Windows Security updates. Install this update immediately and protect your devices.|
 
 
 ## Known issues in the Update 0.6
