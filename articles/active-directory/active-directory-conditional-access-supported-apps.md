@@ -45,7 +45,7 @@ The following applications support conditional access for Office 365 and other A
 | Office 365 SharePoint Online |Mac OS X |Office 2016 apps for multi-factor authentication and location only; device-based policy support planned for the future |
 | Office 365 Yammer |Windows 10, iOS; Android support planned for the future |Office Yammer app |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, and Android |Dynamics CRM app |
-| PowerBI service |Windows 10, Windows 8.1, Windows 7, iOS, and Android |PowerBI app |
+| PowerBI service |Windows 10, Windows 8.1, Windows 7, and iOS | PowerBI app. The Power BI app for Android does not currently support device-based conditional access. |
 | Azure Remote App service |Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X |Azure Remote app |
 | Any My Apps app service |Android and iOS |Any My Apps app service |
 
