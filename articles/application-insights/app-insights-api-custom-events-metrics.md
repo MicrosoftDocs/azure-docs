@@ -112,6 +112,12 @@ To focus on specific events in either Search or Metrics Explorer, set the blade'
 
 ![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
+### Custom events in Analytics
+
+The telemetry is available in the `customEvents` table in [Application Insights Analytics](app-insights-analytics.md). Each row represents a call to `trackEvent(..)` in your app. 
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvent | summarize sum(itemCount)`.
+
 
 ## <a name="send-metrics"></a>TrackMetric
 
@@ -303,7 +309,7 @@ To see the results, open Metrics Explorer and add a new chart. Edit the chart to
 
 ### Custom metrics in Analytics
 
-The telemetry is available in the `customMetrics` table. Each row represents a call to `trackMetric(..)` in your app.
+The telemetry is available in the `customMetrics` table in [Application Insights Analytics](app-insights-analytics.md). Each row represents a call to `trackMetric(..)` in your app.
 * `valueSum` - This is the sum of the measurements. To get the mean value, divide by `valueCount`.
 * `valueCount` - The number of measurements that were aggregated into this `trackMetric(..)` call.
 
@@ -354,6 +360,31 @@ The name that you use as the first parameter associates the start and stop calls
 
 The resulting page load durations displayed in Metrics Explorer are derived from the interval between the start and stop calls. It's up to you what interval you actually time.
 
+### Page telemetry in Analytics
+
+In [Analytics](app-insights-analytics.md) two tables show data from browser operations:
+
+* The `pageViews` table contains data about the URL and page title
+* The `browserTimings` table contains data about client performance, such as the time taken to process the incoming data
+
+To find how long the browser takes to process different pages:
+
+```
+browserTimings | summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name 
+```
+
+To discover the popularities of different browsers:
+
+```
+pageViews | summarize count() by client_Browser
+```
+
+To associate page views to AJAX calls, join with dependencies:
+
+```
+pageViews | join (dependencies) on operation_Id 
+```
+
 ## TrackRequest
 The server SDK uses TrackRequest to log HTTP requests.
 
@@ -393,6 +424,17 @@ Operation contexts can't be nested. If there is already an operation context, th
 In Search, the operation context is used to create the **Related Items** list:
 
 ![Related items](./media/app-insights-api-custom-events-metrics/21.png)
+
+### Requests in Analytics 
+
+In [Application Insights Analytics](app-insights-analytics.md), requests show up in the `requests` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
+
+```AIQL
+requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
+```
+
 
 ## TrackException
 Send exceptions to Application Insights:
@@ -437,6 +479,30 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
     })
     ```
 
+### Exceptions in Analytics
+
+In [Application Insights Analytics](app-insights-analytics.md), exceptions show up in the `exceptions` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
+
+```
+exceptions | summarize sum(itemCount) by type
+```
+
+Most of the important stack information is already extracted into separate variables, but you can pull apart the 'details' structure to get more. For example:
+
+```AIQL
+exceptions
+| extend method2 = details[0].parsedStack[1].method
+```
+
+To associate exceptions with their related requests, use a join:
+
+```
+exceptions
+| join (requests) on operation_Id 
+```
+
 ## TrackTrace
 Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](app-insights-diagnostic-search.md).
 
@@ -461,6 +527,13 @@ In addition, you can add a severity level to your message. And, like other telem
 
 In [Search](app-insights-diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
 
+
+### Traces in Analytics
+
+In [Application Insights Analytics](app-insights-analytics.md), calls to TrackTrace show up in the `traces` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackTrace(), the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore use code such as `traces | summarize sum(itemCount)`.
+
 ## TrackDependency
 Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal.
 
@@ -483,6 +556,23 @@ Use the TrackDependency call to track the response times and success rates of ca
 Remember that the server SDKs include a [dependency module](app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 
 To turn off the standard dependency-tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
+
+### Dependencies in Analytics
+
+In [Application Insights Analytics](app-insights-analytics.md), trackDependency calls show up in the `dependencies` table.
+
+If [sampling](app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
+
+```
+dependencies | summarize sum(itemCount) by target
+```
+
+To associate dependencies with their related requests, use a join:
+
+```
+dependencies
+| join (requests) on operation_Id 
+```
 
 ## Flushing data
 Normally, the SDK sends data at times chosen to minimize the impact on the user. However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
@@ -653,6 +743,24 @@ If it's more convenient, you can collect the parameters of an event in a separat
 > Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
 >
 >
+
+### Custom measurements and properties in Analytics
+
+In [Analytics](app-insights-analytics.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
+
+For example, if you have added a property named "game" to your request telemetry, this query will count the occurences of different values of "game", and show the average of the custom metric "score":
+
+```
+requests
+| summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game) 
+```
+
+Notice that:
+
+* When you extract a value from the customDimensions or customMeasurements JSON, it has dynamic type, and so you must cast it `tostring` or `todouble`.
+* To take account of the possibility of [sampling](app-insights-sampling.md), you should use `sum(itemCount)`, not `count()`.
+
+
 
 ## <a name="timed"></a> Timing events
 Sometimes you want to chart how long it takes to perform an action. For example, you might want to know how long users take to consider choices in a game. You can use the measurement parameter for this.
