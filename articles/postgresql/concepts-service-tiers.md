@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/16/2017
 ---
 # Azure Database for PostgreSQL options and performance: Understand what’s available in each service tier
 
@@ -40,15 +40,15 @@ To decide on a service tier, first start by determining if your workload need IO
 
 | **Service tier features** | **Basic** | **Standard** | **Premium** * |
 | :------------------------ | :-------- | :----------- | :------------ |
-| Maximum Compute Units | 100 | 2000 | Not available in preview |
-| Maximum total storage | 1050 GB | 10000 GB | Not available in preview |
+| Maximum Compute Units | 100 | 2,000 | Not available in preview |
+| Maximum total storage | 1,050 GB | 10,000 GB | Not available in preview |
 | Storage IOPS guarantee | N/A | Yes | Not available in preview |
-| Maximum storage IOPS | N/A | 30,000 | Not available in preview |
+| Maximum storage IOPS | N/A | 3,000 | Not available in preview |
 | Database backup retention period | 7 days | 35 days | 35 days |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+
 
 > [!NOTE]
-> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1000 GB of storage.
+> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1,000 GB of storage.
 
 Once you have determined the minimum service tier, you are ready to determine the performance level for the PostgreSQL server (the Compute Units). The standard 200 and 400 Compute Units are often a good starting point for applications that require higher user concurrency for their web or analytical workloads. 
 
@@ -58,7 +58,7 @@ However, you can scale up or down the Compute Units independent of Storage Units
 > In preview, the Basic and Standard tiers currently do not support the dynamic scaling of storage. We plan to add the feature in the future.
 
 > [!NOTE]
-> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1000 GB, you will get 3000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
+> At the Standard service tier, IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. If you provision 1,000 GB, you will get 3,000 provisioned IOPS. You must monitor the server compute units consumption, and scale up, to fully utilize the available provisioned IOPS.
 
 ## Service tiers and performance levels
 
@@ -69,29 +69,23 @@ Azure Database for PostgreSQL offers multiple performance levels within each ser
 
 Regardless of the number of databases hosted within each PostgreSQL server, your database gets a guaranteed set of resources and the expected performance characteristics of your server are not affected.
 
-Basic service tier:
+### Basic service tier:
 
 | **Performance level** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Max Compute Units | 50 | 100 |
 | Included Storage size | 50 GB | 50 GB |
-| Max server storage size\* | 1050 GB | 1050 GB |
-| Max concurrent logins | &nbsp; | &nbsp; |
-| Max connections | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; |
+| Max server storage size\* | 1,050 GB | 1,050 GB |
 
 Standard service tier:
 
 | **Performance level** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | Max Compute Units | 100 | 200 | 400 | 800 |
-| Included storage size and provisioned IOPS | 125 GB, 375 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| Max server storage size\* | 1 TB | &nbsp; | &nbsp; | &nbsp; |
-| Max server provisioned IOPS | 3000 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| Max server provisioned IOPS per GB | Fixed 3 IOPS per GB | &nbsp; | &nbsp; | &nbsp; |
-| Max concurrent logins | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| Max connections | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| Included storage size and provisioned IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
+| Max server storage size\* | 1 TB | 1 TB | 1 TB | 1 TB |
+| Max server provisioned IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
+| Max server provisioned IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB | Fixed 3 IOPS per GB |
 
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
