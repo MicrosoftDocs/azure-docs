@@ -26,8 +26,8 @@ Today, this feature set requires developers to configure the Identity Experience
 With the new features introduced in the public preview, developers can perform the following tasks:<br>
 
 1. Author and upload custom authentication user journeys by using custom policies. 
-* Describe user journeys step-by-step as exchanges between claims providers. 
-* Define conditional branching in user journeys. 
+   * Describe user journeys step-by-step as exchanges between claims providers. 
+   * Define conditional branching in user journeys. 
 
 2. Integrate REST API-enabled services in your custom authentication user journeys.  
 3. Add federation with identity providers that are compliant with the OpenIDConnect standard. <br>
