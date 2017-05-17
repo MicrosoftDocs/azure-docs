@@ -48,7 +48,7 @@ Consider the following constraints before peering VNets:
 - You can peer VNets deployed through Resource Manager that are in the same, or different subscriptions.
 - You can peer VNets deployed through different deployment models that are in the same subscription. The ability to peer VNets deployed through different deployment models in different subscriptions is in preview release.
 - The subscriptions that both VNets are in must be associated to the same Azure Active Directory tenant. 
-- Your account must have the necessary role or permissions to create a peering. For example, if you were peering two VNets named VNet1 and VNet2, your account must be assigned the following minimum role or permissions for each VNet:
+- <a name="roles-permissions"</a>Your account must have the necessary role or permissions to create a peering. For example, if you were peering two VNets named VNet1 and VNet2, your account must be assigned the following minimum role or permissions for each VNet:
     
     |VNet|Deployment model|Role|Permissions|
     |---|---|---|---|
@@ -56,7 +56,7 @@ Consider the following constraints before peering VNets:
     | |Classic|[Classic Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
     |VNet2|Resource Manager|[Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
     ||Classic|[Classic Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)| N/A|
- Learn more about [built-in roles](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom (Resource Manager only)](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roles.
+ Learn more about [built-in roles](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom roles](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Resource Manager only).
 - A VNet can be peered to another VNet, and also be connected to another VNet with an Azure virtual network gateway. When VNets are connected through both peering and a gateway, traffic between the VNets flows through the peering configuration, rather than the gateway.
 - There is a nominal charge for ingress and egress traffic that utilizes a VNet peering. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
@@ -66,7 +66,7 @@ Consider the following constraints before peering VNets:
 >There are several requirements, constraints, and considerations to successfully create a peering. Before creating a peering, ensure you've familiarized yourself with the list of consideration in the [About peering](#about-peering) section of this article.
 >
 
-1. Log in to the [portal](https://portal.azure.com) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+1. Log in to the [portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](#roles-permissions).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a VNet deployed through the classic deployment model.
 3. In the **Virtual networks** blade that appears, click the virtual network you want to create a peering for.
 4. In the pane that appears for the virtual network you selected, click **Peerings** in the **SETTINGS** section.
@@ -96,7 +96,7 @@ Consider the following constraints before peering VNets:
 
 ## <a name="change-subnet"></a>View or change peering settings
 
-1. Log in to the [portal](https://portal.azure.com) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+1. Log in to the [portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](#roles-permissions).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appears, click the virtual network you want to create a peering for.
 4. In the pane that appears for the virtual network you selected, click **Peerings** in the **SETTINGS** section.
@@ -121,7 +121,7 @@ When a peering is deleted, traffic from a VNet no longer flows to the peered VNe
 
 If you want VNets to communicate sometimes, but not always, rather than deleting a peering, you can set the **Allow virtual network access** setting to **Disabled** instead. To learn how, read step 6 of the [Create a peering](#create-peering) section of this article. You may find disabling and enabling network access easier than deleting and recreating peerings.
 
-1. Log in to the [portal](https://portal.azure.com) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+1. Log in to the [portal](https://portal.azure.com) with an account that has the necessary [roles and permissions](#roles-permissions).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual networks*. When **Virtual networks** appears in the search results, click it.
 3. In the **Virtual networks** blade that appears, click the VNet you want to delete a peering from.
 4. In the blade that appears for the VNet you selected, click **Peerings** under **Settings**.
