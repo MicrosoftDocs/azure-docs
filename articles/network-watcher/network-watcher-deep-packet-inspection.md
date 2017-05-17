@@ -27,8 +27,6 @@ This article goes through some pre-configured scenarios on a packet capture that
 
 This scenario assumes you already ran a packet capture on a virtual machine. To learn how to create a packet capture visit [Manage packet captures with the portal](network-watcher-packet-capture-manage-portal.md) or with REST by visiting [Managing Packet Captures with REST API](network-watcher-packet-capture-manage-rest.md).
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
 In this scenario, you:

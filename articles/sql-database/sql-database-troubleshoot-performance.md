@@ -35,5 +35,5 @@ You can change the [service tier](sql-database-service-tiers.md) of a standalone
 
 ## Steps to improve database performance with more resources
 1. For standalone databases, you can [change service tiers](sql-database-service-tiers.md) on-demand to improve database performance.
-2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
+2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool.md) to scale resources automatically.
 

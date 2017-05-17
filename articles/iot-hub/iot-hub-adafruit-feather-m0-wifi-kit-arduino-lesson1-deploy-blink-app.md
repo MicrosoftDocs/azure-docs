@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'arduino led projects, arduino led blink, arduino led blink code, arduino blink program, arduino blink example'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: b0a7d076-d580-4686-9f7d-c0712750b615
 ms.service: iot-hub
 ms.devlang: arduino

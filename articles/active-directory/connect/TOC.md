@@ -46,6 +46,10 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md)
 
+### [Changing the Azure AD Sync service account password](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Changing the AD DS account password](active-directory-aadconnectsync-change-addsacct-pass.md)
+### [Enable AD recycle bin](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
 #### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
@@ -55,6 +59,7 @@
 
 ## Manage Federation Services
 ### [Manage and customize](active-directory-aadconnect-federation-management.md)
+### [Federate multiple instances of Azure AD with single instance of AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Troubleshoot
@@ -62,6 +67,7 @@
 ### [Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is not synchronized](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [LargeObject error caused by userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Reference

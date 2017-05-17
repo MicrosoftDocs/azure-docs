@@ -13,12 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/3/2017
+ms.date: 4/6/2017
 ms.author: erikje
 
 ---
 # Deploy Azure Stack POC
-To deploy the Azure Stack POC, you first need to [download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try), [prepare the deployment machine](#prepare-the-deployment-machine), and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
+To deploy the Azure Stack POC, you must complete the following steps:
+
+1. [Download the deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) to get the Cloudbuilder.vhdx.
+2. [Prepare the deployment machine](#prepare-the-deployment-machine) by running the PrepareBootFromVHD.ps1 script to configure the computer (the POC host) on which you want to install Azure Stack POC. After this step, the POC host will boot to the Cloudbuilder.vhdx.
+3. [Run the PowerShell deployment script](#run-the-powershell-deployment-script) on the POC host to install the Azure Stack POC.
+4. **NEW step for Technical Preview 3**: If your deployment uses Azure Active Directory, [activate the portals](#activate-the-administrator-and-tenant-portals) to give the Azure Stack portal and Azure Resource Manager the correct permissions for all users of the directory .
 
 > [!NOTE]
 > For best results, even if you want to use a disconnected Azure Stack environment, it is best to deploy while connected to the internet. That way, the Windows Server 2016 evaluation version can be activated at deployment time. If the Windows Server 2016 evaluation version is not activated within 10 days, it shuts down.
@@ -32,32 +37,32 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
    * [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
 
 2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
-3. Under **Download the software**, click **Azure Stack**.
+3. Under **Download the software**, click **Azure Stack Technical Preview 3**.
 4. Run the downloaded AzureStackDownloader.exe file.
-5. In the **Azure Stack POC Downloader** window, follow steps 1 through 5. After you click **Download**, choose a folder to download the files.
+5. In the **Azure Stack POC Downloader** window, follow steps 1 through 5.
 6. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
 7. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
 8. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 9. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files.
+10. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~35 GB) and ThirdPartyLicenses.rtf files. This will take some time to complete.
 
 > [!NOTE]
 > After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
 > 
 > 
 
-## Prepare the deployment machine
-1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9 below.
-2. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
-3. Log in as the Local Administrator to your POC machine.
-4. Copy the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
+## Prepare the POC host
+1. Make sure that you can physically connect to the POC host, or have physical console access (such as KVM). You will need such access after you reboot the POC host in step 9 below.
+2. Make sure the POC host meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
+3. Sign in as the Local Administrator to your POC host.
+4. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx).
    
    > [!NOTE]
-   > If you choose not to use the recommended script to prepare your POC host computer (steps 5 – step 7), do not enter any license key at the activation page. A trial version of Windows Server 2016 image is included, and entering a license key causes expiration warning messages.
+   > If you choose not to use the recommended script to prepare your POC host (steps 5 – step 7), do not enter any license key at the activation page. A trial version of Windows Server 2016 image is included, and entering a license key causes expiration warning messages.
    > 
    > 
-5. On the POC machine, run the following PowerShell script to download the Azure Stack support files:
+5. On the POC host, run the following PowerShell script to download the Azure Stack support files:
    
         # Variables
         $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/'
@@ -67,7 +72,8 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
         New-Item $LocalPath -type directory
    
         # Download files
-        ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
+        ( 'BootMenuNoKVM.ps1', 'PrepareBootFromVHD.ps1', 'Unattend.xml', 'unattend_NoKVM.xml') | `
+        foreach { Invoke-WebRequest ($uri + $_) -OutFile ($LocalPath + '\' + $_) } 
    
     This script downloads the Azure Stack support files to the folder specified by the $LocalPath parameter.
 6. Open an elevated PowerShell console and change the directory to where you copied the support files.
@@ -76,8 +82,8 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
     
     | Parameter | Required/Optional | Description |
     | --- | --- | --- |
-    |CloudBuilderDiskPath|Required|The path to the CloudBuilder.vhdx on the HOST.|
-    |DriverPath|Optional|Lets you add additional drivers for the host in the VHD.|
+    |CloudBuilderDiskPath|Required|The path to the CloudBuilder.vhdx on the POC host.|
+    |DriverPath|Optional|Lets you add additional drivers for the POC host in the VHD.|
     |ApplyUnattend|Optional|Specify this switch parameter to automate the configuration of the operating system. If specified, the user must provide the AdminPassword to configure the OS at boot (requires provided accompanying file unattend_NoKVM.xml). If you do not use this parameter, the generic unattend.xml file is used without further customization. You'll need KVM access to complete customization after it reboots.|
     |AdminPassword|Optional|Only used when the ApplyUnattend parameter is set, requires a minimum of six characters.|
     |VHDLanguage|Optional|Specifies the VHD language, defaulted to “en-US.”|
@@ -88,13 +94,13 @@ To deploy the Azure Stack POC, you first need to [download the deployment packag
      
     If you run this exact command, you must enter the AdminPassword at the prompt.
 8. When the script is complete, you must confirm the reboot. If there are other users logged in, this command will fail. If the command fails, run the following command: `Restart-Computer -force` 
-9. The HOST reboots into the OS of the CloudBuilder.vhdx, where the deployment continues.
+9. The POC host reboots into the OS of the CloudBuilder.vhdx, where the deployment continues.
 
 ## Run the PowerShell deployment script
-1. Log in as the Local Administrator to your POC machine. Use the credentials specified in the previous steps.
+1. Sign in as the Local Administrator to the POC host. Use the credentials specified in the previous steps.
 
     > [!IMPORTANT]
-    > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
+    > Azure Stack requires access to the Internet, either directly or through a transparent proxy. The deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script in the next section.
     
 2. Open an elevated PowerShell console.
 3. In PowerShell, run this command: `cd C:\CloudDeployment\Setup`. If you don't supply any parameters (see **InstallAzureStackPOC.ps1 optional parameters** below), you'll be prompted for the required parameters.
@@ -146,8 +152,12 @@ If your AAD Identity is associated with GREATER THAN ONE AAD Directory:
     cd C:\CloudDeployment\Setup
     $adminpass = ConvertTo-SecureString "<LOCAL ADMIN PASSWORD>" -AsPlainText -Force
     $aadpass = ConvertTo-SecureString "<AAD GLOBAL ADMIN ACCOUNT PASSWORD>" -AsPlainText -Force
-    $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT> example: user@AADDirName.onmicrosoft.com>", $aadpass)
-    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
+    $aadcred = New-Object System.Management.Automation.PSCredential ("<AAD GLOBAL ADMIN ACCOUNT> ` 
+    example: user@AADDirName.onmicrosoft.com>", $aadpass)
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantAdminCredential $aadcred ` 
+    -InfraAzureDirectoryTenantName "<SPECIFIC AAD DIRECTORY example: AADDirName.onmicrosoft.com>"
+
+### Using static IP addresses
 
 If your environment DOESN'T have DHCP enabled, you must include the following ADDITIONAL parameters to one of the options above (example usage provided):
 
@@ -170,11 +180,25 @@ If your environment DOESN'T have DHCP enabled, you must include the following AD
 | Rerun |Optional |Use this flag to rerun deployment.  All previous input is used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer |Optional |Use this parameter if you need to specify a specific time server. |
 
+## Activate the administrator and tenant portals
+
+After deployments that use Azure Active Directory, you must activate both the administrator and tenant portals. This activation consents to giving the Azure Stack portal and Azure Resource Manager the correct permissions (listed on the consent page) for all users of the directory.
+
+1. For the administrator portal, navigate to https://adminportal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, you can add service administrators who are not also directory tenant administrators.
+
+2. For the tenant portal, navigate to https://portal.local.azurestack.external/guest/signup, read the information, and then click **Accept**. After accepting, users in the directory can sign in to the tenant portal.
+
+> [!NOTE]
+> If the portals are not activated, only the directory administrator can sign in and use the portals. If any other user signs in, they will see an error that tells them that the administrator has not granted permissions to other users.
+> When the administrator does not natively belong to the directory Azure Stack is registered to, the Azure Stack directory must be appended to the activation URL. For example, if Azure Stack is registered to fabrikam.onmicrosoft.com and the admin user is admin@contoso.com, navigate to https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com to activate the portal.
+> 
+> 
+
 ## Reset the password expiration to 180 days
 
-To make sure that the password for the Azure Stack POC machine doesn't expire too soon, follow these steps after you deploy:
+To make sure that the password for the POC host doesn't expire too soon, follow these steps after you deploy:
 
-1. Log in to the Azure Stack POC physical machine as azurestack\azurestackadmin.
+1. Sign in to the POC host as azurestack\azurestackadmin.
 
 2. Run the following command to display the current MaxPasswordAge of 42 days: `Get-ADDefaultDomainPasswordPolicy`
 
@@ -185,5 +209,6 @@ To make sure that the password for the Azure Stack POC machine doesn't expire to
 4. Run the following command again to confirm the password age change: `Get-ADDefaultDomainPasswordPolicy`.
 
 ## Next steps
+[Register Azure Stack with your Azure subscription](azure-stack-register.md)
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 

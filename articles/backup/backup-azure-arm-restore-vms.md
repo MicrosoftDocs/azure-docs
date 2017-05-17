@@ -98,7 +98,7 @@ Now that you have selected the restore point, choose a configuration for your re
    * Restore full virtual machine
    * Restore backed up disks
 
-Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration or names of the resources created as part of create a new VM choice, use PowerShell or portal to restore backed up disks and use PowerShell commands to attach them to choice of VM configuration or use template that comes with restore disks to customize the restored VM. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations) for details on how to restore VM which has multiple NICs or under load balancer. 
+Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration or names of the resources created as part of create a new VM choice, use PowerShell or portal to restore backed up disks and use PowerShell commands to attach them to choice of VM configuration or use template that comes with restore disks to customize the restored VM. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations) for details on how to restore VM which has multiple NICs or under load balancer. If your Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), you need to restore disks and use PowerShell/Template as specified below to create the VM and make sure that you specify LicenseType as "Windows_Server" while creating VM to avail HUB benefits on restored VM. 
  
 ## Create a new VM from restore point
 If you are not already there, [select a restore point](#restoring-vms-with-special-network-configurations) before proceeding to creating a new VM from restore point. Once restore point is selected, on the **Restore configuration** blade, enter or select values for each of the following fields:
@@ -124,7 +124,7 @@ If you would like to customize the virtual machine you would like to create from
 
 After restore operation is completed, you can:
 * [Use template to customize the restored VM](#use-templates-to-customize-restore-vm)
-* [Use the restored disks to attach to an existing virtual machine](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
+* [Use the restored disks to attach to an existing virtual machine](../virtual-machines/windows/attach-disk-portal.md)
 * [Create a new virtual machine using PowerShell from restored disks.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 On the **Restore configuration** blade, click **OK** to finalize the restore configuration. On the **Restore** blade, click **Restore** to trigger the restore operation.
@@ -189,7 +189,8 @@ After entering the required values, accept the *Terms and Conditions* and click 
 * If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/classic/reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore.
 * Extensions present during the backup config will be installed, however they won't be enabled. Please reinstall extensions if you see any issue. 
 * If the backed-up VM has static IP, post restore, restored VM will have a dynamic IP to avoid conflict when creating restored VM. Learn more on how you can [add a static IP to restored VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* Restored VM will not have availability value set. We recommend using restore disks option and [adding availability set](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set) when creating a VM from PowerShell or templates using restored disks. 
+* Restored VM will not have availability value set. We recommend using restore disks option and [adding availability set](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) when creating a VM from PowerShell or templates using restored disks. 
+
 
 ## Backup for restored VMs
 If you have restored VM to same Resource Group with the same name as originally backed up VM, backup continues on the VM post restore. If you have either restored VM to a different Resource group or specified a different name for restored VM, this is treated as a new VM and you need to setup backup for restored VM.

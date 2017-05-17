@@ -1,4 +1,4 @@
----
+﻿---
 title: Publish applications to individual users in an Azure RemoteApp collection (Preview) | Microsoft Docs
 description: Learn how you can publish apps to individual users, instead of depending on groups, in Azure RemoteApp.
 services: remoteapp-preview
@@ -19,7 +19,7 @@ ms.author: piotrci
 ---
 # Publish applications to individual users in an Azure RemoteApp collection (Preview)
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -46,7 +46,7 @@ This is now possible in Azure RemoteApp – currently as a limited preview featu
 ## How to get Azure RemoteApp PowerShell cmdlets
 To try the new preview functionality, you will need to use Azure PowerShell cmdlets. It is currently not possible to use the Azure Management portal to enable the new application publishing mode.
 
-First, make sure you have the [Azure PowerShell module](/powershell/azureps-cmdlets-docs) installed.
+First, make sure you have the [Azure PowerShell module](/powershell/azure/overview) installed.
 
 Then launch the PowerShell console in administrator mode and run the following cmdlet:
 

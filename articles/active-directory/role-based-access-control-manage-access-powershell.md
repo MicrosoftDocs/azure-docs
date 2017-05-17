@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Docs
 description: How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments.
 services: active-directory
@@ -27,8 +27,8 @@ You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resou
 
 Before you can use PowerShell to manage RBAC, you need the following prerequisites:
 
-* Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [how to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
+* Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [how to install and configure Azure PowerShell](/powershell/azure/overview).
+* Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](/powershell/azure/overview) in PowerShell.
 
 ## List roles
 ### List all available roles
@@ -83,7 +83,7 @@ To list access assignments for the classic subscription administrator and coadmi
 ### Search for object IDs
 To assign a role, you need to identify both the object (user, group, or application) and the scope.
 
-If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal. To learn how to query for the subscription ID, see [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) on MSDN.
+If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal. To learn how to query for the subscription ID, see [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) on MSDN.
 
 To get the object ID for an Azure AD group, use:
 

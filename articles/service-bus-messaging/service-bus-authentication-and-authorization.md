@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Service Bus authentication and authorization | Microsoft Docs
 description: Overview of Shared Access Signature (SAS) authentication.
 services: service-bus-messaging
@@ -42,7 +42,7 @@ To access an entity, the client requires a SAS token generated using a specific 
 SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). All APIs that accept a connection string as a parameter include support for SAS connection strings.
 
 ## ACS authentication
-Service Bus authentication through ACS is managed through a companion "-sb" ACS namespace. If you want a companion ACS namespace to be created for a Service Bus namespace, you cannot create your Service Bus namespace using the Azure classic portal; you must create the namespace using the [New-AzureSBNamespace](/powershell/servicemanagement/azure.compute/v1.6.1/New-AzureSBNamespace) PowerShell cmdlet. For example:
+Service Bus authentication through ACS is managed through a companion "-sb" ACS namespace. If you want a companion ACS namespace to be created for a Service Bus namespace, you cannot create your Service Bus namespace using the Azure classic portal; you must create the namespace using the [New-AzureSBNamespace](/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0) PowerShell cmdlet. For example:
 
 ```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true

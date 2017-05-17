@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 03/17/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Working with Azure Application Insights in Visual Studio

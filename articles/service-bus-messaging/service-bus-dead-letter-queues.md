@@ -64,6 +64,7 @@ Messages will be sent to the transfer dead-letter queue under the following cond
 
 - A message passes through more than 3 queues or topics that are [chained together](service-bus-auto-forwarding.md).
 - The destination queue or topic is disabled or deleted.
+- The destination queue or topic exceeds the maximum entity size.
 
 To retrieve these dead-lettered messages, you can create a receiver using the [FormatTransferDeadletterPath](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_FormatTransferDeadLetterPath_System_String_) utility method.
 

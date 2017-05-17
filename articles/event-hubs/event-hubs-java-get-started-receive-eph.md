@@ -13,7 +13,7 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/03/2017
 ms.author: jotaub;sethm
 
 ---
@@ -218,16 +218,6 @@ For different types of build environments, you can explicitly obtain the latest 
 > 
 > 
 
-<!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-[Azure Storage account]: ../storage/storage-create-storage-account.md
-[Azure classic portal]: http://manage.windowsazure.com
-[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
-
-<!-- Images -->
-[11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
-
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
@@ -236,4 +226,11 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Azure classic portal]: http://manage.windowsazure.com
+[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
+
+<!-- Images -->
+[11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
+[12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png

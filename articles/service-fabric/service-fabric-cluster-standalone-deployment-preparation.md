@@ -105,7 +105,11 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
     *"enableTelemetry": false*
 * Disable automatic Fabric version downloading & notifications that the current cluster version is nearing end of support:
     Under *properties* set
-    *"fabricClusterAutoupgradeEnabled": true*
+    *"fabricClusterAutoupgradeEnabled": false*
+* Alternatively if network internet access is limited to white-listed domains, the domains below are required for automatic upgrade:
+    go.microsoft.com
+    download.microsoft.com
+
 6. Set appropriate Service Fabric antivirus exclusions:
 
 | **Antivirus Excluded directories** |

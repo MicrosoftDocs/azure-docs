@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter
 
@@ -30,7 +31,7 @@ Q. Where can I find out what legal or business standards is SQL DW compliant wit
 
 A. Visit the [Microsoft Compliance] page for various compliance offerings by product such as SOC and ISO. 
 First choose by Compliance title, then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure services are compliant.
- 
+
 Q. Can I connect PowerBI?
 
 A. Yes! Though PowerBI supports direct query with SQL DW, it’s not intended for large number of users or real-time data. For production use of PowerBI, we recommend using PowerBI on top of Azure Analysis Services or Analysis Service IaaS. 
@@ -38,6 +39,10 @@ A. Yes! Though PowerBI supports direct query with SQL DW, it’s not intended fo
 Q. What are SQL Data Warehouse Capacity Limits?
 
 A. See our current [capacity limits] page. 
+
+Q. Why is my Scale/Pause/Resume taking so long?
+
+A. A variety of factors can influence the time for compute management operations. A common case for  long running operations is transactional rollback. When a scale or pause operation is initiated, all incoming sessions are blocked and queries are drained. In order to leave the system in a stable state, transactions must be rolled back before an operation can commence. The greater the number and larger the log size of transactions, the longer the operation will be stalled restoring the system to a stable state.
 
 ## User support
 
@@ -112,7 +117,7 @@ For more information on SQL Data Warehouse as a whole, see our [Overview] page.
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [data types]: ./sql-data-warehouse-tables-data-types.md
 [Unsupported Table Features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md 
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
