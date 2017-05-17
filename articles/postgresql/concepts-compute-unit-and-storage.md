@@ -16,11 +16,11 @@ ms.date: 05/17/2017
 This article explains the concepts of Compute Units and Storage and explains what happens when your workload reaches the maximum Compute Units or  maximum Storage.
 
 ## What are Compute Units?
-Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for PostgreSQL server. A Compute Unit is a blended measure of CPU and memory resources. In general, 50 Compute Units equate to half of a core, 100 Compute Units equate to one core, and 2000 Compute Units equate to twenty cores of guaranteed processing throughput available to your server. 
+Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for PostgreSQL server. A Compute Unit is a blended measure of CPU and memory resources. In general, 50 Compute Units equate to half of a core. 100 Compute Units equate to one core. 2000 Compute Units equate to twenty cores of guaranteed processing throughput available to your server.
 
 The amount of memory per Compute Unit is optimized for the Basic and Standard service tiers. Doubling the Compute Units by increasing the performance level equates to doubling the set of resource available to that single Azure Database for PostgreSQL. 
 
-For example, a Standard 2000 Compute Units provides 20x more CPU throughput and memory than a Standard configured with 100 Compute Units. However, while Standard 100 Compute Units provide the same CPU throughput compared to Basic 100 Compute Units, the amount of memory that is pre-configured in Standard tier is double the amount of memory configured for Basic tier and therefore provides better workload performance and lower transaction latency.
+For example, a Standard 2000 Compute Units provides 20x more CPU throughput and memory than a Standard configured with 100 Compute Units. However, while Standard 100 Compute Units provide the same CPU throughput compared to Basic 100 Compute Units, the amount of memory that is pre-configured in Standard tier is double the amount of memory configured for Basic tier. Therefore, Standard tier provides better workload performance and lower transaction latency than Basic tier with the same Compute Units selected.
 
 >[!IMPORTANT]
 >For predictable workload performance throughput and high user concurrency, it is recommended you choose the Standard service tier.
@@ -33,11 +33,11 @@ You can change [service tiers](concepts-service-tiers.md) at any time with virtu
 >Currently we support scaling up/down performance levels within a service tier. For example, you can scale up from Standard tier with 100 Compute Units to Standard tier with 400 Compute Units. Similarly, you can scale down from Standard tier with 400 Compute Units to Standard tier with 100 Compute Units. Scaling across the service tiers, for example from Basic tier to Standard tier, is not yet available but will be made available in the future.
 
 ## Configuring Storage
-The Storage configuration defines the amount of storage capacity available to a Azure Database for PostgreSQL server.  You should consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the Storage configuration.
+The Storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server.  Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the Storage configuration.
 
-Each service tier starts with a fixed amount of included storage as described in the table below. 
+Each service tier starts with a fixed amount of included storage as described in the following table. 
 
-Additional storage capacity can be added when a new server is created, in increments of 125 GB, up to the maximum allowed storage as described in the table below. The additional storage capacity can be configured independently of the Compute Units configuration. The price will change based on the amount of storage selected.
+Additional storage capacity can be added when a new server is created, in increments of 125 GB, up to the maximum allowed storage as described in the following table. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 
 | **Service tier features** | **Basic** | **Standard** |
 |---------------------------|-----------|--------------|
@@ -48,7 +48,7 @@ Additional storage capacity can be added when a new server is created, in increm
 
 Basic tier does not provide any IOPS guarantee. Standard tier provides a provisioned IOPS guarantee, and is fixed to 3 times the provisioned storage.  For example, in standard tier, selecting 125 GB of storage capacity provides 375 IOPS available to your server. 
 
-You can monitor the consumption of storage and IOPS via the Metrics graph in the Azure portal or by using Azure CLI.
+Use the Metrics graph in the Azure portal or write Azure CLI commands to monitor the consumption of storage and IOPS. Metrics include Storage limit, Storage percentage, Storage used, and IO percent.
 
 >[!IMPORTANT]
 > Once provisioned, Storage cannot be dynamically scaled down.
@@ -56,17 +56,19 @@ You can monitor the consumption of storage and IOPS via the Metrics graph in the
 ## How can I determine the number of Compute Units needed for my workload?
 If you are looking to migrate an existing PostgreSQL server running on-premise or on a virtual machine, you can determine the number of Compute Units by estimating how many cores of processing throughput your workload needs. 
 
-If your existing on-premise or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 400 Compute Units in your Azure Database for PostgreSQL server. Compute Units can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. You can monitor the consumption of Compute Units via the Metrics graph in the Azure portal or by using Azure CLI to optimize the resources.
+If your existing on-premise or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 400 Compute Units in your Azure Database for PostgreSQL server. Compute Units can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. 
+
+Use the Metrics graph in the Azure portal or write Azure CLI commands to monitor the Compute Unit percentage and Compute Unit limit metrics.
 
 >[!IMPORTANT]
-> If you find storage IOPS are not fully utilized to the maximum, monitor the compute units utilization as well. Raising the compute units may allow for higher IOPS.
+> If you find storage IOPS are not fully utilized to the maximum, consider monitoring the compute units utilization as well. Raising the Compute Units may allow for higher IO throughput by lessening the performance bottleneck due to limited CPU or memory.
 
 ## What happens when I hit my maximum Compute Units or Storage?
 Performance levels are calibrated and governed to provide resources to run your database workload up to the max limits for selected service tier/performance level. 
 
-If your workload is hitting the maximum limits in either the Compute Units or provisioned IOPS limits, you can continue to utilize the resources at the maximum allowed level, but your queries are likely to see increased latencies. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries time out. 
+If your workload reaches the maximum limits in either the Compute Units or provisioned IOPS limits, you can continue to utilize the resources at the maximum allowed level, but your queries are likely to see increased latencies. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries time out. 
 
-If you workload hits the limits of maximum number of connections, explicit errors are raised. See [Limitations in Azure Database for PostgreSQL](concepts-limits.md) for more information on resources limits.
+If your workload reaches the maximum limits on number of connections, explicit errors are raised. See [Limitations in Azure Database for PostgreSQL](concepts-limits.md) for more information on resources limits.
 
 ## Next steps
 - See [Azure Database for PostgreSQL service tiers](./concepts-service-tiers.md) for information on the Compute Units and Storage Units available for single servers.
