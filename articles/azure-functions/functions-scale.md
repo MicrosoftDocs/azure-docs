@@ -29,13 +29,11 @@ Azure Functions can be run in two different modes: Consumption plan and App Serv
 
 If you are not yet familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md) article.
 
-## Compute options
-
 When you create a function app, you must configure a hosting plan for functions contained in the app. The available hosting plans are the **Consumption Plan** and the [**App Service plan**](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). In either mode, functions are executed by an instance of the *Azure Functions host*. The type of plan controls: 1) how host instances are scaled out and 2) the resources that are available to each host.
 
 Currently, the choice of plan type must be made during the creation of the function app, and cannot be changed afterwards. You can scale between tiers on the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). On the Consumption plan, Azure Functions automatically handles all resource allocation.
 
-### Consumption plan
+## Consumption plan
 
 When using a **Consumption plan**, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically and you are charged for compute resources only when your functions are running. On a Consumption plan, a function can run for a maximum of five minutes. 
 
@@ -45,7 +43,7 @@ The Consumption plan is the default and offers the following benefits:
 - Pay only when your functions are running
 - Scale out automatically, even during periods of high load
 
-### App Service plan
+## App Service plan
 
 In the **App Service plan**, your function apps run on dedicated VMs on Basic, Standard, Premium SKUs, similar to Web Apps. Dedicated VMs are allocated to your App Service apps, which means the functions host is always running.
 
@@ -67,7 +65,7 @@ If you run on an App Service Plan, you should enable the **Always On** setting s
 
 Always On is only available on an App Service plan. On a Consumption plan, the platform activates Function Apps automatically.
 
-### Storage account requirements
+## Storage account requirements
 
 On either a Consumption or App Service plan, a Function App requires an Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a Function App.
 
