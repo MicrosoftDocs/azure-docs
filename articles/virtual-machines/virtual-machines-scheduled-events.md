@@ -69,7 +69,7 @@ In both cases, the user initiated operation takes longer to complete since sched
 ## Using the API
 
 ### Query for events
-You can query for Scheduled Events simply by making the following call
+You can query for Scheduled Events simply by making the following call:
 
 	curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 
