@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/16/2017
+ms.date: 5/17/2017
 ms.author: asgang
 
 ---
@@ -107,16 +107,8 @@ Under Settings section you can configure target site properties
 5. **Cache Storage accounts:** ASR needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location.  
 6. **Availability set :** By default, ASR will create a new availability set in the target region with name having "asr" suffix. In case availability set created by ASR already exist, it will be reused. 
 7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, ASR will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
+  	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
-
- 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.png)
- 
-
-
-> [!NOTE]
-> By default all disks on a machine are replicated. You can [exclude disks from replication](site-recovery-exclude-disk.md). For example you 
-might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).
->
 
 
 
