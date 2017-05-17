@@ -10,7 +10,7 @@ One example is to connect to the listener from one of the VMs in the same Azure 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using windows authentication.
+> If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using Windows authentication.
 > 
 > 
 
