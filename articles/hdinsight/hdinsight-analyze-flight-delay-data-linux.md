@@ -1,5 +1,5 @@
 ---
-title: Analyze flight delay data with Hive on Linux-based HDInsight | Microsoft Docs
+title: Analyze flight delay data with Hive on HDInsight - Azure | Microsoft Docs
 description: Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop.
 services: hdinsight
 documentationcenter: ''

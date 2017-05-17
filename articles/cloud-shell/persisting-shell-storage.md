@@ -18,7 +18,7 @@ ms.author: juluk
 ---
 
 # Persisting Files in Azure Cloud Shell
-On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you.
+On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you. Your subscription must have access to create a storage account in order to access Cloud Shell.
 
 ![](media/storage-prompt.png)
 
