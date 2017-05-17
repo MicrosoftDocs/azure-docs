@@ -152,11 +152,11 @@ Pooled databases generally support the same [business continuity features](sql-d
 ### Point in time restore
 Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-### Geo-Restore
-Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
+### Geo-restore
+Geo-restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md)
 
 ### Active geo-replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
+For applications that have more aggressive recovery requirements than geo-restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
 
 ## Next steps
 

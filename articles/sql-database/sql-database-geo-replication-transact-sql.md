@@ -31,11 +31,13 @@ To initiate failover using Transact-SQL, see [Initiate a planned or unplanned fa
 
 To configure active geo-replication using Transact-SQL, you need the following:
 
-* An Azure subscription.
-* A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate.
-* One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases.
-* A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure geo-replication.
-* SQL Server Management Studio (SSMS)
+* An Azure subscription
+* A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate
+* One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases
+* A login that is DBManager on the primary
+* Have db_ownership of the local database that you will geo-replicate
+* Be DBManager on the partner server(s) to which you will configure geo-replication
+* The newest version of SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

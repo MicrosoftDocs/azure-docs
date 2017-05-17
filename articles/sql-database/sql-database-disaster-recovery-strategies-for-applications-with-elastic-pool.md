@@ -113,7 +113,7 @@ To guarantee the lowest recovery time during outages, the paying customers' tena
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-As in the previous scenarios, the management databases is quite active so configure them as single geo-replicated databases (1). This ensures the predictable performance of the new customer subscriptions, profile updates and other management operations. Region A is the primary region for the management databases and the region B is used for recovery of the management databases.
+As in the previous scenarios, the management databases are quite active so configure them as single geo-replicated databases (1). This ensures the predictable performance of the new customer subscriptions, profile updates and other management operations. Region A is the primary region for the management databases and the region B is used for recovery of the management databases.
 
 The paying customers’ tenant databases are also geo-replicated but with primaries and secondaries split between region A and region B (2). This way, the tenant primary databases impacted by the outage can fail over to the other region and become available. The other half of the tenant databases are not be impacted at all. 
 
@@ -126,7 +126,7 @@ The next diagram illustrates the recovery steps to take if  an outage occurs in 
 * Fail over the paid tenant's databases to pool 2 in region B to immediately restore their availability (4). Since the failover is a quick metadata level change, you may consider an optimization where the individual failovers are triggered on demand by the end-user connections. 
 * Since now pool 2 contains only primary databases, the total workload in the pool increases and can immediately increase its eDTU size (5). 
 * Create the new elastic pool with the same name and the same configuration in the region B for the trial customers' databases (6). 
-* Once the pool is created use geo-restore to restore the individual trial tenant database into the pool (7). You can consider triggering the individual restores by the end-user connections or use some other application specific priority scheme.
+* Once the pool is created use geo-restore to restore the individual trial tenant database into the pool (7). You can consider triggering the individual restores by the end-user connections or use some other application-specific priority scheme.
 
 > [!NOTE]
 > The failover operation is asynchronous. To minimize the recovery time, it is important that you execute the tenant databases' failover command in batches of at least 20 databases. 

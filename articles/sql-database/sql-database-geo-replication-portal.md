@@ -25,7 +25,7 @@ This article shows you how to configure active geo-replication for SQL Database 
 To initiate failover with the Azure portal, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
 
 > [!NOTE]
-> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired, and existing non-readable databases will automatically be upgraded to readable secondaries.
+> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type was retired, and existing non-readable databases automatically upgraded to readable secondaries.
 > 
 > 
 

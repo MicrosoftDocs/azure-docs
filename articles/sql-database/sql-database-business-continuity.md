@@ -32,7 +32,7 @@ The following table compares the ERT and RPO for the three most common scenarios
 | Capability | Basic tier | Standard tier | Premium tier |
 | --- | --- | --- | --- |
 | Point in Time Restore from backup |Any restore point within 7 days |Any restore point within 35 days |Any restore point within 35 days |
-| Geo-Restore from geo-replicated backups |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |
+| Geo-restore from geo-replicated backups |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |
 | Restore from Azure Backup Vault |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |ERT < 12h, RPO < 1 wk |
 | Active geo-replication |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
 
@@ -110,7 +110,7 @@ If the data loss occurred outside the current retention period for automated bac
 Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
 
 * One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you do not know how long the outage might last, so this option only works if you don't need your database for a while.
-* Another option is to either fail over to another data region if you are using active geo-replication or the recover a database using geo-redundant database backups (Geo-Restore). Failover takes only a few seconds while database recovery from backups takes hours.
+* Another option is to either fail over to another data region if you are using active geo-replication or the recover a database using geo-redundant database backups (geo-restore). Failover takes only a few seconds while database recovery from backups takes hours.
 
 When you take action, how long it takes you to recover, and how much data loss you incur depends upon how you decide to use these business continuity features in your application. Indeed, you may choose to use a combination of database backups and active geo-replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
@@ -132,8 +132,8 @@ If you are using active geo-replication and auto-failover groups (in-preview) as
 > When the data center comes back online the old primaries automatically reconnect to the new primary and become secondary databases. If you need to relocate the primary back to the original region, you can initiate a planned failover manually (failback). 
 > 
 
-### Perform a Geo-Restore
-If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries.
+### Perform a geo-restore
+If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using geo-restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries.
 
 > [!NOTE]
 > If the data center comes back online before you switch your application over to the recovered database, you can cancel the recovery.  
