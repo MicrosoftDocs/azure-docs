@@ -89,7 +89,7 @@ Regardless of the number of databases hosted within each PostgreSQL server, your
 
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
-## Scaling up or down a single server
+## Scaling up or down a server
 
 After initially choosing a service tier and performance level, you can scale the server up or down dynamically based on workload requirements. If you need to scale up or down, you can easily change the tier of your database by using the Azure portal or the Azure CLI.
 
@@ -97,7 +97,7 @@ Changing the service tier and/or performance level of a database creates a repli
 
 The duration of the entire scale-up process depends on both the size and service tier of the server before and after the change. For example, a server that is changing Compute Units, to or from or within a Standard service tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 
-You can use Azure CLI to monitor and scale your server. See: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down)
+You can use the Azure portal to scale up and down, or use Azure CLI to monitor and scale your server. See: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
 
 ### Details about scaling up or down
 
