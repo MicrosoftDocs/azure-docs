@@ -1,6 +1,6 @@
 ---
-title: Use custom Maven packages with Jupyter notebooks in Spark on Azure | Microsoft Docs
-description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external Spark packages.
+title: Use custom Maven packages with Jupyter in Spark on Azure HDInsight | Microsoft Docs
+description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use custom Maven packages.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -37,7 +37,6 @@ In this article, you will learn how to use the [spark-csv](http://search.maven.o
 ## Prerequisites
 You must have the following:
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Use external packages with Jupyter notebooks
@@ -54,11 +53,11 @@ You must have the following:
 
 3. Create a new notebook. Click **New**, and then click **Spark**.
    
-    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Create a new Jupyter notebook")
 
 4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
    
-    ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Provide a name for the notebook")
 
 5. You will use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
 
