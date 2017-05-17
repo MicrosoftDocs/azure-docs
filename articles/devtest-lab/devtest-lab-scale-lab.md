@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: tarcher
 
 ---
-# Scale quotas and limits in your lab
+# Scale quotas and limits in DevTest Labs
 As you work in DevTest Labs, you might notice that there are certain default limits to some Azure resources, which can affect the DevTest Labs service. These limits are referred to as **quotas**.
 
 > [!NOTE]
