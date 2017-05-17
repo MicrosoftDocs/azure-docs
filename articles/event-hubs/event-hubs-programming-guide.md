@@ -1,6 +1,6 @@
 ---
 title: Programming guide for Azure Event Hubs | Microsoft Docs
-description: Describes programming with Azure Event Hubs using the Azure .NET SDK.
+description: Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/17/2017
 ms.author: sethm
 
 ---
 # Event Hubs programming guide
+
 This article discusses some common scenarios in writing code using Azure Event Hubs and the Azure .NET SDK. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
 
 ## Event publishers
-You send events to an event hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
+
+You send events to an event hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use and when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
 
 You create and manage Event Hubs using the [NamespaceManager][] class. When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
 
 ## Get started
+
 The .NET classes that support Event Hubs are provided in the Microsoft.ServiceBus.dll assembly. The easiest way to reference the Service Bus API and to configure your application with all of the Service Bus dependencies is to download the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Alternatively, you can use the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
 
 ```
