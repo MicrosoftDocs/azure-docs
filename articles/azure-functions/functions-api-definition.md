@@ -30,10 +30,10 @@ This preview feature allows you to write an OpenAPI 2.0 (formerly Swagger) defin
 
 ## <a name="enable"></a>Enabling OpenAPI definition Support
 * All OpenAPI settings can be configured in the `API Definition (preview)` page in your Function App settings.
-* Set `API defintion source` to `Function` to enable a hosted OpenAPI definition and quickstart definition generation.
+* Set `API definition source` to `Function` to enable a hosted OpenAPI definition and quickstart definition generation.
   * `External URL` allows your Function to use an OpenAPI definition that is hosted elsewhere.
 
-## <a name="generate-defintion"></a>Generate a Swagger Skeleton from your Function Metadata
+## <a name="generate-definition"></a>Generate a Swagger Skeleton from your Function Metadata
 A template is an awesome way to get started writing your first OpenAPI definition. The definition template feature creates a sparse OpenAPI definition using all the metadata in the function.json for each of your HTTP trigger functions. **You will need to fill in more information about your API from the [OpenAPI specification](http://swagger.io/specification/), such as request and response templates.**
 
 [Check out this getting started tutorial for step by step instructions](./functions-api-definition-getting-started.md)
