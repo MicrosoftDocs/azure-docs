@@ -59,7 +59,7 @@ command to install the AzureRM.Bootstrapper module:
 AzureRM modules for Compute, Storage, Network, Key Vault etc.  
 
   ```powershell
-  # Installs and imports the API Version Profile required by Azure Stack into the current PowerShell session.
+  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile
   ```
