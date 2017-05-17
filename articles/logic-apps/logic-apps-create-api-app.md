@@ -40,25 +40,29 @@ You can host your APIs on [Azure App Service](../app-service/app-service-value-p
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting. 
 
-Although you can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
-consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
-which make your job easier when you build, host, and consume APIs 
-in the cloud and on premises. You don't have to change any code in your 
-APIs -- just deploy your code to an API app. Learn how to 
-[build API apps created with ASP.NET](../app-service-api/app-service-api-dotnet-get-started.md), 
-[Java](../app-service-api/app-service-api-java-api-app.md), 
-or [Node.js](../app-service-api/app-service-api-nodejs-api-app.md). 
-
 For custom APIs to work with logic apps, your API can provide 
 [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
 that perform specific tasks in logic app workflows. Your API can also work as a 
 [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
 that starts a logic app when new data or an event at an endpoint meets a specified condition. 
-To build actions and triggers in your API, follow the common patterns in this topic, 
+This topic describes common patterns that you can follow 
+for building actions and triggers in your API, 
 based on the behavior that you want your API to provide.
 
-For API App samples built for logic apps, visit the Azure Logic Apps 
-[GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
+> [!TIP] 
+> Although you can deploy your APIs as 
+> [web apps](../app-service-web/app-service-web-overview.md), 
+> consider deploying your APIs as 
+> [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
+> which can make your job easier when you build, host, and consume APIs 
+> in the cloud and on premises. You don't have to change any code in your 
+> APIs -- just deploy your code to an API app. Learn how to 
+> [build API apps created with ASP.NET](../app-service-api/app-service-api-dotnet-get-started.md), 
+> [Java](../app-service-api/app-service-api-java-api-app.md), 
+> or [Node.js](../app-service-api/app-service-api-nodejs-api-app.md). 
+>
+> For API App samples built for logic apps, visit the Azure Logic Apps 
+> [GitHub repository](http://github.com/logicappsio) or [blog](http://aka.ms/logicappsblog).
 
 ## Helpful tools
 
