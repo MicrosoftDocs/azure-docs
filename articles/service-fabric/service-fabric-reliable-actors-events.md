@@ -108,5 +108,6 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# Sample code](https://github.com/Azure/servicefabric-samples)
+* [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# .NET Core Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)

@@ -4,7 +4,7 @@
 > 
 > 
 
-This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use the [Azure IoT Gateway SDK][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
+This walkthrough of the [Simulated Device Cloud Upload sample] shows how to use [Azure IoT Edge][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.
 
 This walkthrough covers:
 
@@ -12,22 +12,22 @@ This walkthrough covers:
 2. **Build and run**: the steps required to build and run the sample.
 
 ## Architecture
-The Simulated Device Cloud Upload sample shows how to use the SDK to create a gateway which sends telemetry from simulated devices to an IoT hub. The simulated devices cannot connect directly to IoT Hub because:
+The Simulated Device Cloud Upload sample shows how to use IoT Edge to create a gateway which sends telemetry from simulated devices to an IoT hub. The simulated devices cannot connect directly to IoT Hub because:
 
 * The devices do not use a communications protocol understood by IoT Hub.
 * The devices are not smart enough to remember the identity assigned to them by IoT Hub.
 
-The gateway solves these problems for the simulated devices in the following ways:
+The IoT Edge gateway solves these problems for the simulated devices in the following ways:
 
 * The gateway understands the protocol used by the simulated devices, receives device-to-cloud telemetry from the devices, and forwards those messages to IoT Hub using a protocol understood by the IoT hub.
 * The gateway stores IoT Hub identities on behalf of the simulated devices and acts as a proxy when the simulated devices send messages to IoT Hub.
 
-The following diagram shows the main components of the sample, including the gateway modules:
+The following diagram shows the main components of the sample, including the IoT Edge modules:
 
 ![][1]
 
 > [!NOTE]
-> The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information, see [Get started with the IoT Gateway SDK][lnk-gw-getstarted].
+> The modules do not pass messages directly to each other. The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism as shown in the diagram below. For more information, see [Get started with Azure IoT Edge][lnk-gw-getstarted].
 > 
 > 
 
@@ -64,6 +64,6 @@ Instead of opening a connection to IoT Hub for each simulated device app, this m
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[Simulated Device Cloud Upload sample]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/simulated_device_cloud_upload/README.md
-[lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[Simulated Device Cloud Upload sample]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
+[lnk-sdk]: https://github.com/Azure/iot-edge
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md

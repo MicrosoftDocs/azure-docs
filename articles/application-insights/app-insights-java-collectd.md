@@ -4,7 +4,7 @@ description: Extended application performance monitoring of your Java website wi
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # collectd: Linux performance metrics in Application Insights
@@ -121,6 +121,14 @@ Separate directives with a newline.
 * Open a terminal and start collectd in verbose mode, to see any issues it is reporting:
   * `sudo collectd -f`
 
+## Known issue
+
+The Application Insights Write plugin is incompatible with certain Read plugins. Some plugins sometimes send "NaN" where the Application Insights plugin expects a floating-point number.
+
+Symptom: The collectd log shows errors that include "AI: ... SyntaxError: Unexpected token N".
+
+Workaround: Exclude data collected by the problem Write plugins. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -131,6 +139,5 @@ Separate directives with a newline.
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
 

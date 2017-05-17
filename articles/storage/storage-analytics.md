@@ -112,7 +112,7 @@ The following list displays complete sample metadata using the previous examples
 * LogVersion=1.0
 
 ### Accessing logging data
-All data in the `$logs` container can be accessed by using the Blob service APIs, including the .NET APIs provided by the Azure managed library. The storage account administrator can read and delete logs, but cannot create or update them. Both the log’s metadata and log name can be used when querying for a log. It is possible for a given hour’s logs to appear out of order, but the metadata always specifies the timespan of log entries in a log. Therefore, you can use a combination of log names and metadata when searching for a particular log.
+All data in the `$logs` container can be accessed by using the Blob service APIs, including the .NET APIs provided by the Azure managed library. The storage account administrator can read and delete logs, but cannot create or update them. Both the log's metadata and log name can be used when querying for a log. It is possible for a given hour's logs to appear out of order, but the metadata always specifies the timespan of log entries in a log. Therefore, you can use a combination of log names and metadata when searching for a particular log.
 
 ## About Storage Analytics metrics
 Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.
@@ -134,20 +134,20 @@ Transaction metrics are recorded for both user requests and requests made by Sto
 > 
 > 
 
-Capacity data is recorded daily for a storage account’s Blob service, and two table entities are written. One entity provides statistics for user data, and the other provides statistics about the `$logs` blob container used by Storage Analytics. The `$MetricsCapacityBlob` table includes the following statistics:
+Capacity data is recorded daily for a storage account's Blob service, and two table entities are written. One entity provides statistics for user data, and the other provides statistics about the `$logs` blob container used by Storage Analytics. The `$MetricsCapacityBlob` table includes the following statistics:
 
-* **Capacity**: The amount of storage used by the storage account’s Blob service, in bytes.
-* **ContainerCount**: The number of blob containers in the storage account’s Blob service.
-* **ObjectCount**: The number of committed and uncommitted block or page blobs in the storage account’s Blob service.
+* **Capacity**: The amount of storage used by the storage account's Blob service, in bytes.
+* **ContainerCount**: The number of blob containers in the storage account's Blob service.
+* **ObjectCount**: The number of committed and uncommitted block or page blobs in the storage account's Blob service.
 
 For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/hh343264.aspx).
 
 ### How metrics are stored
-All metrics data for each of the storage services is stored in three tables reserved for that service: one table for transaction information, one table for minute transaction information, and another table for capacity information. Transaction and minute transaction information consists of request and response data, and capacity information consists of storage usage data. Hour metrics, minute metrics, and capacity for a storage account’s Blob service can be accessed in tables that are named as described in the following table.
+All metrics data for each of the storage services is stored in three tables reserved for that service: one table for transaction information, one table for minute transaction information, and another table for capacity information. Transaction and minute transaction information consists of request and response data, and capacity information consists of storage usage data. Hour metrics, minute metrics, and capacity for a storage account's Blob service can be accessed in tables that are named as described in the following table.
 
 | Metrics level | Table names | Supported versions |
 | --- | --- | --- |
-| Hourly metrics, primary location |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versions prior to 2013-08-15 only. While these names are still supported, it’s recommended that you switch to using the tables listed below. |
+| Hourly metrics, primary location |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |Versions prior to 2013-08-15 only. While these names are still supported, it's recommended that you switch to using the tables listed below. |
 | Hourly metrics, primary location |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |All versions, including 2013-08-15. |
 | Minute metrics, primary location |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |All versions, including 2013-08-15. |
 | Hourly metrics, secondary location |$MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |All versions, including 2013-08-15. Read-access geo-redundant replication must be enabled. |
@@ -170,7 +170,7 @@ The following actions performed by Storage Analytics are billable:
 If you have configured a data retention policy, you are not charged for delete transactions when Storage Analytics deletes old logging and metrics data. However, delete transactions from a client are billable. For more information about retention policies, see [Setting a Storage Analytics Data Retention Policy](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### Understanding billable requests
-Every request made to an account’s storage service is either billable or non-billable. Storage Analytics logs each individual request made to a service, including a status message that indicates how the request was handled. Similarly, Storage Analytics stores metrics for both a service and the API operations of that service, including the percentages and count of certain status messages. Together, these features can help you analyze your billable requests, make improvements on your application, and diagnose issues with requests to your services. For more information about billing, see [Understanding Azure Storage Billing - Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Every request made to an account's storage service is either billable or non-billable. Storage Analytics logs each individual request made to a service, including a status message that indicates how the request was handled. Similarly, Storage Analytics stores metrics for both a service and the API operations of that service, including the percentages and count of certain status messages. Together, these features can help you analyze your billable requests, make improvements on your application, and diagnose issues with requests to your services. For more information about billing, see [Understanding Azure Storage Billing - Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 When looking at Storage Analytics data, you can use the tables in the [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/azure/hh343260.aspx) topic to determine what requests are billable. Then you can compare your logs and metrics data to the status messages to see if you were charged for a particular request. You can also use the tables in the previous topic to investigate availability for a storage service or individual API operation.
 

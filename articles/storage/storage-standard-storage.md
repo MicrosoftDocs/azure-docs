@@ -31,7 +31,7 @@ There are two ways to create standard disks for Azure VMs:
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 64 TB of storage per VM.
 
 [**Azure Managed Disks**](storage-managed-disks-overview.md):
-This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don’t have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
+This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
 
 Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
 
@@ -44,14 +44,14 @@ For information on how to create a VM with Managed Disks, please see one of the 
 
 ## Standard Storage Features 
 
-Let’s take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
+Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
 Storage](storage-introduction.md).
 
 **Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).
 
 **Standard storage disks:** Standard storage disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 and GS series. A standard storage disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we will describe the specifications in more detail. 
 
-**Standard page blob**: Standard page blobs are used to hold persistent disks for VMs and can also be accessed directly through REST like other types of Azure Blobs. [Page blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) are a collection of 512-byte pages optimized for random read and write operations. 
+**Standard page blob**: Standard page blobs are used to hold persistent disks for VMs and can also be accessed directly through REST like other types of Azure Blobs. [Page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) are a collection of 512-byte pages optimized for random read and write operations. 
 
 **Storage Replication:** In most regions, data in a standard storage account can be replicated locally or geo-replicated across multiple data centers. The four types of replication available are Locally-Redundant Storage (LRS), Zone-Redundant Storage (ZRS), Geo-Redundant Storage (GRS), and Read Access Geo-Redundant Storage (RA-GRS). Managed Disks in Standard Storage currently support Locally-Redundant Storage (LRS) only. For more information, please see [Storage Replication](storage-redundancy.md).
 
@@ -98,13 +98,13 @@ To the Storage service, the VHD file is a page blob. You can take snapshots of p
 
 You can create [incremental snapshots](storage-incremental-snapshots.md) for unmanaged standard disks in the same way you use snapshots with Standard Storage. We recommend that you create snapshots and then copy those snapshots to a geo-redundant standard storage account if your source disk is in a locally-redundant storage account. For more information, see [Azure Storage Redundancy Options](storage-redundancy.md).
 
-If a disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) operation on that blob as long as the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot
-Blob](/rest/api/storageservices/fileservices/Snapshot-Blob) REST API method, and then perform the [Copy
-Blob](/rest/api/storageservices/fileservices/Copy-Blob) of the snapshot to copy the attached disk. Alternatively, you can detach the disk and then perform any necessary operations.
+If a disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/Copy-Blob) operation on that blob as long as the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot
+Blob](/rest/api/storageservices/Snapshot-Blob) REST API method, and then perform the [Copy
+Blob](/rest/api/storageservices/Copy-Blob) of the snapshot to copy the attached disk. Alternatively, you can detach the disk and then perform any necessary operations.
 
-To maintain geo-redundant copies of your snapshots, you can copy snapshots from a locally-redundant storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
+To maintain geo-redundant copies of your snapshots, you can copy snapshots from a locally-redundant storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
-For detailed information on performing REST operations against page blobs in standard storage accounts, see [Azure Storage Services REST API](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference).
+For detailed information on performing REST operations against page blobs in standard storage accounts, see [Azure Storage Services REST API](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 ### Managed disks
 
@@ -126,7 +126,7 @@ When using Standard Storage, the following billing considerations apply:
 
 **Managed disks:** Managed disks are billed on the provisioned size. If your disk is provisioned as a 10 GB disk and you are only using 5 GB, you will still be charged for the provision size of 10 GB.
 
-**Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/fileservices/Creating-a-Snapshot-of-a-Blob).
+**Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 

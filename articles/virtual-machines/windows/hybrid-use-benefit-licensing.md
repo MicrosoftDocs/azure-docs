@@ -1,9 +1,9 @@
----
+﻿---
 title: Azure Hybrid Use Benefit for Window Server and Windows Client| Microsoft Docs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: george-moore
+author: kmouss
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 3/10/2017
-ms.author: georgem
+ms.date: 5/1/2017
+ms.author: kmouss
 
 ---
 # Azure Hybrid Use Benefit for Windows Server and Windows Client
@@ -28,21 +28,25 @@ For customers with Software Assurance, Azure Hybrid Use Benefit allows you to us
 ## Ways to use Azure Hybrid Use Benefit
 There are a couple of different ways to deploy Windows VMs with the Azure Hybrid Use Benefit:
 
-1. If you have an Enterprise Agreement subscription, you can [deploy VMs from specific Marketplace images](#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
-2. Without an Enterprise Agreement, you can [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
+1. You can deploy VMs from [specific Marketplace images](#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit - Windows Server 2016, Windows Server 2012R2, Windows Server 2012 and Windows Server 2008SP1.
+2. You can [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## Deploy a VM using the Azure Marketplace
-For customers with [Enterprise Agreement subscriptions](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), images are available in the Marketplace pre-configured with Azure Hybrid Use Benefit. These images can be deployed directly from the Azure portal, Resource Manager templates, or Azure PowerShell, for example. Images in the Marketplace are noted by the `[HUB]` name as follows:
-
-![Azure Hybrid Use Benefit images in Azure Marketplace](./media/hybrid-use-benefit-licensing/ahub-images-portal.png)
+Following images are available in the Marketplace pre-configured with Azure Hybrid Use Benefit: Windows Server 2016, Windows Server 2012R2, Windows Server 2012 and Windows Server 2008SP1. These images can be deployed directly from the Azure portal, Resource Manager templates, or Azure PowerShell.
 
 You can deploy these images directly from the Azure portal. For use in Resource Manager templates and with Azure PowerShell, view the list of images as follows:
 
 For Windows Server:
 ```powershell
-Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
-    -Offer "WindowsServer-HUB"
+Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
+- 2016-Datacenter version 2016.127.20170406 or above
+
+- 2012-R2-Datacenter version 4.127.20170406 or above
+
+- 2012-Datacenter version 3.127.20170406 or above
+
+- 2008-R2-SP1 version 2.127.20170406 or above
 
 For Windows Client:
 ```powershell
@@ -50,13 +54,10 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "Windows-HUB"
 ```
 
-If you don't have an Enterprise Agreement subscription, continue reading for instructions on how to upload a custom VM and deploy with Azure Hybrid Use Benefit.
-
-
 ## Upload a Windows VHD
 To deploy a Windows VM in Azure, you first need to create a VHD that contains your base Windows build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
 
-Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
+Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/overview). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -212,7 +213,38 @@ For Windows Client:
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
 
+## Deploy a virtual machine scale set via Resource Manager template
+Within your VMSS Resource Manager templates, an additional parameter for `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Edit your Resource Manager template to include the licenseType property as part of the scale set’s virtualMachineProfile and deploy your template as normal - see example below using 2016 Windows Server image:
+
+
+```json
+"virtualMachineProfile": {
+    "storageProfile": {
+        "osDisk": {
+            "createOption": "FromImage"
+        },
+        "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2016-Datacenter",
+            "version": "latest"
+        }
+    },
+    "licenseType": "Windows_Server",
+    "osProfile": {
+            "computerNamePrefix": "[parameters('vmssName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+    }
+```
+
+> [!NOTE]
+> Support for deploying a virtual machine scale set with AHUB benefits through PowerShell and other SDK tools is coming soon.
+>
+
 ## Next steps
 Read more about [Azure Hybrid Use Benefit licensing](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Learn more about [using Resource Manager templates](../../azure-resource-manager/resource-group-overview.md).
+
+Learn more about [Azure Hybrid Use Benefit and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).

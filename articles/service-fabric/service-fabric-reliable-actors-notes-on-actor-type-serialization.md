@@ -18,10 +18,10 @@ ms.author: vturecek
 
 ---
 # Notes on Service Fabric Reliable Actors type serialization
-The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's State Manager must be [Data Contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md). (Actor event interface methods always return void.)
+The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's state manager must be [data contract serializable](https://msdn.microsoft.com/library/ms731923.aspx). This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md). (Actor event interface methods always return void.)
 
 ## Custom data types
-In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`.
+In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`:
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -37,7 +37,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-The interface is impelemented by an actor, which uses the State Manager to store a `VoicemailBox` object:
+The interface is implemented by an actor that uses the state manager to store a `VoicemailBox` object:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -76,9 +76,9 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 In this example, the `VoicemailBox` object is serialized when:
 
 * The object is transmitted between an actor instance and a caller.
-* The object is saved in the State Manager where it is persisted to disk and replicated to other nodes.
+* The object is saved in the state manager where it is persisted to disk and replicated to other nodes.
 
-The Reliable Actor framework uses DataContract serialization. Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively
+The Reliable Actor framework uses DataContract serialization. Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively.
 
 ```csharp
 [DataContract]

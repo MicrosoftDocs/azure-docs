@@ -69,6 +69,11 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+
+1. Add the following `using` statement if not already present in the default statements.
+
+        using System.Threading.Tasks;
         
 1. Add the following fields to the **Program** class. Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.
    
@@ -226,7 +231,7 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update][lnk-fwupdate].
 
-To continue getting started with IoT Hub, see [Getting started with the IoT Gateway SDK][lnk-gateway-SDK].
+To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-gateway-SDK].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png

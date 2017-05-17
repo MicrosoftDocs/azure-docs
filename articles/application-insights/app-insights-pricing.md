@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 
 ---
 # Manage pricing and data volume in Application Insights
@@ -97,20 +97,18 @@ Application Insights charges are added to your Azure bill. You can see details o
 ## Data rate
 There are three ways in which the volume you send data is limited:
 
-* **Daily cap.** The maximum cap is 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day). When creating an Application Insights resource from the Azure portal this is set to its maximum. Use care when changing this, since hitting the cap will cause you to lose data for the remainder of the day. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade.
-* **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
-* **Throttling** limits the data rate to 32 k events per second, averaged over 1 minute. 
+* **Sampling:** This mechanism can be used reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics. This is the primary tool you have to tune the amount of data. Learn more about [sampling features](app-insights-sampling.md). 
+* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to faciliate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 500 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade (see below). Note that some subscription types have credit which cannot be used for Application Insights. If the subscription has a spending limit, the daily cap blade will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.  
+* **Throttling:** This limits the data rate to 32 k events per second, averaged over 1 minute. 
 
 
 *What happens if my app exceeds the throttling rate?*
 
-* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend, spreading a surge out over several minutes. If your app consistently sends data at above the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend in this way; other SDKs might simply drop throttled data.)
+* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend, spreading a surge out over several minutes. If your app consistently sends data at above the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend in this way; other SDKs might simply drop throttled data.) If throttling occurs, you'll see a notification warning that this has happened.
 
-If throttling occurs, you'll see a notification warning that this has happened.
+*How do I know how much data my app is sending?*
 
-*How do I know how many data points my app is sending?*
-
-* Open the Pricing blade to see the Data Volume chart.
+* Open the **Data volume management** blade to see the Daily data volume chart. 
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
 ## To reduce your data rate
@@ -128,7 +126,7 @@ You can use the daily volume cap to limit the data collected, but if the cap is 
 
 Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetery unexpectedly. 
 
-To change the daily cap, open **Features+pricing**, **Data management**.
+To change the daily cap, in the Configure section of your Application Insihgts resource, click **Data volume management** then **Daily Cap**.
 
 ![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 
@@ -147,10 +145,7 @@ To set ingestion sampling, set the control in the Pricing blade:
 ![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> The value shown on the Samples Retained tile indicates only the value you have set for ingestion sampling. It doesn't show the sampling rate that is operating at the SDK in your app. 
-> 
-> If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
-> 
+> The Data sampling blade only controls the value of ingestion sampling. It doesn't reflect the sampling rate that is being applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
 > 
 
 To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:

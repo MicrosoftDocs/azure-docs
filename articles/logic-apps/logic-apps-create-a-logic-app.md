@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jeffhollan; estfan; LADocs
+ms.author: LADocs; jehollan; estfan
 ---
 
 # Create your first logic app workflow to automate processes between cloud apps and cloud services
@@ -48,9 +48,9 @@ Also, this example requires these items:
 	> Otherwise, if you have an Azure work or school account, 
 	> you have an **Office 365 Outlook** account.
 
-* A link to a website's RSS feed. This example uses 
-the RSS feed for the [MSDN Channel 9 website](https://channel9.msdn.com/): 
-`https://s.ch9.ms/Feeds/RSS`
+* A link to a website's RSS feed. This example uses the 
+[RSS feed for top stories from the CNN.com website](http://rss.cnn.com/rss/cnn_topstories.rss): 
+`http://rss.cnn.com/rss/cnn_topstories.rss`
 
 ## Add a trigger that starts your workflow
 
@@ -107,8 +107,8 @@ this trigger: **RSS - When a feed item is published**
 	 These settings determine how often your logic app checks for 
 	 new items and returns all items found during that time span.
 
-	 For this example, let's check every day for new 
-	 items posted to the MSDN Channel 9 website.
+	 For this example, let's check every day for 
+     top stories posted to the CNN website.
 
 	 ![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 
@@ -209,15 +209,23 @@ choose **Logic Apps**. Select your logic app.
 
    In the logic app menu, you can find these logic app management tasks:
 
-   | Task | Steps |
-   | --- | --- |
-   | View your app's status, execution history, and general information | Choose **Overview**. |
-   | Edit your app | Choose **Logic App Designer**. |
-   | View your app's workflow JSON definition | Choose **Logic App Code View**. |
-   | View operations performed on your logic app | Choose **Activity log**. |
-   | View past versions for your logic app | Choose **Versions**. |
-   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. |
-   | Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete**. |
+   |Task|Steps| 
+   |:---|:---| 
+   | View your app's status, execution history, and general information| Choose **Overview**.| 
+   | Edit your app | Choose **Logic App Designer**. | 
+   | View your app's workflow JSON definition | Choose **Logic App Code View**. | 
+   | View operations performed on your logic app | Choose **Activity log**. | 
+   | View past versions for your logic app | Choose **Versions**. | 
+   | Turn off your app temporarily | Choose **Overview**, then on the command bar, choose **Disable**. | 
+   | Delete your app | Choose **Overview**, then on the command bar, choose **Delete**. Enter your logic app's name, and choose **Delete**. | 
+
+## Get help
+
+To ask questions, answer questions, and learn what other Azure Logic Apps users are doing, 
+visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
+[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
 
 ## Next steps
 

@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is API Management?](api-management-key-concepts.md)
 # Get started
 ## [Manage your first API](api-management-get-started.md)
@@ -45,8 +45,9 @@
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
 ### [Monitor using Azure Monitor](api-management-howto-use-azure-monitor.md)
+### [Use role-based access control](api-management-role-based-access-control.md)
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Policies](api-management-policies.md)

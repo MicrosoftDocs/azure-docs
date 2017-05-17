@@ -2,10 +2,11 @@
 title: Call, trigger, or nest workflows with HTTP endpoints - Azure Logic Apps | Microsoft Docs
 description: Set up HTTP endpoints to call, trigger, or nest workflows for Azure Logic Apps
 services: logic-apps
+keywords: workflows, HTTP endpoints
 author: jeffhollan
 manager: anneta
 editor: ''
-documentationcenter: .net,nodejs,java
+documentationcenter: ''
 
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
@@ -14,7 +15,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
-keywords: workflows, HTTP endpoints
 ms.date: 03/31/2017
 ms.author: jehollan; LADocs
 ---
@@ -346,6 +346,10 @@ the trigger name, and the operation that's performed.
 So unless someone has access to the secret logic app key, 
 they cannot generate a valid signature.
 
+   > [!NOTE]
+   > For production/secure systems, we strongly recommend against calling your Logic App directly from the browser due to the shared access key being included in the URL, and the inability to manage secure content policies due to domains being shared across Logic App customers.
+
+
 #### Q: Can I configure HTTP endpoints further?
 
 A: Yes, HTTP endpoints support more advanced configuration 
@@ -372,6 +376,19 @@ A: Here's a summary about these changes:
 | Configure relative path |Under **Show advanced options**, add a relative path |
 | Reference the incoming body through `@triggerOutputs().body.Content` |Reference through `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener |Click **Respond to HTTP request** (no API App required) |
+
+## Get help
+
+To ask questions, answer questions, and learn what other Azure Logic Apps users are doing, 
+visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
+To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
+[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
+## Next steps
+
+* [Author logic app definitions](./logic-apps-author-definitions.md)
+* [Handle errors and exceptions](./logic-apps-exception-handling.md)
 
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png

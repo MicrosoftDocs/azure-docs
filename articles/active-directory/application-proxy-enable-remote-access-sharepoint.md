@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 
 ---
@@ -39,7 +39,7 @@ This article assumes that you already have SharePoint 2013 or newer already set 
 
 Our customers want the best SSO experience for their back-end applications, SharePoint server in this case. In this common Azure AD scenario, the user is authenticated only once, because they will not be prompted for authentication again.
 
-For on-premises applications that require or use Windows authentication, you can achieve SSO by using the Kerberos authentication protocol and a feature called Kerberos constrained delegation (KCD). KCD, when configured, allows the Application Proxy connector to obtain a windows ticket/token for a user, even if the user hasn’t signed in to Windows directly. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/en-us/library/jj553400.aspx).
+For on-premises applications that require or use Windows authentication, you can achieve SSO by using the Kerberos authentication protocol and a feature called Kerberos constrained delegation (KCD). KCD, when configured, allows the Application Proxy connector to obtain a windows ticket/token for a user, even if the user hasn’t signed in to Windows directly. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx).
 
 To set up KCD for a SharePoint server, use the procedures in the following sequential sections.
 
@@ -59,7 +59,7 @@ To ensure that your sites are running under a defined service account, do the fo
 5. Select **Register new managed account**. After your account is created, you must set **Web Application Pool** before you can use the account.
 
 > [!NOTE]
-You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more information about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint 2013](https://technet.microsoft.com/EN-US/library/ff724280.aspx).
+You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more information about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint 2013](https://technet.microsoft.com/library/ff724280.aspx).
 
 ### Configure SharePoint for Kerberos
 
@@ -83,7 +83,7 @@ To configure your SharePoint site for Kerberos authentication:
 
 ### Set a service principal name for the SharePoint service account
 
-Before you configure the KCD, you need to identify the SharePoint service running as the service account that you've configured. You do this by setting an SPN. For more information, see [Service Principal Names](https://technet.microsoft.com/en-us/library/cc961723.aspx).
+Before you configure the KCD, you need to identify the SharePoint service running as the service account that you've configured. You do this by setting an SPN. For more information, see [Service Principal Names](https://technet.microsoft.com/library/cc961723.aspx).
 
 The SPN format is:
 
@@ -111,7 +111,7 @@ Then the SPN is:
 HTTP/ sharepoint.demo.o365identity.us demo
 ```
 
-You might also need to set SPNs for specific sites on your server. For more information, see [Configure Kerberos authentication](https://technet.microsoft.com/en-us/library/cc263449(v=office.12).aspx). Pay close attention to the section "Create Service Principal Names for your Web applications using Kerberos authentication."
+You might also need to set SPNs for specific sites on your server. For more information, see [Configure Kerberos authentication](https://technet.microsoft.com/library/cc263449(v=office.12).aspx). Pay close attention to the section "Create Service Principal Names for your Web applications using Kerberos authentication."
 
 The easiest way for you to set SPNs is to follow the SPN formats that may already be present for your sites. Copy those SPNs to register against the service account. To do this:
 
@@ -136,7 +136,7 @@ Klist then returns the set of target SPNs. In this example, the highlighted valu
 
  Replace _http/sharepoint.demo.o365identity.us_ with the SPN for your server and _demo\sp_svc_ with the service account in your environment. The Setspn command will search for the SPN before it adds it. In this case, you might see a **Duplicate SPN Value** error. If you see this error, make sure that the value is associated with the service account.
 
-You can verify that the SPN was added by running the Setspn command with the -l option. To learn more about this command, see [Setspn](https://technet.microsoft.com/en-us/library/cc731241.aspx).
+You can verify that the SPN was added by running the Setspn command with the -l option. To learn more about this command, see [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
 
 ### Ensure that the connector is set as a trusted delegate to SharePoint
 
@@ -216,6 +216,6 @@ Your last step to ensure that SharePoint can find the site based on the external
 
 ## Next steps
 
-[How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)<br>
-[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)<br>
-[Publishing SharePoint 2016 and Office Online Server with Azure AD Application Proxy](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)
+- [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
+- [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+- [Publishing SharePoint 2016 and Office Online Server with Azure AD Application Proxy](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)

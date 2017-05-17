@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/17/2017
+ms.date: 04/17/2017
 ms.author: spelluru
 
 ---
@@ -37,7 +37,7 @@ In this article, you use an Azure Resource Manager template to create your first
 
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
-* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install latest version of Azure PowerShell on your computer.
+* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer.
 * See [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
@@ -138,7 +138,6 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
                     "clusterSize": 1,
-                    "version": "3.2",
                     "timeToLive": "00:05:00",
                     "osType": "windows",
                     "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
@@ -416,7 +415,6 @@ See [Compute linked services](data-factory-compute-linked-services.md#azure-hdin
   		"type": "HDInsightOnDemand",
   		"typeProperties": {
     		"clusterSize": 1,
-    		"version": "3.2",
     		"timeToLive": "00:05:00",
     		"osType": "windows",
     		"linkedServiceName": "[variables('azureStorageLinkedServiceName')]"

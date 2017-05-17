@@ -26,7 +26,9 @@ Whereas [Azure Status](https://status.azure.com) informs you about service issue
 ## What is considered a resource and how does resource health decides if a resource is healthy or not?
 A resource is an instance of a resource type offered by an Azure service through Azure Resource Manager, for example: a virtual machine, a web app, or a SQL database.
 
-Resource health relies on signals emitted by the different Azure services to assess if a resource is healthy or not. If a resource is unhealthy, resource health analyzes additional information to determine the source of the problem. It also identifies actions Microsoft is taking to fix the issue or what actions you can take to address the cause of the problem.
+Resource health relies on signals emitted by the different Azure services to assess if a resource is healthy or not. If a resource is unhealthy, resource health analyzes additional information to determine the source of the problem. It also identifies actions Microsoft is taking to fix the issue or what actions you can take to address the cause of the problem. 
+
+Review the full list of resource types and health checks in [Azure resource health](resource-health-checks-resource-types.md) for additional details on how health is assessed.
 
 ## Health status provided by resource health
 The health of a resource is one of the following statuses:
@@ -76,7 +78,7 @@ To open Resource health for one resource
 
 ![Open Resource health from Resource blade](./media/resource-health-overview/from-resource-blade.png)
 
-You can also access resource health by clicking on **More services**, and typing **resource health** in filter text box to open the **Help + Support** blade. Finally click on **Resource health**.
+You can also access resource health by clicking **More services**, and typing **resource health** in filter text box to open the **Help + Support** blade. Finally click [**Resource health**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
 ![Open Resource health from More service](./media/resource-health-overview/FromOtherServices.png)
 

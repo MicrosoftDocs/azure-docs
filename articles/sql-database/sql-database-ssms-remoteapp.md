@@ -8,7 +8,7 @@ manager: jhubbard
 
 ms.assetid: 1052c83c-e7f5-4736-922f-216194d8874b
 ms.service: sql-database
-ms.custom: overview
+ms.custom: manage-how-to
 ms.workload: data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -55,11 +55,11 @@ Use the "Windows Server Remote Desktop Session Host Windows Server 2012 R2" Imag
 
 ### 2. Install SSMS from SQL Express
 Go onto the new VM and navigate to this download page:
-[Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/en-us/download/details.aspx?id=42299)
+[Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/download/details.aspx?id=42299)
 
 There is an option to only download SSMS. After download, go into the install directory and run Setup to install SSMS.
 
-You also need to install SQL Server 2014 Service Pack 1. You can download it here: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/en-us/download/details.aspx?id=46694)
+You also need to install SQL Server 2014 Service Pack 1. You can download it here: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/download/details.aspx?id=46694)
 
 SQL Server 2014 Service Pack 1 includes essential functionality for working with Azure SQL Database.
 
