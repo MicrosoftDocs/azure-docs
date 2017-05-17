@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Instrument web apps at runtime with Application Insights

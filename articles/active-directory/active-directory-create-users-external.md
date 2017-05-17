@@ -69,7 +69,7 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 * **Dynamics CRM**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics CRM.
 * **Dynamics AX**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics AX. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) apply to external users in Dynamics AX as well.
 
-## What's next
+## Next steps
 * [Add new users to Azure Active Directory](active-directory-create-users.md)
 * [Administering Azure AD](active-directory-administer.md)
 * [Manage passwords in Azure AD](active-directory-manage-passwords.md)

@@ -4,7 +4,7 @@ description: Analytics queries can be displayed in Power BI.
 services: application-insights
 documentationcenter: ''
 author: noamben
-manager: douge
+manager: carmonm
 
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Feed Power BI from Application Insights
