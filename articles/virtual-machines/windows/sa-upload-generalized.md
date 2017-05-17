@@ -20,26 +20,20 @@ ms.author: cynthn
 ---
 
 ## Upload a Windows VHD from an on-premises VM to Azure
-This article shows you how to create and upload a Windows virtual hard disk (VHD) to be used in creating an Azure Vm. You can upload a VHD from either a generalized VM or a specialized VM. 
+This article shows you how to create and upload a Windows virtual hard disk (VHD) to be used in creating an Azure VM. 
 
-For a complete walk-through of how to prepare, upload and create a new VM using managed disks, see [Create a new VM from a generalized VHD uploaded to Azure using Managed Disks](upload-generalized-managed.md) or [Upload a specialized VHD to create a VM in Azure](upload-specialized.md).
+This document covers using storage accounts. We recommend that use Managed Disks instead of storage accounts. For a complete walk-through of how to prepare, upload and create a new VM using managed disks, see [Create a new VM from a generalized VHD uploaded to Azure using Managed Disks](upload-generalized-managed.md).
 
 For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Prepare the VM
-You can upload both generalized and specialized VHDs to Azure. Each type requires that you prepare the VM before starting.
 
-* **Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should:
+A generalized VHD has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should:
   
-  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-  * [Generalize the virtual machine using Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-* **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
-  
-  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
-  * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
-  * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). 
+  * Generalize the virtual machine using Sysprep
 
-## Generalize a Windows virtual machine using Sysprep
+### Generalize a Windows virtual machine using Sysprep
 This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)

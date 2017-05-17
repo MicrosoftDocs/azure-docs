@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/17/2017
 ms.author: cynthn
 
 ---
@@ -95,7 +95,8 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
     ```
 
 ## Create the image
-1. Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` parameter saves a copy of the JSON template locally. The `-DestinationContainerName` parameter is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
+
+Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` parameter saves a copy of the JSON template locally. The `-DestinationContainerName` parameter is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
    
     ```powershell
     Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
