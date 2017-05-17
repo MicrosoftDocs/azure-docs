@@ -33,7 +33,7 @@ You should think about the [intents](luis-concept-intent.md) that are important 
 ## Identify your entities
 To book a flight, you need some information like the destination, date, airline, ticket category and travel class. You can add these as [entities](luis-concept-entity-types.md) because they are important for accomplishing an intent. 
 
-When determine which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between types of objects. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
+When you determine which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between types of objects. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
 
 ### Simple entity
 A simple entity describes a single concept.

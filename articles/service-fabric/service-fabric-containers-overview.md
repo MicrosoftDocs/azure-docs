@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/15/2017
+ms.date: 5/16/2017
 ms.author: msfussell
 
 ---
 # Service Fabric and containers
 > [!NOTE]
-> This feature is in preview for Linux and Windows Server 2016. 
+> This feature is in preview for Linux . 
 >   
 
 ## Introduction
