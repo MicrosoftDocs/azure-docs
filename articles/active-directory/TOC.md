@@ -1,8 +1,9 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-
-## [About Azure identity management](identity-fundamentals.md)
+## [About Azure identity management](fundamentals-identity.md)
+## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
+## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -91,16 +92,17 @@
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 ###	Programmatic Access
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
-#### [Audit samples](active-directory-reporting-api-audit-samples.md)
-#### [Get data](active-directory-reporting-api-with-certificates.md)
-#### [Prerequisites](active-directory-reporting-api-prerequisites.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [Audit samples](active-directory-reporting-api-audit-samples.md)
 #### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
+#### [Get data](active-directory-reporting-api-with-certificates.md)
 ### [Classic portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD reporting](active-directory-reporting-getting-started.md)
 #### [Reporting guide](active-directory-reporting-guide.md)
 #### [Known networks](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
+##### [Prerequisites](active-directory-reporting-api-prerequisites.md)
 #### [Audit events](active-directory-reporting-audit-events.md)
 #### [Latencies](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -330,6 +332,7 @@
 #### [Sign-in experience](active-directory-identityprotection-flows.md)
 #### [Simulate risk events](active-directory-identityprotection-playbook.md)
 #### [Unblock users](active-directory-identityprotection-unblock-howto.md)
+#### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
