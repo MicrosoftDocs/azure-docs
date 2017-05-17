@@ -120,7 +120,7 @@ In this section, you create a .NET console app that connects to your hub as **my
         using Microsoft.Azure.Devices.Shared;
         using Newtonsoft.Json;
 
-1. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
+1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section.
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
