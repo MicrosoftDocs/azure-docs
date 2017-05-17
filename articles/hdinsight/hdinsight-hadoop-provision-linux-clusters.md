@@ -53,7 +53,9 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 * [Cluster login and SSH username](#cluster-login-and-ssh-username)
 * [Location](#location)
 
+
 ## Resource group name 
+
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 * Location
 
@@ -84,6 +86,7 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 | HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+
 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -324,6 +327,7 @@ The following tables list the default virtual machine (VM) sizes for HDInsight:
 
 > [!NOTE]
 > Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
+
 
 ## Troubleshoot access control issues
 
