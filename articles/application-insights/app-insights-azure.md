@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights for Microsoft Azure apps
