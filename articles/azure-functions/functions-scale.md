@@ -80,7 +80,7 @@ The Consumption plan automatically scales CPU and memory resources by adding add
 When using the Consumption hosting plan, function code files are stored on Azure Files shares on the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
 > [!NOTE]
-> When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute delay in processing new blobs. Once the Function App is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
+> When using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a Function App has gone idle. Once the Function App is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
 > - Use an App Service Plan with Always On enabled.
 > - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob  name. For an example, see [queue trigger with blob input binding](functions-bindings-storage-blob.md#input-sample).
 
