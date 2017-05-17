@@ -23,24 +23,26 @@ ms.author: jgao
 
 To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
+Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Store as the default files system with a few exceptions. For the supportability of using Data Lake Store as both the default and linked storage, see [Availabilities for HDInsight cluster](#availabilities-for-hdinsight-clusters]).
+
 In this article, you learn how Data Lake Store works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Hadoop in Azure HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 
 > [!NOTE]
-> Azure Data Lake Store is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
+> Data Lake Store is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
 > 
 > 
 
 ## Availabilities for HDInsight clusters
 
-Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. HDInsight clusters can use Azure Data Lake Store in two ways:
+Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. HDInsight clusters can use Data Lake Store in two ways:
 
-* Azure Data Lake Store as the default storage
-* Azure Data Lake Store as additional storage, with Azure Storage Blob as default storage.
+* Data Lake Store as the default storage
+* Data Lake Store as additional storage, with Azure Storage Blob as default storage.
 
 As of now, only some of the HDInsight cluster types/versions support using Data Lake Store as default storage and additional storage accounts:
 
-| HDInsight cluster type | Data Lake Store as default storage | Data Lake Store as additional storage| Note |
+| HDInsight cluster type | Data Lake Store as default storage | Data Lake Store as additional storage| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight version 3.5 | Yes | Yes | |
 | HDInsight version 3.4 | No | Yes | |
@@ -55,13 +57,13 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.
 
 
-## Use Azure Data Lake Store as default storage
+## Use Data Lake Store as default storage
 
-When HDInsight is deployed with Azure Data Lake Store as default storage, the cluster-related files are stored in Azure Data Lake store in the following location:
+When HDInsight is deployed with Data Lake Store as default storage, the cluster-related files are stored in Data Lake Store in the following location:
 
 	adl://mydatalakestore/<cluster_root_path>/
 
-where `<cluster_root_path>` is the name of a folder you create in Azure Data Lake Store. By specifying a root path for each cluster, you can use the same Azure Data Lake Store account for more than one cluster. So, you can have a setup where:
+where `<cluster_root_path>` is the name of a folder you create in Data Lake Store. By specifying a root path for each cluster, you can use the same Data Lake Store account for more than one cluster. So, you can have a setup where:
 
 * Cluster1 can use the path `adl://mydatalakestore/cluster1storage`
 * Cluster2 can use the path `adl://mydatalakestore/cluster2storage`
@@ -73,9 +75,9 @@ Notice that both the clusters use the same Data Lake Store account **mydatalakes
 To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate, as described at Create a service principal with certificate.
 
 
-## Use Azure Data Lake Store as additional storage
+## Use Data Lake Store as additional storage
 
-You can use Data Lake Store as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Storage Blob or an Azure Data Lake Store account. If you are running HDInsight jobs against the data stored in Azure Data Lake Store as additional storage, you must use the fully-qualified path to the files. For example:
+You can use Data Lake Store as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Storage Blob or an Data Lake Store account. If you are running HDInsight jobs against the data stored in Data Lake Store as additional storage, you must use the fully-qualified path to the files. For example:
 
 	adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -89,7 +91,7 @@ Adding a Data Lake Store account as additional and adding more than one Data Lak
 
 ## Access files from the cluster
 
-There are a number of ways you can access the files in Azure Data Lake Store from an HDInsight cluster.
+There are a number of ways you can access the files in Data Lake Store from an HDInsight cluster.
 
 * **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
 
