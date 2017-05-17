@@ -233,4 +233,4 @@ To learn about how to use the Azure IoT Edge, see the following articles:
 [lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
-[lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
