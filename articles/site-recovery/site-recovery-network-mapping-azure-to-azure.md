@@ -59,9 +59,41 @@ If the network mapping is already done, you can't change the target virtual netw
 ![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
 
 > [!IMPORTANT]
-> If you modify a network mapping from region-1 to region-2, make sure you modify the network mapping for region-2 to region-1 as well. 
+> If you modify a network mapping from region-1 to region-2, make sure you modify the network mapping from region-2 to region-1 as well. 
 >
 > 
+
+
+## Subnet selection
+Subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If there is a subnet of the same name as that of the source virtual machine available in the target network, then that is chosen for the target virtual machine. If there is no subnet with the same name in the target network then alphabetically, first subnet is chosen. You can modify this subnet by going to Compute and Network settings of the virtual machine. 
+
+![Modify Subnet](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+
+
+## IP address 
+
+IP address for each of the network interface of the target virtual machine is chosen as following:
+
+### DHCP
+If the network interface of the source virtual machine is using DHCP then network interface of the target virtual machine is also set as DHCP.
+
+### Static IP
+If the network interface of the source virtual machine is using Static IP then network interface of the target virtual machine is also set to use Static IP. Static IP is chosen as following:
+
+#### Same address space
+
+If the source subnet and the target subnet have the same address space, then target IP is set same as the IP of  the network interface of the source virtual machine. If same IP is not available, then some other available IP is set as the target IP. 
+
+#### Different address space
+
+If the source subnet and the target subnet have different address space, then target IP is set as as any available IP in the target subnet.
+
+You can modify the target IP on each network interface by going to Compute and Network settings of the virtual machine. 
+
+
+ 
+
+
 
 
 
