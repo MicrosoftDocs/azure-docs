@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 05/17/2017
 ms.author: ryanwi, mikhegn
 
 ---
