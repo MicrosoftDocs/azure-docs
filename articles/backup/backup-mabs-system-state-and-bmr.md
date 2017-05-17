@@ -1,5 +1,4 @@
 ---
-
 title:  Azure Backup Server protects system state and restores to bare metal | Microsoft Docs
 description: Use Azure Backup Server to back up your system state and provide bare metal recovery (BMR) protection.
 services: backup
@@ -15,7 +14,7 @@ ms.targetplatform: na
 ms.devlang: na
 ms.topic:  article
 ms.date: 05/15/2017
-ms.author: markgal;masaran
+ms.author: markgal,masaran
 ---
 
 # Back up system state and restore to bare metal with Azure Backup Server
@@ -32,7 +31,7 @@ Azure Backup Server backs up system state and provides bare metal recovery (BMR)
 
     -   Machine running certificate services: Additionally backs up certificate data
 
--   **Bare metal backup**: Backs up operating system files and all data except user data on critical volumes. By definition a BMR backup includes a system state backup. Provides protection when a machine won't start and you have to recover everythin.
+-   **Bare metal backup**: Backs up operating system files and all data except user data on critical volumes. By definition a BMR backup includes a system state backup. Provides protection when a machine won't start and you have to recover everything.
 
 This table summarizes what you can back up and recover. You can see detailed information about app versions that can be protected with system state and BMR in [What can Azure Backup Server back up?](backup-mabs-protection-matrix.md)
 
@@ -227,6 +226,8 @@ Run Windows Server Backup
 
 4.  In **Confirmation** click **Recover**. You'll need to restart the server after the restore.
 
-5.  You can also run a system state restore from the command line. To do this start Windows Server Backup on the machine you want to recover. From a command prompt type: **wbadmin get versions -backuptarget <servername\sharename>** to get the version identifier.
+5.  You can run the system state restore from the command line. To do this start Windows Server Backup on the machine you want to recover. From a command prompt type:
+  ```wbadmin get versions -backuptarget <servername\sharename>```
+  to get the version identifier.
 
     Use the version identifier to start system state restore. At the command line type: **wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>** Confirm that you want to start the recovery. You can see the process in the command window. A restore log is created. You'll need restart the server after the restore.
