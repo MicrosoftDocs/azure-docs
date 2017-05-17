@@ -1,6 +1,6 @@
 ---
-title: Create Azure HDInsight (Hadoop) using cURL and REST | Microsoft Docs
-description: Learn how to create HDInsight clusters using cURL, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components.
+title: Create HDInsight (Hadoop) using Azure REST API | Microsoft Docs
+description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/17/2017
+ms.date: 05/17/2017
 ms.author: larryfr
 
 ---
-# Create HDInsight clusters using cURL and the Azure REST API
+# Create Hadoop clusters using the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -28,32 +28,16 @@ Learn how to create an HDInsight cluster using an Azure Resource Manager templat
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-## Prerequisites
-
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-* **Azure CLI 2.0** (preview). The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API. For more information on the Azure CLI 2.0 preview, see [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-
-* **cURL**. This utility is available through your package management system, or can be downloaded from [http://curl.haxx.se/](http://curl.haxx.se/).
-
-  > [!NOTE]
-  > If you are using PowerShell to run the commands in this document, you must first remove the `curl` alias that it creates by default. This alias uses Invoke-WebRequest instead of cURL. If you do not remove this alias, you may receive errors with some of the commands used in this document.
-  >
-  > To remove this alias, use the following command from the PowerShell prompt:
-  >
-  > `Remove-item alias:curl`
-  >
-  > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
+> [!NOTE]
+> The steps in this document use the [curl (https://curl.haxx.se/)](https://curl.haxx.se/) utility to communicate with the Azure REST API.
 
 ## Create a template
 
 Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define the resources that you need for HDInsight in one template.
 
-The following is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
+The following JSON document is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
 
    ```json
    {
@@ -62,22 +46,6 @@ The following is a merger of the template and parameters files from [https://git
                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                "contentVersion": "1.0.0.0",
                "parameters": {
-                   "location": {
-                       "type": "string",
-                       "allowedValues": ["Central US",
-                       "East Asia",
-                       "East US",
-                       "Japan East",
-                       "Japan West",
-                       "North Europe",
-                       "South Central US",
-                       "Southeast Asia",
-                       "West Europe",
-                       "West US"],
-                       "metadata": {
-                           "description": "The location where all azure resources are deployed."
-                       }
-                   },
                    "clusterType": {
                        "type": "string",
                        "allowedValues": ["hadoop",
@@ -139,7 +107,7 @@ The following is a merger of the template and parameters files from [https://git
                "resources": [{
                    "name": "[parameters('clusterStorageAccountName')]",
                    "type": "Microsoft.Storage/storageAccounts",
-                   "location": "[parameters('location')]",
+                   "location": "[resourceGroup().location]",
                    "apiVersion": "[variables('defaultApiVersion')]",
                    "dependsOn": [],
                    "tags": {
@@ -152,7 +120,7 @@ The following is a merger of the template and parameters files from [https://git
                {
                    "name": "[parameters('clusterName')]",
                    "type": "Microsoft.HDInsight/clusters",
-                   "location": "[parameters('location')]",
+                   "location": "[resourceGroup().location]",
                    "apiVersion": "[variables('clusterApiVersion')]",
                    "dependsOn": ["[concat('Microsoft.Storage/storageAccounts/',parameters('clusterStorageAccountName'))]"],
                    "tags": {
@@ -218,9 +186,6 @@ The following is a merger of the template and parameters files from [https://git
            },
            "mode": "incremental",
            "Parameters": {
-               "location": {
-                   "value": "North Europe"
-               },
                "clusterName": {
                    "value": "newclustername"
                },
@@ -302,15 +267,17 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
 
 Use the following command to retrieve an authentication token:
 
-    curl -X "POST" "https://login.microsoftonline.com/TenantID/oauth2/token" \
+    ```bash
+    curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
     -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
     -H "Content-Type: application/x-www-form-urlencoded" \
-    --data-urlencode "client_id=AppID" \
+    --data-urlencode "client_id=$APPID" \
     --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_secret=password" \
+    --data-urlencode "client_secret=$PASSWORD" \
     --data-urlencode "resource=https://management.azure.com/"
+    ```
 
-    Replace **TenantID**, **AppID**, and **password** with the values obtained or used previously.
+    Set `$TENANTID`, `$APPID`, and `$PASSWORD` to the values obtained or used previously.
 
     If this request is successful, you receive a 200 series response and the response body contains a JSON document.
 
@@ -330,17 +297,17 @@ Use the following command to retrieve an authentication token:
 
 Use the following to create a resource group.
 
-* Replace **SubscriptionID** with the subscription ID received while creating the service principal.
-* Replace **AccessToken** with the access token received in the previous step.
-* Replace **DataCenterLocation** with the data center you wish to create the resource group, and resources, in. For example, 'South Central US'.
-* Replace **ResourceGroupName** with the name you wish to use for this group:
+* Set `$SUBSCRIPTIONID` to the subscription ID received while creating the service principal.
+* Set `$ACCESSTOKEN` to the access token received in the previous step.
+* Replace `DATACENTERLOCATION` with the data center you wish to create the resource group, and resources, in. For example, 'South Central US'.
+* Set `$RESOURCEGROUPNAME` to the name you wish to use for this group:
 
 ```bash
-curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
+curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
+    -H "Authorization: Bearer $ACCESSTOKEN" \
     -H "Content-Type: application/json" \
     -d $'{
-"location": "DataCenterLocation"
+"location": "DATACENTERLOCATION"
 }'
 ```
 
@@ -350,41 +317,36 @@ If this request is successful, you receive a 200 series response and the respons
 
 Use the following command to deploy the template to the resource group.
 
-* Replace **SubscriptionID** and **AccessToken** with the values used previously.
-* Replace **ResourceGroupName** with the resource group name you created in the previous section.
-* Replace **DeploymentName** with the name you wish to use for this deployment.
+* Set `$DEPLOYMENTNAME` to the name you wish to use for this deployment.
 
 ```bash
-curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
--H "Authorization: Bearer AccessToken" \
+curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
+-H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json" \
 -d "{set your body string to the template and parameters}"
 ```
 
 > [!NOTE]
-> If you saved the teplate to a file, you can use the following command instead of `-d "{ template and parameters}"`:
+> If you saved the template to a file, you can use the following command instead of `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the deployment operation.
 
 > [!IMPORTANT]
-> The deployment has been submitted, but has not completed at this time. It can take several minutes, usually around 15, for the deployment to complete.
+> The deployment has been submitted, but has not completed. It can take several minutes, usually around 15, for the deployment to complete.
 
 ## Check the status of a deployment
 
 To check the status of the deployment, use the following command:
 
-* Replace **SubscriptionID** and **AccessToken** with the values used previously.
-* Replace **ResourceGroupName** with the resource group name you created in the previous section.
-
 ```bash
-curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
--H "Authorization: Bearer AccessToken" \
+curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
+-H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json"
 ```
 
-This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this contains a value of `"Succeeded"`, then the deployment has completed successfully.
+This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this element contains a value of `"Succeeded"`, then the deployment has completed successfully.
 
 ## Troubleshoot
 
