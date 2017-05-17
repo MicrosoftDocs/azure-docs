@@ -35,9 +35,9 @@ You can change [service tiers](concepts-service-tiers.md) at any time with virtu
 ## Configuring Storage
 The Storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server.  Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the Storage configuration.
 
-Each service tier starts with a fixed amount of included storage as described in the following table. 
+Each service tier starts with a fixed amount of included storage as described in the following table.
 
-Additional storage capacity can be added when a new server is created, in increments of 125 GB, up to the maximum allowed storage as described in the following table. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
+Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage as described in the following table. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 
 | **Service tier features** | **Basic** | **Standard** |
 |---------------------------|-----------|--------------|
@@ -46,9 +46,9 @@ Additional storage capacity can be added when a new server is created, in increm
 | Storage IOPS guarantee | N/A | Yes |
 | Maximum storage IOPS | N/A | 3,000 |
 
-Basic tier does not provide any IOPS guarantee. Standard tier provides a provisioned IOPS guarantee, and is fixed to 3 times the provisioned storage.  For example, in standard tier, selecting 125 GB of storage capacity provides 375 IOPS available to your server. 
+Basic tier does not provide any IOPS guarantee. Standard tier provides a provisioned IOPS guarantee, and is fixed to three times the provisioned storage.  For example, in standard tier, selecting 125 GB of storage capacity provides 375 IOPS available to your server. 
 
-Use the Metrics graph in the Azure portal or write Azure CLI commands to monitor the consumption of storage and IOPS. Metrics include Storage limit, Storage percentage, Storage used, and IO percent.
+Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
 
 >[!IMPORTANT]
 > Once provisioned, Storage cannot be dynamically scaled down.
@@ -58,7 +58,7 @@ If you are looking to migrate an existing PostgreSQL server running on-premise o
 
 If your existing on-premise or virtual machine server is currently utilizing 4 cores (without counting CPU hyperthread), start by configuring 400 Compute Units in your Azure Database for PostgreSQL server. Compute Units can be dynamically scaled up or down depending on your workload needs with virtually no application downtime. 
 
-Use the Metrics graph in the Azure portal or write Azure CLI commands to monitor the Compute Unit percentage and Compute Unit limit metrics.
+Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure compute units. Relevant metrics to monitor are the Compute Unit percentage and Compute Unit limit.
 
 >[!IMPORTANT]
 > If you find storage IOPS are not fully utilized to the maximum, consider monitoring the compute units utilization as well. Raising the Compute Units may allow for higher IO throughput by lessening the performance bottleneck due to limited CPU or memory.
@@ -71,5 +71,4 @@ If your workload reaches the maximum limits in either the Compute Units or provi
 If your workload reaches the maximum limits on number of connections, explicit errors are raised. See [Limitations in Azure Database for PostgreSQL](concepts-limits.md) for more information on resources limits.
 
 ## Next steps
-- See [Azure Database for PostgreSQL service tiers](./concepts-service-tiers.md) for information on the Compute Units and Storage Units available for single servers.
-
+- For more information on Compute Units and Storage, see [Azure Database for PostgreSQL service tiers](./concepts-service-tiers.md).
