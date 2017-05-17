@@ -38,7 +38,9 @@ To complete this tutorial you need the following:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+
+If you want to create the device identity programmatically instead, read the corresponding section in the [Connect your simulated device to your IoT hub using .NET][lnk-device-identity-csharp] article.
 
 ## Create the service app
 In this section, you create a .NET console app (using C#) that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reported a cellular connection.
@@ -124,18 +126,38 @@ In this section, you create a .NET console app that connects to your hub as **my
         static DeviceClient Client = null;
 
 1. Add the following method to the **Program** class:
+
+       public static async void InitClient()
+        {
+            try
+            {
+                Console.WriteLine("Connecting to hub");
+                Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
+                Console.WriteLine("Retrieving twin");
+                await Client.GetTwinAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+        }
+
+    The **Client** object exposes all the methods you require to interact with device twins from the device. The code shown above, initializes the **Client** object, and then retrieves the device twin for **myDeviceId**.
+
+1. Add the following method to the **Program** class:
    
-        public static async Task ReportConnectivity()
+        public static async void ReportConnectivity()
         {
             try
             {
                 Console.WriteLine("Sending connectivity data as reported property");
+                
                 TwinCollection reportedProperties, connectivity;
                 reportedProperties = new TwinCollection();
                 connectivity = new TwinCollection();
                 connectivity["type"] = "cellular";
                 reportedProperties["connectivity"] = connectivity;
-                
                 await Client.UpdateReportedPropertiesAsync(reportedProperties);
             }
             catch (Exception ex)
@@ -145,20 +167,14 @@ In this section, you create a .NET console app that connects to your hub as **my
             }
         }
 
-   The **Client** object exposes all the methods you require to interact with device twins from the device. The code shown above, initializes the **Client** object, then retrieves the device twin for **myDeviceId** and finally updates its reported property with the connectivity information.
+   The code above updates **myDeviceId**'s reported property with the connectivity information.
+
 1. Finally, add the following lines to the **Main** method:
    
        try
        {
-            Console.WriteLine("Connecting to hub");
-            Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
-
-            Console.WriteLine("Retrieving twin");
-            var twinTask = Client.GetTwinAsync();
-            twinTask.Wait();
-            var twin = twinTask.Result;
-
-            ReportConnectivity().Wait();
+            InitClient();
+            ReportConnectivity();
        }
        catch (Exception ex)
        {
@@ -202,6 +218,7 @@ Use the following resources to learn how to:
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 
+[lnk-device-identity-csharp]: iot-hub-csharp-csharp-getstarted.md#DeviceIdentity_csharp
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-twins]: iot-hub-devguide-device-twins.md
