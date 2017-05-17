@@ -122,13 +122,13 @@ Before you run the sample, add your Batch and Storage account credentials to *py
 # for the Batch and Storage client objects.
 
 # Batch account credentials
-batch_account_name = "";
-batch_account_key  = "";
-batch_account_url  = "";
+batch_account_name = ""
+batch_account_key  = ""
+batch_account_url  = ""
 
 # Storage account credentials
-storage_account_name = "";
-storage_account_key  = "";
+storage_account_name = ""
+storage_account_key  = ""
 ```
 
 You can find your Batch and Storage account credentials within the account blade of each service in the [Azure portal][azure_portal]:
