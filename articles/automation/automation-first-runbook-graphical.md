@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/06/2016
+ms.date: 05/17/2017
 ms.author: magoedte;bwren
 
 ---
@@ -33,7 +33,7 @@ This tutorial walks you through the creation of a [graphical runbook](automation
 To complete this tutorial, you will need the following.
 
 * Azure subscription.  If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
-* [Azure Run As Account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* [Azure Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine.  We will stop and start this machine so it should not be production.
 
 ## Step 1 - Create new runbook
@@ -41,7 +41,7 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure Portal, open your Automation account.  
    The Automation account page gives you a quick view of the resources in this account.  You should already have some Assets.  Most of those are the modules that are automatically included in a new Automation account.  You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
-2. Click on the **Runbooks** tile to open the list of runbooks.<br> ![Runbooks control](media/automation-first-runbook-graphical/runbooks-control.png)
+2. Click on the **Runbooks** tile to open the list of runbooks.<br> ![Runbooks control](media/automation-first-runbook-graphical/runbooks-resources-tile.png)
 3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
 4. Give the runbook the name *MyFirstRunbook-Graphical*.
 5. In this case, we're going to create a [graphical runbook](automation-graphical-authoring-intro.md) so select **Graphical** for **Runbook type**.<br> ![New runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
@@ -110,8 +110,8 @@ Now that we have a variable to hold our subscription ID, we can configure our ru
 7. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to **Add-AzureRmAccount**.  The arrow that you just created is a *link*.  The runbook will start with **Get Run As Connection** and then run **Add-AzureRmAccount**.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 8. On the canvas, select **Add-AzureRmAccount** and in the Configuration control pane type **Login to Azure** in the **Label** textbox.
 9. Click **Parameters** and the Activity Parameter Configuration blade appears.
-10. **Add-AzureRmAccount** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **ServicePrincipalCertificate** parameter set.
-11. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade.  Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
+10. **Add-AzureRmAccount** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **ServicePrincipalCertificatewithSubscription** parameter set.
+11. Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade.  Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
 12. In the Parameter Value blade, select **Activity output** for the **Data source** and select **Get Run As Connection** from the list, in the **Field path** textbox type **ApplicationId**, and then click **OK**.  We are specifying the name of the property for the Field path because the activity outputs an object with multiple properties.
 13. Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**.
 14. Click **SERVICEPRINCIPAL**, and in the Parameter Value blade, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
