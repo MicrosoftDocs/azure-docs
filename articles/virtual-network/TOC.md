@@ -17,17 +17,13 @@
 ### [Network security groups](virtual-networks-nsg.md)
 
 ## Deploy
-### Virtual networks (VNets)
-#### [Create, change, or delete VNets](virtual-network-manage-network.md)
-#### [Create, change, or delete subnets](virtual-network-manage-subnet.md)
-#### [Create a VNet - multiple subnets](virtual-networks-create-vnet-arm-pportal.md) 
+### [Virtual networks](virtual-networks-create-vnet-arm-pportal.md)
 ##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 ##### [CLI](virtual-networks-create-vnet-arm-cli.md)
 ##### [Template](virtual-networks-create-vnet-arm-template-click.md)
-#### Create a VNet - multiple subnets (Classic)
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+##### [Portal (classic)](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell (classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI (classic)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Network security groups
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -110,6 +106,9 @@
 ### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## Manage
+### [Virtual networks](virtual-network-manage-network.md)
+#### [Subnets](virtual-network-manage-subnet.md)
+#### [Peerings](virtual-network-manage-peering.md)
 ### Network security groups
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
