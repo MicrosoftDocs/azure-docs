@@ -29,6 +29,7 @@ Update 0.6 corresponds to the software version **10.0.10292.0**.
 
 > [!NOTE]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 0.6](storsimple-virtual-array-install-update-06.md).
+>
 >  - Update 0.6 is a critical update as it contains security fixes. We recommend that you install this update immediately.
 
 
