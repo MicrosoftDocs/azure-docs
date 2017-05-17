@@ -144,7 +144,7 @@ Complete one of the following tutorials to peer VNets in the same Azure location
 |Peer VNets created through Resource Manager that both exist in the same subscription|[Portal](virtual-networks-create-vnetpeering-arm-portal.md#peering-vnets-in-the-same-subscription), [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md#peering-vnets-in-the-same-subscription)|
 |Peer VNets created through Resource Manager that exist in different subscriptions|[Portal](virtual-networks-create-vnetpeering-arm-portal.md#a-namex-subapeering-across-subscriptions), [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md#a-namex-subapeering-across-subscriptions)|
 |Peer a VNets created through different deployment models|[Portal](virtual-networks-create-vnetpeering-arm-portal.md#a-namex-modelapeering-virtual-networks-created-through-different-deployment-models), [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md#a-namex-modelapeering-virtual-networks-created-through-different-deployment-models)|
-|Create a hub and spoke network with peering|[Multiple](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)|
+|Create a hub and spoke network topology|[Multiple](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)|
 
 
 

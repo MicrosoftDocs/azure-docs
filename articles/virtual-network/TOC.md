@@ -45,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Template](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Network interfaces (NICs)
-#### [Create, change, or delete NICs](virtual-network-network-interface.md)
-#### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
-
 ### [Public IP addresses](virtual-network-public-ip-address.md)
 
 ### Virtual machines
-#### [Add or remove network interfaces](virtual-network-network-interface-vm.md) 
 #### Create a VM with a static public IP address
 ##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -99,11 +94,15 @@
 ##### [Sample application](virtual-networks-sample-app.md)
 
 ## Configure
-### [Optimize VM network throughput](virtual-network-optimize-network-bandwidth.md)
+
 ### Access control lists
 #### [Classic portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### Virtual machines
+#### [Add or remove network interfaces](virtual-network-network-interface-vm.md)
+#### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Optimize network throughput](virtual-network-optimize-network-bandwidth.md)
+#### [View and modify hostnames](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Manage
 ### [Virtual networks](virtual-network-manage-network.md)
@@ -114,8 +113,10 @@
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Logs](virtual-network-nsg-manage-log.md)
+### Network interfaces (NICs)
+#### [Create, change, or delete NICs](virtual-network-network-interface.md)
+#### [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md)
 ### Virtual machines
-#### [View and modify hostnames](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Troubleshoot
