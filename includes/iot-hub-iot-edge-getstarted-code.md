@@ -226,11 +226,11 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 To learn about how to use the Azure IoT Edge, see the following articles:
 
 * [IoT Edge – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated].
-* [Azure IoT Edge][lnk-gateway-sdk] on GitHub.
+* [Azure IoT Edge][lnk-iot-edge] on GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/iot-edge/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
-[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
+[lnk-iot-edge]: https://github.com/Azure/iot-edge/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md

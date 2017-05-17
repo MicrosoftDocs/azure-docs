@@ -4,7 +4,7 @@
 > 
 > 
 
-This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Edge][lnk-gateway-sdk] architecture. The sample uses the Azure IoT Edge to build a simple gateway that logs a "hello world" message to a file every five seconds.
+This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Edge][lnk-iot-edge] architecture. The sample uses the Azure IoT Edge to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
 This walkthrough covers:
 
@@ -59,7 +59,7 @@ The logger module only consumes messages from the broker, it never publishes new
 
 ![How the broker routes messages between modules in Azure IoT Edge][5]
 
-The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-gateway-sdk]. Explore the code on your own, or use the code snippets below as a guide.
+The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-iot-edge]. Explore the code on your own, or use the code snippets below as a guide.
 
 <!-- Images -->
 [1]: media/iot-hub-iot-edge-getstarted-selector/modules.png
@@ -70,4 +70,4 @@ The figure above shows the architecture of the Hello World sample and the relati
 
 <!-- Links -->
 [lnk-helloworld-sample]: https://github.com/Azure/iot-edge/tree/master/samples/hello_world
-[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
+[lnk-iot-edge]: https://github.com/Azure/iot-edge

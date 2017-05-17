@@ -165,7 +165,7 @@ To run the sample:
 If you want to gain a more advanced understanding of Azure IoT Edge and experiment with some code examples, visit the following developer tutorials and resources:
 
 * [Send device-to-cloud messages from a physical device with Azure IoT Edge][lnk-physical-device]
-* [Azure IoT Edge][lnk-gateway-sdk]
+* [Azure IoT Edge][lnk-iot-edge]
 
 To further explore the capabilities of IoT Hub, see:
 
@@ -177,7 +177,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
+[lnk-iot-edge]: https://github.com/Azure/iot-edge/
 
 [lnk-physical-device]: iot-hub-iot-edge-physical-device.md
 
