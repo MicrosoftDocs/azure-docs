@@ -40,107 +40,110 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![vSphere Web Client](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
 
-    At the bottom of the information for administrators and developers, is the link to **Download trusted root CA certificates**.
+    At the bottom of the information for administrators and developers, locate the **Download trusted root CA certificates** link.
 
-    ![Link to download the CA trusted root certificates](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
+    ![Link to download the trusted root CA certificates](./media/backup-azure-backup-server-vmware/vmware-download-ca-cert-prompt.png)
 
   If you don't see the vSphere Web Client login page, check your browser's proxy settings.
 
 2. Click **Download trusted root CA certificates**.
 
-  The vCenter server downloads a file to your local computer. The file's name is **download**. Depending on your browser, you receive a message asking whether to open or save the file.
+    The vCenter server downloads a file to your local computer. The file's name is named **download**. Depending on your browser, you receive a message that asks whether to open or save the file.
 
-  ![download message when certificates are downloaded](./media/backup-azure-backup-server-vmware/download-certs.png)
+    ![download message when certificates are downloaded](./media/backup-azure-backup-server-vmware/download-certs.png)
 
-3. Save the file to a location on the Azure Backup Server. When you save the file, add the filename extension .zip.
+3. Save the file to a location on the Azure Backup Server. When you save the file, add the .zip file name extension.
 
-  The file is a .zip file that contains the information about the certificates. Adding the .zip extension allows you to use extraction tools.
+    The file is a .zip file that contains the information about the certificates. With the .zip extension, you can use the extraction tools.
 
-4. Right-click **download.zip** and select Extract All to extract the contents.
+4. Right-click **download.zip**, and then select **Extract All** to extract the contents.
 
-  The zipped file extracts its contents to a folder named **certs**. In the certs folder are two types of files. The root certificate file has an extension like: .0, .1, or .*number*. The CRL file has an extension that begins with .r0, .r1, and so on. The CRL file is associated with a certificate.
+    The .zip file extracts its contents to a folder named **certs**. Two types of files appear in the certs folder. The root certificate file has an extension that begins with a numbered sequence like .0 and .1.
+    
+    The CRL file has an extension that begins with a sequence like .r0 or .r1. The CRL file is associated with a certificate.
 
-  ![download file extracted locally ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+    ![Download file extracted locally ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
-5. In the **certs** folder, right-click the root certificate file and click **Rename**.
+5. In the **certs** folder, right-click the root certificate file, and then click **Rename**.
 
-  ![rename root certificate ](./media/backup-azure-backup-server-vmware/rename-cert.png)
+    ![Rename root certificate ](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
-  Change the root certificate's extension to .crt. When you are asked if you're sure you want to change the extension - because you could change the file's function, click Yes or OK. The icon for the file changes to icon for a root certificate.
+    Change the root certificate's extension to .crt. When you're asked if you're sure you want to change the extension, click **Yes** or **OK**. Otherwise, you'll change the file's intended function. The icon for the file changes to an icon that represents a root certificate.
 
 6. Right-click the root certificate and from the pop-up menu, select **Install Certificate**.
 
-  The Certificate Import Wizard opens.
+    The **Certificate Import Wizard** dialog box opens.
 
-7. On the Certificate Import Wizard, select **Local Machine** as the destination for the certificate, and click **Next** to continue.
+7. In the **Certificate Import Wizard** dialog box, select **Local Machine** as the destination for the certificate, and then click **Next** to continue.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
+    ![Certificate storage destination options ](./media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
 
-  If you are asked if you want to allow changes to the computer, click Yes or OK, to all the changes.
+    If you're asked if you want to allow changes to the computer, click **Yes** or **OK**, to all the changes.
 
-8. On the Certificate Store screen, select **Place all certificates in the following store** and click **Browse** to choose the certificate store.
+8. On the **Certificate Store** screen, select **Place all certificates in the following store**, and then click **Browse** to choose the certificate store.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+    ![Place certificates in a specific storage spot](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
-  The Select Certificate Store dialog opens.
+    The **Select Certificate Store** dialog box opens.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/cert-store.png)
+    ![Certificate storage folder hierarchy](./media/backup-azure-backup-server-vmware/cert-store.png)
 
-9. Select **Trusted Root Certification Authorities** as the destination folder for the certificates, and click **OK**.
+9. Select **Trusted Root Certification Authorities** as the destination folder for the certificates, and then click **OK**.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
+    ![Certificate destination folder](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-  The chosen certificate store shows in the **Certificate Import Wizard**. Click **Next**.
+    The **Trusted Root Certification Authorities** folder is confirmed as the certificate store. Click **Next**.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
+    ![Certificate store folder](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. On the Completing the Certificate Import Wizard screen, verify the certificate is in the desired folder, and click **Finish** to complete the wizard.
+10. On the **Completing the Certificate Import Wizard** screen, verify that the certificate is in the desired folder, and then click **Finish** to complete the wizard.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
+    ![Verify certificate is in the proper folder](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
-  A dialog appears letting you know if the import was successful.
+    A dialog box appears, a successful certificate import is confirmed.
 
-11. Log in to the vCenter server to check that your connection is secure.
+11. Sign in to the vCenter server to confirm that your connection is secure.
 
-  If you have problems importing the certificate and cannot establish a secure connection, consult the VMware vSphere documentation on [Obtaining Server Certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
+  If the certificate import is not successful, and you cannot establish a secure connection, consult the VMware vSphere documentation on [Obtaining Server Certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
 
-  If you have secure boundaries within your organization, and don't want to turn on the HTTPs protocol, use the following procedure to disable the secure communications.
+  If you have secure boundaries within your organization, and don't want to turn on the HTTPS protocol, use the following procedure to disable the secure communications.
 
 ### Disable secure communication protocol
 
-If your organization doesn't require secure communications protocol (HTTPS), use the following steps to disable HTTPS. To disable the default behavior, create a registry key that ignores the default behavior.
+If your organization doesn't require the HTTPS protocol, use the following steps to disable HTTPS. To disable the default behavior, create a registry key that ignores the default behavior.
 
 1. Copy and paste the following text into a .txt file.
 
   ```
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-"IgnoreCertificateValidation"=dword:00000001
-```
-2. Save the file with the name, **DisableSecureAuthentication.reg**, to your Azure Backup Server.
+  Windows Registry Editor Version 5.00
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+  "IgnoreCertificateValidation"=dword:00000001
+  ```
+
+2. Save the file to your Azure Backup Server. For the file name, use DisableSecureAuthentication.reg.
 
 3. Double-click the file to activate the registry entry.
 
 
 ## Create a role and user account on the vCenter Server
 
-On the vCenter Server, a role is a predefined set of privileges. A server administrator on the vCenter Server creates the roles and pairs user accounts with the roles to assign permissions. To establish the necessary user credentials to back up the vCenter Server, create a role with specific privileges and associate the user account with the role.
+On the vCenter Server, a role is a predefined set of privileges. A vCenter Server administrator creates the roles. To assign permissions, the administrator pairs user accounts with a role. To establish the necessary user credentials to back up the vCenter Server computer, create a role with specific privileges, and then associate the user account with the role.
 
-Azure Backup Server uses a user name and password to authenticate with the vCenter server. Azure Backup Server uses these credentials as authentication for all backup operations.
+Azure Backup Server uses a username and password to authenticate with the vCenter server. Azure Backup Server uses these credentials as authentication for all backup operations.
 
-To add a vCenter Server role and privileges for a backup administrator:
+To add a vCenter Server role and its privileges for a backup administrator:
 
-1. Log in to the vCenter Server, and in the **Navigator** click **Administration**.
+1. Sign in to the vCenter Server, and in the **Navigator** click **Administration**.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Navigator](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-2. In the **Administration** section, select **Roles** and in the **Roles** panel click the Add role icon, (the + symbol).
+2. In **Administration** select **Roles**, and then in the **Roles** panel click the add role icon (the + symbol).
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
+    ![Add role](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-  The **Create Role** dialog opens.
+    The **Create Role** dialog box opens.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-define-new-role-priv.png)
+    ![Create role](./media/backup-azure-backup-server-vmware/vmware-define-new-role-priv.png)
 
 3. In the **Create Role** dialog, in the **Role name** field, enter *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
 
@@ -188,17 +191,17 @@ Once the role with privileges exists, create a user account. The user account ha
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
-2. In the vCenter Users and Groups panel, select the **Users** tab, and click the Add users icon (the + symbol).
+2. In the vCenter Users and Groups panel, select the **Users** tab, and click the add users icon (the + symbol).
 
   The New User dialog opens.
 
-3. In the New User dialog, fill out the fields and click **OK**. For this example, enter **BackupAdmin** for the user name. The password should be a strong password.
+3. In the New User dialog, fill out the fields and click **OK**. For this example, enter **BackupAdmin** for the username. The password should be a strong password.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-new-user-account.png)
 
   The new user account appears in the list.
 
-4. To associate the user account with the role, on the Navigator, click **Global Permissions**. On the Global Permissions panel, select the **Manage** tab and click the Add icon (the + symbol).
+4. To associate the user account with the role, on the Navigator, click **Global Permissions**. On the Global Permissions panel, select the **Manage** tab and click the add icon (the + symbol).
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
 
@@ -212,7 +215,7 @@ Once the role with privileges exists, create a user account. The user account ha
 
 6. In the **Select Users/Groups** dialog, choose **BackupAdmin** and click **Add**.
 
-  The user account in the Users field has the format *domain*`\`*user name*. If you want to use a different domain, choose it from the Domain list.
+  The user account in the Users field has the format *domain*`\`*username*. If you want to use a different domain, choose it from the Domain list.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
@@ -245,7 +248,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
 3. In the Manage Credentials dialog, click **Add** to open the Add Credentials dialog.
 
-4. In the Add Credentials dialog, enter a name and description for the new credential; then specify the user name and password. The credential name, *Contoso Vcenter credential* in the example, is how you identify the credential in the following procedure. Use the same user name and password as was used in the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, specify the domain in the User name.
+4. In the Add Credentials dialog, enter a name and description for the new credential; then specify the username and password. The credential name, *Contoso Vcenter credential* in the example, is how you identify the credential in the following procedure. Use the same username and password as was used in the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
 
   ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
