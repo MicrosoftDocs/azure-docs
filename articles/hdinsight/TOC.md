@@ -1,5 +1,5 @@
 # Overview
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [About HDInsight and Hadoop](hdinsight-hadoop-introduction.md)
 ## [Hadoop components on HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -221,5 +221,6 @@
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
+## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)
 ## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

@@ -4,7 +4,7 @@ description: Get started with Application Insights. Analyze usage, availability 
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2015
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Monitor performance in web applications

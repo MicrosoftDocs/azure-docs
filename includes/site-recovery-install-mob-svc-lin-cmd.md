@@ -6,25 +6,38 @@
 2. To install Mobility Service, run the following command:
 
   ```
-  sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P MobSvc.passphrase
+  sudo ./install -d <Install Location> -r MS -v VmWare -q
+  ```
+3. Once installation is complete, the Mobility Service needs to get registered to the configuration server. Run the following command to register the Mobility Service with Configuration server.
+
+  ```
+  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### Mobility Service installer command-line arguments
+#### Mobility Service installer command-line
+
+```
+Usage:
+./install -d <Install Location> -r <MS|MT> -v VmWare -q
+```
 
 |Parameter|Type|Description|Possible values|
 |-|-|-|-|
-|-t |Mandatory|Agent type<br>(deprecated in an upcoming release)|*both*|
-|-a |Mandatory|Agent configuration<br>(deprecated in an upcoming release) |*host*|
-|-R |Optional|Role of the agent|Agent<br>MasterTarget|
+|-r |Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
 |-d |Optional|Location where Mobility Service will be installed|/usr/local/ASR|
-|-i |Mandatory|IP address of the configuration server|Any valid IP address|
-|-p |Mandatory|Port on which the configuration server listens for incoming connections|443|
-|-s |Mandatory|Starts the service after a successful installation<br>(deprecated in an upcoming release)|*y*|
-|-c |Mandatory|Communication mode between the agent and process server<br>(deprecated in an upcoming release) |*https*|
-|-P |Mandatory|Configuration server passphrase|Any valid UNC or local file path|
+|-v|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
+|-q|Optional|Specifies to run installer in silent mode| N/A|
 
 
-#### Example
+#### Mobility Service configuration command-line
+
 ```
-sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i 192.168.2.53 -p 443 -s y -c https -P /tmp/MobSvc.passphrase
+Usage:
+cd /usr/local/ASR/Vx/bin
+UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
+
+|Parameter|Type|Description|Possible values|
+|-|-|-|-|
+|-i |Mandatory|IP of the Configuration Server|Any valid IP Address|
+|-P |Mandatory|Full file path the file where the connection passphrase is saved|Any valid folder|

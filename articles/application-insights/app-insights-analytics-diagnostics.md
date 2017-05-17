@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Diagnose sudden changes in your app telemetry
@@ -77,4 +77,3 @@ Smart Diagnostics only works when the following criteria are satisfied:
 
  * [Analytics tutorial](app-insights-analytics-tour.md)
  * [Smart detection](app-insights-proactive-diagnostics.md) automatically alerts you to performance issues.
-S

@@ -9,7 +9,7 @@
 
 # Get Started
 ## [Replicate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
-## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
+### [Role-Based Access Control](site-recovery-role-based-linked-access-control.md)
 
 ## Configure
 ### [Set up the source environment](site-recovery-set-up-vmware-to-azure.md)

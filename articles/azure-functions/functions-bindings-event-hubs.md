@@ -47,7 +47,7 @@ The Event Hub trigger to a function uses the following JSON object in the `bindi
 }
 ```
 
-`consumerGroup` is an optional property used to set the [consumer group](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers)
+`consumerGroup` is an optional property used to set the [consumer group](../event-hubs/event-hubs-features.md#event-consumers)
 used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used.  
 `connection` must be the name of an app setting that contains the connection string to the event hub's namespace.
 Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub
