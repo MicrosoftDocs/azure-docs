@@ -1,5 +1,5 @@
 - name: Windows VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
@@ -37,7 +37,8 @@
     href: tutorial-monitoring.md
   - name: 11 - Manage VM security
     href: tutorial-azure-security.md
-
+  - name: 12 - Team Services CI/CD
+    href: tutorial-vsts-iis-cicd.md
 - name: Samples
   items:
   - name: PowerShell
@@ -157,8 +158,6 @@
       href: download-template.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
-    - name: Manage VMs using PowerShell
-      href: ps-manage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Manage VMs using CLI
@@ -206,7 +205,7 @@
       - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
-        href: attach-disk-portal.md
+        href: attach-managed-disk-portal.md
     - name: Detach data disk
       href: detach-disk.md
     - name: Expand OS disk
@@ -227,6 +226,8 @@
         href: vhd-copy.md
       - name: Create a VM from a specialized VHD
         href: create-vm-specialized.md
+      - name: Attach an unmanaged data disk
+        href: attach-disk-portal.md
   - name: VM networking
     href: ps-common-network-ref.md
     items:
@@ -396,9 +397,9 @@
   - name: Java
     href: /java/api
   - name: Node.js
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: Compute REST
     href: /rest/api/compute
   - name: Managed Disks REST

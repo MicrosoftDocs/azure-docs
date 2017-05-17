@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/09/2017
 ms.author: robinsh
 
 ---
@@ -46,10 +46,8 @@ To enable or disable Storage Service Encryption for a storage account, log into 
 After you click the Encryption setting, you can enable or disable Storage Service Encryption.
 
 ![Portal Screenshot showing Encryption properties](./media/storage-service-encryption/image2.png)
-<br/>*Figure 1.1: Enable SSE for Blob Service (Step2)*
+<br/>*Figure 3: Enable SSE for Blob and File Service (Step2)*
 
-![Portal Screenshot showing Encryption properties](./media/storage-service-encryption/image4.png)
-<br/>*Figure 2.1: Enable SSE for File Service (Step2)*
 ## Encryption Scenarios
 Storage Service Encryption can be enabled at a storage account level. Once enabled, customers will choose which services to encrypt. It supports the following customer scenarios:
 
