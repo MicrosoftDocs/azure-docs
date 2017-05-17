@@ -32,7 +32,7 @@ If you are currently using VMs with unmanaged disks, we highly recommend you [co
 ![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
 
 > [!IMPORTANT]
-> The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region. The following table shows the number of maximum fault domains for managed availability sets per region
+> The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 

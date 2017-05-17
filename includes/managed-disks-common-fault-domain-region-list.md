@@ -1,4 +1,4 @@
-## Understand planned vs. unplanned maintenance
+### Number of Fault Domains per region
 
 | Region              | Max # of Fault Domains  |
 |---------------------|-------------------------|

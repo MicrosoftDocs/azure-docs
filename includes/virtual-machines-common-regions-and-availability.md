@@ -96,7 +96,8 @@ For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md
 
 ![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
 
-The following table shows the number of maximum fault domains for managed availability sets per region
+> [!IMPORTANT]
+> The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
