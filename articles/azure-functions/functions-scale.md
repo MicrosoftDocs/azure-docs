@@ -1,5 +1,5 @@
 ---
-title: Consumption and App Service Plans on Azure Functions | Microsoft Docs
+title: Azure Functions Consumption and App Service Plans | Microsoft Docs
 description: Understand how Azure Functions scale to meet the needs of your event-driven workloads.
 services: functions
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.author: donnam, glenga
 ms.custom: H1Hack27Feb2017
 
 ---
-# Consumption and App Service Plans on Azure Functions
+# Azure Functions Consumption and App Service Plans 
 
 ## Introduction
 
@@ -33,17 +33,17 @@ If you are not yet familiar with Azure Functions, see the [Azure Functions overv
 
 When you create a function app, you must configure a hosting plan for functions contained in the app. The available hosting plans are the **Consumption Plan** and the [**App Service plan**](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). In either mode, functions are executed by an instance of the *Azure Functions host*. The type of plan controls: 1) how host instances are scaled out and 2) the resources that are available to each host.
 
-Currently, the choice of plan type must be made during the creation of the function app and cannot be changed later. You can scale between tiers on the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Manual scaling is not available for the Consumption plan.
+Currently, the choice of plan type must be made during the creation of the function app, and cannot be changed afterwards. You can scale between tiers on the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). On the Consumption plan, Azure Functions automatically handles all resource allocation.
 
 ### Consumption plan
 
-When using a **Consumption plan**, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically and you are charged for compute resources only when your functions are running. Billing is based on execution time and memory used and is aggregated across all functions within a function app. On a Consumption plan, a function can run for a maximum of five (5) minutes. 
+When using a **Consumption plan**, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This plan scales automatically and you are charged for compute resources only when your functions are running. On a Consumption plan, a function can run for a maximum of five minutes. 
 
-Consider a Consumption plan in the following cases:
-- Your functions only need to run occasionally and you want to pay only when they are running.
-- Your compute needs are highly variable, including periods of high scale.
-- You want the platform to handle scale out automatically.
-- Your function execution time is 5 minutes or less.
+Billing is based on execution time and memory used and is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page].
+
+The Consumption plan is the default and offers the following benefits:
+- Pay only when your functions are running
+- Scale out automatically, even during periods of high load
 
 ### App Service plan
 
@@ -55,25 +55,27 @@ Consider an App Service plan in the following cases:
 - You need more CPU or memory options than what is provided in the Consumption plan.
 - You need to run longer than the maximum execution time allowed on the Consumption plan
 
-A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the VMs that they run on. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+A VM decouples cost from both runtime and memory size. As a result, you won't pay more than the cost of the VM instance you allocate. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-With an App Service plan, you can manually scale out by adding more single-core VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service-web/web-sites-scale.md). If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
+With an App Service plan, you can manually scale out by adding more VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service-web/web-sites-scale.md). If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-#### Always On
+### Always On
 
 If you run on an App Service Plan, you should enable the **Always On** setting for so that your Function App  runs correctly. The Function runtime will go idle after a few minutes of inactivity, so only HTTP triggers will actually "wake up" your functions. This is similar to how WebJobs must have Always On enabled. 
 
+Always On is only available on an App Service plan; on a Consumption plan, the platform activates Function Apps automatically.
+
 ### Storage account requirements
 
-On either a Consumption or App Service plan, a Function App requires a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a Function App.
+On either a Consumption or App Service plan, a Function App requires an Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a Function App.
 
 To learn more about storage account types, see [Introducing the Azure Storage Services] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## How the Consumption plan works
 
-The Consumption plan automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to 1.5 GB.
+The Consumption plan automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host is limited to at most 1.5 GB of memory.
 
 When using the Consumption hosting plan, function code files are stored on Azure Files shares on the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
@@ -92,6 +94,8 @@ The unit of scale is the function app. When scaled out, more resources are alloc
 
 ### Billing model
 
-Billing for the Consumption plan is described in detail on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions). Usage is aggregated at the function app level and counts only the time that function code is executing. The following are units for billing: 
+Billing for the Consumption plan is described in detail on the [Azure Functions pricing page]. Usage is aggregated at the function app level and counts only the time that function code is executing. The following are units for billing: 
 * **Resource consumption in GB-s (gigabyte-seconds)**. Computed as a combination of memory size and execution time for all functions within a Function App. 
 * **Executions**. Counted each time a function is executed in response to an event, triggered by a binding.
+
+[Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
