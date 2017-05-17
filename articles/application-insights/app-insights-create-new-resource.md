@@ -4,7 +4,7 @@ description: Manually set up Application Insights monitoring for a new live appl
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Create an Application Insights resource
