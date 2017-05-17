@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Explore Azure IoT Edge architecture on Linux
 
-[!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
+[!INCLUDE [iot-hub-iot-edge-getstarted-selector](../../includes/iot-hub-iot-edge-getstarted-selector.md)]
 
 ## How to build the sample
 
@@ -82,7 +82,7 @@ Before you get started, you must [set up your development environment][lnk-setup
 
    `./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json`
 
-[!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
+[!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md

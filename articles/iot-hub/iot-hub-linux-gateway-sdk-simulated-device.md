@@ -18,7 +18,7 @@ ms.author: andbuc
 
 ---
 # Use Azure IoT Edge to send device-to-cloud messages with a simulated device (Linux)
-[!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
+[!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 ## Build and run the sample
 Before you get started, you must:
