@@ -47,8 +47,8 @@ Consider the following constraints before peering VNets:
 - Resources in both VNets in the peering can communicate with each other with the same bandwidth and latency as if they were in the same VNet. Each VM size has its own maximum network bandwidth however. To learn more about maximum network bandwidth for different VM sizes, read the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles.
 - You can peer VNets deployed through Resource Manager that are in the same, or different subscriptions.
 - You can peer VNets deployed through different deployment models that are in the same subscription. The ability to peer VNets deployed through different deployment models in different subscriptions is in preview release.
-- The subscriptions that both VNets are in must be associated to the same Azure Active Directory tenant. 
-- <a name="roles-permissions"</a>Your account must have the necessary role or permissions to create a peering. For example, if you were peering two VNets named VNet1 and VNet2, your account must be assigned the following minimum role or permissions for each VNet:
+- The subscriptions that both VNets are in must be associated to the same Azure Active Directory tenant. If you don't already have an AD tenant, you can quickly [create one](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). 
+- <a name="roles-permissions"></a>Your account must have the necessary role or permissions to create a peering. For example, if you were peering two VNets named VNet1 and VNet2, your account must be assigned the following minimum role or permissions for each VNet:
     
     |VNet|Deployment model|Role|Permissions|
     |---|---|---|---|
@@ -71,7 +71,7 @@ Consider the following constraints before peering VNets:
 3. In the **Virtual networks** blade that appears, click the virtual network you want to create a peering for.
 4. In the pane that appears for the virtual network you selected, click **Peerings** in the **SETTINGS** section.
 5. Click **+ Add**. 
-6. In the **Add peering** blade, enter or select values for the following settings:
+6. <a name="add-peering"></a>In the **Add peering** blade, enter or select values for the following settings:
 	- **Name:** The name for the peering must be unique within the VNet.
 	- **Virtual network deployment model:** Select which deployment model the VNet you want to peer with was deployed through.
 	- **I know my resource ID:** If you have read access to the VNet you want to peer with, leave this checkbox unchecked. If you don't have read access to the VNet or subscription you want to peer with, check this box. Enter the full resource ID of the VNet you want to peer with in the **Resource ID** box that appeared when you checked the box. The resource ID you enter must be for a VNet that exists in the same Azure [location](https://azure.microsoft.com/regions) as this VNet. The full resource ID looks similar to /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>. You can get the resource ID  for a VNet by viewing the properties for a VNet. To learn how to view the properties for a VNet, read the [Create, change, or delete virtual networks](virtual-network-manage-network.md#view-vnet) article.
@@ -101,7 +101,7 @@ Consider the following constraints before peering VNets:
 3. In the **Virtual networks** blade that appears, click the virtual network you want to create a peering for.
 4. In the pane that appears for the virtual network you selected, click **Peerings** in the **SETTINGS** section.
 5. Click the peering you want to view or change settings for.
-6. Change the appropriate setting. Read about the options for each setting in step 6 of the [Create a peering](#create-peering) section of this article. 
+6. Change the appropriate setting. Read about the options for each setting in [step 6](#add-peering) of the Create a peering section of this article. 
 
     >[!NOTE]
     >There are several requirements, constraints, and considerations to successfully create a peering. Before creating a peering, ensure you've familiarized yourself with the list of consideration in the [About peering](#about-peering) section of this article.
