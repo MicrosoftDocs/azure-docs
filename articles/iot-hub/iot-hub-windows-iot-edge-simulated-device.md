@@ -167,3 +167,4 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
