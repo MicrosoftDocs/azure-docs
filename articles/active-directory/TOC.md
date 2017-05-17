@@ -90,7 +90,7 @@
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-###	Programmatic Access
+###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal)
 #### [Audit reference](active-directory-reporting-api-audit-reference.md)
 #### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
