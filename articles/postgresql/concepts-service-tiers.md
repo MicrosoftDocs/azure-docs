@@ -64,7 +64,7 @@ However, you can scale up or down the Compute Units independent of Storage Units
 
 Azure Database for PostgreSQL offers multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands, by using one of the following:
 
-- [Azure portal](/azure/azure-portal-overview), located at [http://portal.azure.com](http://portal.azure.com)
+- [Azure portal](quickstart-create-server-database-portal.md), located at [http://portal.azure.com](http://portal.azure.com)
 - [Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 Regardless of the number of databases hosted within each PostgreSQL server, your database gets a guaranteed set of resources and the expected performance characteristics of your server are not affected.
@@ -72,15 +72,15 @@ Regardless of the number of databases hosted within each PostgreSQL server, your
 ### Basic service tier:
 
 | **Performance level** | **50** | **100** |
-| :-------------------- | :----- | :------ |
+| --------------------: | :----- | :------ |
 | Max Compute Units | 50 | 100 |
 | Included Storage size | 50 GB | 50 GB |
 | Max server storage size\* | 1,050 GB | 1,050 GB |
 
-Standard service tier:
+### Standard service tier:
 
 | **Performance level** | **100** | **200** | **400** | **800** |
-| :-------------------- | :------ | :------ | :------ | :------ |
+| --------------------: | :------ | :------ | :------ | :------ |
 | Max Compute Units | 100 | 200 | 400 | 800 |
 | Included storage size and provisioned IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Max server storage size\* | 1 TB | 1 TB | 1 TB | 1 TB |
@@ -97,10 +97,7 @@ Changing the service tier and/or performance level of a database creates a repli
 
 The duration of the entire scale-up process depends on both the size and service tier of the server before and after the change. For example, a server that is changing Compute Units, to or from or within a Standard service tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 
-### Documentation about the steps for scaling up or down
-
-- [Manage a single server in the Azure portal](quickstart-create-server-database-portal.md)
-- [Manage a single database with Azure CLI](quickstart-create-server-database-azure-cli.md)
+You can use Azure CLI to monitor and scale your server. See: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down)
 
 ### Details about scaling up or down
 
