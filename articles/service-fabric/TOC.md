@@ -70,9 +70,9 @@
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services lifecycle
-#### [Configure](service-fabric-reliable-services-configuration.md)
-#### [Send notifications](service-fabric-reliable-services-notifications.md)
-#### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
+##### [Configure](service-fabric-reliable-services-configuration.md)
+##### [Send notifications](service-fabric-reliable-services-notifications.md)
+##### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 
 #### Communicate with services
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
