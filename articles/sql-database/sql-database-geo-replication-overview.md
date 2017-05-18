@@ -164,8 +164,8 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | [Failover (Planned)](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Failover) | Fails over from the current primary server to this server. |
 | [Force Failover Allow Data Loss](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |ails over from the current primary server to this server. This operation might result in data loss. |
 | [Get Failover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Get) | Gets a failover group. |
-| [List By Server](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Lists the failover groups in a server. |
-| [Update](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Update) | Updates a failover group. |
+| [List Failover Groups By Server](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Lists the failover groups in a server. |
+| [Update Faolover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Update) | Updates a failover group. |
 |  | |
 
 ## Next steps
