@@ -32,7 +32,7 @@ If you create ClearDB database using the new [Azure portal](http://portal.azure.
 
 To workaround this, link your database manually to the web app.
 
-Similarly if you create ClearDB database in the [classic Azure portal](http://manage.windowsazure.com/)  you will not be able to see your database in the new [Azure portal](http://portal.azure.com/). There is no workaround for this scenario. For more details, please click [here](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/).
+Similarly if you create ClearDB database in the [classic Azure portal](http://manage.windowsazure.com/)  you will not be able to see your database in the new [Azure portal](http://portal.azure.com/). There is no workaround for this scenario. For more details, see [FAQ for ClearDB MySql databases with Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/).
 
 ## Why was my ClearDB database not migrated during subscription migration
 
@@ -46,59 +46,59 @@ FAQ for ClearDB MySql databases with Azure App Service can be found [here](https
 
 ## How can I enable PHP logging to troubleshoot PHP issues
 
-1. Log into KUDU website at https://*yourwebsitename*.scm.azurewebsites.net
-2. In the top menu select **Debug Console** | **CMD**
-3. Click on **Site** folder
-4. Click on **wwwroot** folder
-5. Click on + icon and **New File**
-6. Set the file name as **.user.ini**
-7. Click on the pencil icon next to .user.ini
-8. Add this text ```log_errors=on```
-9. Click save button
-10. Next, click on pencil icon next to **wp-config.php**
-11. Change the text as shown below
+1. Log into KUDU website at https://*yourwebsitename*.scm.azurewebsites.net.
+2. In the top menu select **Debug Console** | **CMD**.
+3. Click on **Site** folder.
+4. Click on **wwwroot** folder.
+5. Click on + icon and **New File**.
+6. Set the file name as **.user.ini**.
+7. Click on the pencil icon next to .user.ini.
+8. Add this text ```log_errors=on```.
+9. Click save button.
+10. Next, click on pencil icon next to **wp-config.php**.
+11. Change the text as shown below.
    ```
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable Debug Logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
    //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Restart your web app from the web app menu in Azure Portal.
 
-For more details please click [here](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)
+For more details, see [Enable WordPress Error Logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 ## How can I log python application errors in apps hosted in Azure App Service
 
 The following are the steps to capture Python application errors:
-1. Navigate to your new azure portal and click on settings in your Web App
-2. Click on Application Settings in Settings Tab
-3. Enter below Key/Value pair under App Settings in Application Settings tab
+1. Navigate to your new azure portal and click on settings in your Web App.
+2. Click on Application Settings in Settings Tab.
+3. Enter below Key/Value pair under App Settings in Application Settings tab:
     * Key : WSGI_LOG
     * Value : D:\home\site\wwwroot\logs.txt (Enter your choice of file name)
-4. Now you should be able to see errors in logs.txt file in wwwroot folder
+4. Now you should be able to see errors in logs.txt file in wwwroot folder.
 
 ## How can I change the version of node.js application hosted in Azure App Service?
 
-You can use one of these approaches to change the version of node.js application
+You can use one of these approaches to change the version of node.js application.
 
-1. Using App Setting
-    * Navigate to your web app in Azure Portal
-    * Click on Application settings in Settings blade
-    * You can include WEBSITE_NODE_DEFAULT_VERSION as key and version of nodejs you want as value in app setting
-    * Navigate to kudu console (http://.scm.azurewebsites.net) and you can check the nodejs version using below command  
+1. Using App Setting.
+    * Navigate to your web app in Azure Portal.
+    * Click on Application settings in Settings blade.
+    * You can include WEBSITE_NODE_DEFAULT_VERSION as key and version of nodejs you want as value in app setting.
+    * Navigate to kudu console (http://.scm.azurewebsites.net) and you can check the nodejs version using below command.  
    ```
    node -v
    ```
 2. Using iisnode.yml file, changing nodejs version in iisnode.yml file would only set the run-time environment which iisnode uses. Your kudu cmd and others would still use nodejs version set at app settings.
-    * Setting iisnode.yml file manually
-    Create a iisnode.yml file in your app root folder and include below line
+    * Setting iisnode.yml file manually.
+    Create a iisnode.yml file in your app root folder and include below line:
    ```
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
-3. Setting iisnode.yml file using package.json during source control deployment
-Azure Source Control deployment process would involve below steps
-    * Moves content to azure web app
-    * Creates default deployment script, if there isn’t one(deploy.cmd, .deployment files) in web app root folder
+3. Setting iisnode.yml file using package.json during source control deployment.
+Azure Source Control deployment process would involve below steps:
+    * Moves content to azure web app.
+    * Creates default deployment script, if there isn’t one(deploy.cmd, .deployment files) in web app root folder.
     * Run’s deployment script where it creates iisnode.yml file if we mention nodejs version in package.json file > engine  `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    * iisnode.yml would have below line of code
+    * iisnode.yml would have below line of code:
       ```
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
       ```
@@ -116,9 +116,9 @@ If you see this error in your debug.log or php_errors.log, then your application
 
 ## How can I debug Node.js app hosted in Azure App Service?
 
-* Navigate to kudu console (https://*Your_Webapp_name*.scm.azurewebsites.net/DebugConsole)
+* Navigate to kudu console (https://*Your_Webapp_name*.scm.azurewebsites.net/DebugConsole).
 * Browse your Application Logs folder available @ D:\home\LogFiles\Application.
-* Check for content in logging_errors.txt file
+* Check for content in logging_errors.txt file.
 
 ## My ClearDB database is down. How do I resolve this issue?
 
@@ -134,20 +134,20 @@ Or it could be that a compiler is required (a compiler is not available on the m
 
 This [blog article](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/) provides guidance on installing native modules on Azure App Service Web Apps and API Apps.
 
-## Deploying Django App to Azure App Services using Git and new version of Python
+## Deploying Django App to Azure App Services using Git and new version of Python.
 
-For guidance on installing Django, please click [here](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
+For guidance on installing Django, see [Deploying Django App to Azure App Services using Git and new version of Python](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
 
 ## Would you like to try Azure App Service MySQL in-app for your MySQL needs?
 
-App Service MySQL in-app  is a cool new feature for Web developers using Azure App Service to create Web applications that use MySQL. MySQL in-app enables developers to run the MySQL server side-by-side with their Web application within the same environment, which makes it easier to develop and test PHP applications that use MySQL.
+App Service MySQL in-app is a cool new feature for Web developers using Azure App Service to create Web applications that use MySQL. MySQL in-app enables developers to run the MySQL server side-by-side with their Web application within the same environment, which makes it easier to develop and test PHP applications that use MySQL.
 
-Please follow this [link](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app/) for more information.
+See [Announcing general availability for MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app/) for more information.
 
 ## Where is the location of Tomcat Log files?
 
 * For MarketPlace/Gallery/Custom Deployment:
-    * Folder location
+    * Folder location:
     ```D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs```
     * Files of interest
         1. catalina.yyyy-mm-dd.log
@@ -176,9 +176,8 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 Please follow the below steps:
 1. Remove the sqljdbc*.jar from your app/lib folder.
 2. If you are using the custom tomcat or market tomcat webserver, copy this jar tothe tomcat’s lib folder.
-3. If you are enabling the Java from the Azure portal (by choosing the Java 1.8and then Tomcat server),
-copy the sqljdbc.* jar in folder parallel to your app and
-add the following classpath setting in your web.config:
+3. If you are enabling the Java from the Azure portal (by choosing the Java 1.8 and then Tomcat server),
+copy the sqljdbc.* jar in folder parallel to your app and add the following classpath setting in your web.config:
 
 ```
 <httpPlatform>
@@ -205,31 +204,31 @@ All Java apps have this locking issue and only Kudu will allow downloading this 
 
 Stopping the app will allow FTP access to these files.
 
-Another workaround is to write a webjob that runs on a schedule and copies these files to a different directory. You can find a sample project [here](https://github.com/kamilsykora/CopyLogsJob).
+Another workaround is to write a webjob that runs on a schedule and copies these files to a different directory. You can find a sample project via [here](https://github.com/kamilsykora/CopyLogsJob).
 
 ## Where can I find the log files for Jetty?
 
-For **MarketPlace/Gallery/Custom Deployment**, the log file location is D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs.  Please note that the folder location changes with version of Jetty you are using. For example, the path provided above is for Jetty 9.1.2.  Please look for jetty_YYYY_MM_DD.stderrout.log
+For **MarketPlace/Gallery/Custom Deployment**, the log file location is D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Please note that the folder location changes with version of Jetty you are using. For example, the path provided above is for Jetty 9.1.2.  Please look for jetty_YYYY_MM_DD.stderrout.log
 
 For **Portal AppSetting Deployment**, the log file location D:\home\LogFiles. Please look for jetty_YYYY_MM_DD.stderrout.log
 
 ## How can I send email from Azure web apps?
 
-Azure App Services does not have a built-in email feature. But you can find some good approaches at the StackOverflow discussion at this [link](http://stackoverflow.com/questions/17666161/sending-email-from-azure).
+Azure App Services does not have a built-in email feature. But you can find some good approaches at the StackOverflow discussion at via [here](http://stackoverflow.com/questions/17666161/sending-email-from-azure).
 
 ## I need help using SendGrid email with Azure App Service.
 
-SendGrid is an Azure Market Place Solution. Technical Product Support is provided by SendGrid support who can be contacted using this [link](https://support.sendgrid.com/hc/en-us).
+SendGrid is an Azure Market Place Solution. Technical Product Support is provided by SendGrid support who can be contacted via [here](https://support.sendgrid.com/hc/en-us).
 
-More information on Marketplace support is available in the FAQ at this [link](https://azure.microsoft.com/en-us/marketplace/faq/).
+More information on Marketplace support is available in the FAQ via [here](https://azure.microsoft.com/en-us/marketplace/faq/).
 
 If you have any issues with Azure App Service or Azure Platform, please continue to create a support incident with Azure support.
 
 ## How can I setup Tinfoil to use with Azure App Services?
 
-Web vulnerability scanning powered by Tinfoil Security is now available for Azure App Services. Setup guidance is available at this [link](https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/).
+Web vulnerability scanning powered by Tinfoil Security is now available for Azure App Services. Setup guidance is available via [here](https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/).
 
-For technical support related to Tinfoil, please contact Tinfoil support. Tinfoil is an Azure Market Place Solution and Technical support is provided by the publishers of the Marketplace solution. More information on Marketplace support is available in the FAQ at this [link](https://azure.microsoft.com/en-us/marketplace/faq/).
+For technical support related to Tinfoil, please contact Tinfoil support. Tinfoil is an Azure Market Place Solution and Technical support is provided by the publishers of the Marketplace solution. More information on Marketplace support is available in the FAQ via [here](https://azure.microsoft.com/en-us/marketplace/faq/).
 
 If you have any issues with Azure App Service or Azure Platform, please continue to create a support incident with Azure support.
 
@@ -237,7 +236,7 @@ If you have any issues with Azure App Service or Azure Platform, please continue
 
 If you have recently migrated to Azure, WordPress may redirect to the old domain URL. This is caused by a setting on the MySQL database.
 
-WordPress Buddy+ is a Site Extension on Azure that can be used to update the redirection URL directly on the database. Follow this [link](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) for more information on using WordPress Buddy+.
+WordPress Buddy+ is a Site Extension on Azure that can be used to update the redirection URL directly on the database. Follow [WordPress Tools and MySQL Migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) for more information on using WordPress Buddy+.
 
 Alternatively, if you prefer to do this manually through SQL queries or PHPMyAdmin, follow the instructions [here](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
