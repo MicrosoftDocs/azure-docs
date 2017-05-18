@@ -92,6 +92,19 @@ For each source, you can set the following parameters:
  * `Level` specifies the logging level to collect. Can be one of `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
  * `Keywords` (Optional) specifies the integer value of keywords combinations to use.
 
+## Using DiagnosticSource events
+You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) events to be sent to Application Insights as traces. First, install the [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+      <Sources>
+        <Add Name="MyDiagnosticSourceName" />
+      </Sources>
+    </Add>
+```
+
+For each DiagnosticSource you want to trace, add an entry with the `Name` attribute  set to the name of your DiagnosticSource.
+
 ## Using ETW events
 You can configure ETW events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EtwCollector` NuGet package. Then edit `TelemetryModules` section of the [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) file.
 
