@@ -1,5 +1,5 @@
 ---
-title: Managing Virtual Machines using the Azure Explorer for Eclipse | Microsoft Docs
+title: Manage virtual machines by using the Azure Explorer for Eclipse | Microsoft Docs
 description: Learn how to manage your Azure virtual machines by using the Azure Explorer for Eclipse.
 services: ''
 documentationcenter: java
@@ -18,151 +18,169 @@ ms.author: robmcm
 
 ---
 
-# Managing Virtual Machines using the Azure Explorer for Eclipse
+# Manage virtual machines by using the Azure Explorer for Eclipse
 
-The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing virtual machines in their Azure account from inside the Eclipse IDE.
+The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Java developers with an easy-to-use solution for managing virtual machines in their Azure account from inside the Eclipse integrated development environment (IDE).
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 [!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](../includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
-## Creating a Virtual Machine in Eclipse
+## Create a virtual machine in Eclipse
 
-The following steps will walk you through the steps to create a virtual machine using the Azure Explorer.
+To create a virtual machine by using the Azure Explorer, do the following:
 
-1. Sign in to your Azure account using the steps in the [Sign In Instructions for the Azure Toolkit for Eclipse] article.
+1. Sign in to your Azure account by using the [Sign-in instructions for the Azure Toolkit for Eclipse].
 
-1. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines** and then click **Create VM**.
-   ![Create VM Menu][CR01]
+2. In the **Azure Explorer** view, expand the **Azure** node, right-click **Virtual Machines**, and then click **Create VM**.
 
-1. When the **Create a new Virtual Machine** wizard appears, choose your subscription and then click **Next**.
-   ![Create New Virtual Machine Wizard][CR02]
+   ![The Create VM command][CR01]  
+   The **Create new Virtual Machine** wizard opens.
 
-1. On the next screen of the wizard, specify the following options, and then click **Next**:
-    ![Create New Virtual Machine Wizard][CR03]
+3. In the **Choose a Subscription** window, select your subscription, and then click **Next**.
 
-   a. **Location**: Specifies the location where your virtual machine will be created; for example "westus".
+   ![The Choose a Subscription window][CR02]
 
-   b. **Publisher**: Specifies the publisher which created the image which you will use to create your virtual machine; for example "Microsoft".
+4. In the **Select a Virtual Machine Image** window, enter the following information:
 
-   c. **Offer**: Specifies which the virtual machine which offering to use from the selected publisher; for example "JDK".
+   * **Location**: Specifies where your virtual machine will be created (for example, *West US*).
 
-   d. **Sku**: Specifies the *Stockkeeping Unit (SKU)* to use from the selected offering; for example "JDK_8".
+   * **Publisher**: Specifies the publisher that created the image you'll use to create your virtual machine (for example, *Microsoft*).
 
-   e. **Version #**: Specifies which version to use from the selected SKU.
+   * **Offer**: Specifies the virtual machine offering to use from the selected publisher (for example, *JDK*).
 
-1. On the next screen of the wizard, specify the following options, and then click **Next**:
-   ![Create New Virtual Machine Wizard][CR04]
+   * **Sku**: Specifies the stockkeeping unit (SKU) to use from the selected offering (for example, *JDK_8*).
 
-   a. **Virtual Machine Name**: Specifies the name for your new virtual machine, which must start with a letter and contain only letters, numbers, and hyphens.
+   * **Version #**: Specifies which version of the selected SKU to use.
 
-   b. **Size**: Specifies the number of cores and memory to allocate for your virtual machine.
+    ![The Select a Virtual Machine Image window][CR03]
 
-   c. **User name**: Specifies the administrator account to create for managing your virtual machine.
+5. Click **Next**.
 
-   d. **Password** and **Confirm**: Specifies the password for your administrator account.
+6. In the **Virtual Machine Basic Settings** window, enter the following information:
 
-1. On the last screen of the wizard, specify the following options:
+   * **Virtual Machine Name**: Specifies the name for your new virtual machine, which must start with a letter and contain only letters, numbers, and hyphens.
 
-   a. **Resource Group**: Specifies the resource group for your virtual machine; you need to choose one of the following options:
-      * **Create New**: Specifies that you want to create a new resource group.
-      * **Use Existing**: Specifies that you will chose from a list resource groups associated with your Azure account.
+   * **Size**: Specifies the number of cores and memory to allocate for your virtual machine.
 
-   b. **Storage account**: Specifies the storage account to use for storing your virtual machine; you can choose an existing storage account or create a new account. If you choose **&lt;&lt;Create New&gt;&gt;**, the following dialog box will be displayed:
+   * **User name**: Specifies the administrator account to create for managing your virtual machine.
 
-      ![Create New Storage Account Dialog Box][CR05]
+   * **Password** and **Confirm**: Specifies the password for your administrator account.
 
-   c. **Virtual Network** and **Subnet**: Specifies the virtual network and subnet to which your virtual machine will connect; you can choose an existing network and subnet to use for your virtual machine, or you can create a new network and subnet. If you choose **&lt;&lt;Create New&gt;&gt;**, the following dialog box will be displayed:<br/>
+    ![The Virtual Machine Basic Settings window][CR04]
 
-      ![Create New Virtual Network Dialog Box][CR06]
+7. Click **Next**.
 
-   d. **Public IP address**: Specifies an externally-facing IP address for your virtual machine; you can choose to create a new IP address, or choose **(None)** if your virtual machine will not have a public IP address.
+8. In the **Create New Storage Account** window, enter the following information:
 
-   e. **Network security group**: Specifies an optional networking firewall which your virtual machine will use; you can choose an existing firewall, or choose **(None)** if your virtual machine will not use a network firewall.
+   * **Resource Group**: Specifies the resource group for your virtual machine. Select one of the following options:
+      * **Create new**: Specifies that you want to create a new resource group.
+      * **Use existing**: Specifies that you want to select a resource group that is already associated with your Azure account.
 
-   f. **Availability set**: Specifies an optional availability set to which your virtual machine may belong; you can choose an existing availability set, or to create a new availability set, or choose **(None)** if your virtual machine will not belong to an availability set.
+      ![The Create New Storage Account dialog box][CR05]
 
-1. After you have entered all of the options listed above, and then click **Finish**:
-   ![Create New Virtual Machine Wizard][CR07]
+   * **Storage account**: Specifies the storage account to use for storing your virtual machine. You can use an existing storage account or create a new account.
 
-1. When you have completed the above steps, your new virtual machine will be displayed in the Azure Explorer tool window.
+   * **Virtual Network** and **Subnet**: Specifies the virtual network and subnet that your virtual machine will connect to. You can use an existing network and subnet, or you can create a new network and subnet. If you select **Create new**, the following dialog box is displayed:
+
+      ![The Create New Virtual Network dialog box][CR06]
+
+9. In the **Associated Resources** window, enter the following information:
+
+   * **Public IP address**: Specifies an external-facing IP address for your virtual machine. You can choose to create a new IP address or, if your virtual machine will not have a public IP address, you can select **(None)**.
+
+   * **Network security group**: Specifies an optional networking firewall for your virtual machine. You can select an existing firewall or, if your virtual machine will not use a network firewall, you can select **(None)**.
+
+   * **Availability set**: Specifies an optional availability set that your virtual machine can belong to. You can select an existing availability set or create a new availability set or, if your virtual machine will not belong to an availability set, you can select **(None)**.
+
+   ![The Associated Resources window][CR07]
+
+9. Click **Finish**.  
+  Your new virtual machine is displayed in the Azure Explorer tool window.
+
    ![New Virtual Machine][CR08]
 
-## Restarting a Virtual Machine in Eclipse
+## Restart a virtual machine in Eclipse
 
-To restart a virtual machine using the Azure Explorer in Eclipse, use the following steps:
+To restart a virtual machine by using the Azure Explorer in Eclipse, do the following:
 
-1. In the **Azure Explorer** view, right-click the virtual machine and chose **Restart**.
-   ![Restarting a Virtual Machine][RE01]
+1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Restart**.
 
-1. Click **Yes** when prompted to restart the virtual machine.
-   ![Restarting a Virtual Machine][RE02]
+   ![The virtual-machine Restart command][RE01]
 
-## Shutting down a Virtual Machine in Eclipse
+2. In the confirmation window, click **Yes**.
 
-To shutdown a running virtual machine using the Azure Explorer in Eclipse, use the following steps:
+   ![The Restart confirmation window][RE02]
 
-1. In the **Azure Explorer** view, right-click the virtual machine and chose **Shutdown**.
-   ![Shutting Down a Virtual Machine][SH01]
+## Shut down a virtual machine in Eclipse
 
-1. Click **Yes** when prompted to shut down the virtual machine.
-   ![Shutting Down a Virtual Machine][SH02]
+To shut down a running virtual machine by using the Azure Explorer in Eclipse, do the following:
 
-## Deleting a Virtual Machine in Eclipse
+1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Shutdown**.
 
-To delete a virtual machine using the Azure Explorer in Eclipse, use the following steps:
+   ![The virtual-machine Shutdown command][SH01]
 
-1. In the **Azure Explorer** view, right-click the virtual machine and chose **Delete**.
-   ![Deleting a Virtual Machine][DE01]
+2. In the confirmation window, click **Yes**.
 
-1. Click **Yes** when prompted to delete the virtual machine.
-   ![Deleting a Virtual Machine][DE02]
+   ![The virtual-machine shutdown confirmation window][SH02]
 
-## See Also
-For more information about the Azure virtual machine sizes and pricing, see the following links:
+## Delete a virtual machine in Eclipse
 
-* Azure Virtual Machine Sizes
+To delete a virtual machine by using the Azure Explorer in Eclipse, do the following:
+
+1. In the **Azure Explorer** view, right-click the virtual machine, and then select **Delete**.
+
+   ![The virtual-machine Delete command][DE01]
+
+2. In the confirmation window, click **Yes**.
+
+   ![The virtual-machine deletion confirmation window][DE02]
+
+## Next steps
+For more information about Azure virtual-machine sizes and pricing, see the following resources:
+
+* Azure virtual-machine sizes
   * [Sizes for Windows virtual machines in Azure]
   * [Sizes for Linux virtual machines in Azure]
-* Azure Virtual Machine Pricing
-  * [Windows Virtual Machines Pricing]
-  * [Linux Virtual Machines Pricing]
+* Azure virtual-machine pricing
+  * [Windows virtual-machine pricing]
+  * [Linux virtual-machine pricing]
 
-For more information about the Azure Toolkits for Java IDEs, see the following links:
+For more information about the Azure Toolkits for Java IDEs, see the following resources:
 
 * [Azure Toolkit for Eclipse]
-  * [What's New in the Azure Toolkit for Eclipse]
+  * [What's new in the Azure Toolkit for Eclipse]
   * [Installing the Azure Toolkit for Eclipse]
-  * [Sign In Instructions for the Azure Toolkit for Eclipse]
-  * [Create a Hello World Web App for Azure in Eclipse]
+  * [Sign-in instructions for the Azure Toolkit for Eclipse]
+  * [Create a Hello World web app for Azure in Eclipse]
 * [Azure Toolkit for IntelliJ]
-  * [What's New in the Azure Toolkit for IntelliJ]
+  * [What's new in the Azure Toolkit for IntelliJ]
   * [Installing the Azure Toolkit for IntelliJ]
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ]
-  * [Create a Hello World Web App for Azure in IntelliJ]
+  * [Sign-in instructions for the Azure Toolkit for IntelliJ]
+  * [Create a Hello World web app for Azure in IntelliJ]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
+For more information about using Azure with Java, see [Azure Java Developer Center] and [Java Tools for Visual Studio Team Services].
 
 <!-- URL List -->
 
 [Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
-[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Sign-in instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[What's new in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's new in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Sizes for Windows virtual machines in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
 [Sizes for Linux virtual machines in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
-[Windows Virtual Machines Pricing]: /pricing/details/virtual-machines/windows/
-[Linux Virtual Machines Pricing]: /pricing/details/virtual-machines/linux/
+[Windows virtual-machine pricing]: /pricing/details/virtual-machines/windows/
+[Linux virtual-machine pricing]: /pricing/details/virtual-machines/linux/
 
 <!-- IMG List -->
 

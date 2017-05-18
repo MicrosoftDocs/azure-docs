@@ -1,5 +1,5 @@
 ---
-title: Text Analytics API | Microsoft Docs
+title: Azure Text Analytics API | Microsoft Docs
 description: Use the Text Analytics API for sentiment analysis, key phrase extraction, topic detection for English text, and much more.
 services: cognitive-services
 author: LuisCabrer
@@ -38,10 +38,23 @@ The service can be used to detect which language the input text is written in. 1
 
 ## Supported Languages
 
-The supported languages are as follows:
+| Language    | Language code | Sentiment | Key phrases | Topics |
+|:----------- |:----:|:----:|:----:|:----:|
+| Danish      | `da` | ✔ \* |  |   |
+| German       | `de` | ✔ \* | ✔ |   |
+| Greek       | `el` | ✔ \* |  |   |
+| English     | `en` | ✔ | ✔ | ✔ |
+| Spanish     | `es` | ✔ | ✔ |   |
+| Finnish     | `fi` | ✔ \* |  |   |
+| French      | `fr` | ✔ |  |   |
+| Japanese    | `ja` |  | ✔ |   |
+| Italian     | `it` | ✔ \* |  |   |
+| Dutch       | `nl` | ✔ \* |  |   |
+| Norwegian   | `no` | ✔ \* |  |   |
+| Polish      | `pl` | ✔ \* |  |   |
+| Portuguese  | `pt` | ✔ |  |   |
+| Russian     | `ru` | ✔ \* |  |   |
+| Swedish     | `sv` | ✔ \* |  |   |
+| Turkish     | `tr` | ✔ \* |  |   |
 
-| Feature | Supported language codes |
-|:--- |:--- |
-| Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Key Phrases |`en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
-| Topics |`en` (English) |
+\* indicates language support in preview
