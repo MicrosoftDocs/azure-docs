@@ -50,7 +50,7 @@ If you intend to use the VHD as-is to create a new VM, ensure the following step
 
 
 ### Get the storage account
-You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
+You need a storage account in Azure to store the uploaded VHD. You can either use an existing storage account or create a new one. 
 
 To show the available storage accounts, type:
 
@@ -58,7 +58,7 @@ To show the available storage accounts, type:
 Get-AzureRmStorageAccount
 ```
 
-If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vhd-to-your-storage-account) section.
+If you want to use an existing storage account, proceed to the [Upload the VHD](#upload-the-vhd-to-your-storage-account) section.
 
 If you need to create a storage account, follow these steps:
 
@@ -82,12 +82,12 @@ If you need to create a storage account, follow these steps:
     ```
 
 ### Upload the VHD to your storage account 
-Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
+Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -111,13 +111,13 @@ Depending on your network connection and the size of your VHD file, this command
 
 ## Option 2: Copy the VHD from an existing Azure VM
 
-You can create a copy of the VHD for a VM in another storage account to use when creating a new, duplicate VM.
+You can create a copy of the VHD for a VM in another storage account.
 
 ### Before you begin
+
 Make sure that you:
 
 * Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
-* Have Azure [PowerShell 1.0](/powershell/azure/overview) (or later) installed.
 * Have downloaded and installed the [AzCopy tool](../../storage/storage-use-azcopy.md). 
 
 ### Deallocate the VM
@@ -258,12 +258,12 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 	
 ### Create a managed disk from the VHD
 
-Create a managed disk from the existing specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
+Create a managed disk from the existing specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk '
 	(New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import '
-	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
+	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd) `
     -ResourceGroupName $rgName
     ```
 
