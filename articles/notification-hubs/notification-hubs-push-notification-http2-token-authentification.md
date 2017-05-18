@@ -1,5 +1,5 @@
 ---
-title: HTTP/2 and Token Based Authentication for APNS
+title: Token Based (HTTP/2) Authentication for APNS
 description: This topic explains how to leverage the new token authentication for APNS
 services: notification-hubs
 documentationcenter: .net
@@ -16,7 +16,7 @@ ms.date: 05/17/2016
 ms.author: kapiteir
 
 ---
-# HTTP/2 and Token Based Authentication for APNS
+# Token Based (HTTP/2) Authentication for APNS
 ## Overview
 This article details how to use the new APNS HTTP/2 protocol with token based authentication.
 
@@ -24,6 +24,7 @@ The key benefits of using the new protocol include:
 -	Token generation is relatively hassle free (compared to certificates)
 -	No more expiry dates – you are in control of your authentication tokens and their revocation
 -	Payloads can now be up to 4 KB
+- Synchronous feedback
 -	You’re on Apple’s latest protocol – certificates still use the binary protocol, which is marked for deprecation
 
 Using this new mechanism can be done in two steps in a few minutes:
