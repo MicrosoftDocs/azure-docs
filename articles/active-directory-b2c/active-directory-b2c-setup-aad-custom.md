@@ -61,7 +61,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 
 ## Add the Azure AD key to Azure AD B2C
 
-You need to store the `contoso.com` application key in your Azure AD B2C tenant. To do this:
+You need to store the contoso.com application key in your Azure AD B2C tenant. To do this:
 1. Go to your Azure AD B2C tenant, and select **B2C Settings** > **Identity Experience Framework** > **Policy Keys**.
 1. Select **+Add**.
 1. Select or enter these options:
@@ -139,7 +139,7 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 You need to update the `<Metadata>` section in the XML file referred to earlier to reflect the configuration settings for your specific Azure AD tenant. In the XML file, update the metadata values as follows:
 
 1. Set `<Item Key="METADATA">` to `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (contoso.com).
-1. Open your browser and go to the `Metadata` URL that you just updated.
+1. Open your browser and go to the `METADATA` URL that you just updated.
 1. In the browser, look for the 'issuer' object and copy its value. It should look like the following: `https://sts.windows.net/{tenantId}/`.
 1. Paste the value for `<Item Key="ProviderName">` in the XML file.
 1. Set `<Item Key="client_id">` to the application ID from the app registration.
@@ -202,7 +202,7 @@ You are done modifying the extension file. Save it. Then upload the file, and en
 
 ### Update the RP file
 
-You now need to update the relying party (RP) file that will initiate the user journey that you just created.
+You now need to update the relying party (RP) file that will initiate the user journey that you just created:
 
 1. Make a copy of SignUpOrSignIn.xml in your working directory, and rename it (for example, rename it to SignUpOrSignInWithAAD.xml).
 1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with a unique value (for example, SignUpOrSignInWithAAD). <br> This will be the name of your policy (for example, B2C\_1A\_SignUpOrSignInWithAAD).
