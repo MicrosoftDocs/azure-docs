@@ -433,4 +433,4 @@ you must follow the previous steps.
 
 ## Next steps
 
-* [Check logic app performance with diagnostic logs and alerts](logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Check logic app performance with diagnostic logs and alerts](logic-apps-monitor-your-logic-apps.md)
