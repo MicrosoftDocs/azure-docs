@@ -36,7 +36,7 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is simila
 
 VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
-![About connections](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
 ### Why connect virtual networks?
 
@@ -59,7 +59,7 @@ In this article, you see two different sets of steps. One set of steps for [VNet
 
 ## <a name="samesub"></a>Connect VNets that are in the same subscription
 
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 ### Before you begin
 
@@ -252,7 +252,7 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
 
 ## <a name="difsub"></a>Connect VNets that are in different subscriptions
 
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
 In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5. When creating additional connections, it's important to verify that the IP address space of the new virtual network (in this example - TestVNet5) does not overlap with any of your other VNet ranges or local network gateway ranges.
 
