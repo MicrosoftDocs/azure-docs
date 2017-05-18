@@ -75,7 +75,6 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
   "parameters": []
 }
 ```
-Examples of artifacts can be found in this [github repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)
 
 List artifacts available in the lab
 ```azurecli
