@@ -20,7 +20,7 @@ This sample CLI script creates an Azure Database for MySQL server and configures
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## Sample Script
+## Sample script
 In this sample script, edit the highlighted lines to customize the admin username and password.
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
