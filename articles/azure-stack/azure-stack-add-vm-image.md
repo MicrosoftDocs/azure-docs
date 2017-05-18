@@ -140,12 +140,14 @@ One requirement of images is that they can be referenced by a Blob storage URI. 
 
 1. [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) or for a Linux image, follow the instructions described in the [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md) article. You should understand the following considerations before you upload the image:
 
-   * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the VM image to the Azure Stack image repository. While following the upload instructions, make sure to substitute the [Authenticate PowerShell with Microsoft Azure Stack](azure-stack-deploy-template-powershell.md) step for the ‘Login to Azure’ step.  
+   * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the image to the Azure Stack image repository. 
+   
+   * When uploading the [Windows VM image](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), make sure to substitute the **Login to Azure** step with the [Configure and Sign in PowerShell for Azure Stack](azure-stack-powershell-configure.md) step.  
 
    * Make a note of the Blob storage URI where you upload the image, which is in the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
 
-   To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+   * To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
    ![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
