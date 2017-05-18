@@ -72,7 +72,7 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
 > [!NOTE]
 > This file prompts you for information that is used to connect to your HDInsight cluster and run jobs. It may take several minutes for the jobs to complete and download the output.txt file.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-mahout/use-mahout.ps1?range=5-98)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]
 > Mahout jobs do not remove temporary data that is created while processing the job. The `--tempDir` parameter is specified in the example job to isolate the temporary files into a specific directory.
@@ -94,7 +94,7 @@ The script also downloads the `moviedb.txt` and `user-ratings.txt` files, which 
 
 Although the generated output might be OK for use in an application, it's not user-friendly. The `moviedb.txt` from the server can be used to resolve the `movieId` to a movie name. Use the following PowerShell script to display recommendations with movie names:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-mahout/use-mahout.ps1?range=106-180)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
 Use the following command to display the recommendations in a user-friendly format: 
 

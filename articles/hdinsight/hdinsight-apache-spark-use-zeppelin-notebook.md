@@ -63,7 +63,7 @@ The following example demonstrates how to configure Zeppelin using PowerShell:
 * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
 * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-zeppelin.ps1?range=59-83?highlight=64-68)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-zeppelin.ps1?range=59-83)]
 
 > [!IMPORTANT]
 > This example is not a full script. It only demonstrates how to create a new configuration object that uses the script action to install Zeppelin. For a full example of creating an HDInsight cluster using PowerShell, see the [Create HDInsight using PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) document.
