@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 05/18/2017
 ms.author: sethm
 
 ---
@@ -36,14 +36,14 @@ Each messaging entity is assigned a specific container. A container is a logical
 ## Processing of incoming messaging requests
 When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. The gateway node authorizes the request. If the request concerns a messaging entity (queue, topic, subscription), the gateway node looks up the entity in the gateway store and determines in which messaging store the entity is located. It then looks up which messaging broker node is currently servicing this container, and sends the request to that messaging broker node. The messaging broker node processes the request and updates the entity state in the container store. The messaging broker node then sends the response back to the gateway node, which sends an appropriate response back to the client that issued the original request.
 
-![Processing of Incoming Messaging Requests](./media/service-bus-architecture/IC690644.png)
+![Processing of Incoming Messaging Requests](./media/service-bus-architecture/ic690644.png)
 
 ## Processing of incoming relay requests
-When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.
+When a client sends a request to the [Azure Relay](/azure/service-bus-relay/) service, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.
 
 When the relay connection is established, the clients can exchange messages via the gateway node that is used for the rendezvous.
 
-![Processing of Incoming WCF Relay Requests](./media/service-bus-architecture/IC690645.png)
+![Processing of Incoming WCF Relay Requests](./media/service-bus-architecture/ic690645.png)
 
 ## Next steps
 Now that you've read an overview of Service Bus architecture, visit the following links for more information:
