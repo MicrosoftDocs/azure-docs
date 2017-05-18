@@ -21,7 +21,7 @@ The service assumes that data is transmitted in real time. If it is sent faster,
 
 ## Send requests by using the speech client library
 
-To send requests to your custom endpoint by using the speech client library, start the recognition client. Use the Client Speech SDK from [nuget](http://nuget.org/). Search for "speech recognition" and select the speech recognition nuget from Microsoft for your platform. Some sample code can be found [here](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). The Client Speech SDK provides a factory class _SpeechRecognitionServiceFactory_, which offers the following methods:
+To send requests to your custom endpoint by using the speech client library, start the recognition client. Use the Client Speech SDK from [nuget](http://nuget.org/). Search for "speech recognition" and select the speech recognition nuget from Microsoft for your platform. Some sample code can be found on [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). The Client Speech SDK provides a factory class _SpeechRecognitionServiceFactory_, which offers the following methods:
 
   *   ```CreateDataClient(...)```: A data recognition client.
   *   ```CreateDataClientWithIntent(...)```: A data recognition client with intent.
@@ -73,7 +73,7 @@ There are some restrictions on requests sent via HTTP for both the Cognitive Ser
 
 To create a post request, follow the same process you use for the Cognitive Services Speech API:
 
-1.  Obtain an access token using your subscription ID. This is required to access the recognition endpoint, and can be reused for ten minutes.
+1.  Obtain an access token using your subscription ID. This is required to access the recognition endpoint, and can be reused for 10 minutes.
 
     ```
     curl -X POST --header "Ocp-Apim-Subscription-Key:<subscriptionId>" --data "" "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
