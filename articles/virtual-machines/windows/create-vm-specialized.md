@@ -124,7 +124,10 @@ Make sure that you:
 Deallocate the VM, which frees up the VHD to be copied. 
 
 * **Portal**: Click **Virtual machines** > **myVM** > Stop
-* **Powershell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` deallocates the VM named **myVM** in resource group **myResourceGroup**.
+* **Powershell**: Use [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) to stop (deallocate) the VM named **myVM** in resource group **myResourceGroup**.
+```powershell
+Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
+```
 
 The **Status** for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 
@@ -134,13 +137,19 @@ You need the URLs of the source and destination storage accounts. The URLs look 
 You can use the Azure portal or Azure Powershell to get the URL:
 
 * **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
-* **Powershell**: `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` gets the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
+* **Powershell**: Use [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) to get the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
+```powershell
+Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+``` 
 
 ### Get the storage access keys
 Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/storage-create-storage-account.md).
 
 * **Portal**: Click **More services** > **Storage accounts** > <storage account> **All Settings** > **Access keys**. Copy the key labeled as **key1**.
-* **Powershell**: `Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup` gets the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled as **key1**.
+* **Powershell**: Use [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) to get the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled **key1**.
+```powershell
+Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
+```
 
 ### Copy the VHD
 You can copy files between storage accounts using AzCopy. For the destination container, if the specified container doesn't exist, it will be created for you. 
@@ -179,7 +188,8 @@ Elapsed time:            00.00:13:07
 ```
 
 ### Troubleshooting
-* When you use AZCopy, if you see the error "Server failed to authenticate the request", make sure the value of the Authorization header is formed correctly including the signature. If you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
+
+When you use AZCopy, if you see the error "Server failed to authenticate the request", make sure the value of the Authorization header is formed correctly including the signature. If you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
 
 ## Create the new VM 
 
@@ -189,39 +199,41 @@ You need to create networking and other VM resources to be used by the new VM.
 
 Create the vNet and subNet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
-1. Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
+Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
    
-    ```powershell
-    $rgName = "myResourceGroup"
-    $subnetName = "mySubNet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-    ```
-2. Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
+```powershell
+$rgName = "myResourceGroup"
+$subnetName = "mySubNet"
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+```
+
+Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **West US**, and the address prefix for the virtual network to **10.0.0.0/16**. 
    
-    ```powershell
-    $location = "West US"
-    $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-        -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-    ```    
+```powershell
+$location = "West US"
+$vnetName = "myVnetName"
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+```    
 
 ### Create a public IP address and NIC
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-1. Create the public IP. In this example, the public IP address name is set to **myIP**.
+Create the public IP. In this example, the public IP address name is set to **myIP**.
    
-    ```powershell
-    $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. Create the NIC. In this example, the NIC name is set to **myNicName**.
+```powershell
+$ipName = "myIP"
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+   -AllocationMethod Dynamic
+```       
+
+Create the NIC. In this example, the NIC name is set to **myNicName**.
    
-    ```powershell
-    $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-	-Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	```
+```powershell
+$nicName = "myNicName"
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+```
 
 ### Create the network security group and an RDP rule
 To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
@@ -244,6 +256,7 @@ For more information about endpoints and NSG rules, see [Opening ports to a VM i
 ### Set the VM name and size
 
 This example sets the VM name to "myVM" and the VM size to "Standard_A2".
+
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -258,21 +271,21 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 	
 ### Create a managed disk from the VHD
 
-Create a managed disk from the existing specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD.
+Create a managed disk from the existing specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD that you uploaded or copied to a storage account.
 
-    ```powershell
-    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk '
-	(New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import '
-	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd) `
+```powershell
+$osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk '
+    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import '
+    -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd) `
     -ResourceGroupName $rgName
-    ```
+```
 
-2. Add the OS disk to the configuration using [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
-	 
-	```powershell
-	$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
-	-DiskSizeInGB 128 -CreateOption Attach -Windows
-	```
+Add the OS disk to the configuration using [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
+ 
+```powershell
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+    -DiskSizeInGB 128 -CreateOption Attach -Windows
+```
 
 Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](create-managed-disk-ps.md). 
 
@@ -282,7 +295,7 @@ $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOptio
 
 ### Complete the VM 
 
-Create the VM using the configurations that we just created.
+Create the VM using [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm)the configurations that we just created.
 
 ```powershell
 #Create the new VM
