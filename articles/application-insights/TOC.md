@@ -35,7 +35,7 @@
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
 ### [Separate development, test, and production](app-insights-separate-resources.md)
-### [Monitor apps with multiple roles](app-insights-monitor-multi-role-apps.md)
+### [Monitor apps with multiple components](app-insights-monitor-multi-role-apps.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
 
