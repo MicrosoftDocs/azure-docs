@@ -40,11 +40,11 @@ These steps include:
 To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
 
 >[!NOTE]
-> We will use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
+> We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account. From the **Directory** list, choose the organizational Azure AD tenant where you wish to register your application (contoso.com).
-1. Select **More services** in the left pane, and search for "App registrations".
+1. Select **More services** in the left pane, and search for "App registrations."
 1. Select **New application registration**.
 1. Enter a name for your application (for example, `Azure AD B2C App`)
 1. Select **Web app / API** for the application type.
@@ -57,7 +57,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Save the application ID.
 1. Select the newly created application.
 1. Under the **Settings** blade, select **Keys**.
-1. Create a new key and save it for the next section.
+1. Create a new key, and save it. You will use it in the steps in the next section.
 
 ## Add the Azure AD key to Azure AD B2C
 
