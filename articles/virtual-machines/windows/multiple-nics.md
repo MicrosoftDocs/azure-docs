@@ -78,7 +78,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Location "WestUS" -Name "myNic2" -SubnetId $backEnd.Id
 ```
 
-Typically you also create a [network security group](../../virtual-network/virtual-networks-nsg.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multi-NIC VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a network security group and assigning NICs.
+Typically you also create a [network security group](../../virtual-network/virtual-networks-nsg.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multiple-NIC VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a network security group and assigning NICs.
 
 ## Create the virtual machine
 Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. [Read more about Windows VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -89,7 +89,7 @@ Now start to build your VM configuration. Each VM size has a limit for the total
    $cred = Get-Credential
    ```
 
-2. The following example defines a VM named `myVM` and uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
+2. Define your VM. The following example defines a VM named `myVM` and uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
 
    ```powershell
    $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
@@ -208,7 +208,7 @@ You can also use `copyIndex()` to append a number to a resource name. You can th
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-You can [read a complete example of creating multiple NICs by using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+You can read a [complete example of creating multiple NICs by using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## Next steps
 Review [Windows VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when you're trying to create a VM that has multiple NICs. Pay attention to the maximum number of NICs that each VM size supports. 
