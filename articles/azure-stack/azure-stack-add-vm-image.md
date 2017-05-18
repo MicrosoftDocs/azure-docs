@@ -63,7 +63,8 @@ If the virtual machine image is available locally on the Azure Stack POC compute
       -EnvironmentName AzureStackAdmin 
     ```
 
-5. Add the VM image by invoking the `Add-VMImage` cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. Following is an example invocation of the script:
+5. Add the VM image by invoking the `Add-VMImage` cmdlet. In the Add-VMImage cmdlet, specify the osType as Windows or Linux. Include the publisher, offer, SKU, and version for the VM image. See the [Parameters](#parameters) section for information about the allowed parameters.
+PowerShell. These parameters are used by Azure Resource Manager templates to reference the VM image. Following is an example invocation of the script:
      
      ```powershell
      # Store the service administrator account credentials in a variable 
@@ -95,7 +96,21 @@ To verify that the command ran successfully, go to Marketplace in the portal, an
 
 ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG) 
 
-Following is a description of the command parameters.
+## Remove a VM image with PowerShell
+
+When you no longer need the virtual machine image that you have uploaded earlier, you can use the following cmdlet to delete it from the marketplace: 
+
+```powershell
+Remove-VMImage `
+  -publisher "Canonical" `
+  -offer "UbuntuServer" `
+  -sku "14.04.3-LTS" `
+  -version "1.0.0" `
+  -tenantID <GUID AADTenant> `
+  -EnvironmentName "AzureStackAdmin"
+```
+
+## Parameters
 
 | Parameter | Description |
 | --- | --- |
@@ -150,8 +165,7 @@ To make the blob anonymously accessible, go to the storage account blob containe
 
 ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-1. Sign in to Azure Stack as an administrator. Go to **Region
-   Management**. Then, under **RPs**, select  **Compute Resource Provider** > **VM Images** > **Add.**
+1. Sign in to Azure Stack as an administrator. Go to **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
    
    ![Start to add an image](./media/azure-stack-add-vm-image/image3.png)
 2. On the following blade, enter the publisher, offer, SKU, and version
