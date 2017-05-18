@@ -159,13 +159,18 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Creates, updates, or restores a primary or a secondary database. |
 | [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases#Databases) |Returns the status during a create operation. |
+| [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLink) |Sets which replica database is primary by failing over from the current primary replica database. |
+| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
+| [Get Replication Link](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_GetReplicationLink) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [List Replication Links](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_GetReplicationLink) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [Delete Replication Link](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_DeleteReplicationLink) | Deletes a database replication link. Cannot be done during failover. |
 | [Create or Update Failover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Creates or updates a failover group |
 | [Delete Failover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Delete) | Removes the failover group from the server |
 | [Failover (Planned)](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Failover) | Fails over from the current primary server to this server. |
 | [Force Failover Allow Data Loss](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |ails over from the current primary server to this server. This operation might result in data loss. |
 | [Get Failover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Get) | Gets a failover group. |
 | [List Failover Groups By Server](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Lists the failover groups in a server. |
-| [Update Faolover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Update) | Updates a failover group. |
+| [Update Failover Group](https://docs.microsoft.com/en-us/rest/api/sql/failovergroups#FailoverGroups_Update) | Updates a failover group. |
 |  | |
 
 ## Next steps
