@@ -16,7 +16,7 @@ ms.date: 04/06/2017
 ms.author: jgao
 
 ---
-# Tutorial: get started with Azure Data Lake Analytics using Azure CLI 2.0 (Preview)
+# Tutorial: get started with Azure Data Lake Analytics using Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use Azure CLI 2.0 to create Azure Data Lake Analytics accounts, define Data Lake Analytics
@@ -31,12 +31,6 @@ Before you begin this tutorial, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* **Enable Data Lake Store/Analytics CLI 2.0 Preview**. Data Lake Store and Data Lake Analytics CLI 2.0 is still in Preview. Run the following commands to enable both:
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## Log in to Azure
 
@@ -110,8 +104,8 @@ The Azure portal provides a user interface for copying some sample data files to
 To upload files using CLI 2,0, use the following commands:
 
 ```azurecli
-az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
+az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
@@ -202,6 +196,8 @@ az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-fro
 ## Next steps
 
 * To see the same tutorial using other tools, click the tab selectors on the top of the page.
+* To see the Data Lake Analytics CLI 2.0 reference document, see[Data Lake Analytics - az dla](https://docs.microsoft.com/cli/azure/dla).
+* To see the Data Lake Store CLI 2.0 reference document, see[Data Lake Store - az dls](https://docs.microsoft.com/cli/azure/dls).
 * To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).

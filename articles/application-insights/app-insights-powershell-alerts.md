@@ -4,7 +4,7 @@ description: Automate configuration of Application Insights to get emails about 
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Use PowerShell to set alerts in Application Insights
@@ -35,7 +35,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
 * Use it to install Microsoft Azure Powershell
 
 ## Connect to Azure
-Start Azure PowerShell and [connect to your subscription](/powershell/azureps-cmdlets-docs):
+Start Azure PowerShell and [connect to your subscription](/powershell/azure/overview):
 
 ```PowerShell
 

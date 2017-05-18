@@ -1,5 +1,5 @@
 ---
-title: Customize your sign-in page in the Azure Active Directory preview | Microsoft Docs
+title: Customize your sign-in page in the Azure Active Directory | Microsoft Docs
 description: Learn how to add a company branding to the Azure sign-in page
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
 
 ---
-# Add company branding to your sign-in page in the Azure Active Directory preview
-To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](active-directory-preview-explainer.md) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
+# Add company branding to your sign-in page in the Azure Active Directory
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
 
 If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
 

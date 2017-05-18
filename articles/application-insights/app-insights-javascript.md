@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Application Insights for web pages
@@ -226,5 +226,5 @@ Want to find out what your users do with your app?
 ## <a name="next"></a> Next steps
 * [Track usage](app-insights-web-track-usage.md)
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-overview-usage.md)
+* [Build-measure-learn](app-insights-web-track-usage.md)
 
