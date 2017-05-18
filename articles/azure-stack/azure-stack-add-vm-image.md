@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/03/2017
+ms.date: 05/18/2017
 ms.author: sngun
 
 ---
@@ -22,7 +22,7 @@ Azure Stack enables administrators to make custom virtual machine images availab
 be referenced by Azure Resource Manager templates or added to the
 Azure Marketplace UI with the creation of a Marketplace item. 
 
-## Add a VM image to Mmarketplace with PowerShell
+## Add a VM image to marketplace with PowerShell
 If the virtual machine image is available locally on the Azure Stack POC computer (or on an externally connected device), use the following steps:
 
 1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
@@ -132,10 +132,9 @@ Remove-VMImage `
 | **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
 
 ## Add a VM image through the portal
+
 > [!NOTE]
 > This method requires creating the Marketplace item separately.
-> 
-> 
 
 One requirement of images is that they can be referenced by a Blob
     storage URI. Prepare a Windows or Linux operating system
@@ -151,11 +150,11 @@ Follow the steps from [Upload a Windows VM image to Azure for
     account**. Keep in mind the following:
 
 * For a Linux image, follow the instructions to
-  prepare the image, or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).
+  prepare the image, or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).  
 * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the VM image to the
   Azure Stack image repository. While following the upload instructions, make sure to substitute the [Authenticate PowerShell with Microsoft Azure
   Stack](azure-stack-deploy-template-powershell.md)
-  step for the ‘Login to Azure’ step.
+  step for the ‘Login to Azure’ step.  
 * Make a note of the Blob storage URI where you upload the image. It has the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
 
@@ -165,22 +164,20 @@ To make the blob anonymously accessible, go to the storage account blob containe
 
 ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-1. Sign in to Azure Stack as an administrator. Go to **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
-   
-   ![Start to add an image](./media/azure-stack-add-vm-image/image3.png)
-2. On the following blade, enter the publisher, offer, SKU, and version
-   of the VM image. These name segments refer to the VM
-   image in Azure Resource Manager templates. Make sure to select the
-   **osType** correctly. For **osDiskBlobURI**, enter the URI where the
-   image was uploaded in step 1. Click **Create** to begin creating the
+1. Sign in to Azure Stack as an administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+
+2. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version
+   of the virtual machine image. These name segments refer to the VM
+   image in Resource Manager templates. Make sure to select the
+   **osType** correctly. For **OD Disk Blob URI**, enter the Blob URI where the
+   image was uploaded and click **Create** to begin creating the
    VM Image.
    
    ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
-3. The VM Image status changes to ‘Succeeded’ when the image is
-   successfully added.
-4. Tenants can deploy the VM Image by specifying the
-   publisher, offer, SKU, and version of the VM image in an Azure
-   Resource Manager template. To make the VM image
-   more readily available for tenant consumption in the UI, it is best
+
+   When the image is successfully created, the VM image status changes to ‘Succeeded’.
+
+4. To make the virtual machine image
+   more readily available for user consumption in the UI, it is best
    to [create a
    Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
