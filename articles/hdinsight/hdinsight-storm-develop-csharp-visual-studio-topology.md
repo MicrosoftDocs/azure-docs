@@ -1,6 +1,6 @@
 ---
-title: Apache Storm topologies with Visual Studio and C#  | Microsoft Docs
-description: Learn how to create Storm topologies in C# by creating a simple word count topology in Visual Studio using the HDInsight Tools for Visual Studio.
+title: Apache Storm topologies with Visual Studio and C# - Azure  | Microsoft Docs
+description: Learn how to create Storm topologies in C# by creating a simple word count topology in Visual Studio using the Hadoop tools for Visual Studio.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -21,7 +21,7 @@ ms.author: larryfr
 ---
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
 
-Learn how to create a C# Storm topology by using the HDInsight tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
+Learn how to create a C# Storm topology by using the Data Lake (Hadoop) Tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
 
 You also learn how to create hybrid topologies that use C# and Java components.
 
@@ -49,10 +49,10 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 * Azure SDK 2.9.5 or later
 
-* HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
+* Data Lake Tools for Visual Studio: To install and configure them, see [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
   > [!NOTE]
-  > HDInsight Tools for Visual Studio are not supported on Visual Studio Express
+  > Data Lake Tools for Visual Studio are not supported on Visual Studio Express
 
 * Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
 
@@ -61,7 +61,7 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 ## Templates
 
-The HDInsight Tools for Visual Studio provide the following templates:
+The Data Lake Tools for Visual Studio provide the following templates:
 
 | Project type | Demonstrates |
 | --- | --- |
@@ -91,7 +91,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 ## Create a C# topology
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the Data Lake Tools for Visual Studio, see [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Open Visual Studio, select **File** > **New**, and then **Project**.
 
@@ -416,9 +416,9 @@ Transactional topologies implement the following to support replay of data:
 
 As demonstrated in the **Storm Sample** project, whether a component is transactional can be set at run time, based on configuration.
 
-## Hybrid topology
+## Hybrid topology with C# and Java
 
-HDInsight tools for Visual Studio can also be used to create hybrid topologies, where some components are C# and others are Java.
+Data Lake Tools for Visual Studio can also be used to create hybrid topologies, where some components are C# and others are Java.
 
 For an example hybrid topology, create a project and select **Storm Hybrid Sample**. This sample type demonstrates the following concepts:
 
@@ -510,7 +510,7 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 > 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 > 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
 
-## Troubleshooting
+## Troubleshooting common issues with topologies
 
 ### Null pointer exceptions
 
