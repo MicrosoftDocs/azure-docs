@@ -45,7 +45,7 @@ To decide on a service tier, first start by determining if your workload need IO
 | Database backup retention period | 7 days | 35 days | 35 days |
 
 > [!NOTE]
-> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1000 GB of storage.
+> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1 TB of storage.
 
 Once you have determined the minimum service tier, you are ready to determine the performance level for the Azure Database for MySQL server (the Compute Units). The standard 200 and 400 Compute Units are often a good starting point for applications that require higher user concurrency for their web or analytical workloads. 
 
@@ -71,7 +71,7 @@ Regardless of the number of databases hosted within each MySQL server, your data
 | :-------------------- | :----- | :------ |
 | Max Compute Units | 50 | 100 |
 | Included Storage size | 50 GB | 50 GB |
-| Max server storage size\* | 1,050 GB | 1,050 GB |
+| Max server storage size\* | 1 TB | 1 GB |
 
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
