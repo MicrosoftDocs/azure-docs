@@ -20,7 +20,7 @@ ms.author: iainfou
 # Create a Windows virtual machine that has multiple NICs
 You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. 
 
-This article provides quick commands to create a VM that has multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, [read more about deploying multiple-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) support a varying number of NICs, so size your VM accordingly.
+This article provides quick commands to create a VM that has multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own PowerShell scripts, read more about [deploying multiple-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Different [VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) support a varying number of NICs, so size your VM accordingly.
 
 ## Prerequisites
 Make sure that you have the [latest Azure PowerShell version installed and configured](/powershell/azure/overview). Log in to your Azure account:
@@ -81,7 +81,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 Typically you also create a [network security group](../../virtual-network/virtual-networks-nsg.md) or [load balancer](../../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. The [more detailed multiple-NIC VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) article guides you through creating a network security group and assigning NICs.
 
 ## Create the virtual machine
-Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. [Read more about Windows VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. Read more about [Windows VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 1. Set your VM credentials to the `$cred` variable as follows:
 
@@ -131,13 +131,13 @@ Now start to build your VM configuration. Each VM size has a limit for the total
 
 It's now possible to add a NIC to an existing VM. 
 
-1. Deallocate the VM by using the Stop-AzureRmVM cmdlet:
+1. Deallocate the VM by using the `Stop-AzureRmVM` cmdlet:
 
    ```powershell
    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
    ```
 
-2. Get the existing configuration of the VM by using the Get-AzureRmVM cmdlet:
+2. Get the existing configuration of the VM by using the `Get-AzureRmVM` cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -150,7 +150,7 @@ It's now possible to add a NIC to an existing VM.
    Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
    ```
 
-One of the NICs on a multiple-NIC VM needs to be primary, so we're setting the new NIC as primary. If your previous NIC on the VM is primary, you don't need to specify the -Primary switch. If you want to switch the primary NIC on the VM, follow these steps:
+One of the NICs on a multiple-NIC VM needs to be primary, so we're setting the new NIC as primary. If your previous NIC on the VM is primary, you don't need to specify the `-Primary` switch. If you want to switch the primary NIC on the VM, follow these steps:
 
 ```powershell
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -170,13 +170,13 @@ Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
 
 A NIC can also be removed from a VM.
 
-1. Deallocate the VM by using the Stop-AzureRmVM cmdlet:
+1. Deallocate the VM by using the `Stop-AzureRmVM` cmdlet:
 
    ```powershell
    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
    ```
 
-2. Get the existing configuration of the VM by using the Get-AzureRmVM cmdlet:
+2. Get the existing configuration of the VM by using the `Get-AzureRmVM` cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -200,7 +200,7 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-[Read more about creating multiple instances by using *copy*](../../resource-group-create-multiple.md). 
+Read more about [creating multiple instances by using *copy*](../../resource-group-create-multiple.md). 
 
 You can also use `copyIndex()` to append a number to a resource name. You can then create `myNic1`, `MyNic2`, and so on. The following code shows an example of appending the index value:
 
@@ -208,7 +208,7 @@ You can also use `copyIndex()` to append a number to a resource name. You can th
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-You can read a [complete example of creating multiple NICs by using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+You can read a complete example of [creating multiple NICs by using Resource Manager templates](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## Next steps
 Review [Windows VM sizes](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when you're trying to create a VM that has multiple NICs. Pay attention to the maximum number of NICs that each VM size supports. 
