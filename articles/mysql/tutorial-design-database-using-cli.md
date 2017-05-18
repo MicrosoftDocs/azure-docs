@@ -36,7 +36,7 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 ```azurecli
 az login
 ```
-Follow the command prompt instructions to open URL https://aka.ms/devicelog in your browser, and then enter the code generated in the **command prompt**.
+Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the **command prompt**.
 
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
