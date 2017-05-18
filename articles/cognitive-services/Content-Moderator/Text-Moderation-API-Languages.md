@@ -12,7 +12,7 @@ ms.date: 05/15/2017
 ms.author: sajagtap
 ---
 
-# Supported Languages by feature
+# Supported languages by feature
 
 | Auto-detected | Profanity   | OCR    |
 | -------------------- |-------------|--------|
