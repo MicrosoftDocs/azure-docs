@@ -48,7 +48,7 @@ To access custom policy editing, you need a valid Azure subscription linked to y
    The prefix `B2C_1A`_ might be added automatically.<br>
  d. For **Key type**, use **RSA**.<br>
  e. For **Dates**, use the defaults.<br>
- f. For **Key usage**, **Encryption**.<br>
+ f. For **Key usage**, use **Encryption**.<br>
  g. Select **Create**.<br>
 5. Create B2C_1A_FacebookSecret. <br>
 If you already have a Facebook application secret, add it as a policy key to your tenant. Otherwise, you must create the key with a placeholder value so that your policies pass validation.<br>
