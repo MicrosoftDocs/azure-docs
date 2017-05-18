@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/13/2017
+ms.date: 05/18/2017
 ms.author: sasubram
 
 ---
@@ -81,8 +81,8 @@ Yes. Here are details to keep in mind for self-service password reset (SSPR) for
 * If the identity tenancy is a just-in-time (JIT) or viral tenancy, a password reset email is sent.
 * For other tenancies, the standard SSPR process is followed for B2B users. Like member SSPR for B2B users, in the context of the resource, tenancy is blocked. 
 
-### Is password reset available for users in a viral tenant?
-No.
+### Is password reset available for users in a JIT tenant (sometimes called viral), guest users who accepted invitations with an work or school email address, but who didn't have a pre-existing Azure AD account?
+Yes. A password reset mail will be sent that will allow users to reset their passwords in the JIT tenancy.
 
 ### Does Microsoft Dynamics CRM provide online support for Azure AD B2B collaboration?
 Currently, Microsoft Dynamics CRM does not provide online support for Azure AD B2B collaboration. However, we plan to support this in the future.
