@@ -158,7 +158,7 @@ Creating an external table is easy, but there are some nuances that need to be d
 Loading data with PolyBase is strongly typed. This means that each row of the data being ingested must satisfy the table schema definition.
 If a given row does not match the schema definition, the row is rejected from the load.
 
-The Reject Type and Reject Value allows you to define how many rows or what percentage of the data must be present in the final table.
+The REJECT_TYPE and REJECT_VALUE options allow you to define how many rows or what percentage of the data must be present in the final table.
 During load, if the reject value is reached, the load fails. The most common cause of rejected rows is a schema definition mismatch.
 For example, if a column is incorrectly given the schema of int when the data in the file is a string, every row will fail to load.
 
