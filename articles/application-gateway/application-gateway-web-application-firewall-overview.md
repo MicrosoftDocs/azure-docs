@@ -122,7 +122,7 @@ Each application gateway log is integrated with [Azure Monitor](../monitoring-an
 
 #### Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) provides insights into your Azure services and gives guidance on the best ways to protect your resources. Application gateway integrates into Azure Security Center. One capability this integration provides the ability to show web applications that are behind an application gateway that are not protected by web application firewall. Another capability is the ability to send alerts and the health of the application gateway to Security Center. These alerts are shown in security center and action can be taken to resolve the alerts.
+[Azure Security Center](../security-center/security-center-intro.md) provides insights into your Azure services and gives guidance on the best ways to protect your resources. Application gateway integrates into Azure Security Center. Azure Security Center shows you web applications that are not protected from a web application firewall. From the Azure Security Center blade you can quickly create a web application firewall enabled Application Gateway to protect that resource. This Application Gateway is now Azure Security Center aware and can be used to put in front of additional virtual machines that are created without a web application firewall. Another capability is the ability to send alerts and the health of the application gateway to Security Center. These alerts are shown in security center and action can be taken to resolve the alerts.
 
 ![figure 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 
