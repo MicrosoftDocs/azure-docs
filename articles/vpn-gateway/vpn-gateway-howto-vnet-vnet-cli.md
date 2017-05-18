@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 05/18/2017
 ms.author: cherylmc
 
 ---
@@ -120,7 +120,7 @@ We use the following values in the examples:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Create an additional address space for the backend subnet. Notice that in this step, we specify both the address space that we created earlier, and the additional address space that we want to add. This is because the [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) command overwrites the previous settings. You must always make sure to specify all the settings when using this command.
+3. Create an additional address space for the backend subnet. Notice that in this step, we specify both the address space that we created earlier, and the additional address space that we want to add. This is because the [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) command overwrites the previous settings. Make sure to specify all of the address prefixes when using this command.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -224,7 +224,7 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
   az network vnet-gateway show -n VNet4GW -g TestRG4
   ```
 
-3. Create the TestVNet1 to TestVNet4 connection. In this step, you create the connection from TestVNet1 to TestVNet4. You'll see a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection takes a short while to complete.
+3. Create the TestVNet1 to TestVNet4 connection. In this step, you create the connection from TestVNet1 to TestVNet4. There is a shared key referenced in the examples. You can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection takes a short while to complete.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
@@ -254,9 +254,9 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5. When creating additional connections, it's important to verify that the IP address space of the new virtual network (in this example - TestVNet5) does not overlap with any of your other VNet ranges or local network gateway ranges.
+In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5. When creating additional connections, it's important to verify that the IP address space of the new virtual network does not overlap with any of your other VNet ranges or local network gateway ranges.
 
-These instructions continue from the previous steps in the preceding sections. You must complete [Step 1](#Connect) and [Step 2](#TestVNet1) to create and configure TestVNet1, and the VPN Gateway for TestVNet1. Once you complete Step 1 and Step 2, continue with Step 6 (below).
+These instructions continue from the previous steps in the preceding sections. You must complete [Step 1](#Connect) and [Step 2](#TestVNet1) to create and configure TestVNet1, and the VPN Gateway for TestVNet1. Once you complete Step 1 and Step 2, continue with Step 5 (below).
 
 For this exercise, you can use the following values for the TestVNet5:
 
@@ -287,7 +287,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
 
 To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 
-1. Make sure you are connected to Subscription 5, then create a new resource group.
+1. Make sure you are connected to Subscription 5, then create a resource group.
 
   ```azurecli
   az group create -n TestRG5  -l japaneast
@@ -332,7 +332,7 @@ Because the gateways are in the different subscriptions, we've split this step i
   az network vnet-gateway show -n VNet1GW -g TestRG1
   ```
 
-  Copy the output for "ID" and send it and the name of the VNet gateway (VNet1GW) to the administrator of Subscription 5 via email or another method.
+  Copy the output for "ID". Send the ID and the name of the VNet gateway (VNet1GW) to the administrator of Subscription 5 via email or another method.
 
   Example output:
 
@@ -346,7 +346,7 @@ Because the gateways are in the different subscriptions, we've split this step i
   az network vnet-gateway show -n VNet5GW -g TestRG5
   ```
 
-  Copy the output for "ID" and send it and the name of the VNet gateway (VNet5GW) to the administrator of Subscription 1 via email or another method.
+  Copy the output for "ID". Send the ID and the name of the VNet gateway (VNet5GW) to the administrator of Subscription 1 via email or another method.
 
 3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. You can use your own values for the shared key, however, the shared key must match for both connections. Creating a connection can take a short while to complete. Make sure you connect to Subscription 1.
 
@@ -370,5 +370,5 @@ Because the gateways are in the different subscriptions, we've split this step i
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) for more information.
+* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
