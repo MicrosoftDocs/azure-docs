@@ -12,7 +12,7 @@ ms.date: 02/03/2017
 ms.author: sajagtap
 ---
 
-# Text Moderation Reviews #
+# Text Moderation reviews #
 
 ## Select or enter the text to review ##
 
