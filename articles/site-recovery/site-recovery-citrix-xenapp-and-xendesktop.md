@@ -46,7 +46,7 @@ Before you start, make sure you understand the following:
 
 A Citrix XenApp and XenDesktop farm typically has the following deployment pattern:
 
-**Deployment pattern ** 
+**Deployment pattern** 
 
 Citrix XenApp and XenDesktop deployment with AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server
 
@@ -188,15 +188,16 @@ state. Shutdown the VM from Azure Portal.
 
 Note: 
 
-*  You can use scripts at [script](https://github.com/Azure/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over virtual machines or to attach a load balancer on the failed over virtual machine, if needed. 
+*  You can use scripts at [location](https://github.com/Azure/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over virtual machines or to attach a load balancer on the failed over virtual machine, if needed. 
 
 
 
 ## Doing a test failover
 
+Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
+
 ![Recovery Plan](./media/site-recovery-citrix/Citrix-TFO.png)
 
-Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
 
 ## Doing a failover
 ## Next steps
