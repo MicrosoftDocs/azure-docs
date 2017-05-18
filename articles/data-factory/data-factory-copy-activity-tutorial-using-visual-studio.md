@@ -380,7 +380,7 @@ This section describes how to use the Server Explorer in Visual Studio to view a
 
 - Right-click a data factory in Server Explorer, and select **Export Data Factory to New Project** to create a Visual Studio project based on an existing data factory.
 
-![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
+	![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## Update Data Factory tools for Visual Studio
 To update Azure Data Factory tools for Visual Studio, do the following steps:
