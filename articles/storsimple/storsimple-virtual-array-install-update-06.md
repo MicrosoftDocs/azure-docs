@@ -75,7 +75,8 @@ Perform the following steps to download the software update from the Microsoft U
 
         ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-06/extract-geneva-monitoring-agent-installer.png)
 
-        > [!IMPORTANT] You do not need to update the MDS agent if you are running StorSimple Update 0.5 (0.0.10293.0).
+        > [!IMPORTANT]
+        > You do not need to update the MDS agent if you are running StorSimple Update 0.5 (0.0.10293.0).
 
     - Three files that contain critical Windows security updates, `windows8.1-kb4012213-x64`,`windows8.1-kb3205400-x64`, and `windows8.1-kb4019213-x64`.
 
