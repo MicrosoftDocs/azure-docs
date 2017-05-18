@@ -17,7 +17,7 @@ ms.date: 05/16/2017
 ms.author: robb
 
 ---
-# List of Azure Diagnostics Versions
+# Azure Diagnostics extention configuration schema versions and history
 This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
 
 > [!NOTE]
@@ -63,7 +63,7 @@ Different versions of Azure diagnostics use different configuration schemas.
 
 [Diagnostics 1.3 and later Configuration Schema](azure-diagnostics-schema-1dot3-and-later.md)  
 
-## Version History
+## Version history
 
 
 ### Diagnostics extension 1.9 
@@ -126,7 +126,7 @@ Added Storage Type to PublicConfig. StorageType can be *Table*, *Blob*, *TableAn
 ### Diagnostics extension 1.7 
 Added the ability to route to EventHub.
 
-### Diagnostics extention 1.5
+### Diagnostics extension 1.5
 Added the sinks element and the ability to send diagnostics data to [Application Insights](../application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
 ### Azure SDK 2.6 and diagnostics extension 1.3 
