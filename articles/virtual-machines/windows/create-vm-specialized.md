@@ -271,12 +271,13 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 	
 ### Create a managed disk from the VHD
 
-Create a managed disk from the existing specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD that you uploaded or copied to a storage account.
+Create a managed disk from the specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD that you uploaded or copied to a storage account.
 
 ```powershell
-$osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk '
-    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import '
-    -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd) `
+$sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
+$osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk `
+    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
+    -SourceUri $sourceUri) `
     -ResourceGroupName $rgName
 ```
 
