@@ -34,7 +34,7 @@ For instructions of how to create an Oracle database, see [Oracle database quick
 
 ### Connect to the VM
 
-To create an SSH session with the VM, use the following command. Replace the IP address/hostname with the `publicIpAddress` value for your VM.
+To create an SSH session with the VM, use the following command: Replace the IP address/hostname with the `publicIpAddress` value for your VM.
 
 ```bash 
 ssh <publicIpAddress>
@@ -42,7 +42,7 @@ ssh <publicIpAddress>
 
 ### Preparing database
 
-This step assuming you have an Oracle instance (cdb1) running on a vitrural machince called myVM.
+This step assuming you have an Oracle instance (cdb1) running on a virtual machine called myVM.
 
 1.  Run the *oracle* superuser, and then initialize the listener:
 
@@ -74,7 +74,7 @@ This step assuming you have an Oracle instance (cdb1) running on a vitrural mach
     The command completed successfully
     ```
 
-2.  Make sure the database is in archive log mode (This is an optional step)
+2.  Make sure the database is in archive log mode (Optional step)
 
     ```bash
     $ sqlplus / as sysdba
@@ -90,7 +90,7 @@ This step assuming you have an Oracle instance (cdb1) running on a vitrural mach
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
-3. Create a table for testing (This is an optional step)
+3. Create a table for testing (Optional step)
 
     ```bash
     SQL> alter session set "_ORACLE_SCRIPT"=true ;
@@ -129,35 +129,36 @@ This step assuming you have an Oracle instance (cdb1) running on a vitrural mach
 
 ### Backup VM using Azure Recovery Service Vault
 
-1. Log on to Azure portal and search for Recovery Service Vaults
+1. Log on to Azure portal and search for Recovery Service Vaults.
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
 
 2. Click the Add button to add new vault.
 ![Screenshot of the Recovery Service Vaults Add page](./media/oracle-backup-recovery/recovery_service_02.png)
 
-3. Click myVault to continue, then you should see a page similar to below
+3. Click myVault to continue, and you should see a page similar to following
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_03.png)
 
-4. Click Backup button
+4. Click Backup button.
 ![Screenshot of the Recovery Service Vaults backup page](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5. Enter the Backup goal, policy and items to backup
-Use default Azure and Virtual Machine. Click OK button
+5. Enter the Backup goal, policy, and items to back up.
+
+Use default Azure and Virtual Machine. Click OK button to continue.
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_05.png)
 
-Use default or Create New policy. Click OK button
+Use default or Create New policy. Click OK button to continue.
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_06.png)
 
-Check the box for myVM. Click OK button
+Check the box for myVM. Click OK button to continue.
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_07.png)
 
-The final step is click the 'Enable Backup' button. However, backup would not be started until the scheduled time is up. So next step is perform a manual backup.
+The final step is click the 'Enable Backup' button. However, backup would not be started until the scheduled time is up. So next step is performed a manual backup.
 
 Click the Backup items, then click the number under the Backup item count.
 
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_08.png)
 
-Click the three dots on the right hand side and select Backup now.
+Click the three dots on the right-hand side and select Backup now.
 
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -208,14 +209,14 @@ Additional information: 3
 
 6. Copy the .sh file to the VM
 
-You can either scp the file to the VM or create a new file on the VM by simply copy and paste the content to a new file.
+You can either scp the file to the VM or create a file on the VM by simply copy and paste the content to a new file.
 
 Change the public IP address and folder name to the folder you like to copy to.
 
 ```bash
 $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
 ```
-7. The next step is change the file to be own by root, change permission and execute the script
+7. The next step is changed the file to be own by root, change permission, and execute the script
 
 ```bash 
 $ ssh <publicIpAddress>
@@ -224,7 +225,7 @@ $ sudo su -
 # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
 # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
 ```
-You should get similar outputs as below, enter 'Y' when it asked you to continue.
+You should get similar outputs as following, enter 'Y' when it asked you to continue.
 
 ```bash
 Microsoft Azure VM Backup - File Recovery
@@ -258,7 +259,7 @@ Please enter 'q/Q' to exit...
 
 8. Access to the mounted volumes
 
-Enter q to exit, then find the mounted volumes. Run df -k to see the added volumes
+Enter q to exit, then find the mounted volumes. Run df -k command to list the added volumes
 
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_15.png)
 
@@ -329,7 +330,7 @@ A restore is 'In Progress' status
 ![Screenshot of the Recovery VM page](./media/oracle-backup-recovery/recover_vm_09.png)
 
 3. Set public IP address
-Once the VM is restored, the next step is setp the public IP address.
+Once the VM is restored, the next step is setup the public IP address.
 
 Use this link to access the Create IP Address on the portal
 
@@ -342,11 +343,11 @@ Located the myVMip, then click Associate button
 
 ![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_02.png)
 
-Change the Resource Type to 'Network Interface' and choose the NIC which is being used by the myVM. Click OK to continue
+Change the Resource Type to 'Network Interface' and choose the NIC, which is being used by the myVM. Click OK to continue
 
 ![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_03.png)
 
-Locate the myVM from Portal, you should now see there is a IP address associate with the VM
+Locate the myVM from Portal, you should now see there is an IP address associate with the VM
 
 ![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_04.png)
 
@@ -354,7 +355,7 @@ Locate the myVM from Portal, you should now see there is a IP address associate 
 ```bash 
 ssh <publicIpAddress>
 ```
-5. Test database is accessiable
+5. Test database is accessible
 ```bash 
 $ sudo su - oracle
 $ sqlplus / as sysdba
