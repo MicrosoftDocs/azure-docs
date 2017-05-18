@@ -41,7 +41,7 @@ In this example, your VM is sending more TCP segments than usual, and you want t
 
 When you are alerted, you want to receive packet-level data to understand why communication has increased. Then you can take steps to return the virtual machine to regular communication.
 
-This scenario assumes that you have an existing instance of Network Watcher and a resource group with a valid virtual machine that you can use.
+This scenario assumes that you have an existing instance of Network Watcher and a resource group with a valid virtual machine.
 
 The following list is an overview of the workflow that takes place:
 

@@ -128,8 +128,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Attribute Name  | Attribute Value | Namespace |
 	| --------------- | --------------- | --------------- |
-	| rolesessionname | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-	| role 			  | user.assignedroles | keep it blank |
+	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
 	
 	>[!TIP]
 	>You need to configure the user provisioning in Azure AD to fetch all the roles from AWS Console. Please refer the provisioning steps below.
