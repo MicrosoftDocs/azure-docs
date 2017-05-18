@@ -30,12 +30,15 @@ Currently this service is in **preview** and hosts information regarding virtual
 
 
 ## Service Availability
-The current Preview is available in **West US Central** Region of Azure. This following table is updated on regions where the service preview becomes available.
+The current Preview is available in all Public Azure Regions of Azure, we will be adding support for Government/China/German clouds in the future. This following table is updated on regions where the service preview becomes available.
 For trying out Instance metadata service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/?redirectedfrom=MSDN) or [Azure portal](http://portal.azure.com) and follow the examples in the examples section to access metadata service. 
 
-Regions where Instance metadata service preview is available|
-------------------------------------------------------------|
-West Central US |
+Regions                                        | Preview Available ?
+-----------------------------------------------|-----------------------------------------------
+[All Generally Available Public Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Yes 
+[Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)              | No
+[Azure China](https://www.azure.cn/)                                                           | No 
+[Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | No 
 
 
 
