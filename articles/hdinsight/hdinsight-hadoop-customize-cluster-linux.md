@@ -403,66 +403,9 @@ In this section, we use Azure Resource Manager templates to create an HDInsight 
 
 In this section, we use the [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
-Perform the following steps:
+The following script demonstrates how to apply a script action when creating a cluster using PowerShell:
 
-1. Open the Azure PowerShell console and use the following to log in to your Azure subscription and declare some PowerShell variables:
-
-        # LOGIN TO ZURE
-        Login-AzureRmAccount
-
-        # PROVIDE VALUES FOR THESE VARIABLES
-        $subscriptionId = "<SubscriptionId>"        # ID of the Azure subscription
-        $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
-        $storageAccountName = "<StorageAccountName>"    # Azure storage account that hosts the default container
-        $storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
-        $containerName = $clusterName
-        $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the storage account.
-        $clusterNodes = <ClusterSizeInNumbers>            # The number of nodes in the HDInsight cluster.
-        $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster is created in
-
-2. Specify the configuration values (such as nodes in the cluster) and the default storage to be used.
-
-        # SPECIFY THE CONFIGURATION OPTIONS
-        Select-AzureRmSubscription -SubscriptionId $subscriptionId
-        $config = New-AzureRmHDInsightClusterConfig
-        $config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
-        $config.DefaultStorageAccountKey=$storageAccountKey
-
-3. Use **Add-AzureRmHDInsightScriptAction** cmdlet to invoke the script. The following example uses a script that installs Giraph on the cluster:
-
-        # INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-
-    The **Add-AzureRmHDInsightScriptAction** cmdlet takes the following parameters:
-
-    | Parameter | Definition |
-    | --- | --- |
-    | Config |Configuration object to which script action information is added. |
-    | Name |Name of the script action. |
-    | NodeType |Specifies the node on which the customization script is run. The valid values are **HeadNode** (to install on the head node), **WorkerNode** (to install on all the data nodes), or **ZookeeperNode** (to install on the zookeeper node). |
-    | Parameters |Parameters required by the script. |
-    | Uri |Specifies the URI to the script that is executed. |
-
-4. Set the admin/HTTPS user for the cluster:
-
-        $httpCreds = get-credential
-
-    When prompted, enter 'admin' as the name, and provide a password.
-
-5. Set the SSH credentials:
-
-        $sshCreds = get-credential
-
-    When prompted, enter the SSH user name and password. If you want to secure the SSH account with a certificate instead of a password, use a blank password and set `$sshPublicKey` to the contents of the certificate public key you wish to use. For example:
-
-        $sshPublicKey = Get-Content .\path\to\public.key -Raw
-
-6. Finally, create the cluster:
-
-        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
-
-    If you are using a public key to secure your SSH account, you must also specify `-SshPublicKey $sshPublicKey` as a parameter.
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
 
 It can take several minutes before the cluster is created.
 
@@ -511,32 +454,18 @@ This section provides examples on the different ways you can apply script action
 
 Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
-1. Open the Azure PowerShell console and use the following to log in to your Azure subscription and declare some PowerShell variables:
+The following example demonstrates how to apply a script action to a running cluster:
 
-        # LOGIN TO ZURE
-        Login-AzureRmAccount
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
-        # PROVIDE VALUES FOR THESE VARIABLES
-        $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
-        $saName = "<ScriptActionName>"                  # Name of the script action
-        $saURI = "<URI to the script>"                  # The URI where the script is located
-        $nodeTypes = "headnode", "workernode"
+Once the operation completes, you receive information similar to the following:
 
-   > [!NOTE]
-   > If using an HDInsight Premium cluster, you can use a nodetype of `"edgenode"` to run the script on the edge node.
-
-2. Use the following command to apply the script to the cluster:
-
-        Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName -Name $saName -Uri $saURI -NodeTypes $nodeTypes -PersistOnSuccess
-
-    Once the job completes, you should receive information similar to the following:
-
-        OperationState  : Succeeded
-        ErrorMessage    :
-        Name            : Giraph
-        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-        Parameters      :
-        NodeTypes       : {HeadNode, WorkerNode}
+    OperationState  : Succeeded
+    ErrorMessage    :
+    Name            : Giraph
+    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+    Parameters      :
+    NodeTypes       : {HeadNode, WorkerNode}
 
 ### Apply a Script Action to a running cluster from the Azure CLI
 
@@ -620,21 +549,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 The following example script demonstrates using the cmdlets to promote, then demote a script.
 
-    # Get a history of scripts
-    Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster
-
-    # From the list, we want to get information on a specific script
-    Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster -ScriptExecutionId 635920937765978529
-
-    # Promote this to a persisted script
-    # Note: the script must have a unique name to be promoted
-    # if the name is not unique, you receive an error
-    Set-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -ScriptExecutionId 635920937765978529
-
-    # Demote the script back to ad hoc
-    # Note that demotion uses the unique script name instead of
-    # execution ID.
-    Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -Name "Install Giraph"
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
 ### Using the Azure CLI
 
