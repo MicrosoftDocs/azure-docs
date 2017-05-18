@@ -18,20 +18,12 @@ ms.author: sngun
 
 ---
 # Make a custom virtual machine image available in Azure Stack
-Azure Stack enables administrators to make VM images, such as their
-organization’s custom VHD, available to their tenants. Images can
+Azure Stack enables administrators to make custom virtual machine images available to their tenants. These images can
 be referenced by Azure Resource Manager templates or added to the
-Azure Marketplace UI with the creation of a Marketplace item. A Windows
-Server 2012 R2 image is included by default in the Azure Stack Technical
-Preview.
+Azure Marketplace UI with the creation of a Marketplace item. 
 
-> [!NOTE]
-> VM images with Marketplace items can be deployed by selecting **New** in the UI, and then selecting the **Virtual Machines** category. The VM image items are listed.
-> 
-> 
-
-## Add a VM image to Marketplace with PowerShell
-If the VM image VHD is available locally on the console VM (or another externally connected device), use the following steps:
+## Add a VM image to Mmarketplace with PowerShell
+If the virtual machine image is available locally on the Azure Stack POC computer (or on an externally connected device), use the following steps:
 
 1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
    
@@ -101,9 +93,7 @@ The command does the following:
 
 To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
 
-> ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG)
-> 
-> 
+![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG) 
 
 Following is a description of the command parameters.
 
