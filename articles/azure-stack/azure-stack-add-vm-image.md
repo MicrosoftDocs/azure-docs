@@ -98,7 +98,7 @@ To verify that the command ran successfully, go to Marketplace in the portal, an
 
 ## Remove a VM image with PowerShell
 
-When you no longer need the virtual machine image that you have uploaded earlier, you can use the following cmdlet to delete it from the marketplace: 
+When you no longer need the virtual machine image that you have uploaded earlier, you can delete it from the marketplace by using the following cmdlet:
 
 ```powershell
 Remove-VMImage `
