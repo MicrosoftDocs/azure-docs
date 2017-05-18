@@ -28,7 +28,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016. After 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-windows-vm-quick.sh "Quick Create VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-quick/create-windows-vm-quick.sh "Quick Create VM")]
 
 ## Clean up deployment 
 
