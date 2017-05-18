@@ -26,19 +26,17 @@ This article describes how to set up replication of virtual machines running in 
 
 ## Prerequisites
 
-The article assumes that you know about the recovery services vault. 
-
+* The article assumes that you know about Recovery Services Vault. 
 * If you are using Network Security Groups (NSG) rules to control access to control outbound internet connectivity on the Azure VMs, ensure that you [whitelist the mentioned Azure data center IP ranges](site-recovery-azure-to-azure-networking-guidance.md#network-security-group-configuration)
-
-* If you are using any firewall proxy to control outbound internet connectivity, ensure that you [white-list all URLS  required by Azure Site recovery service](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-urls-or-ip-ranges)
-
+* If you are using any firewall proxy to control outbound internet connectivity, ensure that you [whitelist all URLS  required by Azure Site recovery service](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-urls-or-ip-ranges)
+* If you have an ExpressRoute connection between on-premises and source location in Azure, follow the [ExpressRoute configuration guidance](site-recovery-azure-to-azure-networking-guidance.md#azure-to-on-premises-expressroute-configuration)
 	
 ## Enable replication
 
 Azure virtual machines can be protected either directly from the VM setting blades or through Site Recovery Vault.
 In this article we will go through both the flows.
  
-##Flow 1. Enabling replication from Azure VM Settings
+##Flow 1: Enabling replication from Azure VM Settings
 
 You can enable replication of an Azure virtual machine through settings section in the portal.
 
@@ -49,7 +47,7 @@ You can enable replication of an Azure virtual machine through settings section 
 5. **Virtual Network:** By default, ASR will create a new virtual network in the target region with name having "-asr" suffix. This will be mapped to your source network and will be used for any future protection.
 
 	> [!NOTE]
-	> [Check networking details](site-recovery-azure-network.md) to know more about network mapping.
+	> [Check networking details](site-recovery-network-mapping-azure-to-azure.md) to know more about network mapping and guidance.
 	>
 
 6. **Storage Settings:** By default, ASR will create the new target storage account mimicking your source VM storage configuration. In case storage account created by ASR already exist, it will be reused. 
@@ -61,8 +59,7 @@ You can enable replication of an Azure virtual machine through settings section 
 	>It is recommended that you create “Recovery services vault” in the location where you want to replicate your machines to i.e. the target Azure region. You cannot have your vault in source region as in the event of region wide disruption, your vault will also be not available
 8.	**Recovery Service vault resource group:** It is a resource group of recovery services vault.
 9.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, ASR will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
-10.	Click on Enable replication and ASR will start the job after validating the resource. 
-
+10.	Click on Enable replication and ASR will start the job after validating the resource.
    ![Enable replication](./media/site-recovery-replicate-azure-to-azure/vmsettings_protection.png)
 
 
@@ -90,7 +87,7 @@ Under Settings section you can configure target site properties
 2. **Target resource group :** It is the resource group to which all your replicated virtual machines will belong.By default ASR will create a new resource group in the target region with name having "asr" suffix. In case resource group created by ASR already exist, it will be reused.You can also choose to customize it as shown in the section below.    
 3. **Target Virtual Network:** By default, ASR will create a new virtual network in the target region with name having "asr" suffix. This will be mapped to your source network and will be used for any future protection.
 	> [!NOTE]
-	> [Check networking details](site-recovery-azure-network.md) to know more about network mapping.
+	> [Check networking details](site-recovery-network-mapping-azure-to-azure.md) to know more about network mapping.
 4. **Target Storage accounts:** By default, ASR will create the new target storage account mimicking your source VM storage configuration. In case storage account created by ASR already exist, it will be reused. 
 	> [!NOTE]
 	> Source VMs which are having more than one storage account can only replicate to a single storage account  >currently
@@ -100,55 +97,12 @@ Under Settings section you can configure target site properties
 	> [!NOTE]
 	> [Check replication policy details](site-recovery-replication-policy.md) to know more about policy.
 
-Click on **Create target resource** and enable protection 
-
+Click on **Create target resource** and Enable Replication 
   	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
-## View and manage VM properties
-We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Once virtual machines are protected you can check the status of VM health under replicated items . 
+![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
-1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
-2. In **Properties**, you can view replication and failover information for the VM.
-3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
-![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
-
-*Resource Group*
-   
-  * You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) of which machine will become part of  post fail over. You can change this setting any time before fail over. 
-  
-> [!NOTE]
-> Post fail over, if you migrate the machine to a different resource group then protection settings of a machine will break.
- 
-*Availability Sets*
-
-You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine required to be be a part of one post fail over. 
-While selecting availability set, please keep in mind that:
-
-* Only availability sets belonging to the specified resource group will be listed  
-* Machines with different virtual networks cannot be a part of same availability set 
-* Only virtual machines of same size can be a part of same availability set 
-
-*Network Properties*
-
-You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
-
-   * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
-   * The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
-
-     * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
-     * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
-     * For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
-   * If the virtual machine has multiple network adapters they will all connect to the same network.
-   * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
-
-4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
-
-
-## Common issues
-
-* Each disk should be less than 1TB in size.
-* The OS disk should be a basic disk and not dynamic disk
-* For generation 2/UEFI enabled virtual machines, the operating system family should be Windows and boot disk should be less than 300GB
 
 ## Next steps
 
