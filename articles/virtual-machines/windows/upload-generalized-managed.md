@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/18/2017
 ms.author: cynthn
 
 ---
@@ -25,7 +25,7 @@ This topic walks you through using PowerShell to upload a VHD of a generalized V
 
 Azure managed disks removes the need of managing [storage accounts](../../storage/storage-introduction.md) for Azure VMs. You only have specify the type [Premium](../../storage/storage-premium-storage-performance.md) or [Standard](../../storage/storage-standard-storage.md) and size of disk you need, and Azure will create and manage the disk for you. 
 
-If you just want a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../samples/virtual-machines-windows-upload-generalized-script.md)
+If you want to use a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../samples/virtual-machines-windows-upload-generalized-script.md)
 
 > [!IMPORTANT]
 > Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
@@ -156,6 +156,17 @@ Depending on your network connection and the size of your VHD file, this command
 
 Save the **Destination URI** path to use later if you are going to create a managed disk or a new VM using the uploaded VHD.
 
+### Other options for uploading a VHD
+ 
+ 
+You can also upload a VHD to your storage account using one of the following:
+
+- [AzCopy](http://aka.ms/downloadazcopy)
+- [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+- [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
+-	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
+	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 
 
 ## Create a managed image from the uploaded VHD 

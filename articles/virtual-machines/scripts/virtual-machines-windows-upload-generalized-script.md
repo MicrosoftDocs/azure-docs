@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/16/2017
+ms.date: 05/18/2017
 ms.author: cynthn
 ---
 
@@ -33,7 +33,7 @@ This script takes a local .vhd file from a generalized VM and uploads it to Azur
 $resourceGroup = 'myResourceGroup'
 $location = 'EastUS'
 $storageaccount = 'mystorageaccount'
-$storageType = "Standard_LRS"
+$storageType = 'Standard_LRS'
 $containername = 'mycontainer'
 $localPath = 'C:\Users\Public\Documents\Hyper-V\VHDs\generalized.vhd'
 $vmName = 'myVM'
@@ -56,12 +56,12 @@ $cred = Get-Credential
 
 # Upload the VHD
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount -Location $location '
+New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount -Location $location `
 	-SkuName $storageType -Kind "Storage"
 $urlOfUploadedImageVhd = ('https://' + $storageaccount + '.blob.core.windows.net/' + $containername + '/' + $vhdName)
 Add-AzureRmVhd -ResourceGroupName $resourceGroup -Destination $urlOfUploadedImageVhd -LocalFilePath $localPath
 
-# uploading the VHD may take awhile!
+# Note: Uploading the VHD may take awhile!
 
 # Create a managed image from the uploaded VHD 
 $imageConfig = New-AzureRmImageConfig -Location $location
@@ -70,15 +70,15 @@ $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $resourceGrou
  
 # Create the networking resources
 $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location '
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location `
 	-AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location -AllocationMethod Dynamic
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location '
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
 	-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow '
-	-Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * '
+$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
+	-Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * `
 	-DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location '
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
 	-Name $nsgName -SecurityRules $rdpRule
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
 
@@ -90,7 +90,7 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 
 # Finish the VM configuration and add the NIC.
 $vm = Set-AzureRmVMOSDisk -VM $vm  -DiskSizeInGB $diskSizeGB -CreateOption FromImage -Caching ReadWrite
-$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName -Credential $cred '
+$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName -Credential $cred `
 	-ProvisionVMAgent -EnableAutoUpdate
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
