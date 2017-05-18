@@ -53,7 +53,7 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
-### [IIS](site-recovery-workload.md#protect-iis)
+### [IIS based web applications](site-recovery-iis.md)
 ### [Citrix XenApp and XenDesktop](site-recovery-workload.md#protect-citrix-xenapp-and-xendesktop)
 ### [Other workloads](site-recovery-workload.md#workload-summary)
 ## Automate replication
