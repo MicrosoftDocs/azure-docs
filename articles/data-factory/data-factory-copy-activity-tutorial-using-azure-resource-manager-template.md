@@ -181,7 +181,7 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
                 }
               },
               "availability": {
-                "frequency": "Day",
+                "frequency": "Hour",
                 "interval": 1
               },
               "external": true
@@ -212,7 +212,7 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
                 "tableName": "[parameters('targetSQLTable')]"
               },
               "availability": {
-                "frequency": "Day",
+                "frequency": "Hour",
                 "interval": 1
               }
             }
@@ -265,8 +265,8 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
                   }
                 }
               ],
-              "start": "2017-05-02T00:00:00Z",
-              "end": "2017-05-03T00:00:00Z"
+              "start": "2017-05-11T00:00:00Z",
+              "end": "2017-05-12T00:00:00Z"
             }
           }
         ]
@@ -279,9 +279,9 @@ Create a JSON file named **ADFCopyTutorialARM.json** in **C:\ADFGetStarted** fol
 Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template. 
 
 > [!IMPORTANT]
-> Specify the name and key of your Azure Storage account for **storageAccountName** and **storageAccountKey** parameters.  
+> Specify name and key of your Azure Storage account for storageAccountName and storageAccountKey parameters.  
 > 
-> 
+> Specify Azure SQL server, database, user, and password for sqlServerName, databaseName, sqlServerUserName, and sqlServerPassword parameters.  
 
 ```json
 {
@@ -311,14 +311,17 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 ## Create data factory
 1. Start **Azure PowerShell** and run the following command:
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
+   
 	```PowerShell
 	Login-AzureRmAccount   	
 	```  
    * Run the following command to view all the subscriptions for this account.
+   
 	```PowerShell
 	Get-AzureRmSubscription
 	```   
-   * Run the following command to select the subscription that you want to work with. 
+   * Run the following command to select the subscription that you want to work with.
+    
 	```PowerShell
 	Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
 	```    
@@ -334,23 +337,19 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 2. Click **Data factories** on the left menu (or) click **More services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
    
     ![Data factories menu](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. In the **Data factories** page, search for and find your data factory. 
+3. In the **Data factories** page, search for and find your data factory (AzureBlobToAzureSQLDatabaseDF). 
    
     ![Search for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
 4. Click your Azure data factory. You see the home page for the data factory.
    
     ![Home page for data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-5. Click **Diagram** tile to see the diagram view of your data factory.
-   
-    ![Diagram view of data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-diagram-view.png)
-6. In the diagram view, double-click the dataset **SQLOutputDataset**. You see that status of the slice. When the copy operation is done, you the status set to **Ready**.
-   
-    ![Output slice in ready state](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/output-slice-ready.png)
-7. When the slice is in **Ready** state, verify that the data is copied to the **emp** table in the Azure SQL database.
+6. Follow instructions from [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.
+7. When a slice is in the **Ready** state, verify that the data is copied to the **emp** table in the Azure SQL database.
 
-See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal blades to monitor the pipeline and datasets you have created in this tutorial.
 
-You can also use Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application.
+For more information on how to use Azure portal blades to monitor pipeline and datasets you have created in this tutorial, see [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) .
+
+For more information on how to use the Monitor & Manage application to monitor your data pipelines, see [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md).
 
 ## Data Factory entities in the template
 ### Define data factory
@@ -463,7 +462,7 @@ The Azure storage linked service specifies the connection string that Data Facto
             }
           },
           "availability": {
-            "frequency": "Day",
+            "frequency": "Hour",
             "interval": 1
           },
           "external": true
@@ -500,7 +499,7 @@ You specify the name of the table in the Azure SQL database that holds the copie
             "tableName": "[parameters('targetSQLTable')]"
           },
           "availability": {
-            "frequency": "Day",
+            "frequency": "Hour",
             "interval": 1
           }
     }
@@ -559,8 +558,8 @@ You define a pipeline that copies data from the Azure blob dataset to the Azure 
               }
         }
           ],
-          "start": "2017-05-02T00:00:00Z",
-          "end": "2017-05-03T00:00:00Z"
+          "start": "2017-05-11T00:00:00Z",
+          "end": "2017-05-12T00:00:00Z"
     }
 }
 ```

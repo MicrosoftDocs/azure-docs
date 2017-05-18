@@ -261,8 +261,8 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 	       }
 	     }
 	   ],
-	   "start": "2015-07-12T00:00:00Z",
-	   "end": "2015-07-13T00:00:00Z",
+	   "start": "2017-05-11T00:00:00Z",
+	   "end": "2017-05-12T00:00:00Z",
 	   "isPaused": false
 	 }
 	}
@@ -340,7 +340,19 @@ Note the following points:
 > To create Data Factory instances, you need to be a admin/co-admin of the Azure subscription
 
 ## Monitor pipeline
-See [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) for instructions on how to use the Azure portal to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.  
+Navigate to the home page for your data factory:
+
+1. Log in to [Azure portal](https://portal.azure.com).
+2. Click **More services** on the left menu, and click **Data factories**.
+
+	![Browse data factories](media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png)
+3. Start typing the name of your data factory.
+
+	![Nane of data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
+4. Click your data factory in the results list to see the home page for your data factory.
+
+	![Data factory home page](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
+5. Follow instructions from [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used Visual Studio to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
