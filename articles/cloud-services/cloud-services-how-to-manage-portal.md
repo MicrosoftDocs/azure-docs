@@ -108,8 +108,14 @@ Use the following procedure to delete a deployment or your cloud service.
 
 > [!NOTE]
 > When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
->
->
+
+
+## How to: Find more information about failed deployments
+The **Overview** blade has a status bar at the top. When you click on the the bar, a new blade opens and displays any error information. If the deployment does not contain any errors, the information blade will be blank.
+
+![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/status-info.png)
+
+
 
 [Azure portal]: https://portal.azure.com
 
