@@ -28,13 +28,13 @@ This article shows you how to use Azure PowerShell to create an image of a gener
 ## Prerequisites
 You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](/powershell/azure/overview) for installation steps.
 
-## Generalize a Windows virtual machine using Sysprep
+## Generalize the VM 
 This section shows you how to generalize your Windows virtual machine for use as an image. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
+> If you are uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
 > 
 > 
 
@@ -98,15 +98,15 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 
 Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` parameter saves a copy of the JSON template locally. The `-DestinationContainerName` parameter is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
    
-    ```powershell
-    Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
-        -DestinationContainerName <destinationContainerName> -VHDNamePrefix <templateNamePrefix> `
-        -Path <C:\local\Filepath\Filename.json>
-    ```
+```powershell
+Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
+    -DestinationContainerName <destinationContainerName> -VHDNamePrefix <templateNamePrefix> `
+    -Path <C:\local\Filepath\Filename.json>
+```
    
-    You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
    
-    You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
+You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
 
 ## Create a VM from the image
 
