@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 04/18/2017
+ms.date: 05/17/2017
 ms.author: sashan
 
 ---
@@ -29,6 +29,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 To complete this tutorial, make sure you have:
 
 - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
+- The latest [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs) 
 - An Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
 
    - [Create DB - Portal](sql-database-get-started-portal.md)
@@ -39,17 +40,33 @@ To complete this tutorial, make sure you have:
 Use SQL Server Management Studio to connect to your database and create user accounts. These user accounts will replicate automatically to your secondary server. You may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For steps, see [Create SQL DB using the Azure portal](sql-database-get-started-portal.md).
 
 1. Open SQL Server Management Studio.
-2. Change the **Authentication** mode to **Active Directory Password Authentication**.
-3. Connect to your server using the newly designed Azure Active Directory server admin account. 
-4. In Object Explorer, expand **System Databases**, right-click **mySampleDatabase** and then click **New Query**.
-5. In the query window, execute the following query to create an user accounts in your database, granting **db_owner** permissions to the two administrative accounts. Replace the placeholder for the domain name with your domain.
+2. In the **Connect to Server** dialog box, enter the following information:
+   - **Server type**: Specify Database engine
+   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
+   - **Authentication**: Specify SQL Server Authentication
+   - **Login**: Enter your server admin account
+   - **Password**: Enter the password for your server admin account
+
+   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
+
+3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
+
+   ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+
+4. Click **Connect**. The Object Explorer window opens in SSMS. 
+
+   ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
+
+5. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
+
+6. In the query window, execute the following query to create two user accounts in your database, granting **db_owner** permissions to the **app_admin** account and **UPDATE** permissions to the **app_user** account. 
 
    ```sql
-   CREATE USER app_admin WITH PASSWORD = 'ChangeYourAdminPassword1';
+   CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
    --Add SQL user to db_owner role
    ALTER ROLE db_owner ADD MEMBER app_admin; 
    --Create additional SQL user
-   CREATE USER app_user WITH PASSWORD = 'ChangeYourAdminPassword1';
+   CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
    GRANT UPDATE ON SalesLT.Product TO app_user;  
    ```
@@ -58,18 +75,23 @@ Use SQL Server Management Studio to connect to your database and create user acc
 
 Use SQL Server Management Studio to create a database-level firewall rule for your SQL database. This database-level firewall rule will replicate automatically to your secondary server. For testing purposes, you can create a firewall rule for all IP addresses (0.0.0.0 and 255.255.255.255), can create a firewall rule for the single IP address with which you created the server-firewall rule, or you can configure one or more firewall rules for the IP addresses of the computers that you wish to use for testing of this tutorial.  
 
-- In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment. 
+- In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 
    ```sql
    -- Create database-level firewall setting for your public IP address
-   EXECUTE sp_set_database_firewall_rule N'myGeoReplicationRule','0.0.0.1','0.0.0.1';
+   EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```  
 
 ## Create a failover group 
 
-Choose a failover region, create an empty server in that region, and then create a failover group between your existing server and the new empty server.
+Choose a failover region and then, using Azure PowerShell:
+- Create an empty server in that region
+- Create a failover group between your existing server and the new empty server
+- Add your database to the failover group
 
-1. Populate variables.
+1. To start, run **Login-AzureRmAccount** to create a connection with Azure..
+
+2. Populate variables for your PowerShell scripts.
 
    ```powershell
    $secpasswd = ConvertTo-SecureString "MyStrongPassword1" -AsPlainText -Force
@@ -83,22 +105,35 @@ Choose a failover region, create an empty server in that region, and then create
    $myfailovergroup = "<your failover group>"
    ```
 
-2. Create an empty backup server in your failover region.
+3. Create an empty backup server in your failover region.
 
    ```powershell
-   $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroup -Location $mydrlocation -ServerName $mydrserver -ServerVersion "12.0" -SqlAdministratorCredentials $mycreds
+   $mydrserver = New-AzureRmSqlServer `
+      -ResourceGroupName $myresourcegroup `
+      -Location $mydrlocation `
+      -ServerName $mydrserver `
+      -ServerVersion "12.0" `
+      -SqlAdministratorCredentials $mycreds
    ```
 
-3. Create a failover group.
+4. Create a failover group.
 
    ```powershell
-   $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup –ResourceGroupName $myresourcegroup -ServerName "$myserver" -PartnerServerName $mydrserver  –FailoverGroupName $myfailovergroupname –FailoverPolicy "Automatic" -GracePeriodWithDataLossHours 2
+   $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
+      –ResourceGroupName $myresourcegroup `
+      -ServerName $myserve" `
+      -PartnerServerName $mydrserver  `
+      –FailoverGroupName $myfailovergroupname `
+      –FailoverPolicy Automatic `
+      -GracePeriodWithDataLossHours 2
    ```
 
-4. Add your database to the failover group.
+5. Add your database to the failover group.
 
    ```powershell
-   $mydrserver | Add-AzureRMSqlDatabaseToFailoverGroup –FailoverGroupName $myfailovergroup  -Database $mydatabase
+   $mydrserver | Add-AzureRMSqlDatabaseToFailoverGroup `
+      –FailoverGroupName $myfailovergroup `
+      -Database $mydatabase
    ```
 
 ## Create and run Java application and connect to database
