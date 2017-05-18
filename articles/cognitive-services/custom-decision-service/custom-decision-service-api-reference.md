@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Custom Decision Service API reference | Microsoft Docs
-description: A complete and user-friendly API guide for Microsoft Custom Decision Service, cloud-based API for contextual decision-making that sharpens with experience.
+title: Azure Custom Decision Service API reference | Microsoft Docs
+description: A complete and user-friendly API guide for Azure Custom Decision Service, a cloud-based API for contextual decision-making that sharpens with experience.
 services: cognitive-services
 author: slivkins
 manager: slivkins
@@ -13,13 +13,13 @@ ms.author: slivkins
 
 # Custom Decision Service API reference
 
-Azure Custom Decision Service provides two APIs that are invoked for each decision: [Ranking API](#ranking-api) to input the ranking of actions and [Reward API](#reward-api) to output the reward. Further, you should provide an [Action Set API](#action-set-api-customer-provided) to specify the actions to Custom Decision Service. This article covers these three APIs. For ease of presentation, we focus on a typical scenario when Custom Decision Service optimizes the ranking of articles.
+Azure Custom Decision Service provides two APIs that are invoked for each decision: [Ranking API](#ranking-api) to input the ranking of actions and [Reward API](#reward-api) to output the reward. Further, you should provide an [Action Set API](#action-set-api-customer-provided) to specify the actions to Azure Custom Decision Service. This article covers these three APIs. For ease of presentation, we focus on a typical scenario when Custom Decision Service optimizes the ranking of articles.
 
 ## Ranking API
 
 The ranking API uses a standard [JSONP](https://en.wikipedia.org/wiki/JSONP)-style communication pattern to optimize latency and bypass the [same-origin policy](https://en.wikipedia.org/wiki/Same-origin_policy). (The latter prohibits JavaScript from fetching data from outside the page's origin.)
 
-Insert the following snippet into the HTML head of the front page. Here by "front page," we mean the page displaying the personalized list of articles:
+Insert the following snippet into the HTML head of the front page. Here by "front page," we mean the page that displays the personalized list of articles:
 
 ```html
 // define the "callback function" to render UI
@@ -57,15 +57,15 @@ The browser then executes this string as a call to the `callback()` function.
 The parameter to the callback function in the preceding example has the following schema:
 
 - `ranking` provides the ranking of URLs to be displayed.
-- `eventId` is used internally by the Custom Decision Service to match this ranking with the corresponding clicks.
+- `eventId` is used internally by Custom Decision Service to match this ranking with the corresponding clicks.
 - `appId` allows the callback function to distinguish between multiple applications of Custom Decision Service running on the same webpage.
-- `actionSets` lists each action set used in the Ranking API call, along with the UTC timestamp of the last successful refresh. (Custom Decision Service periodically refreshes the action set feeds.) For example, if some of the action sets are not current, the callback function may need to fall back to their default ranking.
+- `actionSets` lists each action set used in the Ranking API call, along with the UTC timestamp of the last successful refresh. (Custom Decision Service periodically refreshes the action set feeds.) For example, if some of the action sets are not current, the callback function might need to fall back to their default ranking.
 
 > [!IMPORTANT]
 > The specified action sets are processed, and possibly pruned, to form the default ranking of articles. The default ranking then gets reordered and returned in the HTTP response. The default ranking is defined as follows:
 >
-> -  Within each action set, the articles are pruned to the 15 most recent articles (if more than 15 are returned).
-> - When multiple action sets are specified, they are merged in the same order as in the API call.  The original ordering of the articles is preserved within each action set. Duplicates are removed in favor of the earlier copies.
+> - Within each action set, the articles are pruned to the 15 most recent articles (if more than 15 are returned).
+> - When multiple action sets are specified, they are merged in the same order as in the API call. The original ordering of the articles is preserved within each action set. Duplicates are removed in favor of the earlier copies.
 > - The first `n` articles are kept from the merged list of articles, where `n=20` by default.
 
 ### Ranking API with parameters
@@ -94,10 +94,10 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-`details=2` adds more details that Custom Decision Service may extract from articles' SEO metatags:
+`details=2` adds more details that Custom Decision Service might extract from articles' SEO metatags:
 
 - `title` from `<meta property="og:title" content="..." />` or `<meta property="twitter:title" content="..." />` or `<title>...</title>`
-- `description` from `<meta property="og:description" ... />`  or `<meta property="twitter:description" content="..." />` or `<meta property="description" content="..." />`
+- `description` from `<meta property="og:description" ... />` or `<meta property="twitter:description" content="..." />` or `<meta property="description" content="..." />`
 - `image` from `<meta property="og:image" content="..." />`
 - `ds_id` from `<meta name=”microsoft:ds_id” content="..." />`
 
@@ -142,11 +142,11 @@ Here `data` is the argument to the `callback()` function, as described previousl
 curl -v https://ds.microsoft.com/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
-The expected effect is an HTTP response of 200 (OK). Assuming an Azure storage account key was supplied on the portal, you can see the reward of 1 for this event in the log.
+The expected effect is an HTTP response of 200 (OK). Assuming that an Azure storage account key was supplied on the portal, you can see the reward of 1 for this event in the log.
 
-## Action Set API (customer-provided)
+## Action Set API (customer provided)
 
-On a high level, Action Set API returns a list of articles (aka actions). Each article is specified by the URL of an article and (optionally) the article title and the publication date. You can specify multiple action sets on the portal. A different Action Set API should be specified for each action set, as a distinct URL.
+On a high level, Action Set API returns a list of articles (aka, actions). Each article is specified by the URL of an article and (optionally) the article title and the publication date. You can specify multiple action sets on the portal. A different Action Set API should be specified for each action set, as a distinct URL.
 
 Each Action Set API can be implemented in two ways: as an RSS feed or as an Atom feed. Either one should conform to the respective standard and return a correct XML. For RSS, a representative example is as follows:
 
@@ -182,5 +182,5 @@ Other elements inside an `<item>` are ignored.
 The Atom feed version uses the same XML syntax and conventions.
 
 > [!TIP]
-> If your system uses its own article IDs, they can be passed into the callback function using `<guid>`.
+> If your system uses its own article IDs, they can be passed into the callback function by using `<guid>`.
 
