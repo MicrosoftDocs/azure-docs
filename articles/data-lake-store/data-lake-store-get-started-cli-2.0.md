@@ -17,7 +17,7 @@ ms.date: 04/04/2017
 ms.author: nitinme
 
 ---
-# Get started with Azure Data Lake Store using Azure CLI 2.0 (Preview)
+# Get started with Azure Data Lake Store using Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -46,14 +46,6 @@ Before you begin this article, you must have the following:
 ## Authentication
 
 This article uses a simpler authentication approach with Data Lake Store where you log in as an end-user user. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
-
-## Enable Data Lake Store (Preview) in Azure CLI 2.0
-
-Data Lake Store CLI 2.0 is currently in Preview and does not get enabled by default when you install Azure CLI 2.0. Run the following command to enable Data Lake Store CLI 2.0.
-
-```azurecli
-az component update --add dls
-```
 
 
 ## Log in to your Azure subscription

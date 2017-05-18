@@ -4,12 +4,12 @@
 ## Scenarios
 ### [Use labs for training](devtest-lab-training-lab.md)
 
-# Get Started
+# Get started
 ## [Create lab](devtest-lab-create-lab.md)
 ## [Create your first VM](devtest-lab-create-first-vm.md)
 ## [Set starting policies](devtest-lab-get-started-with-lab-policies.md)
 
-# How To
+# How-to guides
 ## Use VMs in a lab
 ### [Create VMs](devtest-lab-add-vm.md)
 ### [Create claimable VM](devtest-lab-add-claimable-vm.md)
@@ -44,6 +44,8 @@
 ## Manage virtual networks
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
 ### [Select IP configuration option](devtest-lab-shared-ip.md)
+
+## [Scale your lab](devtest-lab-scale-lab.md)
 
 # Reference
 ## [CLI 2.0](/cli/azure/lab)

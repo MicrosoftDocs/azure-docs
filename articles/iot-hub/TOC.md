@@ -78,6 +78,7 @@
 ### Get started with device twins
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
