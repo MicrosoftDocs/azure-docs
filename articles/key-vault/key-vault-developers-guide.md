@@ -74,6 +74,8 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 #### Node.js
 
+In Node.js, the vault management API and the vault object API are seperate. Key Vault Management allows creating and updating your key vault. Key Vault Operations API is for working with vault objects like; keys, secrets and certificates. 
+
 - [Node.js API reference for Key Vault Managment](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Node.js API reference for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
 
@@ -115,9 +117,9 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault security worlds](key-vault-ovw-security-worlds.md)
-- [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md)
-- [Key Vault throttling guidance](key-vault-ovw-throttling.md)
+- [Key Vault security worlds](key-vault-ovw-security-worlds.md) and geographic boundaries details how all HSMs at Azure locations in the same geographic region share the same cryptographic boundary (Thales Security World).
+- [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+
 
 ## Social
 
