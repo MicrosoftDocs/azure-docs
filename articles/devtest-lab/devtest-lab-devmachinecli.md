@@ -31,7 +31,7 @@ Create a VM from a marketplace image with ssh authentication
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 > [!NOTE]
-> Put the lab's resource group name in the --resource-group parameter
+> Put the **lab's resource group** name in the --resource-group parameter
 >
 
 If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/en-us/cli/azure/lab/vm#create)
@@ -55,7 +55,7 @@ Start a VM
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 > [!NOTE]
-> Put the lab's resource group name in the --resource-group parameter
+> Put the **lab's resource group** name in the --resource-group parameter
 >
 
 Connect to a VM: [SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) or [Remote Desktop](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon)
