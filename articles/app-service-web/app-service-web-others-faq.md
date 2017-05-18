@@ -38,3 +38,7 @@ If you have noticed that Autoscale has not scaled-in or scaled-out the web app i
 ## Functions Preview Versions Deprecation
 
 As discussed at https://blogs.msdn.microsoft.com/appserviceteam/2017/01/03/azure-functions-preview-versioning-update/ we recommend that you upgrade your Functions version to ~1 in the App Settings. The ~1 syntax means that you will use the latest version of the host with a major version of 1.
+
+## Web Apps FAQ Overview
+
+[Visit all Web Apps requently asked questions](app-service-web-faq.md).
