@@ -22,13 +22,18 @@
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 
-## [Manage DNS records](dns-operations-recordsets-portal.md)
+## Manage DNS records
+### [Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
-## [Manage reverse DNS records](dns-reverse-dns-record-operations-ps.md)
-### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+
+## Manage reverse DNS records
+### [PowerShell](dns-reverse-dns-record-operations-ps.md)
+### [PowerShell (Classic)](dns-reverse-dns-record-operations-classic-ps.md)
+### [Azure CLI 1.0](dns-reverse-dns-record-operations-cli-nodejs.md)
+### [Azure CLI 2.0](dns-reverse-dns-record-operations-cli.md)
 
 ## [Import and export a DNS zone file](dns-import-export.md)
 ## [Integrate with other Azure services](dns-for-azure-services.md)
