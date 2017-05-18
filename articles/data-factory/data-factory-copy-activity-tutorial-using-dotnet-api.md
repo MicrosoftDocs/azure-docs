@@ -259,8 +259,8 @@ You should have following four values from these steps:
     ```csharp
     // create input and output datasets
     Console.WriteLine("Creating input and output datasets");
-    string Dataset_Source = "DatasetBlobSource";
-    string Dataset_Destination = "DatasetAzureSqlDestination";
+    string Dataset_Source = "InputDataset";
+    string Dataset_Destination = "OutputDataset";
 
     Console.WriteLine("Creating input dataset of type: Azure Blob");
     client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
@@ -504,7 +504,7 @@ You should have following four values from these steps:
 18. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
 19. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
    * Linked service: **LinkedService_AzureStorage**
-   * Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
+   * Dataset: **InputDataset** and **OutputDataset**.
    * Pipeline: **PipelineBlobSample**
 20. Verify that the two employee records are created in the **emp** table in the specified Azure SQL database.
 

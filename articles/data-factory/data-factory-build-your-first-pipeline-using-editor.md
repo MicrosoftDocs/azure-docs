@@ -16,7 +16,8 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 
----3
+---
+
 # Tutorial: Build your first Azure data factory using Azure portal
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)

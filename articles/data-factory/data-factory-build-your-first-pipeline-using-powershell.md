@@ -337,7 +337,7 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
 	```PowerShell
 	Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 	```
-    Notice that the StartDateTime you specify here is the same start time specified in the pipeline JSON. You should see output similar to the following.
+    Notice that the StartDateTime you specify here is the same start time specified in the pipeline JSON. Here is the sample output:
 
 	```PowerShell
     ResourceGroupName : ADFTutorialResourceGroup
@@ -357,7 +357,7 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
 	Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 	```
 
-    You should see output similar to the following.
+    Here is the sample output: 
 
 	```PowerShell
     Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput

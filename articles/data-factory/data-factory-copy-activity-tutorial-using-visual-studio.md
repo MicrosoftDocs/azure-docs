@@ -1,4 +1,4 @@
----
+z---
 title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
 services: data-factory
@@ -102,6 +102,7 @@ Linked services link data stores or compute services to an Azure data factory. S
 2. This time, select **Azure SQL Linked Service**, and click **Add**. 
 3. In the **AzureSqlLinkedService1.json file**, replace `<servername>`, `<databasename>`, `<username@servername>`, and `<password>` with names of your Azure SQL server, database, user account, and password.    
 4. Save the **AzureSqlLinkedService1.json** file. 
+	
 	For more information about these JSON properties, see [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties).
 
 
