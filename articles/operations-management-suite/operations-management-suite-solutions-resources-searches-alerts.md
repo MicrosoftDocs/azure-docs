@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 05/15/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -46,7 +46,7 @@ The name of the workspace is in the name of each Log Analytics resource.  This i
 ## Saved Searches
 Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a solution to allow users to query data collected by your solution.  Saved searches will appear under **Favorites** in the OMS portal and **Saved Searches** in the Azure portal .  A saved search is also required for each alert.   
 
-[Log Analytics saved search](../log-analytics/log-analytics-log-searches.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure. 
+[Log Analytics saved search](../log-analytics/log-analytics-log-searches.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 	{
 		"name": "<name-of-savedsearch>"
@@ -61,6 +61,8 @@ Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a so
 			"category": ""<saved-search-category>"
 		}
 	}
+
+
 
 Each of the properties of a saved search are described in the following table. 
 

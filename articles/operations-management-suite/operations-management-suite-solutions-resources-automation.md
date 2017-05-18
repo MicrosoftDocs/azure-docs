@@ -4,7 +4,7 @@ description: Solutions in OMS will typically include runbooks in Azure Automatio
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 05/14/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -272,6 +272,18 @@ The properties for variable resources are described in the following table.
 | isEncrypted | Specifies whether the variable should be encrypted. |
 | type | Data type for the variable. |
 | value | Value for the variable. |
+
+> [!NOTE]
+> The **type** property currently has no effect on the variable being created.  The data type for the variable will be determined by the value.  
+
+If you set the initial value for the variable, it must be configured as the correct data type.  The following table provides the different data types allowable and their syntax.  Note that values in JSON are expected to always be enclosed in quotes with any special characters within the quotes.  For example, a string value would be specified by quotes around the string (using the escape character (\\)) while a numeric value would be specified with one set of quotes.
+
+| Data type | Description | Example | Resolves to |
+|:--|:--|:--|
+| string   | Enclose value in double quotes.  | "\"Hello world\"" | "Hello world" |
+| numeric  | Numeric value with single quotes.| "64" | 64 |
+| boolean  | 0 or 1 with single quotes. | "0" | 0 |
+| datetime | Serialized date value.<br>You can use the ConvertTo-Json cmdlet in PowerShell to generate this value for a particular date.<br>Example: get-date "5/12/2017 12\:37\:32" | ConvertTo-Json | "\\/Date(1494782605328)\\/" |
 
 ## Modules
 Your management solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available in your Automation account.  You do need to include a resource for any other module used by your runbooks.
