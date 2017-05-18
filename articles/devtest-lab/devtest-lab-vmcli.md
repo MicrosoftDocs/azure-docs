@@ -1,6 +1,6 @@
 ---
-title: Create a development machine with DevTest Labs| Microsoft Docs
-description: Learn how to use Azure DevTest Labs to create a development machine with Azure CLI 2.0
+title: Create and manage virtual machines in DevTest Labs with Azure CLI | Microsoft Docs
+description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure CLI 2.0
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: lisawong19
@@ -16,7 +16,7 @@ ms.date: 05/18/2017
 ms.author: liwong
 
 ---
-# Create a development machine with DevTest Labs using the Azure CLI
+# Create and manage virtual machines with DevTest Labs using the Azure CLI
 This quick start will guide you through creating, starting, connecting, updating and cleaning up a development machine in your lab. 
 
 Before you begin:
@@ -75,6 +75,8 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
   "parameters": []
 }
 ```
+Examples of artifacts can be found in this [github repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)
+
 List artifacts available in the lab
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand "properties(\$expand=artifacts)" --query 'artifacts[].{artifactId: artifactId, status: status}'
