@@ -42,13 +42,13 @@ or enforce an authentication method through your API's code.
 Before you can call your custom API from a logic app, 
 deploy your API as a web app or API app to Azure App Service. 
 And although you can call any API from a logic app, for the best experience, 
-add [Swagger metadata](http://swagger.io/specification/) as documentation 
-that describes your API's operations and parameters. This Swagger document 
-helps your API work better and integrate more easily with logic apps. 
+add [Swagger metadata](http://swagger.io/specification/) to provide 
+documentation that describes your API's operations and parameters. 
+This Swagger document helps your API work better and 
+integrate more easily with logic apps. 
 
-To set up Swagger for your web app or API app, 
-make your Swagger document readable by the Logic App Designer. 
-You must set the API definition properties and turn on 
+To make a Swagger document readable by the Logic App Designer, 
+set the API definition properties and turn on 
 [cross-origin resource sharing (CORS)](../app-service-api/app-service-api-cors-consume-javascript.md#corsconfig) 
 for your web app or API app.
 
@@ -62,10 +62,14 @@ to the URL for your swagger.json file.
       Usually, the URL appears in this format: 
       `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
+      ![Link to Swagger file for your custom API](media/logic-apps-custom-hosted-api/logic-app-custom-api-swagger-url.png)
+
 3.	Under **API**, choose **CORS**. 
 Set the CORS policy for **Allowed origins** to **'*'** (allow all).
 
       This setting permits requests from Logic App Designer.
+
+      ![Permit requests from Logic App Designer to your custom API](media/logic-apps-custom-hosted-api/logic-app-custom-api-cors.png)
 
 For more information, see these articles:
 
