@@ -72,7 +72,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
 6. Right-click the root certificate and from the pop-up menu, select **Install Certificate**.
 
-    The **Certificate Import Wizard** dialog box opens.
+    The **Certificate Import Wizard** dialog box appears.
 
 7. In the **Certificate Import Wizard** dialog box, select **Local Machine** as the destination for the certificate, and then click **Next** to continue.
 
@@ -84,7 +84,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![Place certificates in a specific storage spot](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
-    The **Select Certificate Store** dialog box opens.
+    The **Select Certificate Store** dialog box appears.
 
     ![Certificate storage folder hierarchy](./media/backup-azure-backup-server-vmware/cert-store.png)
 
@@ -133,27 +133,27 @@ Azure Backup Server uses a username and password to authenticate with the vCente
 
 To add a vCenter Server role and its privileges for a backup administrator:
 
-1. Sign in to the vCenter Server, and in the **Navigator** click **Administration**.
+1. Sign in to the vCenter Server, and then in the vCenter Server Navigator panel, click **Administration**.
 
-    ![Navigator](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Administration option in vCenter Server Navigator panel](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 2. In **Administration** select **Roles**, and then in the **Roles** panel click the add role icon (the + symbol).
 
     ![Add role](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-    The **Create Role** dialog box opens.
+    The **Create Role** dialog box appears.
 
     ![Create role](./media/backup-azure-backup-server-vmware/vmware-define-new-role-priv.png)
 
-3. In the **Create Role** dialog, in the **Role name** field, enter *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
+3. In the **Create Role** dialog box, in the **Role name** box, enter *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
 
-4. Select the privileges for the appropriate version of vCenter, and click **OK**. The following table identifies the privileges required for vCenter 6.0 and vCenter 5.5.
+4. Select the privileges for the appropriate version of vCenter, and then click **OK**. The following table identifies the required privileges for vCenter 6.0 and vCenter 5.5.
 
-  When selecting the privileges, click the parent label's chevron to expand the parent and view the child privileges. Selecting the needed VirtualMachine privileges, requires going several 'levels' deep. You don't need to select all child privileges within a parent privilege.
+  When you select the privileges, click the icon next to the parent label to expand the parent and view the child privileges. To select the VirtualMachine privileges, you need to go several levels into the parent child hierarchy. You don't need to select all child privileges within a parent privilege.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+  ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
-  After clicking **OK**, the new role appears in the list on the Roles panel.
+  After you click **OK**, the new role appears in the list on the Roles panel.
 
 |Privileges for vCenter 6.0| Privileges for vCenter 5.5|
 |--------------------------|---------------------------|
@@ -181,45 +181,45 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
 ## Create vCenter Server user account and permissions
 
-Once the role with privileges exists, create a user account. The user account has a name and password, which provides the credentials used for authentication.
+After the role with privileges is set up, create a user account. The user account has a name and password, which provides the credentials that are used for authentication.
 
-1. To create a user account, in the vCenter Server Navigator, click **Users and Groups**.
+1. To create a user account, in the vCenter Server Navigator panel, click **Users and Groups**.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
+    ![Users and Groups option](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-  The Users and Groups panel appears.
+  The **vCenter Users and Groups** panel appears.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/usersandgroups.png)
+  ![vCenter Users and Groups panel](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
-2. In the vCenter Users and Groups panel, select the **Users** tab, and click the add users icon (the + symbol).
+2. In the **vCenter Users and Groups** panel, select the **Users** tab, and then click the add users icon (the + symbol).
 
-  The New User dialog opens.
+    The **New User** dialog box appears.
 
-3. In the New User dialog, fill out the fields and click **OK**. For this example, enter **BackupAdmin** for the username. The password should be a strong password.
+3. In the **New User** dialog box, add the user's information and then click **OK**. In this procedure, the username is BackupAdmin.
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-new-user-account.png)
+    ![New User dialog box](./media/backup-azure-backup-server-vmware/vmware-new-user-account.png)
 
-  The new user account appears in the list.
+    The new user account appears in the list.
 
-4. To associate the user account with the role, on the Navigator, click **Global Permissions**. On the Global Permissions panel, select the **Manage** tab and click the add icon (the + symbol).
+4. To associate the user account with the role, in the **Navigator** panel, click **Global Permissions**. In the **Global Permissions** panel, select the **Manage** tab, and then click the add icon (the + symbol).
 
-  ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
+    ![Global Permissions panel](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
 
-  The Global Permissions Root - Add Permission dialog opens.
+    The **Global Permissions Root - Add Permission** dialog box appears.
 
-5. In the **Global Permission Root - Add Permission** dialog, click **Add** to choose the user or group.
+5. In the **Global Permission Root - Add Permission** dialog box, click **Add** to choose the user or group.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-add-new-global-perm.png)
 
-  The Select Users/Groups dialog opens.
+  The Select Users/Groups dialog box appears.
 
-6. In the **Select Users/Groups** dialog, choose **BackupAdmin** and click **Add**.
+6. In the **Select Users/Groups** dialog box, choose **BackupAdmin** and click **Add**.
 
   The user account in the Users field has the format *domain*`\`*username*. If you want to use a different domain, choose it from the Domain list.
 
   ![certificate dialog with error ](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
-  Click **OK** to add the selected users to the Add Permission dialog.
+  Click **OK** to add the selected users to the Add Permission dialog box.
 
 7. Now that you've identified the user, assign the user to the role. In the Assigned Role area, from the drop-down menu, select **BackupAdminRole** and click **OK**.
 
@@ -242,20 +242,20 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
   ![MABS console](./media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
-  The Manage Credentials dialog opens.
+  The Manage Credentials dialog box appears.
 
-  ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+  ![MABS manage credentials dialog box](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-3. In the Manage Credentials dialog, click **Add** to open the Add Credentials dialog.
+3. In the Manage Credentials dialog box, click **Add** to open the Add Credentials dialog box.
 
-4. In the Add Credentials dialog, enter a name and description for the new credential; then specify the username and password. The credential name, *Contoso Vcenter credential* in the example, is how you identify the credential in the following procedure. Use the same username and password as was used in the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
+4. In the Add Credentials dialog box, enter a name and description for the new credential; then specify the username and password. The credential name, *Contoso Vcenter credential* in the example, is how you identify the credential in the following procedure. Use the same username and password as was used in the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
 
-  ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
+  ![MABS manage credentials dialog box](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
-  Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the Manage Credentials dialog.
-  ![MABS manage credentials dialog](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+  Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the Manage Credentials dialog box.
+  ![MABS manage credentials dialog box](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
-5. To close the Manage Credentials dialog, click the **X** in the upper-right hand corner.
+5. To close the Manage Credentials dialog box, click the **X** in the upper-right hand corner.
 
 
 ## Add the vCenter Server to Azure Backup Server
@@ -266,7 +266,7 @@ To open the Production Server Addition wizard
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-  The Production Server Addition Wizard opens.
+  The Production Server Addition Wizard appears.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -276,9 +276,9 @@ To open the Production Server Addition wizard
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
-4. In the **SSL Port** dialog, enter the port used to communicate with the VMware server. Use port 443, which is the default port, unless you know that a different port is required.
+4. In the **SSL Port** dialog box, enter the port used to communicate with the VMware server. Use port 443, which is the default port, unless you know that a different port is required.
 
-5. In the **Specify Credential** dialog, select the credential you created.
+5. In the **Specify Credential** dialog box, select the credential you created.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
@@ -307,7 +307,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-  The Create New Protection Group wizard opens.
+  The Create New Protection Group wizard appears.
 
   ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
