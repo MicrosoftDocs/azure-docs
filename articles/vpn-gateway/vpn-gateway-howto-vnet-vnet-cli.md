@@ -183,7 +183,7 @@ We use the following values in the examples:
 
 ### Step 4 - Create the connections
 
-You now have two VNets with VPN gateways. The next step is to create VPN gateway connections between the virtual network gateways. If you used the examples above, your VNet gateways are in different resource groups. When gateways are in different resource groups, you need to identify and specify the Resource IDs for each gateway when making a connection. If your VNets are in the same resource group, you can use the [second set of instructions](#samerg) because you don't need to specify the Resource IDs.
+You now have two VNets with VPN gateways. The next step is to create VPN gateway connections between the virtual network gateways. If you used the examples above, your VNet gateways are in different resource groups. When gateways are in different resource groups, you need to identify and specify the resource IDs for each gateway when making a connection. If your VNets are in the same resource group, you can use the [second set of instructions](#samerg) because you don't need to specify the resource IDs.
 
 ### To connect VNets that reside in different resource groups
 
@@ -332,7 +332,7 @@ Because the gateways are in the different subscriptions, we've split this step i
   az network vnet-gateway show -n VNet1GW -g TestRG1
   ```
 
-  Copy the output for "ID". Send the ID and the name of the VNet gateway (VNet1GW) to the administrator of Subscription 5 via email or another method.
+  Copy the output for "id:". Send the ID and the name of the VNet gateway (VNet1GW) to the administrator of Subscription 5 via email or another method.
 
   Example output:
 
@@ -346,7 +346,7 @@ Because the gateways are in the different subscriptions, we've split this step i
   az network vnet-gateway show -n VNet5GW -g TestRG5
   ```
 
-  Copy the output for "ID". Send the ID and the name of the VNet gateway (VNet5GW) to the administrator of Subscription 1 via email or another method.
+  Copy the output for "id:". Send the ID and the name of the VNet gateway (VNet5GW) to the administrator of Subscription 1 via email or another method.
 
 3. **[Subscription 1]** Create the TestVNet1 to TestVNet5 connection. In this step, you create the connection from TestVNet1 to TestVNet5. You can use your own values for the shared key, however, the shared key must match for both connections. Creating a connection can take a short while to complete. Make sure you connect to Subscription 1.
 
