@@ -1,5 +1,5 @@
 ---
-title: Token Based (HTTP/2) Authentication for APNS
+title: Token Based (HTTP/2) Authentication for APNS in Azure Notification Hubs | Microsoft Docs
 description: This topic explains how to leverage the new token authentication for APNS
 services: notification-hubs
 documentationcenter: .net
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/17/2016
+ms.date: 05/17/2017
 ms.author: kapiteir
 
 ---
@@ -65,7 +65,7 @@ There is a new property – *Authentication Mode*. Selecting Token allows you to
 
 ### Configure via Management API (REST)
 
-You can use our [management APIs](https://msdn.microsoft.com/en-us/library/azure/dn495827.aspx) to update your notification hub to use token based authentication.
+You can use our [management APIs](https://msdn.microsoft.com/library/azure/dn495827.aspx) to update your notification hub to use token based authentication.
 Depending on whether the application you’re configuring is a Sandbox or Production app (specified in your Apple Developer Account), use one of the corresponding endpoints:
 
 - Sandbox Endpoint: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
