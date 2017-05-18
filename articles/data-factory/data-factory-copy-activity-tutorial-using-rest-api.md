@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a pipeline to copy data using REST API | Microsoft Docs'
+title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline | Microsoft Docs'
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
 services: data-factory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/11/2017
 ms.author: spelluru
 
 ---
-# Tutorial: Use REST API to create a Data Factory pipeline to copy data 
+# Tutorial: Use REST API to create an Azure Data Factory pipeline to copy data 
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
@@ -438,6 +438,7 @@ In this step, you create a dataset named AzureBlobInput that points to a blob fi
 	```PowerShell
 	Write-Host $results
 	```
+
 ### Create output dataset
 The Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. The output SQL table dataset (OututDataset) you create in this step specifies the table in the database to which the data from the blob storage is copied.
 

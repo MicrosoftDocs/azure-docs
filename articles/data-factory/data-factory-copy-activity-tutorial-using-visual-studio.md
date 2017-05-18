@@ -1,4 +1,4 @@
-z---
+---
 title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
 services: data-factory
@@ -377,9 +377,10 @@ This section describes how to use the Server Explorer in Visual Studio to view a
     ![Server Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 
 ## Create a Visual Studio project for an existing data factory
-3. You can right-click on a data factory in Server Explorer, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.
 
-    ![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
+- Right-click a data factory in Server Explorer, and select **Export Data Factory to New Project** to create a Visual Studio project based on an existing data factory.
+
+![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## Update Data Factory tools for Visual Studio
 To update Azure Data Factory tools for Visual Studio, do the following steps:
