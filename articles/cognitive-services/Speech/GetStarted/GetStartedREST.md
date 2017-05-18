@@ -161,7 +161,7 @@ request.SendChunked = true;
 request.Accept = @"application/json;text/xml";
 request.Method = "POST";
 request.ProtocolVersion = HttpVersion.Version11;
-request.Host = @"speech.platform.bing.com;
+request.Host = @"speech.platform.bing.com";
 request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
 request.Headers["Authorization"] = "Bearer " + token;
 ```
