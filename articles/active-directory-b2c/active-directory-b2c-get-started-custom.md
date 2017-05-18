@@ -32,7 +32,7 @@ To access custom policy editing, you need a valid Azure subscription linked to y
 
 1. Open the **Identity Experience Framework** blade in your Azure AD B2C tenant settings.
 2. Select **Policy Keys** to view the keys available in your tenant.
-3. Create `B2C_1A_TokenSigningKeyContainer` if it does not exist:<br>
+3. Create B2C_1A_TokenSigningKeyContainer if it does not exist:<br>
     a. Select **Add**. <br>
     b. Select **Generate**.<br>
     c. For **Name**, use `TokenSigningKeyContainer`. <br> 
@@ -41,7 +41,7 @@ To access custom policy editing, you need a valid Azure subscription linked to y
     e. For **Dates**, use the defaults. <br>
     f. For **Key usage**, use **Signature**.<br>
     g. Select **Create**.<br>
-4. Create `B2C_1A_TokenEncryptionKeyContainer` if it does not exist:<br>
+4. Create B2C_1A_TokenEncryptionKeyContainer if it does not exist:<br>
  a. Select **Add**.<br>
  b. Select **Generate**.<br>
  c. For **Name**, use `TokenEncryptionKeyContainer`. <br>
@@ -50,11 +50,11 @@ To access custom policy editing, you need a valid Azure subscription linked to y
  e. For **Dates**, use the defaults.<br>
  f. For **Key usage**, **Encryption**.<br>
  g. Select **Create**.<br>
-5. Create `B2C_1A_FacebookSecret`. <br>
+5. Create B2C_1A_FacebookSecret. <br>
 If you already have a Facebook application secret, add it as a policy key to your tenant. Otherwise, you must create the key with a placeholder value so that your policies pass validation.<br>
  a. Select **Add**.<br>
  b. For **Options**, use **Manual**.<br>
- c. For **Name**, use **FacebookSecret**. <br>
+ c. For **Name**, use `FacebookSecret`. <br>
  The prefix `B2C_1A_` might be added automatically.<br>
  d. In the **Secret** box, enter your FacebookSecret from developers.facebook.com or `0` as a placeholder. *This is not your Facebook app ID.* <br>
  e. For **Key usage**, use **Signature**. <br>
@@ -95,7 +95,7 @@ Azure AD B2C requires you to register two extra applications that are used by th
 1. Select **Required permissions**.
 1. Select **Add**.
 1. Select **Select an API**.
-1. Search for the name `IdentityExperienceFramework`. Select **IdentityExperienceFramework** in the results, and then click **Select**.
+1. Search for the name IdentityExperienceFramework. Select **IdentityExperienceFramework** in the results, and then click **Select**.
 1. Select the check box next to **Access IdentityExperienceFramework**, and then click **Select**.
 1. Select **Done**.
 1. Select **Grant Permissions**, and then confirm by selecting **Yes**.
@@ -183,7 +183,7 @@ When a file is uploaded, the name of the policy file is prepended with `B2C_1A_`
    >**Run now** requires at least one application to be preregistered on the tenant. Applications must be registered in the B2C tenant, either by using the **Applications** menu selection in Azure AD B2C or by using the Identity Experience Framework to invoke both built-in and custom policies. Only one registration per application is needed.<br><br>
    To learn how to register applications, see the Azure AD B2C [Get started](active-directory-b2c-get-started.md) article or the [Application registration](active-directory-b2c-app-registration.md) article.  
 
-2. Open `B2C_1A_signup_signin`, the relying party (RP) custom policy that you uploaded. Select **Run now**.
+2. Open B2C_1A_signup_signin, the relying party (RP) custom policy that you uploaded. Select **Run now**.
 
 3. You should be able to sign up using an email address.
 
