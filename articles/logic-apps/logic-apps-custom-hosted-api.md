@@ -20,11 +20,16 @@ ms.author: LADocs; stepsic
 
 # Deploy, call, and secure custom APIs as connectors for logic apps
 
-After you [create custom APIs](./logic-apps-create-api-app.md) that provide actions or triggers 
-to use in logic apps workflows, you must deploy your APIs before you can call them. 
-And although you can deploy your APIs as 
-[web apps](../app-service-web/app-service-web-overview.md), 
-consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
+After you [create custom APIs](./logic-apps-create-api-app.md) 
+that provide actions or triggers to use in logic apps workflows, 
+you must deploy your APIs before you can call them. 
+And although you can call any API from a logic app, 
+for the best experience, add [Swagger metadata](http://swagger.io/specification/) 
+that describes your API's operations and parameters. 
+The Swagger file helps your API work better and integrate more easily with logic apps.
+
+You can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
+but consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
 which can make your job easier when you build, host, and consume APIs 
 in the cloud and on premises. You don't have to change any code in your 
 APIs -- just deploy your code to an API app. You can host your APIs on 
@@ -41,13 +46,7 @@ or enforce an authentication method through your API's code.
 
 Before you can call your custom API from a logic app, 
 deploy your API as a web app or API app to Azure App Service. 
-And although you can call any API from a logic app, for the best experience, 
-add [Swagger metadata](http://swagger.io/specification/) to provide 
-documentation that describes your API's operations and parameters. 
-This Swagger document helps your API work better and 
-integrate more easily with logic apps. 
-
-To make a Swagger document readable by the Logic App Designer, 
+Also, to make your Swagger document readable by the Logic App Designer, 
 set the API definition properties and turn on 
 [cross-origin resource sharing (CORS)](../app-service-api/app-service-api-cors-consume-javascript.md#corsconfig) 
 for your web app or API app.
