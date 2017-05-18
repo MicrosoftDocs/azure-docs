@@ -30,7 +30,7 @@ Currently this service is in **preview** and hosts information regarding virtual
 
 
 ## Service Availability
-The current Preview is available in all Public Azure Regions of Azure, we will be adding support for Government/China/German clouds in the future. This following table is updated on regions where the service preview becomes available.
+The current Preview is available in all Public Azure Regions of Azure, we will be adding support for Government/China/German clouds in the future. This following table is updated on regions where the service preview becomes availa  ble.
 For trying out Instance metadata service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/?redirectedfrom=MSDN) or [Azure portal](http://portal.azure.com) and follow the examples in the examples section to access metadata service. 
 
 Regions                                        | Preview Available ?
@@ -343,7 +343,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VM (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. Why am I getting error 500 - Internal server error?
-   * Currently Instance metadata Preview is available only in West US Central Region. Deploy your VMs in the supported regions.  
+   * Currently Instance metadata Preview is available only in Generally Available Public Azure Region and not in Government/China/German clouds. Deploy your VMs in the supported regions. If the issue persists contact azureimds@microsoft.com 
 4. Where do I share Additional questions/comments?
    * Send your comments on feedback.azure.com.
     
