@@ -50,7 +50,7 @@ The following table provides a summary of issues fixed in this release.
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-| 1 |Restore| During restores, there was a race condition which would cause the restore job to never complete. The bug fix addresses this race condition.|
+| 1 |Restore| During a restore, there was a race condition that would cause the restore job to never complete. The bug fix addresses this race condition.|
 | 2 |Security| This release contains critical Windows Security updates. We suggest that you install this update immediately.|
 
 

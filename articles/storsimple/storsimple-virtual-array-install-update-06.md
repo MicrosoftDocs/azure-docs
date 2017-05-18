@@ -20,7 +20,7 @@ ms.author: alkohli
 
 ## Overview
 
-This article describes the steps required to install Update 0.6 on your StorSimple Virtual Array via the local web UI and via the Azure portal. You need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date.
+This article describes the steps required to install Update 0.6 on your StorSimple Virtual Array via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your StorSimple Virtual Array up-to-date.
 
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption. After the volumes or shares are offline, you should also take a manual backup of the device.
 
@@ -54,7 +54,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
-2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
+2. If you are using the Microsoft Update Catalog for the first time on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
 
 3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download. Enter **4023268** for Update 0.6, and then click **Search**.
    
@@ -71,7 +71,7 @@ Perform the following steps to download the software update from the Microsoft U
 
     You see:
     -  A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to update the device software.
-    - A Geneva Monitoring Agent Package file `GenevaMonitoringAgentPackageInstaller`. This file is used to update the Monitoring and Diagnostics service (MDS) agent. Double-click the cab file. A _.msi_ is displayed. Select the file, right-click, and then **Extract** the file. You will use the _.msi_ file to update the agent.
+    - A Geneva Monitoring Agent Package file `GenevaMonitoringAgentPackageInstaller`. This file is used to update the Monitoring and Diagnostics service (MDS) agent. Double-click the cab file. A _.msi_ is displayed. Select the file, right-click, and then **Extract** the file. You use the _.msi_ file to update the agent.
 
         ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-06/extract-geneva-monitoring-agent-installer.png)
 
@@ -89,7 +89,7 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 #### To install the update or the hotfix
 
-1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. If you are running **10.0.10290.0**, you will not need to update the MDS agent in step 6.
+1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. If you are running **10.0.10290.0**, you do not need to update the MDS agent in step 6.
    
     ![update device](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -97,7 +97,7 @@ Use this method to install updates on a device running GA or Update 0.1 software
    
     ![update device](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
-3. A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
+3. A warning is displayed. Given the virtual array is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
    ![update device](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
@@ -112,7 +112,7 @@ Use this method to install updates on a device running GA or Update 0.1 software
    
     ![update device](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
-6. Skip this step if you were running StorSimple Virtual Array Update 0.5 (**10.0.10290.0**) before you applied this update. You made a note of the software version in step 1 before you began to update. Your MDS agent is already up-to-date if you were running Update 0.5.
+6. Skip this step if you were running StorSimple Virtual Array Update 0.5 (**10.0.10290.0**) before you applied this update. You made a note of the software version in step 1 before you began to update. If you were running Update 0.5, your MDS agent is already up-to-date .
 
     If you are running a software version prior to Update 0.5, the next step for you is to update the MDS agent. In the **Software Update** page, go to the **Update file path** and browse to the `GenevaMonitoringAgentPackageInstaller.msi` file. Repeat steps 2-4. After the virtual array restarts, sign into the local web UI.
 
