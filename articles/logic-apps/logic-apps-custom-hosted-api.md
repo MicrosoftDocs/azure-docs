@@ -14,39 +14,41 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/26/2017
 ms.author: LADocs; stepsic
 ---
 
 # Deploy, call, and secure custom APIs as connectors for logic apps
 
 After you [create custom APIs](./logic-apps-create-api-app.md) that provide actions or triggers 
-to use in logic apps workflows, set up your APIs so you can securely call them from logic apps. 
-Although you can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
+to use in logic apps workflows, you must deploy your APIs before you can call them. 
+And although you can deploy your APIs as 
+[web apps](../app-service-web/app-service-web-overview.md), 
 consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
-which make your job easier when you build, host, and consume APIs 
+which can make your job easier when you build, host, and consume APIs 
 in the cloud and on premises. You don't have to change any code in your 
-APIs -- just deploy your code to an API app. Also, you can host your APIs on 
+APIs -- just deploy your code to an API app. You can host your APIs on 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md), 
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting.
 
+To secure calls from logic apps to your APIs, 
+either set up Azure Active Directory in the Azure portal 
+so you don't have to update your code, 
+or enforce an authentication method through your API's code.
+
 ## Deploy your API as a web app or API app
 
-First, deploy your API as a web app or API app to Azure App Service. 
-For more information about deployment, learn how to deploy 
-[ASP.NET web APIs to Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md).
-
-## Set up Swagger for your web app or API app
-
-Although you can call any API from a logic app, for the best experience, 
+Before you can call your custom API from a logic app, 
+deploy your API as a web app or API app to Azure App Service. 
+And although you can call any API from a logic app, for the best experience, 
 add [Swagger metadata](http://swagger.io/specification/) as documentation 
 that describes your API's operations and parameters. This Swagger document 
 helps your API work better and integrate more easily with logic apps. 
-For example, learn [how to add Swagger metadata for ASP.NET web APIs](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
-To make your Swagger document readable by the Logic App Designer, 
-you must set the API definition properties and turn on 
+To set up Swagger for your web app or API app, 
+make your Swagger document readable by the Logic App Designer. 
+You must set the API definition properties and turn on 
 [cross-origin resource sharing (CORS)](../app-service-api/app-service-api-cors-consume-javascript.md#corsconfig) 
 for your web app or API app.
 
@@ -65,6 +67,11 @@ Set the CORS policy for **Allowed origins** to **'*'** (allow all).
 
       This setting permits requests from Logic App Designer.
 
+For more information, see these articles:
+
+* [Add Swagger metadata for ASP.NET web APIs](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui)
+* [Deploy ASP.NET web APIs to Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md)
+
 ## Call your custom API from logic app workflows
 
 After you set up the API definition properties and CORS, 
@@ -80,9 +87,9 @@ use the [HTTP + Swagger action](../connectors/connectors-native-http-swagger.md)
 *  To call any API, including APIs that don't have or expose a Swagger document, 
 you can always create a request with the [HTTP action](../connectors/connectors-native-http.md).
 
-## Secure calls to your API
+## Secure your custom API
 
-You can secure your API in a couple ways:
+You can secure calls to your custom API in these ways:
 
 *	[No code changes](#no-code): Protect your API with 
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) 
@@ -99,7 +106,7 @@ through the Azure portal, so you don't have to update your code or redeploy your
 or [Azure AD authentication](#azure-ad-code) through code.
 
 <a name="no-code"></a>
-### Secure API calls without changing code
+### Secure calls to your API without changing code
 
 Here's the general steps for this method:
 
@@ -419,3 +426,7 @@ and not use the Azure portal, learn how to
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps.
+
+## Next steps
+
+* [Check logic app performance with diagnostic logs and alerts](logic-apps/logic-apps-monitor-your-logic-apps.md)
