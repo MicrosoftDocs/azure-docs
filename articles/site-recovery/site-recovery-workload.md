@@ -150,7 +150,7 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 * This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure. 
 [Learn More](https://azure.microsoft.com/en-us/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
 
-[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments.
+[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments. Alternatively, you can refer the [whitepaper from Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detailing the same. 
 
 ## Next steps
 [Check prerequisites](site-recovery-prereq.md) 
