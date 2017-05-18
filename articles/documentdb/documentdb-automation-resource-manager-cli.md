@@ -93,11 +93,11 @@ az documentdb create -g <resourcegroupname> -n <uniquedocumentdbaccountname> --k
 
 Examples: 
 
-    az documentdb create -g rg-test -n docdb-test
-    az documentdb create -g rg-test -n docdb-test --kind MongoDB
-    az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
-    az documentdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
-    az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
+    az cosmosdb create -g rg-test -n docdb-test
+    az cosmosdb create -g rg-test -n docdb-test --kind MongoDB
+    az cosmosdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
+    az cosmosdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
+    az cosmosdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
 ### Notes 
 * The locations must be regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
