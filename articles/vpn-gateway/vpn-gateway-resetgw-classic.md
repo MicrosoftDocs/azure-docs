@@ -46,7 +46,7 @@ You can reset a Resource Manager VPN gateway using the Azure portal. If you want
 
 ### Resource Manager deployment model
 
-1. Open the Azure portal and navigate to the Resource Manager virtual network gateway that you want to reset.
+1. Open the [Azure portal](https://portal.azure.com) and navigate to the Resource Manager virtual network gateway that you want to reset.
 2. On the blade for the virtual network gateway, click 'Reset'.
 
 	![Reset VPN Gateway blade](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
@@ -64,7 +64,7 @@ $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
 Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
-Result: You will see a return when the gateway has been reset. This is the same return that you receive when you run the 'get-azureRMVirtualNetworkGateway' command. There is nothing in the result that indicates explicitly that the reset was successful, only that the gateway is sucessfully running. When you get the result, you can interpret it as "Successful". If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the Azure portal. In the portal, navigate to <GatewayName> -> Resource Health.
+Result: You will see a return when the gateway has been reset. This is the same return that you receive when you run the 'get-azureRMVirtualNetworkGateway' command. There is nothing in the result that indicates explicitly that the reset was successful, only that the gateway is sucessfully running. When you receive the result, you can interpret it as "Successful". If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to 'GatewayName' -> Resource Health.
 
 ### <a name="resetclassic"></a>Classic deployment model
 
@@ -91,7 +91,7 @@ To reset the gateway, use the [az network vnet-gateway reset](https://docs.micro
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
-Result: You will see this return when the gateway has been reset, although there is nothing in the result that indicates explicitly that the reset was successful. When you get the result, you can interpret it as "Successful". If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the Azure portal. In the portal, navigate to <GatewayName> -> Resource Health.
+Result: You will see this return when the gateway has been reset, although there is nothing in the result that indicates explicitly that the reset was successful. When receive the result, you can interpret it as "Successful". If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the Azure portal. [Azure portal](https://portal.azure.com). In the portal, navigate to 'GatewayName' -> Resource Health.
 
 ```
 {
