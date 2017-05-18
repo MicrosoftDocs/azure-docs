@@ -89,7 +89,7 @@ To reset the gateway, use the [az network vnet-gateway reset](https://docs.micro
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
-Result: Currently, you don't see a Successful result in the console when issuing this command in Azure CLI. That does not mean the reset was unsuccessful; it only means the result does not show a status at this time.
+Result: Currently, you don't see a result in the console when issuing this command in Azure CLI, although you will see this return when the gateway has been reset. This does not mean that the reset was unsuccessful. It only means that the result does not show a status.
 
 ```
 {
