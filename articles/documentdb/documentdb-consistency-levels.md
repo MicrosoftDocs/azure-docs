@@ -77,6 +77,7 @@ You can configure a default consistency level on your database account that appl
 * Azure Cosmos DB accounts that are configured with session consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
 * The cost of a read operation (in terms of RUs consumed) with session consistency level is less than strong and bounded staleness, but more than eventual consistency
 
+<a id="consistent-prefix"></a>
 **Consistent Prefix**: 
 
 * Consistent prefix guarantees that in absence of any further writes, the replicas within the group eventually converge. 
