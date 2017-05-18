@@ -13,11 +13,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/18/2017
 ms.author: ponatara
 
 ---
-# Replicate a multi-tier Citrix XenApp and XenDesktop solution using Azure Site Recovery
+# Replicate a multi-tier Citrix XenApp and XenDesktop deployment using Azure Site Recovery
 
 ## Overview
 
@@ -37,7 +37,7 @@ Before you start, make sure you understand the following:
 
 1. [Replicating a virtual machine to Azure](site-recovery-vmware-to-azure.md)
 1. How to [design a recovery network](site-recovery-network-design.md)
-1. [Doing a test failover to Azure](site-recovery-test-failover-azure.md)
+1. [Doing a test failover to Azure](site-recovery-test-failover-to-azure.md)
 1. [Doing a failover to Azure](site-recovery-failover.md)
 1. How to [replicate a domain controller](site-recovery-active-directory.md)
 1. How to [replicate SQL Server](site-recovery-sql.md)
@@ -46,9 +46,11 @@ Before you start, make sure you understand the following:
 
 A Citrix XenApp and XenDesktop farm typically has the following deployment pattern:
 
-* **Deployment pattern ** - Citrix XenApp and XenDesktop deployment with AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server
+**Deployment pattern ** 
 
-![Deployment Pattern 1](./media/site-recovery-iis/DeploymentPattern.png) tbd
+Citrix XenApp and XenDesktop deployment with AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server
+
+![Deployment Pattern 1](./media/site-recovery-citrix/Citrix-Deployment.png)
 
 
 ## Site Recovery support
@@ -63,10 +65,10 @@ For the purpose of this article, Citrix deployments on VMware virtual machines m
 **VMware** | Not in scope | Yes
 **Physical server** | Not in scope | Yes
 
-### Versions (TBD)
+### Versions
 Customers can deploy XenApp components as Virtual Machines running on Hyper-V or VMware or as
 Physical Servers. Azure Site Recovery can protect both physical and virtual deployments to Azure. 
-Since XenApp 7.7 or later is supported in Azure, only deployments with these versions can be failed over to Azure for Disaster Recovery or migration. tbd
+Since XenApp 7.7 or later is supported in Azure, only deployments with these versions can be failed over to Azure for Disaster Recovery or migration. 
 
 ### Things to keep in mind
 
@@ -150,7 +152,6 @@ Recovery plans can be customized to add failover groups for specific startup ord
 2. Failover Group3: VDA Master Image VM
 3. Failover Group4: Delivery Controller and StoreFront server VMs
 
-![Recovery Plan](./media/site-recovery-iis/RecoveryPlan.png)
 
 ### Adding scripts to the recovery plan
 
@@ -172,7 +173,7 @@ state. Shutdown the VM from Azure Portal.
 5. Failover Group4: Delivery Controller and StoreFront server VMs
 6. Group3 manual or script action 1: 
    
-	****Add Azure RM host connection****
+	***Add Azure RM host connection***
    
    	Create Azure ARM host connection in Delivery Controller machine to provision new MCS
    catalogs in Azure. Follow the steps as explained in this [article](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
@@ -187,15 +188,13 @@ state. Shutdown the VM from Azure Portal.
 
 Note: 
 
-*  You can use this [script](scipt-location.md) to update the DNS with the new IPs of the failed over virtual machines.
-
-* Use this [script](scipt-location.md) to attach a load balancer on the failed over virtual machine, if needed. 
+*  You can use scripts at [script](https://github.com/Azure/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts) to update the DNS with the new IPs of the failed over virtual machines or to attach a load balancer on the failed over virtual machine, if needed. 
 
 
 
 ## Doing a test failover
 
-![Recovery Plan](./media/site-recovery-iis/TestFailoverJob.png)tbd
+![Recovery Plan](./media/site-recovery-citrix/Citrix-TFO.png)
 
 Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test failover.
 
