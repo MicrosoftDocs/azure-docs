@@ -475,7 +475,8 @@ You should have following four values from these steps:
 
 14. Add the following helper method used by the **Main** method to the **Program** class.
 
-	> [!NOTE] When you copy and paste the following code, make sure that the copied code is at the same level as the Main method.
+	> [!NOTE] 
+	> When you copy and paste the following code, make sure that the copied code is at the same level as the Main method.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
