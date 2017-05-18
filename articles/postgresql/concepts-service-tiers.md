@@ -23,7 +23,7 @@ Each pricing tier has a range of performance levels (Compute Units) to choose fr
 > [!IMPORTANT]
 > While the service is in public preview, there is not a guaranteed Service Level Agreement (SLA).
 
-It is possible to have multiple database within a single server. You can opt to create a single database per server to use the resources in a dedicated fashion, or create multiple databases to share the resources. 
+Within an Azure Database for PostgreSQL server, you can have one or multiple databases. You can opt to create a single database per server to use the resources in a dedicated fashion, or create multiple databases to share the resources. 
 
 ## Choose a pricing tier
 While in preview, Azure Database for PostgreSQL offers two pricing tiers: Basic and Standard. Standard tier is available only in limited regions during the preview. Premium tier is not yet available, but is coming soon. 
@@ -47,7 +47,7 @@ To decide on a pricing tier, first start by determining if your workload need IO
 | Database backup retention period | 7 days | 35 days | 
 
 The Standard pricing tier in preview currently supports up to 800 Compute Units, and a maximum of 1 TB of storage and 3,000 IOPS.
-Within the Standard pricing tier, the IOPS scales proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS. 
+Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS. 
 
 During the preview timeframe, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
 
