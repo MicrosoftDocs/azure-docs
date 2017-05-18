@@ -79,8 +79,8 @@ When you have completed these tutorials, you can further explore the capabilitie
 [Sim_Nd]: iot-hub-node-node-getstarted.md
 [Sim_Pyth]: iot-hub-python-getstarted.md
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
-[Sim_Lnx]: iot-hub-linux-gateway-sdk-get-started.md
-[Sim_Win]: iot-hub-windows-gateway-sdk-get-started.md
+[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
+[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
 [Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
 [Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md
