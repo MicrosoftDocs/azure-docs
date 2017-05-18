@@ -80,7 +80,7 @@ Regardless of the number of databases hosted within each PostgreSQL server, your
 ### Standard service tier:
 
 | **Performance level** | **100** | **200** | **400** | **800** |
-| --------------------: | :------ | :------ | :------ | :------ |
+| :-------------------- | :------ | :------ | :------ | :------ |
 | Max Compute Units | 100 | 200 | 400 | 800 |
 | Included storage size and provisioned IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | Max server storage size\* | 1 TB | 1 TB | 1 TB | 1 TB |
