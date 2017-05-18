@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/17/2017
+ms.date: 05/18/2017
 ms.author: alkohli
 ---
 # Install Update 0.6 on your StorSimple Virtual Array
@@ -25,7 +25,7 @@ This article describes the steps required to install Update 0.6 on your StorSimp
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption. After the volumes or shares are offline, you should also take a manual backup of the device.
 
 > [!IMPORTANT]
-> - Update 0.6 corresponds to **10.0.10292.0** software version on your device. For information on what is new in this update, go to [Release notes for Update 0.6](storsimple-virtual-array-update-06-release-notes.md).
+> - Update 0.6 corresponds to **10.0.10293.0** software version on your device. For information on what is new in this update, go to [Release notes for Update 0.6](storsimple-virtual-array-update-06-release-notes.md).
 >
 > - If you are running Update 0.2 or later, we recommend that you install the updates via the Azure portal. If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install Update 0.6.
 >
@@ -37,7 +37,7 @@ If running Update 0.2 and later, we recommend that you install updates through t
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
 
-After the installation is complete, go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you just updated. Go to **Settings > Manage > Device Updates**. The displayed software version should be **10.0.10292.0**.
+After the installation is complete, go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you just updated. Go to **Settings > Manage > Device Updates**. The displayed software version should be **10.0.10293.0**.
 
 ## Use the local web UI
 
@@ -75,7 +75,7 @@ Perform the following steps to download the software update from the Microsoft U
 
         ![Extract MDS Agent Update file](./media/storsimple-virtual-array-install-update-06/extract-geneva-monitoring-agent-installer.png)
 
-        > [!IMPORTANT] You do not need to update the MDS agent if you are running StorSimple Update 0.5 (0.0.10292.0).
+        > [!IMPORTANT] You do not need to update the MDS agent if you are running StorSimple Update 0.5 (0.0.10293.0).
 
     - Three files that contain critical Windows security updates, `windows8.1-kb4012213-x64`,`windows8.1-kb3205400-x64`, and `windows8.1-kb4019213-x64`.
 
@@ -88,7 +88,7 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 #### To install the update or the hotfix
 
-1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. If you are running **10.0.10292.0**, you will not need to update the MDS agent in step 6.
+1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. If you are running **10.0.10290.0**, you will not need to update the MDS agent in step 6.
    
     ![update device](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -104,10 +104,10 @@ Use this method to install updates on a device running GA or Update 0.1 software
    
     ![update device](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10292** for Update 0.6.
+5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10293** for Update 0.6.
    
    > [!NOTE]
-   > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10292** and the Azure portal reports **10.0.10292.0** for the same version.
+   > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10293** and the Azure portal reports **10.0.10293.0** for the same version.
    
     ![update device](./media/storsimple-virtual-array-install-update-06/update6m.png)
 

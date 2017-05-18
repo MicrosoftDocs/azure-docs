@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2017
+ms.date: 05/18/2017
 ms.author: alkohli
 
 ---
@@ -25,7 +25,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
 
-Update 0.6 corresponds to the software version **10.0.10292.0**.
+Update 0.6 corresponds to the software version **10.0.10293.0**.
 
 > [!NOTE]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 0.6](storsimple-virtual-array-install-update-06.md).
@@ -39,9 +39,9 @@ Update 0.6 is primarily a bug-fix build. The main bug-fixes are as follows:
 - **Restore fix** - In earlier releases, there was a bug that would cause the restore job to never complete. This bug has been fixed in this release.
 
 - **Windows Security fixes** - This release contains the following Windows critical security fixes.
-    - [December 2016](https://support.microsoft.com/help/3205400/december-2016-security-only-quality-update-for-windows-8.1-and-windows-server-2012-r2)
-    - [March 2017](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23)
-    - [May 2017](https://support.microsoft.com/help/4019213/windows-8-update-kb4019213)
+    - [December 2016 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/3205400/december-2016-security-only-quality-update-for-windows-8.1-and-windows-server-2012-r2)
+    - [March 2017 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23)
+    - [May 9, 2017—KB4019213 (Security-only update)](https://support.microsoft.com/help/4019213/windows-8-update-kb4019213)
 
 
 ## Issues fixed in the Update 0.6
