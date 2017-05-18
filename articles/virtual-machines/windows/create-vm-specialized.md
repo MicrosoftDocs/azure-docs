@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/17/2017
 ms.author: cynthn
 
 ---
@@ -23,8 +23,8 @@ ms.author: cynthn
 Create a new VM by attaching a specialized managed disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. 
 
 You have two options:
-* [Upload a VHD] 
-* [Copy the VHD of an existing Azure VM]
+* [Upload a VHD](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Copy the VHD of an existing Azure VM](create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
 This topic shows you how to use managed disks, if you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md)
 
@@ -41,7 +41,7 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 
 You can upload the VHD from a specialized VM created with an on-premises virtualization tool, like Hyper-V, or a VM exported from another cloud.
 
-## Prepare the VM
+### Prepare the VM
 If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
   
   * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
@@ -58,7 +58,7 @@ To show the available storage accounts, type:
 Get-AzureRmStorageAccount
 ```
 
-If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
+If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vhd-to-your-storage-account) section.
 
 If you need to create a storage account, follow these steps:
 
@@ -80,16 +80,8 @@ If you need to create a storage account, follow these steps:
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
-   
-    Valid values for -SkuName are:
-   
-   * **Standard_LRS** - Locally redundant storage. 
-   * **Standard_ZRS** - Zone redundant storage.
-   * **Standard_GRS** - Geo redundant storage. 
-   * **Standard_RAGRS** - Read access geo redundant storage. 
-   * **Premium_LRS** - Premium locally redundant storage. 
 
-### Upload the VHD to your storage account
+### Upload the VHD to your storage account 
 Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
 
 ```powershell
@@ -144,7 +136,7 @@ You can use the Azure portal or Azure Powershell to get the URL:
 * **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 * **Powershell**: `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` gets the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
-## Get the storage access keys
+### Get the storage access keys
 Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/storage-create-storage-account.md).
 
 * **Portal**: Click **More services** > **Storage accounts** > <storage account> **All Settings** > **Access keys**. Copy the key labeled as **key1**.
@@ -264,30 +256,19 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 	
 	
-### Configure the OS disk
+### Create a managed disk from the VHD
 
-The specialised OS could be a VHD that you [uploaded to Azure](upload-image.md) or a [copy the VHD from an existing Azure VM](vhd-copy.md). 
-
-You can choose one of two options:
-- **Option 1**: Create a specialized managed disk from a specialied VHD in an existing storage account to use as the OS disk.
-
-or 
-
-- **Option 2**: Use a specialized VHD stored in your own storage account (an unmanaged disk). 
-
-#### Option 1: Create a managed disk from an unmanaged specialized disk
-
-1. Create a managed disk from the existing specialized VHD in your storage account. This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
+Create a managed disk from the existing specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
 
     ```powershell
-    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-	-AccountType StandardLRS  -Location $location -CreateOption Import `
+    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk '
+	(New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import '
 	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
     -ResourceGroupName $rgName
     ```
 
-2. Add the OS disk to the configuration. This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
-	
+2. Add the OS disk to the configuration using [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
+	 
 	```powershell
 	$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
 	-DiskSizeInGB 128 -CreateOption Attach -Windows
@@ -298,31 +279,6 @@ Optional: Attach additional managed disks as data disks. This option assumes tha
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 ```
-
-
-#### Option 2: Attach a VHD that is in an existing storage account
-
-1. Set the URI for the VHD that you want to use. In this example, the VHD file named **myOsDisk.vhd** is kept in a storage account named **myStorageAccount** in a container named **myContainer**.
-
-    ```powershell
-    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
-    ```
-2. Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
-    
-	```powershell
-    $osDiskName = $vmName + "osDisk"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
-    ```
-
-Optional: If you have data disks that need to be attached to the VM, add the data disks by using the URLs of data VHDs and the appropriate Logical Unit Number (Lun).
-
-```powershell
-$dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
-```
-
-When using a storage account, the data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the target storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
-
 
 ### Complete the VM 
 
