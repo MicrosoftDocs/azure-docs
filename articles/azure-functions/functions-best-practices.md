@@ -22,14 +22,14 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Tips for improving the performance and reliability of Azure Functions
+# Tips for improving the performance and reliability of Azure Functions.
 
 ##Overview
 
 This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your function app is an app in Azure App Service. So App Service best practices also apply.
 
 
-## Avoid large long running functions
+## Avoid large long running functions.
 
 Large, long-running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. Dependencies could also be implicit, based on a single module loaded by your code that has its own internal dependencies.  
 
@@ -48,7 +48,7 @@ Event hubs are useful to support high volume communications.
 
 
 
-## Write functions to be stateless 
+## Write functions to be stateless. 
 
 Functions should be stateless and idempotent if possible. Associate any required state information with your data. For example, an order being processed would likely have an associated `state` member. A function could process an order based on that state while the function itself remains stateless. 
 
@@ -87,7 +87,7 @@ Don't use verbose logging in production code. It has a negative performance impa
 
 
 
-## Use async code but avoid Task.Result
+## Use async code but avoid Task.Result.
 
 Asynchronous programming is a recommended best practice. However, always avoid referencing the `Task.Result` property. This approach essentially does a busy-wait on a lock of another thread. Holding a lock creates the potential for deadlocks.
 
