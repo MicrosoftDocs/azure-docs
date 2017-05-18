@@ -157,7 +157,7 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
 
 JSON equivalent of the previous XML configuration file. 
 
-The PublicConfig and PrivateConfig are separated because in most json usage cases, they are passed as different variables. These cases include Resource Manager templates, Virtual Machine Scale set powershell, and Visual Studio. 
+The PublicConfig and PrivateConfig are separated because in most json usage cases, they are passed as different variables. These cases include Resource Manager templates, Virtual Machine Scale set PowerShell, and Visual Studio. 
 
 ```json
 "PublicConfig" {
