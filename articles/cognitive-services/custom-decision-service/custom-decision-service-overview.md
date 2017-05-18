@@ -40,8 +40,8 @@ Custom Decision Service can be applied to applications that are not in the conte
 
 Custom Decision Service can be used in two learning modes. The APIs are identical, regardless of which learning mode you use:
 
-- Pooled learning mode: one model for all applications, suitable for low-traffic applications
-- Application-specific learning mode: suitable for high-traffic applications
+- Pooled learning mode uses one model for all applications and is suitable for low-traffic applications.
+- Application-specific learning mode is suitable for high-traffic applications.
 
 #### Pooled learning mode
 
@@ -55,7 +55,7 @@ When your data volume permits, we recommend the application-specific learning mo
 
 Custom Decision Service creates a deployment of the entire learning pipeline for your application. You can also access the collected data offline to derive further insights about user preferences.
 
-To use this learning mode, you need to have an [Azure Storage account](../../storage/storage-create-storage-account.md) where your data is logged. Choose **Advanced Options** when you register a new application on the portal. Then enter the
+To use this learning mode, you need to have an [Azure storage account](../../storage/storage-create-storage-account.md) where your data is logged. Choose **Advanced Options** when you register a new application on the portal. Then enter the
 [connection string](../../storage/storage-configure-connection-string.md) for the Azure Storage account.
 
 ## API usage modes
@@ -66,9 +66,9 @@ Custom Decision Service can be applied to both webpages and apps. The APIs can b
 
 Several terms frequently occur in our documentation:
 
-* *Action sets*: The set of content items for the Custom Decision Service to rank. This set can be specified as an *RSS* or *Atom* endpoint.
-* *Ranking*: Each request to the Custom Decision Service specifies one or more action sets. The system responds by picking all the content options from these sets and returns them in ranked order.
-* *Callback function*: This function, which you specify, renders the content in your UI. The content is ordered by the rank ordering returned by the Custom Decision Service.
+* *Action set*: The set of content items for the Custom Decision Service to rank. This set can be specified as an *RSS* or *Atom* endpoint.
+* *Ranking*: Each request to Custom Decision Service specifies one or more action sets. The system responds by picking all the content options from these sets and returns them in ranked order.
+* *Callback function*: This function, which you specify, renders the content in your UI. The content is ordered by the rank ordering returned by Custom Decision Service.
 * *Reward*: A measure of how the user responded to the rendered content. Custom Decision Service measures user response by using clicks. The clicks are reported to our system by using custom code inserted in your application.
 
 ## Next steps

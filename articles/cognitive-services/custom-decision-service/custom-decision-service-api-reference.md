@@ -56,10 +56,10 @@ The browser then executes this string as a call to the `callback()` function.
 
 The parameter to the callback function in the preceding example has the following schema:
 
-- `ranking`. This element provides the ranking of URLs to be displayed.
-- `eventId`. This element is used internally by the Custom Decision Service to match this ranking with the corresponding clicks.
-- `appId.` This element allows the callback function to distinguish between multiple applications of Custom Decision Service running on the same webpage.
-- `actionSets`. This element lists each action set used in the Ranking API call, along with the UTC timestamp of the last successful refresh. (Custom Decision Service periodically refreshes the action set feeds.) For example, if some of the action sets are not current, the callback function may need to fall back to their default ranking.
+- `ranking` provides the ranking of URLs to be displayed.
+- `eventId` is used internally by the Custom Decision Service to match this ranking with the corresponding clicks.
+- `appId` allows the callback function to distinguish between multiple applications of Custom Decision Service running on the same webpage.
+- `actionSets` lists each action set used in the Ranking API call, along with the UTC timestamp of the last successful refresh. (Custom Decision Service periodically refreshes the action set feeds.) For example, if some of the action sets are not current, the callback function may need to fall back to their default ranking.
 
 > [!IMPORTANT]
 > The specified action sets are processed, and possibly pruned, to form the default ranking of articles. The default ranking then gets reordered and returned in the HTTP response. The default ranking is defined as follows:
@@ -72,8 +72,8 @@ The parameter to the callback function in the preceding example has the followin
 
 Ranking API allows the following parameters:
 
-- `details=1` and `details=2`. These parameters insert auxiliary details about each article listed in `ranking`.
-- `limit=<n>`. This parameter specifies the maximal number of articles in the default ranking. `n` must be between `2` and `30` (or else it is truncated to `2` or `30`, respectively).
+- `details=1` and `details=2` insert auxiliary details about each article listed in `ranking`.
+- `limit=<n>` specifies the maximal number of articles in the default ranking. `n` must be between `2` and `30` (or else it is truncated to `2` or `30`, respectively).
 - `dnt=1`. This parameter disables user cookies.
 
 Parameters can be combined in standard query string syntax, for example, `details=2&dnt=1`.
@@ -81,7 +81,7 @@ Parameters can be combined in standard query string syntax, for example, `detail
 > [!IMPORTANT]
 > The default setting in Europe should be `dnt=1` until the customer agrees to the cookie banner. It should also be the default setting for websites that target minors. For more information, see the [terms of use](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
 
-The `details=1` element inserts each article's `guid`, if it is served by the Action Set API. Then the HTTP response looks like the following:
+`details=1` inserts each article's `guid`, if it is served by the Action Set API. Then the HTTP response looks like the following:
 
 ```json
 callback({
@@ -94,7 +94,7 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-The `details=2` element adds more details that Custom Decision Service may extract from articles' SEO metatags:
+`details=2` adds more details that Custom Decision Service may extract from articles' SEO metatags:
 
 - `title` from `<meta property="og:title" content="..." />` or `<meta property="twitter:title" content="..." />` or `<title>...</title>`
 - `description` from `<meta property="og:description" ... />`  or `<meta property="twitter:description" content="..." />` or `<meta property="description" content="..." />`
@@ -115,7 +115,7 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-where the `<details>` element is of the form:
+The `<details>` element is of the following form:
 
 ```json
 [{"guid":"123"}, {"description":"some text", "ds_id":"234", "image":"ImageUrl1", "title":"some text"}]
@@ -168,14 +168,14 @@ Each Action Set API can be implemented in two ways: as an RSS feed or as an Atom
 
 Here each top-level `<item>` element describes an action:
 
-- The `<link>` element is mandatory and is used as an action ID by Custom Decision Service.
-- The `<date>` element is ignored if it's less than or equal to 15 items; otherwise, it's mandatory.
+- `<link>` is mandatory and is used as an action ID by Custom Decision Service.
+- `<date>` is ignored if it's less than or equal to 15 items; otherwise, it's mandatory.
   - If there are more than 15 items, the 15 most recent ones are used.
   - It must be in the standard format for RSS or Atom, respectively:
     - [RFC 822](https://tools.ietf.org/html/rfc822) for RSS: for example, `"Fri, 28 Apr 2017 18:02:06 GMT"`
     - [RFC 3339](https://tools.ietf.org/html/rfc3339) for Atom: for example, `"2016-12-19T16:39:57-08:00"`
-- The `<title>` element is optional and is used to generate features that describe the article.
-- The `<guid>` element is optional and is passed through the system to the callback function (if the `?details` parameter is specified in the Ranking API call).
+- `<title>` is optional and is used to generate features that describe the article.
+- `<guid>` is optional and is passed through the system to the callback function (if the `?details` parameter is specified in the Ranking API call).
 
 Other elements inside an `<item>` are ignored.
 
