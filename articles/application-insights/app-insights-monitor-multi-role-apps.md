@@ -21,7 +21,7 @@ You can monitor apps that consist of multiple server components, roles, or servi
 
 ![Multi-component application map](./media/app-insights-monitor-multi-role-apps/app-map.png)
 
-We use 'component' here in a broad sense to mean any functioning part of a large application. For example, a typical business application may consist of client code running in web browsers, talking to one or more web app services, which in turn use back end services. Server components may be hosted in containers such as Docker or Service Fabric, or on cloud or on-premises hosts. 
+We use 'component' here to mean any functioning part of a large application. For example, a typical business application may consist of client code running in web browsers, talking to one or more web app services, which in turn use back end services. Server components may be hosted on-premises on in the cloud, or may be Azure web and worker roles, or may run in containers such as Docker or Service Fabric. 
 
 ### Sharing a single Application Insights resource 
 
@@ -49,7 +49,7 @@ Update or install the Appication Insights packages in the project for each serve
 2. Select **Include prerelease**.
 3. If Application Insights packages appear in Updates, select them. 
 
-    Otherwise, Browse for and install the appropriate package:
+    Otherwise, browse for and install the appropriate package:
     
     * Microsoft.ApplicationInsights.WindowsServer
     * Microsoft.ApplicationInsights.ServiceFabric - for components running as guest executables and Docker containers running a in Service Fabric application
