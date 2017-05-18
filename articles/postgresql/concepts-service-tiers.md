@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 05/17/2017
 ---
 # Azure Database for PostgreSQL options and performance: Understand what’s available in each service tier
 
@@ -23,7 +23,7 @@ In the future, it will be possible to upgrade or downgrade from one service tier
 > [!IMPORTANT]
 > The service is currently in public preview, and so does not yet provide a Service Level Agreement (SLA).
 
-You can create single PostgreSQL server with dedicated resources within a service tier at a specific performance level. You can then create one to several databases within the server in which the resources are shared across multiple databases. The resources available for single PostgreSQL server are expressed in terms of Compute Units and Storage Units. For more on Compute Units and Storage, see [Explaining Compute Unit and Storage Unit](concepts-compute-unit-and-storage.md)
+You can create single PostgreSQL server with dedicated resources within a service tier at a specific performance level. You can then create one to several databases within the server in which the resources are shared across multiple databases. The resources available for single PostgreSQL server are expressed in terms of Compute Units and storage. For more on Compute Units and storage, see [Explaining Compute Units and storage](concepts-compute-unit-and-storage.md)
 
 ## Choosing a service tier
 
@@ -48,11 +48,11 @@ To decide on a service tier, first start by determining if your workload need IO
 
 
 > [!NOTE]
-> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1,000 GB of storage.
+> The Standard service tier in preview currently supports up to 800 Compute Units, and a maximum of 1 TB  of storage.
 
 Once you have determined the minimum service tier, you are ready to determine the performance level for the PostgreSQL server (the Compute Units). The standard 200 and 400 Compute Units are often a good starting point for applications that require higher user concurrency for their web or analytical workloads. 
 
-However, you can scale up or down the Compute Units independent of Storage Units, based on the requirements of the workload. If the workload needs an adjustment of compute resources, you can dynamically increase or decrease the Compute Units. If your workload needs more IOPS or storage, then you can also scale Storage.
+However, you can scale up or down the Compute Units independent of storage, based on the requirements of the workload. If the workload needs an adjustment of compute resources, you can dynamically increase or decrease the Compute Units. If your workload needs more IOPS or storage, then you can also scale storage.
 
 > [!NOTE]
 > In preview, the Basic and Standard tiers currently do not support the dynamic scaling of storage. We plan to add the feature in the future.
@@ -72,10 +72,10 @@ Regardless of the number of databases hosted within each PostgreSQL server, your
 ### Basic service tier:
 
 | **Performance level** | **50** | **100** |
-| --------------------: | :----- | :------ |
+| :-------------------- | :----- | :------ |
 | Max Compute Units | 50 | 100 |
-| Included Storage size | 50 GB | 50 GB |
-| Max server storage size\* | 1,050 GB | 1,050 GB |
+| Included storage size | 50 GB | 50 GB |
+| Max server storage size\* | 1 TB | 1 TB |
 
 ### Standard service tier:
 
@@ -101,6 +101,6 @@ You can use the Azure portal to scale up and down, or use Azure CLI to monitor a
 
 ### Details about scaling up or down
 
-- To downgrade a server, the server Storage Units should be smaller than the maximum allowed size of the target service tier.
+- To downgrade a server, the server storage should be smaller than the maximum allowed size of the target service tier.
 - The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [How To Backup and Restore Azure Database for PostgreSQL server using the Azure portal](howto-restore-server-portal.md)
 - The new properties for the server are not applied until the changes are complete.
