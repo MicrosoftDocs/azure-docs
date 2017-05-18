@@ -70,7 +70,7 @@ The following Azure IoT service SDKs are available to download from GitHub:
 
 Azure IoT Edge contains the infrastructure and modules to create IoT gateway solutions. You can extend the IoT Edge to create gateways tailored to any end-to-end scenario.
 
-You can download [Azure IoT Edge][lnk-gateway-sdk] from GitHub.
+You can download [Azure IoT Edge][lnk-iot-edge] from GitHub.
 
 ## Online API reference documentation
 
@@ -106,7 +106,7 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html

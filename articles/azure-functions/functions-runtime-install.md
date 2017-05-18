@@ -36,7 +36,7 @@ Before you install the Azure Functions Runtime preview, you must have the follow
 
 ## Install the Azure Functions Runtime Preview
 
-The Azure Functions Runtime preview installer guides you through the installation of the the Azure Functions Runtime preview Management and Worker Roles.  It is possible to install the Management and Worker role on the same machine.  However, as you add more Functions, you must deploy more worker roles on additional machines to be able to scale your functions onto multiple workers.
+The Azure Functions Runtime preview installer guides you through the installation of the Azure Functions Runtime preview Management and Worker Roles.  It is possible to install the Management and Worker role on the same machine.  However, as you add more Functions, you must deploy more worker roles on additional machines to be able to scale your functions onto multiple workers.
 
 ## Install the Management and Worker Role on the same machine
 
