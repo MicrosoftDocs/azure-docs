@@ -136,37 +136,24 @@ Remove-VMImage `
 > [!NOTE]
 > This method requires creating the Marketplace item separately.
 
-One requirement of images is that they can be referenced by a Blob
-    storage URI. Prepare a Windows or Linux operating system
-    virtual hard disk image in VHD format (not VHDX), and then upload the
-    image to a storage account in Azure or in Azure Stack. If your image
-    is already uploaded to Blob storage in Azure or Azure Stack, you can
-    skip this step.
+One requirement of images is that they can be referenced by a Blob storage URI. Prepare a Windows or Linux operating system image in VHD format (not VHDX), and then upload the image to a storage account in Azure or Azure Stack. If your image is already uploaded to the Blob storage in Azure or Azure Stack, you can skip step1.
 
-Follow the steps from [Upload a Windows VM image to Azure for
-    Resource Manager
-    deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) article
-    through the step **Upload the VM image to your storage
-    account**. Keep in mind the following:
+1. [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) or for a Linux image, follow the instructions to prepare the image, or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md). You should understand the following considerations before you upload the image:
 
-* For a Linux image, follow the instructions to
-  prepare the image, or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).  
-* It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the VM image to the
-  Azure Stack image repository. While following the upload instructions, make sure to substitute the [Authenticate PowerShell with Microsoft Azure
-  Stack](azure-stack-deploy-template-powershell.md)
-  step for the ‘Login to Azure’ step.  
-* Make a note of the Blob storage URI where you upload the image. It has the following format:
+   * It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the VM image to the Azure Stack image repository. While following the upload instructions, make sure to substitute the [Authenticate PowerShell with Microsoft Azure Stack](azure-stack-deploy-template-powershell.md) step for the ‘Login to Azure’ step.  
+
+   * Make a note of the Blob storage URI where you upload the image, which is in the following format:
   *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
 
-To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+   To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
-![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
+   ![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
-![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
+   ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-1. Sign in to Azure Stack as an administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
+2. Sign in to Azure Stack as an administrator > From the menu, click **More services** > **Resource Providers** > select  **Compute** > **VM images** > **Add**
 
-2. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version
+3. On the **Add a VM Image** blade, enter the publisher, offer, SKU, and version
    of the virtual machine image. These name segments refer to the VM
    image in Resource Manager templates. Make sure to select the
    **osType** correctly. For **OD Disk Blob URI**, enter the Blob URI where the
