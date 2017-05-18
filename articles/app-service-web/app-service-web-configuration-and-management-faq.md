@@ -29,7 +29,7 @@ This topic provides answers to some of the most common questions about Configura
 * In the 'Application Settings' menu, scroll down to find 'App settings' and add a setting as shown below:
     * Key = WEBSITE_TIME_ZONE
     * Value = Desired Time Zone
-* Save Changes
+* Save Changes.
 
 ## Why do my continuous WebJobs fail sometimes
 
@@ -39,7 +39,7 @@ In Basic or Standard mode, you can enable Always On to keep the web app loaded a
 
 If your web app runs continuous WebJobs, you should enable Always On, or the webjobs may not run reliably.
 
-For more details, please click [here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateContinuous).
+See [Create a continuously running WebJob](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateContinuous) for more information.
 
 ## How to get the outbound IP address for my web app
 
@@ -48,7 +48,7 @@ Follow these steps to get the list of outbound IP addresses for your web app.
 2. Search for OUTBOUND IP ADDRESSES.
 You will see the list of Outbound IP addresses listed here.
 
-If your site is hosted on **Application Service Environment**, then please click [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-app-service-environment-network-architecture-overview/#outbound-network-addresses) for instructions to get Outbound IP Address.
+If your site is hosted on **Application Service Environment**, see [Outbound Network Addresses](https://azure.microsoft.com/en-us/documentation/articles/app-service-app-service-environment-network-architecture-overview/#outbound-network-addresses) for instructions to get Outbound IP Address.
 
 ## How can I get reserved or dedicated Inbound IP Address for my Azure App Service
 
@@ -60,18 +60,18 @@ Please note that in order to do this your App Service Plan should be in Basic or
 
 App Service certificates are Azure resources and are not intended for use outside of your Azure App Service applications. You cannot export them for use outside of Azure.  App Service certificates cannot be moved between Azure services. They are tied to your App Service applications running under your subscription.
 
-For more details please see [here](https://social.msdn.microsoft.com/Forums/azure/en-US/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+See [FAQ on App Service Certificates and Custom Domains](https://social.msdn.microsoft.com/Forums/azure/en-US/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview) for more information.
 
 
 ## Why am I seeing 'Partially Succeeded' when I try to perform backup of my web app?
 
-One of the frequent causes for this is that some of your files are in use by the application and hence these files are locked while you performed the backup. This prevents these files from being backed up which results in the 'Partially Succeeded' status. You can potentially prevent this from excluding files from the backup process and choosing to backup only what is needed as explained [here](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
+One of the frequent causes for this is that some of your files are in use by the application and hence these files are locked while you performed the backup. This prevents these files from being backed up which results in the 'Partially Succeeded' status. You can potentially prevent this from excluding files from the backup process and choosing to backup only what is needed as explained via [Backup just the important parts of your site with Azure web apps](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## How can I remove a header from the HTTP Response?
 
 In order to remove the headers, you need to update your site’s web.config file.
 
-For more Information, please see [here](https://azure.microsoft.com/en-us/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+See [Removing standard server headers on Windows Azure Web Sites](https://azure.microsoft.com/en-us/blog/removing-standard-server-headers-on-windows-azure-web-sites/) for more information.
 
 ## Is Azure App Service compliant with PCI Standards 3.0 and 3.1?
 
@@ -79,24 +79,24 @@ The Azure App Service Web App is currently in compliance with PCI DSS version 3.
 
 PCI DSS version 3.1 certification requires disabling TLS 1.0, which is currently not an option for most App Service Plans. However, If you are using App Service Environments or are willing to migrate your workload to App Service Environments, you can get greater control of your environment including disabling TLS 1.0 by contacting Azure Support. In the near future, we will make these settings configurable.
 
-For more information please click here [KB3124528](https://support.microsoft.com/en-us/kb/3124528).
+For more information, see [Microsoft Web App Azure App Service Compliance with PCI Standards 3.0 and 3.1](https://support.microsoft.com/en-us/kb/3124528).
 
 ## How do I use staging environment and configure deployment slots?
 
 When you deploy your web app to App Service, you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot.
 
-Please review this detailed [document](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/) on creating, configuring, using and managing deployment slots.
+Please review this detailed document ([Set up staging environments in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/)) on creating, configuring, using and managing deployment slots.
 
 ## How can I access and review WebJob Logs?
 
 Follow these steps to review webjob logs:
-1. Login to KUDU website https://*yourwebsitename*.scm.AzureWebsites.net/azurejobs/#/jobs/
-2. Select the webjob
-3. Click on the Toggle Output button
-4. Click on the download link to download the output file
-5. For individual runs, click on the Individual Invoke
-6. Click on the Toggle Output button
-7. Click on the download link
+1. Login to KUDU website https://*yourwebsitename*.scm.AzureWebsites.net/azurejobs/#/jobs/.
+2. Select the webjob.
+3. Click on the Toggle Output button.
+4. Click on the download link to download the output file.
+5. For individual runs, click on the Individual Invoke.
+6. Click on the Toggle Output button.
+7. Click on the download link.
 
 ## Why am I getting a Hybrid Connection error with SQL Server with a System.OverflowException: 'Arithmetic operation resulted in an overflow'?
 
@@ -108,27 +108,27 @@ When it fails you will see errors that look like this:
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 ### Resolution
-We are working to update the Hybrid Connection Manager to fix this issue. In the mean time, please review this [article](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/) for workarounds.
+We are working to update the Hybrid Connection Manager to fix this issue. In the mean time, please review this article ([Hybrid Connection error with SQL Server: System.OverflowException: Arithmetic operation resulted in an overflow](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/)) for workarounds.
 
 ## How can I add or edit a URL Rewrite rule?
 
 Here are the steps to add/edit URL Rewrite rule.
-1. Configure IIS Manager to connect to your Azure App Service web app using the steps provided at this [link](https://azure.microsoft.com/en-us/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. Then, Add / Edit URL Rewrite rule using IIS Manager using the steps provided at this [link](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+1. Configure IIS Manager to connect to your Azure App Service web app using the steps provided via [Remote Administration of Windows Azure Websites using IIS Manager](https://azure.microsoft.com/en-us/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
+2. Then, Add / Edit URL Rewrite rule using IIS Manager using the steps provided via [Creating Rewrite Rules for the URL Rewrite Module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
 
 ## How can I control inbound traffic to my App service?
 
 At site level, we have two options:
-* You can enable Dynamic IP restrictions, click [here](https://azure.microsoft.com/en-us/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) for more details
-* You can enable Module Security, click [here](https://azure.microsoft.com/en-us/blog/modsecurity-for-azure-websites/) for more details
+* You can enable Dynamic IP restrictions, see [IP and Domain Restrictions for Windows Azure Web Sites](https://azure.microsoft.com/en-us/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) for more details.
+* You can enable Module Security, see [ModSecurity Web Application Firewall on Azure Websites](https://azure.microsoft.com/en-us/blog/modsecurity-for-azure-websites/) for more details.
 
 If you are using App Service Environment, you can use [Barracuda firewall](https://azure.microsoft.com/en-us/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/).
 
-## How do I block ports in an Azure App Service web app ?
+## How do I block ports in an Azure App Service web app?
 
 In the Azure App Services shared tenant environment, it is not possible to block specific ports due the nature of the infrastructure.  Also note that TCP ports 4016, 4018 and 4020 may be open for Visual Studio Remote debugging.
 
-In App Service Environment (ASE), you have full control over Inbound / Outbound traffic and you can use NSG (Network Security groups) to restrict / block specific ports. For more information on ASE, please see [here](https://azure.microsoft.com/en-us/blog/introducing-app-service-environment/).
+In App Service Environment (ASE), you have full control over Inbound / Outbound traffic and you can use NSG (Network Security groups) to restrict / block specific ports. For more information on ASE, see [Introducing App Service Environment](https://azure.microsoft.com/en-us/blog/introducing-app-service-environment/).
 
 ## How do I capture F12 traces?
 
@@ -138,8 +138,8 @@ In App Service Environment (ASE), you have full control over Inbound / Outbound 
 2. Press F12, verify that the Network tab is selected, and then click the green Play button.
 3. Do the steps that reproduce the issue.
 4. Click the red Stop button.
-5. Click the Save button (disk icon), and save the HAR file (in Internet Explorer and Edge)
-6. Right click and select Save as HAR with content (in Chrome)
+5. Click the Save button (disk icon), and save the HAR file (in Internet Explorer and Edge).
+6. Right click and select Save as HAR with content (in Chrome).
 
 ### F12 Console output
 
@@ -161,7 +161,7 @@ Point-to-site is not supported: You can't enable point-to-site VPN connections t
 
 Point-to-site VPN and ExpressRoute cannot coexist for the same VNet.
 
-For more information please click [here](https://azure.microsoft.com/en-us/documentation/articles/expressroute-howto-coexist-classic/#limits-and-limitations).
+For more information, see [Limits and limitations](https://azure.microsoft.com/en-us/documentation/articles/expressroute-howto-coexist-classic/#limits-and-limitations).
 
 ## How can I connect an Azure App Service Web App to a VNET with a static routing (policy based) gateway?
 
@@ -176,7 +176,7 @@ For more information, please click [here](https://azure.microsoft.com/en-us/docu
 In order to provide fault tolerance, an App Service Environment (ASE) requires that for each worker pool you have at least one additional compute resource allocated.
 
 Each worker pool needs at least one additional compute resource which cannot be assigned workload.
-For more information, please click [here](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-how-to-create-an-app-service-environment/#compute-resource-pools).
+For more information, see [How to Create an App Service Environment](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-how-to-create-an-app-service-environment/#compute-resource-pools).
 
 ## Why am I seeing timeouts when trying to create an App Service Environment?
 
@@ -188,11 +188,11 @@ Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provi
 Make sure that NONE of the following are true:
 * Subnet is too small.
 * Subnet is not empty.
-* ExpressRoute not allowing network connectivity requirements of an ASE
-* Bad Network Security Group (NSG) not allowing network connectivity requirements of an ASE
-* Forced Tunneling enabled
+* ExpressRoute not allowing network connectivity requirements of an ASE.
+* Bad Network Security Group (NSG) not allowing network connectivity requirements of an ASE.
+* Forced Tunneling enabled.
 
-For more information, please see [here](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
+For more information, please see [Most frequent issues when deploying (creating) a new Azure App Service Environment (ASE)](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
 
 ## Why am I not able to delete my App Service Plan?
 
@@ -202,7 +202,7 @@ First remove all the associated App Services from the App Service Plan. This sho
 
 ## How do I schedule a Webjob?
 
-You can create a scheduled Webjob using CRON expressions
+You can create a scheduled Webjob using CRON expressions:
 1. Create a settings.job file.
 2. In this JSON file include a schedule property with a CRON expression as shown below:
 ```
@@ -210,29 +210,29 @@ You can create a scheduled Webjob using CRON expressions
 {minute} {hour} {day}
 {month} {day of the week}" }
 ```
-For more information on scheduled WebJobs, please see [here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateScheduledCRON).
+For more information on scheduled WebJobs, please see [Create a scheduled WebJob using a CRON expression](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateScheduledCRON).
 
-## How can I perform penetration testing for my Azure App Service
+## How can I perform penetration testing for my Azure App Service?
 
 To perform penetration testing, you will need to submit a request. Click [here](https://security-forms.azure.com/penetration-testing/terms) to submit a request.
 
-## How can I use a custom domain name for my web app
+## How can I use a custom domain name for my web app?
 
-Several frequently asked questions are answered in our 7 minute screencast at this [link](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). We provide a walkthrough of how to add a custom domain name so that you can use your own URL instead of the AzureWebSites.net URL with your App Service.
+Several frequently asked questions are answered in our 7 minute screencast via [here](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). We provide a walkthrough of how to add a custom domain name so that you can use your own URL instead of the AzureWebSites.net URL with your App Service.
 
-In addition, our documentation also provides a detailed walkthrough on mapping a custom domain name. [Link to the documentation](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-custom-domain-name).
+In addition, our documentation also provides a detailed walkthrough on [mapping a custom domain name](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-custom-domain-name).
 
 ## How can I purchase a custom domain for my Web App?
 
-The article at this [link](https://azure.microsoft.com/en-us/documentation/articles/custom-dns-web-site-buydomains-web-app/) explains how to buy and configure a custom domain with App Service Web Apps.
+The article  ([Buy and Configure a custom domain name in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/custom-dns-web-site-buydomains-web-app/)) explains how to buy and configure a custom domain with App Service Web Apps.
 
 ## How do I configure a custom domain name for a web app in Azure App Service that uses Traffic Manager?
 
-The article at this [link](https://azure.microsoft.com/en-us/documentation/articles/web-sites-traffic-manager-custom-domain-name/) provides instructions for using a custom domain name with Azure App Service that use Traffic Manager for load balancing.
+The article ([Configuring a custom domain name for a web app in Azure App Service using Traffic Manager](https://azure.microsoft.com/en-us/documentation/articles/web-sites-traffic-manager-custom-domain-name/)) provides instructions for using a custom domain name with Azure App Service that use Traffic Manager for load balancing.
 
 ## How can I upload and configure an SSL certificate?
 
-The steps to upload and configure a custom SSL certificate can be found in the documentation at this [link](https://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/#step-2-upload-and-bind-the-custom-ssl-certificate).
+The steps to upload and configure a custom SSL certificate can be found [here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/#step-2-upload-and-bind-the-custom-ssl-certificate).
 
 ## How to buy and configure an SSL certificate in Azure for my Azure App Service?
 
@@ -242,13 +242,13 @@ The steps to upload and configure a custom SSL certificate can be found in the d
 
 Application Insights does not currently enable the move operation. So if your original resource group also includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
 
-To understand how you can approach this scenario, please review the guidance in the documentation at this [link](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
+To understand how you can approach this scenario, please review the guidance via [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
 
-## Guidance, checklist and other considerations for Resource Move operations
+## Guidance, checklist and other considerations for Resource Move operations.
 
 The documentation in the link below shows you how to move resources to either a new subscription or a new resource group in the same subscription. You can find information about the resource move checklist, which services enable move and which services don't, App Service limitations and several other useful topics in good detail.
 
-Click [here](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations) to access the documentation.
+See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations) for more information.
 
 ## My App Service Certificate is flagged for fraud. How can I take care of this?
 
@@ -268,7 +268,7 @@ $actionProperties = @{
 Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
-## Why does my Azure App Service certificate  show "The certificate has been revoked. You should replace it with a new certificate as soon as possible.”
+## Why does my Azure App Service certificate show "The certificate has been revoked. You should replace it with a new certificate as soon as possible.”?
 
 If your App Service Certificate is showing "The certificate has been revoked. You should replace it with a new certificate as soon as possible.”, you may want to review the [Incident Report](https://blogs.msdn.microsoft.com/waws/2017/01/11/incident-report-from-godaddy-regarding-azure-app-service-certificates/) from GoDaddy regarding Azure App Service Certificates. The article also outlines the next steps.
 
@@ -278,7 +278,7 @@ For scheduling WebJobs we recommend that you add a CRON expression to the WebJob
 
 ## How does Authentication\Authorization work in App Service ?
 
-We have detailed documentation on authentication and authorization at this [link](https://docs.microsoft.com/azure/app-service/app-service-security-readme) which also has information on configuring with various Identify providers as seen below:
+We have detailed documentation on authentication and authorization via [here](https://docs.microsoft.com/azure/app-service/app-service-security-readme) which also has information on configuring with various Identify providers as seen below:
 * [How to configure your app to use Azure Active Directory login](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)
 * [How to configure your app to use Facebook login](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication)
 * [How to configure your app to use Google login](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-how-to-configure-google-authentication)
@@ -287,6 +287,6 @@ We have detailed documentation on authentication and authorization at this [link
 
 ## How can I redirect the default *.azurewebsites.net domain to my custom domain on Azure Web Apps?
 
-When you create a new website using Azure Web Apps you get a default <sitename>.azurewebsites.net domain assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain anymore, the post at the following link explains how to redirect all traffic aimed at your site’s default domain to your custom domain instead.
+When you create a new website using Azure Web Apps you get a default *sitename*.azurewebsites.net domain assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain anymore, the post at the following link explains how to redirect all traffic aimed at your site’s default domain to your custom domain instead.
 
 http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/
