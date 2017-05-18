@@ -164,7 +164,6 @@ For the Restore you need the following information:
 - Target server: Provide a new server name you want to restore to
 - Source server: Provide the name of the server you want to restore from
 - Location: You cannot select the region, by default it is same as the source server
-- Pricing tier: You cannot change this value when restoring a server. It is same as the source server. 
 
 ```azurecli
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
