@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 # Tips for improving the performance and reliability of Azure Functions.
 
-##Overview
+## Overview
 
 This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your function app is an app in Azure App Service. So App Service best practices also apply.
 
