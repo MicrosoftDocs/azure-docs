@@ -96,22 +96,21 @@ Choose a failover region and then, using Azure PowerShell:
    ```powershell
    $secpasswd = ConvertTo-SecureString "MyStrongPassword1" -AsPlainText -Force
    $mycreds = New-Object System.Management.Automation.PSCredential (“ServerAdmin”, $secpasswd)
-   $myresourcegroup = "<your resource group>"
+   $myresourcegroupname = "<your resource group name>"
    $mylocation = "<resource group location>"
-   $myserver = "<your existing server>"
-   $mydatabase = "<your existing database>"
+   $myservername = "<your existing server name>"
+   $mydatabasename = "<your existing database name>"
    $mydrlocation = "<your disaster recovery location>"
-   $mydrserver = "<your disaster recovery server>"
-   $myfailovergroup = "<your failover group>"
+   $mydrservername = "<your disaster recovery server name>"
+   $myfailovergroupname = "<your failover group name>"
    ```
 
 3. Create an empty backup server in your failover region.
 
    ```powershell
-   $mydrserver = New-AzureRmSqlServer `
-      -ResourceGroupName $myresourcegroup `
+   $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
       -Location $mydrlocation `
-      -ServerName $mydrserver `
+      -ServerName $mydrservername `
       -ServerVersion "12.0" `
       -SqlAdministratorCredentials $mycreds
    ```
@@ -120,9 +119,9 @@ Choose a failover region and then, using Azure PowerShell:
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
-      –ResourceGroupName $myresourcegroup `
-      -ServerName $myserve" `
-      -PartnerServerName $mydrserver  `
+      –ResourceGroupName $myresourcegroupname `
+      -ServerName $myserver `
+      -PartnerServerName $mydrservername  `
       –FailoverGroupName $myfailovergroupname `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
@@ -131,9 +130,14 @@ Choose a failover region and then, using Azure PowerShell:
 5. Add your database to the failover group.
 
    ```powershell
-   $mydrserver | Add-AzureRMSqlDatabaseToFailoverGroup `
-      –FailoverGroupName $myfailovergroup `
-      -Database $mydatabase
+   $failovergroup = Get-AzureRmSqlDatabase `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $myservername `
+      -DatabaseName $mydatabasename | `
+    Add-AzureRmSqlDatabaseToFailoverGroup `
+      -ResourceGroupName $myresourcegroupname ` `
+      -ServerName $myservername `
+      -FailoverGroupName $myfailovergroupname
    ```
 
 ## Create and run Java application and connect to database
