@@ -26,8 +26,6 @@ Azure Functions lets you execute your code in a serverless environment without h
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-It should take you less than five minutes to complete all the steps in this topic.
-
 ## Log in to Azure
 
 Log in to the [Azure portal](https://portal.azure.com/).
