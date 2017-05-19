@@ -21,11 +21,11 @@ ms.author: gwallace
 
 # Overview of integration between Application Gateway and Security Center
 
-Learn how Application Gateway and Azure Security Center help protect your web application resources. Application gateway integrates with [Azure Security Center](../security-center/security-center-intro.md) to provide a seamless and quick response to unprotected web applications in your environment. 
+Learn how Application Gateway and Azure Security Center help protect your web application resources. Application gateway web application firewall (WAF) integrates with [Azure Security Center](../security-center/security-center-intro.md) to provide a seamless and quick response to unprotected web applications in your environment. 
 
 ## Overview
 
-Application Gateway WAF is a recommendation in Security Center for a web application firewall. Web enabled resources show in the security center as high severity recommendations if they are not protected by a WAF. Recommendations for web application firewalls are shown on the **Overview** page, under **Applications**.  
+Application Gateway WAF is a recommendation in Security Center for protecting web applications from exploits and vulnerabilities . Web enabled resources that are not protected by WAF show in the security center as high severity recommendations. Recommendations for web application firewalls are shown on the **Overview** page, under **Applications**.  
 
 ![integration with security center][1]
 
@@ -41,9 +41,11 @@ By clicking on a web application with a critical issue you get the **Application
 
 ![web resources not protected][2]
 
-Click **Add a web application firewall**, this opens the **Add a Web Application Firewall blade.
+Click **Add a web application firewall** under **Recommendations** to open the **Add a Web Application Firewall** blade.
 
-If you do not have an existing Application Gateway, or want to create a new one, click **Create New** and on the **Create a new Web Application Firewall** blade, click **Application Gateway**. This takes you through the steps to create an application gateway. At this point your web application is added as a protectded resource a backend pool member, Azure Security Center now tracks that this resource is protected by a web application firewall. If you have an existing application gateway you can choose it under **Use existing solution**
+If you do not have an existing Application Gateway, or want to create a new one, click **Create New** and on the **Create a new Web Application Firewall** blade, and click **Microsoft - Application Gateway**. This takes you through the steps to create an application gateway. At this point your web application is added as a protectded resource, Azure Security Center now tracks that this resource is protected by a web application firewall. This does not add it as a backend pool member.
+
+If you have an existing application gateway you can choose it under **Use existing solution**
 
 ![web application firewall add blade][4]
 
@@ -51,11 +53,11 @@ Adding a web application to a application gateway through Azure Security Center 
 
 ## Add a resource to an existing web application firewall
 
-Navigate to **More Services** > **Security + Indentity** > **Azure Security Center** and on the **Security Center - Applications** blade, click **Partner solutions**. Existing Azure Security Center aware application gateways show in the **Parnter Solutions** tab.
+Navigate to **More Services** > **Security + Indentity** > **Azure Security Center** and on the **Security Center - Applications** blade, click **Partner solutions**. Existing Azure Security Center aware application gateways show in the **Partner Solutions** tab.
 
 ![partner solutions][7]
 
-Click **Link app** to open the **Link Applications** blade, here you are given the options to select existing applications. Choose the applications to protect and click **OK**. This does not add the web application to the backend pool of the application gateway, that must be done on the application gateway, from the current blade you can click **Solution console** to be taken to the application gateway resource where you can add the web application to the backend pool.
+Click **Link app** to open the **Link Applications** blade, here you are given the options to select existing applications. Choose the applications to protect and click **OK**. This does not add the web application to the backend pool of the application gateway. This sets the resources as a protected resource so Azure Security Center can track it. To add the resource as a backend pool member, this must be done on the application gateway, from the current blade you can click **Solution console** to be taken to the application gateway resource where you can add the web application to the backend pool.
 
 ![partner solutions applications][6]
 
