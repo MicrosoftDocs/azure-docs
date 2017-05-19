@@ -20,7 +20,7 @@ ms.author: ccompy
 ---
 
 # App Service Environment Documentation
-The App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale. This capability can host your [Web Apps][WebApps], [Mobile Apps][MobileApps], [API Apps][APIApps], and [Functions][Functions].
+The App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale. This capability can host your [Web Apps][webapps], [Mobile Apps][mobileapps], [API Apps][APIApps], and [Functions][Functions].
 
 App Service Environments are ideal for application workloads that require:
 
@@ -29,7 +29,7 @@ App Service Environments are ideal for application workloads that require:
 
 Customers can create multiple App Service Environments within a single Azure region, as well as across multiple Azure regions. This makes App Service Environments ideal for horizontally scaling state-less application tiers in support of high RPS workloads.
 
-App Service Environments are isolated to running only a single customer's applications, and are always deployed into a virtual network. Customers have fine-grained control over both inbound and outbound application network traffic using [network security groups][NetworkSecurityGroups]. Applications can also establish high-speed secure connections over virtual networks to on-premises corporate resources.
+App Service Environments are isolated to running only a single customer's applications, and are always deployed into a virtual network. Customers have fine-grained control over both inbound and outbound application network traffic using [network security groups][NSGs]. Applications can also establish high-speed secure connections over virtual networks to on-premises corporate resources.
 
 Apps frequently need to access corporate resources such as internal databases and web services. Apps running on App Service Environments can access resources reachable via [Site-to-Site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
 
@@ -52,30 +52,30 @@ Apps frequently need to access corporate resources such as internal databases an
 There are two versions to the App Service Environment: ASEv1 and ASEv2. For information on ASEv1, see [App Service Environment v1 Documentation][ASEv1README].
 
 
-<!-- LINKS -->
-[PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
-[WebApps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/
-[MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
-[APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[Intro]: http://azure.microsoft.com/documentation/articles/app-service-env-intro/
-[MakeExternalASE]: http://azure.microsoft.com/documentation/articles/app-service-env-create-external-ase/
-[MakeASEfromTemplate]: http://azure.microsoft.com/documentation/articles/app-service-env-create-from-template/
-[MakeILBASE]: http://azure.microsoft.com/documentation/articles/app-service-env-create-ilb-ase/
-[ASENetwork]: http://azure.microsoft.com/documentation/articles/app-service-env-network-info/
-[ASEReadme]: http://azure.microsoft.com/documentation/articles/app-service-env-readme/
-[UsingASE]: http://azure.microsoft.com/documentation/articles/app-service-env-using-an-ase/
-[UDRs]: http://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/
-[ConfigureASEv1]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-[ASEv1Intro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
-[Functions]: https://docs.microsoft.com/en-us/azure/azure-functions/
+<!--Links-->
+[Intro]: ./app-service-env-intro.md
+[MakeExternalASE]: ./app-service-env-create-external-ase.md
+[MakeASEfromTemplate]: ./app-service-env-create-from-template.md
+[MakeILBASE]: ./app-service-env-create-ilb-ase.md
+[ASENetwork]: ./app-service-env-network-info.md
+[ASEReadme]: ./app-service-env-readme.md
+[UsingASE]: ./app-service-env-using-an-ase.md
+[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
+[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[ConfigureASEv1]: ../../app-service-web/app-service-web-configure-an-app-service-environment.md
+[ASEv1Intro]: ../../app-service-web/app-service-app-service-environment-intro.md
+[webapps]: ../../app-service-web/app-service-web-overview.md
+[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[APIapps]: ../../app-service-api/app-service-api-apps-why-best-platform.md
+[Functions]: ../../azure-functions/index.yml
 [Pricing]: http://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: http://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
-[ConfigureSSL]: http://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site/
+[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ConfigureSSL]: ../../app-service-web/web-sites-purchase-ssl-web-site.md
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: http://docs.microsoft.com/azure/app-service-web/web-sites-deploy/
-[ASEWAF]: http://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall/
-[AppGW]: http://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview/
-[ASEv1README]: http://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme/
+[AppDeploy]: ../../app-service-web/web-sites-deploy.md
+[ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
+[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
+[ASEv1README]: ../app-service-app-service-environments-readme.md
+[SiteToSite]: ../../vpn-gateway-site-to-site-create.md
+[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
