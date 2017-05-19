@@ -21,6 +21,14 @@ ms.author: ryansoc
 ## Azure Storage
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
+### Storage Pairing in Azure Government 
+![alt text](./media/documentation-government-services-storage.PNG)
+
+> [!NOTE]
+> US Gov Virginia secondary region is US Gov Texas. Previously US Gov Virginia utlized US Gov Iowa as a secondary region. US Gov Virginia storage accounts still leveraging US Gov Iowa as a secondary region will be migrated to US Gov Texas.
+>
+>
+
 ### Storage Service Availability by Azure Government Region
 
 | Service | USGov Virginia | USGov Iowa | Notes
