@@ -79,20 +79,25 @@ In ASEv1, you need to manage all of the resources manually. That includes the fr
 ASEv1 uses a different pricing model from ASEv2. In ASEv1, you need to pay for each core allocated. That includes cores used for front-ends or workers that are not hosting any workloads. In ASEv1, default maximum scale size of an App Service Environment is 55 total hosts. That includes workers and front-ends. The one advantage to ASEv1 is that it can be deployed in a classic virtual network as well as a resource manager virtual network. You can learn more about ASEv1 from here: [App Service Environment v1 introduction][ASEv1Intro]
 
 <!--Links-->
-[Intro]: http://azure.microsoft.com/documentation/articles/app-service-env-intro/
-[MakeExternalASE]: http://azure.microsoft.com/documentation/articles/app-service-env-create-external-ase/
-[MakeASEfromTemplate]: http://azure.microsoft.com/documentation/articles/app-service-env-create-from-template/
-[MakeILBASE]: http://azure.microsoft.com/documentation/articles/app-service-env-create-ilb-ase/
-[ASENetwork]: http://azure.microsoft.com/documentation/articles/app-service-env-network-info/
-[ASEReadme]: http://azure.microsoft.com/documentation/articles/app-service-env-readme/
-[UsingASE]: http://azure.microsoft.com/documentation/articles/app-service-env-using-an-ase/
-[UDRs]: http://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/
-[NSGs]: http://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg/
-[ConfigureASEv1]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-[ASEv1Intro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
-[webapps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/
-[mobileapps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
-[APIapps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
-[Functions]: https://docs.microsoft.com/en-us/azure/azure-functions/
+[Intro]: ./app-service-env-intro.md
+[MakeExternalASE]: ./app-service-env-create-external-ase.md
+[MakeASEfromTemplate]: ./app-service-env-create-from-template.md
+[MakeILBASE]: ./app-service-env-create-ilb-ase.md
+[ASENetwork]: ./app-service-env-network-info.md
+[ASEReadme]: ./app-service-env-readme.md
+[UsingASE]: ./app-service-env-using-an-ase.md
+[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
+[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[ConfigureASEv1]: ../../app-service-web/app-service-web-configure-an-app-service-environment.md
+[ASEv1Intro]: ../../app-service-web/app-service-app-service-environment-intro.md
+[webapps]: ../../app-service-web/app-service-web-overview.md
+[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[APIapps]: ../../app-service-api/app-service-api-apps-why-best-platform.md
+[Functions]: ../../azure-functions/index.yml
 [Pricing]: http://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: http://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ConfigureSSL]: ../../app-service-web/web-sites-purchase-ssl-web-site.md
+[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[AppDeploy]: ../../app-service-web/web-sites-deploy.md
+[ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
+[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
