@@ -70,10 +70,33 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 ```
 
 ```json
-{
-  "artifactId": "/artifactSources/public repo/artifacts/linux-install-nodejs",
-  "parameters": []
-}
+[
+  {
+    "artifactId": "/artifactSources/public repo/artifacts/linux-java",
+    "parameters": []
+  },
+  {
+    "artifactId": "/artifactSources/public repo/artifacts/linux-install-nodejs",
+    "parameters": []
+  },
+  {
+    "artifactId": "/artifactSources/public repo/artifacts/linux-apt-package",
+    "parameters": [
+      {
+        "name": "packages",
+        "value": "abcd"
+      },
+      {
+        "name": "update",
+        "value": "true"
+      },
+      {
+        "name": "options",
+        "value": ""
+      }
+    ]
+  } 
+]
 ```
 
 List artifacts available in the lab
