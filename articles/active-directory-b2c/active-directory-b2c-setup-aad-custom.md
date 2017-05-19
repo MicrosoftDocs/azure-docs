@@ -43,10 +43,10 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 > We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account. From the **Directory** list, choose the organizational Azure AD tenant where you wish to register your application (contoso.com).
+1. On the top bar, select your account. From the **Directory** list, choose the organizational Azure AD tenant where you want to register your application (contoso.com).
 1. Select **More services** in the left pane, and search for "App registrations."
 1. Select **New application registration**.
-1. Enter a name for your application (for example, `Azure AD B2C App`)
+1. Enter a name for your application (for example, `Azure AD B2C App`).
 1. Select **Web app / API** for the application type.
 1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
 
@@ -173,7 +173,7 @@ You now need to add the Azure AD identity provider to one of your user journeys.
 
 The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a `<ClaimsProviderSelection>` element for Azure AD, a new button shows up when a user lands on the page. To add this element:
 
-1. Find the `<OrchestrationStep>`node that includes `Order="1"` in the user journey that you just created.
+1. Find the `<OrchestrationStep>` node that includes `Order="1"` in the user journey that you just created.
 1. Add the following:
 
     ```XML
@@ -213,6 +213,6 @@ You now need to update the relying party (RP) file that will initiate the user j
 
 Test the custom policy that you just uploaded by opening its blade and clicking **Run now**. To diagnose problems, read about [troubleshooting](active-directory-b2c-troubleshoot-custom.md).
 
-## Next Steps
+## Next steps
 
 Provide feedback to AADB2CPreview@microsoft.com.
