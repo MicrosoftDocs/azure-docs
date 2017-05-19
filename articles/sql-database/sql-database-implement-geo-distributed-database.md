@@ -120,7 +120,7 @@ Choose a failover region and then, using Azure PowerShell:
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
       –ResourceGroupName $myresourcegroupname `
-      -ServerName $myserver `
+      -ServerName $myservername `
       -PartnerServerName $mydrservername  `
       –FailoverGroupName $myfailovergroupname `
       –FailoverPolicy Automatic `
@@ -140,14 +140,44 @@ Choose a failover region and then, using Azure PowerShell:
       -FailoverGroupName $myfailovergroupname
    ```
 
-## Create and run Java application and connect to database
+## Install Java software
 
-See [Connect with Java](sql-database-connect-query-java.md). If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) and select Java and then select your operating system for guidance on developing a Java solution.
+The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
 
-1. Install java 8.
-2. Install maven.
-3. Create maven project.
-4. Add this dependency, language level, and build option to support manifest files in jars to the pom.xml file: 
+### **Mac OS**
+Open your terminal and navigate to a directory where you plan on creating your Java project. Install **brew** and **Maven** by entering the following commands: 
+
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install maven
+```
+
+### **Linux (Ubuntu)**
+Open your terminal and navigate to a directory where you plan on creating your Java project. Install **Maven** by entering the following commands:
+
+```bash
+sudo apt-get install maven
+```
+
+### **Windows**
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. 
+
+### **Create Maven project**
+
+1. From the terminal, create a new Maven project. 
+   ```bash
+   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
+   ```
+2. Type **Y** and click **Enter**.
+3. Change directories into your newly created project.
+   ```bash
+   cd SqlDbSamples
+   ```
+
+4. Using your favorite editor, open the pom.xml file in your project folder. 
+
+5. Add the Microsoft JDBC Driver for SQL Server dependency to your Maven project by opening your favorite text editor and copying and pasting the following lines into your pom.xml file. Do not overwrite the existing values prepopulated in the file. The JDBC dependency must be pasted within the larger “dependencies” section ( ).   
 
    ```xml
       <dependency>
@@ -155,7 +185,11 @@ See [Connect with Java](sql-database-connect-query-java.md). If you are new to d
          <artifactId>mssql-jdbc</artifactId>
          <version>6.1.0.jre8</version>
        </dependency>
-     
+   ```
+
+6. Specify the version of Java to compile the project against by adding the “properties” section below into the pom.xml file. Add the section below after the section. 
+
+   ```xml
       <properties>
          <maven.compiler.source>1.8</maven.compiler.source>
          <maven.compiler.target>1.8</maven.compiler.target>
