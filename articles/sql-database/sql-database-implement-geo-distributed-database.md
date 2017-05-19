@@ -3,8 +3,8 @@ title: Implement a geo-distributed Azure SQL Database solution| Microsoft Docs
 description: Learn to configure your Azure SQL Database and application for failover to a replicated database, and test failover.
 services: sql-database
 documentationcenter: ''
-author: anosov1960
-manager: jstrauss
+author: CarlRabeler
+manager: jhubbard
 editor: ''
 tags: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/17/2017
-ms.author: sashan
+ms.author: carlrab
 
 ---
 
@@ -68,6 +68,7 @@ Use SQL Server Management Studio to connect to your database and create user acc
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
+   GRANT SELECT ON SalesLT.Product TO app_user; 
    GRANT UPDATE ON SalesLT.Product TO app_user;  
    ```
 
