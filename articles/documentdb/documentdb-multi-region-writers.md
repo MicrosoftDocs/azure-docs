@@ -19,11 +19,11 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Multi-master globally replicated database architectures with Azure Cosmos DB
-Azure Cosmos DB supports turnkey [global replication](documentdb-distribute-data-globally.md), so you can distribute data to multiple regions with low latency access anywhere in the workload. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and globally distributed readers in other (read) regions. 
+Azure Cosmos DB supports turnkey [global replication](documentdb-distribute-data-globally.md), so you can distribute data to multiple regions with low-latency access anywhere in the world. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and globally distributed readers in other (read) regions. 
 
 You can also use the global replication support in Azure Cosmos DB to build applications in which writers and readers are globally distributed. This article outlines a pattern that enables achieving local write and local read access for distributed writers by using Azure Cosmos DB.
 
-## <a id="ExampleScenario"></a>Content publishing--an example scenario
+## <a id="ExampleScenario"></a>Content publishing: an example scenario
 Let's look at a real-world scenario to describe how you can use globally distributed multi-region/multi-master read and write patterns with Azure Cosmos DB. Consider a content publishing platform built on Azure Cosmos DB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers:
 
 * Both authors and subscribers are distributed over the world. 
@@ -227,7 +227,7 @@ With the preceding setup, you can implement the data access methods. Write opera
         });
     }
 
-For reading notifications and reviews, you must read from both regions and unify the results as shown in the following snippet:
+For reading notifications and reviews, you must read from both regions and create a union of the results, as shown in the following snippet:
 
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
