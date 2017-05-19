@@ -24,21 +24,20 @@ Azure Cosmos DB supports turnkey [global replication](documentdb-distribute-data
 You can also use the global replication support in Azure Cosmos DB to build applications in which writers and readers are globally distributed. This article outlines a pattern that enables achieving local write and local read access for distributed writers by using Azure Cosmos DB.
 
 ## <a id="ExampleScenario"></a>Content publishing--an example scenario
-Let's look at a real-world scenario to describe how you can use globally distributed multi-region/multi-master read write patterns with Azure Cosmos DB. Consider a content publishing platform built on Azure Cosmos DB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers:
+Let's look at a real-world scenario to describe how you can use globally distributed multi-region/multi-master read and write patterns with Azure Cosmos DB. Consider a content publishing platform built on Azure Cosmos DB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers:
 
-* Both authors and subscribers are spread over the world. 
+* Both authors and subscribers are distributed over the world. 
 * Authors can publish (write) articles to their local (closest) region.
-* Authors have readers/subscribers of their articles who are distributed across the globe. 
 * Subscribers get a notification when new articles are published.
 * Subscribers can read articles from their local region. They can also add reviews to these articles. 
-* Anyone, including the author of the articles, can view all the reviews attached to articles from a local region. 
+* Anyone, including the author, can view all the reviews attached to articles from a local region. 
 
 Assuming millions of consumers and publishers with billions of articles, soon we have to confront the problems of scale along with guaranteeing locality of access. As with most scalability problems, the solution lies in a good partitioning strategy. Next, let's look at how to model articles, reviews, and notifications as documents, configure Azure Cosmos DB accounts, and implement a data access layer (DAL). 
 
 If you want to learn more about partitioning and partition keys, see [Partitioning and scaling in Azure Cosmos DB](documentdb-partition-data.md).
 
 ## <a id="ModelingNotifications"></a>Modeling notifications
-Notifications are data feeds specific to a user. Therefore, the access patterns for notifications documents are always in the context of a single user. For example, you would "post a notification to a user" or "fetch all notifications for a given user." So, the optimal choice of partitioning key for this type would be `UserId`.
+Notifications are data feeds specific to a user. Therefore, the access patterns for notification documents are always in the context of a single user. For example, you would "post a notification to a user" or "fetch all notifications for a given user." So, the optimal choice of partitioning key for this type would be `UserId`.
 
 	class Notification 
 	{ 
@@ -172,7 +171,7 @@ The following diagram shows how reads and writes are performed in a typical appl
 
 ![Azure Cosmos DB multi-master architecture](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
 
-Here is a code snippet showing how to initialize the clients in a DAL running in the `West US` region:
+Here is a code snippet that shows how to initialize the clients in a DAL running in the `West US` region:
     
     ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
     writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
@@ -201,7 +200,7 @@ With the preceding setup, the DAL can forward all writes to the local account ba
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
 ## <a id="DataAccessImplementation"></a>Data access layer implementation
-Now let's look at the implementation of the DAL for an application with two writable regions. The DAL must implement the following steps:
+Now let's look at the implementation of the DAL for an application that has two writable regions. The DAL must implement the following steps:
 
 * Create multiple instances of `DocumentClient` for each account. With two regions, each DAL instance has one `writeClient` and one `readClient`. 
 * Based on the deployed region of the application, configure the endpoints for `writeClient` and `readClient`. For example, the DAL deployed in `West US` uses `contentpubdatabase-usa.documents.azure.com` for performing writes. The DAL deployed in `NorthEurope` uses `contentpubdatabase-europ.documents.azure.com` for writes.
@@ -309,7 +308,7 @@ For reading notifications and reviews, you must read from both regions and unify
 
 
 ## <a id="NextSteps"></a>Next steps
-This article described how you can use globally distributed multi-region read and write patterns with Azure Cosmos DB by using content publishing as a sample scenario. By choosing a good partitioning key and static account-based partitioning, you can achieve multi-region local writes and reads by using Azure Cosmos DB.
+This article described how you can use globally distributed multi-region read and write patterns with Azure Cosmos DB by using content publishing as a sample scenario. By choosing a good partitioning key and static account-based partitioning, you can achieve multi-region local reads and writes by using Azure Cosmos DB.
 
 Next, you can:
 
