@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Use a simulated gateway 
-#### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### Use a simulated gateway
+#### [Simulation on Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Simulation on Windows](iot-hub-windows-iot-edge-get-started.md)
 
 ### Use a physical device
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Use the IoT Gateway Starter Kit
-##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Use IoT gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
@@ -86,6 +86,7 @@
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -119,9 +120,9 @@
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Simulate a device
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Use a real device](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Use a real device](iot-hub-iot-edge-physical-device.md)
 
 # Reference
 ## [Azure CLI 2.0 Preview](/cli/azure/iot)
