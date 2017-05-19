@@ -13,18 +13,20 @@ Throttling is a process you initiate that limits the number of concurrent calls 
 
 Throttling limits vary based on the scenario. For example, if you are performing a large volume of writes, the possibility for throttling is higher than if you are only performing reads.
 
-## What happens when throttling occurs?
+## How does Key Vault handle its limits?
 
-When a service threshold is exceeded, AKV limits any further requests from that client for a period of time. When service limmiting occurs, AKV returns HTTP status code 429 (Too many requests), and the requests fail. 
+Service limits in Key Vault are there to prevent misuse of resources and ensure quality of service for all of Key Vault’s clients. When a service threshold is exceeded, AKV limits any further requests from that client for a period of time. When this happens, AKV returns HTTP status code 429 (Too many requests), and the requests fail. If you have a valid business case for higher throttle limits, please contact us.
 
-## Best practices to handle throttling
 
-The following are best practices for client throttling:
+## How to throttle your app in response to service limits
+
+The following are **best practices** for throttling your app:
 - Reduce the number of operations per request.
 - Reduce the frequency of requests.
-- Avoid immediate retries, because all requests accrue against your usage limits.
+- Avoid immediate retries. 
+    - All requests accrue against your usage limits.
 
-When you implement error handling, use the HTTP error code 429 to detect the need for client-side throttling. If the request fails again with an HTTP 429 error code, you are still encountering an Azure service limit. Continue to use the recommended client-side throttling method, retrying the request until it succeeds.
+When you implement your app's error handling, use the HTTP error code 429 to detect the need for client-side throttling. If the request fails again with an HTTP 429 error code, you are still encountering an Azure service limit. Continue to use the recommended client-side throttling method, retrying the request until it succeeds.
 
 ### Recommended client-side throttling method
 
