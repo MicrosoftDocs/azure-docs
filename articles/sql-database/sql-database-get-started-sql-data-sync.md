@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: sync data
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na

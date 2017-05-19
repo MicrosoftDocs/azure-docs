@@ -61,7 +61,7 @@ In this section, you create a Java console app that creates a device identity in
     </dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.3.19</version>
     </dependency>
     ```
     
@@ -285,7 +285,7 @@ In this section, you create a Java console app that simulates a device that send
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.23</version>
+      <version>1.1.26</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -332,7 +332,8 @@ In this section, you create a Java console app that simulates a device that send
     ```
     private static class TelemetryDataPoint {
       public String deviceId;
-      public double windSpeed;
+      public double temperature;
+      public double humidity;
    
       public String serialize() {
         Gson gson = new Gson();
@@ -363,17 +364,22 @@ In this section, you create a Java console app that simulates a device that send
     
       public void run()  {
         try {
-          double avgWindSpeed = 10; // m/s
+          double minTemperature = 20;
+          double minHumidity = 60;
           Random rand = new Random();
     
           while (true) {
-            double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
+            double currentTemperature = minTemperature + rand.nextDouble() * 15;
+            double currentHumidity = minHumidity + rand.nextDouble() * 20;
             TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
             telemetryDataPoint.deviceId = deviceId;
-            telemetryDataPoint.windSpeed = currentWindSpeed;
+            telemetryDataPoint.temperature = currentTemperature;
+            telemetryDataPoint.humidity = currentHumidity;
     
             String msgStr = telemetryDataPoint.serialize();
             Message msg = new Message(msgStr);
+            msg.setProperty("temperatureAlert", (currentTemperature > 30) ? "true" : "false");
+            msg.setMessageId(java.util.UUID.randomUUID().toString()); 
             System.out.println("Sending: " + msgStr);
     
             Object lockobj = new Object();
@@ -392,7 +398,7 @@ In this section, you create a Java console app that simulates a device that send
     }
     ```
     
-    This method sends a new device-to-cloud message one second after the IoT hub acknowledges the previous message. The message contains a JSON-serialized object with the deviceId and a randomly generated number to simulate a wind speed sensor.
+    This method sends a new device-to-cloud message one second after the IoT hub acknowledges the previous message. The message contains a JSON-serialized object with the deviceId and randomly generated numbers to simulate a temperature sensor, and a humidity sensor.
 11. Replace the **main** method with the following code that creates a thread to send device-to-cloud messages to your IoT hub:
     
     ```
@@ -451,7 +457,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with the IoT Gateway SDK][lnk-gateway-SDK]
+* [Getting started with Azure IoT Edge][lnk-iot-edge]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
@@ -476,7 +482,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

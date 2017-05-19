@@ -4,7 +4,7 @@ description: Extended performance and usage monitoring of your Java website with
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Monitor dependencies, exceptions and execution times in Java web apps
@@ -108,4 +108,3 @@ To search for individual instances of dependency, exception, and method reports,
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md

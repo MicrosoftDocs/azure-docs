@@ -9,11 +9,11 @@ editor: tysonn
 
 ms.assetid:
 ms.service: batch
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
 ---
 
@@ -22,11 +22,11 @@ ms.author: antisch
 This script demonstrates how to set up an application for use with an Azure Batch
 pool or task. To set up an application, package your executable, together with any dependencies,
 into a .zip file. In this example the executable zip file is called 'my-application-exe.zip'.
-Running this script assumes that a Batch account has already been set up. For more information,
-please see the [sample script for creating a Batch account](./batch-cli-sample-create-account.md).
 
-If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
-and then run `az login` to log into Azure.
+## Prerequisites
+
+- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
+- Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) for a sample script that creates an account.
 
 ## Sample script
 

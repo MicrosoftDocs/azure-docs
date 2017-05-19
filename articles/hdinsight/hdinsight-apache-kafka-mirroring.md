@@ -1,6 +1,6 @@
 ---
-title: Mirror your Apache Kafka on HDInsight cluster | Microsoft Docs
-description: Learn how to use Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
+title: Mirror Apache Kafka topics - Azure HDInsight | Microsoft Docs
+description: Learn how to use Apache Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,27 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/15/2017
 ms.author: larryfr
 ---
-# Use MirrorMaker to create a replica of a Kafka on HDInsight cluster (preview)
+# Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (preview)
 
-Apache Kafka includes a mirroring feature, which allows you to replicate topics from one Kafka cluster to another. For example, replicating records between Kafka cluster in different Azure regions.
+Learn how to use Apache Kafka's mirroring feature to replicate topics to a secondary cluster. Mirroring can be ran as a continuous process, or used intermittently as a method of migrating data from one cluster to another.
 
-Mirroring can be ran as a continuous process, or used intermittently as a method of migrating data from one cluster to another.
+In this example, mirroring is used to replicate topics between two HDInsight clusters. Both clusters are in an Azure Virtual Network in the same region.
 
 > [!WARNING]
 > Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic are different between the source and destination clusters, so clients cannot use the two interchangeably.
-> 
+>
 > If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md).
 
-## Prerequisites
-
-* An Azure Virtual Network: The source and destination Kafka clusters must be able to directly communicate with each other. HDInsight does not expose Kafka APIs publicly on the internet, so both the source and destination clusters must exist in the same Azure Virtual Network.
-
-* Two Kafka clusters: This document uses an Azure Resource Manager template to create two Kafka on HDInsight clusters within an Azure Virtual Network.
-
-## How does mirroring work?
+## How Kafka mirroring works
 
 Mirroring works by using the MirrorMaker tool (part of Apache Kafka) to consume records from topics on the source cluster and then create a local copy on the destination cluster. MirrorMaker uses one (or more) *consumers* that read from the source cluster, and a *producer* that writes to the local (destination) cluster.
 
@@ -42,18 +36,22 @@ The following diagram illustrates the Mirroring process:
 
 ![Diagram of the mirroring process](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
+Apache Kafka on HDInsight does not provide access to the Kafka service over the public internet. Kafka producers or consumers must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka source and destination clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
+
+![Diagram of source and destination Kafka clusters in an Azure virtual network](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
+
 The source and destination clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 
-### Mirroring between networks
+### Mirroring across network boundaries
 
 If you need to mirror between Kafka clusters in different networks, there are the following additional considerations:
 
 * **Gateways**: The networks must be able to communicate at the TCPIP level.
 
-* **Name resolution**: The Kafka clusters in each network must be able to connect to each other by using hostnames. This may require a Domain Name System (DNS) server in each network that is configured to forward requests to the other networks. 
-  
+* **Name resolution**: The Kafka clusters in each network must be able to connect to each other by using hostnames. This may require a Domain Name System (DNS) server in each network that is configured to forward requests to the other networks.
+
     When creating an Azure Virtual Network, instead of using the automatic DNS provided with the network, you must specify a custom DNS server and the IP address for the server. After the Virtual Network has been created, you must then create an Azure Virtual Machine that uses that IP address, then install and configure DNS software on it.
-  
+
     > [!WARNING]
     > Create and configure the custom DNS server before installing HDInsight into the Virtual Network. There is no additional configuration required for HDInsight to use the DNS server configured for the Virtual Network.
 
@@ -61,20 +59,13 @@ For more information on connecting two Azure Virtual Networks, see [Configure a 
 
 ## Create Kafka clusters
 
-Apache Kafka on HDInsight does not provide access to the Kafka service over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka source and destination clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
-
-![Diagram of source and destination Kafka clusters in an Azure virtual network](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
-
-> [!NOTE]
-> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
-
 While you can create an Azure virtual network and Kafka clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network and two Kafka clusters to your Azure subscription.
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet.json**.
+    The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.json**.
 
 2. Use the following information to populate the entries on the **Custom deployment** blade:
     
@@ -82,7 +73,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
-    * **Location**: Select a location geographically close to you. This location must match the location in the __SETTINGS__ section.
+    * **Location**: Select a location geographically close to you.
      
     * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
 
@@ -93,8 +84,6 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     * **SSH User Name**: The SSH user to create for the source and destination Kafka clusters.
 
     * **SSH Password**: The password for the SSH user for the source and destination Kafka clusters.
-
-    * **Location**: The region that the clusters are created in.
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
@@ -137,12 +126,12 @@ Once the resources have been created, you are redirected to a blade for the reso
     ```bash
     echo $SOURCE_ZKHOSTS
     ```
-   
- This returns information similar to the following text:
-   
-       zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
-   
- Save this information. It is used in the next section.
+
+    This returns information similar to the following text:
+
+    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+
+    Save this information. It is used in the next section.
 
 ## Configure mirroring
 
@@ -169,7 +158,7 @@ Once the resources have been created, you are redirected to a blade for the reso
    
     This file describes the consumer information to use when reading from the source Kafka cluster. For more information consumer configuration, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at kafka.apache.org.
    
-    Use **Ctrl + X**, **Y**, and Enter to save the file.
+    To save the file, use **Ctrl + X**, **Y**, and then **Enter**.
 
 3. Before configuring the producer that communicates with the destination cluster, you must find the broker hosts for the **destination** cluster. Use the following commands to retrieve this information:
    
@@ -218,7 +207,8 @@ Once the resources have been created, you are redirected to a blade for the reso
      
     On startup, MirrorMaker returns information similar to the following text:
         
-    ```{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
+    ```
+    {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
     ```
@@ -257,4 +247,4 @@ In this document, you learned how to use MirrorMaker to create a replica of a Ka
 * [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
-
+* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)

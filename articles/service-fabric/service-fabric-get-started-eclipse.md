@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
+ms.date: 05/03/2016
 ms.author: saysa
 
 ---
@@ -119,6 +119,12 @@ To add a Service Fabric service to an existing Service Fabric application, do th
 5.  After the service is added, your overall project structure looks similar to the following project:
 
     ![Service Fabric Add Service page 4][add-service/p4]
+
+## Edit Manifest versions of your Service Fabric Java application
+
+To edit manifest versions, right click on the project, go to **Service Fabric** and select **Edit Manifest Versions...** from the menu dropdown. In the wizard, you can update the manifest versions for application manifest, service manifest and the versions for **Code**, **Config** and **Data** packages.
+
+If you check the option **Automatically update application and service versions** and then update a version, then the manifest versions will be automatically updated. To give an example, you first select the check-box, then update the version of **Code** version from 0.0.0 to 0.0.1 and click on **Finish**, then service manifest version and application manifest version will be automatically updated to 0.0.1.
 
 ## Upgrade your Service Fabric Java application
 

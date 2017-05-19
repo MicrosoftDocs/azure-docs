@@ -1,4 +1,4 @@
----
+﻿---
 title: HPC Pack cluster for Excel and SOA | Microsoft Docs
 description: Get started running large-scale Excel and SOA workloads on an HPC Pack cluster in Azure
 services: virtual-machines-windows
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 08/25/2016
+ms.date: 04/11/2017
 ms.author: danlep
 
 ---
 # Get started running Excel and SOA workloads on an HPC Pack cluster in Azure
-This article shows you how to deploy a Microsoft HPC Pack cluster on Azure virtual machines by using an Azure quickstart template, or optionally an Azure PowerShell deployment script. The cluster uses Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack. You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
+This article shows you how to deploy a Microsoft HPC Pack 2012 R2 cluster on Azure virtual machines by using an Azure quickstart template, or optionally an Azure PowerShell deployment script. The cluster uses Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack. You can use the cluster to run Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
+
+> [!IMPORTANT] 
+> This article is based on features, templates, and scripts for HPC Pack 2012 R2. This scenario is not currently supported in HPC Pack 2016.
+>
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -28,16 +32,16 @@ At a high level, the following diagram shows the HPC Pack cluster you create.
 ![HPC cluster with nodes running Excel workloads][scenario]
 
 ## Prerequisites
-* **Client computer** - You need a Windows-based client computer to submit sample Excel and SOA jobs to the cluster. You also need a Windows computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method) and
+* **Client computer** - You need a Windows-based client computer to submit sample Excel and SOA jobs to the cluster. You also need a Windows computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method).
 * **Azure subscription** - If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 * **Cores quota** - You might need to increase the quota of cores, especially if you deploy several cluster nodes with multicore VM sizes. If you are using an Azure quickstart template, the cores quota in Resource Manager is per Azure region. In that case, you might need to increase the quota in a specific region. See [Azure subscription limits, quotas, and constraints](../../azure-subscription-service-limits.md). To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
-* **Microsoft Office license** - If you deploy compute nodes using a Marketplace HPC Pack VM image with Microsoft Excel, a 30-day evaluation version of Microsoft Excel Professional Plus 2013 is installed. After the evaluation period, you need to provide a valid Microsoft Office license to activate Excel to continue to run workloads. See [Excel activation](#excel-activation) later in this article. 
+* **Microsoft Office license** - If you deploy compute nodes using a Marketplace HPC Pack 2012 R2 VM image with Microsoft Excel, a 30-day evaluation version of Microsoft Excel Professional Plus 2013 is installed. After the evaluation period, you need to provide a valid Microsoft Office license to activate Excel to continue to run workloads. See [Excel activation](#excel-activation) later in this article. 
 
 ## Step 1. Set up an HPC Pack cluster in Azure
-We show two options to set up the cluster: first, using an Azure quickstart template and the Azure portal; and second, using an Azure PowerShell deployment script.
+We show two options to set up the HPC Pack 2012 R2 cluster: first, using an Azure quickstart template and the Azure portal; and second, using an Azure PowerShell deployment script.
 
 ### Option 1. Use a quickstart template
-Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal. When you open the template in the portal, you get a simple UI where you enter the settings for your cluster. Here are the steps. 
+Use an Azure quickstart template to quickly deploy an HPC Pack cluster in the Azure portal. When you open the template in the portal, you get a simple UI where you enter the settings for your cluster. Here are the steps. 
 
 > [!TIP]
 > If you want, use an [Azure Marketplace template](https://portal.azure.com/?feature.relex=*%2CHubsExtension#create/microsofthpc.newclusterexcelcn) that creates a similar cluster specifically for Excel workloads. The steps differ slightly from the following.
@@ -83,7 +87,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 
 **Additional prerequisites**
 
-* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 or later) on your client computer.
+* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azure/overview) (version 0.8.10 or later) on your client computer.
 * **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.5.0 or later of the script.
 
 **Create the configuration file**
@@ -273,7 +277,7 @@ To run general SOA applications on the HPC Pack IaaS cluster, first use one of t
 
 1. After retrieving the cluster certificate, import it on the client computer under Cert:\CurrentUser\Root.
 2. Install the [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) and [HPC Pack 2012 R2 Update 3 client utilities](https://www.microsoft.com/download/details.aspx?id=49923). These tools enable you to develop and run SOA client applications.
-3. Download the HelloWorldR2 [sample code](https://www.microsoft.com/download/details.aspx?id=41633). Open the HelloWorldR2.sln in Visual Studio 2010 or 2012.
+3. Download the HelloWorldR2 [sample code](https://www.microsoft.com/download/details.aspx?id=41633). Open the HelloWorldR2.sln in Visual Studio 2010 or 2012. (This sample is not currently compatible with more recent versions of Visual Studio.)
 4. Build the EchoService project first. Then, deploy the service to the IaaS cluster in the same way you deploy to an on-premises cluster. For detailed steps, see the Readme.doc in HelloWordR2. Modify and build the HellWorldR2 and other projects as described in the following section to generate the SOA client applications that run on an Azure IaaS cluster.
 
 ### Use Http binding with Azure storage queue

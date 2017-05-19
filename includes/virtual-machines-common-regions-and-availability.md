@@ -9,8 +9,6 @@ There are some special Azure regions for compliance or legal purposes that you m
 
 * **US Gov Virginia** and **US Gov Iowa**
   * A physical and logical network-isolated instance of Azure for US government agencies and partners, operated by screened US persons. Includes additional compliance certifications such as [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) and [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Read more about [Azure Government](https://azure.microsoft.com/features/gov/).
-* **Central India**, **South India**, and **West India**
-  * These regions are currently available to volume licensing customers and partners with a local enrollment in India. In 2016, users can access them if the users have purchased direct online subscriptions.
 * **China East** and **China North**
   * These regions are available through a unique partnership between Microsoft and 21Vianet, whereby Microsoft does not directly maintain the datacenters. See more about [Microsoft Azure in China](http://www.windowsazure.cn/).
 * **Germany Central** and **Germany Northeast**
@@ -95,6 +93,13 @@ A fault domain is a logical group of underlying hardware that share a common pow
 
 #### Managed Disk fault domains and availability sets
 For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region.
+
+![Managed Disk FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
+
+> [!IMPORTANT]
+> The number of fault domains for managed availability sets varies by region - either two or three per region. The following table shows the number per region
+
+[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
 ### Update domains
 An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these update domains. This approach ensures that at least one instance of your application always remains running as the Azure platform undergoes periodic maintenance. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.

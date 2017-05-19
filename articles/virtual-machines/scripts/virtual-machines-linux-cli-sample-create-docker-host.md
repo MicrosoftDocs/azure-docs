@@ -10,8 +10,8 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2017
@@ -28,7 +28,7 @@ This script creates a virtual machine with Docker enabled and starts a Docker co
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Docker Host")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Docker Host")]
 
 ## Clean up deployment 
 

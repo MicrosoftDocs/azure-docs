@@ -299,13 +299,17 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### To modify NS records at the zone apex
 
-You cannot add to, remove, or modify the records in the automatically-created NS record set at the zone apex (`-Name "@"`, including quote marks). The only changes permitted are to modify the record set TTL and metadata.
+The NS record set at the zone apex is automatically created with each DNS zone. It contains the names of the Azure DNS name servers assigned to the zone.
 
-The following example shows how to change the TTL property of the NS record set:
+You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers.
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be modified without constraint.
+
+The following example shows how to add an additional name server to the NS record set at the zone apex:
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
-$rs.Ttl = 300
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
@@ -381,4 +385,4 @@ Learn more about [zones and records in Azure DNS](dns-zones-records.md).
 <br>
 Learn how to [protect your zones and records](dns-protect-zones-recordsets.md) when using Azure DNS.
 <br>
-Review the [Azure DNS PowerShell reference documentation](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
+Review the [Azure DNS PowerShell reference documentation](/powershell/module/azurerm.dns).

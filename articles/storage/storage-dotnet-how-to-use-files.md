@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure File storage on Windows | Microsoft Docs
 description: Store file data in the cloud with Azure File storage, and mount your cloud file share from an Azure virtual machine (VM) or from an on-premises application running Windows.
 services: storage
@@ -115,7 +115,7 @@ The [Azure portal](https://portal.azure.com) provides a user interface for custo
 Alternatively, you can use Azure PowerShell to create and manage file shares.
 
 ### Install the PowerShell cmdlets for Azure Storage
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for the install point and installation instructions.
 
 > [!NOTE]
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
@@ -673,12 +673,11 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     
     You can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance.               
 
-18. **How can I enable server side encryption for Azure Files?**
-
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+18. **How can I enable server side encryption for Azure File Storage?**
     
-    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
-    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
+    [Server Side Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) for Azure File Storage service is generally available in all regions and public and national clouds. You can enable SSE for File Storage Service using [Azure Portal](https://ms.portal.azure.com/),[Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) or [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/).
+    
+    After enabling SSE on Azure File Storage, any new data written to the file storage in that storage account will be automatically encrypted. This feature is available for all new data written to existing or new shares in an existing or new storage account. There is no additional charge for enabling this feature. Learn more on [how to enable SSE on Azure File Storage service](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 ## Next steps
 See these links for more information about Azure File storage.
