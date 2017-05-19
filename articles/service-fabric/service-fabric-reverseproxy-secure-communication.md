@@ -1,10 +1,10 @@
 ---
 title: Azure Service Fabric reverse proxy secure communication | Microsoft Docs
-description: Configure reverse proxy to enable secure end-to-end communication
+description: Configure reverse proxy to enable secure end-to-end communication.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
-manager:
+manager: vipulm
 
 ms.assetid:
 ms.service: service-fabric
@@ -16,7 +16,7 @@ ms.date: 05/09/2017
 ms.author: kavyako
 
 ---
-# Reverse proxy: Connecting to secure services
+# Connect to a secure service with the reverse proxy
 
 This article explains how to establish secure connection between the reverse proxy and services, thus enabling an end to end secure channel.
 
