@@ -21,22 +21,20 @@ ms.author: maroche
 
 # Azure Data Catalog supported data sources
 
-You can publish meta data using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. The second grid has a more technical specification of each data sources connection properties.
+You can publish metadata by using a public API or a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following table summarizes all sources supported by the catalog today, and the publishing capabilities for each. Also listed are the external data tools that each source can launch from our portal "open-in" experience. The second grid has a more technical specification of each data sources connection properties.
 
 
 ## List of supported data sources
 
 <table>
-
     <tr>
-       <td><b>Data Source Object</b></td>
+       <td><b>Data source object</b></td>
        <td><b>API</b></td>
-       <td><b>Manual Entry</b></td>
-       <td><b>Registration Tool</b></td>
-       <td><b>Open-In Tools</b></td>
+       <td><b>Manual entry</b></td>
+       <td><b>Registration tool</b></td>
+       <td><b>Open-in tools</b></td>
        <td><b>Notes</b></td>
     </tr>
-
     <tr>
       <td>Azure Data Lake Store Directory</td>
       <td>✓</td>
@@ -45,7 +43,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Azure Data Lake Store File</td>
       <td>✓</td>
@@ -54,7 +51,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Azure Storage Blob</td>
       <td>✓</td>
@@ -63,7 +59,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Azure Storage Directory</td>
       <td>✓</td>
@@ -72,7 +67,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Azure Storage Table</td>
       <td>✓</td>
@@ -85,7 +79,6 @@ You can publish meta data using a public API, a click-once registration tool, or
         <font size="2"></font>
       </td>
     </tr>
-
     <tr>
       <td>HDFS Directory</td>
       <td>✓</td>
@@ -94,7 +87,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>HDFS File</td>
       <td>✓</td>
@@ -103,7 +95,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Hive Table</td>
       <td>✓</td>
@@ -112,7 +103,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Hive View</td>
       <td>✓</td>
@@ -121,7 +111,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>MySQL Table</td>
       <td>✓</td>
@@ -130,7 +119,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>MySQL View</td>
       <td>✓</td>
@@ -139,7 +127,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Oracle Database Table</td>
       <td>✓</td>
@@ -148,7 +135,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Oracle Database View</td>
       <td>✓</td>
@@ -157,7 +143,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Other (Generic Asset)</td>
       <td>✓</td>
@@ -166,7 +151,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Data Warehouse Table</td>
       <td>✓</td>
@@ -175,7 +159,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Data Warehouse View</td>
       <td>✓</td>
@@ -184,7 +167,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Server Analysis Services Dimension</td>
       <td>✓</td>
@@ -193,7 +175,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Server Analysis Services KPI</td>
       <td>✓</td>
@@ -202,7 +183,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Server Analysis Services Measure</td>
       <td>✓</td>
@@ -211,7 +191,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Server Analysis Services Table</td>
       <td>✓</td>
@@ -220,7 +199,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Server Reporting Services Report</td>
       <td>✓</td>
@@ -229,7 +207,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Browser</font></td>
       <td><font size=2>Native mode servers only. SharePoint mode is not supported.</font></td>
     </tr>
-
     <tr>
       <td>SQL Server Table</td>
       <td>✓</td>
@@ -238,7 +215,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SQL Server View</td>
       <td>✓</td>
@@ -247,7 +223,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Teradata Table</td>
       <td>✓</td>
@@ -256,7 +231,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Teradata View</td>
       <td>✓</td>
@@ -265,7 +239,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SAP Hana View</td>
       <td>✓</td>
@@ -274,7 +247,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2>PowerBI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Db2 Table</td>
       <td>✓</td>
@@ -283,7 +255,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Db2 View</td>
       <td>✓</td>
@@ -292,7 +263,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>File System File</td>
       <td>✓</td>
@@ -301,7 +271,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Ftp Directory</td>
       <td>✓</td>
@@ -310,7 +279,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Ftp File</td>
       <td>✓</td>
@@ -319,7 +287,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Http Report</td>
       <td>✓</td>
@@ -328,7 +295,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Http End Point</td>
       <td>✓</td>
@@ -337,7 +303,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Http File</td>
       <td>✓</td>
@@ -346,7 +311,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Odata Entity Set</td>
       <td>✓</td>
@@ -355,7 +319,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Odata Function</td>
       <td>✓</td>
@@ -364,7 +327,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Postgresql Table</td>
       <td>✓</td>
@@ -373,7 +335,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Postgresql View</td>
       <td>✓</td>
@@ -382,7 +343,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>SAP Hana View</td>
       <td>✓</td>
@@ -391,7 +351,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td> Salesforce Object</td>
       <td>✓</td>
@@ -400,7 +359,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Sharepoint List </td>
       <td>✓</td>
@@ -409,7 +367,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-  
     <tr>
       <td>Azure DocumentDB Collection</td>
       <td>✓</td>
@@ -418,7 +375,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Generic ODBC Table</td>
       <td>✓</td>
@@ -427,7 +383,6 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Generic ODBC View</td>
       <td>✓</td>
@@ -436,23 +391,21 @@ You can publish meta data using a public API, a click-once registration tool, or
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
 </table>
 
-If you need support for additional sources, submit a feature request using the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+If you need support for additional sources, submit a feature request in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
-<br>
-<br>
-## Data source reference specification
+## Data-source reference specification
 > [!NOTE]
-> "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog. That is, "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.
+> The **DSL structure** column in the following table lists only the connection properties for "address" property bag that are used by Azure Data Catalog. That is, "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.
+
 <table>
     <tr>
-       <td><b>Source Type</b></td>
-       <td><b>Asset Type</b></td>
-       <td><b>Object Types</b></td>
-       <td><b>DSL Structure<b></td>
+       <td><b>Source type</b></td>
+       <td><b>Asset type</b></td>
+       <td><b>Object types</b></td>
+       <td><b>DSL structure<b></td>
     </tr>
     <tr>
       <td>Azure Data Lake Store</td>
@@ -1362,7 +1315,7 @@ If you need support for additional sources, submit a feature request using the [
       </td>
     </tr>
     <tr>
-      <td>Other (None of the above)</td>
+      <td>Other (none of the above)</td>
       <td>\*</td>
       <td>\*</td>
       <td>
