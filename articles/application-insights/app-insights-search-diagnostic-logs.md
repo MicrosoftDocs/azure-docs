@@ -3,7 +3,7 @@ title: Logs & diagnostics for ASP.NET in Azure Application Insights | Microsoft 
 description: Diagnose issues in ASP.NET web apps by searching requests, exceptions and logs generated with Trace, NLog, or Log4Net.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 99860c53-0324-4a3a-9aa9-83f5dffba835
