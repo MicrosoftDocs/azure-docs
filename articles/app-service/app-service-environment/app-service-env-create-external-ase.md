@@ -117,20 +117,20 @@ You can still create instances of the first version of the ASE feature (ASEv1). 
 
 
 <!--Links-->
-[Intro]: ../app-service/app-service-environment/app-service-env-intro.md
-[MakeExternalASE]: ../app-service/app-service-environment/app-service-env-create-external-ase.md
-[MakeASEfromTemplate]: ../app-service/app-service-environment/app-service-env-create-from-template.md
-[MakeILBASE]: ../app-service/app-service-environment/app-service-env-create-ilb-ase.md
-[ASENetwork]: ../app-service/app-service-environment/app-service-env-network-info.md
-[ASEReadme]: ../app-service/app-service-environment/app-service-env-readme.md
-[UsingASE]: ../app-service/app-service-environment/app-service-env-using-an-ase.md
-[UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../virtual-network/virtual-networks-nsg.md
-[ConfigureASEv1]: ../app-service-web/app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: ../app-service-web/app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web/app-service-web-overview.md
-[mobileapps]: ../app-service-mobile/app-service-mobile-value-prop.md
-[APIapps]: ../app-service-api/app-service-api-apps-why-best-platform.md
-[Functions]: ../azure-functions/index.yml
+[Intro]: ./app-service-env-intro.md
+[MakeExternalASE]: ./app-service-env-create-external-ase.md
+[MakeASEfromTemplate]: ./app-service-env-create-from-template.md
+[MakeILBASE]: ./app-service-env-create-ilb-ase.md
+[ASENetwork]: ./app-service-env-network-info.md
+[ASEReadme]: ./app-service-env-readme.md
+[UsingASE]: ./app-service-env-using-an-ase.md
+[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
+[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[ConfigureASEv1]: ../../app-service-web/app-service-web-configure-an-app-service-environment.md
+[ASEv1Intro]: ../../app-service-web/app-service-app-service-environment-intro.md
+[webapps]: ../../app-service-web/app-service-web-overview.md
+[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[APIapps]: ../../app-service-api/app-service-api-apps-why-best-platform.md
+[Functions]: ../../azure-functions/index.yml
 [Pricing]: http://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
