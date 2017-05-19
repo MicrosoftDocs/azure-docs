@@ -65,7 +65,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 Result:
 
-You will see a return result when the gateway has been reset. When you get a result, you can assume the vpn gateway reset was successful. There is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
+You will see a return result when the gateway has been reset. When you get a result, you can assume the gateway reset was successful. There is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
 
 ### <a name="resetclassic"></a>Classic deployment model
 
@@ -94,4 +94,4 @@ az network vnet-gateway reset -n VNet5GW -g TestRG5
 
 Result:
 
-You will see a return result when the gateway has been reset. When you get a result, you can assume the vpn gateway reset was successful. There is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
+You will see a return result when the gateway has been reset. When you get a result, you can assume the gateway reset was successful. There is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
