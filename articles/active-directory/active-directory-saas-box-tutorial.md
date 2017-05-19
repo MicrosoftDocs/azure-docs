@@ -108,10 +108,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-box-tutorial/tutorial_box_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Subdomain>.box.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.box.com`
 
 	> [!NOTE] 
-	> this value is not real. update the value with the actual Sign-on URL. Contact [Box Client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get this value. 
+	> This value is not real. Update the value with the actual Sign-on URL. Contact [Box Client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
