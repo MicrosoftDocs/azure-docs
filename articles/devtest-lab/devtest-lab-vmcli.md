@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 05/19/2017
 ms.author: liwong
 
 ---
@@ -21,23 +21,23 @@ This quick start will guide you through creating, starting, connecting, updating
 
 Before you begin:
 
-* If a lab has not been created, instructions can be found [here](devtest-lab-create-lab.md)
+* If a lab has not been created, instructions can be found [here](devtest-lab-create-lab.md).
 
-* [Install CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
+* [Install CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). To start, run az login to create a connection with Azure. 
 
 ## Create and verify the virtual machine 
-Create a VM from a marketplace image with ssh authentication
+Create a VM from a marketplace image with ssh authentication.
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
 > [!NOTE]
-> Put the **lab's resource group** name in the --resource-group parameter
+> Put the **lab's resource group** name in the --resource-group parameter.
 >
 
-If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/en-us/cli/azure/lab/vm#create)
+If you want to create a VM using a formula, use the --formula parameter in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#create).
 
 
-Verify that the VM is available 
+Verify that the VM is available.
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
 ```
@@ -50,21 +50,21 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 ```
 
 ## Start and connect to the virtual machine
-Start a VM
+Start a VM.
 ```azurecli
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 > [!NOTE]
-> Put the **lab's resource group** name in the --resource-group parameter
+> Put the **lab's resource group** name in the --resource-group parameter.
 >
 
-Connect to a VM: [SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) or [Remote Desktop](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/connect-logon)
+Connect to a VM: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) or [Remote Desktop](../virtual-machines/windows/connect-logon.md).
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
 
 ## Update the virtual machine
-Apply artifacts to a VM
+Apply artifacts to a VM.
 ```azurecli
 az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resource-group sampleResourceGroup  --artifacts @/artifacts.json
 ```
@@ -99,7 +99,7 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 ]
 ```
 
-List artifacts available in the lab
+List artifacts available in the lab.
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand "properties(\$expand=artifacts)" --query 'artifacts[].{artifactId: artifactId, status: status}'
 ```
@@ -111,12 +111,12 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 ```
 
 ## Stop and delete the virtual machine    
-Stop a VM
+Stop a VM.
 ```azurecli
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
-Delete a VM
+Delete a VM.
 ```azurecli
 az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
