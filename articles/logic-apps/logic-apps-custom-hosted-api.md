@@ -26,7 +26,7 @@ you must deploy your APIs before you can call them.
 And although you can call any API from a logic app, 
 for the best experience, add [Swagger metadata](http://swagger.io/specification/) 
 that describes your API's operations and parameters. 
-The Swagger file helps your API work better and integrate more easily with logic apps.
+This Swagger file helps your API work better and integrate more easily with logic apps.
 
 You can deploy your APIs as [web apps](../app-service-web/app-service-web-overview.md), 
 but consider deploying your APIs as [API apps](../app-service-api/app-service-api-apps-why-best-platform.md), 
@@ -38,9 +38,9 @@ a platform-as-a-service (PaaS) offering that provides one of the best, easiest,
 and most scalable ways for API hosting.
 
 To secure calls from logic apps to your APIs, 
-either set up Azure Active Directory in the Azure portal 
-so you don't have to update your code, 
-or enforce an authentication method through your API's code.
+you can set up Azure Active Directory in the Azure portal 
+so you don't have to update your code. Or, 
+you can require and enforce authentication through your API's code.
 
 ## Deploy your API as a web app or API app
 
@@ -240,23 +240,26 @@ with an Azure Resource Manager template.
 1. In the [Azure portal](https://portal.azure.com "https://portal.azure.com"), 
 find and select your web app or API app. 
 
-2. Under **Settings**, choose **Authentication/Authorization**.
+2. Under **Settings**, choose **Authentication/Authorization**. 
+Under **App Service Authentication**, turn authentication **On**. 
+Under **Authentication Providers**, choose **Azure Active Directory**.
 
-3. Under **App Service Authentication**, turn authentication **On**.
+   ![Turn on authentication](./media/logic-apps-custom-hosted-api/custom-web-api-app-authentication.png)
 
-4. Under **Authentication Providers**, choose **Azure Active Directory**. 
-On the **Azure Active Directory Settings** blade, set **Management mode** to **Express**.
+3. Now create an application identity for your web app or API app as shown here. 
+On the **Azure Active Directory Settings** blade, 
+set **Management mode** to **Express**. Choose **Create New AD App**. 
+Give your application identity a name, and choose **OK**. 
 
-   Express mode uses your default Azure and automatically 
-   creates an application identity for your web app or API app.
+   ![Create application identity for your web app or API app](./media/logic-apps-custom-hosted-api/custom-api-application-identity.png)
 
-5. Choose **Create New AD App**, and give your application identity a name. 
-Choose **OK**, then choose **Save**.
+4. On the **Authentication / Authorization blade**, choose **Save**.
 
-Now you must find your application identity's client ID and tenant ID for Part 3. 
+Now you must find the client ID and tenant ID for the application identity 
+that's associated with your web app or API app, so you can use these IDs in Part 3. 
 So continue with these steps for the Azure portal or [Azure classic portal](#find-id-classic).
 
-**Find the client ID and tenant ID in the Azure portal**
+**Find the application identity's client ID and tenant ID in the Azure portal**
 
 1. Under **Authentication Providers**, choose **Azure Active Directory**. 
 On the **Azure Active Directory Settings** blade, set **Management mode** to **Advanced**.
@@ -267,10 +270,10 @@ On the **Azure Active Directory Settings** blade, set **Management mode** to **A
       > If **Client ID** and **Issuer Url** don't appear, 
       > try refreshing the Azure portal, and repeat Step 1.
 
-3. Under **Issuer Url**, copy and save just the GUID for Part 3, 
-and also for use in your web app or API app's deployment template, if necessary.
+3. Under **Issuer Url**, copy and save just the GUID for Part 3. 
+You can also use this GUID in your web app or API app's deployment template, if necessary.
 
-   This GUID is your specific tenant's GUID ("tenant ID"), and 
+   This GUID is your specific tenant's GUID ("tenant ID") and 
    should appear in this URL: `https://sts.windows.net/{GUID}`
 
 4. Without saving your changes, close the **Azure Active Directory Settings** blade.
