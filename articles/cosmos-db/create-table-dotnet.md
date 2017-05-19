@@ -67,7 +67,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized.
+* The CloudTableClient is initialized.
 
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 

@@ -1,4 +1,4 @@
 ---
-redirect_url: /azure/virtual-machines/windows/ps-manage
+redirect_url: /azure/virtual-machines/windows/tutorial-manage-vm
 redirect_document_id: true
 ---

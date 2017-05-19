@@ -135,9 +135,22 @@ The following administrator roles are available:
 ## Details about the global administrator role
 The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
 
+### To add a colleague as a global administrator
+
+1. Sign in to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) with an account that's a global admin for the tenant directory.
+
+   ![Opening azure AD admin center](./media/active-directory-assign-admin-roles/active-directory-admin-center.png)
+
+2. Select **Users and groups &gt; All users**
+
+3. Find the user you want to designate as a global administrator and open the blade for that user.
+
+4. On the user blade, select **Directory role**.
+ 
+5. On the directory role blade, select the **Global administrator** role, and save.
+
 ## Assign or remove administrator roles
 To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
-
 
 ## Next steps
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)

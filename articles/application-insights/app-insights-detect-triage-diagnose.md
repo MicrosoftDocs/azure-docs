@@ -1,7 +1,7 @@
 ---
 title: Detect and diagnose web app issues - Azure Application Insights | Microsoft Docs
 description: Analyse crashes and detect  and diagnose performance issues in your applications
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: ''
 manager: carmonm

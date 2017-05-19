@@ -160,8 +160,6 @@
       href: download-template.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
-    - name: Manage VMs using PowerShell
-      href: ps-manage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Manage VMs using CLI
