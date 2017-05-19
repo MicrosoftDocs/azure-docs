@@ -1,6 +1,6 @@
 ---
-title: Azure Data Catalog supported data sources | Microsoft Docs
-description: Specification of the currently supported data sources.
+title: Supported data sources in Azure Data Catalog | Microsoft Docs
+description: This article lists specifications of the currently supported data sources.
 services: data-catalog
 documentationcenter: ''
 author: steelanddata
@@ -19,9 +19,9 @@ ms.author: maroche
 
 ---
 
-# Azure Data Catalog supported data sources
+# Supported data sources in Azure Data Catalog
 
-You can publish metadata by using a public API or a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following table summarizes all sources supported by the catalog today, and the publishing capabilities for each. Also listed are the external data tools that each source can launch from our portal "open-in" experience. The second grid has a more technical specification of each data sources connection properties.
+You can publish metadata by using a public API or a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following table summarizes all data sources that are supported by the catalog today, and the publishing capabilities for each. Also listed are the external data tools that each data source can launch from our portal "open-in" experience. The second table contains a more technical specification of each data-source connection property.
 
 
 ## List of supported data sources
@@ -36,7 +36,7 @@ You can publish metadata by using a public API or a click-once registration tool
        <td><b>Notes</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store directory</td>
+      <td>Azure Data Lake Store Directory</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -44,7 +44,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store file</td>
+      <td>Azure Data Lake Store File</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -60,7 +60,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Azure Storage directory</td>
+      <td>Azure Storage Directory</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -68,7 +68,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Azure Storage table</td>
+      <td>Azure Storage Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -80,7 +80,7 @@ You can publish metadata by using a public API or a click-once registration tool
       </td>
     </tr>
     <tr>
-      <td>HDFS directory</td>
+      <td>HDFS Directory</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -88,7 +88,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>HDFS file</td>
+      <td>HDFS File</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -96,7 +96,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Hive table</td>
+      <td>Hive Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -104,7 +104,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Hive view</td>
+      <td>Hive View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -112,7 +112,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>MySQL table</td>
+      <td>MySQL Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -120,7 +120,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>MySQL view</td>
+      <td>MySQL View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -128,7 +128,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Oracle Database table</td>
+      <td>Oracle Database Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -136,7 +136,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Oracle Database view</td>
+      <td>Oracle Database View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -152,7 +152,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse table</td>
+      <td>SQL Data Warehouse Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -160,7 +160,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse view</td>
+      <td>SQL Data Warehouse View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -168,7 +168,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services dimension</td>
+      <td>SQL Server Analysis Services Dimension</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -184,7 +184,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services measure</td>
+      <td>SQL Server Analysis Services Measure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -192,7 +192,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services table</td>
+      <td>SQL Server Analysis Services Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -200,7 +200,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SQL Server Reporting Services report</td>
+      <td>SQL Server Reporting Services Report</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -208,7 +208,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2>Native mode servers only. SharePoint mode is not supported.</font></td>
     </tr>
     <tr>
-      <td>SQL Server table</td>
+      <td>SQL Server Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -216,7 +216,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SQL Server view</td>
+      <td>SQL Server View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -224,7 +224,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Teradata table</td>
+      <td>Teradata Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -232,7 +232,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Teradata view</td>
+      <td>Teradata View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -240,7 +240,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SAP Hana view</td>
+      <td>SAP Hana View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -248,7 +248,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Db2 table</td>
+      <td>Db2 Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -256,7 +256,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Db2 view</td>
+      <td>Db2 View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -264,7 +264,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>File System file</td>
+      <td>File System File</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -272,7 +272,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Ftp directory</td>
+      <td>Ftp Directory</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -280,7 +280,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Ftp file</td>
+      <td>Ftp File</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -288,7 +288,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Http report</td>
+      <td>Http Report</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -296,7 +296,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Http endpoint</td>
+      <td>Http Endpoint</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -304,7 +304,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Http file</td>
+      <td>Http File</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -312,7 +312,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Odata entity set</td>
+      <td>Odata Entity Set</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -320,7 +320,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Odata function</td>
+      <td>Odata Function</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -328,7 +328,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Postgresql table</td>
+      <td>Postgresql Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -336,7 +336,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Postgresql view</td>
+      <td>Postgresql View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -344,7 +344,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>SAP Hana view</td>
+      <td>SAP Hana View</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -376,7 +376,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Generic ODBC table</td>
+      <td>Generic ODBC Table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -384,7 +384,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Generic ODBC view</td>
+      <td>Generic ODBC View</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -602,7 +602,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>Hadoop distributed file system</td>
+      <td>Hadoop Distributed File System</td>
       <td>Container</td>
       <td>Cluster</td>
       <td>
@@ -615,7 +615,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>Hadoop distributed file system</td>
+      <td>Hadoop Distributed File System</td>
       <td>Table</td>
       <td>Directory, File</td>
       <td>
@@ -1035,7 +1035,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services multidimensional</td>
+      <td>SQL Server Analysis Services Multidimensional</td>
       <td>Container</td>
       <td>Model</td>
       <td>
@@ -1050,7 +1050,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services multidimensional</td>
+      <td>SQL Server Analysis Services Multidimensional</td>
       <td>KPI</td>
       <td>KPI</td>
       <td>
@@ -1067,7 +1067,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services multidimensional</td>
+      <td>SQL Server Analysis Services Multidimensional</td>
       <td>Measure</td>
       <td>Measure</td>
       <td>
@@ -1084,7 +1084,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services multidimensional</td>
+      <td>SQL Server Analysis Services Multidimensional</td>
       <td>Table</td>
       <td>Dimension</td>
       <td>
@@ -1101,7 +1101,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabular</td>
+      <td>SQL Server Analysis Services Tabular</td>
       <td>Container</td>
       <td>Model</td>
       <td>
@@ -1116,7 +1116,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabular</td>
+      <td>SQL Server Analysis Services Tabular</td>
       <td>KPI</td>
       <td>KPI</td>
       <td>
@@ -1133,7 +1133,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabular</td>
+      <td>SQL Server Analysis Services Tabular</td>
       <td>Measure</td>
       <td>Measure</td>
       <td>
@@ -1150,7 +1150,7 @@ If you need support for additional sources, submit a feature request in the [Azu
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabular</td>
+      <td>SQL Server Analysis Services Tabular</td>
       <td>Table</td>
       <td>Table</td>
       <td>
