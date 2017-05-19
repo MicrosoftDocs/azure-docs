@@ -1,24 +1,10 @@
 ---
-title: Request increased Azure Cosmos DB account quotas | Microsoft Docs
-description: Learn how to request an adjustment to Azure Cosmos DB database quotas such as document storage and throughput per collection.
-services: cosmosdb
-author: AndrewHoh
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: 68f7dc8d-534f-4301-a42c-bcd1bb1b77fe
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2016
-ms.author: anhoh
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-request-units
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Request increased Azure Cosmos DB account quotas
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale Azure Cosmos DB provides, please send an email to askdocdb@microsoft.com.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale Azure Cosmos DB provides, please send an email to askdocdb@microsoft.com.
 
 This article shows how to request a quota increase by Azure support.
 

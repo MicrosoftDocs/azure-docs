@@ -1,21 +1,6 @@
 ---
-title: Azure Cosmos DB Automation - Managing Regions | Microsoft Docs
-description: Use Azure CLI 1.0 and Azure Resource Manager to manage regions in an Azure Cosmos DB database account. 
-services: cosmosdb
-author: dmakwana
-manager: jhubbard
-editor: ''
-tags: azure-resource-manager
-documentationcenter: ''
-
-ms.assetid: 7f765c17-8549-4108-9475-46394fc3a218
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/17/2017
-ms.author: dimakwan
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/cli-samples
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Automate Azure Cosmos DB account region management using Azure CLI 1.0 and Azure Resource Manager templates

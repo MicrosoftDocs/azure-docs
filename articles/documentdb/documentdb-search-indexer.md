@@ -285,6 +285,6 @@ Execution history contains up to the 50 most recent completed executions, which 
 ## <a name="NextSteps"></a>Next steps
 Congratulations! You have just learned how to integrate Azure Cosmos DB with Azure Search using the indexer for Cosmos DB.
 
-* To learn how more about Cosmos DB, see the [Azure Cosmos DB service page](https://azure.microsoft.com/services/documentdb/).
+* To learn how more about Cosmos DB, see the [Azure Cosmos DB service page](https://azure.microsoft.com/services/cosmos-db/).
 * To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
 
