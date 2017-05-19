@@ -3,7 +3,7 @@ title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
@@ -167,6 +167,8 @@ You could:
 We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it.
 
 ## Should I use single or multiple Application Insights resources?
+
+Use a single resource for all the components or roles in a single business system. Use separate resources for development, test, and release versions, and for independent applications.
 
 * [See the discussion here](app-insights-separate-resources.md)
 * [Example - cloud service with worker and web roles](app-insights-cloudservices.md)

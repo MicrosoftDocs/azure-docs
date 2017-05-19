@@ -67,7 +67,7 @@
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
       "searchScope": ["Azure"],
-      "contributors_to_exclude": ["hexiaokai", "openpublishingbuild", "tysonn", "v-anpasi", "kiwhit", "ShawnJackson", "PRmerger", "DuncanmaMSFT", "Saisang", "Ja-Dunn", "jomolnar", "KatieCumming", "rjagiewich", "v-thepet", "deneha"],
+      "contributors_to_exclude": ["PRMerger5", "PRMerger4", "PRMerger3", "PRMerger-2","hexiaokai", "openpublishingbuild", "tysonn", "v-anpasi", "kiwhit", "ShawnJackson", "PRmerger", "DuncanmaMSFT", "Saisang", "Ja-Dunn", "jomolnar", "KatieCumming", "rjagiewich", "v-thepet", "deneha", "ktoliver", "itechedit", "MattGLaBelle"],
       "_op_documentIdPathDepotMapping": {
         "articles/billing/billing-add-change-azure-subscription-administrator.md": {
           "folder_relative_path_in_docset": "articles"

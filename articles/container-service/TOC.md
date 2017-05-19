@@ -29,6 +29,7 @@
 ### [App/user-specific orchestrator in DC/OS](container-service-application-specific-marathon.md)
 ### [Add a file share](container-service-dcos-fileshare.md)
 ### [Use an Azure container registry](container-service-dcos-acr.md)
+### [Canary release with Vamp](container-service-dcos-vamp-canary-release.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
 #### [Monitor with OMS](container-service-monitoring-oms.md)

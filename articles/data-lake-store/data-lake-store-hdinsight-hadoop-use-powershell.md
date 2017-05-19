@@ -33,10 +33,7 @@ For supported cluster types, Data Lake Store can be used as a default storage or
 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
-* Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
-
-* For HBase clusters (Windows and Linux), Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
-
+* Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, 3.5, and 3.6.
 
 Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
 

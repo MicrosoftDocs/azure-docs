@@ -33,7 +33,7 @@ Conditional Access rules are supported across various Azure AD application types
 * Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
 * Microsoft Power BI 
 * Password SSO applications from the Azure AD application gallery
-* Visual Studio Online
+* Visual Studio Team Services
 
 
 
