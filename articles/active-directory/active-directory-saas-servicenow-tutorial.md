@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instance-name>.service-now.com`
 
 	> [!NOTE] 
-	> Note that these are not the real values. You have to update these values with the actual Sign-on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html) to get these values. 
+	> Note that these are not the real values. You have to update these values with the actual Sign-on URL and Identifier. Contact [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html) to get these values. 
  
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
