@@ -16,8 +16,8 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
-To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-gateway-SDK].
+To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].
 
 [lnk-fwupdate]: ../articles/iot-hub/iot-hub-node-node-firmware-update.md
 [lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
-[lnk-gateway-SDK]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: ../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md
