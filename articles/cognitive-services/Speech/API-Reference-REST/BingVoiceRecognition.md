@@ -29,7 +29,7 @@ If these features are important to your app's functionality, use the web socket 
 ## WebSocket
 Microsoft's Cognitive Services WebSocket Speech Recognition API is a WebSocket-based service protocol definition that enables subscribers to build full-featured speech applications that provide a rich user experience. This protocol extends the Microsoft Speech SDK protocol, which powers a wide variety of speech applications throughout the industry.
 
-[Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of websocket protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, create your can create your own implementation based on the [documented protocol](websocketprotocol.md).
+[Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of websocket protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, you can create your own implementation based on the [documented protocol](websocketprotocol.md).
 
 ## Endpoints
 The API endpoints based on user scenario are highlighted here:
