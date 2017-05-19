@@ -27,7 +27,7 @@ This sample PowerShell script configures a failover group for a single database 
 
 ## Sample Scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover.ps1 "Set up failover group for single database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1 "Set up failover group for single database")]
 
 ## Clean up deployment
 
