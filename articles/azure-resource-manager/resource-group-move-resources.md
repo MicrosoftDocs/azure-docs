@@ -85,7 +85,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
@@ -122,19 +122,20 @@ The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
 * Application Gateway
+* Availability sets with Virtual Machines with Managed Disks
 * BizTalk Services
 * Container Service
 * Express Route
 * DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Images created from Managed Disks
+* Managed Disks
+* Managed Applications
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
+* Snapshots created from Managed Disks
 * Virtual Machines with certificate stored in Key Vault
 * Virtual Machines with Managed Disks
-* Availability sets with Virtual Machines with Managed Disks
-* Managed Disks
-* Images created from Managed Disks
-* Snapshots created from Managed Disks
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
 
@@ -210,7 +211,7 @@ When moving resources to a new subscription, the following restrictions apply:
 * The target subscription must not contain any other classic resources.
 * The move can only be requested through a separate REST API for classic moves. The standard Resource Manager move commands do not work when moving classic resources to a new subscription.
 
-To move classic resources to a new subscription, use either the portal or REST operations that are specific to classic resources. For information about moving classic resources through the portal, see [Use portal](#use-portal). To use REST, perform the following steps:
+To move classic resources to a new subscription, use the REST operations that are specific to classic resources. To use REST, perform the following steps:
 
 1. Check if the source subscription can participate in a cross-subscription move. Use the following operation:
 

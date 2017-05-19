@@ -196,7 +196,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($set.Sku.Capacity - 1); $i++) {
+for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -297,4 +297,5 @@ In this tutorial, you created a virtual machine scale set. You learned how to:
 
 Advance to the next tutorial to learn more about load balancing concepts for virtual machines.
 
-[Load balance virtual machines](tutorial-load-balancer.md)
+> [!div class="nextstepaction"]
+> [Load balance virtual machines](tutorial-load-balancer.md)

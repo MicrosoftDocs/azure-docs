@@ -26,8 +26,10 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Deprovision and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
 
 ## Before you begin
 
@@ -100,6 +102,26 @@ az vm create \
     --generate-ssh-keys
 ```
 
+## Image management 
+
+Here are some examples of common image management tasks and how to complete them using the Azure CLI.
+
+List all images by name in a table format.
+
+```azurecli
+az resource list \
+    --resource-type=Microsoft.Compute/images \
+	--output table
+```
+
+Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+
+```azurecli
+az image delete \
+    --name myOldImage \
+	--resource-group myResourceGroup
+```
+
 ## Next steps
 
 In this tutorial, you created a custom VM image. You learned how to:
@@ -108,6 +130,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Deprovision and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
 Advance to the next tutorial to learn about highly available virtual machines.
 
