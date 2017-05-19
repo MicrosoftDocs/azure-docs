@@ -77,5 +77,5 @@ There are two versions to the App Service Environment: ASEv1 and ASEv2. For info
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
 [ASEv1README]: ../app-service-app-service-environments-readme.md
-[SiteToSite]: ../../vpn-gateway-site-to-site-create.md
+[SiteToSite]: ../../vpn-gateway/vpn-gateway-site-to-site-create.md
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
