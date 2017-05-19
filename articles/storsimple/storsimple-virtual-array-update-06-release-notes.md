@@ -36,7 +36,7 @@ Update 0.6 corresponds to the software version **10.0.10293.0**.
 ## What's new in the Update 0.6
 Update 0.6 is a critical update and should be deployed immediately. This update contains the following fixes: 
 
-- **Windows Security fixes** - This release has **Windows critical security fixes**. Review the following security bulletin for more information about the security issues and the associated fixes:
+- **Windows Security fixes** - This release has **Windows critical security fixes**. Review the following security updates for more information about the security issues and the associated fixes:
     - [December 2016 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/3205400/december-2016-security-only-quality-update-for-windows-8.1-and-windows-server-2012-r2)
     - [March 2017 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23)
     - [May 9, 2017—KB4019213 (Security-only update)](https://support.microsoft.com/help/4019213/windows-8-update-kb4019213)
