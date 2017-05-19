@@ -163,9 +163,9 @@ sudo apt-get install maven
 ### **Windows**
 Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. 
 
-### **Create Maven project**
+## Create SqlDbSample project
 
-1. From the terminal, create a new Maven project. 
+1. In the command console (such as Bash), create a new Maven project. 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
@@ -180,39 +180,43 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 5. Add the Microsoft JDBC Driver for SQL Server dependency to your Maven project by opening your favorite text editor and copying and pasting the following lines into your pom.xml file. Do not overwrite the existing values prepopulated in the file. The JDBC dependency must be pasted within the larger “dependencies” section ( ).   
 
    ```xml
-      <dependency>
-         <groupId>com.microsoft.sqlserver</groupId>
-         <artifactId>mssql-jdbc</artifactId>
-         <version>6.1.0.jre8</version>
-       </dependency>
+   <dependency>
+     <groupId>com.microsoft.sqlserver</groupId>
+     <artifactId>mssql-jdbc</artifactId>
+    <version>6.1.0.jre8</version>
+   </dependency>
    ```
 
-6. Specify the version of Java to compile the project against by adding the “properties” section below into the pom.xml file. Add the section below after the section. 
+6. Specify the version of Java to compile the project against by adding the “properties” section below into the pom.xml file after the "dependencies" section. 
 
    ```xml
-      <properties>
-         <maven.compiler.source>1.8</maven.compiler.source>
-         <maven.compiler.target>1.8</maven.compiler.target>
-      </properties>
-      
-      <build>
-        <plugins>
-           <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-jar-plugin</artifactId>
-              <version>3.0.0</version>
-              <configuration>
-                 <archive>
-                    <manifest>
-                       <mainClass>com.sqldbsamples.App</mainClass>
-                    </manifest>
-                 </archive>
-              </configuration>
-           </plugin>
-        </plugins>
-      </build>
-      ```
-5. Add the following into the App.java file:
+   <properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+   ```
+7. Add the "build" section below into the pom.xml file after the "properties" section to support manifest files in jars.       
+
+   ```xml
+   <build>
+     <plugins>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-jar-plugin</artifactId>
+         <version>3.0.0</version>
+         <configuration>
+           <archive>
+             <manifest>
+               <mainClass>com.sqldbsamples.App</mainClass>
+             </manifest>
+           </archive>
+        </configuration>
+       </plugin>
+     </plugins>
+   </build>
+   ```
+8. Save and close the pom.xml file.
+9. Open the App.java file (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) and replace the contents with the following contents. Replace the failover group name with the name for your failover group. If you have changed the values for the database name, user, or password, change those values as well.
 
    ```java
    package com.sqldbsamples;
@@ -228,11 +232,11 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
    public class App {
 
-      private static final String FAILOVER_GROUP_NAME = "your_failover_group_name";
+      private static final String FAILOVER_GROUP_NAME = "myfailovergroup";
   
       private static final String DB_NAME = "mySampleDatabase";
       private static final String USER = "app_user";
-      private static final String PASSWORD = "ChangeYourAdminPassword1";
+      private static final String PASSWORD = "ChangeYourPassword1";
 
       private static final String READ_WRITE_URL = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
       private static final String READ_ONLY_URL = String.format("jdbc:sqlserver://%s.secondary.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
@@ -309,16 +313,16 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
       }
    }
    ```
-6. Save the file.
+6. Save and close the App.java file.
 
-## Compile and run
+## Compile and run the SqlDbSample project
 
-1. Go to command console and execute.
+1. In the command console, execute to following command.
 
-   ```java
+   ```bash
    mvn package
    ```
-2. When finished, execute to run the application (it will run for about 1h unless it is stop manually):
+2. When finished, execute the following command to run the application (it will run for about 1h unless it is stop manually):
 
    ```Output
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
