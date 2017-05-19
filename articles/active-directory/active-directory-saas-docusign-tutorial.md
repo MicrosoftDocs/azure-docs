@@ -166,9 +166,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
 	![Configuring single sign-on][60]
    
-	a. Copy the **Service Provider Issuer URL**, and then paste into the **Identifier** textbox on **Docusign Domain and URLs** section of the Azure portal following the pattern: 'https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>'.
+	a. Copy the **Service Provider Issuer URL**, and then paste into the **Identifier** textbox on **Docusign Domain and URLs** section of the Azure portal following the pattern: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
    
-	b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on **Docusign Domain and URLs** section of the Azure portal following the pattern: 'https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/'.
+	b. Copy the **Service Provider Login URL**, and then paste into the **Sign On URL** textbox on **Docusign Domain and URLs** section of the Azure portal following the pattern: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/`.
 
 	![Configure Single Sign-On](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_url.png)
 	  
