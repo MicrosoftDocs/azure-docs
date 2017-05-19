@@ -66,11 +66,16 @@ The external BGPNAT IP addresses in the example environment is 10.16.167.195 for
 ### Get the IP address of the external adapter of the NAT VM
 1. Log in to the Azure Stack physical machine for POC1.
 2. Edit the following Powershell code to replace your administrator password, and then run on the POC host:
+
    ```
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<Your administrator password>" -AsPlainText -Force
-   Get-AzureStackNatServerAddress -HostComputer "mas-bgpnat01" -Password $Password
+   $Password = ConvertTo-SecureString "<your administrator password>" `
+    -AsPlainText `
+    -Force
+   Get-AzureStackNatServerAddress `
+    -HostComputer "mas-bgpnat01" `
+    -Password $Password
    ```
 3. Record the IP address in the Network configuration table.
 
@@ -310,40 +315,46 @@ You need to follow this procedure for **both** POC environments.
 To determine the **Internal IP address** to use in the PowerShell script below, find the properties of the Virtual Network Gateway blade, and note the value for the **Public IP Address**.
 
 1. Log in to the Azure Stack physical machine for POC1.
-3. Copy and edit the following PowerShell script and run in an elevated PowerShell session to configure the NAT:
+2. Copy and edit the following PowerShell script and run in an elevated PowerShell session to configure the NAT:
 
    ```
-   Enter-PSSession -ComputerName mas-bgpnat01
    # Designate the external NAT address for the ports that use the IKE authentication.
-   Add-NetNatExternalAddress `
-    -NatName BGPNAT `
-    -IPAddress <External BGPNAT address> `
-    -PortStart 499 `
-    -PortEnd 501
-   Add-NetNatExternalAddress `
-    -NatName BGPNAT `
-    -IPAddress <External BGPNAT address> `
-    -PortStart 4499 `
-    -PortEnd 4501
+   Invoke-Command `
+    -ComputerName mas-bgpnat01 `
+     {Add-NetNatExternalAddress `
+      -NatName BGPNAT `
+      -IPAddress <External BGPNAT address> `
+      -PortStart 499 `
+      -PortEnd 501}
+   Invoke-Command `
+    -ComputerName mas-bgpnat01 `
+     {Add-NetNatExternalAddress `
+      -NatName BGPNAT `
+      -IPAddress <External BGPNAT address> `
+      -PortStart 4499 `
+      -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
    # Public IP Address to map the ISAKMP port 500 for PHASE 1 of the IPSEC tunnel
-   Add-NetNatStaticMapping `
-    -NatName BGPNAT `
-    -Protocol UDP `
-    -ExternalIPAddress <External BGPNAT address> `
-    -InternalIPAddress <Internal IP address> `
-    -ExternalPort 500 `
-    -InternalPort 500
+   Invoke-Command `
+    -ComputerName mas-bgpnat01 `
+     {Add-NetNatStaticMapping `
+      -NatName BGPNAT `
+      -Protocol UDP `
+      -ExternalIPAddress <External BGPNAT address> `
+      -InternalIPAddress <Internal IP address> `
+      -ExternalPort 500 `
+      -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
    # successfully establish the complete IPSEC tunnel over NAT devices
-   Add-NetNatStaticMapping `
-    -NatName BGPNAT `
-    -Protocol UDP `
-    -ExternalIPAddress <External BGPNAT address> `
-    -InternalIPAddress <Internal IP address> `
-    -ExternalPort 4500 `
-    -InternalPort 4500
-   Exit
+   Invoke-Command `
+    -ComputerName mas-bgpnat01 `
+     {Add-NetNatStaticMapping `
+      -NatName BGPNAT `
+      -Protocol UDP `
+      -ExternalIPAddress <External BGPNAT address> `
+      -InternalIPAddress <Internal IP address> `
+      -ExternalPort 4500 `
+      -InternalPort 4500}
    ```
 
 Repeat this procedure on POC2.
@@ -374,8 +385,11 @@ address of the VM on the remote subnet, not the VIP. To do this, you need to fin
    be different. It should however fall within the **10.0.10.0/24**
    subnet that you created previously.
 9. Run the following PowerShell command to create a firewall rule that allows the virtual machine to respond to pings:
+
    ```
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule `
+    –DisplayName “Allow ICMPv4-In” `
+    –Protocol ICMPv4
    ```
 
 ### Log in to the tenant VM in POC2
