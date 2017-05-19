@@ -360,6 +360,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Virtual machine boot diagnostics 
+      href: ../virtual-machine-boot-diagnostics.md
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
       items:
