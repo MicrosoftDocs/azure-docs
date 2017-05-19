@@ -61,14 +61,14 @@ to the URL for your swagger.json file.
       Usually, the URL appears in this format: 
       `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
-      ![Link to Swagger file for your custom API](media/logic-apps-custom-hosted-api/logic-app-custom-api-swagger-url.png)
+      ![Link to Swagger file for your custom API](media/logic-apps-custom-hosted-api/custom-api-swagger-url.png)
 
 3.	Under **API**, choose **CORS**. 
 Set the CORS policy for **Allowed origins** to **'*'** (allow all).
 
       This setting permits requests from Logic App Designer.
 
-      ![Permit requests from Logic App Designer to your custom API](media/logic-apps-custom-hosted-api/logic-app-custom-api-cors.png)
+      ![Permit requests from Logic App Designer to your custom API](media/logic-apps-custom-hosted-api/custom-api-cors.png)
 
 For more information, see these articles:
 
@@ -146,22 +146,33 @@ choose **Azure Active Directory**.
 3. On the directory menu, under **Manage**, choose 
 **App registrations** > **New application registration**.
 
+   ![Create new app registration](./media/logic-apps-custom-hosted-api/new-app-registration-azure-portal.png)
+
 4. Give your application identity a name, 
 leave **Application type** set to **Web app / API**, 
 provide a unique string formatted as a domain 
 for **Sign-on URL**, and choose **Create**.
 
-5. Select your new application identity. 
-Copy and save the **Application ID** to use as the "client ID" 
-for your logic app in Part 3.
+   ![Provide name and sign-on URL for application identity](./media/logic-apps-custom-hosted-api/logic-app-identity-azure-portal.png)
 
-6. Under **API Access**, choose **Keys**. Under **Description**, 
+5. From the application registrations list, 
+select your new application identity. 
+Copy and save the **Application ID** to use 
+as the "client ID" for your logic app in Part 3.
+
+   ![Copy and save application ID for logic app](./media/logic-apps-custom-hosted-api/logic-app-application-id.png)
+
+6. If your application identity settings aren't visible, choose **Settings** or **All settings**.
+
+7. Under **API Access**, choose **Keys**. Under **Description**, 
 provide a name for your key. Under **Expires**, select a duration for your key.
 
-      The key that you're creating acts as the application identity's 
-      "secret" or password for your logic app.
+   The key that you're creating acts as the application identity's 
+   "secret" or password for your logic app.
 
-7. On the toolbar, choose **Save**. Make sure to copy and save the key that now appears.
+   ![Create key for logic app identity](./media/logic-apps-custom-hosted-api/create-logic-app-identity-key-secret-password.png)
+
+8. On the toolbar, choose **Save**. Make sure to copy and save the key that now appears.
 
       When you configure your logic app in Part 3, 
       specify this key as the "secret" or password.
