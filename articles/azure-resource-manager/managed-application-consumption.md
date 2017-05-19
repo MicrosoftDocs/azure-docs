@@ -89,9 +89,9 @@ This command returns the appliance definition. You need the value of **Id** prop
 
 The support to consume managed applications published by the ISVs is also present in the portal. You can follow the following steps:
 
-Select the Managed Application from the Create blade in Azure portal -
+Select the Service Catalog Managed Application from the Create blade in Azure portal -
 
-![](./media/managed-application-consumption/create-blade.png)
+![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 Next, you see the list of offers from various ISVs/partners. Select the one you would like to create and click "Create"
 
