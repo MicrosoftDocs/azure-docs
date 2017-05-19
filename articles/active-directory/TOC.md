@@ -115,7 +115,7 @@
 ##### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Manage passwords](active-directory-passwords.md)
+## [Manage passwords](active-directory-passwords-overview.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
