@@ -42,16 +42,6 @@ The following tutorials step through implementing common SaaS patterns by taking
 
 
 
-## Get the Wingtip application source code, and scripts
-
-Each tutorial includes reusable scripts, with detailed explanations that greatly simplify understanding, and implementing the same SaaS management patterns in your applications.
-
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
-
-
-
-
-
 ## Application architecture
 
 The Wingtip SaaS app uses the database-per-tenant model, and uses SQL elastic pools to maximize efficiency.
@@ -71,7 +61,6 @@ While the application is somewhat complete and compelling as a sample applicatio
 The core Wingtip SaaS application, uses a pool with three sample tenants, plus a catalog database.
 
 ![Wingtip SaaS architecture](media/sql-database-wtp-overview/app-architecture.png)
-
 
 
 
@@ -132,4 +121,4 @@ After successfully connecting you should see both servers. You might see more or
 
 ## Next steps
 
-[Deploy the Wingtip Tickets SaaS application sample](sql-database-saas-tutorial.md)
+[Deploy the Wingtip SaaS application](sql-database-saas-tutorial.md)
