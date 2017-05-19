@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instance name>.jiveon.com`
 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Jive Client support team](https://www.jivesoftware.com/services-support/) to get these values. 
+	> These values are not the real. Update these values with the actual Sign-on URL and Identifier. Contact [Jive Client support team](https://www.jivesoftware.com/services-support/) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -185,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Jive test user
 
-work with [Jive Client support team](https://www.jivesoftware.com/services-support/) to add the users in the Jive platform.
+Work with [Jive Client support team](https://www.jivesoftware.com/services-support/) to add the users in the Jive platform.
 
 ### Assigning the Azure AD test user
 
