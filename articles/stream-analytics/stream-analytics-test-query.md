@@ -32,7 +32,7 @@ With Azure Stream Analytics, you can test queries in the Azure portal without ne
 
     ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-The output of your query is displayed in the browser, with a link to the download results should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
+The output of your query is displayed in the browser, with Download results link should you want to save the test output for later use. You can now easily and iteratively modify your query and test it repeatedly to see how the output changes.
 
 ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
