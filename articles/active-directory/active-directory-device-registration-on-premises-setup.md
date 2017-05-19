@@ -18,7 +18,7 @@ ms.author: markvi
 
 ---
 # Setting up on-premises conditional access using Azure Active Directory device registration
-When you require users to workplace-join their their personally-owned devices to the Azure Active Directory device registration service, their devices can be marked as known to your organization. Following is a step-by-step guide for enabling conditional access to on-premises applications by using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.
+When you require users to workplace-join their personal devices to the Azure Active Directory device registration service, their devices can be marked as known to your organization. Following is a step-by-step guide for enabling conditional access to on-premises applications by using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.
 
 > [!NOTE]
 > An Office 365 license or Azure AD Premium license is required when using devices that are registered in Azure Active Directory device registration service conditional access policies. These include policies that are enforced by Active Directory Federation Services (AD FS) in on-premises resources.
@@ -62,7 +62,7 @@ Use this guide to deploy and configure the Azure Active Directory device registr
 
 This guide assumes that you've configured Windows Server Active Directory and have subscribed to Microsoft Azure Active Directory. See the prerequisites described earlier.
 
-To deploy the Azure Active Directory device registration service with your Azure Active Directory tenant, complete the tasks in the following checklist in order. When a reference link takes you to a conceptual topic, return to this checklist after you review the conceptual topic so that you can proceed with the remaining tasks in this checklist. Some tasks include a scenario validation step that can help you confirm that the step was completed successfully.
+To deploy the Azure Active Directory device registration service with your Azure Active Directory tenant, complete the tasks in the following checklist in order. When a reference link takes you to a conceptual topic, return to this checklist afterwards, so that you can proceed with the remaining tasks. Some tasks include a scenario validation step that can help you confirm that the step was completed successfully.
 
 ## Part 1: Enable Azure Active Directory device registration
 Follow the steps in the checklist to enable and configure the Azure Active Directory device registration service.
@@ -73,15 +73,15 @@ Follow the steps in the checklist to enable and configure the Azure Active Direc
 | Task | Reference |
 | --- | --- |
 | Deploy Active Directory Domain Services with the Windows Server 2012 R2 schema extensions. You do not need to upgrade any of your domain controllers to Windows Server 2012 R2. The schema upgrade is the only requirement. |[Upgrade your Active Directory Domain Services schema](#upgrade-your-active-directory-domain-services-schema) |
-| Devices discover your Azure Active Directory device registration service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory device registration service. |[Prepare your Active Directory support devices](#prepare-your-active-directory-to-support-devices) |
+| Devices discover your Azure Active Directory device registration service by looking for well-known DNS records. Configure your company DNS so that devices can discover your Azure Active Directory device registration service. |[Prepare your Active Directory support devices](#prepare-your-active-directory-to-support-devices) |
 
 ## Part 3: Enable device writeback in Azure AD
 | Task | Reference |
 | --- | --- |
-| Complete part two of Enabling device writeback in Azure AD Connect. After you finish it, return to this this guide. |[Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Complete part two of Enabling device writeback in Azure AD Connect. After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## [Optional] Part 4: Enable multi-factor authentication
-We strongly recommended that you configure one of the several options for multi-factor authentication. If you want to require multi-factor authentication, see [Choose the multi-factor security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, as well as links to help you configure the solution of your choice.
+We strongly recommended that you configure one of the several options for multi-factor authentication. If you want to require multi-factor authentication, see [Choose the multi-factor security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
 
 ## Part 5: Verification
 The deployment is now complete, and you can try out some scenarios. Use the following to experiment with the service and become familiar with its features.
@@ -91,7 +91,7 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 | Join some devices to your workplace by using Azure Active Directory device registration service. You can join iOS, Windows, and Android devices. |[Join devices to your workplace using Azure Active Directory device registration service](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | View and enable/disable registered devices by using the administrator portal. In this task, you view some registered devices by using the administrator portal. |[Azure Active Directory device registration service overview](active-directory-device-registration-get-started.md) |
 | Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory. |[Verify registered devices are written-back to Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
-| Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task, you create an application access rule and a custom access-denied message. |[Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
+| Now that users can register their devices, you can create application access polices in AD FS that allows only registered devices. In this task, you create an application access rule and a custom access-denied message. |[Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## Integrate Azure Active Directory with on-premises Active Directory
 This step helps you integrate your Azure AD tenant with your on-premises Active Directory using Azure AD Connect. Although the steps are available in the Azure classic portal, make note of any special instructions listed in this section.
@@ -100,7 +100,7 @@ This step helps you integrate your Azure AD tenant with your on-premises Active 
 2. On the left pane, select **Active Directory**.
 3. On the **Directory** tab, select your directory.
 4. Select the **Directory Integration** tab.
-5. Under the **deploy and manage** section, follow steps one through three to integrate Azure Active Directory with your on-premises directory.
+5. Under the **deploy and manage** section, follow steps 1 through 3 to integrate Azure Active Directory with your on-premises directory.
    
    1. Add domains.
    2. Install and run Azure AD Connect by using the instructions at [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
@@ -110,7 +110,7 @@ This step helps you integrate your Azure AD tenant with your on-premises Active 
 
 ## Upgrade your Active Directory Domain Services schema
 > [!NOTE]
-> After you upgrade your Active Directory schema, the process cannot be reversed. We recommend that you first perform this in a test environment.
+> After you upgrade your Active Directory schema, the process cannot be reversed. We recommend that you first perform the upgrade in a test environment.
 > 
 
 1. Sign in to your domain controller with an account that has both enterprise administrator and schema administrator rights.
@@ -137,7 +137,7 @@ This step helps you integrate your Azure AD tenant with your on-premises Active 
 
 3. Check **Enable device authentication**, and then select**OK**.
 
-4. By default, AD FS periodically removes unused devices from Active Directory. You must disable this task when using Azure Active Directory device registration service so that devices can be managed in Azure.
+4. By default, AD FS periodically removes unused devices from Active Directory. Disable this task when you're using Azure Active Directory device registration service so that devices can be managed in Azure.
 
 ### Disable unused device cleanup
 On your federation server, open a Windows PowerShell command window, and then type **Set-AdfsDeviceRegistration -MaximumInactiveDays 0**.
@@ -148,7 +148,7 @@ Complete part 1: Prepare Azure AD Connect.
 ## Join devices to your workplace by using Azure Active Directory device registration service
 
 ### Join an iOS device using Azure Active Directory device registration
-Azure Active Directory device registration uses the Over-the-Air Profile enrollment process for iOS devices. This process begins with the user connecting to the profile enrollment URL by using the Safari web browser. The URL format is as follows:
+Azure Active Directory device registration uses the Over-the-Air Profile enrollment process for iOS devices. This process begins when the user connects to the profile enrollment URL with Safari. The URL format is as follows:
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/"yourdomainname"
 
@@ -156,7 +156,7 @@ In this case, `yourdomainname` is the domain name that you configured with Azure
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-There are many different ways to communicate this URL to your users. For example, one method we recommend is publishing this URL in a custom application access-denied message in AD FS. This is covered in the upcoming section [Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message).
+There are many different ways to communicate this URL to your users. For example, one method we recommend is publishing this URL in a custom application access-denied message in AD FS. This information is covered in the upcoming section [Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message).
 
 ### Join a Windows 8.1 device by using Azure Active Directory device registration
 1. On your Windows 8.1 device, select **PC Settings** > **Network** > **Workplace**.
@@ -165,10 +165,10 @@ There are many different ways to communicate this URL to your users. For example
 
 3. Select **Join**.
 
-4. When prompted, sign-in with your credentials. The device is now joined.
+4. When prompted, sign in with your credentials. The device is now joined.
 
 ### Join a Windows 7 device by using Azure Active Directory device registration
-To register Windows 7 domain joined devices you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7 and is available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). 
+To register Windows 7 domain joined devices, you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7 and is available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). 
 
 Instructions about how to use the package are available in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
@@ -208,7 +208,7 @@ The following steps show you how to implement this scenario.
 
 9. Select **Finish**, and then select **Apply**.
 
-10. Remove any rules that are more permissive than the rule you just created. For example, remove the default rule **Permit Access to all Users**.
+10. Remove any rules that are more permissive than the rule you created. For example, remove the default rule **Permit Access to all Users**.
 
 Your application is now configured to allow access only when the user is coming from a device that they registered and joined to the workplace. For more advanced access polices, see [Manage Risk with Additional Multi-Factor Authentication for Sensitive Applications](https://technet.microsoft.com/library/dn280949.aspx).
 
@@ -231,8 +231,8 @@ Where "**relying party trust name**" is the name of your application's Relying P
 Where **yourdomain.com** is the domain name that you have configured with Azure Active Directory. For example, contoso.com.
 Be sure to remove any line breaks (if any) from the html content that you pass to the **Set-AdfsRelyingPartyWebContent** cmdlet.
 
-Now when users access your application from a device that is not registered with the Azure Active Directory device registration service, they receive a page that looks similar to the screenshot below.
+Now when users access your application from a device that's not registered with the Azure Active Directory device registration service, they see a page that looks similar to the following screenshot.
 
-![Screeshot of an error when users haven't registered their device with Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
+![Screenshot of an error when users haven't registered their device with Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
 
