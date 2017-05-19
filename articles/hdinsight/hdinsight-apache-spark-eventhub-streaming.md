@@ -56,7 +56,7 @@ In this article, to create a Spark streaming example, perform the following step
 
 2. Click **Internet of Things**, then click **Event Hubs**.
 
-    ![Create event hub](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub9.png)
+    ![Create event hub for Spark streaming example](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Create event hub for Spark streaming example")
 
 3. In the **Create namespace** blade, enter a namespace name. choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. Click **Create** to create the namespace.
 
