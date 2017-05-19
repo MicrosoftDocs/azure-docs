@@ -80,6 +80,16 @@
 ### [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Usage metering](logic-apps-pricing.md)
 
+# Serverless
+## Overview
+### [Serverless in Azure](logic-apps-serverless-overview.md)
+## Get Started
+### [Create a serverless app in Visual Studio](logic-apps-serverless-get-started-vs.md)
+## Scenarios and Walkthroughs
+### [Gather customer feedback](logic-apps-scenario-social-serverless.md)
+### [Send automated emails](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [B2B/EDI order processing](logic-apps-enterprise-integration-overview.md)
+
 # Reference
 ## [Workflow definition language](logic-apps-workflow-definition-language.md)
 ## [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md)

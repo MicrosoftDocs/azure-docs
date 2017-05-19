@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/16/2017
 ms.author: jingwang
 
 ---
@@ -109,7 +109,7 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
 The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, 8, 16, 32. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
 
 > [!NOTE]
-> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP to Blob storage/Data Lake Store/Azure SQL Database**.
+> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to Blob storage/Data Lake Store/Azure SQL Database**.
 >
 >
 
@@ -303,12 +303,12 @@ If you are copying data from **Blob storage** to **SQL Data Warehouse**, conside
 * For **on-premises relational databases** like SQL Server and Oracle, which require the use of **Data Management Gateway**, see the [Considerations for Data Management Gateway](#considerations-for-data-management-gateway) section.
 
 ### NoSQL stores
-*(Includes Table storage and Azure DocumentDB)*
+*(Includes Table storage and Azure Cosmos DB )*
 
 * For **Table storage**:
   * **Partition**: Writing data to interleaved partitions dramatically degrades performance. Sort your source data by partition key so that the data is inserted efficiently into one partition after another, or adjust the logic to write the data to a single partition.
-* For **DocumentDB**:
-  * **Batch size**: The **writeBatchSize** property sets the number of parallel requests to the DocumentDB service to create documents. You can expect better performance when you increase **writeBatchSize** because more parallel requests are sent to DocumentDB. However, watch for throttling when you write to DocumentDB (the error message is "Request rate is large"). Various factors can cause throttling, including document size, the number of terms in the documents, and the target collection's indexing policy. To achieve higher copy throughput, consider using a better collection, for example, S3.
+* For **Azure Cosmos DB**:
+  * **Batch size**: The **writeBatchSize** property sets the number of parallel requests to the Azure Cosmos DB service to create documents. You can expect better performance when you increase **writeBatchSize** because more parallel requests are sent to Azure Cosmos DB. However, watch for throttling when you write to Azure Cosmos DB (the error message is "Request rate is large"). Various factors can cause throttling, including document size, the number of terms in the documents, and the target collection's indexing policy. To achieve higher copy throughput, consider using a better collection, for example, S3.
 
 ## Considerations for serialization and deserialization
 Serialization and deserialization can occur when your input data set or output data set is a file. See [Supported file and compression formats](data-factory-supported-file-and-compression-formats.md) with details on supported file formats by Copy Activity.
@@ -335,7 +335,7 @@ When your input or output data set is a file, you can set Copy Activity to perfo
 ## Considerations for column mapping
 You can set the **columnMappings** property in Copy Activity to map all or a subset of the input columns to the output columns. After the data movement service reads the data from the source, it needs to perform column mapping on the data before it writes the data to the sink. This extra processing reduces copy throughput.
 
-If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or DocumentDB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
+If your source data store is queryable, for example, if it's a relational store like SQL Database or SQL Server, or if it's a NoSQL store like Table storage or Azure Cosmos DB, consider pushing the column filtering and reordering logic to the **query** property instead of using column mapping. This way, the projection occurs while the data movement service reads data from the source data store, where it is much more efficient.
 
 ## Considerations for Data Management Gateway
 For Gateway setup recommendations, see [Considerations for using Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
@@ -403,6 +403,6 @@ Here are performance monitoring and tuning references for some of the supported 
 * Azure Storage (including Blob storage and Table storage): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../storage/storage-performance-checklist.md)
 * Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
 * Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure DocumentDB: [Performance levels in DocumentDB](../documentdb/documentdb-performance-levels.md)
+* Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)
 * On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
 * On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)

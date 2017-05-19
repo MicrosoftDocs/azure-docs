@@ -18,12 +18,12 @@ ms.author: darosa;sethm
 
 ---
 # Azure Event Hubs Archive
-Azure Event Hubs Archive enables you to automatically deliver the streaming data in Event Hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-what-is-event-hubs.md#capacity). Event Hubs Archive is the easiest way to load streaming data into Azure and enables you to focus on data processing rather than on data capture.
+Azure Event Hubs Archive enables you to automatically deliver the streaming data in Event Hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is fast, there are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-features.md#capacity). Event Hubs Archive is the easiest way to load streaming data into Azure and enables you to focus on data processing rather than on data capture.
 
 Event Hubs Archive enables you to process real-time and batch-based pipelines on the same stream. This enables you to build solutions that can grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Archive makes working with streaming data easier.
 
 ## How Event Hubs Archive works
-Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scaling in Event Hubs is the [partitioned consumer model](event-hubs-what-is-event-hubs.md#partitions). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given event hub never gets "too full."
+Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scaling in Event Hubs is the [partitioned consumer model](event-hubs-features.md#partitions). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given event hub never gets "too full."
 
 Event Hubs Archive enables you to specify your own Azure Blob Storage account and Container which will be used to store the archived data. This account can be in the same region as your event hub or in another region, adding to the flexibility of the Event Hubs Archive feature.
 
@@ -37,7 +37,7 @@ Event Hubs Archive enables you to set up a "window" to control archiving. This w
 ```
 
 ### Scaling to throughput units
-Event Hubs traffic is controlled by [throughput units](event-hubs-what-is-event-hubs.md#capacity). A single throughput unit allows 1 MB per second or 1000 events per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units, and you can purchase more via a quota increase [support request][support request]. Usage beyond your purchased throughput units is throttled. Event Hubs Archive copies data directly from the internal Event Hubs storage, bypassing throughput unit egress quotas and saving your egress for other processing readers, such as Stream Analytics or Spark.
+Event Hubs traffic is controlled by [throughput units](event-hubs-features.md#capacity). A single throughput unit allows 1 MB per second or 1000 events per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units, and you can purchase more via a quota increase [support request][support request]. Usage beyond your purchased throughput units is throttled. Event Hubs Archive copies data directly from the internal Event Hubs storage, bypassing throughput unit egress quotas and saving your egress for other processing readers, such as Stream Analytics or Spark.
 
 Once configured, Event Hubs Archive runs automatically as soon as you send your first event. It continues running at all times. To make it easier to for your downstream processing to know that the process is working, Event Hubs writes empty files when there is no data. This provides a predictable cadence and marker that can feed your batch processors.
 

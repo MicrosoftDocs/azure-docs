@@ -1,6 +1,6 @@
 ---
-title: Azure network interface settings and tasks | Microsoft Docs
-description: Learn what network interfaces (NIC) are, how to create, configure, and delete NICs.
+title: Create, change, or delete Azure network interfaces | Microsoft Docs
+description: Learn what network interfaces (NIC) are and how to create, change settings, and delete them.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,9 +19,9 @@ ms.author: jdial
 
 ---
 
-# Network interface settings and tasks
+# Create, change, or delete network interfaces
 
-Learn how to create, change settings for, and delete a network interface (NIC). A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. When creating a VM using the Azure portal, the portal creates one NIC with default settings for you. You may instead choose to create NICs with custom settings and add one or more to VMs when you create them. You may also want to change default NIC settings for existing NICs. This article explains how to create NICs with custom settings, and change existing NIC settings, such as network filter assignment (network security groups), subnet assignment, DNS server settings, and IP forwarding. 
+Learn how to create, change settings for, and delete network interfaces (NIC). A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. When creating a VM using the Azure portal, the portal creates one NIC with default settings for you. You may instead choose to create NICs with custom settings and add one or more to VMs when you create them. You may also want to change default NIC settings for existing NICs. This article explains how to create NICs with custom settings, change existing NIC settings, such as network filter assignment (network security groups), subnet assignment, DNS server settings, and IP forwarding, and delete NICs. 
 
 If you need to add, change, or remove IP addresses for a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article. If you need to add NICs to, or remove NICs from VMs, read the [Add or remove NICs](virtual-network-network-interface-vm.md) article. 
 
@@ -182,7 +182,7 @@ To create a VM with multiple NICs or IP addresses, read the following articles:
 
 |Task|Tool|
 |---|---|
-|Create a VM with multiple NICs|[CLI](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-supporting-resources)|
-||[PowerShell](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-core-resources)|
+|Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IP addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
 ||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

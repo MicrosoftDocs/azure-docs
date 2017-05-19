@@ -1,5 +1,5 @@
 ---
-title: Analyze flight delay data with Hive on Linux-based HDInsight | Microsoft Docs
+title: Analyze flight delay data with Hive on HDInsight - Azure | Microsoft Docs
 description: Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/04/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using Sqoop.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ### Prerequisites
 
@@ -73,7 +73,7 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
     unzip FILENAME.zip
     ```
 
-    This command extracts a .csv file that is roughly 60 MB in size.
+    This command extracts a .csv file that is roughly 60 MB.
 
 4. Use the following command to create a directory on HDInsight storage, and then copy the file to the directory:
 
@@ -154,9 +154,9 @@ Use the following steps to import data from the CSV file into a Hive table named
     FROM delays_raw;
     ```
 
-2. Use **Ctrl + X**, then **Y** to save the file.
+2. To save the file, use **Ctrl + X**, then **Y** .
 
-3. Use the following command to start Hive and run the **flightdelays.hql** file:
+3. To start Hive and run the **flightdelays.hql** file, use the following command:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -191,7 +191,7 @@ Use the following steps to import data from the CSV file into a Hive table named
 
 If you already have a SQL Database, you must get the server name. You can find the server name in the [Azure portal](https://portal.azure.com) by selecting **SQL Databases**, and then filtering on the name of the database you wish to use. The server name is listed in the **SERVER** column.
 
-If you do not already have a SQL Database, use the information in [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md) to create one. You need to save the server name used for the database.
+If you do not already have a SQL Database, use the information in [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md) to create one. Save the server name used for the database.
 
 ## Create a SQL Database table
 
@@ -234,16 +234,16 @@ If you do not already have a SQL Database, use the information in [SQL Database 
     GO
     ```
 
-    When the `GO` statement is entered, the previous statements are evaluated. This creates a table named **delays**, with a clustered index.
+    When the `GO` statement is entered, the previous statements are evaluated. This query creates a table named **delays**, with a clustered index.
 
-    Use the following to verify that the table has been created:
+    Use the following query to verify that the table has been created:
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    The output is similar to the following:
+    The output is similar to the following text:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
