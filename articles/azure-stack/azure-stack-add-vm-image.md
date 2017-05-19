@@ -125,8 +125,8 @@ Remove-VMImage `
 | **CreateGalleryItem** |A Boolean flag that determines whether to create an item in Marketplace. The default is set to true. |
 | **title** |The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image. |
 | **description** |The description of the Marketplace item. |
-| **EnvironmentName** |The Azure Stack administrtor's PowerShell environment name. |
-| **azureStackCredentials** |The credentials provided during deployment that are used to login to the Azure Stack Administrator portal. |
+| **EnvironmentName** |The Azure Stack administrator's PowerShell environment name. |
+| **azureStackCredentials** |The credentials provided during deployment that are used to sign in to the Azure Stack Administrator portal. |
 | **location** |The location to which the VM image should be published. By default, this value is set to local.|
 | **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
 | **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
