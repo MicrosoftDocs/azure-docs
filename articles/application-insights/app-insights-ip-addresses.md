@@ -3,7 +3,7 @@ title: IP addresses used by Application Insights | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358

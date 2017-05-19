@@ -105,6 +105,8 @@ Given these availability considerations, in these scenarios you might choose one
 - Retry (retry the messages as you see fit)
 - [Dead letter](../service-bus-messaging/service-bus-dead-letter-queues.md) (use a queue or another event hub to dead letter only the messages you couldn’t process)
 
+For more information and a discussion about the trade-offs between availability and consistency, see [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md). 
+
 ## Batch event send operations
 Sending events in batches can dramatically increase throughput. The [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) method takes an **IEnumerable** parameter of type [EventData][] and sends the entire batch as an atomic operation to the event hub.
 
@@ -182,6 +184,7 @@ To learn more about Event Hubs scenarios, visit these links:
 
 * [Event Hubs API overview](event-hubs-api-overview.md)
 * [What is Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event processor host API reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager

@@ -3,7 +3,7 @@ title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
