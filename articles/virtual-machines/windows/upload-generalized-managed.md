@@ -25,22 +25,19 @@ This topic walks you through using PowerShell to upload a VHD of a generalized V
 
 Azure managed disks removes the need of managing [storage accounts](../../storage/storage-introduction.md) for Azure VMs. You only have specify the type [Premium](../../storage/storage-premium-storage-performance.md) or [Standard](../../storage/storage-standard-storage.md) and size of disk you need, and Azure will create and manage the disk for you. 
 
-If you want to use a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../samples/virtual-machines-windows-upload-generalized-script.md)
+If you want to use a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../scripts/virtual-machines-windows-upload-generalized-script.md)
 
-> [!IMPORTANT]
-> Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
->
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
->
->
+
 
 ## Before you begin
-If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
+- Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
+- Make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+    ```powershell
+    Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+    ```
+    For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 ## Generalize the Windows VM using Sysprep
@@ -78,7 +75,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Set the correct subscription using the subscription ID. Replace `<subscriptionID>` with the ID of the correct subscription.
+3. Set the correct subscription using the subscription ID. Replace *<subscriptionID>* with the ID of the correct subscription.
    
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
@@ -128,7 +125,7 @@ If you need to create a storage account, follow these steps:
 
 ## Upload the VHD to your storage account
 
-Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the VHD to a container in your storage account. This example uploads the file *myVHD.vhd* from *"C:\Users\Public\Documents\Virtual hard disks\"* to a storage account named *mystorageaccount* in the *myResourceGroup* resource group. The file will be placed into the container named *mycontainer* and the new file name will be *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -194,7 +191,7 @@ Create a managed image using your generalized OS VHD.
 
 ## Setup some variables for the image
 
-First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West Central US** location. 
+First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named *myImage* that is in the *myResourceGroup* resource group in the **West Central US* location. 
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -206,13 +203,13 @@ $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ## Create a virtual network
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
-1. Create the subnet. This example creates a subnet named **mySubnet** with the address prefix of **10.0.0.0/24**.  
+1. Create the subnet. This example creates a subnet named *mySubnet* with the address prefix of *10.0.0.0/24*.  
    
     ```powershell
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Create the virtual network. This example creates a virtual network named **myVnet** with the address prefix of **10.0.0.0/16**.  
+2. Create the virtual network. This example creates a virtual network named *myVnet* with the address prefix of *10.0.0.0/16*.  
    
     ```powershell
     $vnetName = "myVnet"
@@ -224,7 +221,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
 
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-1. Create a public IP address. This example creates a public IP address named **myPip**. 
+1. Create a public IP address. This example creates a public IP address named *myPip*. 
    
     ```powershell
     $ipName = "myPip"
@@ -243,7 +240,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 To be able to log in to your VM using RDP, you need to have a network security rule (NSG) that allows RDP access on port 3389. 
 
-This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This example creates an NSG named *myNsg* that contains a rule called *myRdpRule* that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -277,13 +274,13 @@ $cred = Get-Credential
 
 ## Set variables for the VM name, computer name and the size of the VM
 
-1. Create variables for the VM name and computer name. This example sets the VM name as **myVM** and the computer name as **myComputer**.
+1. Create variables for the VM name and computer name. This example sets the VM name as *myVM* and the computer name as *myComputer*.
 
     ```powershell
     $vmName = "myVM"
 	$computerName = "myComputer"
     ```
-2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) documentation for more information.
+2. Set the size of the virtual machine. This example creates *Standard_DS1_v2* sized VM. See the [VM sizes](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) documentation for more information.
 
     ```powershell
     $vmSize = "Standard_DS1_v2"
@@ -305,7 +302,7 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 
 ## Set the OS configuration and add the NIC.
 
-Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to **PremiumLRS**, the disk size to **128 GB** and disk caching to **ReadWrite**.
+Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to *PremiumLRS*, the disk size to *128 GB* and disk caching to *ReadWrite*.
 
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `

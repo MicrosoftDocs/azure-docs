@@ -50,7 +50,8 @@ $vmName = 'myVM'
 $computerName = 'myComputerName'
 $vmSize = 'Standard_DS1_v2'
 
-# Get the username and password to be used for the administrators account on the VM. This is used when connecting to the VM using RDP
+# Get the username and password to be used for the administrators account on the VM. 
+# This is used when connecting to the VM using RDP.
 
 $cred = Get-Credential
 
@@ -59,20 +60,23 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount -Location $location `
 	-SkuName $storageType -Kind "Storage"
 $urlOfUploadedImageVhd = ('https://' + $storageaccount + '.blob.core.windows.net/' + $containername + '/' + $vhdName)
-Add-AzureRmVhd -ResourceGroupName $resourceGroup -Destination $urlOfUploadedImageVhd -LocalFilePath $localPath
+Add-AzureRmVhd -ResourceGroupName $resourceGroup -Destination $urlOfUploadedImageVhd `
+    -LocalFilePath $localPath
 
 # Note: Uploading the VHD may take awhile!
 
 # Create a managed image from the uploaded VHD 
 $imageConfig = New-AzureRmImageConfig -Location $location
-$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
+$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized `
+    -BlobUri $urlOfUploadedImageVhd
 $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $resourceGroup -Image $imageConfig
  
 # Create the networking resources
 $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location `
 	-AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location -AllocationMethod Dynamic
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location `
+    -AllocationMethod Dynamic
 $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
 	-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
