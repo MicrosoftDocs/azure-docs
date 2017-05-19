@@ -63,7 +63,7 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
     ```nodejs
     const client = Gremlin.createClient(
         443, 
-        "https://<fillme>.graphs.azure.com", 
+        "<fillme>.graphs.azure.com", 
         { 
             "session": false, 
             "ssl": true, 
