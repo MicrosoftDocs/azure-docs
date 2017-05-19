@@ -283,12 +283,12 @@ In this section, you create a Java console app that simulates a device. The app 
 1. To implement a callback handler for device twin status events, add the following nested class to the **App** class:
 
     ```java
-    protected static class DirectMethodStatusCallback implements IotHubEventCallback
+    protected static class DeviceTwinStatusCallback implements IotHubEventCallback
     {
-      public void execute(IotHubStatusCode status, Object context)
-      {
-        System.out.println("IoT Hub responded to device method operation with status " + status.name());
-      }
+        public void execute(IotHubStatusCode status, Object context)
+        {
+            System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
     }
     ```
 
