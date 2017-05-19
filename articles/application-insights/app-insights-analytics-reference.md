@@ -3113,7 +3113,7 @@ To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON str
 * `parsejson('21')` - a single value of dynamic type containing a number
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 
-> ![NOTE]
+> [!NOTE]
 > Double-quotes (`"`) must be used to enclose labels and string values in JSON. Therefore, it is generally easier to quote a JSON-encoded string literals using single-quotes (`'`).
 > 
 
