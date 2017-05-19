@@ -260,31 +260,31 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
 ## Add the vCenter Server to Azure Backup Server
 
-To open the Production Server Addition wizard
+To open Production Server Addition Wizard
 
-1. In the Azure Backup Server console, click **Management**, click **Production Server**, and then click **Add**.
+1. In the Azure Backup Server console, click **Management**, click **Production Servers**, and then click **Add**.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
+    ![Open Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-  The Production Server Addition Wizard appears.
+    The Production Server Addition Wizard appears.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
+    ![Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-2. On the Select Production Server type screen, select **VMware Servers**, and then click **Next**.
+2. On the **Select Production Server type** screen, select **VMware Servers**, and then click **Next**.
 
-3. In the Server Name/IP address, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all the ESXi servers are managed by the same vCenter, you can use the vCenter name .
+3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all of the ESXi servers are managed by the same vCenter, you can use the vCenter name.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
+    ![Specify VMware server FQDN or IP address](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
-4. In the **SSL Port** dialog box, enter the port used to communicate with the VMware server. Use port 443, which is the default port, unless you know that a different port is required.
+4. In **SSL Port**, enter the port that is used to communicate with the VMware server. Use port 443, which is the default port, unless you know that a different port is required.
 
-5. In the **Specify Credential** dialog box, select the credential you created.
+5. In **Specify Credential**, select the credential that you created earlier.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/identify-creds.png)
+    ![Specify credential](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Click **Add** to add the VMware server to the list of **Added VMware Servers**, and click **Next** to move to the next screen in the wizard.
+6. Click **Add** to add the VMware server to the list of **Added VMware Servers**, and then click **Next** to move to the next screen in the wizard.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
+    ![Add VMWare server and credential](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
 7. In the **Tasks** screen, click **Add** to add the specified VMware server to Azure Backup Server.
 
