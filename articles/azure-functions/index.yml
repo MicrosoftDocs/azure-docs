@@ -2,6 +2,7 @@
 documentType: LandingData
 title: Azure Functions Documentation
 metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
   title: Azure Functions Documentation - Tutorials | Microsoft Docs
   meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
@@ -35,7 +36,7 @@ sections:
     - image: 
         src: media/index/http.svg
       text: HTTP
-      href: /azure/azure-functions/functions-create-an-azure-connected-function
+      href: /azure/azure-functions/functions-create-first-azure-function
     - image: 
         src: media/index/stopwatch.svg
       text: Timer
@@ -59,7 +60,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
 - title: Samples
   items:

@@ -3,7 +3,7 @@ title: Reference for Analytics in Azure Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Reference for Analytics
