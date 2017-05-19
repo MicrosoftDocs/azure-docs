@@ -1,5 +1,5 @@
 ---
-title: Token Based (HTTP/2) Authentication for APNS in Azure Notification Hubs | Microsoft Docs
+title: Token-based (HTTP/2) Authentication for APNS in Azure Notification Hubs | Microsoft Docs
 description: This topic explains how to leverage the new token authentication for APNS
 services: notification-hubs
 documentationcenter: .net
@@ -16,7 +16,7 @@ ms.date: 05/17/2017
 ms.author: kapiteir
 
 ---
-# Token Based (HTTP/2) Authentication for APNS
+# Token-based (HTTP/2) Authentication for APNS
 ## Overview
 This article details how to use the new APNS HTTP/2 protocol with token based authentication.
 
@@ -38,7 +38,7 @@ Note that if you migrated from using certificate credentials for APNS:
 - but your application continues to receive notifications seamlessly.
 
 ## Obtaining authentication information from Apple
-To enable token based authentication, you need the following properties from your Apple Developer Account:
+To enable token-based authentication, you need the following properties from your Apple Developer Account:
 ### Key Identifier
 The key identifier can be obtained from the APNs "Auth Key" page in your Apple Developer Account
 
@@ -65,13 +65,12 @@ There is a new property – *Authentication Mode*. Selecting Token allows you to
 
 ### Configure via Management API (REST)
 
-You can use our [management APIs](https://msdn.microsoft.com/library/azure/dn495827.aspx) to update your notification hub to use token based authentication.
+You can use our [management APIs](https://msdn.microsoft.com/library/azure/dn495827.aspx) to update your notification hub to use token-based authentication.
 Depending on whether the application you’re configuring is a Sandbox or Production app (specified in your Apple Developer Account), use one of the corresponding endpoints:
 
 - Sandbox Endpoint: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
 - Production Endpoint: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
-Important note: Token-based authentication requires an API version of: 2017-04 or later
 > [!IMPORTANT]
 > Token-based authentication requires an API version of: **2017-04 or later**.
 > 

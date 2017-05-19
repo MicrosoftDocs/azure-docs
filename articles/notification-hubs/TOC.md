@@ -44,7 +44,7 @@
 
 ## Manage
 ### [Registrations](notification-hubs-push-notification-registration-management.md)
-### [APNS Token-based auth](notification-hubs-push-notification-http2-token-authentification.md)
+### [APNS token-based auth](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Secure](notification-hubs-push-notification-security.md)
 ### Secure push
