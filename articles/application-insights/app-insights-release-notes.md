@@ -3,7 +3,7 @@ title: Release notes for Azure Application Insights | Microsoft Docs
 description: The latest updates for Application Insights SDKs.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 9cd2ecdb-c2b9-4e4a-b6aa-beb0c2ca4ffc
