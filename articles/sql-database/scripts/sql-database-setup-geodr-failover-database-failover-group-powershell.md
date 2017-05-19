@@ -25,7 +25,7 @@ This sample PowerShell script configures an active geo-replication failover grou
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## Sample Scripts
+## Sample scripts
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1 "Set up failover group for single database")]
 
