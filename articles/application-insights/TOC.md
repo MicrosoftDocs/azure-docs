@@ -139,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [Data access API](https://dev.applicationinsights.io/)
 ## [Data model](application-insights-data-model.md)
 ### [Request](application-insights-data-model-request-telemetry.md)
 ### [Dependency](application-insights-data-model-dependency-telemetry.md)
