@@ -1,6 +1,6 @@
 ---
 title: Setting up on-premises conditional access using Azure Active Directory device registration | Microsoft Docs
-description: A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.
+description: A step-by-step guide to enabling conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
