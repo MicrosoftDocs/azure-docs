@@ -27,7 +27,7 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 Update 0.6 corresponds to the software version **10.0.10293.0**.
 
-> [!NOTE]
+> [!IMPORTANT]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 0.6](storsimple-virtual-array-install-update-06.md).
 >
 > - We strongly recommend that you install Update 0.6 immediately as it contains critical security fixes.
