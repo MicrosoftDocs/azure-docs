@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/10/2017
+ms.date: 05/19/2017
 ms.author: ramankum
 ---
 
@@ -29,16 +29,16 @@ This script exports a managed snapshot to a storage account in different region.
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/storage/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh "Copy managed disk")]
+[!code-azurecli[main](../../../cli_scripts/storage/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh "Copy snapshot")]
 
 
 ## Script explanation
 
-This script uses following commands to create a new managed disk in the target subscription using the Id of the source managed disk. Each command in the table links to command specific documentation.
+This script uses following commands to generate SAS URI for a managed snapshot and copies the snapshot to a storage account using SAS URI. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#grant-access) | Grants read access to a snapshot and generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
+| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#grant-access) | Generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
 | [az storage blob copy start](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#start) | 
 Copies a blob asynchronously from one storage account to another   |
 
