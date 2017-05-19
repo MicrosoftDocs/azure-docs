@@ -25,7 +25,7 @@ you can use in logic app workflows, you might want to call APIs, systems, and se
 that aren't available as connectors. You can create your own web APIs and REST APIs 
 that provide actions and triggers to use in logic apps.
 
-Other reasons for creating custom APIs to use as connectors:
+Other reasons for creating custom APIs that you can use as connectors:
 
 * Extend your current system integration and data integration workflows.
 * Help customers manage their professional or personal tasks around your service.

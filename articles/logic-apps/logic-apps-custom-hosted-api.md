@@ -1,6 +1,6 @@
 ---
-title: Deploy and call web APIs & REST APIs as connectors for Azure Logic Apps | Microsoft Docs
-description: Deploy, secure, and call web APIs & REST APIs as connectors in workflows for system integrations with Azure Logic Apps
+title: Deploy and call web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
+description: Deploy, secure, and call web APIs & REST APIs in workflows for system integrations with Azure Logic Apps
 keywords: web APIs, REST APIs, connectors, workflows, system integrations
 services: logic-apps
 author: stepsic-microsoft-com
@@ -18,7 +18,7 @@ ms.date: 05/26/2017
 ms.author: LADocs; stepsic
 ---
 
-# Deploy, call, and secure custom APIs as connectors for logic apps
+# Deploy, call, and secure custom APIs for logic apps
 
 After you [create custom APIs](./logic-apps-create-api-app.md) 
 that provide actions or triggers to use in logic apps workflows, 
