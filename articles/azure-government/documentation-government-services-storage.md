@@ -25,7 +25,7 @@ For details on this service and how to use it, see [Azure Storage public documen
 ![alt text](./media/documentation-government-services-storage.PNG)
 
 > [!NOTE]
-> US Gov Virginia secondary region is US Gov Texas. Previously US Gov Virginia utlized US Gov Iowa as a secondary region. US Gov Virginia storage accounts still leveraging US Gov Iowa as a secondary region will be migrated to US Gov Texas.
+> US Gov Virginia secondary region is US Gov Texas. Previously US Gov Virginia utilized US Gov Iowa as a secondary region. US Gov Virginia storage accounts still leveraging US Gov Iowa as a secondary region will be migrated to US Gov Texas.
 >
 >
 
@@ -59,11 +59,11 @@ The URLs for storage accounts in Azure Government are different:
 | File Storage |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
-> All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
 >
 >
 
-For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
+For more information on APIs, see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
 
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
@@ -73,7 +73,7 @@ The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 >
 
 > [!NOTE]
-> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md) and for StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to Deploy section from left navigation. For general StorSimple documentation, see [What is StorSimple?] (../storsimple/index.md).
+> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements] (../storsimple/storsimple-ova-system-requirements.md) and for StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements] (../storsimple/storsimple-system-requirements.md) and go to Deploy section from left navigation. For more information on StorSimple, please see the [StorSimple Documentation] (../storsimple/index.md).
 >
 >
 
