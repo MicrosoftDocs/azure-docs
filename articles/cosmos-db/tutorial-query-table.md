@@ -35,7 +35,7 @@ The queries in this article use the following sample `People` table:
 | PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
-| Smith | Walter | Ben@contoso.com| 425-555-0102 |
+| Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
 ## About the Table API (preview)

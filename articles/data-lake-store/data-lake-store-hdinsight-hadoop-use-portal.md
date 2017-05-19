@@ -32,13 +32,11 @@ When you use Data Lake Store as additional storage, the default storage account 
 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
-* The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
+* The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5 and 3.6.
 
 * The option to create HDInsight clusters with access to Data Lake Store as default storage is *not available* for HDInsight Premium clusters.
 
-* The option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
-
-* For HBase clusters (Windows and Linux), Data Lake Store is *not supported* as a storage option for either default or additional storage.
+* The option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, 3.5, and 3.6.
 
 * For Storm clusters (Windows and Linux), you can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology. For more information, see [Use Data Lake Store in a Storm topology](#use-data-lake-store-in-a-storm-topology).
 
@@ -62,7 +60,7 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 ### Create a cluster with Data Lake Store as default storage
 
 >[!NOTE]
->You can use this option only with HDInsight 3.5 clusters (Standard edition). Within HDInsight 3.5 clusters, this option is not available for the HBase cluster type.
+>You can use this option only with HDInsight 3.5 and 3.6 clusters (Standard edition).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
