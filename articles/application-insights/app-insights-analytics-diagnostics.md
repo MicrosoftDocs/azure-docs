@@ -3,7 +3,7 @@ title: Smart diagnostics of web app performance changes in Azure Application Ins
 description: Automatic diagnosis of spikes or steps in performance telemetry from your web app.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.service: application-insights

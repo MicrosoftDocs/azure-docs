@@ -24,8 +24,6 @@ Learn how to create a function triggered when messages are submitted to an Azure
 
 ![View message in the logs.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-It should take you less than five minutes to complete all the steps in this topic.
-
 ## Prerequisites
 
 Before running this sample, you must have performed the following:
