@@ -40,7 +40,7 @@ The basic flow of a user request is as follows:
 
 ## Frequently asked questions
 
-### Q: How much more does Azure Storage cost if SSE is enabled?
+### Q: How much more does Azure Storage cost if Storage Service Encryption is enabled?
 A: There is no additional cost.
 
 ### Q: Who manages the encryption keys?
