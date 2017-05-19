@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 05/19/2017
 ms.author: mikhegn
 ---
 
@@ -25,9 +25,10 @@ This tutorial shows you how to deploy an existing ASP.NET application in a Windo
 
 1. Install [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
 2. Familiarize yourself with the [Windows 10 Containers quickstart][link-container-quickstart].
-3. For this article, we use **Fabrikam Fiber**, a sample app you can download [here][link-fabrikam-github].
+3. For this tutorial, we use **Fabrikam Fiber CallCenter**, a sample app you can download [here][link-fabrikam-github].
 4. [Azure PowerShell][link-azure-powershell-install]
 5. [Continuous Delivery Tools extension for Visual Studio 2017][link-visualstudio-cd-extension]
+6. An [Azure subscription][link-azure-subscription] and a [Visual Studio Team Services account][link-vsts-account]. You can go through this tutorial using free tiers of all services.
 
 >[!NOTE]
 >If this is the first time you are running Windows container images on your computer, Docker CE must pull down the base images for your containers. The images used in this tutorial are 14GB in size. Go ahead and run the following command in Powershell to pull the base images:
@@ -48,8 +49,8 @@ More info on working with [Visual Studio Container Tools][link-visualstudio-cont
 
 ### Add support for SQL
 
-This application uses SQL as the data provider, so a SQL Server is required to run the application. We use SQL Server running in a container in this tutorial.
-To tell Docker that we want to run a SQL Server in a container, we can reference a SQL Server container image in our docker-compose.override.yml file in the docker-compose project. That way the SQL Server running in the container is used when debugging the application in Visual Studio.
+This application uses SQL as the data provider, so a SQL Server is required to run the application. In this tutorial, we use SQL Server running in a container for local debugging.
+To tell Docker that we want to run a SQL Server in a container, when debugging in Visual Studio, we can reference a SQL Server container image in our docker-compose.override.yml file in the docker-compose project.
 
 1. Open **Solution Explorer**.
 
@@ -74,16 +75,13 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
    >[!NOTE]
    >You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication.
 
-   >[!NOTE]
-   >If you always want to run your SQL Server in a container, you can choose to add the preceding to the docker-compose.yml file instead of the docker-compose.override.yml file.
-
+   >[!WARNING]
+   >Running SQL Server in a container does not support persisting data, when the container stops. Do not use this configuration for production.
 
 4. Modify the `fabrikamfiber.web` node, add a new child node named `depends_on:`. This ensures that the `db` service (the SQL Server container) starts before our web application (fabrikamfiber.web).
 
    ```yml
      fabrikamfiber.web:
-       ports:
-         - "80"
        depends_on:
          - db
    ```
@@ -92,7 +90,6 @@ To tell Docker that we want to run a SQL Server in a container, we can reference
 
    ```xml
    <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
-   
    <add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
    ```
 
@@ -114,20 +111,25 @@ For the remainder of this tutorial, you are using Visual Studio Team Services to
 If you already have a Service Fabric cluster to deploy your application to, you can skip this step. Otherwise, let us go ahead and create a Service Fabric Cluster.
 
 >[!NOTE]
->The following procedure creates a Service Fabric cluster, secured by a self-signed certificate, that is placed in a KeyVault, created as part of the deployment. For more information on using Azure Active Directory authentication, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
+>The following procedure creates a Single node (single Virtual Machine) Preview Service Fabric cluster, secured by a self-signed certificate, that is placed in KeyVault.
+>Single node clusters cannot be scaled beyond one virtual machine and preview clusters cannot be upgraded to newer versions.
+>To calculate cost incurred by runnig a Service Fabric cluster in Azure use the [Azure Pricing Calculator][link-azure-pricing-calculator].
+>For more information on creating Service Fabric clusters, see the [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters] article.
 
-1. Download a local copy of the Azure template and parameters files referenced in the following.
-    * [Azure Resource Manager template for Service Fabric][link-sf-clustertemplate] - The Resource Manager template that defines a Service Fabric Cluster.
-    * [Template parameters file][link-sf-clustertemplate-parameters] - A parameters file for you to customize the cluster deployment.
+1. Download a local copy of the Azure Resource Manager template and the parameter file from this GitHub repository:
+    * [Azure Resource Manager template for Service Fabric][link-sf-clustertemplate]
+       - **azuredeploy.json** - The Resource Manager template that defines a Service Fabric Cluster.
+       - **azuredeploy.parameters.json** - A parameters file for you to customize the cluster deployment.
 2. Customize the following parameters in the parameters file:
   
-   | Parameter       | Description |
-   | --------------- | ----------- |
-   | clusterName     | Name of your cluster. |
-   | adminUserName   | The local admin account on the cluster virtual machines. |
-   | adminPassword   | Password of the local admin account on the cluster virtual machines. |
-   | clusterLocation | The Azure region to deploy the cluster to. |
-   | vmInstanceCount | The number of nodes in your cluster (can be 1) |
+   | Parameter       | Description | Suggested Value |
+   | --------------- | ----------- | --------------- |
+   | clusterLocation | The Azure region to deploy the cluster to. | *e.g. westeurope, eastasia, eastus* |
+   | clusterName     | Name of your cluster. | *e.g. bobs-sfpreviewcluster* |
+   | adminUserName   | The local admin account on the cluster virtual machines. | *Any valid Windows Server username* |
+   | adminPassword   | Password of the local admin account on the cluster virtual machines. | *Any valid Windows Server password* |
+   | clusterCodeVersion | The Service Fabric version to run. (255.255.X.255 are preview versions). | **255.255.5713.255** |
+   | vmInstanceCount | The number of virtual machines in your cluster (can be 1 or 3-99). | **1** |
 
 3. Open **PowerShell**.
 4. **Log in** to Azure.
@@ -151,13 +153,13 @@ If you already have a Service Fabric cluster to deploy your application to, you 
 7. **Create the cluster**, by running the following command:
 
    ```powershell
-   New-AzureRmServiceFabricCluster 
-       -TemplateFile C:\users\me\downloads\PreviewSecureClusters.json `
-       -ParameterFile C:\users\me\downloads\myCluster.parameters.json `
-       -CertificateOutputFolder C:\users\me\desktop\ `
-       -CertificatePassword $pwd `
-       -CertificateSubjectName "mycluster.westeurope.cloudapp.azure.com" `
-       -ResourceGroupName myclusterRG
+      New-AzureRmServiceFabricCluster
+          -TemplateFile C:\Users\me\Desktop\azuredeploy.json `
+          -ParameterFile C:\Users\me\Desktop\azuredeploy.parameters.json `
+          -CertificateOutputFolder C:\Users\me\Desktop\ `
+          -CertificatePassword $pwd `
+          -CertificateSubjectName "mycluster.westeurope.cloudapp.azure.com" `
+          -ResourceGroupName myclusterRG
    ```
 
    >[!NOTE]
@@ -165,7 +167,55 @@ If you already have a Service Fabric cluster to deploy your application to, you 
    
     Once the configuration finishes, it will output information about the cluster created in Azure, as well as copy the certificate to the -CertificateOutputFolder directory.
 
-8. **Double-click** the certificate to install it on your local machine.
+8. **Double-click** the certificate to open the Certificate Import Wizard.
+
+9. Use default settings, but make sure to check the **Mark this key as exportable.** check box, in the **private key protection** step. Visual Studio will need to export the certificate when configuring Azure Container Registry to Service Fabric Cluster authentication later in this tutorial.
+
+10. You can now open Service Fabric Explorer in a browser. The URL is the **ManagementEndpoint** in the output from the PowerShell CmdLet, e.g. *https://mycluster.westeurope.cloudapp.azure.com:19080* 
+
+>[!NOTE]
+>When opening Service Fabric Explorer, you will see a certificate error, as you are using a self-signed certificate. In Edge, you iwll have to click *Details* and then the *Go on to the webpage* link. In Chrome, you will have to click *Advanced* and then the *proceed* link.
+
+>[!NOTE]
+>If the cluster creation fails, you can always re-run the command, as this will update the resources already deployed. If a certificate was created as part of the failed deployment a new one wioll be generated. To troubleshoot cluster creation, go here: [Create a Service Fabric cluster by using Azure Resource Manager][link-servicefabric-create-secure-clusters]
+
+## Getting the Application Ready for the Cloud
+
+In order to get the application ready for running in Service Fabric in Azure, we need to complete two steps:
+
+1. Expose the port wher we want to be able to reach our web application in the Service Fabric cluster
+2. Provide a production ready SQL database for our application
+
+### 1. Exposing the web application in Service Fabric
+The Service Fabric cluster we have justconfigured, has port 80 open by default in the Azure Load Balancer, that balances incoming traffic to the cluster. We can expose our continer on this port via our docker-compose.yml file.
+
+1. Open **Solution Explorer**.
+
+2. Open **docker-compose** > **docker-compose.yml**.
+
+3. Modify the `fabrikamfiber.web` node, add a new child node named `ports:` and the string `- "80:80"`. The complete docker-compose.yml file should look like this:
+
+   ```yml
+      version: '3'
+
+      services:
+        fabrikamfiber.web:
+          image: fabrikamfiber.web
+          build:
+            context: .\FabrikamFiber.Web
+            dockerfile: Dockerfile
+          ports:
+            - "80:80"
+   ```
+
+### 2. Provide a production ready SQL database for our application
+When we containerized this application and enabled local debugging, we set it up to run SQL Server in a container. This can be a good solution when debugging your application locally, since we don’t require the database container to be actually persistent. When running in production however, we need our data to persist in our database. There is currently no way of guaranteeing persisting data in a container, therefore you cannot store production data in SQL Server in a container.
+
+As a result, if your service requires a persistent SQL Database, we recommend you utilize an Azure SQL Database. To set up and run a managed SQL Server in Azure look here: [Azure SQL Database Quickstarts][[link-azure-sql]]
+
+>[!NOTE]
+>Remember to change the conncetion strings to the SQL sevrer in the web.release.config file in the FabrikamFiber.Web project.
+>This application will fail gracefully if no SQL database is provided (i.e. static content is showed), so you can go ahead and deploy the application with no SQL server.
 
 ## Deploy with Visual Studio
 
@@ -205,9 +255,13 @@ Now that your code is synchronized with a VSTS source repository, you can config
 
    ![setup service fabric continuous integration][image-setup-ci]
    
-   Once the configuration is completed, your container will be deployed to Service Fabric whenever you push updates to the repository.
+   Once the configuration is completed, your container will be deployed to Service Fabric. Whenever you push updates to the repository a new build and release will be executed.
+   
+   >[!NOTE]
+   >Building the container images will take approx. 15 minutes.
+   >The first deployment to the Service Fabric cluster will cause the base Windows Server Core container images to be downloaded, this will take additional 5-10 minutes to complete.
 
-7. **Start a build** using **Team Explorer** and see your container application running in Service Fabric.
+7. Browse to the Fabrikam Call Center application using the url of you cluster: e.g. *http://mycluster.westeurope.cloudapp.azure.com*
 
 Now that you have containerized and deployed the Fabrikam Call Center solution, you can open the [Azure portal][link-azure-portal] and see the application running in Service Fabric. To try the application, open a web browser and go to the URL of your Service Fabric cluster.
 
@@ -228,7 +282,10 @@ Now that you have containerized and deployed the Fabrikam Call Center solution, 
 [link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio.md
 [link-azure-portal]: https://portal.azure.com
 [link-sf-clustertemplate]: https://aka.ms/securepreviewonelineclustertemplate
-[link-sf-clustertemplate-parameters]: https://aka.ms/securepreviewonelineclusterparameters
+[link-azure-pricing-calculator]: https://azure.microsoft.com/en-us/pricing/calculator/
+[link-azure-subscription]: https://azure.microsoft.com/en-us/free/
+[link-vsts-account]: https://www.visualstudio.com/team-services/pricing/
+[link-azure-sql]: /sql-database
 
 [image-web-preview]: media/service-fabric-host-app-in-a-container/fabrikam-web-sample.png
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
