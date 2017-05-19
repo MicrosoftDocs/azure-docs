@@ -44,26 +44,13 @@ After deploying the WTP app, explore the following tutorials that build upon the
 
 ## Application architecture
 
-The Wingtip SaaS app uses the database-per-tenant model, and uses SQL elastic pools to maximize efficiency.
-Use of a tenant catalog for provisioning management and connectivity.
-Integrated app, pool, and database monitoring, and alerting (OMS).
-Cross-tenant schema and reference data management (elastic database jobs).
-Cross-tenant query, operational analytics (elastic query).
-Using geo-distributed data for expanded reach.
-Business continuity
-    Single-tenant recovery (PITR)
-    DR at scale (geo-restore, geo-replication, auto-DR)
-Tenant self-service management (via management APIs)
-    PITR to recover from self-inflicted oops.
+The Wingtip SaaS app uses the database-per-tenant model, and uses SQL elastic pools to maximize efficiency. For provisioning and mapping tenants to their data, a catalog database is used. The core Wingtip SaaS application, uses a pool with three sample tenants, plus the catalog database. Completing many of the Wingtip SaaS tutorials result in add-ons to the intial deployment, by introducing analytic databases, cross-database schema management, etc.
 
-While the application is somewhat complete and compelling as a sample application, it is important to focus on the core SaaS patterns as they relate to the data tier. In other words, focus on the data tier, and don't over analyze the app itself. Understanding the implementation of these core SaaS patterns is key to implementing these patterns in your applications, while considering any necessary modifications for your specific business requirements.
-
-The core Wingtip SaaS application, uses a pool with three sample tenants, plus a catalog database.
 
 ![Wingtip SaaS architecture](media/sql-database-wtp-overview/app-architecture.png)
 
 
-
+While the application is somewhat complete and compelling as a sample application, it is important to focus on the core SaaS patterns as they relate to the data tier. In other words, focus on the data tier, and don't over analyze the app itself. Understanding the implementation of these core SaaS patterns is key to implementing these patterns in your applications, while considering any necessary modifications for your specific business requirements.
 
 ## Working with the Wingtip SaaS PowerShell Scripts
 
