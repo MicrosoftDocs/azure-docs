@@ -120,11 +120,10 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 ## Programmatically managing active geo-replication
 As discussed previously, auto-failover groups (in-preview) and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available.
 
-**Azure Resource Manager API and role-based security**: Active geo-replication includes a set of [Azure Resource Manager APIs](https://msdn.microsoft.com/library/azure/mt163571.aspx) for management, including [Azure Resource Manager-based PowerShell cmdlets](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+**Azure Resource Manager API and role-based security**: Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
 > Many new features of active geo-replication are only supported using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) based [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) and [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The [(classic) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) and [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility so using the Azure Resource Manager-based APIs are recommended. 
-> 
 > 
 
 ### Transact-SQL
@@ -154,6 +153,10 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 | [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Triggers failover of the failover group to the secondary server |
 |  | |
 
+> [!IMPORTANT]
+> For sample scripts see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), and  [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-and-failover-database-failover-group-powershell.md.
+>
+
 ### REST API
 | API | Description |
 | --- | --- |
@@ -174,9 +177,9 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 |  | |
 
 ## Next steps
+* For sample scripts see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), and  [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-and-failover-database-failover-group-powershell.md.
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 * To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
-* To learn about using automated backups for archiving, see [database copy](sql-database-copy.md).
 * To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
