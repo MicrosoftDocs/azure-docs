@@ -17,7 +17,7 @@ Azure Custom Decision Service helps you create intelligent systems with a cloud-
 
 In a typical application, a front page links to several articles or other types of content. As the front page loads, it requests Custom Decision Service to provide a ranking of articles to include on the page. When you click an article, a second request is sent to Custom Decision Service to log the outcome of the decision.
 
-Custom Decision Service is easy to use. The easiest integration mode requires only an RSS feed for your content and a few lines of JavaScript added into your application.
+Custom Decision Service is easy to use. The easiest integration mode requires only an RSS feed for your content and a few lines of JavaScript to be added into your application.
 
 Custom Decision Service converts your content into features for machine learning. The system uses these features to understand your content in terms of its text, images, videos, and overall sentiment. We leverage several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), such as
 [Entity Linking](../entitylinking/home.md),
