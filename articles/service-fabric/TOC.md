@@ -69,10 +69,9 @@
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Reliable Services lifecycle
-##### [Configure](service-fabric-reliable-services-configuration.md)
-##### [Send notifications](service-fabric-reliable-services-notifications.md)
-##### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
+#### [Configure](service-fabric-reliable-services-configuration.md)
+#### [Send notifications](service-fabric-reliable-services-notifications.md)
+#### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 
 #### Communicate with services
 ##### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
@@ -87,12 +86,12 @@
 ### Build a Reliable Actor service
 #### [Overview](service-fabric-reliable-actors-introduction.md)
 #### Concepts
-#### [Architecture](service-fabric-reliable-actors-platform.md)
-#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [State management](service-fabric-reliable-actors-state-management.md)
-#### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
-#### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
-#### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Architecture](service-fabric-reliable-actors-platform.md)
+##### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+##### [State management](service-fabric-reliable-actors-state-management.md)
+##### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
+##### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
+##### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
