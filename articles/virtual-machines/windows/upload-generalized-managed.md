@@ -168,15 +168,16 @@ You can also upload a VHD to your storage account using one of the following:
 
 ## Create a managed image from the uploaded VHD 
 
-Create a managed image using your generalized OS VHD.
+Create a managed image using your generalized OS VHD. Replace the values with your own information.
 
 
 1.  First, set the common parameters:
 
     ```powershell
-	$rgName = "myResourceGroupName"
 	$vmName = "myVM"
-	$location = "West Central US" 
+	$computerName = "myComputer"
+	$vmSize = "Standard_DS1_v2"
+	$location = "East US" 
 	$imageName = "yourImageName"
 	$osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
     ```
@@ -188,17 +189,6 @@ Create a managed image using your generalized OS VHD.
 	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
 	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
-
-## Setup some variables for the image
-
-First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named *myImage* that is in the *myResourceGroup* resource group in the **West Central US* location. 
-
-```powershell
-$rgName = "myResourceGroup"
-$location = "West Central US"
-$imageName = "myImage"
-$image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
-```
 
 ## Create a virtual network
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
@@ -272,21 +262,7 @@ The following cmdlet will open a window where you will enter a new user name and
 $cred = Get-Credential
 ```
 
-## Set variables for the VM name, computer name and the size of the VM
-
-1. Create variables for the VM name and computer name. This example sets the VM name as *myVM* and the computer name as *myComputer*.
-
-    ```powershell
-    $vmName = "myVM"
-	$computerName = "myComputer"
-    ```
-2. Set the size of the virtual machine. This example creates *Standard_DS1_v2* sized VM. See the [VM sizes](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) documentation for more information.
-
-    ```powershell
-    $vmSize = "Standard_DS1_v2"
-	```
-
-3. Add the VM name and size to the VM configuration.
+## Add the VM name and size to the VM configuration.
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
@@ -316,7 +292,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 ## Create the VM
 
-Create the new Vm using the configuration that we have built and stored in the **$vm** variable.
+Create the new VM using the configuration stored in the **$vm** variable.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
