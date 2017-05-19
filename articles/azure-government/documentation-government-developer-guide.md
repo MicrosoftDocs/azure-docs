@@ -70,6 +70,6 @@ For more information about Azure Government, see the following resources:
 
 * [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 * [Acquiring and accessing Azure Government](http://azure.com/gov)
-* [Azure Government Overview](/azure-government-overview)
+* [Azure Government Overview](/documentation-government-welcome)
 * [Azure Government Blog](http://blogs.msdn.microsoft.com/azuregov/)
 * [Azure Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
