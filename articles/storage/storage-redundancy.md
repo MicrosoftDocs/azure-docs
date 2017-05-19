@@ -106,7 +106,9 @@ When you create a storage account, you select the primary region for the account
 | India Central |India South |
 | India West |India South |
 | US Gov Iowa |US Gov Virginia |
-| US Gov Virginia |US Gov Iowa |
+| US Gov Virginia |US Gov Texas |
+| US Gov Texas |US Gov Arizona|
+| US Gov Arizona |US Gov Texas|
 | Canada Central |Canada East |
 | Canada East |Canada Central |
 | UK West |UK South |
