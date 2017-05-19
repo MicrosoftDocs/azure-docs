@@ -27,7 +27,7 @@ Application source code and management scripts are available in the [WingtipSaaS
 
 ## SQL Database Wingtip SaaS tutorials
 
-The following tutorials step through implementing common SaaS patterns by taking advantage of built-in features of SQL Database. Tutorials include reusable scripts, with detailed explanations that greatly simplify understanding, and implementing the same SaaS management patterns in your applications.
+After deploying the WTP app, explore the following tutorials that build upon the initial deployment. These tutorials step through implementing common SaaS patterns by taking advantage of built-in features of SQL Database. Tutorials include reusable scripts, with detailed explanations that greatly simplify understanding, and implementing the same SaaS management patterns in your applications.
 
 
 | Tutorial | Description | Script location |
