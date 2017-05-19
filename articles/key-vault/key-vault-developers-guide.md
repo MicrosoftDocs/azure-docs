@@ -58,7 +58,7 @@ Before working with Azure Key Vault in your code, you can create and manage vaul
 
 ## Coding with Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resourcesare are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. Through the REST interface, all of your key vaults resources are accessible; keys, secrets and certificates. [Key Vault REST API Reference](https://docs.microsoft.com/rest/api/keyvault/). 
 
 ### Supported programming languages
 
@@ -74,9 +74,9 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 #### Node.js
 
-In Node.js, the vault management API and the vault object API are seperate. Key Vault Management allows creating and updating your key vault. Key Vault Operations API is for working with vault objects like; keys, secrets and certificates. 
+In Node.js, the vault management API and the vault object API are separate. Key Vault Management allows creating and updating your key vault. Key Vault Operations API is for working with vault objects like; keys, secrets and certificates. 
 
-- [Node.js API reference for Key Vault Managment](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+- [Node.js API reference for Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Node.js API reference for Key Vault Operations](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
 
 ### Quick start
