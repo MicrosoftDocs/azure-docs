@@ -54,10 +54,10 @@ Refer to the next section for details about additional configuration for each of
 
 ### Service certificate validation options 
 
-1. None: Reverse proxy skips verification of the proxied service certificate and establishes the secure connection. This is the default behavior.
+- **None**: Reverse proxy skips verification of the proxied service certificate and establishes the secure connection. This is the default behavior.
 Specify the **ApplicationCertificateValidationPolicy** with value **None** in the parameters section of ApplicationGateway/Http element.
 
-2. ServiceCommonNameAndIssuer: Reverse proxy verifies the certificate presented by the service based on certificate's common name and immediate issuer's thumbprint:
+- **ServiceCommonNameAndIssuer**: Reverse proxy verifies the certificate presented by the service based on certificate's common name and immediate issuer's thumbprint:
 Specify the **ApplicationCertificateValidationPolicy** with value **ServiceCommonNameAndIssuer** in the parameters section of ApplicationGateway/Http element.
 
 ```json
@@ -105,7 +105,8 @@ Upon failure to match the certificate details, reverse proxy fails the client's 
 }
 ```
 
-3. ServiceCertificateThumbprints: Reverse proxy will verify the proxied service certificate based on its thumbprint. You can choose to go this route when the services are configured with self signed certificates:
+
+- **ServiceCertificateThumbprints**: Reverse proxy will verify the proxied service certificate based on its thumbprint. You can choose to go this route when the services are configured with self signed certificates: 
 Specify the **ApplicationCertificateValidationPolicy** with value **ServiceCertificateThumbprints** in the parameters section of ApplicationGateway/Http element.
 
 ```json

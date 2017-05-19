@@ -108,7 +108,7 @@
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
 #### [DNS service](service-fabric-dnsservice.md)
 #### [Reverse proxy](service-fabric-reverseproxy.md)
-#### [Reverse proxy secure communication](service-fabric-reverseproxy-secure-communication.md)
+#### [Reverse proxy configure secure communication](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Add a web front end](service-fabric-add-a-web-frontend.md)
 
