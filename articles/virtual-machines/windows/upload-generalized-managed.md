@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 05/19/2017
 ms.author: cynthn
 
 ---
@@ -23,11 +23,7 @@ ms.author: cynthn
 
 This topic walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../../storage/storage-managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. If you are uploading a VHD that will be used to create multiple Azure VMs, you must first generalize VHD using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep removes any machine-specific information and personal account information from the VHD. 
 
-Azure managed disks removes the need of managing [storage accounts](../../storage/storage-introduction.md) for Azure VMs. You only have specify the type [Premium](../../storage/storage-premium-storage-performance.md) or [Standard](../../storage/storage-standard-storage.md) and size of disk you need, and Azure will create and manage the disk for you. 
-
 If you want to use a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../scripts/virtual-machines-windows-upload-generalized-script.md)
-
-
 
 ## Before you begin
 
@@ -179,14 +175,13 @@ Create a managed image using your generalized OS VHD. Replace the values with yo
 	$vmSize = "Standard_DS1_v2"
 	$location = "East US" 
 	$imageName = "yourImageName"
-	$osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
     ```
 
 4.  Create the image using your generalized OS VHD.
 
     ```powershell
 	$imageConfig = New-AzureRmImageConfig -Location $location
-	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
 	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
@@ -281,7 +276,7 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to *PremiumLRS*, the disk size to *128 GB* and disk caching to *ReadWrite*.
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
+$vm = Set-AzureRmVMOSDisk -VM $vm -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
