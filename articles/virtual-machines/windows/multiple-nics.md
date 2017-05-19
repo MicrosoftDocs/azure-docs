@@ -180,7 +180,7 @@ Now view all the NICs on the VM and copy the name of the one you want to remove
 
 ```powershell
 $vm.NetworkProfile.NetworkInterfaces
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
+Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $myNic.Id | Update-AzureRmVM -VM $vm -ResourceGroupName $rg
     Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
