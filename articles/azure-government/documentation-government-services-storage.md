@@ -22,12 +22,12 @@ ms.author: ryansoc
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
 ### Storage Pairing in Azure Government
-The map below show the primary and secondary region pairings which are used for Geo-redundant storage (GRS) and Read-access geo-redundant storage (RA-GRS) accounts.
+The map below shows the primary and secondary region pairings used for Geo-redundant storage (GRS) and Read-access geo-redundant storage (RA-GRS) accounts in Azure Government
 
 ![alt text](./media/documentation-government-services-storage.PNG)
 
 > [!NOTE]
-> US Gov Virginia secondary region is US Gov Texas. Previously US Gov Virginia utilized US Gov Iowa as a secondary region. US Gov Virginia storage accounts still leveraging US Gov Iowa as a secondary region will be migrated to US Gov Texas.
+> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region.
 >
 >
 
