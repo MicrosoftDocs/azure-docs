@@ -35,9 +35,9 @@ This article explains how to get started with some basic options. The example he
 
 ## Use the APIs
 
-The APIs are fairly easy to use. (See the API reference for additional options and features.) There are two API calls you make from your smartphone app to Custom Decision Service: a call to Ranking API to obtain a ranked list of your content and a call to Reward API to report a reward. Here we provide the sample calls in [cURL](https://en.wikipedia.org/wiki/CURL).
+The APIs are fairly easy to use. (See the API reference for additional options and features.) There are two API calls you make from your smartphone app to Custom Decision Service: a call to the Ranking API to obtain a ranked list of your content and a call to the Reward API to report a reward. Here we provide the sample calls in [cURL](https://en.wikipedia.org/wiki/CURL).
 
-We start with the call to Ranking API. Create the file `<request.json>`, which contains the action set ID. This ID is the name of the corresponding RSS or Atom feed that you entered on the portal:
+We start with the call to the Ranking API. Create the file `<request.json>`, which contains the action set ID. This ID is the name of the corresponding RSS or Atom feed that you entered on the portal:
 
 ```json
 {"decisions":
