@@ -139,12 +139,18 @@ choose **Azure Active Directory**.
 
 2. Confirm that you're in the same directory as your web app or API app.
 
-      > [!TIP]
-      > To switch directories, click your profile and select another directory. 
-      > Or, choose **Overview** > **Switch directory**.
+   > [!TIP]
+   > To switch directories, click your profile and select another directory. 
+   > Or, choose **Overview** > **Switch directory**.
 
-3. On the directory menu, under **Manage**, choose 
-**App registrations** > **New application registration**.
+3. On the directory menu, under **Manage**, 
+choose **App registrations** > **New application registration**.
+
+   > [!TIP]
+   > By default, the app registrations list shows all 
+   > app registrations in your directory. 
+   > To view only your app registrations, next to the search box, 
+   > select **My apps**. 
 
    ![Create new app registration](./media/logic-apps-custom-hosted-api/new-app-registration-azure-portal.png)
 
@@ -155,10 +161,14 @@ for **Sign-on URL**, and choose **Create**.
 
    ![Provide name and sign-on URL for application identity](./media/logic-apps-custom-hosted-api/logic-app-identity-azure-portal.png)
 
-5. From the application registrations list, 
-select your new application identity. 
-Copy and save the **Application ID** to use 
-as the "client ID" for your logic app in Part 3.
+   The application identity that you created for your logic app 
+   now appears in the app registrations list.
+
+   ![Application identity for your logic app](./media/logic-apps-custom-hosted-api/logic-app-identity-created.png)
+
+5. In the app registrations list, select your new application identity. 
+Copy and save the **Application ID** to use as the "client ID" 
+for your logic app in Part 3.
 
    ![Copy and save application ID for logic app](./media/logic-apps-custom-hosted-api/logic-app-application-id.png)
 
@@ -172,10 +182,14 @@ provide a name for your key. Under **Expires**, select a duration for your key.
 
    ![Create key for logic app identity](./media/logic-apps-custom-hosted-api/create-logic-app-identity-key-secret-password.png)
 
-8. On the toolbar, choose **Save**. Make sure to copy and save the key that now appears.
+8. On the toolbar, choose **Save**. Under **Value**, your key now appears. 
+**Make sure to copy and save your key** for later use because the key is hidden 
+when you leave the key blade.
 
-      When you configure your logic app in Part 3, 
-      specify this key as the "secret" or password.
+   In Part 3 when you configure your logic app, 
+   you specify this key as the "secret" or password.
+
+   ![Copy and save key for later](./media/logic-apps-custom-hosted-api/logic-app-copy-key-secret-password.png)
 
 <a name="app-identity-logic-classic"></a>
 **Create the application identity through the Azure classic portal**
