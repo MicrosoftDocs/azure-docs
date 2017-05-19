@@ -250,7 +250,6 @@ In this section, To test your single sign-on settings, open the Access Panel at 
 
 ## Additional resources
 
-* [List of Tutorials on How to Configure Google Apps for Automatic User Provisioning with Azure Active Directory](Configuring Google App for automatic user provisioning1.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configure User Provisioning](active-directory-saas-googleapps-provisioning-tutorial.md)
