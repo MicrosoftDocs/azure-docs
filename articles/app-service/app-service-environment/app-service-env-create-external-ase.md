@@ -48,7 +48,7 @@ There are 3 ways to create an ASE. You can create an ASE:
 
 - While creating an App Service plan, which creates the ASE and the App Service plan in one step.
 - From the standalone ASE creation UI, which creates an ASE with nothing in it. This is a more advanced ASE creation UI experience, and is where you go to create an ASE with an Internal Load Balancer (ILB).
-- From a Resource Manager template. This is for the advanced user and is covered in [Create an ASE from a template](app-service-env-create-from-template).
+- From a Resource Manager template. This is for the advanced user and is covered in [Create an ASE from a template][MakeASEfromTemplate].
 
 An ASE created without an ILB has a public VIP. That means that all HTTP traffic to the apps in the ASE will hit an internet accessible IP address. An ASE with an ILB has an endpoint on a Virtual Network IP address. Those apps are not exposed directly to the internet.
 
