@@ -29,7 +29,6 @@
 ### [Add a file share](container-service-dcos-fileshare.md)
 ### [Use an Azure container registry](container-service-dcos-acr.md)
 ### [Canary release with Vamp](container-service-dcos-vamp-canary-release.md)
-### [CI/CD with DC/OS and VSTS](container-service-setup-ci-cd.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
 #### [Monitor with OMS](container-service-monitoring-oms.md)
