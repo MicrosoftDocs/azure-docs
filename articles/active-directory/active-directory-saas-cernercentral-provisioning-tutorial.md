@@ -51,7 +51,7 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 This section guides you through connecting your Azure AD to Cerner Central's SCIM user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Cerner Central based on user and group assignment in Azure AD.
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for Cerner Central, following the instructions provided in (Azure portal)[https://portal.azure.com]. Single sign-on can be configured independently of automatic provisioning, though these two features complement each other.
+**Tip:** You may also choose to enabled SAML-based Single Sign-On for Cerner Central, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features complement each other.
 
 
 ### To configure automatic user account provisioning to Cerner Central in Azure AD:
@@ -61,20 +61,25 @@ In order to provision user accounts to Cerner Central, you'll need to create a s
 
 1)	The first step is to ensure the people managing the Cerner and Azure AD integration have a CernerCare account, which is required to access documentation complete the instructions. If necessary, use the URLs below to create CernerCare accounts in each applicable environment.
 
-Sandbox:  https://sandboxcernercare.com/accounts/create
-Production:  https://cernercare.com/accounts/create  
+* Sandbox:  https://sandboxcernercare.com/accounts/create
+
+* Production:  https://cernercare.com/accounts/create  
 
 2)	Next, a system account must be created for Azure AD. Use the instructions below to request a System Account for your sandbox and production environments.
 
-Instructions:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
-Sandbox: https://sandboxcernercentral.com/system-accounts/
-Production:  https://cernercentral.com/system-accounts/
+* Instructions:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+
+* Sandbox: https://sandboxcernercentral.com/system-accounts/
+
+* Production:  https://cernercentral.com/system-accounts/
 
 3)	Next, generate an OAuth bearer token for each of your system accounts. To do this, follow the instructions below.
 
-Instructions:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
-Sandbox: https://sandboxcernercentral.com/system-accounts/
-Production:  https://cernercentral.com/system-accounts/
+* Instructions:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+
+* Sandbox: https://sandboxcernercentral.com/system-accounts/
+
+* Production:  https://cernercentral.com/system-accounts/
 
 4) Finally, you'll need to acquire a User Roster Realm ID in Cerner to complete the configuration with Azure AD. For information on how to acquire this, see: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
@@ -90,9 +95,9 @@ Production:  https://cernercentral.com/system-accounts/
 
 8)  Fill in the following fields under **Admin Credentials** :
 
-* In the **Tenant URL** field, enter a URL in the format below, replacing "<User-Roster-Realm-ID>" with the realm ID you acquired in step #4.
+* In the **Tenant URL** field, enter a URL in the format below, replacing "User-Roster-Realm-ID" with the realm ID you acquired in step #4.
 
-> https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/<User-Roster-Realm-ID>/Users 
+> https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/Users 
 
 * In the **Secret Token** field, enter the OAuth bearer token you generated in step #3 and click **Test Connection** .
 
