@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2017
+ms.date: 05/19/2017
 ms.author: alkohli
 
 ---
@@ -36,7 +36,7 @@ Update 0.6 corresponds to the software version **10.0.10293.0**.
 ## What's new in the Update 0.6
 Update 0.6 is a critical update and should be deployed immediately. This update contains the following fixes: 
 
-- **Windows Security fixes** - This release has the following Windows critical security fixes.
+- **Windows Security fixes** - This release has **Windows critical security fixes**. Review the following security bulletin for more information about the security issues and the associated fixes:
     - [December 2016 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/3205400/december-2016-security-only-quality-update-for-windows-8.1-and-windows-server-2012-r2)
     - [March 2017 Security Only Quality Update for Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23)
     - [May 9, 2017—KB4019213 (Security-only update)](https://support.microsoft.com/help/4019213/windows-8-update-kb4019213)
@@ -50,8 +50,8 @@ The following table provides a summary of issues fixed in this release.
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-| 1 |Restore| During a restore, there was a race condition that would prevent the restore job from completing. The bug fix addresses this race condition.|
-| 2 |Security| This release contains critical Windows Security updates. We suggest that you install this update immediately.|
+| 1 |Security| This release contains critical Windows Security updates. We suggest that you install this update immediately.|
+| 2 |Restore| During a restore, there was a race condition that would prevent the restore job from completing. The bug fix addresses this race condition.|
 
 
 ## Known issues in the Update 0.6
