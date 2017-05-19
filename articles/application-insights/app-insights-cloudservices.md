@@ -3,7 +3,7 @@ title: Application Insights for Azure Cloud Services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
-ms.date: 03/14/2017
-ms.author: awills
+ms.date: 05/05/2017
+ms.author: cfreeman
 
 ---
 # Application Insights for Azure Cloud Services
@@ -237,6 +237,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
 * [Automate creation of Application Insights resources](app-insights-powershell.md)
 * [Automate Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md

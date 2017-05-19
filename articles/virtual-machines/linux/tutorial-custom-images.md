@@ -20,9 +20,16 @@ ms.author: cynthn
 
 # Create a custom image of an Azure VM using the CLI
 
-Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you learn how to create your own custom image of an Azure virtual machine.
+Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Deprovision and generalize VMs
+> * Create a custom image
+> * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
 
 ## Before you begin
 
@@ -32,7 +39,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## Create a custom image
 
-To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized. Once the VM has been prepared, you can create an the image.
+To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized. Once the VM has been prepared, you can create an image.
 
 ### Deprovision the VM 
 
@@ -95,9 +102,39 @@ az vm create \
     --generate-ssh-keys
 ```
 
+## Image management 
+
+Here are some examples of common image management tasks and how to complete them using the Azure CLI.
+
+List all images by name in a table format.
+
+```azurecli
+az resource list \
+    --resource-type=Microsoft.Compute/images \
+	--output table
+```
+
+Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+
+```azurecli
+az image delete \
+    --name myOldImage \
+	--resource-group myResourceGroup
+```
+
 ## Next steps
 
-In this tutorial, you have learned about creating custom VM images. Advance to the next tutorial to learn about how highly available virtual machines.
+In this tutorial, you created a custom VM image. You learned how to:
 
-[Create highly available VMs](tutorial-availability-sets.md).
+> [!div class="checklist"]
+> * Deprovision and generalize VMs
+> * Create a custom image
+> * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
+
+Advance to the next tutorial to learn about highly available virtual machines.
+
+> [!div class="nextstepaction"]
+> [Create highly available VMs](tutorial-availability-sets.md).
 
