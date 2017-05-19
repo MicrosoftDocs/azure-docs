@@ -73,7 +73,7 @@ In this section, you create a Java console app that invokes the reboot direct me
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.18</version>
+      <version>1.3.19</version>
       <type>jar</type>
     </dependency>
     ```
