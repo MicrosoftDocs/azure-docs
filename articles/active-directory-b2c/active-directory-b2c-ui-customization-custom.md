@@ -30,7 +30,9 @@ Before proceeding, you must complete [Getting started with custom policies](acti
 
 Because custom policies are still in private preview, confirm that your Azure AD B2C tenant is enabled for custom policy upload:
 
-1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
+1. Navigate to the [Azure portal](https://portal.azure.com)
+1. [Switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) 
+1. Open the **Azure AD B2C blade**.
 1. Click **All Policies**.
 1. Make sure **Upload Policy** is available.  If the button is disabled, email AADB2CPreview@microsoft.com.
 
