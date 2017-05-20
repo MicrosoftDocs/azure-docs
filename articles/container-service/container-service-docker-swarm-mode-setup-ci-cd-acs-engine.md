@@ -201,7 +201,7 @@ Visual Studio Team Services allows you to [manage releases across environments](
     ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
     >[!IMPORTANT]
-    > As shown on the previous screen, click the **Lock** checkbox in docker.password. This setting is important in order to restrict the password.
+    > As shown on the previous screen, click the **Lock** checkbox in docker.password. This setting is important to restrict the password.
     >
 
 ### Define the release workflow
@@ -226,7 +226,7 @@ The release workflow is composed of two tasks that you add.
     - Execute `docker stack deploy` commands that pull the new images and create the containers.
 
     >[!IMPORTANT]
-    > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allow us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Visual Studio Team Services reports that errors occurred during the release, even if all goes well.
+    > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allows us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Visual Studio Team Services reports that errors occurred during the release, even if all goes well.
     >
 3. Save this new release definition.
 
