@@ -28,7 +28,7 @@ This article focuses on reports most closely tied to billing activity, which is 
 
 
 ## Prerequisites to access the Azure AD reporting API
-Before you get started, you need to complete the [Prerequisites to access the Azure AD reporting APIs](active-directory-reporting-api-getting-started).  Create an application, obtain a secret for it, and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here.
+Before you get started, you need to complete the [Prerequisites to access the Azure AD reporting APIs](active-directory-reporting-api-getting-started.md).  Create an application, obtain a secret for it, and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here.
 
 ## PowerShell script
 This script demonstrates the four usage reports using the **TimeStamp** parameter and the **-ApplicationId** filter.
@@ -119,7 +119,7 @@ if ($oauth.access_token -ne $null) {
 
 ## Next steps
 ### Estimating your Azure AD monthly bill.
-When combined with [the most current Azure AD B2C pricing available](active-directory-b2c), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful as you plan changes in tenant behavior which may impact overall cost.  Actual costs can be reviewed under your [linked Azure Subscription.](active-directory-b2c-how-to-enable-billing)
+When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful as you plan changes in tenant behavior which may impact overall cost.  Actual costs can be reviewed under your [linked Azure Subscription.](active-directory-b2c-how-to-enable-billing.md)
 
 ### Options for other output formats
 ```powershell
