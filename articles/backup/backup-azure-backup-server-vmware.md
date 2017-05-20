@@ -264,7 +264,7 @@ To open Production Server Addition Wizard
 
 1. In the Azure Backup Server console, click **Management**, click **Production Servers**, and then click **Add**.
 
-    ![Open Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
+    ![Open the Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
     The Production Server Addition Wizard appears.
 
@@ -286,32 +286,32 @@ To open Production Server Addition Wizard
 
     ![Add VMWare server and credential](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
-7. In the **Tasks** screen, click **Add** to add the specified VMware server to Azure Backup Server.
+7. In the **Summary** screen, click **Add** to add the specified VMware server to Azure Backup Server.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/tasks-screen.png)
+    ![Add VMware server to Azure Backup Server](./media/backup-azure-backup-server-vmware/tasks-screen.png)
 
-  Since the VMware server backup is an agentless backup, adding the new server happens in seconds. The Finish screen shows you the results.
+  The VMware server backup is an agentless backup, and the new server is added immediately. The **Finish** screen shows you the results.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/summary-screen.png)
+  ![Finish screen](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
-  To add multiple vCenter Servers to Azure Backup Server by repeating the preceding steps in this section.
+  To add multiple vCenter Servers to Azure Backup Server, repeat the previous steps in this section.
 
-After adding the vCenter Server to Azure Backup Server, the next step is to create a protection group. The protection group specifies the various details for short or long-term retention, and it is where you define and apply the backup policy. The backup policy is the schedule for when backups are taken, and what is backed up.
+After you add the vCenter Server to Azure Backup Server, the next step is to create a protection group. The protection group specifies the various details for short or long-term retention, and it is where you define and apply the backup policy. The backup policy is the schedule for when backups occur, and what is backed up.
 
 
 ## Configure a protection group
 
-If you have not used System Center Data Protection Manager or Azure Backup Server before, see the topic, [Plan for disk backups](https://technet.microsoft.com/library/hh758026.aspx), to prepare your hardware environment. Once you check that you have proper storage, use the Create New Protection Group wizard to add VMware virtual machines.
+If you have not used System Center Data Protection Manager or Azure Backup Server before, see [Plan for disk backups](https://technet.microsoft.com/library/hh758026.aspx) to prepare your hardware environment. After you check that you have proper storage, use the Create New Protection Group wizard to add VMware virtual machines.
 
 1. In the Azure Backup Server console, click **Protection**, and in the tool ribbon, click **New** to open the Create New Protection Group wizard.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
+    ![Open the Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-  The Create New Protection Group wizard appears.
+    The Create New Protection Group wizard appears.
 
-  ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/protection-wizard.png)
+    ![Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-  Click **Next** to advance to the **Select protection group type** screen.
+    Click **Next** to advance to the **Select protection group type** screen.
 
 2. On the Select Protection Group Type screen, select **Servers** and click **Next**.
 
@@ -321,7 +321,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
   When selecting a member, if you select a folder that contains other folders or VMs, those folders and VMs are also selected. The inclusion of the folders and VMs in the parent folder is called folder-level protection. You can exclude any folder or VM by de-selecting the checkbox.
 
-  If a VM, or a folder containing a VM, is already protected to Azure, you cannot select that VM again. That is, once a VM is protected to Azure, it cannot be protected again, which prevents duplicate recovery points from being created for one VM. If you want to see which Azure Backup Server already protects a member, hover your mouse over the member, to see the name of the protecting server.
+  If a VM, or a folder containing a VM, is already protected to Azure, you cannot select that VM again. That is, after a VM is protected to Azure, it cannot be protected again, which prevents duplicate recovery points from being created for one VM. If you want to see which Azure Backup Server already protects a member, hover your mouse over the member, to see the name of the protecting server.
 
 4. On the Select Data Protection Method screen, enter a name for the protection group. Short-term protection (to disk) and online protection are selected. If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
 
@@ -349,7 +349,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
   For large amounts of data or less-than-optimal network conditions, consider replicating the data offline using removable media.
 
-  Once you have made your choices, click **Next**.
+  After you have made your choices, click **Next**.
 
   ![Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
@@ -359,11 +359,11 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
   Click **Next** to move to the next screen.
 
-9. On the **Specify Online Protection Data** screen, select the data source(s) that you want to protect. You can select the members individually, or click **Select All** to choose all members. Once you choose the members, click **Next**.
+9. On the **Specify Online Protection Data** screen, select the data source(s) that you want to protect. You can select the members individually, or click **Select All** to choose all members. After you choose the members, click **Next**.
 
   ![Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-10. On the **Specify Online Backup Schedule** screen, specify the schedule for generating recovery points from the disk backup. Once the recovery point is generated, it is transferred to the Recovery Services vault in Azure. When you are satisfied with the online backup schedule, click **Next**.
+10. On the **Specify Online Backup Schedule** screen, specify the schedule for generating recovery points from the disk backup. After the recovery point is generated, it is transferred to the Recovery Services vault in Azure. When you are satisfied with the online backup schedule, click **Next**.
 
   ![Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
