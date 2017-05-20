@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Copy managed disks to same or different subscription with CLI
 
-This script copies a managed disk to same or different subscription. Use this script to move managed disks to different subscription in the same region as the parent disk.
+This script copies a managed disk to same or different subscription but in the same region. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -43,8 +43,8 @@ This script uses following commands to create a new managed disk in the target s
 
 ## Next steps
 
-[Create a virtual machine from a managed disk](./../../virtual-machine/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Create a virtual machine from a managed disk](./../../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../virtual-machine/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../virtual-machines/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
