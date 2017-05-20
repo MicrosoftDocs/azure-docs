@@ -23,7 +23,10 @@ ms.author: diegomrtnzg
 *Based on 
 [Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Visual Studio Team Services](https://github.com/Microsoft/azure-docs/blob/master/articles/container-service/container-service-docker-swarm-setup-ci-cd.md) documentation*
 
-One of the biggest challenges when developing modern applications for the cloud is being able to deliver these applications continuously. In this article, you learn how to implement a full continuous integration and deployment (CI/CD) pipeline using Azure Container Service Engine with Docker Swarm Mode, Azure Container Registry, and Visual Studio Team Services build and release management.
+One of the biggest challenges when developing modern applications for the cloud is being able to deliver these applications continuously. In this article, you learn how to implement a full continuous integration and deployment (CI/CD) pipeline using: 
+* Azure Container Service Engine with Docker Swarm Mode
+* Azure Container Registry
+* Visual Studio Team Services
 
 This article is based on a simple application, available on [GitHub](https://github.com/diegomrtnzg/MyShop/tree/docker-linux), developed with ASP.NET Core. The application is composed of four different services: three web APIs and one web front end:
 
@@ -54,7 +57,7 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Have a Visual Studio Team Services account and team project created](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Fork the GitHub repository to your GitHub account](https://github.com/diegomrtnzg/MyShop/tree/docker-linux)
 
-> Note: the Docker Swarm orchestrator in Azure Container Service uses legacy standalone Swarm. Currently, the integrated [Swarm mode](https://docs.docker.com/engine/swarm/) (in Docker 1.12 and higher) is not a supported orchestrator in Azure Container Service. This is why we are using [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), a community-contributed [quickstart template](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), or a Docker solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
+> Note: the Docker Swarm orchestrator in Azure Container Service uses legacy standalone Swarm. Currently, the integrated [Swarm mode](https://docs.docker.com/engine/swarm/) (in Docker 1.12 and higher) is not a supported orchestrator in Azure Container Service. For this reason, we are using [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), a community-contributed [quickstart template](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), or a Docker solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
 ## Step 1: Configure your Visual Studio Team Services account 
 
@@ -102,7 +105,7 @@ All the configuration is done now. In the next steps, you create the CI/CD pipel
 
 ## Step 2: Create the build definition
 
-In this step, you set up a build definitionfor your VSTS project and define the build workflow for your container images
+In this step, you set up a build definition for your VSTS project and define the build workflow for your container images
 
 ### Initial definition setup
 
@@ -118,11 +121,11 @@ In this step, you set up a build definitionfor your VSTS project and define the 
 
     ![Visual Studio Team Services - Create Build Definition](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-create-build-github.PNG)
 
-4. On the **Build Definitions** page, first open the **Triggers** tab and configure the build to use continuous integration with the fork of the MyShop project that you created in the prerequisites and select **Batch changes**. Make sure that you select *swarm-mode* as the **Branch specification**.
+4. On the **Build Definitions** page, open the **Triggers** tab and configure the build to use continuous integration with the fork of the MyShop project that you created in the prerequisites. Then, select **Batch changes**. Make sure that you select *docker-linux* as the **Branch specification**.
 
     ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
-5. Then, click on the **Variables** tab and create two new variables: **RegistryURL** and **AgentURL**. Paste the values of your Registry and Cluster Agents DNS.
+5. Then, click the **Variables** tab and create two new variables: **RegistryURL** and **AgentURL**. Paste the values of your Registry and Cluster Agents DNS.
 
     ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
@@ -135,7 +138,7 @@ The next steps define the build workflow. There are five container images to bui
 * RecommandationsApi
 * ShopFront
 
-You need to add two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 
+You need two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 
 
 1. To add a step in the build workflow, click **+ Add build step** and select **Docker**.
 
@@ -145,7 +148,7 @@ You need to add two Docker steps for each image, one to build the image, and one
 
     ![Visual Studio Team Services - Docker Build](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    For the build operation, select your Azure container registry, the **Build an image** action, and the Dockerfile that defines each image. Set the **Build context** as the Dockerfile root directory, define the **Image Name** and select **Include Latest Tag**.
+    For the build operation, select your Azure container registry, the **Build an image** action, and the Dockerfile that defines each image. Set the **Build context** as the Dockerfile root directory, define the **Image Name**, and select **Include Latest Tag**.
     
     As shown on the preceding screen, start the image name with the URI of your Azure container registry. (You can also use a build variable to parameterize the tag of the image, such as the build identifier in this example.)
 
@@ -157,13 +160,13 @@ You need to add two Docker steps for each image, one to build the image, and one
 
 4. After you configure the build and push steps for each of the five images, add three more steps in the build workflow.
 
-    a. A command-line task that uses a bash script to replace the *RegistryURL* occurence in the docker-compose.yml file with the RegistryURL variable. 
+    a. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
     
     ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose.yml"```
 
     ![Visual Studio Team Services - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-    c. A command-line task that uses a bash script to replace the *AgentURL* occurence in the docker-compose.yml file with the AgentURL variable.
+    c. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
     
     ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose.yml"```
 
@@ -177,7 +180,7 @@ You need to add two Docker steps for each image, one to build the image, and one
 
 ## Step 3: Create the release definition
 
-Visual Studio Team Services allows you to [manage releases across environments](https://www.visualstudio.com/team-services/release-management/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create a new environment that represents your Azure Container Service Docker Swarm Mode cluster.
+Visual Studio Team Services allows you to [manage releases across environments](https://www.visualstudio.com/team-services/release-management/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create an environment that represents your Azure Container Service Docker Swarm Mode cluster.
 
 ![Visual Studio Team Services - Release to ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
@@ -185,20 +188,20 @@ Visual Studio Team Services allows you to [manage releases across environments](
 
 1. To create a release definition, click **Releases** > **+ Release**
 
-2. To configure the artifact source, Click **Artifacts** > **Link an artifact source**. Here, link this new release definition to the build that you defined in the previous step. By doing this, the docker-compose.yml file is available in the release process.
+2. To configure the artifact source, Click **Artifacts** > **Link an artifact source**. Here, link this new release definition to the build that you defined in the previous step. After that, the docker-compose.yml file is available in the release process.
 
     ![Visual Studio Team Services - Release Artifacts](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
-3. To configure the release trigger, click **Triggers** and select **Continuous Deployment**. Set the trigger on the same artifact source. This setting ensures that a new release starts as soon as the build completes successfully.
+3. To configure the release trigger, click **Triggers** and select **Continuous Deployment**. Set the trigger on the same artifact source. This setting ensures that a new release starts when the build completes successfully.
 
     ![Visual Studio Team Services - Release Triggers](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
 
-4. To configure the release variables, click **Variables** and select **+Variable** to create three new variables with the info of the registry: **docker.username**, **docker.password** and **docker.registry**. Paste the values of your Registry and Cluster Agents DNS.
+4. To configure the release variables, click **Variables** and select **+Variable** to create three new variables with the info of the registry: **docker.username**, **docker.password**, and **docker.registry**. Paste the values of your Registry and Cluster Agents DNS.
 
     ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
     >[!IMPORTANT]
-    > As shown on the previous screen, click on the **Lock** checkbox in docker.password. This is an important setting because if you don´t select it, anyone who has access to the project could see the password.
+    > As shown on the previous screen, click the **Lock** checkbox in docker.password. This setting is important in order to restrict the password.
     >
 
 ### Define the release workflow
@@ -215,21 +218,21 @@ The release workflow is composed of two tasks that you add.
 
     ![Visual Studio Team Services - Release Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
-    The command executed on the master use the Docker CLI and the Docker-Compose CLI to do the following tasks:
+    The command executed on the master uses the Docker CLI and the Docker-Compose CLI to do the following tasks:
 
-    - Login to the Azure container registry (it uses three build variables that are defined in the **Variables** tab)
+    - Log in to the Azure container registry (it uses three build variables that are defined in the **Variables** tab)
     - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
     - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
     - Execute `docker stack deploy` commands that pull the new images and create the containers.
 
     >[!IMPORTANT]
-    > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This is an important setting, because `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Visual Studio Team Services reports that errors occurred during the release, even if all goes well.
+    > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allow us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Visual Studio Team Services reports that errors occurred during the release, even if all goes well.
     >
 3. Save this new release definition.
 
 ## Step 4. Test the CI/CD pipeline
 
-Now that you are done with the configuration, it's time to test this new CI/CD pipeline. The easiest way to test it is to update the source code and commit the changes into your GitHub repository. A few seconds after you push the code, you will see a new build running in Visual Studio Team Services. Once completed successfully, a new release will be triggered and will deploy the new version of the application on the Azure Container Service cluster.
+Now that you are done with the configuration, it's time to test this new CI/CD pipeline. The easiest way to test it is to update the source code and commit the changes into your GitHub repository. A few seconds after you push the code, you will see a new build running in Visual Studio Team Services. Once completed successfully, a new release is triggered and deployed the new version of the application on the Azure Container Service cluster.
 
 ## Next Steps
 
