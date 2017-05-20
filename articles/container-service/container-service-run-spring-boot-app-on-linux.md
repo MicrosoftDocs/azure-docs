@@ -67,7 +67,7 @@ The following steps will walk you through the steps that are required to create 
    cd gs-spring-boot-docker/complete
    ```
 
-1. Configure the embedded Tomcat server to run on port 80:
+1. To test the Spring Boot project locally, you can configure the embedded Tomcat server to run on port 80 (instead of the default port of 8080) by using the following steps:
 
    a. Change directory to the resources directory; for example:
    ```
@@ -84,19 +84,23 @@ The following steps will walk you through the steps that are required to create 
 
    d. Save and close the *application.yml* file.
 
-1. Change directory back to the root folder for the completed project and build the JAR file using Maven; for example:
+   e. Change directory back to the root folder for the completed project; for example:
    ```
    cd ../../..
+   ```
+
+1. Build the JAR file using Maven; for example:
+   ```
    mvn package
    ```
 
-1. Once the web app has been created, change directory to the JAR file and start the web app; for example:
+1. Once the web app has been created, change directory to the `target` directory where the JAR file is located and start the web app; for example:
    ```
    cd target
    java -jar gs-spring-boot-docker-0.1.0.jar
    ```
 
-1. Test the web app by browsing to http://localhost using a web browser, or use the syntax like the following example if you have curl available:
+1. Test the web app by browsing to it locally using a web browser; for example, if you have curl available and you configured the Tomcat server to run on port 80:
    ```
    curl http://localhost
    ```
@@ -248,13 +252,16 @@ For help with getting started with your own Spring Boot applications, see the **
 
 For more information about getting started with creating a simple Spring Boot application, see the Spring Initializr at https://start.spring.io/.
 
+For additional examples for how to use custom Docker images with Azure, see [Using a custom Docker image for Azure Web App on Linux].
+
 <!-- URL List -->
 
-[Azure Command-Line Interface (CLI)]: https://docs.microsoft.com/cli/azure/overview
+[Azure Command-Line Interface (CLI)]: /cli/azure/overview
 [Azure Container Service (ACS)]: https://azure.microsoft.com/services/container-service/
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
-[Create a private Docker container registry using the Azure portal]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal
+[Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
+[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
 [Docker]: https://www.docker.com/
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
