@@ -31,10 +31,14 @@ The response may include:
 - Original text
 - Language
 - PII
-- Location of detected terms within the submitted text
+- Location of detected profanity terms within the submitted text
 - Terms: detected profanity content
 
 Let’s look at these fields in greater detail.
+
+## Profanity terms
+
+If any terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
 
 ## Auto-correction
 
@@ -46,9 +50,7 @@ If you ask for auto-correction, the response will contain the corrected version 
 
 	“The quick brown fox jumps over the lazy dog."
 
-## Profanity terms
 
-If any terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
 
 ## Creating and managing your custom lists of terms
 
