@@ -28,7 +28,7 @@ You can examine performance counter data
 2. With System Center Operations Manager using the Azure Management Pack
 3. With other monitoring tools that access the diagnostic data transferred to Azure storage. See [Store and View Diagnostic Data in Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) for more information.  
 
-For more information on monitoring the performance of your application in the [Azure classic portal](http://manage.azure.com/), see [How to Monitor Cloud Services](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+For more information on monitoring the performance of your application in the [Azure portal](http://portal.azure.com/), see [How to Monitor Cloud Services](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
 For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems and optimize Azure applications, see [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
@@ -71,8 +71,8 @@ Azure has support to create and modify custom performance counters for web roles
 
 > [!NOTE]
 > Code that makes changes to custom performance counters must have elevated permissions to run. If the code is in a web role or worker role, the role must include the tag <Runtime executionContext="elevated" /> in the ServiceDefinition.csdef file for the role to initialize properly.
-> 
-> 
+>
+>
 
 You can send custom performance counter data to Azure storage using the diagnostics agent.
 
@@ -85,8 +85,8 @@ Each configured performance counter instance is recorded at a specified sampling
 
 > [!NOTE]
 > Depending on the diagnostics agent transfer frequency and queue latency, the most recent performance counter data in the storage account may be several minutes out of date.
-> 
-> 
+>
+>
 
 ## Enable performance counters using diagnostics configuration file
 Use the following procedure to enable performance counters in your Azure application.
@@ -95,7 +95,7 @@ Use the following procedure to enable performance counters in your Azure applica
 This section assumes that you have imported the Diagnostics monitor into your application and added the diagnostics configuration file to your Visual Studio solution (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above). See steps 1 and 2 in [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md)) for more information.
 
 ## Step 1: Collect and store data from performance counters
-After you have added the diagnostics file to your Visual Studio solution you can configure the collection and storage of performance counter data in a Azure application. This is done by adding performance counters to the diagnostics file. Diagnostics data, including performance counters, is first collected on the instance. The data is then persisted to the WADPerformanceCountersTable table in the Azure Table service, so you will also need to specify the storage account in your application. If you're testing your application locally in the Compute Emulator, you can also store diagnostics data locally in the Storage Emulator. Before you store diagnostics data you must first go to the [Azure classic portal](http://manage.windowsazure.com/) and create a storage account. A best practice is to locate your storage account in the same geo-location as your Azure application in order to avoid paying external bandwidth costs and to reduce latency.
+After you have added the diagnostics file to your Visual Studio solution you can configure the collection and storage of performance counter data in a Azure application. This is done by adding performance counters to the diagnostics file. Diagnostics data, including performance counters, is first collected on the instance. The data is then persisted to the WADPerformanceCountersTable table in the Azure Table service, so you will also need to specify the storage account in your application. If you're testing your application locally in the Compute Emulator, you can also store diagnostics data locally in the Storage Emulator. Before you store diagnostics data you must first go to the [Azure portal](http://portal.azure.com/) and create a classic storage account. A best practice is to locate your storage account in the same geo-location as your Azure application in order to avoid paying external bandwidth costs and to reduce latency.
 
 ### Add performance counters to the diagnostics file
 There are many counters you can use. The following example shows several performance counters that are recommended for web and worker role monitoring.
@@ -144,13 +144,13 @@ For Azure SDK 2.5 the Storage Account can be specified in the diagnostics.wadcfg
 
 > [!NOTE]
 > These instructions only apply to Azure SDK 2.4 and below. For Azure SDK 2.5 the Storage Account can be specified in the diagnostics.wadcfgx file.
-> 
-> 
+>
+>
 
 To set the connection strings:
 
-1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Azure classic portal in the storage account dashboard, under Manage Keys.
-  
+1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Azure portal in the storage account dashboard, under Access keys.
+
     ```xml
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
@@ -158,7 +158,7 @@ To set the connection strings:
     ```
 2. Save the ServiceConfiguration.Cloud.cscfg file.
 3. Open the ServiceConfiguration.Local.cscfg file and verify that UseDevelopmentStorage is set to true.
-   
+
     ```xml
     <ConfigurationSettings>
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
@@ -176,13 +176,13 @@ Perform the following steps to create a simple custom performance counter named 
 
 1. Open the service definition file (CSDEF) for your application.
 2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
-   
+
     ```xml
     <runtime executioncontext="elevated"/>
     ```
 3. Save the file.
-4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 
-   
+4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration
+
     ```xml
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
       <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
@@ -190,37 +190,37 @@ Perform the following steps to create a simple custom performance counter named 
     ```
 5. Save the file.
 6. Create the custom performance counter category in the OnStart method of your role, before invoking base.OnStart. The following C# example creates a custom category, if it does not already exist:
-   
+
     ```csharp
     public override bool OnStart()
     {
       if (!PerformanceCounterCategory.Exists("MyCustomCounterCategory"))
       {
          CounterCreationDataCollection counterCollection = new CounterCreationDataCollection();
-   
+
          // add a counter tracking user button1 clicks
          CounterCreationData operationTotal1 = new CounterCreationData();
          operationTotal1.CounterName = "MyButton1Counter";
          operationTotal1.CounterHelp = "My Custom Counter for Button1";
          operationTotal1.CounterType = PerformanceCounterType.NumberOfItems32;
          counterCollection.Add(operationTotal1);
-   
+
          PerformanceCounterCategory.Create(
            "MyCustomCounterCategory",
            "My Custom Counter Category",
            PerformanceCounterCategoryType.SingleInstance, counterCollection);
-   
+
          Trace.WriteLine("Custom counter category created.");
       }
       else {
         Trace.WriteLine("Custom counter category already exists.");
       }
-   
+
     return base.OnStart();
     }
     ```
 7. Update the counters within your application. The following example updates a custom performance counter on Button1_Click events:
-   
+
     ```csharp
     protected void Button1_Click(object sender, EventArgs e)
     {
