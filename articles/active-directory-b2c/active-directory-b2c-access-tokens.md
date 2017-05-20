@@ -28,14 +28,14 @@ This article discusses how to configure a client application and have it make a 
 
 ## Prerequisite
 
-Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration#register-a-web-api) section.
+Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration#register-a-web-api.md) section.
 
 ## Granting permissions to a web API
 
 In order for a client application to get specific permissions to an API, the client application needs to be granted those permissions via the Azure portal. To grant permissions to a client application:
 
 1. Navigate to the **Applications** menu in the B2C features blade.
-1. Register a client application ([web app](active-directory-b2c-app-registration#register-a-web-application) or [native client](active-directory-b2c-app-registration#register-a-mobilenative-application)) if you don’t have one already.
+1. Register a client application ([web app](active-directory-b2c-app-registration.md#register-a-web-application) or [native client](active-directory-b2c-app-registration.md#register-a-mobilenative-application)) if you don’t have one already.
 1. On your application's Settings blade, select **Api access**.
 1. Click on **Add**.
 1. Select your web API and the scopes (permissions) you would like to grant.
