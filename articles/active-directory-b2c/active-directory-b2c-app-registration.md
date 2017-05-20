@@ -86,5 +86,5 @@ There are two important considerations when choosing a redirect URI for mobile/n
 * **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ will work and //contoso will fail). 
 
 ## Build an application
-Now that you have an application registered with Azure AD B2C, you can complete one of [our quick-start tutorials](active-directory-b2c-overview#get-started) to get up and running.
+Now that you have an application registered with Azure AD B2C, you can complete one of [our quick-start tutorials](active-directory-b2c-overview.md#get-started) to get up and running.
 
