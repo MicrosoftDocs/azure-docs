@@ -189,9 +189,11 @@ The following steps will walk you through the steps that are required to create 
 
 > [!NOTE]
 >
-> When you are pushing your Docker container to Azure, you may receive an error message that is similar to the following even though your Docker container was created successfully:
+> When you are pushing your Docker container to Azure, you may receive an error message that is similar to one of the following even though your Docker container was created successfully:
 >
-> *[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials*
+> * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials`
+>
+> * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: Incomplete Docker registry authorization credentials. Please provide all of username, password, and email or none.`
 >
 > If this happens, you may need to log into Azure from the Docker command line; for example:
 >
