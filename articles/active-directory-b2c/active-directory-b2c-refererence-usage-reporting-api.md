@@ -28,7 +28,7 @@ This article focuses on reports most closely tied to billing activity, which is 
 
 
 ## Prerequisites to access the Azure AD reporting API
-Before you get started, you need to complete the [Prerequisites to access the Azure AD reporting APIs](active-directory-reporting-api-getting-started.md).  Create an application, obtain a secret for it, and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here.
+Before you get started, you need to complete the [Prerequisites to access the Azure AD reporting APIs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).  Create an application, obtain a secret for it, and grant it access rights to your Azure AD B2C tenant’s reports. *Bash script* and *Python script* examples are also provided here.
 
 ## PowerShell script
 This script demonstrates the four usage reports using the **TimeStamp** parameter and the **-ApplicationId** filter.
