@@ -124,7 +124,7 @@ In this step, you set up a build definitionfor your VSTS project and define the 
 
 5. Then, click on the **Variables** tab and create two new variables: **RegistryURL** and **AgentURL**. Paste the values of your Registry and Cluster Agents DNS.
 
-    ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.PNG)
+    ![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
 ### Define the build workflow
 The next steps define the build workflow. There are five container images to build for the *MyShop* application. Each image is built using the Dockerfile located in the project folders:
