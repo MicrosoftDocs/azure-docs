@@ -50,7 +50,7 @@ To see what possible values you can use for `---location`, use the `az appservic
 
 ## Create an App Service plan
 
-Create a Linux-based App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
+Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
 
 <!--
  An App Service plan represents the collection of physical resources used to ..

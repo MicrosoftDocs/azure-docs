@@ -106,8 +106,6 @@ Name your resource group **myResourceGroup** and click **OK**.
 
 ### Create an App Service plan
 
-The Azure web app needs an _App Service plan_. 
-
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 Next to **App Service Plan**, click **New**. 
