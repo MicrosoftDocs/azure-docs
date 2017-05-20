@@ -134,7 +134,7 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Here `data` is the argument to the `callback()` function, as described previously. Using `data` in the click handling code requires some care. We provide an example in the [tutorial](custom-decision-service-tutorial.md#our-apis).
+Here `data` is the argument to the `callback()` function, as described previously. Using `data` in the click handling code requires some care. We provide an example in the [tutorial](custom-decision-service-tutorial.md#use-the-apis).
 
  For testing only, the Reward API can be invoked via [cURL](https://en.wikipedia.org/wiki/CURL):
 

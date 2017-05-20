@@ -57,7 +57,7 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Here `data` is the argument to the `callback()` function, as described previously. We provide an implementation example in the [tutorial](custom-decision-service-tutorial.md#our-apis).
+Here `data` is the argument to the `callback()` function, as described previously. We provide an implementation example in the [tutorial](custom-decision-service-tutorial.md#use-the-apis).
 
 Finally, you need to provide the Action Set API, which returns the list of articles (aka, actions) to be considered by Custom Decision Service. Implement this API as an RSS feed, as shown here:
 
