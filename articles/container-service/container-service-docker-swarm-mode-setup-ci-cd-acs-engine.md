@@ -166,7 +166,7 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
     ![Visual Studio Team Services - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-    c. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
+    b. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
     
     ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose.yml"```
 
