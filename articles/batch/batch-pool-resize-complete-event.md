@@ -1,23 +1,22 @@
 ---
-title: "Pool resize complete event - Azure | Microsoft Docs"
-ms.custom: ""
-ms.date: "2017-02-01"
-ms.prod: "azure"
-ms.reviewer: ""
-ms.service: "batch"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: dfee89e3-510f-41a0-ace7-737527f40d20
-caps.latest.revision: 4
-author: "tamram"
-ms.author: "tamram"
-manager: "timlt"
----
-# Pool resize complete event
-Pool resize complete event log body
+title: "Azure Batch pool resize complete event | Microsoft Docs"
+description: Reference for Batch pool resize complete event.
+services: batch
+author: tamram
+manager: timlt
 
-## Remarks
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
+---
+
+# Pool resize complete event
+
  This event is emitted when a pool resize has completed or failed.
 
  The following example shows the body of a pool resize complete event for a pool that increased in size and completed successfully.

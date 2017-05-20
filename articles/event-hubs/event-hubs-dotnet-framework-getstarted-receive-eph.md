@@ -22,9 +22,9 @@ ms.author: jotaub;sethm
 ## Introduction
 Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
-This tutorial shows how to write a .NET Framework console application that receives messages from an Event Hub using the **[Event Processor Host][EventProcessorHost]**. To send events using the .NET Framework, see the [Send events to Azure Event Hubs using the .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) article, or click the appropriate sending language in the left-hand table of contents.
+This tutorial shows how to write a .NET Framework console application that receives messages from an event hub using the **[Event Processor Host][EventProcessorHost]**. To send events using the .NET Framework, see the [Send events to Azure Event Hubs using the .NET Framework](event-hubs-dotnet-framework-getstarted-send.md) article, or click the appropriate sending language in the left-hand table of contents.
 
-The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using the [Event Processor Host][Event Processor Host], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the [Event Processor Host][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use the [Event Processor Host][EventProcessorHost] with multiple receivers.
+The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the [Event Processor Host][Event Processor Host], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use the [Event Processor Host][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use the [Event Processor Host][EventProcessorHost] with multiple receivers.
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ To complete this tutorial, you'll need the following:
 * [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
 * An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
-## Create an Event Hubs namespace and an Event Hub
+## Create an Event Hubs namespace and an event hub
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the Event Hub. To create a namespace and Event Hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.
 
 ## Create an Azure Storage account
 
@@ -115,14 +115,14 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
      }
      ```
     
-     This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
+     This class will be called by the **EventProcessorHost** to process events received from the event hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
 11. In the **Program** class, add the following `using` statement at the top of the file:
     
      ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
-     Then, replace the `Main` method in the `Program` class with the following code, substituting the Event Hub name and the namespace-level connection string that you saved previously, and the storage account and key that you copied in the previous sections. 
+     Then, replace the `Main` method in the `Program` class with the following code, substituting the event hub name and the namespace-level connection string that you saved previously, and the storage account and key that you copied in the previous sections. 
     
      ```csharp
      static void Main(string[] args)
@@ -148,7 +148,7 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
 
 12. Run the program, and ensure that there are no errors.
   
-Congratulations! You have now received messages from an Event Hub using the Event Processor Host.
+Congratulations! You have now received messages from an event hub using the Event Processor Host.
 
 
 > [!NOTE]
@@ -164,7 +164,7 @@ Congratulations! You have now received messages from an Event Hub using the Even
 [Azure portal]: https://portal.azure.com
 
 ## Next steps
-Now that you've built a working application that creates an Event Hub and sends and receives data, you can learn more by visiting the following links:
+Now that you've built a working application that creates an event hub and sends and receives data, you can learn more by visiting the following links:
 
 * [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Event Hubs overview][Event Hubs overview]

@@ -119,13 +119,13 @@ Azure AD doesn’t support the SAML Request sent by the application for Single S
 
 **Resolution**
 
-1.  Capture SAML request. follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging) to learn how to capture the SAML request.
+1.  Capture SAML request. follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) to learn how to capture the SAML request.
 
 2.  Contact the application vendor and share:
 
    -   SAML request
 
-   -   [Azure AD Single Sign-on SAML protocol requirements](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
+   -   [Azure AD Single Sign-on SAML protocol requirements](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
 They should validate they support the Azure AD SAML implementation for Single Sign-on.
 
@@ -198,4 +198,4 @@ To delete and create a new certificate, follow the steps below:
 11. Under the **SAML Signing Certificate** section, click **remove** to remove the **Unused** certificate.
 
 ## Next steps
-[How to debug SAML-based single sign-on to applications in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-debugging)
+[How to debug SAML-based single sign-on to applications in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure a custom domain name for your Azure Blob storage endpoint | Microsoft Docs
 description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage endpoint in an Azure Storage account.
 services: storage
@@ -126,7 +126,7 @@ Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage
 
 ### PowerShell
 
-Use the [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/Set-AzureRmStorageAccount) PowerShell cmdlet and specify an empty string (`""`) for the `-CustomDomainName` argument value to remove a custom domain registration.
+Use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) PowerShell cmdlet and specify an empty string (`""`) for the `-CustomDomainName` argument value to remove a custom domain registration.
 
 * Command format:
   

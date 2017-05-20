@@ -45,7 +45,7 @@ The following applications support conditional access for Office 365 and other A
 | Office 365 SharePoint Online |Mac OS X |Office 2016 apps for multi-factor authentication and location only; device-based policy support planned for the future |
 | Office 365 Yammer |Windows 10, iOS; Android support planned for the future |Office Yammer app |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, and Android |Dynamics CRM app |
-| PowerBI service |Windows 10, Windows 8.1, Windows 7, iOS, and Android |PowerBI app |
+| PowerBI service |Windows 10, Windows 8.1, Windows 7, and iOS | PowerBI app. The Power BI app for Android does not currently support device-based conditional access. |
 | Azure Remote App service |Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X |Azure Remote app |
 | Any My Apps app service |Android and iOS |Any My Apps app service |
 
@@ -65,7 +65,7 @@ Exchange offers two main categories of protocols. Review the following options, 
 * **Legacy protocols**. You can block legacy protocols with AD FS. This blocks access to older Office clients, such as Office 2013 without modern authentication enabled, and earlier versions of Office.
 
 ### Use AD FS to block legacy protocol
-You can use the following example rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
+You can use the following example issuance authorization rules to block legacy protocol access at the AD FS level. Choose from two common configurations.
 
 #### Option 1: Allow Exchange ActiveSync, and allow legacy apps, but only on the intranet
 By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from the extranet.

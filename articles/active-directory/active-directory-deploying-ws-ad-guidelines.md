@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: femila
 
 ---
@@ -390,7 +390,7 @@ For fault tolerance and performance reasons, it is optimal to install the Window
 
 VMs register their DNS name automatically on startup or when there is a name change.
 
-For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](/powershell/azureps-cmdlets-docs) and [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841).
+For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](/powershell/azureps-cmdlets-docs) and [Azure Management Cmdlets](/powershell/module/azurerm.compute/#virtual_machines).
 
 ### <a name="BKMK_DistributedDCs"></a>Geo-distributed DCs
 Azure offers advantages when hosting multiple DCs on different virtual networks:

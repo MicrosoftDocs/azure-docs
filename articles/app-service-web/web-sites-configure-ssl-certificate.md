@@ -53,7 +53,7 @@ a custom certificate, you need to do the following:
 
 * **Configure the custom domain** - App Service only allows adding a certificate for a domain name that's already 
   configured in your app. For instructions, see [Map a custom domain name to an Azure app](web-sites-custom-domain-name.md). 
-* **Scale up to Basic tier or higher** App Service plans in lower pricing tiers don't support custom SSL 
+* **Scale up to Basic tier or higher** - App Service plans in lower pricing tiers don't support custom SSL 
   certificates. For instructions, see [Scale up an app in Azure](web-sites-scale.md). 
 * **Get an SSL certificate** - If you do not already have one, you need to get one from a trusted 
   [certificate authority](http://en.wikipedia.org/wiki/Certificate_authority) (CA). The certificate must meet all the

@@ -1,6 +1,6 @@
 ---
-title: Active Directory authentication and Resource Manager | Microsoft Docs
-description: A developer's guide to authentication with the Azure Resource Manager API and Active Directory for integrating an app with other Azure subscriptions.
+title: Azure Active Directory authentication and Resource Manager | Microsoft Docs
+description: A developer's guide to authentication with the Azure Resource Manager API and Azure Active Directory for integrating an app with other Azure subscriptions.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -67,7 +67,7 @@ Manage your connected subscriptions:
 ## Register application
 Before you start coding, register your web app with Azure Active Directory (AD). The app registration creates a central identity for your app in Azure AD. It holds basic information about your application like OAuth Client ID, Reply URLs, and credentials that your application uses to authenticate and access Azure Resource Manager APIs. The app registration also records the various delegated permissions that your application needs when accessing Microsoft APIs on behalf of the user.
 
-Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Active Directory. To see the domains associated with your Active Directory, log in to the [classic portal](https://manage.windowsazure.com). Select your Active Directory and then select **Domains**.
+Because your app accesses other subscription, you must configure it as a multi-tenant application. To pass validation, provide a domain associated with your Azure Active Directory. To see the domains associated with your Azure Active Directory, log in to the [classic portal](https://manage.windowsazure.com). Select your Azure Active Directory and then select **Domains**.
 
 The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
 
@@ -91,7 +91,7 @@ signed using your private key, and Azure AD validates the signature using the pu
 For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
 
 ## Get tenant id from subscription id
-To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription ids, but they might not know their tenant ids for Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:
+To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription ids, but they might not know their tenant ids for Azure Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 

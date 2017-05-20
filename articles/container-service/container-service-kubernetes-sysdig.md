@@ -20,7 +20,7 @@ ms.author: bburns
 
 ---
 
-# Monitor an Azure Container Service Kubenrnetes cluster using Sysdig
+# Monitor an Azure Container Service Kubernetes cluster using Sysdig
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).

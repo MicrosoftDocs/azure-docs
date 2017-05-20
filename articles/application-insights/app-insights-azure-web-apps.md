@@ -3,7 +3,7 @@ title: Monitor Azure web app performance | Microsoft Docs
 description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
-ms.author: awills
+ms.date: 05/05/2017
+ms.author: cfreeman
 
 ---
 # Monitor Azure web app performance
@@ -36,9 +36,19 @@ If you're already running a web app in Azure, you already get some monitoring: r
 2. **Instrument your web app** after Application Insights has been installed. 
    
     ![Instrument your web app](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+   **Enable client side monitoring** for page view and user telemetry.
+
+   * Select Settings > Application Settings
+   * Under App Settings, add a new key value pair: 
+   
+    Key: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Value: `true`
+   * **Save** the settings and **Restart** your app.
 3. **Monitor your app**.  [Expore the data](#explore-the-data).
 
-Later, you can build and redeploy the app with Application Insights if you want.
+Later, you can build the app with Application Insights if you want.
 
 *How do I remove Application Insights, or switch to sending to another resource?*
 
@@ -100,6 +110,7 @@ For more powerful searches over your telemetry, use the [Analytics query languag
 
 ## Next steps
 * [Run the profiler on your live app](app-insights-profiler.md).
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](app-insights-azure-diagnostics.md) to be sent to Application Insights.
 * [Monitor service health metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.

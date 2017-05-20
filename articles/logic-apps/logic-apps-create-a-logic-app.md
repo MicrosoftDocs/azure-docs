@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
+ms.author: LADocs; jehollan; estfan
 ---
 
 # Create your first logic app workflow to automate processes between cloud apps and cloud services
@@ -48,9 +48,9 @@ Also, this example requires these items:
 	> Otherwise, if you have an Azure work or school account, 
 	> you have an **Office 365 Outlook** account.
 
-* A link to a website's RSS feed. This example uses 
-the RSS feed for the [MSDN Channel 9 website](https://channel9.msdn.com/): 
-`https://s.ch9.ms/Feeds/RSS`
+* A link to a website's RSS feed. This example uses the 
+[RSS feed for top stories from the CNN.com website](http://rss.cnn.com/rss/cnn_topstories.rss): 
+`http://rss.cnn.com/rss/cnn_topstories.rss`
 
 ## Add a trigger that starts your workflow
 
@@ -107,8 +107,8 @@ this trigger: **RSS - When a feed item is published**
 	 These settings determine how often your logic app checks for 
 	 new items and returns all items found during that time span.
 
-	 For this example, let's check every day for new 
-	 items posted to the MSDN Channel 9 website.
+	 For this example, let's check every day for 
+     top stories posted to the CNN website.
 
 	 ![Set up trigger with RSS feed, frequency, and interval](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 

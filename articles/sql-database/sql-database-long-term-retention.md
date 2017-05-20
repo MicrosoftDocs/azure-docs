@@ -29,7 +29,10 @@ Many applications have regulatory, compliance, or other business purposes that r
 > [!NOTE]
 > You can enable up to 200 databases per vault during a 24-hour period. Therefore, we recommend that you use a separate vault for each server to minimize the impact of this limit. 
 > 
-> 
+
+
+
+ 
 ## How does SQL Database long-term backup retention work?
 
 Long-term backup retention of backups allows you to associate an Azure SQL Database server with an Azure Recovery Services vault. 
@@ -92,10 +95,6 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 
 > [!NOTE]
 > The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
-
-## Removing long-term backup retention backups from the Azure Recovery Services vault
-
-To remove long-term backup retention backups from the vault, see [Delete long-term backup retention backups](sql-database-long-term-backup-retention-configure.md)
 
 ## Long-term backup retention FAQ:
 
