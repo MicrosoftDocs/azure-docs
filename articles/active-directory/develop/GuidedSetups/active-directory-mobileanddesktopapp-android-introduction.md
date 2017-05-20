@@ -27,7 +27,8 @@ At the end of this guide, your application will be able to call a protected API 
 ### How this sample works
 ![How this sample works](media/active-directory-mobileanddesktopapp-android-intro/android-intro.png)
 
-The sample created by this guide is based on a scenario where an Android application is used to query a Web API that accepts tokens from Azure Active Directory v2 endpoint – in this case, Microsoft Graph API. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
+The sample application created by this guide enables an Android application to query Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
+
 
 ### Pre-requisites
 * This guided setup is focused on Android Studio, but any other Android application development environment is also acceptable. 

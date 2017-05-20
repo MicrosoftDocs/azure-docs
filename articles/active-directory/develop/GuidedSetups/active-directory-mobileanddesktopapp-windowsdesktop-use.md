@@ -20,7 +20,7 @@ ms.author: andret
 
 ## Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API
 
-This section shows how to use MSAL to get a token the Microsoft Graph API.
+This section shows how to use MSAL to get a token for the Microsoft Graph API.
 
 1.	In `MainWindow.xaml.cs`, add the reference for MSAL library to the class:
 
