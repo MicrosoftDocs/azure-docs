@@ -28,7 +28,7 @@ This article discusses how to configure a client application and have it make a 
 
 ## Prerequisite
 
-Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration#register-a-web-api.md) section.
+Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration.md#register-a-web-api) section.
 
 ## Granting permissions to a web API
 
