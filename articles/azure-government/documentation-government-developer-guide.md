@@ -43,27 +43,24 @@ Currently, US GOV Iowa and US GOV Virginia are the datacenters that support Azur
 ## Endpoint mapping
 To learn about mapping public Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
 
+> [!NOTE]
+> The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
+
 | Name | Azure Government endpoint |
 | --- | --- |
-| ActiveDirectoryServiceEndpointResourceId  | https://management.core.usgovcloudapi.net/ |
-| GalleryUrl | https://gallery.usgovcloudapi.net/ |
-| ManagementPortalUrl | https://manage.windowsazure.us |
-| ServiceManagementUrl | https://management.core.usgovcloudapi.net/ |
-| PublishSettingsFileUrl | https://manage.windowsazure.us/publishsettings/index |
-| ResourceManagerUrl | https://management.usgovcloudapi.net/ |
-| SqlDatabaseDnsSuffix | .database.usgovcloudapi.net |
-| StorageEndpointSuffix | core.usgovcloudapi.net |
-| ActiveDirectoryAuthority | https://login.microsoftonline.us/ |
-| GraphUrl | https://graph.windows.net/ |
-| GraphEndpointResourceId | https://graph.windows.net/ |
-| TrafficManagerDnsSuffix | usgovtrafficmanager.net |
-| AzureKeyVaultDnsSuffix | vault.usgovcloudapi.net |
-| AzureKeyVaultServiceEndpointResourceId | https://vault.usgovcloudapi.net |
-
-> [!NOTE]
-> The **ActiveDirectoryAuthority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
->
->
+| Portal | https://portal.azure.us |
+| Active Directory Endpoint  | https://login-us.microsoftonline.com/ |
+| Active Directory Authority  | https://login.microsoftonline.us |
+| Active Directory Graph API | https://graph.windows.net/ |
+| Azure API | https://management.usgovcloudapi.net/ | 
+| SQL Database DNS Suffix | .database.usgovcloudapi.net |
+| Storage Endpoint Suffix | .core.usgovcloudapi.net |
+| Traffic Manager Dns Suffix | usgovtrafficmanager.net |
+| Key Vault Dns Suffix | vault.usgovcloudapi.net |
+| *Classic* Portal | https://manage.windowsazure.us |
+| Gallery Url | https://gallery.usgovcloudapi.net/ |
+| Service Management Url | https://management.core.usgovcloudapi.net/ |
+| Publish Settings File Url | https://manage.windowsazure.us/publishsettings/index |
 
 ## Next steps
 For more information about Azure Government, see the following resources:
