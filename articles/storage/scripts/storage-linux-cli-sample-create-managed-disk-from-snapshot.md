@@ -34,7 +34,7 @@ This script creates a managed disk from a snapshot. Use it to restore a virtual 
 
 ## Script explanation
 
-This script uses following commands to create a new managed disk in the target subscription using the Id of the source managed disk. Each command in the table links to command specific documentation.
+This script uses following commands to create a managed disk from a snapshot. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
@@ -43,8 +43,8 @@ This script uses following commands to create a new managed disk in the target s
 
 ## Next steps
 
-[Create a virtual machine by attaching a managed disk as OS disk](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
+[Create a virtual machine by attaching a managed disk as OS disk](./../../virtual-machine/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../virtual-machine/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
