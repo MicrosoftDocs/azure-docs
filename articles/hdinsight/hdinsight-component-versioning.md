@@ -162,7 +162,7 @@ The following features are currently not supported for HDInsight Premium cluster
 ### Pricing and SLA
 For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Default node configuration and Virtual Machine sizes for clusters
+## Default node configuration and virtual machine sizes for clusters
 The following tables list the default virtual machine (VM) sizes for HDInsight clusters:
 
 > [!IMPORTANT]
