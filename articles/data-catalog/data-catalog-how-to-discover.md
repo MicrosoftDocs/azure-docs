@@ -1,6 +1,6 @@
 ---
-title: How to discover data sources | Microsoft Docs
-description: How-to article highlighting how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.
+title: How to discover data sources in Azure Data Catalog | Microsoft Docs
+description: This article highlights how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.
 services: data-catalog
 documentationcenter: ''
 author: steelanddata
@@ -18,16 +18,16 @@ ms.date: 05/15/2017
 ms.author: maroche
 
 ---
-# How to discover data sources
+# How to discover data sources in Azure Data Catalog
 ## Introduction
-**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. Once a data source has been registered with **Azure Data Catalog**, its metadata is indexed by the service, so that users can easily search to discover the data they need.
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and discovery for enterprise data sources. In other words, Data Catalog helps people discover, understand, and use data sources, and it helps organizations get more value from their existing data. After a data source is registered with Data Catalog, its metadata is indexed by the service, so that you can easily search to discover the data they need.
 
 ## Searching and filtering
-Discovery in **Azure Data Catalog** uses two primary mechanisms: searching and filtering.
+Discovery in Data Catalog uses two primary mechanisms: searching and filtering.
 
-Searching is designed to be both intuitive and powerful – by default, search terms are matched against any property in the catalog, including user-provided annotations.
+Searching is designed to be both intuitive and powerful. By default, search terms are matched against any property in the catalog, including user-provided annotations.
 
-Filtering is designed to complement searching. Users can select specific characteristics such as experts, data source type, object type, and tags, to view only matching data assets, and to constrain search results to matching assets as well.
+Filtering is designed to complement searching. You can select specific characteristics such as experts, data source type, object type, and tags. You can view only matching data assets, and constrain search results to matching assets.
 
 By using a combination of searching and filtering, users can quickly navigate the data sources that have been registered with **Azure Data Catalog** to discover the data sources they need.
 
