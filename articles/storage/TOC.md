@@ -79,7 +79,6 @@
 ### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/windows/migrate-to-managed-disks.md)
 ### [Migrate from AWS and other platforms to Managed Disks](../virtual-machines/windows/on-prem-to-azure.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
-### [Using Managed Disks in Azure Resource Manager Templates](storage-using-managed-disks-in-rm-templates.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
 #### [Migrating to Premium Storage using Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
