@@ -4,7 +4,7 @@ description: This article provides an overview of Site Recovery architecture
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 05/22/2017
 ms.author: raynew
 
 ---
@@ -23,6 +23,9 @@ This article describes underlying architecture of the [Azure Site Recovery](site
 
 Post any comments at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
+## Replicate between Azure regions
+
+- You can replicate Azure VMs running [supported operating systems](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions) between Azure regions using Site Recovery.
 
 ## Replicate to Azure
 
@@ -31,6 +34,17 @@ You can replicate the following to Azure:
 - **VMware**: On-premises VMware VMs running on a [supported host](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). You can replicate VMware VMs running [supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 - **Hyper-V**: On-premises Hyper-V VMs running on [supported hosts](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Physical machines**: On-premises physical servers running Windows or Linux on [supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+
+
+## Azure VMs between regions
+
+Here are the components you need when replicating Azure VMs between regions.
+
+Area | Component | Details
+--- | --- | ---
+**Replicated Azure VMs** | Azure VMs in a primary region can be replicated to a secondary region.<br/><br/> Site Recovery supports replication of classic and Resource Manager-based VMs. Classic VMs can only be recovered as classic VMs. | Learn more about VM [operating system](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions) and [compute](site-recovery-support-matrix-azure-to-azure.md#support-for-compute-configuration) requirements.
+**Azure storage** | You can replicate disks using standard or premium storage. | [Learn more](site-recovery-support-matrix-azure-to-azure.md?branch=pr-en-us-13195#support-for-storage-configuration)
+**Azure networking** | You need Azure virtual networks in the source and target regions.<br/><br/> You set up network mapping so that replicated VMs are created in virtual networks that are mapped to the virtual network of the source VMs. | Learn more about [networking requirements](site-recovery-support-matrix-azure-to-azure.md#support-for-network-configuration), [network mapping](site-recovery-network-mapping-azure-to-azure.md), and [networking considerations](site-recovery-azure-to-azure-networking-guidance.md) for Azure to Azure replication.
 
 ## VMware to Azure
 
