@@ -110,10 +110,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.10000ft.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://app.10000ft.com/saml/metadata`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.10000ft.com/saml/metadata`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [10,000ft Plans support team](https://www.10000ft.com/plans/support) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. The value for **Identifier** is different if you have a custom domain. Contact [10,000ft Plans support team](https://www.10000ft.com/plans/support) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the Certificate file on your computer.
 
