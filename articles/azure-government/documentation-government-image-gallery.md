@@ -19,9 +19,9 @@ ms.author: brendal
 ---
 # Azure Government Marketplace images
 
-The Microsoft Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy pre-built images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
+The Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy pre-built images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
 
-The following table shows a list of available images within the Azure Government Marketplace.  Some of the pre-built images do include pay as you go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government specific pricing. For more information, see <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine pricing</a>.
+The following table shows a list of available images within the Azure Government Marketplace.  Some of the pre-built images do include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government specific pricing. For more information, see <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine pricing</a>.
 
 ## Images - Azure Resource Manager
 |Publisher|Offer|SKU|
@@ -364,7 +364,7 @@ The following table shows a list of available images within the Azure Government
 
 ## Quickstart templates
 ### Step 1
-Go to the Azure Quickstart Templates GitHub Repository, and select from the following list of solution templates:
+Go to the Azure Quickstart templates GitHub repository, and select from the following list of solution templates:
 
 | Quickstart template |
 | --- |
@@ -378,7 +378,7 @@ Go to the Azure Quickstart Templates GitHub Repository, and select from the foll
 In the Readme file, launch the template by clicking **Deploy to Azure Government** at the top of the page.
 
 ### Step 3
-A browser page opens the template deployment blade in the Azure Government portal. In the parameters blade, complete the required fields, and click **Okay**.
+A browser page opens the **Template deployment** blade in the Azure Government portal. In the **Parameters** blade, complete the required fields, and click **Okay**.
 
 ### Step 4
 If you accept legal terms and conditions, check **Pin to dashboard**, and then click **create**.
@@ -397,7 +397,7 @@ The blades close, and you return to your portal dashboard view, showing the imag
 > 
 
 ## Next steps
-The following resources provide more information on deploying from the image gallery or creating your own VHD. To uncover any programmatic differences with endpoints when working with Azure Government, see the [Azure Government Developer Guide](documentation-government-developer-guide.md).
+The following resources provide more information on deploying from the image gallery or creating your own VHD. To uncover any programmatic differences with endpoints when you are working with Azure Government, see the [Azure Government Developer Guide](documentation-government-developer-guide.md).
 
 * [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Virtual Machine FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
