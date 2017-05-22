@@ -176,8 +176,8 @@ You can also sample input data from input sources to a local file.
    ![Sample Data](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-01.png)
 
     You can sample only event hub or IoT hub for now. Other input sources are not supported.
-     
- 2. In the pop-up window, enter the local path used to save the sample data. Click **Sample**.
+
+2. In the pop-up window, enter the local path used to save the sample data. Click **Sample**.
 
     ![Sample Data window](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-02.png)
  
