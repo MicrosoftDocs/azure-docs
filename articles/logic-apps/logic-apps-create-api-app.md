@@ -1,6 +1,6 @@
 ---
 title: Create web APIs & REST APIs as connectors - Azure Logic Apps | Microsoft Docs
-description: Create web APIs & REST APIs to call your APIs, systems, and services in workflows for system integrations with Azure Logic Apps
+description: Create web APIs & REST APIs to call your APIs, services, or systems in workflows for system integrations with Azure Logic Apps
 keywords: web APIs, REST APIs, connectors, workflows, system integrations
 services: logic-apps
 author: jeffhollan
@@ -21,14 +21,14 @@ ms.author: LADocs; jehollan
 # Create custom APIs as connectors for logic apps
 
 Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
-you can use in logic app workflows, you might want to call APIs, systems, and services 
-that aren't available as connectors. You can create your own web APIs and REST APIs 
-that provide actions and triggers to use in logic apps.
+that you can use in logic app workflows, you might want to call APIs, systems, 
+and services that aren't available as connectors. You can create your own web APIs 
+and REST APIs that provide actions and triggers to use in logic apps.
 
-Other reasons for creating custom APIs for use with logic apps:
+Other reasons for creating custom APIs to use with logic apps:
 
 * Extend your current system integration and data integration workflows.
-* Help customers manage their professional or personal tasks around your service.
+* Help customers use your service to manage professional or personal tasks.
 * Expand the reach, discoverability, and use for your service.
 
 Connectors are basically web APIs that use REST for pluggable interfaces, 
@@ -81,8 +81,8 @@ so that your Swagger file also works well with logic apps.
 
 Your custom API can provide [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
 that logic apps use to perform tasks. Each action maps to an operation in your API. 
-The basic action is a controller that accepts HTTP requests and returns HTTP responses, 
-like `200 OK`. The logic app workflow sends an HTTP request to your web app or API app, 
+The basic action is a controller that accepts HTTP requests and returns HTTP responses. 
+The logic app workflow sends an HTTP request to your web app or API app, 
 which then returns an HTTP response, along with content that the workflow can process.
 
 For a standard action, you can write an HTTP request method in your API, 
@@ -90,6 +90,8 @@ expose that method through Swagger, and call your API directly with an
 [HTTP action](../connectors/connectors-native-http.md). 
 By default, all the steps required for responding to the original request must finish within the 
 [request timeout limit](./logic-apps-limits-and-config.md). 
+
+![Standard action pattern](./media/logic-apps-create-api-app/standard-action.png)
 
 To make a logic app wait while your API finishes longer-running tasks, 
 you can use the [asynchronous pattern](#async-pattern) 
@@ -110,44 +112,47 @@ workflow before your API finishes its job.
 
 Here's the general pattern:
 
-1. Make sure that the engine knows that your API hasn't timed out.
+1. Make sure that the Logic Apps engine knows that your API hasn't timed out.
 2. Let the engine know when your API finishes the task.
 3. Return relevant data to the engine so that the logic app workflow can continue.
 
+![Asynchronous action pattern](./media/logic-apps-create-api-app/async-pattern-custom-api-actions.png)
+
 Here are the specific steps for your API to follow, 
-as described from the API's perspective:
+described from the API's perspective:
 
 1. When your API gets an HTTP request to start work, 
 immediately return an HTTP `202 ACCEPTED` response with the 
 `location` header described later in this step. 
-This response lets the engine know that your API got the request, 
+This response lets the Logic Apps engine know that your API got the request, 
 accepted the request payload (data input), and is now processing. 
    
    The `202 ACCEPTED` response should include these headers:
    
-   * `location` header (required): Specifies the absolute path to the URL 
-   where the engine can check your API's job status.
+   * *Required*: A `location` header that specifies the absolute path 
+   to a URL where the Logic Apps engine can check your API's job status
 
-   * `retry-after` header (optional): Specifies the number of seconds that 
-   the engine should wait before polling the `location` URL for job status. 
-   By default, the engine checks every 20 seconds. 
-   To specify a different interval, include the `retry-after` header 
-   and the number of seconds until the next poll.
+   * *Optional*: A `retry-after` header that specifies the number of seconds 
+   that the engine should wait before checking the `location` URL for job status. 
 
-2. After the specified time passes, the engine polls the `location` URL for job status. 
-Your API should perform these checks and return these responses:
+     By default, the engine checks every 20 seconds. To specify a different interval, 
+     include the `retry-after` header and the number of seconds until the next poll.
+
+2. After the specified time passes, the Logic Apps engine polls 
+the `location` URL for job status. Your API should perform these 
+checks and return these responses:
    
    * If the job is done, return an HTTP `200 OK` response, 
-   along with the response payload (data output).
+   along with the response payload (input for the next step).
 
    * If the job is still processing, return another HTTP `202 ACCEPTED` response, 
    but with the same headers as the original response.
 
 When you use this pattern for your API, you don't have to do anything in the 
-logic app workflow definition to continue polling and checking job status. 
+logic app workflow definition to continue checking job status. 
 When the Logic Apps engine gets an HTTP `202 ACCEPTED` response and a 
 valid `location` header, the engine honors the asynchronous pattern and 
-continues polling the `location` header until a non-202 response is returned.
+continues polling the `location` header until your API returns a non-202 response.
 
 For an example that shows this pattern, review this 
 [asynchronous controller response sample in GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample), 
@@ -242,8 +247,8 @@ namespace AsyncResponse.Controllers
 
 ### Pause and wait with the webhook pattern
 
-To make a logic app pause and wait for your API to finish processing 
-before workflow continues, you can use the webhook pattern. 
+To make the Logic Apps engine pause and wait for your API to finish processing 
+before continuing workflow, you can use the webhook pattern. 
 A webhook is an HTTP "callback", which is an HTTP POST that sends 
 a message to a URL when an event happens. For this pattern, set up 
 two endpoints on your controller: `subscribe` and `unsubscribe`
@@ -253,17 +258,22 @@ the Logic Apps engine calls the `subscribe` endpoint.
 The logic app creates and registers a callback URL, 
 which your API stores, and waits for the callback from your API. 
 When work is complete, your API calls back with an HTTP POST to the logic app. 
-Any returned content and headers are passed to the logic app 
-for use in the workflow.
+Any returned content and headers are passed as input for your logic app.
 
 * `unsubscribe` endpoint: If the logic app run is canceled, 
 the Logic Apps engine calls the `unsubscribe` endpoint. 
 Your API can then unregister the callback URL and stop any processes as necessary.
 
-Currently, the Logic App Designer doesn't support discovering webhook endpoints through Swagger. 
-So for this pattern, you have to add a **Webhook** action and specify the URL, headers, and body for your request. 
-To pass in the callback URL, you can use the `@listCallbackUrl()` workflow 
-function in any of those fields as necessary.
+![Webhook action pattern](./media/logic-apps-create-api-app/webhook-pattern-custom-api-actions.png)
+
+> [!IMPORTANT]
+> Currently, the Logic App Designer doesn't support 
+> discovering webhook endpoints through Swagger. 
+> So for this pattern, you have to add a **Webhook** action 
+> and specify the URL, headers, and body for your request. 
+> 
+> To pass in the callback URL, you can use the `@listCallbackUrl()` workflow 
+> function in any of the previous fields as necessary.
 
 For an example that shows the webhook pattern, review this 
 [webhook sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
@@ -283,59 +293,34 @@ have your API follow the *polling trigger* or *webhook trigger* pattern.
 
 ### Polling trigger: check for new data or events
 
-A *polling trigger* lets a logic app periodically check your 
-service endpoint for new data or events at a specified frequency. 
-If the trigger finds new data or an event that meets the specified condition, 
-the trigger fires, and the Logic Apps engine creates a logic app instance, 
-which then processes the data as input. To prevent processing the same data multiple times, 
-the trigger should clean up data that was already read and passed to the logic app. 
+A *polling trigger* acts much like the [long-running asynchronous action](#async-pattern) 
+previously described in this topic. The Logic Apps engine periodically calls and checks the trigger endpoint for new data or events. If the engine finds new data or an event that meets your specified condition, the trigger fires, and the engine creates a logic app instance that processes the data as input. To prevent processing the same data multiple times, the trigger should clean up data that was already read and passed to the logic app. 
 
-Polling triggers act much like the [long-running asynchronous actions](#async-pattern) 
-previously described in this topic. The Logic Apps engine calls the trigger 
-after a specified period of time. Based on your App Service plan, 
-this interval is 15 seconds for Premium plans, 1 minute for Standard plans, and 1 hour for Free plans. 
-Each polling request counts as an action execution, even when no logic app instance is created.
+Based on your App Service plan, this interval is 15 seconds for Premium plans, 
+1 minute for Standard plans, and 1 hour for Free plans. Each polling request counts as an action execution, even when no logic app instance is created.
 
-*  If the trigger doesn't find new data, 
-the trigger returns an HTTP `202 ACCEPTED` response to the engine, 
-along with a `location` header and `retry-after` header. 
+![Polling trigger pattern](./media/logic-apps-create-api-app/asyn-pattern-custom-api-triggers.png)
 
-   For triggers, the `location` header should also
-   contain a `triggerState` query parameter, 
-   which is usually a "timestamp." Your API can use this identifier 
-   to track the last time that the logic app was triggered. 
-
-*  If the trigger finds new data, the trigger returns 
-an HTTP `200 OK` response with the content payload, 
-which creates the logic app instance and starts the workflow.
+| Found new data or event? | API response | 
+| ------------------------ | ------------ |
+| Found | Return an HTTP `200 OK` status with the response payload (input for next step). <br/>This response creates a logic app instance and starts the workflow. |
+| Not found | Return an HTTP `202 ACCEPTED` status with a `location` header and a `retry-after` header. <br/>For triggers, the `location` header should also contain a `triggerState` query parameter, which is usually a "timestamp." Your API can use this identifier to track the last time that the logic app was triggered. |
 
 For example, to periodically check your service for new files, 
 you might build a polling trigger that has these behaviors:
 
-* If the trigger gets a request with no `triggerState` from the engine, 
-your API returns an HTTP `202 ACCEPTED` response, a `location` header 
-with `triggerState` set to the current time, and a `retry-after` of 15.
+| Request includes `triggerState`? | API response |
+| -------------------------------- | -------------|
+| No | Return an HTTP `202 ACCEPTED` status plus a `location` header with `triggerState` set to the current time and the `retry-after` interval to 15 seconds. |
+| Yes | Check your service for files added after the `DateTime` for `triggerState`. |
 
-* If the trigger gets a request with a `triggerState` from the engine, 
-your API checks your service for files added after the `DateTime` for `triggerState`.
+| # files found | API response |
+| ------------- | -------------|
+| Single file | Return an HTTP `200 OK` status and the content payload, update `triggerState` to the `DateTime` for the returned file, and set `retry-after` interval to 15 seconds. |
+| Multiple files | Return one file at a time and an HTTP `200 OK` status, update `triggerState`, and set the `retry-after` interval to 0 seconds. </br>These steps let the engine know that more data is available, and that the engine should immediately request that data from the URL in the `location` header. |
+| No files | Return an HTTP `202 ACCEPTED` status, don't change `triggerState`, and set the `retry-after` interval to 15 seconds. |
 
-  * If the trigger finds a single file, 
-  your API returns an HTTP `200 OK` response and the content payload, 
-  updates `triggerState` to the `DateTime` for the returned file, 
-  and sets `retry-after` to 15.
-
-  * If the trigger finds multiple files, 
-  your API returns one file at a time and an HTTP `200 OK` response, 
-  updates `triggerState`, and sets `retry-after` to 0. 
-
-    These steps let the engine know that more data is available, 
-    and that the engine should immediately request that data 
-    from the URL in the `location` header.
-
-  * If the trigger finds no files, your API returns an HTTP `202 ACCEPTED` response, 
-  doesn't change `triggerState`, and sets `retry-after` to 15.
-
-For an example that shows a poll trigger, review this 
+For an example that shows a polling trigger, review this 
 [poll trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
 
 <a name="webhook-triggers"></a>
@@ -343,7 +328,7 @@ For an example that shows a poll trigger, review this
 ### Webhook trigger: wait for new data or events
 
 A webhook trigger is a *push trigger* that waits and listens for new data or 
-events at an endpoint. If new data or an event meets the specified condition, 
+events at a service endpoint. If new data or an event meets the specified condition, 
 the trigger fires and creates a logic app instance, which then processes the data as input.
 To prevent processing the same data multiple times, 
 the trigger should clean up data that was already read and passed to the logic app.
@@ -361,10 +346,16 @@ The content payload and headers are passed to the logic app for use in the workf
 the Logic Apps engine calls the `unsubscribe` endpoint. 
 Your API can then unregister the callback URL and stop any processes as necessary.
 
-Currently, the Logic App Designer doesn't support discovering webhook endpoints through Swagger. 
-So for this pattern, you have to add the **Webhook** trigger and specify the URL, headers, 
-and body for your request. To pass in the callback URL, you can use the 
-`@listCallbackUrl()` workflow function in any of those fields as necessary.
+![Webhook trigger pattern](./media/logic-apps-create-api-app/webhook-pattern-custom-api-triggers.png)
+
+> [!IMPORTANT]
+> Currently, the Logic App Designer doesn't support 
+> discovering webhook endpoints through Swagger. 
+> So for this pattern, you have to add a **Webhook** action 
+> and specify the URL, headers, and body for your request. 
+> 
+> To pass in the callback URL, you can use the `@listCallbackUrl()` workflow 
+> function in any of the previous fields as necessary.
 
 For an example that shows a webhook trigger, review this 
 [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
