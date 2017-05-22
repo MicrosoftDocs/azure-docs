@@ -14,15 +14,24 @@ ms.author: juliakuz
 
 ## Obtaining Subscription Keys
 
-Computer Vision services require special subscription keys to use them with your Azure account. Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
+Computer Vision services require special subscription keys. Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
 
 To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change.
 
-NOTE: Your subscription keys are valid for only one [Microsoft Azure Region](https://azure.microsoft.com/en-us/regions/). 
+NOTE: Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/en-us/regions/). 
 
-If you sign up using the Computer Vision free trial, your subscription keys are valid for the **westcentral** region (`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/`). That is the most common case. However, if you sign-up for Computer Vision with your Microsoft Azure account, you specify the region for your Computer Vision trial from a list of Microsoft Azure Regions. Currently, the list of regions for Computer Vision include **westcentralus**, **westus**, **eastus2**, **westeurope**, and **southeastasia**. 
+| Region | Address |
+|---|---|
+| West US | westus.api.cognitive.microsoft.com |
+| East US 2 | eastus2.api.cognitive.microsoft.com |
+| West Central US | westcentralus.api.cognitive.microsoft.com |
+| West Europe | westeurope.api.cognitive.microsoft.com |
+| Southeast Asia | southeastasia.api.cognitive.microsoft.com |
 
-If you sign up for Computer Vision with your Microsoft Azure account, and you specify `westus` for your region, you must use the `westus` region for your REST API calls (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
+
+If you sign up using the Computer Vision free trial, your subscription keys are valid for the **westcentral** region (`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/`). That is the most common case. However, if you sign-up for Computer Vision with your Microsoft Azure account through the [https://azure.microsoft.com/](https://azure.microsoft.com/) website, you specify the region for your Computer Vision trial from the above list of Microsoft Azure Regions. 
+
+For example, if you sign up for Computer Vision with your Microsoft Azure account and you specify `westus` for your region, you must use the `westus` region for your REST API calls (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
 
 Subscriptions
 
