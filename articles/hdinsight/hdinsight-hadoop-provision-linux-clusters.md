@@ -246,3 +246,4 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 - [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](hdinsight-hadoop-introduction.md)
 - [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Work in Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
