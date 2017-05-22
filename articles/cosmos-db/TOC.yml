@@ -236,6 +236,12 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Regional failover
       href: ../documentdb/documentdb-regional-failovers.md
+    - name: Set throughput
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: Monitor SLAs
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Manage keys and consistency
+      href: ../documentdb/documentdb-manage-account.md
     - name: Automation
       items:
       - name: Azure CLI 1.0 - Create an account
@@ -250,6 +256,8 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Firewall support
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Securing access to data
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Integrate
     items:
     - name: Connect to Spark
