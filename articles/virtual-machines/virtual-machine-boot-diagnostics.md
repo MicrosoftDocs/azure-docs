@@ -1,5 +1,5 @@
 ---
-title: Boot Diagnostics for Virtual Machines
+title: Boot Diagnostics for Azure Virtual Machines | Microsoft Doc
 description: Overview of the two debugging feature of Azure
 services: virtual-machines
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/18/2017
 ms.author: delhan
 ---
 
-# Boot Diagnostics for Virtual Machines Resource Manager deployment model
+# Boot diagnostics for Azure virtual machines resource manager deployment model
 
 Support for two debugging features is now available in Azure: Console Output and Screenshot support for Azure Virtual Machines Resource Manager deployment model. 
 
@@ -33,7 +33,7 @@ However, for both Windows and Linux Virtual Machines, Azure also enables you to 
 
 Both of these features are supported for Azure Virtual Machines in all regions. Note, screenshots, and output can take up to 10 minutes to appear in your storage account.
 
-## Enable diagnostics on a new Virtual Machine
+## Enable diagnostics on a new virtual machine
 When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
  
 ![Resouce Manager](./media/virtual-machine-Boot-Diagnostics/screenshot3.jpg)
@@ -66,7 +66,7 @@ The diagnostics profile enables you to select the storage account where you want
 
 To deploy a sample Virtual Machine with boot diagnostics enabled, check out our repo here.
 
-## Update an Existing Virtual Machine ##
+## Update an existing virtual machine ##
 
 To enable boot diagnostics through the Portal, You can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
 
