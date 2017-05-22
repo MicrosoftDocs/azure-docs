@@ -132,27 +132,26 @@ The method returns a dictionary that can be used to chain custom activities toge
 5. Add the following **using** statements to the source file in the project.
 
 	```csharp
+	// Comment these lines if using VS 2017
+	using System.IO;
+	using System.Globalization;
+	using System.Diagnostics;
+	using System.Linq;
+	// --------------------
 
-// Comment these lines if using VS 2017
-using System.IO;
-using System.Globalization;
-using System.Diagnostics;
-using System.Linq;
-// --------------------
+	// Comment these lines if using <= VS 2015
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	// ---------------------
 
-// Comment these lines if using <= VS 2015
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-// ---------------------
+	using Microsoft.Azure.Management.DataFactories.Models;
+	using Microsoft.Azure.Management.DataFactories.Runtime;
 
-using Microsoft.Azure.Management.DataFactories.Models;
-using Microsoft.Azure.Management.DataFactories.Runtime;
-
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
 	```
 6. Change the name of the **namespace** to **MyDotNetActivityNS**.
 
