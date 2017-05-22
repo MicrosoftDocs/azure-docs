@@ -166,7 +166,7 @@ When you use the Azure portal to configure the cluster, the node size is availab
 ![HDInsight VM node sizes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
 
 ### Virtual machine sizes 
-When you deploy clusters, choose compute resources based on on the solution you plan to deploy.
+When you deploy clusters, choose compute resources based on the solution you plan to deploy.
 
 The following VMs are used for HDInsight clusters:
 * A and D1-4 series VMs: [General-purpose Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
