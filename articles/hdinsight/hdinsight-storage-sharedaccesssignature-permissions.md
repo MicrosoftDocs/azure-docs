@@ -1,5 +1,5 @@
 ---
-title: Restrict HDInsight access to data using Shared Access Signatures
+title: Restrict access using Shared Access Signatures - Azure HDInsight | Microsoft Docs
 description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure storage blobs.
 services: hdinsight
 documentationcenter: ''
@@ -18,12 +18,18 @@ ms.date: 02/28/2017
 ms.author: larryfr
 
 ---
-# Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight
-HDInsight uses Azure storage Blobs for data storage. While HDInsight must have full access to the blob used as default storage for the cluster, you can restrict permissions to data stored in other blobs used by the cluster. For example, you may want to make some data read-only. You can do this using Shared Access Signatures.
+# Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight
 
-Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data. In this document, you learn how to use SAS to enable read and list-only access to a blob container from HDInsight.
+HDInsight has full access to data in the Azure Storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. For example, to provide read-only access to the data. Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data.
+
+> [!IMPORTANT]
+> For a more robust solution that uses Apache Ranger, consider using domain-joined HDInsight. For more information, see the [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md) document.
+
+> [!WARNING]
+> HDInsight must have full access to the default storage for the cluster.
 
 ## Requirements
+
 * An Azure subscription
 * C# or Python. C# example code is provided as a Visual Studio solution.
 
@@ -42,31 +48,42 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that allo
   * A PowerShell script that can create a HDInsight cluster and configure it to use the SAS.
 
 ## Shared Access Signatures
+
 There are two forms of Shared Access Signatures:
 
 * Ad hoc: The start time, expiry time, and permissions for the SAS are all specified on the SAS URI (or implied, in the case where start time is omitted).
+
 * Stored access policy: A stored access policy is defined on a resource container, such as a blob container, table, queue, or file share. A policy can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.
 
 The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with. If a SAS is published publicly, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
 
 1. The expiry time specified on the SAS is reached.
+
 2. The expiry time specified on the stored access policy referenced by the SAS is reached (if a stored access policy is referenced, and if it specifies an expiry time). This can either occur because the interval elapses, or because you have modified the stored access policy to have an expiry time in the past, which is one way to revoke the SAS.
+
 3. The stored access policy referenced by the SAS is deleted, which is another way to revoke the SAS. If you recreate the stored access policy with exactly the same name, all  SAS tokens for the previous policy will be valid (if the expiry time on the SAS has not passed). If you intending to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.
+
 4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all application components that use the previous key to fail authentication until they are updated the new key.
 
 > [!IMPORTANT]
 > A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
->
->
 
 It is recommended that you always use stored access policies, so that you can either revoke signatures or extend the expiry date as needed. The steps in this document use stored access policies to generate SAS.
 
 For more information on Shared Access Signatures, see [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
-## Create a stored policy and generate a SAS
-Currently you must create a stored policy programmatically. You can find both the C# and Python example of creating a stored policy and SAS at [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
+## Create a shared access signature using the Azure Portal
 
-### Create a stored policy and SAS using C\
+1. Open the [Azure portal](https://portal.azure.com) in your browser, and then select the storage account.
+
+2. From the Storage Account blade, select __Shared access signature__. Use the entries on this blade to configure the shared access signature.
+
+    ![Shared access signature generation in the portal]()
+
+3. Use the __Generate SAS__ button to generate the signature. Copy the value from the __SAS token__ field.
+
+### Create a stored policy and SAS using C\#
+
 1. Open the solution in Visual Studio.
 2. In Solution Explorer, right-click on the **SASToken** project and select **Properties**.
 3. Select **Settings** and add values for the following entries:
