@@ -29,7 +29,7 @@ If you are using any firewall proxy to control outbound internet connectivity, e
 ### URLs
 
 **URL** | **Purpose**  
---- | --- 
+--- | ---
 *.blob.core.windows.net | Required so that data can be written to the cache storage account form the VM.
 login.microsoftonline.com | Required for authorization and authentication to the Site recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site recovery service communication can happen from the VM.
@@ -44,7 +44,7 @@ Below are the IP ranges that need to be white-listed depending on the source loc
 
 - Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
 
-- Ensure that you whitelist the below IPs ranges depending on your target location. 
+- Ensure that you whitelist the below IPs ranges depending on your target location.
 
 **Target Location** | **Site recovery service IPs** |  **Site recovery monitoring IP**
  --- | --- | ---
@@ -75,9 +75,9 @@ UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
 
 ## Network Security Group configuration
 
-If you are using Network Security Group (NSG) rules to control outbound connectivity, you need to ensure the "Allow HTTP outbound" rules for all the IP ranges mentioned above. 
+If you are using Network Security Group (NSG) rules to control outbound connectivity, you need to ensure the "Allow HTTP outbound" rules for all the IP ranges mentioned above.
 
-For example, if your VM's source location is 'East US' and your replication is target location is 'Central US', you need to create NSG rules for below IP ranges. 
+For example, if your VM's source location is 'East US' and your replication is target location is 'Central US', you need to create NSG rules for below IP ranges.
 
 ### NSG rules on 'East US' NSG
 
