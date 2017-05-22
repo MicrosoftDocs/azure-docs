@@ -1,6 +1,6 @@
 ---
 title: Deploy and explore a SaaS application that uses Azure SQL Database | Microsoft Docs 
-description: "Deploy and explore the Azure SQL Database sample Wingtip Tickets (WTP) app"
+description: "Deploy and explore the Azure SQL Database Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.custom: tutorial
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.topic: article
+ms.date: 05/19/2017
+ms.author: sstein
 
 ---
 # Deploy and explore a multi-tenant SaaS application that uses Azure SQL Database
 
-In this tutorial, you deploy and explore the Wingtip Tickets Platform (WTP) SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that enable SaaS scenarios, and SaaS design and management patterns.
+In this tutorial, you deploy and explore the Wingtip SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that enable SaaS scenarios, and SaaS design and management patterns.
 
 Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to inspect and work with the individual application components.
 
@@ -31,7 +31,7 @@ In this tutorial you learn:
 
 > [!div class="checklist"]
 
-> * How to deploy the WTP application
+> * How to deploy the Wingtip SaaS application
 > * About the servers, pools, and databases that make up the app
 > * Tenants are mapped to their data with the *catalog*
 > * How to provision new tenants
@@ -44,7 +44,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## Deploy the Wingtip tickets (WTP) SaaS Application
+## Deploy the Wingtip SaaS Application
 
 Deploy the Wingtip tickets platform in less than five minutes:
 
@@ -68,13 +68,13 @@ Deploy the Wingtip tickets platform in less than five minutes:
     * Select **Pin to dashboard**.
     * Click **Purchase**.
 
-1. Monitor deployment status by clicking **Notifications** (the bell icon right of the search box). Deploying the WTP app takes approximately four minutes.
+1. Monitor deployment status by clicking **Notifications** (the bell icon right of the search box). Deploying the Wingtip SaaS app takes approximately four minutes.
 
    ![deployment succeeded](media/sql-database-saas-tutorial/succeeded.png)
 
 ## Explore the application
 
-The app showcases venues, such as concert halls, jazz clubs, sports clubs, that host events. Venues register as customers (or tenants) of the Wingtip Tickets Platform (WTP), for an easy way to list events and sell tickets. Each venue gets a personalized web app to manage and list their events and sell tickets, independent and isolated from other tenants. Under the covers, each tenant gets a SQL database deployed into a SQL Elastic pool.
+The app showcases venues, such as concert halls, jazz clubs, sports clubs, that host events. Venues register as customers (or tenants) of the Wingtip platform, for an easy way to list events and sell tickets. Each venue gets a personalized web app to manage and list their events and sell tickets, independent and isolated from other tenants. Under the covers, each tenant gets a SQL database deployed into a SQL Elastic pool.
 
 A central **Events Hub** provides a list of tenant URLs specific to your deployment. All the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. 
 
@@ -88,7 +88,7 @@ A central **Events Hub** provides a list of tenant URLs specific to your deploym
 
 1. Click **Tickets** and explore ticket purchasing for an event.
 
-The WTP application uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to control the distribution of incoming traffic. The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database.
+The app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to control the distribution of incoming traffic. The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database.
 
 In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
 
@@ -102,7 +102,7 @@ The initial deployment creates three sample tenants, but we need to create more 
 
 ### Initialize the user config file for your deployment
 
-Because this is the first script you are going to run after the initial WTP application deployment, you must update the user configuration file. Update the variables with the specific values from your deployment.
+Because this is the first script you are going to run after the initial deployment, you must update the user configuration file. Update the variables with the specific values from your deployment.
 
    1. Open ...\\Learning Modules\\*UserConfig.psm1* in the *PowerShell ISE*
    1. Modify _$userConfig.ResourceGroupName_ to the _resource group_ you set when you deployed the app.
@@ -155,7 +155,7 @@ What these two charts nicely illustrate, is how well suited elastic pools and SQ
 
 ## Deleting the resources created with this tutorial
 
-When you are finished exploring and working with the WTP app, browse to the application's resource group in the portal and delete it to stop all billing related to this deployment. If you have used any of the accompanying tutorials, any resources they created will also be deleted with the application.
+When you are finished exploring and working with the app, browse to the application's resource group in the portal and delete it to stop all billing related to this deployment. If you have used any of the accompanying tutorials, any resources they created will also be deleted with the application.
 
 
 ## Next steps
@@ -164,7 +164,7 @@ In this tutorial you learned:
 
 > [!div class="checklist"]
 
-> * How to deploy the WTP application
+> * How to deploy the Wingtip SaaS application
 > * About the servers, pools, and databases that make up the app
 > * Tenants are mapped to their data with the *catalog*
 > * How to provision new tenants
@@ -177,7 +177,7 @@ Now try the [Provision and catalog tutorial](sql-database-saas-tutorial-provisio
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip SaaS application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
