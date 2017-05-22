@@ -40,11 +40,11 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 
 **To delete a Data Lake Analytics account**
 
-1. Open the Data Lake Analytics account in the Azure Portal
+1. Open the Data Lake Analytics account in the Azure portal
 2. Click **Delete** from the button menu on the top of the blade.
 3. Type the account name, and then click **Delete**.
 
-You must delete the default Data Lake Store account first, before you delete the Data Lake Analytics account.
+Before you delete the Data Lake Analytics account, delete its default Data Lake Store account.
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -80,7 +80,7 @@ Data Lake Analytics currently supports the following data sources:
    * **Upload**: Upload files to the Storage account from your workstation.
    * **Access**: Configure access permissions.
    * **Rename Folder**: Rename a folder.
-   * **Folder properties**: Show file or folder properties, such as WASB path, WEBHDFS path, last modified time and so on.
+   * **Folder properties**: Show properties such as path, last modified time, and so on.
    * **Delete Folder**: Delete a folder.
 
 **To upload files to Data Lake Store account**
@@ -104,7 +104,7 @@ the following roles:
 | --- | --- |
 | Owner |Let you manage everything, including access to resources. |
 | Contributor |Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor needs the read or write permission to the Data Lake Store accounts. |
-| DataLakeAnalyticsDeveloper |Submit, monitor and cancel jobs.  These users can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions, or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts |
+| DataLakeAnalyticsDeveloper |Submit, monitor, and cancel jobs.  These users can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions, or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts |
 | Reader |Lets you view everything, but not make any changes. |
 | DevTest Labs User |Lets you view everything, and connect, start, restart, and shutdown virtual machines. |
 | User Access Administrator |Lets you manage user access to Azure resources. |
@@ -138,7 +138,7 @@ For information on creating Azure Active Directory users and security groups, Se
     |----|-----------|
     |Job Name|Enter the name of the job.|
     |Priority|Lower number has higher priority. If two jobs are both queued, the one with lower priority runs first|
-    |Parallelism |Max number of compute processes that can happen at the same time. Increasing this number can improve performance but can also increase cost.|
+    |Parallelism |Max number of compute processes to reserve for this job.|
     |Script|Enter the U-SQL script for the job.|
 
     Using the same interface, you can also explore the link data sources, and add additional files to the linked data sources. 
