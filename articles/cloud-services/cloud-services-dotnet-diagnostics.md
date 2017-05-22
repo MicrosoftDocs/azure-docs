@@ -28,7 +28,7 @@ This article assumes you have an Azure subscription and are using Visual Studio 
 
 ### Step 1: Create a Worker Role
 1. Launch **Visual Studio**.
-2. Create a **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and click Ok.
+2. Create an **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and click Ok.
 3. Select **Worker Role** and click Ok. The project will be created.
 4. In **Solution Explorer**, double-click the **WorkerRole1** properties file.
 5. In the **Configuration** tab, un-check **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and earlier).
