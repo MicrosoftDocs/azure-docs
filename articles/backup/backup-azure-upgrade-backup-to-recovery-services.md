@@ -25,8 +25,8 @@ This article explains how to upgrade a Backup vault to a Recovery Services vault
 
 ## How to upgrade?
 
-There is significant demand for upgrading Backup vaults to Recovery Services vaults. To streamline this process we are releasing customers into the upgrade queue in batches. To sign up for entry in the upgrade queue, please use the appropriate link:
+There is significant demand for upgrading Backup vaults to Recovery Services vaults. To streamline this process, we are releasing customers into the upgrade queue in batches. To sign up for entry in the upgrade queue, use the appropriate link:
 - [upgrade Backup vaults](https://www.surveymonkey.com/Y57BJQX)
 - [upgrade Site Recovery vaults](https://www.surveymonkey.com/5HHPZQN)
 
-Once your subscription is whitelisted for upgrade, Microsoft will contact you to proceed with the upgrade. For additional information about the upgrade process, see the Azure Backup [blog](http://azure.microsoft.com/blog/upgrade-classic-backup-and-siterecovery-vault-to-arm-recovery-services-vault).
+Once your subscription is whitelisted for upgrade, Microsoft contacts you to proceed with the upgrade. For more information about the upgrade process, see the Azure Backup [blog](http://azure.microsoft.com/blog/upgrade-classic-backup-and-siterecovery-vault-to-arm-recovery-services-vault).
