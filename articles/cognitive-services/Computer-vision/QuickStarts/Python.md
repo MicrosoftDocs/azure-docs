@@ -8,11 +8,12 @@ manager: ytkuo
 ms.service: cognitive-services 
 ms.technology: computer-vision 
 ms.topic: article 
-ms.date: 02/22/2017 
+ms.date: 05/22/2017 
 ms.author: juliakuz 
 --- 
 
 # Computer Vision Python Quick Starts
+
 This article provides information and code samples to help you quickly get started using the Computer Vision API with Python to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage)
 * [Use a Domain-Specific Model](#DomainSpecificModel)
@@ -23,6 +24,7 @@ This article provides information and code samples to help you quickly get start
 To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
 ## Analyze an Image With Computer Vision API Using Python <a name="AnalyzeImage"> </a>
+
 With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 * A detailed list of tags related to the image content.
@@ -30,17 +32,21 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* Does the image contains adult or sexually suggestive content?
+* Does the image contain adult or sexually suggestive content?
 
 ### Analyze an Image Python Example Request
 
-```Python
+Copy the appropriate section for your version of Python and save it to a file such as `analyze.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to a photograph of a celebrity to the `body` variable, and change the REST URL to use the location where you obtained your subscription keys.
+
+```python
 ########### Python 2.7 #############
 import httplib, urllib, base64
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -55,6 +61,9 @@ params = urllib.urlencode({
 body = "{'url':'...'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/analyze?%s" % params, body, headers)
     response = conn.getresponse()
@@ -70,8 +79,10 @@ except Exception as e:
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -86,6 +97,9 @@ params = urllib.parse.urlencode({
 body = "{'url':'...'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/analyze?%s" % params, body, headers)
     response = conn.getresponse()
@@ -95,10 +109,10 @@ try:
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
 ####################################
-
 ```
 
 ### Analyze an Image Response
+
 A successful response is returned in JSON. Following is an example of a successful response:
 
 ```json
@@ -199,21 +213,25 @@ A successful response is returned in JSON. Following is an example of a successf
     "lineDrawingType": 0
   }
 }
-
 ```
 
 ## Use a Domain-Specific Model <a name="DomainSpecificModel"> </a>
+
 The Domain-Specific Model is a model trained to identify a specific set of objects in an image. The two domain-specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
 
 ### Landmark Python Example Request
 
-```Python
+Copy the appropriate section for your version of Python and save it to a file such as `landmark.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and change the REST URL to use the location where you obtained your subscription keys.
+
+```python
 ########### Python 2.7 #############
 import httplib, urllib, base64, json
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+     # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -226,11 +244,16 @@ params = urllib.urlencode({
 body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+
     # Change "landmarks" to "celebrities" in the url to use the Celebrity model.
     conn.request("POST", "/vision/v1.0/models/landmarks/analyze?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
+
     # 'data' contains the JSON data. The following formats the JSON data for display.
     parsed = json.loads(data)
     print ("REST Response:")
@@ -245,8 +268,10 @@ except Exception as e:
 import http.client, urllib.request, urllib.parse, urllib.error, base64, json
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -259,10 +284,14 @@ params = urllib.parse.urlencode({
 body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/models/landmarks/analyze?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
+
     # 'data' contains the JSON data. The following formats the JSON data for display.
     encoding = response.headers.get_content_charset()
     parsed = json.loads(data.decode(encoding))
@@ -276,6 +305,7 @@ except Exception as e:
 ```
 
 ### Landmark Example Response
+
 A successful response is returned in JSON. Following is an example of a successful response:  
 
 ```json
@@ -298,17 +328,22 @@ A successful response is returned in JSON. Following is an example of a successf
 ```
 
 ## Get a Thumbnail with Computer Vision API Using Python <a name="GetThumbnail"> </a>
+
 Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
 
 ### Get a Thumbnail Python Example Request
 
-```Python
+Copy the appropriate section for your version of Python and save it to a file such as `thumbnail.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to an image for which you want a thumbnail to the `body` variable, and change the REST URL to use the location where you obtained your subscription keys.
+
+```python
 ########### Python 2.7 #############
 import httplib, urllib, base64
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -323,6 +358,9 @@ params = urllib.urlencode({
 body = "{'url':'...'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/generateThumbnail?%s" % params, body, headers)
     response = conn.getresponse()
@@ -338,8 +376,10 @@ except Exception as e:
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -354,6 +394,9 @@ params = urllib.parse.urlencode({
 body = "{'url':'...'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/generateThumbnail?%s" % params, body, headers)
     response = conn.getresponse()
@@ -366,20 +409,26 @@ except Exception as e:
 ```
 
 ### Get a Thumbnail Response
+
 A successful response contains the thumbnail image binary. If the request fails, the response contains an error code and a message to help determine what went wrong.
 
-
 ## Optical Character Recognition (OCR) with Computer Vision API Using Python <a name="OCR"> </a>
+
 Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR Python Example Request
-```Python
+
+Copy the appropriate section for your version of Python and save it to a file such as `ocr.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to an image that contains text to the `body` variable, and change the REST URL to use the location where you obtained your subscription keys.
+
+```python
 ########### Python 2.7 #############
 import httplib, urllib, base64
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -393,6 +442,9 @@ params = urllib.urlencode({
 body = "{'url':'...'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
@@ -408,8 +460,10 @@ except Exception as e:
 import http.client, urllib.request, urllib.parse, urllib.error, base64
 
 headers = {
-    # Request headers. Replace the key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -423,6 +477,9 @@ params = urllib.parse.urlencode({
 body = "{'url':'...'}"
 
 try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
@@ -432,10 +489,10 @@ try:
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
 ####################################
-
 ```
 
 ### OCR Example Response
+
 Upon success, the OCR results include the text from the image. They also include bounding boxes for regions, lines, and words.
 
 ```json
@@ -506,24 +563,32 @@ Upon success, the OCR results include the text from the image. They also include
 ```
 
 ## Text recognition with Computer Vision API Using Python <a name="RecognizeText"> </a>
+
 Use the [RecognizeText method](https://ocr.portal.azure-api.net/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### Handwriting Recognition Python Example
 
-```Python
+Copy the appropriate section for your version of Python and save it to a file such as `handwriting.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to an image that contains handwritten text to the `body` variable, and change the REST URL to use the location where you obtained your subscription keys.
+
+```python
 ########### Python 2.7 #############
 import httplib, urllib, base64, time
 
 headers = {
-    # Request headers - replace this example key with your valid subscription key.
+    # Request headers.
     # Another valid content type is "application/octet-stream".
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
 # Replace the three dots below with the URL of a JPEG image containing text.
 body = "{'url':'...'}"
 
+# NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+#   URL below with "westcentralus".
 serviceUrl = 'westus.api.cognitive.microsoft.com'
 
 # For printed text, set "handwriting" to false.
@@ -543,9 +608,9 @@ try:
 	answerURL = parsedLocation[1]
 	print "AnswerURL:", answerURL
 
-	# Note: The response may not be immediately available. Handwriting recognition is an
-	# async operation that can take a variable amount of time depending on the length
-	# of the text you want to recognize. You may need to wait or retry this GET operation.
+	# NOTE: The response may not be immediately available. Handwriting recognition is an
+	#   async operation that can take a variable amount of time depending on the length
+	#   of the text you want to recognize. You may need to wait or retry this GET operation.
 
 	time.sleep(10)
 	conn = httplib.HTTPSConnection(serviceUrl)
@@ -562,15 +627,20 @@ except Exception as e:
 import http.client, urllib.request, urllib.parse, urllib.error, base64, requests, time
 
 requestHeaders = {
-    # Request headers - replace this example key with your valid subscription key.
+    # Request headers.
     # Another valid content type is "application/octet-stream".
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
 # Replace the three dots below with the URL of a JPEG image containing text.
 body = {'url':'...'}
 
+# NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+#   URL below with "westcentralus".
 serviceUrl = 'https://westus.api.cognitive.microsoft.com/vision/v1.0/RecognizeText'
 
 # For printed text, set "handwriting" to false.
@@ -596,5 +666,4 @@ except Exception as e:
 	print(e)
 
 ####################################
-
 ```
