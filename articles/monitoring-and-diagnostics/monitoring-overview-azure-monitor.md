@@ -26,7 +26,8 @@ Cloud applications are complex with many moving parts. Monitoring provides data 
 
 
 ## Azure Monitor and Microsoft's other monitoring products
-Azure Monitor provides base level infrastructure metrics and logs for most services in Microsoft Azure. Azure services that do not yet put their data into Azure Monitor will in the future. 
+Azure Monitor provides base level infrastructure metrics and logs for most services in Microsoft Azure. Azure services that do not yet put their data into Azure Monitor will in the future.
+<!---Loc Comment: There is a missing verb afet "will"---->  
 
 Microsoft ships additional products and services that provide additional monitoring capabilities for developers, DevOps, or IT Ops that also have on-premises installations. For an overview and understanding of how these different products and services work together, see [Monitoring in Microsoft Azure](monitoring-overview.md).
 
