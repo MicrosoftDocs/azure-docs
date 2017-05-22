@@ -348,7 +348,7 @@ Navigate to the home page for your data factory:
 	![Browse data factories](media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png)
 3. Start typing the name of your data factory.
 
-	![Nane of data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
+	![Name of data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
 4. Click your data factory in the results list to see the home page for your data factory.
 
 	![Data factory home page](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
