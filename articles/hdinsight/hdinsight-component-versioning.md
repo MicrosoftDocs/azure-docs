@@ -162,6 +162,41 @@ The following features are currently not supported for HDInsight Premium cluster
 ### Pricing and SLA
 For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
+## Default noode configuration and Virtual Machine sizes for clusters
+The following tables list the default virtual machine (VM) sizes for HDInsight clusters:
+
+> [!IMPORTANT]
+> If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
+>
+>
+
+* All supported regions except Brazil South and Japan West:
+
+  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- |
+  | Head: default VM size |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
+  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Worker: default VM size |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: default VM size | |A3 |A2 | | |
+  | ZooKeeper: recommended VM sizes | |A3, A4, A5 |A2, A3, A4 | | |
+  | Edge: default VM size | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Edge: recommended VM size | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+* Brazil South and Japan West only (no v2 sizes here):
+
+  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- |
+  | Head: default VM size |D3 |D3 |A3 |D12 |D12 |
+  | Head: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Worker: default VM size |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Worker: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | ZooKeeper: default VM size | |A2 |A2 | | |
+  | ZooKeeper: recommended VM sizes | |A2, A3, A4 |A2, A3, A4 | | |
+  | Edge: default VM sizes | | | | |Windows: D12; Linux: D4 |
+  | Edge: recommended VM sizes | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+
+> [!NOTE]
+> Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 

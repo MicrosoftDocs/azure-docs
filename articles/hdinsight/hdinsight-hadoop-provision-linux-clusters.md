@@ -24,7 +24,7 @@ ms.author: jgao
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, HBase, R Server, or Storm.
+Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server, or Storm. Also, learn how to customize clusters and add security by joining them to a domain.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure HDInsight abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
 
@@ -109,7 +109,7 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 * HTTP user. The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters). Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Location
+## Location (regions) for clusters and storage
 You don't need to specify the cluster location explicitly: The cluster is in the same location as the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ## Storage endpoints for clusters
@@ -120,7 +120,7 @@ During configuration, you specify a blob container of an Azure Storage account o
 
 ![Cluster storage settings: HDFS-compatible storage endpoints](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
-## Optional metastores
+### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 
 
 > [!IMPORTANT]
@@ -143,9 +143,16 @@ To increase performance when using Oozie, use a custom metastore. A metastore ca
 
 You are billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
 
-Different cluster types have different node types, numbers of nodes, and node sizes. For example, a Hadoop cluster type has two *head nodes* and a default of four *data nodes*. Storm cluster type has a different configuration of two *Nimbus nodes*, three *ZooKeeper nodes*, and a default of four *supervisor nodes*. 
+The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes. 
 
-The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes. For example, if you know that you need to perform operations that need a lot of memory, you might want to select a compute resource with more memory. 
+Different cluster types have different node types, numbers of nodes, and node sizes:
+* Haoop cluster type default: 
+    * Two *head nodes*  
+    * Four *data nodes*
+* Storm cluster type default: 
+    * Two *Nimbus nodes*
+    * Three *ZooKeeper nodes*
+    * Four *supervisor nodes* 
 
 If you are just trying out HDInsight, we recommend you use one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -153,44 +160,18 @@ If you are just trying out HDInsight, we recommend you use one data node. For mo
 > The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to increase the limit.
 >
 
-When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. You can also see the cost associated with the different node sizes. The following screenshot shows the choices for a Linux-based Hadoop cluster.
+When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. In the portal, you can also see the cost associated with the different node sizes. 
 
 ![HDInsight VM node sizes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
 
-The following tables show the sizes supported by HDInsight clusters, and the capacities they provide.
+### Virtual machine sizes 
+When you deploy clusters, be aware of how you want to use them and the compute resources you'll need.
 
-### Standard tier: A-series
-In the classic deployment model, some VM sizes are slightly different in PowerShell and the command-line interface (CLI).
+The following VMs are used for HDInsight clusters:
+* A and D1-4 series VMs: [General-purpose Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
+* D11-14 series VM: [Memory-optimized Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
-
-| Size | CPU cores | Memory | NICs (Max) | Max. disk size | Max. data disks (1023 GB each) | Max. IOPS (500 per disk) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A3\Large |4 |7 GB |2 |Temporary = 285 GB |8 |8x500 |
-| Standard_A4\ExtraLarge |8 |14 GB |4 |Temporary = 605 GB |16 |16x500 |
-| Standard_A6 |4 |28 GB |2 |Temporary = 285 GB |8 |8x500 |
-| Standard_A7 |8 |56 GB |4 |Temporary = 605 GB |16 |16x500 |
-
-### Standard tier: D-series
-| Size | CPU cores | Memory | NICs (Max) | Max. disk size | Max. data disks (1023 GB each) | Max. IOPS (500 per disk) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3 |4 |14 GB |4 |Temporary (SSD) =200 GB |8 |8x500 |
-| Standard_D4 |8 |28 GB |8 |Temporary (SSD) =400 GB |16 |16x500 |
-| Standard_D12 |4 |28 GB |4 |Temporary (SSD) =200 GB |8 |8x500 |
-| Standard_D13 |8 |56 GB |8 |Temporary (SSD) =400 GB |16 |16x500 |
-| Standard_D14 |16 |112 GB |8 |Temporary (SSD) =800 GB |32 |32x500 |
-
-### Standard tier: Dv2-series
-| Size | CPU cores | Memory | NICs (Max) | Max. disk size | Max. data disks (1023 GB each) | Max. IOPS (500 per disk) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 GB |4 |Temporary (SSD) =200 GB |8 |8x500 |
-| Standard_D4_v2 |8 |28 GB |8 |Temporary (SSD) =400 GB |16 |16x500 |
-| Standard_D12_v2 |4 |28 GB |4 |Temporary (SSD) =200 GB |8 |8x500 |
-| Standard_D13_v2 |8 |56 GB |8 |Temporary (SSD) =400 GB |16 |16x500 |
-| Standard_D14_v2 |16 |112 GB |8 |Temporary (SSD) =800 GB |32 |32x500 |
-
-For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
+For more information, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
 
 > [!IMPORTANT]
 > If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
@@ -256,43 +237,6 @@ If your solution requires technologies that are spread across multiple HDInsight
 For more information on using an Azure virtual network with HDInsight, see [Extend HDInsight with Azure virtual networks](hdinsight-extend-hadoop-virtual-network.md).
 
 For an example of using two cluster types within an Azure virtual network, see [Analyze sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
-
-## Default Virtual Machine sizes for clusters
-The following tables list the default virtual machine (VM) sizes for HDInsight:
-
-> [!IMPORTANT]
-> If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
->
->
-
-* All supported regions except Brazil South and Japan West:
-
-  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: default VM size |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: default VM size | |A3 |A2 | | |
-  | ZooKeeper: recommended VM sizes | |A3, A4, A5 |A2, A3, A4 | | |
-  | Edge: default VM size | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: recommended VM size | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-* Brazil South and Japan West only (no v2 sizes here):
-
-  | Cluster type | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 |D3 |A3 |D12 |D12 |
-  | Head: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Worker: default VM size |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker: recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
-  | ZooKeeper: default VM size | |A2 |A2 | | |
-  | ZooKeeper: recommended VM sizes | |A2, A3, A4 |A2, A3, A4 | | |
-  | Edge: default VM sizes | | | | |Windows: D12; Linux: D4 |
-  | Edge: recommended VM sizes | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
-
-> [!NOTE]
-> Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
-
 
 ## Troubleshoot access control issues
 
