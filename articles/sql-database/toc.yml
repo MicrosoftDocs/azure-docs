@@ -64,6 +64,7 @@
     - name: Monitor with Log Analytics
       href: sql-database-saas-tutorial-log-analytics.md
     - name: Manage tenant analytics
+      href: sql-database-saas-tutorial-tenant-analytics.md
 
 - name: Samples
   items:
@@ -90,6 +91,7 @@
     - name: Monitor with Log Analytics
       href: sql-database-saas-tutorial-log-analytics.md
     - name: Manage tenant analytics
+      href: sql-database-saas-tutorial-tenant-analytics.md
  
 - name: Concepts
   items:
