@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/22/2017
 ms.author: mimig
 
 ---
 # Frequently asked questions about Azure Cosmos DB
-## Database questions about Microsoft Azure Cosmos DB fundamentals
-### What is Microsoft Azure Cosmos DB?
-Microsoft Azure Cosmos DB is a globally replicated, multi-model database service that that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure. Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. Azure Cosmos DB delivers schema flexibility and rich indexing, and includes multi-document transactional support with integrated JavaScript.  
+## Database questions about Azure Cosmos DB fundamentals
+### What is Azure Cosmos DB?
+Azure Cosmos DB is a globally replicated, multi-model database service that that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure. Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. Azure Cosmos DB delivers schema flexibility and rich indexing, and includes multi-document transactional support with integrated JavaScript.  
 
 Azure Cosmos DB started in late 2010 to address developer pain-points that are faced by large scale applications inside Microsoft. Since building globally distributed applications is not a problem unique to just to Microsoft, we made the service available externally to all Azure Developers in the form of Azure DocumentDB. Azure Cosmos DB is the next big leap in the evolution of DocumentDB and we are now making it available for you to use. As a part of this release of Azure Cosmos DB, DocumentDB customers (with their data) are automatically Azure Cosmos DB customers. The transition is seamless and they now have access to a broader range of new capabilities offered by Azure Cosmos DB. 
 
@@ -41,7 +41,6 @@ A [request unit](documentdb-request-units.md) is the measure of throughput in Az
 
 Each Azure Cosmos DB container can be reserved with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision container to handle the sum total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, read [Estimating throughput needs](documentdb-request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). Containers here refer to DocumentDB API's collection, Graph API's graphs , MongoDB API's collection and Table API's Tables.  
 
-
 ### Is Azure Cosmos DB HIPAA compliant?
 Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
@@ -51,7 +50,7 @@ There is no limit to the total amount of data that a container can store in Azur
 ### What are the throughput limits of Azure Cosmos DB?
 There is no limit to the total amount of throughput that a container can support in Azure Cosmos DB, the key here is that your workload needs to be distributed roughly evenly among a sufficiently large number of partition keys.
 
-### How much does Microsoft Azure Cosmos DB cost?
+### How much does Azure Cosmos DB cost?
 Refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/documentdb/) page for details. Azure Cosmos DB usage charges are determined by the number of containers provisioned, the number of hours the containers were online, and the provisioned throughput for each containers. Containers here refer to DocumentDB API's collection, Graph API's graphs , MongoDB API's collection and Table API's Tables. 
 
 ### Is there a free account available?
@@ -62,9 +61,9 @@ You can also use the [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.
 ### How can I get additional help with Azure Cosmos DB?
 If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB) or schedule a 1:1 chat with the Azure Cosmos DB engineering team by sending mail to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). 
 
-## Set up Microsoft Azure Cosmos DB
-### How do I sign up for Microsoft Azure Cosmos DB?
-Microsoft Azure Cosmos DB is available in the Azure Portal. First you must sign up for a Microsoft Azure subscription. Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB API, Graph API (preview), Table API (preview) or MongoDB API account to your Azure subscription.
+## Set up Azure Cosmos DB
+### How do I sign up for Azure Cosmos DB?
+Azure Cosmos DB is available in the Azure portal. First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add a DocumentDB API, Graph API (preview), Table API (preview) or MongoDB API account to your Azure subscription.
 
 ### What is a master key?
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the **Keys **blade of the [Azure Portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
@@ -75,17 +74,13 @@ The present valid region for PrefferredLocations are - "West US", "West Central 
 ### Is there something I should be aware of when distributing data across the world via Azure's data centers? 
 Cosmos DB is present across all the regions. Since it is the core service every new Datacenter will have a Cosmos DB presence. This list is documented above as of now. When setting these - you have to remember Cosmos DB respects sovereign and government clouds. Which implies if you create an account there and want to replicate out  - you are not allowed to, similarly you cannot reach into those locations for enabling replication there from outside account. 
 
-
-
 ### Do you plan to provide more price options in the future?
 Yes, Cosmos DB today's  provides a throughput optimized model. We plan to provide more optimal pricing models in near future. 
-
  
-# DocumentDB API 
-## Database questions about developing against DocumentDB API
+## Questions about developing against the DocumentDB API
 
 ### How to do I start developing against DocumentDB API?
-Microsoft DocumentDB API is available in the [Azure Portal][azure-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add DocumentDB API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](documentdb-create-account.md). If you had a DocumentDB account in the past, you now have an Azure Cosmos DB account.  
+Microsoft DocumentDB API is available in the [Azure Portal][azure-portal].  First you must sign up for an  Azure subscription.  Once you sign up for an Azure subscription, you can add DocumentDB API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](documentdb-create-account.md). If you had a DocumentDB account in the past, you now have an Azure Cosmos DB account.  
 
 [SDKs](documentdb-sdk-dotnet.md) are available for .NET, Python, Node.js, JavaScript, and Java.  Developers can also use the [RESTful HTTP APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with Azure Cosmos DB resources from various platforms and languages.
 
@@ -137,9 +132,9 @@ Yes, because Cosmos DB is a RESTful service, resource links are immutable and ca
 ### Is a local instance of DocumentDB API available?
 Yes. The [Azure Cosmos DB Emulator](documentdb-nosql-local-emulator.md) provides a high-fidelity emulation of the DocumentDB API service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
-## Database questions about developing against API for MongoDB
+## Questions about developing against the API for MongoDB
 ### What is Azure Cosmos DB's API for MongoDB?
-Microsoft Azure Cosmos DB's API for MongoDB is a compatability layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine using existing, community supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that leverage Azure Cosmos DB, benefitting from Azure Cosmos DB's unique capabilities, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), etc.
+Azure Cosmos DB's API for MongoDB is a compatability layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine using existing, community supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that leverage Azure Cosmos DB, benefitting from Azure Cosmos DB's unique capabilities, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), etc.
 
 ### How to do I connect to my API for MongoDB database?
 The quickest way to connect to Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Navigate your way to your account. In the account's *Left Navigation*, click on *Quick Start*. *Quick Start* is the best way   to get code snippets to connect to your database. 
@@ -157,7 +152,7 @@ API for MongoDB has its own specific error codes in addition to the common Mongo
 | TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure Portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through a more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ex:  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-## Database questions about developing with Azure Cosmos DB: Table API (preview)
+## Questions about developing with the Table API (preview)
 
 ### Terms 
 The Azure Cosmos DB: Table API (preview) refers to premium offering by Azure Cosmos DB for table support announced at Build 2017. 
@@ -165,7 +160,7 @@ The Azure Cosmos DB: Table API (preview) refers to premium offering by Azure Cos
 The standard Table SDK is the pre-existing Azure storage Table SDK. 
 
 ### How can I use the new Table API (preview) offering? 
-Microsoft Table API is available in the [Azure Portal][azure-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add Table API container to your Azure subscription.  
+Microsoft Table API is available in the [Azure Portal][azure-portal].  First you must sign up for an Azure subscription.  Once you sign up for an Azure subscription, you can add Table API container to your Azure subscription.  
 In the preview period [SDKs](../cosmos-db/table-sdk-dotnet.md) are available for .NET,
 You can complete the [Table API](../cosmos-db/create-table-dotnet.md) quickstart to get started.
 
@@ -360,8 +355,7 @@ Since this preview is compatible with Standard Table - majority of the errors wi
 ### Why do I get throttled when I try to create lot of tables one after another  in Tables API (preview)?
 Cosmos DB is SLA based system which provides latency, throughput, availability and consistency guarantee. Since it is a provisioned system - it reserves resources to guarantee these requirements. Rate of creation of Tables in rapid fashion  is detected and throttled. We would advise you to look at the rate of creation of tables and moderate it down below 5 per minute. Kindly remember Table API(preview) is a provisioned system so moment you provision it - you have to have pay for it.  
 
-# Graph API(preview)
-## Database questions about developing against Graph API(preview)
+## Questions about developing against the Graph API (preview)
 ### How can I leverage Graph API (preview) with Cosmos DB?
 The functionality of Graph API (preview) can be leveraged from an extension library. It is called Microsoft Azure Graphs and available in nuget. 
 
@@ -371,7 +365,45 @@ Yes in future we have plans to add other mechanisms for query.
 ### How can I use the new Graph API(preview) offering? 
 Complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quickstart to get started.
 
+<a id="moving-to-cosmos-db"></a>
+## Questions for DocumentDB customers moving to Cosmos DB
+### Why move to Azure Cosmos DB? 
 
+Azure Cosmos DB is the next big leap in globally distributed, at scale, cloud databases. As a DocumentDB customer, you now have access to the new breakthrough system and capabilities offered by Azure Cosmos DB.
+
+Azure Cosmos DB started as “Project Florence” in 2010 to address developer the pain-points faced by large-scale applications inside Microsoft. Observing that the challenges of building globally distributed apps are not a problem unique to Microsoft, in 2015 we made the first generation of this technology available to Azure developers in the form of Azure DocumentDB. 
+
+Since that time, we’ve added new features and introduced significant new capabilities.  Azure Cosmos DB is the result.  As a part of this release of Azure Cosmos DB, DocumentDB customers, with their data, are automatically Azure Cosmos DB customers. The transition is seamless and you now have access to the new breakthrough system and capabilities offered by Azure Cosmos DB. These capabilities are in the areas of the core database engine as well as global distribution, elastic scalability, and industry-leading, comprehensive SLAs. Specifically, we have evolved the Azure Cosmos DB database engine to be able to efficiently map all popular data models, type systems, and APIs to the underlying data model of Azure Cosmos DB. 
+
+The current developer facing manifestation of this work is the new support for [Gremlin](graph-introduction.md) and [Table Storage APIs](table-introduction.md). And this is just the beginning… We will be adding other popular APIs and newer data models over time with more advances towards performance and storage at global scale. 
+
+It is important to point out that DocumentDB’s [SQL dialect](../documentdb/documentdb-sql-query.md) has always been just one of the many APIs that the underlying Cosmos DB was capable of supporting. As a developer using a fully managed service like Azure Cosmos DB, the only interface to the service is the APIs exposed by the service. To that end, nothing really changes for you as an existing DocumentDB customer. Azure Cosmos DB offers exactly the same SQL API that DocumentDB did. However, now (and in the future) you can get access to other capabilities, which were previously not accessible. 
+
+Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. One of the very first manifestations of it is the [RU/m](request-units-per-minute.md) but we have more capabilities that we will be announcing in these areas. These new capabilities help reduce costs for our customers for various workloads. We have made several foundational enhancements to the global distribution subsystem. One of the many developer facing manifestations of this work is the consistent prefix consistency model (making in total five well-defined consistency models). However, there are many more interesting capabilities we will release as they mature. 
+
+### What do I need to do to ensure my DocumentDB resources continue to run on Azure Cosmos DB?
+
+Nothing. There are no changes you need to make. Your DocumentDB resources are now Azure Cosmos DB resources and there was no interruption in the service when this move occurred.
+
+### What changes do I need to make for my app to work with Azure Cosmos DB?
+
+There are no changes to make. Classes, namespaces, and NuGet package names have not changed. As always, we recommend that you keep your SDKs up to date to take advantage of the latest features and improvements. 
+
+### What's changed in the Azure portal?
+
+Azure DocumentDB no longer appears in the portal as an Azure service. Instead Azure Cosmos DB appears with a new icon, as shown in the following image. All your collections are available just as they were before, and you can still scale throughput, change consistency, and monitor SLAs. The capabilities of **Data Explorer (preview)** have been enhanced. You can now view and edit documents, create and run queries, and work with stored procedures, triggers, and UDF from one page, as shown in the following image. 
+
+![View and copy an access key in the Azure portal, Keys blade](./media/documentdb-faq/cosmos-db-data-explorer.png)
+
+### Are there changes to pricing?
+
+No, the cost of running your app on Azure Cosmos DB is the same as it was before. However, you may benefit from the new **request unit per minute feature** we announced. For more information, see the [Scale throughput per minute](request-units-per-minute.md) article.
+
+### Are there changes to the Service Level Agreements (SLAs)?
+
+No, the SLAs for availability, consistency, latency, and throughput are unchanged and are still displayed in the portal. For details about the SLAs, see [SLA for Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
+   
+![Todo app with sample data](./media/documentdb-faq/azure-cosmosdb-portal-metrics-slas.png)
 
 
 [azure-portal]: https://portal.azure.com
