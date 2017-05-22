@@ -19,7 +19,7 @@ ms.author: maroche
 
 ---
 # Azure Data Catalog frequently asked questions
-This article provides answers for frequently asked questions related to the Azure Data Catalog service.
+This article provides answers to frequently asked questions related to the Azure Data Catalog service.
 
 ## What is Azure Data Catalog?
 Data Catalog is a fully managed service, hosted in Microsoft Azure, that serves as a system of registration and discovery for enterprise data sources. With Data Catalog, any user, from analysts to data scientists and developers, can register, discover, understand, and consume data sources.
@@ -27,16 +27,16 @@ Data Catalog is a fully managed service, hosted in Microsoft Azure, that serves 
 ## What customer challenges does it solve?
 Data Catalog addresses the challenges of data-source discovery and “dark data” so that users can discover and understand enterprise data sources.
 
-## What are the target audiences?
-Data Catalog provides capabilities for technical and non-technical users, including:
+## What are its target audiences?
+Data Catalog is designed for technical and non-technical users, including:
 
 * Data developers and BI and analytics professionals: People who are responsible for producing data and analytics content for others to consume.
 * Data stewards: People who have the knowledge about the data, what it means, and how it is intended to be used.
 * Data consumers: People who need to be able to easily discover, understand, and connect to the data they need to do their job, by using the tool of their choice.
 * Central IT: People who need to make hundreds of data sources discoverable by business users, and who need to maintain oversight over how data is being used and by whom.
 
-## What is the availability by region?
-Azure Data Catalog services are currently available in the following data centers:
+## What is its availability by region?
+Data Catalog services are currently available in the following data centers:
 
 * West US
 * East US
@@ -45,12 +45,12 @@ Azure Data Catalog services are currently available in the following data center
 * Australia East
 * Southeast Asia
 
-## What are the limits on the number of data assets?
-The Free Edition of Azure Data Catalog is limited to 5,000 registered data assets.
+## What are its limits on the number of data assets?
+The Free Edition of Data Catalog is limited to 5,000 registered data assets.
 
-The Standard Edition of Azure Data Catalog supports up to 100,000 registered data assets.
+The Standard Edition of Data Catalog supports up to 100,000 registered data assets.
 
-## What are the supported data source and asset types?
+## What are its supported data source and asset types?
 For a list of currently supported data sources, see [Data Catalog DSR](data-catalog-dsr.md).
 
 ## How do I request support for another data source?
@@ -65,7 +65,7 @@ To register your data in Data Catalog:
 2. In the Data Catalog publishing application, sign in with the same credentials that you use to access the Data Catalog portal.
 3. Select the data source and the specific assets that you want to register.
 
-## What properties are extracted for data assets that are registered?
+## What properties does it extract for data assets that are registered?
 The specific properties differ from data source to data source but, in general, the Data Catalog publishing service extracts the following information:
 
 * Asset Name
@@ -114,7 +114,7 @@ To run the Data Catalog registration tool, you need permissions on the data sour
 ## Will Data Catalog be made available for on-premises deployment as well?
 Data Catalog is a cloud service that can work with both cloud and on-premises data sources to deliver a hybrid data-source discovery solution. There are currently no plans for a version of the Data Catalog service that runs on-premises.
 
-## Can we extract more or richer metadata from the data sources we register?
+## Can I extract more or richer metadata from the data sources I register?
 We’re actively working to expand the capabilities of Data Catalog. If you want to have additional metadata extracted from the data source during registration, suggest it (or vote for it, if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). In the future, we will allow third parties to add new data source types through an extensibility API.
 
 ## How do I restrict the visibility of registered data assets, so that only certain people can discover them?
@@ -123,5 +123,5 @@ Select the data assets in the Data Catalog, and then click the **Take Ownership*
 ## How do I update the registration for a data asset so that changes in the data source are reflected in the catalog?
 To update the metadata for data assets that are already registered in the catalog, simply re-register the data source that contains the assets. Any changes in the data source, such as columns being added or removed from tables or views, are updated in the catalog, but any annotations provided by users are retained.
 
-## My question isn’t answered here. What should I do?
+## My question isn’t answered here. Where can I go for answers?
 Go to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
