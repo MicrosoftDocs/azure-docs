@@ -14,7 +14,7 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-# IoT Hub Documentation
+# IoT Hub Documentation 
 
 Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation help you deploy reliable and bi-directional communication between IoT devices and a solution back end. 
 
@@ -158,7 +158,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Node (Service)</a></p>
                         <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Node (Devices)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDKs</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
             </div>

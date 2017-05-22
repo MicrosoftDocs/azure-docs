@@ -24,8 +24,6 @@ Learn how to create a function that is triggered by an HTTP webhook request with
 
 ![Github Webhook triggered function in the Azure portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-It should take you less than five minutes to complete all the steps in this topic.
-
 ## Prerequisites
 
 Before running this sample, you must have the following:
