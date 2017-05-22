@@ -31,21 +31,21 @@ The endpoint is available at a well-known non-routable IP address (`169.254.169.
 
 ### Important information
 
-This service is currently in **preview** and regularly receive updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
+This service is currently in **preview** and regularly receives updates to expose new information about virtual machine instances. This page reflects the up-to-date [data categories](#instance-metadata-data-categories) available.
 
 ## Service Availability
-The current Preview is available in all Global Azure Regions. We will be enable the service for Government/China/German clouds in future.
+The current preview is available in all generally-available Azure regions globally. The service is not yet available in the Government, China, or Germany regions.
 
 Regions                                        | Preview Available?
 -----------------------------------------------|-----------------------------------------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Yes
+[All Generally-Available Global Azure Regions](https://azure.microsoft.com/en-us/regions/)     | Yes
 [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)              | No
 [Azure China](https://www.azure.cn/)                                                           | No
 [Azure Germany](https://azure.microsoft.com/en-us/overview/clouds/germany/)                    | No
 
 This table will be updated when the service preview becomes available in other regions.
 
-For trying out Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or [Azure portal](http://portal.azure.com) in the above regions and follow the examples below.
+To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](http://portal.azure.com) in the above regions and follow the examples below.
 
 ## Usage
 
@@ -368,7 +368,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. Why am I getting the error `500 Internal Server Error`?
-   * Currently Instance Metadata Service Preview is available only in Generally Available Global Azure Region and not in Government/China/German clouds. Deploy your VMs in the supported regions. If the issue persists contact azureimds@microsoft.com 
+   * Currently the Instance Metadata Service preview is available only in generally-available Azure regions and not in the Government, China, or Germany regions. Deploy your VMs in a supported region. If the issue persists contact azureimds@microsoft.com.
 4. Where do I share additional questions/comments?
    * Send your comments on http://feedback.azure.com.
     
