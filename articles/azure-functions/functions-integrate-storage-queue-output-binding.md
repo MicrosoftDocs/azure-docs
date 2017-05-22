@@ -24,8 +24,6 @@ In Azure Functions, input and output bindings provide a declarative way to conne
 
 ![View message in the logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-It should take you less than five minutes to complete all the steps in this topic.
-
 ## Prerequisites 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]

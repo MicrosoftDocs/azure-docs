@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD: Reset Your Password | Microsoft Docs'
-description: Use self-service password reset to regain access to your Work or School account
+description: Use self-service password reset to regain access to your Work or School user account
 services: active-directory
 keywords: 
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/19/2017
 ms.author: joflore
 ms.custom: end-user
 
 ---
 # Help I forgot my Azure AD password
 
-If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help.
+If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
 
 ## Reset or unlock my password for a work or school account
 

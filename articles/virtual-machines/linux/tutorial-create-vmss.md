@@ -28,7 +28,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
 
 ## Scale Set overview
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Scale sets use the same components as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are created in an availability set and distributed across logic fault and update domains.

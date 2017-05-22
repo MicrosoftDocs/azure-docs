@@ -32,13 +32,16 @@ ms.author: spelluru
 
 In this article, you learn how to use the Microsoft Visual Studio to create a data factory with a pipeline that copies data from an Azure blob storage to an Azure SQL database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
 
-The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+In this tutorial, you create a pipeline with one activity in it: Copy Activity. The copy activity copies data from a supported data store to a supported sink data store. For a list of data stores supported as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. For more information about the Copy Activity, see [Data Movement Activities](data-factory-data-movement-activities.md).
 
-This tutorial uses only one activity of type: Copy. A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+
+> [!NOTE] 
+> The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
-1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps. 
-2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities to Azure Data Factory.  
+1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps.       
+2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 3. You must have the following installed on your computer: 
    * Visual Studio 2013 or Visual Studio 2015
    * Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
@@ -99,6 +102,7 @@ Linked services link data stores or compute services to an Azure data factory. S
 2. This time, select **Azure SQL Linked Service**, and click **Add**. 
 3. In the **AzureSqlLinkedService1.json file**, replace `<servername>`, `<databasename>`, `<username@servername>`, and `<password>` with names of your Azure SQL server, database, user account, and password.    
 4. Save the **AzureSqlLinkedService1.json** file. 
+	
 	For more information about these JSON properties, see [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties).
 
 
@@ -209,6 +213,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
 	There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 
 	For more information about these JSON properties, see [Azure SQL connector article](data-factory-azure-sql-connector.md#dataset-properties).
+
 ## Create pipeline
 In this step, you create a pipeline with a **copy activity** that uses **InputDataset** as an input and **OutputDataset** as an output.
 
@@ -256,8 +261,8 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 	       }
 	     }
 	   ],
-	   "start": "2015-07-12T00:00:00Z",
-	   "end": "2015-07-13T00:00:00Z",
+	   "start": "2017-05-11T00:00:00Z",
+	   "end": "2017-05-12T00:00:00Z",
 	   "isPaused": false
 	 }
 	}
@@ -335,7 +340,19 @@ Note the following points:
 > To create Data Factory instances, you need to be a admin/co-admin of the Azure subscription
 
 ## Monitor pipeline
-See [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) for instructions on how to use the Azure portal to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines.  
+Navigate to the home page for your data factory:
+
+1. Log in to [Azure portal](https://portal.azure.com).
+2. Click **More services** on the left menu, and click **Data factories**.
+
+	![Browse data factories](media/data-factory-copy-activity-tutorial-using-visual-studio/browse-data-factories.png)
+3. Start typing the name of your data factory.
+
+	![Name of data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/enter-data-factory-name.png) 
+4. Click your data factory in the results list to see the home page for your data factory.
+
+	![Data factory home page](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
+5. Follow instructions from [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used Visual Studio to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
@@ -347,7 +364,6 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 3. Created **datasets**, which describe input data and output data for pipelines.
 4. Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink. 
 
-## Next Steps
 To see how to use a HDInsight Hive Activity to transform data by using Azure HDInsight cluster, see [ Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
@@ -361,9 +377,10 @@ This section describes how to use the Server Explorer in Visual Studio to view a
     ![Server Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 
 ## Create a Visual Studio project for an existing data factory
-3. You can right-click on a data factory in Server Explorer, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.
 
-    ![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
+- Right-click a data factory in Server Explorer, and select **Export Data Factory to New Project** to create a Visual Studio project based on an existing data factory.
+
+	![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## Update Data Factory tools for Visual Studio
 To update Azure Data Factory tools for Visual Studio, do the following steps:
@@ -485,11 +502,9 @@ When you deploy, the values from the configuration file are used to set values f
 It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
 
 
-## See Also
-| Topic | Description |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory |
-| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
-| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
+## Next steps
+In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+To learn about how to copy data to/from a data store, click the link for the data store in the table.
