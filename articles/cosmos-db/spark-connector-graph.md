@@ -29,13 +29,13 @@ With Azure Cosmos DB and Spark together, you can perform both OLTP and OLAP work
 ## Prerequisites
 
 * Before you can run this sample, you must have the following prerequisites:
-   * HDInsight Spark cluster 2.0
+   * Azure HDInsight Spark cluster 2.0
    * JDK 1.8+ (Run `apt-get install default-jdk` if you don't have JDK)
    * Maven (Run `apt-get install maven` if you don't have Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [provisioning-hdinsight-clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)] 
+For more details on how to provision an Azure HDInsight Spark cluster, see [Provisioning HDInsight clusters](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Create an Azure Cosmos DB database account
 
