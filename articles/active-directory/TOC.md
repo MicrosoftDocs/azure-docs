@@ -115,7 +115,7 @@
 ##### [Unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Anomalous sign-ins](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Manage passwords](active-directory-passwords.md)
+## [Manage passwords](active-directory-passwords-overview.md)
 ### User documents
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Elevate tenant admin access](role-based-access-control-tenant-admin-access.md)
 #### [Troubleshoot](role-based-access-control-troubleshooting.md)
 #### [Resource Provider operations](role-based-access-control-resource-provider-operations.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
