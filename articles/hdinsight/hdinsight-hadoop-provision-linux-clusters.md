@@ -109,7 +109,8 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 * HTTP user. The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters). Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## Location (regions) for clusters and storage
+## <a name="location"></a>Location (regions) for clusters and storage
+
 You don't need to specify the cluster location explicitly: The cluster is in the same location as the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ## Storage endpoints for clusters
@@ -146,7 +147,7 @@ You are billed for node usage for as long as the cluster exists. Billing starts 
 The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes. 
 
 Different cluster types have different node types, numbers of nodes, and node sizes:
-* Haoop cluster type default: 
+* Hadoop cluster type default: 
     * Two *head nodes*  
     * Four *data nodes*
 * Storm cluster type default: 
@@ -165,7 +166,7 @@ When you use the Azure portal to configure the cluster, the node size is availab
 ![HDInsight VM node sizes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
 
 ### Virtual machine sizes 
-When you deploy clusters, be aware of how you want to use them and the compute resources you'll need.
+When you deploy clusters, choose compute resources based on on the solution you plan to deploy.
 
 The following VMs are used for HDInsight clusters:
 * A and D1-4 series VMs: [General-purpose Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
