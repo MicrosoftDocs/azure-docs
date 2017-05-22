@@ -29,4 +29,5 @@ There is significant demand for upgrading Backup vaults to Recovery Services vau
 - [upgrade Backup vaults](https://www.surveymonkey.com/r/Y57BJQX)
 - [upgrade Site Recovery vaults](https://www.surveymonkey.com/r/5HHPZQN)
 
+## What happens after I sign up?
 Once your subscription is whitelisted for upgrade, Microsoft contacts you to proceed with the upgrade. For more information about the upgrade process, see the Azure Backup [blog](http://azure.microsoft.com/blog/upgrade-classic-backup-and-siterecovery-vault-to-arm-recovery-services-vault).
