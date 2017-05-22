@@ -79,7 +79,6 @@ We use the following values in the examples:
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
-* DNS Server: 8.8.8.8
 * GatewayName: VNet1GW
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
@@ -96,12 +95,13 @@ We use the following values in the examples:
 * GatewaySubnet: 10.42.255.0/27
 * Resource Group: TestRG4
 * Location: West US
-* DNS Server: 8.8.8.8
 * GatewayName: VNet4GW
 * Public IP: VNet4GWIP
 * VPNType: RouteBased
 * Connection: VNet4toVNet1
 * ConnectionType: VNet2VNet
+
+In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### <a name="Connect"></a>Step 1 - Connect to your subscription
 
@@ -272,7 +272,6 @@ When creating additional connections, it's important to verify that the IP addre
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
-* DNS Server: 8.8.8.8
 * GatewayName: VNet5GW
 * Public IP: VNet5GWIP
 * VPNType: RouteBased

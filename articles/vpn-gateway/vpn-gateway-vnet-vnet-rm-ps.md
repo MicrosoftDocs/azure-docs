@@ -56,7 +56,7 @@ For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](
 
 In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub). The key difference between the sets is whether you can create and configure all virtual network and gateway resources within the same PowerShell session.
 
-The steps in this article use variables that are declared at the beginning of each section. If you already are working with existing VNets, modify the variables to reflect the settings in your own environment. The variables do not include a DNS server. If you want name resolution for your virtual networks, you should specify a DNS server.
+The steps in this article use variables that are declared at the beginning of each section. If you already are working with existing VNets, modify the variables to reflect the settings in your own environment. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="samesub"></a>How to connect VNets that are in the same subscription
 
@@ -102,6 +102,8 @@ We use the following values in the examples:
 * VPNType: RouteBased
 * Connection: VNet4toVNet1
 * ConnectionType: VNet2VNet
+
+In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### <a name="Step2"></a>Step 2 - Create and configure TestVNet1
 
