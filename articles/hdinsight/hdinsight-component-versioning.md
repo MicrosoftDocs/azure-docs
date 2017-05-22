@@ -93,16 +93,16 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |Yes |10/28/2013 |No |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |No |10/28/2013 |No |04/26/2014 |05/31/2015 |
 
-## HDI Version 3.3 nearing retirement date
+## HDI version 3.3 nearing retirement date
 The support for HDI 3.3 cluster expired on 06/27/2016 and it will be retired on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 or HDI 3.6 soon. Retirement timelines for HDI 3.3 Windows may vary by region. If your region’s planned retirement date is different, you are notified separately.
 
 ### The service-level agreement for HDInsight cluster versions
-The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
+The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a **Support Expiration Date** in the past, the HDInsight cluster is outside the Support Window. A list of supported HDInsight cluster versions can be found in the preceding table. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
 
 * Formula 1: Add 180 days to the date HDInsight cluster version X was released.
 * Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Portal.
 
-The **Retirement Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize a cluster after its retirment date. 
+The **Retirement Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize a cluster after its retirement date. 
 
 > [!NOTE]
 > Windows-based HDInsight clusters (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
@@ -111,7 +111,7 @@ The **Retirement Date** is the date after which the cluster version cannot be cr
 
 ## Hortonworks release notes associated with HDInsight versions
 * HDInsight cluster version 3.6 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.6](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html). 
-* HDInsight cluster version 3.5 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). This is the **default** Hadoop cluster created when using the portal.
+* HDInsight cluster version 3.5 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). This Hadoop cluster is the **default** created when using the portal.
 * HDInsight cluster version 3.4 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). 
 * HDInsight cluster version 3.3 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
 
@@ -127,7 +127,7 @@ The **Retirement Date** is the date after which the cluster version cannot be cr
 
 ## HDInsight Standard and HDInsight Premium
 
-Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only as part of Premium**. Features that are not explicitly called out in the table here are available as part of Standard.
+Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table in the following section lists the features that are available **only as part of Premium**. Features that are not explicitly called out in the table here are available as part of Standard.
 
 > [!NOTE]
 > The HDInsight Premium offering is currently in Preview and available only for Linux clusters.
@@ -162,7 +162,7 @@ The following features are currently not supported for HDInsight Premium cluster
 ### Pricing and SLA
 For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Default noode configuration and Virtual Machine sizes for clusters
+## Default node configuration and Virtual Machine sizes for clusters
 The following tables list the default virtual machine (VM) sizes for HDInsight clusters:
 
 > [!IMPORTANT]
