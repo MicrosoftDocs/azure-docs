@@ -1,10 +1,10 @@
 - name: Windows VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Portal
@@ -21,10 +21,24 @@
     href: tutorial-manage-data-disk.md
   - name: 3 - Automate configuration
     href: tutorial-automate-vm-deployment.md
-  - name: 4 - Load balance VMs
+  - name: 4 - Create VM images
+    href: tutorial-custom-images.md
+  - name: 5 - Highly available VMs
+    href: tutorial-availability-sets.md
+  - name: 6 - Create a VM scale set
+    href: tutorial-create-vmss.md
+  - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 5 - Manage networking
+  - name: 8 - Manage networking
     href: tutorial-virtual-network.md
+  - name: 9 - Backup virtual machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Monitor virtual machines
+    href: tutorial-monitoring.md
+  - name: 11 - Manage VM security
+    href: tutorial-azure-security.md
+  - name: 12 - Team Services CI/CD
+    href: tutorial-vsts-iis-cicd.md
 - name: Samples
   items:
   - name: PowerShell
@@ -144,8 +158,6 @@
       href: download-template.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
-    - name: Manage VMs using PowerShell
-      href: ps-manage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Manage VMs using CLI
@@ -193,7 +205,7 @@
       - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
-        href: attach-disk-portal.md
+        href: attach-managed-disk-portal.md
     - name: Detach data disk
       href: detach-disk.md
     - name: Expand OS disk
@@ -214,6 +226,8 @@
         href: vhd-copy.md
       - name: Create a VM from a specialized VHD
         href: create-vm-specialized.md
+      - name: Attach an unmanaged data disk
+        href: attach-disk-portal.md
   - name: VM networking
     href: ps-common-network-ref.md
     items:
@@ -267,7 +281,7 @@
     - name: Manage access
       href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Encrypt a disk
-      href: ../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: encrypt-disks.md
     - name: Apply policies to VMs
       href: policy.md
     - name: Set up Key Vault
@@ -383,9 +397,9 @@
   - name: Java
     href: /java/api
   - name: Node.js
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: Compute REST
     href: /rest/api/compute
   - name: Managed Disks REST

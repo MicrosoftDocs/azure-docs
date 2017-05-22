@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Custom measurements associated with the telemetry item they belong to. And they are subject for sampling with the telemetry item containing those measurements. Use [Metric Telemetry](#metric-telemetry) to track the measurement that has value independent from other telemetry type. 
+ > Custom measurements are associated with the telemetry item they belong to. They are subject to sampling with the telemetry item containing those measurements. To track a measurement that has a value independent from other telemetry types, use [Metric telemetry](../articles/application-insights/app-insights-api-custom-events-metrics.md#send-metrics).
 
 Max key length: 150

@@ -1,5 +1,6 @@
 # Overview
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Event Hubs features](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
 # Get Started
@@ -29,7 +30,6 @@
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Diagnostic logs](event-hubs-diagnostic-logs.md)
-### [Authentication and authorization](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)

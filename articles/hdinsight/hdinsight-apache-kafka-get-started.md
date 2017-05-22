@@ -1,6 +1,6 @@
 ---
-title: Get started with Apache Kafka on HDInsight | Microsoft Docs
-description: 'Learn the basics of creating and working with Kafka on HDInsight.'
+title: Start with Apache Kafka - Azure HDInsight | Microsoft Docs
+description: 'Learn how to create an Apache Kafka cluster on Azure HDInsight. Learn how to create topics, subscribers, and consumers.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,33 +14,23 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 05/16/2017
 ms.author: larryfr
 ---
-# Get started with Apache Kafka (preview) on HDInsight
+# Start with Apache Kafka (preview) on HDInsight
 
-[Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that is available with HDInsight. It is often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. In this document, you learn how to create a Kafka on HDInsight cluster and then send and receive data from a Java application.
+Learn how to create and use an [Apache Kafka](https://kafka.apache.org) cluster on Azure HDInsight. Kafka is an open-source, distributed streaming platform that is available with HDInsight. It is often used as a message broker, as it provides functionality similar to a publish-subscribe message queue.
 
 > [!NOTE]
 > There are currently two versions of Kafka available with HDInsight; 0.9.0 (HDInsight 3.4) and 0.10.0 (HDInsight 3.5). The steps in this document assume that you are using Kafka on HDInsight 3.5.
 
-## Prerequisite
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-You must have the following to successfully complete this Apache Kafka tutorial:
-
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-* **Familiarity with SSH and SCP**. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+## Prerequisites
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/) 
-
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create a Kafka cluster
 
@@ -93,7 +83,7 @@ Use the following steps to create a Kafka on HDInsight cluster:
 
 ## Connect to the cluster
 
-From your client, use SSH to connect to the cluster. If you are using a Linux, Unix, MacOS, or Bash on Windows 10, use the following command:
+From your client, use SSH to connect to the cluster:
 
 ```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
 
@@ -103,7 +93,7 @@ When prompted, enter the password you used for the SSH account.
 
 For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-##<a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
+## <a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
 When working with Kafka, you must know two host values; the *Zookeeper* hosts and the *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
 
@@ -115,12 +105,12 @@ Use the following steps to create environment variables that contain the host in
     sudo apt -y install jq
     ```
 
-2. use the following commands to set the environment variables with information retrieved from Ambari. Replace __KAFKANAME__ with the name of the Kafka cluster. Replace __PASSWORD__ with the login (admin) password you used when creating the cluster.
+2. use the following commands to set the environment variables with information retrieved from Ambari. Replace __CLUSTERNAME__ with the name of the Kafka cluster. Replace __PASSWORD__ with the login (admin) password you used when creating the cluster.
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
@@ -135,8 +125,8 @@ Use the following steps to create environment variables that contain the host in
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
    
     > [!WARNING]
-    > Do not rely on the information returned from this session to always be accurate. If you scale the cluster, new brokers are added or removed. If a failure occurs and a node is replaced, the host name for the node may change. 
-    > 
+    > Do not rely on the information returned from this session to always be accurate. If you scale the cluster, new brokers are added or removed. If a failure occurs and a node is replaced, the host name for the node may change.
+    >
     > You should retrieve the Zookeeper and broker hosts information shortly before you use it to ensure you have valid information.
 
 ## Create a topic
@@ -175,7 +165,7 @@ Use the following steps to store records into the test topic you created earlier
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
     ```
    
-    This retrieves the records from the topic and display them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.
+    This command retrieves the records from the topic and displays them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.
 
 3. Use __Ctrl + C__ to stop the consumer.
 
@@ -191,12 +181,12 @@ You can also programmatically produce and consume records using the [Kafka APIs]
 
     * **Consumer** - reads records from the topic.
 
-2. From the command line in your development environment, change directories to the location of the `Producer-Consumer` directory of the example and then use the following command to create a jar package:
-   
+2. Change directories to the location of the `Producer-Consumer` directory of the example and then use the following command to create a jar package:
+
     ```
     mvn clean package
     ```
-   
+
     This command creates a directory named `target`, that contains a file named `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
 3. Use the following commands to copy the `kafka-producer-consumer-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
@@ -207,13 +197,13 @@ You can also programmatically produce and consume records using the [Kafka APIs]
    
     Replace **SSHUSER** with the SSH user for your cluster, and replace **CLUSTERNAME** with the name of your cluster. When prompted enter the password for the SSH user.
 
-4. Once the `scp` command finishes copying the file, connect to the cluster using SSH, and then use the following to write records to the test topic you created earlier.
-   
+4. Once the `scp` command finishes copying the file, connect to the cluster using SSH. Use the following command to write records to the test topic:
+
     ```bash
     ./kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-   
-    This command starts the producer and write records. A counter is displayed so you can see how many records have been written.
+
+    A counter is displayed so you can see how many records have been written.
 
     > [!NOTE]
     > If you receive a permission denied error, use the following command to make the file executable:
@@ -240,7 +230,7 @@ An important concept with Kafka is that consumers use a consumer group (defined 
     ```
 
     > [!NOTE]
-    > Since this is a new SSH session, you must to use the commands in the [Get the Zookeeper and Broker host information](#getkafkainfo) section to set `$KAFKABROKERS`.
+    > Use the commands in the [Get the Zookeeper and Broker host information](#getkafkainfo) section to set `$KAFKABROKERS` for this SSH session.
 
 2. Watch as each session counts the records it receives from the topic. The total of both sessions should be the same as you received previously from one consumer.
 
@@ -260,11 +250,11 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
     This project contains only one class, `Stream`, which reads records from the `test` topic created previously. It counts the words read, and emits each word and count to a topic named `wordcounts`. The `wordcounts` topic is created in a later step in this section.
 
 2. From the command line in your development environment, change directories to the location of the `Streaming` directory, and then use the following command to create a jar package:
-   
-    ```
+
+    ```bash
     mvn clean package
     ```
-   
+
     This command creates a directory named `target`, which contains a file named `kafka-streaming-1.0-SNAPSHOT.jar`.
 
 3. Use the following commands to copy the `kafka-streaming-1.0-SNAPSHOT.jar` file to your HDInsight cluster:
@@ -329,6 +319,10 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 ## Delete the cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 

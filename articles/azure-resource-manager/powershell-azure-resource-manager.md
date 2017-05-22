@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure solutions with PowerShell | Microsoft Docs
 description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
@@ -39,7 +39,7 @@ This article does not show how to deploy a Resource Manager template to your sub
 
 ## Get started with Azure PowerShell
 
-If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 If you have installed Azure PowerShell in the past but have not updated it recently, consider installing the latest version. You can update the version through the same method you used to install it. For example, if you used the Web Platform Installer, launch it again and look for an update.
 
@@ -49,7 +49,7 @@ To check your version of the Azure Resources module, use the following cmdlet:
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources).
+This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/powershell/module/azurerm.resources).
 
 ## Log in to your Azure account
 Before working on your solution, you must log in to your account.

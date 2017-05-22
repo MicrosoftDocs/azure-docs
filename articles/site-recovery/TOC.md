@@ -9,7 +9,7 @@
 
 # Get Started
 ## [Replicate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
-## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md) 
+## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
@@ -19,10 +19,11 @@
 # How To
 ## Plan
 ### [Deployment prerequisites](site-recovery-prereq.md)
-### [Network infrastructure considerations](site-recovery-network-design.md)
+### [Plan network infrastructure](site-recovery-network-design.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
+### [Role-Based Access Control](site-recovery-role-based-linked-access-control.md)
 
 ## Configure
 ### [Set up the source environment](site-recovery-set-up-vmware-to-azure.md)
@@ -32,7 +33,7 @@
 #### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ### [Enable replication](site-recovery-replicate-vmware-to-azure.md)
-## Failover and failback
+## Fail over and fail back
 ### [Fail over protected machines](site-recovery-failover.md)
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
@@ -47,11 +48,13 @@
 ## Workloads
 ### [Active Directory and DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Dynamics AX](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [IIS based web applications](site-recovery-iis.md)
+### [Citrix XenApp and XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Other workloads](site-recovery-workload.md#workload-summary)
 ## Automate replication
 ### [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
@@ -67,8 +70,8 @@
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [PowerShell classic](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](/powershell/module/azurerm.siterecovery)
+## [PowerShell classic](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Related

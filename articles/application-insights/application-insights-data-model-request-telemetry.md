@@ -4,20 +4,20 @@ description: Application Insights data model for request telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
-ms.author: sergkanz
+ms.date: 04/25/2017
+ms.author: cfreeman
 
 ---
 # Request telemetry: Application Insights data model
 
-Request telemetry represents the code execution triggered externally and encapsulating the logical code execution. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or fail and has a certain `duration`. Both - success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
+A request telemetry item (in [Application Insights](app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
 
 Request telemetry supports the standard extensibility model using custom `properties` and `measurements`.
 
@@ -31,7 +31,7 @@ Max length: 1024 characters
 
 ## ID
 
-Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](/correlation) page.
+Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](application-insights-correlation.md) page.
 
 Max length: 128 characters
 
@@ -43,7 +43,7 @@ Max length: 2048 characters
 
 ## Source
 
-Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](/correlation.md) page.
+Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](application-insights-correlation.md) page.
 
 Max length: 1024 characters
 
@@ -77,6 +77,7 @@ You can read more on request result code and status code in the [blog post](http
 
 ## Next steps
 
-- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to [configure ASP.NET Core](/app-insights-asp-net-core.md) application with Application Insights.
-- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.
+- [Write custom request telemetry](app-insights-api-custom-events-metrics.md#trackrequest)
+- See [data model](application-insights-data-model.md) for Application Insights types and data model.
+- Learn how to [configure ASP.NET Core](app-insights-asp-net.md) application with Application Insights.
+- Check out [platforms](app-insights-platforms.md) supported by Application Insights.

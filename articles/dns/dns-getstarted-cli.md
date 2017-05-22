@@ -37,7 +37,7 @@ These instructions assume you have already installed and signed in to Azure CLI 
 Before creating the DNS zone, a resource group is created to contain the DNS Zone. The following shows the command.
 
 ```azurecli
-az resource group create --name MyResourceGroup --location "West US"
+az group create --name MyResourceGroup --location "West US"
 ```
 
 ## Create a DNS zone
@@ -58,7 +58,7 @@ To create a DNS record, use the `az network dns record-set [record type] add-rec
 The following example creates a record with the relative name "www" in the DNS Zone "contoso.com", in resource group "MyResourceGroup". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", with IP address "1.2.3.4", and a default TTL of 3600 seconds (1 hour) is used.
 
 ```azurecli
-az network dns record-set A add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
 For other record types, for record sets with more than one record, for alternative TTL values, and to modify existing records, see [Manage DNS records and record sets using the Azure CLI 2.0](dns-operations-recordsets-cli.md).

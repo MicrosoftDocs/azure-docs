@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/14/2017
+ms.date: 04/25/2017
 ms.author: garye
 
 ---
@@ -444,6 +444,10 @@ several languages.
 * For a complete alphabetical list of algorithms and modules in Azure Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
 * To download and print a diagram that gives an overview of the capabilities of Azure Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
+
+<!-- Reference links -->
+[initialize-model]: https://msdn.microsoft.com/library/azure/dn905812.aspx
+[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
 
 <!-- Media -->
 

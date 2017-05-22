@@ -20,6 +20,7 @@ ms.author: jgao
 
 ---
 # Customize HDInsight clusters using Bootstrap
+
 Sometimes, you want to configure the configuration files, which include:
 
 * clusterIdentity.xml
@@ -135,7 +136,7 @@ You can use bootstrap in Resource Manager template:
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
-[hdinsight-provision-cluster]: hdinsight-provision-clusters.md
+[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 

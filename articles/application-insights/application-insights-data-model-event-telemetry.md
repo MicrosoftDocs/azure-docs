@@ -4,26 +4,26 @@ description: Application Insights data model for event telemetry
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
-ms.author: sergkanz
+ms.date: 04/25/2017
+ms.author: cfreeman
 
 ---
 # Event telemetry: Application Insights data model
 
-Events represent a point in time action happened in the application. Typically it is user interaction like button click or order checkout. It can also be an application life cycle event like initialization or configuration update. Event name expected to be a short low cardinality string. 
+You can create event telemetry items (in [Application Insights](app-insights-overview.md)) to represent an event that occurred in your application. Typically it is a user interaction such as button click or order checkout. It can also be an application life cycle event like initialization or configuration update. 
 
-Semantically events may or may now be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be a subject to separate, less aggressive sampling.
+Semantically, events may or may not be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be a subject to separate, less aggressive [sampling](app-insights-api-filtering-sampling.md).
 
 ## Name
 
-Event name. Keep it low cardinality to allow proper grouping and useful metrics.
+Event name. To allow proper grouping and useful metrics, restrict your application so that it generates a small number of separate event names. For example, don't use a separate name for each generated instance of an event.
 
 Max length: 512 characters
 
@@ -37,6 +37,6 @@ Max length: 512 characters
 
 ## Next steps
 
-- See [data model](/application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to use [Application Insights API for custom events and metrics](/app-insights-asp-net-dependencies.md).
-- Check out [platforms](/app-insights-platforms.md) supported by Application Insights.
+- See [data model](application-insights-data-model.md) for Application Insights types and data model.
+- [Write custom event telemetry](app-insights-api-custom-events-metrics.md#trackevent)
+- Check out [platforms](app-insights-platforms.md) supported by Application Insights.

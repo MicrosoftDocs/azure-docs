@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -65,5 +65,5 @@ Developers can also push to a container registry as part of a container developm
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md)
-* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [this tutorial](../container-service/container-service-setup-ci-cd.md).
+* To build a continuous integration and deployment workflow using Visual Studio Team Services, Azure Container Service, and Azure Container Registry, see [this tutorial](../container-service/container-service-docker-swarm-setup-ci-cd.md).
 * If you want to set up your own Docker private registry in Azure (without a public endpoint), see [Deploying Your Own Private Docker Registry on Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).

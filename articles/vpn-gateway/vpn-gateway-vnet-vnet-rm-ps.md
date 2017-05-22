@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Connect an Azure virtual network to another VNet: PowerShell | Microsoft Docs'
 description: This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell.
 services: vpn-gateway
@@ -14,20 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: cherylmc
 
 ---
-# Configure a VNet-to-VNet connection using PowerShell
+# Configure a VNet-to-VNet VPN gateway connection using PowerShell
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can even combine VNet-to-VNet communication with multi-site connection configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
-
-
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
-
-This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway. The virtual networks can be in the same or different regions, and from the same or different subscriptions. [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
-
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] If you want to create a VNet-to-VNet connection using a different deployment model, between different deployment models, or using a different deployment tool, you can select an option from following article dropdown list:
+This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. The steps in this article apply to the Resource Manager deployment model and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -38,12 +31,16 @@ This article walks you through the steps to create a connection between VNets in
 >
 >
 
-## About VNet-to-VNet connections
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use an Azure VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different regions. Or in different subscriptions. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
+![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. If your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
 ![About connections](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
 ### Why connect virtual networks?
+
 You may want to connect virtual networks for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
@@ -65,7 +62,7 @@ The steps in this article use variables that are declared at the beginning of ea
 ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### Before you begin
-Before beginning, you need to install the Azure Resource Manager PowerShell cmdlets. For more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+Before beginning, you need to install the Azure Resource Manager PowerShell cmdlets. For more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way.
@@ -381,7 +378,7 @@ This step must be done in the context of the new subscription. This part may be 
   ```powershell
   New-AzureRmResourceGroup -Name $RG5 -Location $Location5
   ```
-4. Create the subnet configurations for TestVNet4.
+4. Create the subnet configurations for TestVNet5.
 
   ```powershell
   $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5

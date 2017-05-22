@@ -146,6 +146,8 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 
+* [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+
 ### Compare Managed Disks storage options 
 
 * [Premium storage and disks](storage-premium-storage.md)

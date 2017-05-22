@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 05/11/2017
 ms.author: jingwang
 
 ---
@@ -184,7 +184,7 @@ You can specify more than one input dataset to Copy Activity. They are used to v
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
 
 ## Scheduling and sequential copy
-See [Scheduling and execution](data-factory-scheduling-and-execution.md) for detailed information about how scheduling and execution works in Data Factory. It is possible to run multiple copy operations one after another in a sequential/ordered manner. See the [Copy sequentially](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence) section.
+See [Scheduling and execution](data-factory-scheduling-and-execution.md) for detailed information about how scheduling and execution works in Data Factory. It is possible to run multiple copy operations one after another in a sequential/ordered manner. See the [Copy sequentially](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) section.
 
 ## Type conversions
 Different data stores have different native type systems. Copy Activity performs automatic type conversions from source types to sink types with the following two-step approach:

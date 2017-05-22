@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory PowerShell cmdlets for group management in Azure AD | Microsoft Docs
 description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
-ms.author: curtand
+ms.date: 05/04/2017
+ms.author: curtand;rodejo
 
 ---
-# Azure Active Directory preview cmdlets for group management
+# Azure Active Directory version 2 cmdlets for group management
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
 > * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
@@ -26,22 +26,22 @@ ms.author: curtand
 >
 >
 
-The following document will provide you with examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also provides information on how to get set up with the Azure AD PowerShell preview module. First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+The following document will provide you with examples of how to use PowerShell to manage your groups in Azure Active Directory (Azure AD).  It also provides information on how to get set up with the Azure AD PowerShell  module. First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## Installing the Azure AD PowerShell module
 To install the AzureAD PowerShell module, use the following commands:
 
     PS C:\Windows\system32> install-module azuread
 
-To verify that the preview module was installed, use the following command:
+To verify that the module was installed, use the following command:
 
-    PS C:\Windows\system32> get-module azureadpreview
+    PS C:\Windows\system32> get-module azuread
 
-    ModuleType Version    Name                                ExportedCommands
-    ---------- -------    ----                                ----------------
-    Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
+    ModuleType Version      Name                                ExportedCommands
+    ---------- ---------    ----                                ----------------
+    Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
-Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the [online reference documentation](https://docs.microsoft.com/en-us/powershell/azuread/).
+Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the [online reference documentation](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## Connecting to the directory
 Before you can start managing groups using Azure AD PowerShell cmdlets, you must connect your PowerShell session to the directory you want to manage. To do this, use the following command:
@@ -222,7 +222,7 @@ If you want to remove an owner from a group, use Remove-AzureADGroupOwner:
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## Next steps
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](https://docs.microsoft.com/en-us/powershell/azuread/).
+You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

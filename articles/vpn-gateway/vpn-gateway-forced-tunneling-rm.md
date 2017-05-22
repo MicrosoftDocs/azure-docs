@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Configure forced tunneling for Azure Site-to-Site connections: Resource Manager | Microsoft Docs'
 description: How to redirect or 'force' all Internet-bound traffic back to your on-premises location.
 services: vpn-gateway
@@ -63,7 +63,7 @@ The procedure steps set the *DefaultSiteHQ* as the default site connection for f
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+* You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ## Configure forced tunneling
 1. In the PowerShell console, log in to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so they are available to Azure PowerShell.
