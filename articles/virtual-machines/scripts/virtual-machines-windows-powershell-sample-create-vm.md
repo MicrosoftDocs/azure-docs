@@ -22,7 +22,7 @@ ms.author: nepeters
 
 This script creates an Azure Virtual Machine running Windows Server 2016. After running the script, you can access the virtual machine over RDP.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
