@@ -17,7 +17,7 @@ ms.author: jaboes
 
 # Using Managed Disks in Azure Resource Manager Templates
 
-This document walks through the differences between Managed and Unmanaged Disks when using templates to deploy resources and how you can apply them in your virtual machine deployments. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
+This document walks through the differences between Managed and Unmanaged Disks when using Azure resource manager templates to provision virtual machines. This will help you to update existing templates that are using Unmanaged Disks to Managed Disks. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
 
 ## Unmanaged Disks template formatting
 
@@ -91,7 +91,7 @@ With Managed Disks, the disk becomes a top-level resource and no longer requires
 
 ### Default Managed Disk settings
 
-To create a VM with managed disks you no longer need to create the storage account resource, and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties the disk has Standard LRS redundancy. If no name is specified it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk, and `<VMName>_disk<#>_<randomstring>` for each data disk. Encryption is disabled by default and caching is Read/Write for the OS disk and none for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+To create a VM with managed disks you no longer need to create the storage account resource, and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties the disk will use Standard LRS storage. If no name is specified it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk, and `<VMName>_disk<#>_<randomstring>` for each data disk. Azure disk encryption is disabled by default and caching is Read/Write for the OS disk and none for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
 
 ```
 {
@@ -192,9 +192,9 @@ Within the VM object, we can then reference this disk object to be attached. Spe
 }
 ```
 
-### Aligning Managed Disks with Availability Sets
+### Create managed Availability Sets with VMs using Managed Disks
 
-To align Managed Disks with availability sets, add the `sku` object to the Availability Set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure.
+To create managed Availability Sets with VMs using Managed Disks, add the `sku` object to the Availability Set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure.
 
 ```
 {
@@ -211,6 +211,9 @@ To align Managed Disks with availability sets, add the `sku` object to the Avail
     }
 }
 ```
+### Additional scenarios and customizations
+
+To find full information on the REST API specifications, please review the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and accpetable values that can be submitted to the API through template deployments. 
 
 ## Next Steps
 
@@ -221,3 +224,4 @@ To align Managed Disks with availability sets, add the `sku` object to the Avail
 * Visit the [Managed Disks overview](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview) to learn more about Managed Disks.
 * Review the template reference documentation for [Virtual Machine](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines) resources.
 * Review the template reference documentation for [disk](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/disks) resources.
+ 
