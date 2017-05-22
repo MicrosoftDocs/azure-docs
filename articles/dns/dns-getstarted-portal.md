@@ -43,7 +43,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
    | **Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|contoso.com|The name of the DNS zone|
-   |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
+   |**Subscription**|[Your subscription]|Select a subscription to create the DNS zone in.|
    |**Resource group**|**Create new:** contosoDNSRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
    |**Location**|West US||
 
