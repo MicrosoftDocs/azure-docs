@@ -8,7 +8,7 @@ metadata:
   services: virtual-machines\windows
   author: apexprodleads
   manager: carolz
-  ms.service: virtual-machines\windows
+  ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
