@@ -17,11 +17,11 @@ ms.author: jaboes
 
 # Using Managed Disks in Azure Resource Manager templates
 
-This document walks through the differences between Managed and Unmanaged Disks when using templates to deploy resources and how you can apply them in your virtual machine deployments. For reference, we are be using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
+This document walks through the differences between Managed and Unmanaged Disks when using templates to deploy resources and how you can apply them in your virtual machine deployments. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
 
 ## Unmanaged Disks template formatting
 
-To begin, we'll take a look at how unmanaged disks are deployed. When creating unmanaged disks you have to create a storage account, and specify that storage account for the VHD files to be placed in. To accomplish this, the resources block in the template you will need a storage account resource.
+To begin, we take a look at how unmanaged disks are deployed. When creating unmanaged disks you have to create a storage account, and specify that storage account for the VHD files to be placed in. To accomplish this, the resources block in the template you need a storage account resource.
 
 ```
 {
@@ -87,11 +87,11 @@ Within the virtual machine object, we need a dependency on the storage account t
 
 ## Managed Disks template formatting
 
-With Managed Disks, the disk becomes a top-level resource and no longer requires a storage account to be created by the user. Managed disks are exposed in the `2016-04-30-preview` API version, and are now the default disk type. We'll walk through the default settings and how to further customize your disks.
+With Managed Disks, the disk becomes a top-level resource and no longer requires a storage account to be created by the user. Managed disks are exposed in the `2016-04-30-preview` API version, and are now the default disk type. The following sections walk through the default settings and detail how to further customize your disks.
 
 ### Default Managed Disk settings
 
-To create a VM with managed disks you no longer need to create the storage account resource, and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties the disk has Standard LRS redundancy. If no name is specified it will take the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk, and `<VMName>_disk<#>_<randomstring>` for each data disk. Encryption is disabled by default and caching is Read/Write for the OS disk and none for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+To create a VM with managed disks you no longer need to create the storage account resource, and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties the disk has Standard LRS redundancy. If no name is specified it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk, and `<VMName>_disk<#>_<randomstring>` for each data disk. Encryption is disabled by default and caching is Read/Write for the OS disk and none for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
 
 ```
 {
@@ -194,7 +194,7 @@ Within the VM object, we can then reference this disk object to be attached. Spe
 
 ### Aligning Managed Disks with Availability Sets
 
-To align Managed Disks with availability sets you simply add the `sku` object to the Availability Set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure.
+To align Managed Disks with availability sets, add the `sku` object to the Availability Set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure.
 
 ```
 {
