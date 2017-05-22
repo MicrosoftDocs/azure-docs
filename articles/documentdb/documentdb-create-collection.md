@@ -1,20 +1,6 @@
 ---
-title: Create an Azure Cosmos DB database and collection | Microsoft Docs
-description: Learn how to create databases and container using the online service portal for Azure Cosmos DB, a cloud based document database. Get a free trial today.
-services: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: b81ad2f6-df7f-4c6d-8ca9-f8a9982d647e
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2017
-ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # How to create an Azure Cosmos DB collection and database using the Azure portal
