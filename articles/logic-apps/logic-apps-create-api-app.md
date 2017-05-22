@@ -25,15 +25,15 @@ you can use in logic app workflows, you might want to call APIs, systems, and se
 that aren't available as connectors. You can create your own web APIs and REST APIs 
 that provide actions and triggers to use in logic apps.
 
-Other reasons for creating custom APIs that you can use as connectors:
+Other reasons for creating custom APIs for use with logic apps:
 
 * Extend your current system integration and data integration workflows.
 * Help customers manage their professional or personal tasks around your service.
 * Expand the reach, discoverability, and use for your service.
 
-Connectors are basically web APIs that use REST for their interfaces, 
-[Swagger metadata](http://swagger.io/specification/) for documentation, 
-and JSON format for exchanging data between services. 
+Connectors are basically web APIs that use REST for pluggable interfaces, 
+[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+and JSON as their data exchange format. 
 Because connectors are REST APIs that communicate through HTTP endpoints, 
 you can use any language, like .NET, Java, or Node.js, for building connectors.
 You can host your APIs on [Azure App Service](../app-service/app-service-value-prop-what-is.md), 
@@ -42,9 +42,9 @@ and most scalable ways for API hosting.
 
 For custom APIs to work with logic apps, your API can provide 
 [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-that perform specific tasks in logic app workflows. Your API can also work as a 
+that perform specific tasks in logic app workflows. Your API can also act as a 
 [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
-that starts a logic app when new data or an event at an endpoint meets a specified condition. 
+that starts a logic app workflow when new data or an event meets a specified condition. 
 This topic describes common patterns that you can follow 
 for building actions and triggers in your API, 
 based on the behavior that you want your API to provide.
@@ -76,6 +76,7 @@ you can also use [TRex](https://github.com/nihaue/TRex)
 so that your Swagger file also works well with logic apps.
 
 <a name="actions"></a>
+
 ## Actions
 
 Your custom API can provide [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
@@ -96,6 +97,7 @@ or the [webhook pattern](#webhook-actions) described in this topic.
 For samples, visit the [Logic Apps GitHub repository](https://github.com/logicappsio). 
 
 <a name="async-pattern"></a>
+
 ### Handle long-running actions with the asynchronous pattern
 
 To have your API perform tasks that could take longer than the 
@@ -237,6 +239,7 @@ namespace AsyncResponse.Controllers
 ```
 
 <a name="webhook-actions"></a>
+
 ### Pause and wait with the webhook pattern
 
 To make a logic app pause and wait for your API to finish processing 
@@ -266,6 +269,7 @@ For an example that shows the webhook pattern, review this
 [webhook sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 <a name="triggers"></a>
+
 ## Triggers
 
 Your custom API can also act as a [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) 
@@ -276,12 +280,14 @@ logic app, which is also listening to that trigger. To start logic apps this way
 have your API follow the *polling trigger* or *webhook trigger* pattern.
 
 <a name="polling-triggers"></a>
+
 ### Polling trigger: check for new data or events
 
-A *polling trigger* periodically checks an endpoint for new data or events at a specified frequency and interval. 
+A *polling trigger* lets a logic app periodically check your 
+service endpoint for new data or events at a specified frequency. 
 If the trigger finds new data or an event that meets the specified condition, 
-the trigger fires and creates a logic app instance, which then processes the data as input. 
-To prevent processing the same data multiple times, 
+the trigger fires, and the Logic Apps engine creates a logic app instance, 
+which then processes the data as input. To prevent processing the same data multiple times, 
 the trigger should clean up data that was already read and passed to the logic app. 
 
 Polling triggers act much like the [long-running asynchronous actions](#async-pattern) 
@@ -333,6 +339,7 @@ For an example that shows a poll trigger, review this
 [poll trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
 
 <a name="webhook-triggers"></a>
+
 ### Webhook trigger: wait for new data or events
 
 A webhook trigger is a *push trigger* that waits and listens for new data or 
