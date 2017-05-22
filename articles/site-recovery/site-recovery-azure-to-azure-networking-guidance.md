@@ -19,26 +19,46 @@ ms.author: sujayt
 ---
 # Networking guidance for replicating Azure virtual machines
 
-
 This article details the networking guidance for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
-## Outbound connectivity for Azure Site Recovery URLs or IP ranges
+## Site Recovery Architecture
 
-If you are using any firewall proxy to control outbound internet connectivity, ensure you whitelist all the required Azure Site recovery service URLs or the IP ranges mentioned below are whitelisted.
+Site Recovery provides a simple and easy way to replicate applications running on Azure virtual machines to another Azure region so that they can be recovered in the even of a disruption in primary region. You can refer to more details about the [scenario and its architecture in this document](site-recovery-azure-to-azure-architecture).
 
-### URLs
+## Prepare your network infrastructure
+
+Below diagram depicts the typical Azure environment for an application running on Azure virtual machines.
+
+![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+
+If you are using ExpressRoute or a VPN connection from on-premises to Azure, the environment would look like below.
+
+![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
+
+Typically customers protect their networks using firewalls and/or Network security Groups (NSGs). The firewalls can use either URL based whitelisting or IP based whitelisting for controlling network connectivity. NSGs allow rules for using IP ranges to control network connectivity.
+
+>[!IMPORTANT]
+>
+> If you are using an authenticated proxy to control network connectivity, it is not supported and Site Recovery replication cannot be enabled.
+
+The below network outbound connectivity changes are required from Azure virtual machines for Site Recovery replication to work.
+
+## Outbound connectivity for Azure Site Recovery URLs
+
+If you are using any URL based firewall proxy to control outbound connectivity, ensure you whitelist all the required Azure Site recovery service URLs mentioned below.
+
 
 **URL** | **Purpose**  
 --- | ---
-*.blob.core.windows.net | Required so that data can be written to the cache storage account form the VM.
+*.blob.core.windows.net | Required so that data can be written to the cache storage account in source region form the VM.
 login.microsoftonline.com | Required for authorization and authentication to the Site recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site recovery service communication can happen from the VM.
 *.servicebus.windows.net | Required so that the Site recovery monitoring and diagnostics data  can be written from the VM.
-.
 
-### IP ranges
 
-Below are the IP ranges that need to be white-listed depending on the source location where virtual machines are running and target location where the virtual machines will be replicated to.
+##Outbound connectivity for Azure Site Recovery IP ranges
+
+If you are using any IP based firewall proxy or Network Security Group (NSG) rules to control outbound connectivity, below are the IP ranges that need to be white-listed depending on the source location where virtual machines are running and target location where the virtual machines will be replicated to.
 
 - Ensure that all IP ranges corresponding to the source location are whitelisted. You can get the IP ranges [here](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiax5XFqffTAhUERo8KHc-HB8AQFggoMAE&url=https%3A%2F%2Fwww.microsoft.com%2Fen-in%2Fdownload%2Fdetails.aspx%3Fid%3D41653&usg=AFQjCNF0PQrMilyQDTjmj336PUiOhiViIw). This is required so that data can be written to the cache storage account form the VM.
 
@@ -73,15 +93,14 @@ UK West | 51.141.3.203</br>51.140.226.176 | 51.141.14.113
 UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
 
 
-## Network Security Group configuration
+## Sample Network Security Group (NSG) configuration
+This section explains in detail steps to be followed to configure NSG rules so that Site recovery replication can work on the virtual machine. If you are using Network Security Group (NSG) rules to control outbound connectivity, you need to ensure the "Allow HTTPS outbound" rules for all the required IP ranges.
 
-If you are using Network Security Group (NSG) rules to control outbound connectivity, you need to ensure the "Allow HTTP outbound" rules for all the IP ranges mentioned above.
-
-For example, if your VM's source location is 'East US' and your replication is target location is 'Central US', you need to create NSG rules for below IP ranges.
+For example, if your VM's source location is 'East US' and your replication is target location is 'Central US', you need to follow the blow steps.
 
 ### NSG rules on 'East US' NSG
 
-1. Create rules corresponding to 'East US' IP ranges. You can get the IP ranges [here](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiax5XFqffTAhUERo8KHc-HB8AQFggoMAE&url=https%3A%2F%2Fwww.microsoft.com%2Fen-in%2Fdownload%2Fdetails.aspx%3Fid%3D41653&usg=AFQjCNF0PQrMilyQDTjmj336PUiOhiViIw). This is required so that data can be written to the cache storage account form the VM.
+1. Create rules corresponding to 'East US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/en-in/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account form the VM.
 
 2. Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
@@ -105,27 +124,39 @@ These rules are required so that replication can be enabled from target region t
  --- | --- | ---
 East US | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
 
-## Proxy configuration
 
-If you are using any proxy to control outbound connectivity, ensure all the [URLs mentioned](#URLs) here are whitelisted.
+## Considerations if you already have Azure to on-premises ExpressRoute / VPN configuration
 
->[!IMPORTANT]
->
-> If you are using authenticated proxy, it is not supported.
-
-## Azure to on-premises ExpressRoute configuration
-
-If you have an ExpressRoute connection between on-premises and source location in Azure, follow the below configuration guidance
+a.	If you have an ExpressRoute or a VPN connection between on-premises and the source location in Azure, follow the guidance below:
 
 ### Forced tunneling configuration
 
-A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound internet traffic to instead flow on-premises. This is not ideal as the replication traffic and Site Recovery service communication should not leave Azure boundary. The solution is to define user-defined routes (UDRs) for [IP ranges mentioned here](#IP-ranges) so that they will be honored instead of the default route.
+a.	A common customer configuration is to define a default route (0.0.0.0/0) which forces outbound internet traffic to flow through on-premises. This is not ideal as the replication traffic and Site Recovery service communication should not leave Azure boundary. The solution is to add user-defined routes (UDRs) for [IP ranges mentioned here](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
 
-### Connectivity from target location to on-premises
+### Connectivity between target location and on-premises
 
-- If your application needs to connect to the on-premises machines, ensure that you have at least ['Site-to-Site' connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) between your target Azure region and on-premises datacenter. If a lot of traffic is expected to flow between your target Azure region and on-premises datacenter, then you should have another [ExpressRoute connection](../expressroute/expressroute-introduction.md) between target Azure region and on-premises datacenter pre created.
+- If your application needs to connect to the on-premises machines or if there are clients that connect to the application from on-premises over VPN/ExpressRoute, ensure that you have at least ['Site-to-Site' connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) between your target Azure region and on-premises datacenter.
 
-- If you want to retain the same IP ranges and IP values in the target region, ensure you keep the target region 'Site-to-Site'/'ExpressRoute' connection in a disconnected state. This is to make sure there is no IP range clash between the source region's IP ranges and target region IP ranges
+- If a lot of traffic is expected to flow between your target Azure region and on-premises datacenter, then you should pre-create another [ExpressRoute connection](../expressroute/expressroute-introduction.md) between the target Azure region and on-premises datacenter.
+
+- If you want to retain IPs for the virtual machines after they failover, ensure you keep the target region 'Site-to-Site'/'ExpressRoute' connection in a disconnected state. This is to make sure there is no IP range clash between the source region's IP ranges and target region IP ranges
+
+### Best practices for ExpressRoute configuration
+1. You need to create ExpressRoute circuit in both source and target regions. And, then you need to create a connection between
+  - source VNet and the ExpressRoute circuit
+  - target VNet and the ExpressRoute circuit
+
+2. As part of ExpressRoute standard, you can create circuits in same geo-political region. To create ExpressRouteotue circuits in different geo-political region ExpressRoute premium is required. This is an incremental cost. But if you are already using ExpressRoute Premium then there is no extra cost. You can refer to [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/) for more details.
+
+3. It is recommended to use different IP ranges in source and target regions. ExpressRoute circuit won't be able to connect with two VNETs of same IP ranges at the same time.
+
+4. You can create VNets with same IP ranges in both regions and then create ExpressRoute circuits in both regions. And in case of a failover event, disconnect the circuit from source VNet and connect the circuit in target VNet.
+
+ >[!IMPORTANT]
+ >
+ > If the primary region is completely down, then the disconnect operation can fail. That will prevent target VNet from getting the ExpressRoute connectivity.
+
+
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-azure-vm-enable-rep.md)
