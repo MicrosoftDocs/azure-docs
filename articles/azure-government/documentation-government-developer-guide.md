@@ -19,7 +19,6 @@ ms.author: stemi
 ---
 # Azure Government developer guide
 The Azure Government environment is a physical instance that is separate from the rest of the Microsoft network. This guide discusses the differences that application developers and administrators must understand to interact and work with separate regions of Azure.
-
 ## Overview
 Azure Government is a separate instance of the Microsoft Azure service. It addresses the security and compliance needs of United States federal agencies, state and local governments, and their solution providers. Azure Government offers physical isolation from non-US government deployments and provides screened US personnel.
 
@@ -70,6 +69,6 @@ For more information about Azure Government, see the following resources:
 
 * [Sign up for a trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 * [Acquiring and accessing Azure Government](http://azure.com/gov)
-* [Azure Government Overview](/azure-government-overview)
+* [Azure Government Overview](documentation-government-welcome.md)
 * [Azure Government Blog](http://blogs.msdn.microsoft.com/azuregov/)
 * [Azure Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings)

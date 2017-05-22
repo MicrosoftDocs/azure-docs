@@ -69,19 +69,19 @@ The Hadoop ecosystem component versions associated with HDInsight cluster versio
 For Windows-based clusters only: Another way to get component versions is to log in to a cluster by using Remote Desktop and examine the contents of the "C:\apps\dist\" directory directly.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 deprecation](#hdi-version-33-nearing-deprecation-date). 
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [Windows retirement on HDInsight](#hdi-version-33-nearing-retirement-date). 
 
 ### Release notes
 
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## Supported HDInsight versions
-The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Note the following version information:
+The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and retirement dates are also provided. Note the following version information:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.
-* Once the support has expired for a particular version, it may not be available through the Azure portal. The following table indicates which versions are available on the Azure Classic Portal. Cluster versions  continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
+* Once the support has expired for a particular version, it may not be available through the Azure portal. The following table indicates which versions are available on the Azure Classic Portal. Cluster versions  continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its retirement date.
 
-| HDInsight Version | HDP Version | VM OS | High Availability | Release Date | Available on Azure portal | Support Expiration Date | Deprecation Date |
+| HDInsight Version | HDP Version | VM OS | High Availability | Release Date | Available on Azure portal | Support Expiration Date | Retirement Date |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |Yes |04/06/2017 |Yes | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |9/30/2016 |Yes |07/05/2017 |05/31/2018 |
@@ -93,8 +93,8 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |Yes |10/28/2013 |No |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |No |10/28/2013 |No |04/26/2014 |05/31/2015 |
 
-## HDI Version 3.3 nearing deprecation date
-The support for HDI 3.3 cluster expired on 06/27/2016 and it will be deprecated on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 or HDI 3.6 soon. Deprecation timelines for HDI 3.3 Windows may vary by region. If your region’s planned deprecation date is different, you are notified separately.
+## HDI Version 3.3 nearing retirement date
+The support for HDI 3.3 cluster expired on 06/27/2016 and it will be retired on 07/31/2017. If you have HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 or HDI 3.6 soon. Retirement timelines for HDI 3.3 Windows may vary by region. If your region’s planned retirement date is different, you are notified separately.
 
 ### The service-level agreement for HDInsight cluster versions
 The SLA is defined in terms of a **Support Window**. A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
@@ -102,7 +102,7 @@ The SLA is defined in terms of a **Support Window**. A Support Window refers to 
 * Formula 1: Add 180 days to the date HDInsight cluster version X was released.
 * Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Portal.
 
-The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize a cluster after its deprecation date. 
+The **Retirement Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize a cluster after its retirment date. 
 
 > [!NOTE]
 > Windows-based HDInsight clusters (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
