@@ -147,7 +147,7 @@ It's now possible to add a NIC to an existing VM.
 
    ```powershell
    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
-   Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+   Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
    ```
 
 One of the NICs on a multiple-NIC VM needs to be primary, so we're setting the new NIC as primary. If your previous NIC on the VM is primary, you don't need to specify the `-Primary` switch. If you want to switch the primary NIC on the VM, follow these steps:
