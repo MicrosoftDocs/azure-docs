@@ -149,7 +149,7 @@ As an alternative to specifying the disk configuration in the virtual machine ob
     }
 }
 ```
-Within the VM object, we can then reference this disk object to be attached. Specifying the resource ID of the Managed Disk we created in the `managedDisk` property allows the attachment of the disk as the VM is created. Also note that we've created a dependency on the disk resource to ensure it's successfully created before VM creation. 
+Within the VM object, we can then reference this disk object to be attached. Specifying the resource ID of the Managed Disk we created in the `managedDisk` property allows the attachment of the disk as the VM is created. The `apiVersion` for the VM resource must be `2016-04-30-preview` to use this functionality. Also note that we've created a dependency on the disk resource to ensure it's successfully created before VM creation. 
 
 ```
 {
@@ -194,7 +194,7 @@ Within the VM object, we can then reference this disk object to be attached. Spe
 
 ### Create managed Availability Sets with VMs using Managed Disks
 
-To create managed Availability Sets with VMs using Managed Disks, add the `sku` object to the Availability Set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure.
+To create managed Availability Sets with VMs using Managed Disks, add the `sku` object to the Availability Set resource and set the `name` property to `Aligned`. This ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. The `apiVersion` for the Availability Set resource must also be `2016-04-30-preview` to use this functionality.
 
 ```
 {
