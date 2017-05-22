@@ -1,0 +1,32 @@
+- name: Bing Speech Documentation
+  href: ../index.md
+- name: Overview
+  href: Home.md
+- name: Get started
+  items:
+  - name: C#(REST API)  
+    href: GetStarted/GetStartedREST.md
+  - name: cURL(REST API)
+    href: GetStarted/GetStarted-cURL.md
+  - name: JavaScript(Websocket API)    
+    href: GetStarted/GetStartedJSWebsockets.md
+  - name: C#(Client Library)
+    href: GetStarted/GetStartedCSharpDesktop.md
+  - name: C#(Service Library)
+    href: GetStarted/GetStartedCSharpServiceLibrary.md
+  - name: Objective C on iOS(Client Library)   
+    href: GetStarted/Get-Started-ObjectiveC-iOS.md
+  - name: Java on Android(Client Library)
+    href: GetStarted/GetStartedJavaAndroid.md
+- name: Reference
+  items: 
+  - name: Speech recognition API reference
+    href: API-Reference-REST/BingVoiceRecognition.md
+  - name: Text-to-speech API reference
+    href: API-Reference-REST/BingVoiceOutput.md
+  - name: Websocket Protocol
+    href: API-Reference-REST/websocketprotocol.md
+  - name: SDKs & Samples
+    items:
+    - name: JavaScript
+      href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript

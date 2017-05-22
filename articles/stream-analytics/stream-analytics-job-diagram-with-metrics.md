@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/20/2017
+ms.date: 05/01/2017
 ms.author: jeffstok
 
 ---
@@ -25,7 +25,7 @@ The job diagram on the **Monitoring** blade in the Azure portal can help you vis
 
 ## Using the job diagram
 
-In the Azure portal, on the **Monitoring** blade, under **SUPPORT + TROUBLESHOOTING**, select **Job diagram**:
+In the Azure portal, while in a Stream Analytics job, under **SUPPORT + TROUBLESHOOTING**, select **Job diagram**:
 
 ![Job diagram with metrics - location](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 

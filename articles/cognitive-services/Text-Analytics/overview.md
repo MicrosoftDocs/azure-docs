@@ -1,5 +1,5 @@
 ---
-title: Text Analytics API in Microsoft Cognitive Services | Microsoft Docs
+title: Azure Text Analytics API | Microsoft Docs
 description: Use the Text Analytics API for sentiment analysis, key phrase extraction, topic detection for English text, and much more.
 services: cognitive-services
 author: LuisCabrer
@@ -8,37 +8,53 @@ manager: mwinkle
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 04/06/2016
-ms.author: luisca
+ms.date: 05/02/2017
+ms.author: onewth
 ---
 
-# Text Analytics Documentation
+# Text Analytics API
 
-**Description**
+Use a few lines of code to easily analyze sentiment, extract key phrases, detect topics, and detect language for any kind of text.
 
-Understanding and analyzing unstructured text is an increasingly popular field and includes a wide spectrum of problems such as sentiment analysis, key phrase extraction, topic modeling/extraction, aspect extraction and more.
+## Sentiment Analysis
 
-Text Analytics API is a suite of text analytics services built with Azure Machine Learning. We currently offer APIs for sentiment analysis, key phrase extraction and topic detection for English text, as well as language detection for 120 languages.In this initial preview release, we offer APIs for sentiment analysis and key phrase extraction of English text. No labeled or training data is needed to use the service - just bring your text data. This service is based on research and engineering that originated in Microsoft Research and which has been battle-tested and improved over the past few years by product teams such as Bing and Office.
+Find out what users think of your brand or topic by analyzing any text using sentiment analysis. You are now easily able to monitor the perception of your brand or topic over time.
 
-**Sentiment Analysis**
+Sentiment score is generated using classification techniques, and returns a score between 0 and 1. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. 
 
-Let's say you run a website to sell handicrafts. Your users submit feedback on your site, and you'd like to find out what users think of your brand, and how that changes over time as you release new products and features to your site. Sentiment analysis can help here - given a piece of text, the Azure ML Text Analytics service returns a score between 0 and 1 denoting overall sentiment in the input text. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.
+## Key Phrase Extraction
 
-Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and embedded words. The classifier was trained in part using Sentiment140 data.
+Automatically extract key phrases to quickly identify the main points. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
 
-**Key Phrase Extraction**
+For example, for the input text ‘The food was delicious and there were wonderful staff’, the service returns the main talking points: ‘food’ and ‘wonderful staff’.
 
-This service can also extract key phrases, which denote the main talking points in the text. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit.
+## Topic Detection
 
-For example, for the input text ‘The manual transmission is a bit twitchy. Also, the vehicle is old-school’, the service would return the main talking points: ‘manual transmission’, ‘vehicle’ and ‘old-school’.
+This service returns topics that have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback. It can help you to understand the main issues or suggestions that customers are mentioning.
 
-**Topic Detection**
+## Language Detection
 
-This is a new service which returns the topics which have been detected in multiple text articles. The service is designed to work well for short, human written text such as reviews and user feedback, and can help you to understand the main issues or suggestions that customers are mentioning.
+The service can be used to detect which language the input text is written in. 120 languages are supported.
 
-**Language Detection**
+## Supported Languages
 
-The service can be used to detect which language the input text is written in.
+| Language    | Language code | Sentiment | Key phrases | Topics |
+|:----------- |:----:|:----:|:----:|:----:|
+| Danish      | `da` | ✔ \* |  |   |
+| German       | `de` | ✔ \* | ✔ |   |
+| Greek       | `el` | ✔ \* |  |   |
+| English     | `en` | ✔ | ✔ | ✔ |
+| Spanish     | `es` | ✔ | ✔ |   |
+| Finnish     | `fi` | ✔ \* |  |   |
+| French      | `fr` | ✔ |  |   |
+| Japanese    | `ja` |  | ✔ |   |
+| Italian     | `it` | ✔ \* |  |   |
+| Dutch       | `nl` | ✔ \* |  |   |
+| Norwegian   | `no` | ✔ \* |  |   |
+| Polish      | `pl` | ✔ \* |  |   |
+| Portuguese  | `pt` | ✔ |  |   |
+| Russian     | `ru` | ✔ \* |  |   |
+| Swedish     | `sv` | ✔ \* |  |   |
+| Turkish     | `tr` | ✔ \* |  |   |
 
-
-
+\* indicates language support in preview

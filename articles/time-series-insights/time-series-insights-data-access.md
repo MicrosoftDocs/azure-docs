@@ -5,7 +5,7 @@ keywords:
 services: time-series-insights
 documentationcenter:
 author: op-ravi
-manager: santoshb
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid:
@@ -14,27 +14,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: omravi
 ---
 
 # Grant data access to a Time Series Insights environment using Azure portal
 
-Time Series Insights environments have two independent kinds of access policies:
+Time Series Insights environments have two independent types of access policies:
 
 * Management access policies
 * Data access policies
 
-Both kinds of policies grant Azure Active Directory principals (users and apps) various permissions on a particular environment. The principals (users and apps) must belong to the active directory (or “Azure tenant”) associated with the subscription containing the environment.
+Both policies grant Azure Active Directory principals (users and apps) various permissions on a particular environment. The principals (users and apps) must belong to the active directory (or “Azure tenant”) associated with the subscription containing the environment.
 
 Management access policies grant permissions related to the configuration of the environment, such as
-*	creation and deletion of the environment, event sources, reference data sets, and
-*	management of the data access policies.
+*	Creation and deletion of the environment, event sources, reference data sets, and
+*	Management of the data access policies.
 
-Data access policies grant permissions to issue data queries, manipulate reference data in the environment, and saved shared queries and perspectives associated with the environment.
+Data access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment.
 
 The two kinds of policies allow clear separation between access to the management of the environment and access to the data inside the environment. For example, it is possible to setup an environment such that the owner/creator of the environment is removed from the data access. As well as users and services that are allowed to read data from the environment may be granted no access to the configuration of the environment.
 
+## Grant data access
 The following steps show how to grant data access for a user principal:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).

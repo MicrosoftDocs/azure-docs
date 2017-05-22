@@ -66,7 +66,7 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 ## Databases
 | Service | Resource Manager Enabled | REST API | Template format |
 | --- | --- | --- | --- | --- |
-| DocumentDB |Yes |[DocumentDB REST](/rest/api/documentdbresourceprovider) |[DocumentDB resources](/azure/templates/microsoft.documentdb/databaseaccounts) |
+| Azure Cosmos DB |Yes |[Azure Cosmos DB REST](/rest/api/documentdbresourceprovider) |[Azure Cosmos DB resources](/azure/templates/microsoft.documentdb/databaseaccounts) |
 | Redis Cache |Yes | [Redis Cache REST](/rest/api/redis) |[Redis resources](/azure/templates/microsoft.cache/redis) |
 | SQL Database |Yes |[SQL Database REST](/rest/api/sql) |[SQL Database resources](/azure/templates/microsoft.sql/servers) |
 | SQL Data Warehouse |Yes | | |

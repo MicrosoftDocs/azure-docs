@@ -41,7 +41,7 @@ You can bulk-invite external users to an organization from email addresses that 
 
     ```
     $cred = Get-Credential
-    Connect-MsolService -Credential $cred
+    Connect-AzureAD -Credential $cred
     ```
 
 4. Run the PowerShell cmdlet

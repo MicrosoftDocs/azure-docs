@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: billmath
 
 ---
@@ -55,7 +55,7 @@ For information on how you can get your third-party identity provider listed her
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
 * [SoftBank Technology Online Service Gate](#softbank)
-* [VMware Identity Manager](#vmware-identity-manager)
+* [VMware Workspace One](#vmware-workspace-one)
 * [VMware  Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
 
 
@@ -348,7 +348,7 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about SoftBank Technology Online Service Gate see [here.](https://www.softbanktech.jp/service/list/osg-pro-ent/)
 
-## VMware Identity Manager
+## VMware Workspace One
 
 The following is the scenario support matrix for this single sign-on experience:
 

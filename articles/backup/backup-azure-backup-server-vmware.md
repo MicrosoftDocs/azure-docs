@@ -100,7 +100,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![Verify certificate is in the proper folder](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
-    A dialog box appears, a successful certificate import is confirmed.
+    A dialog box appears, the successful certificate import is confirmed.
 
 11. Sign in to the vCenter server to confirm that your connection is secure.
 
@@ -187,9 +187,9 @@ After the role with privileges is set up, create a user account. The user accoun
 
     ![Users and Groups option](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-  The **vCenter Users and Groups** panel appears.
+    The **vCenter Users and Groups** panel appears.
 
-  ![vCenter Users and Groups panel](./media/backup-azure-backup-server-vmware/usersandgroups.png)
+    ![vCenter Users and Groups panel](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
 2. In the **vCenter Users and Groups** panel, select the **Users** tab, and then click the add users icon (the + symbol).
 
@@ -260,13 +260,15 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
 ## Add the vCenter Server to Azure Backup Server
 
-To open Production Server Addition Wizard
+Production Server Addition Wizard is used to add the vCenter Server to Azure Backup Server.
+
+To open Production Server Addition Wizard, complete the following procedure.
 
 1. In the Azure Backup Server console, click **Management**, click **Production Servers**, and then click **Add**.
 
-    ![Open the Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
+    ![Open Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-    The Production Server Addition Wizard appears.
+    The Production Server Addition Wizard dialog box appears.
 
     ![Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -303,13 +305,13 @@ After you add the vCenter Server to Azure Backup Server, the next step is to cre
 
 If you have not used System Center Data Protection Manager or Azure Backup Server before, see [Plan for disk backups](https://technet.microsoft.com/library/hh758026.aspx) to prepare your hardware environment. After you check that you have proper storage, use the Create New Protection Group wizard to add VMware virtual machines.
 
-1. In the Azure Backup Server console, click **Protection**, and in the tool ribbon, click **New** to open the Create New Protection Group Wizard.
+1. In the Azure Backup Server console, click **Protection**, and in the tool ribbon, click **New** to open the Create New Protection Group wizard.
 
     ![Open the Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-    The Create New Protection Group Wizard appears.
+    The Create New Protection Group wizard dialog box appears.
 
-    ![Create New Protection Group Wizard](./media/backup-azure-backup-server-vmware/protection-wizard.png)
+    ![Create New Protection Group wizard dialog box](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
     Click **Next** to advance to the **Select protection group type** screen.
 
@@ -325,7 +327,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
 4. On the **Select Data Protection Method** screen, enter a name for the protection group. Short-term protection (to disk) and online protection are selected. If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
 
-    ![Production Server Addition wizard](./media/backup-azure-backup-server-vmware/name-protection-group.png)
+    ![Select data protection method](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
 5. On the **Specify Short-Term Goals** screen, for **Retention Range**, specify the number of days that you want to retain recovery points that are *stored to disk*. If you want to change the time and days when recovery points are taken, click **Modify**. The short-term recovery points are full backups. They are not incremental backups. When you are satisfied with the short-term goals, click **Next**.
 
