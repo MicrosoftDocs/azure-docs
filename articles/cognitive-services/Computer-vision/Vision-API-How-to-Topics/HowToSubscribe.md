@@ -18,7 +18,7 @@ Computer Vision services require special subscription keys to use them with your
 
 To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change.
 
-[!NOTE] Your subscription keys are valid only for the location you specify during signup. For example, if you specify `westus` for your location when you get your subscription keys, you must use the `westus` location for your REST API calls (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
+NOTE: Your subscription keys are valid only for the location you specify during signup. For example, if you specify `westus` for your location when you get your subscription keys, you must use the `westus` location for your REST API calls (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
 
 ### Related Links:
 * [Pricing Options for Microsoft Cognitive APIs](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/)
