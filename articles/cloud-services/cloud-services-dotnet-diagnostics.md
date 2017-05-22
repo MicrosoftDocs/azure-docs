@@ -128,7 +128,7 @@ namespace WorkerRole1
 4. In the **Create Cloud Service and Storage Account** dialog, enter a **Name** (for example, "WadExample") and select a region or affinity group.
 5. Set the **Environment** to **Staging**.
 6. Modify any other **Settings** as appropriate and click **Publish**.
-7. After deployment has completed, verify in the Azure classic portal that your cloud service is in a **Running** state.
+7. After deployment has completed, verify in the Azure portal that your cloud service is in a **Running** state.
 
 ### Step 4: Create your Diagnostics configuration file and install the extension
 1. Download the public configuration file schema definition by executing the following PowerShell command:
