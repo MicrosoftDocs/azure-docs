@@ -56,7 +56,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 * [Location](#location)
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 
 ## Resource group name 
