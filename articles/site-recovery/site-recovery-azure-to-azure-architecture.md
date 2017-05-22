@@ -34,15 +34,13 @@ When you enable replication of the virtual machines in Azure portal, the below r
 
 ![enable-rep-1](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-1.png)
 
-Target resource group : It is the resource group to which all your replicated virtual machines will belong to post failover
-
-Target Virtual Network: It is the virtual network where your virtual machines will come up post failover. A network mapping will be created between source and target virtual networks and vice versa.
-
-Cache Storage accounts: All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target storage account in target location. This is to ensure that the impact on production application running on the virtual machine is minimal.
-
-Target Storage accounts: These are the storage accounts in target location where the data will be replicated to.
-
-Target Availability set: These are the availability sets where the VM will come up post failover.
+**Resource** | **Purpose**
+------ | -----
+***Target resource group*** | It is the resource group to which all your replicated virtual machines will belong to post failover
+*** Target Virtual Network***  | It is the virtual network where your virtual machines will come up post failover. A network mapping will be created between source and target virtual networks and vice versa.
+*** Cache Storage accounts***  | All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target storage account in target location. This is to ensure that the impact on production application running on the virtual machine is minimal.
+***Target Storage accounts***  | These are the storage accounts in target location where the data will be replicated to.
+***Target Availability set***  | These are the availability sets where the VM will come up post failover.
 
 # Enable replication - Step 2
 
@@ -62,8 +60,8 @@ As part of 'enable replication' flow, 'Site Recovery extension mobility service'
 
 Once the continuous replication is configured, any write on the disk is immediately transferred to cache storage account. Site recovery service processes the data and sends it to target storage account in target location. Once the data is processed, recovery points are generated in the target storage account every few minutes. You can use any recovery point during a 'Test failover' or a 'Failover'.
 
-# failover
+# Failover
 
 When you initiate a failover, the virtual machines are created in the configured target resource group, target virtual network, target subnet and the target availability set. You can select any recovery point during the failover.
 
-![enable-rep-2](./media/site-recovery-azure-to-azure-architecture/failover.png) 
+![enable-rep-2](./media/site-recovery-azure-to-azure-architecture/failover.png)
