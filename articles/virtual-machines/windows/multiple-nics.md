@@ -89,10 +89,10 @@ Now start to build your VM configuration. Each VM size has a limit for the total
    $cred = Get-Credential
    ```
 
-2. Define your VM. The following example defines a VM named `myVM` and uses a VM size that supports up to two NICs (`Standard_DS2_v2`):
+2. Define your VM. The following example defines a VM named `myVM` and uses a VM size that supports more than two NICs (`Standard_DS3_v2`):
 
    ```powershell
-   $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
+   $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
    ```
 
 3. Create the rest of your VM configuration. The following example creates a Windows Server 2012 R2 VM:
@@ -168,7 +168,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
 
 ## Remove a NIC from an existing VM
 
-A NIC can also be removed from a VM.
+A NIC can also be removed from a VM. 
 
 1. Deallocate the VM by using the `Stop-AzureRmVM` cmdlet:
 
@@ -182,20 +182,32 @@ A NIC can also be removed from a VM.
    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
    ```
 
-3. View all the NICs on the VM and copy the name of the one you want to remove:
+3. View the NICs associated to the VM and get the NIC:
 
    ```powershell
    $vm.NetworkProfile.NetworkInterfaces
-   Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
-       Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+   $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id   
    ```
+
+4. Remove the NIC and update the VM:
+
+   ```powershell
+   Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
+       Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+   ```   
+
+5. Start the VM:
+
+   ```powershell
+  Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+   ```   
 
 ## Create multiple NICs by using Resource Manager templates
 Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
 
 ```json
 "copy": {
-    "name": "multiplenics"
+    "name": "multiplenics",
     "count": "[parameters('count')]"
 }
 ```
