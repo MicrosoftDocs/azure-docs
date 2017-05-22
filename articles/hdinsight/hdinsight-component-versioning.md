@@ -198,6 +198,10 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 > [!NOTE]
 > Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
 
+## Next steps
+- [Cluster setup for Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Work in Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
+
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
 [wa-forums]: http://azure.microsoft.com/support/forums/
