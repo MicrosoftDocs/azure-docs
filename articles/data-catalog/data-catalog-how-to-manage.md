@@ -52,7 +52,7 @@ If a data asset is already owned, other users cannot simply take ownership. They
 >
 >
 
-### Removing owners
+### Remove owners
 Just as any asset owner can add co-owners, any asset owner can remove any co-owner.
 
 An asset owner who removes him or herself as an owner can no longer manage the asset. If the asset owner removes him or herself as an owner and there are no other co-owners, the asset reverts to an unowned state.
