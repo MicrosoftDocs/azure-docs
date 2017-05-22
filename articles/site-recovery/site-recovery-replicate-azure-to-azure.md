@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/18/2017
+ms.date: 5/22/2017
 ms.author: asgang
 
 ---
@@ -40,7 +40,7 @@ In this article we will go through both the flows.
 
 You can enable replication of an Azure virtual machine through settings section in the portal.
 
-1. Click on **Site recovery** under ‘Settings’
+1. Click on **Site Recovery** under ‘Settings’
 2. **Target Region:**  This is the location where your source virtual machine data will be replicated. Depending upon your source machine location, Site Recovery will provide you the list of suitable target regions. You can also visually see these regions on the map shown in the blade.  
 3. **VM resource group :** It is the resource group to which your replicated virtual machine will belong. By default ASR will create a new resource group in the target region with name having "-asr" suffix. In case resource group created by ASR already exist, it will be reused. Alternatively, you can also select a resource group available in the given target region.    
 4. **Availability set :** By default, ASR will create a new availability set in the target region with name having "-asr" suffix. In case availability set created by ASR already exist, it will be reused. Alternatively, you can also select an availability set available in the given target region.
@@ -57,13 +57,13 @@ You can enable replication of an Azure virtual machine through settings section 
 7.	**Recovery services vault:** It contains target VM configuration settings and orchestrates replication. In an event of a disruption you do fail-over from recovery services vault. In case there is no recovery services vault in the subscription, ASR will create a default vault with name "Site-Recovery-Vault". If there is at least one vault in the given subscription, you will see the option to select that. 
 	> [!NOTE] 
 	>It is recommended that you create “Recovery services vault” in the location where you want to replicate your machines to i.e. the target Azure region. You cannot have your vault in source region as in the event of region wide disruption, your vault will also be not available
-8.	**Recovery Service vault resource group:** It is a resource group of recovery services vault.
+8.	**Recovery service vault resource group:** It is a resource group of recovery services vault.
 9.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, ASR will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 10.	Click on Enable replication and ASR will start the job after validating the resource.
    ![Enable replication](./media/site-recovery-replicate-azure-to-azure/vmsettings_protection.png)
 
 
-##Flow 2: Enabling replication from Azure Site recovery vault 
+##Flow 2: Enabling replication from Azure Site Recovery vault 
 For this illustration, we will replicate VMs running  in the ‘East Asia’ Azure location  to the ‘South East Asia’ location. The steps are as follows:
 
  Click **+Replicate** in the vault to enable replication for  machines.
@@ -96,7 +96,6 @@ Under Settings section you can configure target site properties
 7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, ASR will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 	> [!NOTE]
 	> [Check replication policy details](site-recovery-replication-policy.md) to know more about policy.
-	
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 #### Customize  Resource Group, Network, Storage and Availability sets 
