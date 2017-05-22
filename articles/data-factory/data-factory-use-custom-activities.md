@@ -385,7 +385,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 
     ![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
 14. Create a blob container named **customactivitycontainer** if it does not already exist.	
-15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hold/cool Blob storage) that is referred by AzureStorageLinkedService.  
+15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hot/cool Blob storage) that is referred by AzureStorageLinkedService.  
 
 > [!IMPORTANT]
 > If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the general-purpose Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. For more information, see [Data Factory project in Visual Studio](#data-factory-project-in-visual-studio) section.
