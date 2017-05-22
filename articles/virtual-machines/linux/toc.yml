@@ -353,7 +353,7 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Boot diagnostics 
+    - name: Virtual machine boot diagnostics 
       href: ../virtual-machine-boot-diagnostics.md
     - name: SSH connections
       href: troubleshoot-ssh-connection.md
