@@ -23,7 +23,7 @@ This article discusses how administrators access the Seller Insights portal, add
 
 ## Onboard users
 
-This section discusses how administrators access the Seller Insights portal for the first time. 
+This section discusses how administrators access the Seller Insights portal for the first time. The tasks in this section are reserved for administrators. 
 
 
 ### Overview of roles
@@ -265,8 +265,7 @@ In *Panel D*, the subscription data for each individual is listed.  Data is down
 
 ## User management
 
->[!NOTE]
->Administrators only.
+The tasks in this section are reserved for administrators. Use the following procedures to add users, change permissions, or delete users from the Seller Insights portal.
 
 
 ### Add user
