@@ -1,5 +1,5 @@
 ---
-title: Using Managed Disks in Resource Manager Templates | Microsoft Docs
+title: Using Managed Disks in Azure Resource Manager Templates | Microsoft Docs
 description: Details how to use Managed Disks in Azure Resource Manager templates
 services: storage
 documentationcenter:
@@ -21,7 +21,7 @@ This document walks through the differences between Managed and Unmanaged Disks 
 
 ## Unmanaged Disks template formatting
 
-To begin, we take a look at how unmanaged disks are deployed. When creating unmanaged disks you have to create a storage account, and specify that storage account for the VHD files to be placed in. To accomplish this, the resources block in the template you need a storage account resource.
+To begin, we take a look at how unmanaged disks are deployed. When creating unmanaged disks you have to create a storage account, and specify that storage account for the VHD files to be placed in. To accomplish this, you need a storage account resource in the resources block as shown below.
 
 ```
 {
