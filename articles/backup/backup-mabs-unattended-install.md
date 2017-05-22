@@ -50,10 +50,14 @@ This article explains how to run an unattended installation for Azure Backup Ser
 3. After saving the file, at an elevated command prompt on the installation server, type:
 
   ```
-  start /wait <cdlayout path>/Setup.exe /i  /f <ini file path>/setup.ini /L c<log path>/setup.log
+  start /wait <cdlayout path>/Setup.exe /i  /f <ini file path>/setup.ini /L <log path>/setup.log
   ```
 
-
+The flags you can use for the installation are:
+**/f** - .ini file path
+**/l** - log path
+**/i** - installation path
+**/x** - uninstall path
 
 ## Next steps
 After installing Azure Backup Server, use one of the following articles to either prepare your server, or begin protecting a workload:

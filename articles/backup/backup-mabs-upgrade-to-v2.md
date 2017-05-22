@@ -17,107 +17,79 @@ ms.date: 05/15/2017
 ms.author: masaran;markgal
 ---
 
-# Upgrade Azure Backup Server to v.2
+# Install Azure Backup Server v.2
 
 
 You can install Azure Backup Server v.2 on Windows Server 2012 R2, or on Windows Server 2016. However to take advantage of Modern Backup Storage, Azure Backup Server v.2 must be installed on Windows Server 2016. Before you upgrade or install Azure Backup Server v.2, please read the [Installation prerequisites](http://docs.microsoft.com/system-center/dpm/install-dpm.md#setup-prerequisites).
+
+> Are DPM's prerequisites followed?
 
 > [!NOTE]
 > Azure Backup Server is based on the same code base as System Center Data Protection Manager (DPM). Azure Backup Server v.1 is equivalent to DPM 2012 R2, and Azure Backup Server is equivalent to DPM 2016. This documentation occasionally references the DPM documentation.
 >
 >
 
-## Upgrade path for Azure Backup Server v.2
-If you are going to upgrade Azure Backup Server v.1 to v.2, make sure your installation has the necessary updates:
+## Upgrade Azure Backup Server to v.2
+To upgrade Azure Backup Server v.1 to v.2, make sure your installation has the necessary updates:
 
 - Update the agents on the protected servers.
+> How do you update the agent before you start the upgrade process? Isn't updating the agent part of the upgrade process?
+
 - Upgrade Windows Server 2012 R2 to Windows Server 2016.
 - Upgrade Azure Backup Server Remote Administrator on all production servers.
-- Backups will continue without rebooting your production server.
+- Backups continue without rebooting your production server.
 
 
 ### Upgrade steps for Azure Backup Server v.2
 
-1. To install Azure Backup Server v.2, double-click Setup.exe to open the System Center 2016 Wizard.
-2. Under Install, click Azure Backup Ser. This starts Setup. Agree to the license terms and conditions and follow the setup wizard.
+1. Where do they download the bits from?
 
-Some DPM 2016 features, such as Modern Backup Storage, require the Windows Server 2016 RTM build. It is possible to upgrade DPM 2016 from DPM 2012 R2, running on Windows Server 2012 R2. However, customers receiving DPM 2016 will want the latest features, so Microsoft recommends installing DPM 2016 on a new installation of Windows Server 2016 RTM. For instructions on installing DPM, see the article, [Installing DPM 2016](http://docs.microsoft.com/system-center/dpm/install-dpm.md).
+2. After you have extracted the setup wizard, make sure the Execute setup.exe is selected. Click **Finish** to open the Azure Backup Server v.2 wizard.
 
-## Migrating the DPM database during upgrade
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
-You may want to move the DPM Database as part of an upgrade.  For example, you are merging instances of SQL Server. You are moving to a remote more powerful SQL server. You want to add fault tolerance by using a SQL Server cluster; or you want to move from a remote SQL server to a local SQL server or vice versa. DPM 2016 setup allows you to migrate the DPM database to different SQL Servers during an upgrade.
+3. On the Microsoft Azure Backup Server wizard, under **Install**, click **Microsoft Azure Backup Server**.
 
-### Possible database migration scenarios
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
-1. Upgrading DPM 2012 R2 using a local instance and migrating to a remote instance of SQL Server during setup.
-2. Upgrading DPM 2012 R2 using a remote instance and migrating to a local instance of SQL Server during setup.
-3. Upgrading DPM 2012 R2 using a local instance and migrating to a remote SQL Server Cluster instance during setup.
-4. Upgrading DPM 2012 R2 using a local instance and migrating to a different local instance of SQL Server during setup.
-5. Upgrading DPM 2012 R2 using a remote instance and migrating to a different remote instance of SQL Server during setup.
-6. Upgrading DPM 2012 R2 using a remote instance and migrating to a remote SQL Server Cluster instance during setup.
+4. At the Welcome screen, read the warnings and click **Next**.
 
-### Preparing for a database migration
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
-The new SQL Server that you want to use to migrate the DPM database to must have the same SQL Server requirements, setup configuration, firewall rules, and DPM Support files (sqlprep) installed before performing the DPM Upgrade.
+5. The setup wizard performs prerequisite checks to make sure your environment is able to upgrade. Click **Check** to perform the checks.
 
-Once you have the new instance of SQL Server installed and prepped for being used by DPM, you must make a backup of the current DPM 2012 R2 UR10 KB3143871 (4.2.1473.0) or a later database and restore it on the new SQL Server.
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
-### Pre-upgrade steps: Backup and restore DPM 2012 R2 DPM database to a new SQL instance
+6. Your environment must be able to pass the prerequisite check. If your environment cannot pass the check, note the issues and fix them. You can then click **Check Again**. Once you can pass the prerequisite checks, click **Next** to move forward in the wizard.
 
-In this example, we will prepare a remote SQL Server cluster to use for the migration.
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s4-pass-checks.png)
 
-1. On the System Center Data Protection Manager 2012 R2 server or on the remote SQL Server hosting the DPM database, start **Microsoft SQL Management Studio** and connect to the SQL instance hosting the current DPM 2012 R2 DPMDB.
-2. Right-click the DPM database, and under **Tasks**, select the **Back Up…** option.
+7. On the SQL Setting screen, choose the appropriate option for your SQL installation and click **Check and Install**.
 
-      ![Select Backup](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-select-backup.png)
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
-3. Add a backup destination and file name, and then select **OK** to start the backup.
+  The checks may take a few minutes to complete. Once the checks have completed, click **Next**.
 
-      ![Confirm](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-confirm.png)
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-4. After the backup is complete, copy the output file to the remote SQL Server.  If this is a SQL Cluster, copy it to the active node hosting the SQL instance you want to use in the DPM upgrade.  You have to copy it to the Shared Cluster disk before you can restore it.
-5. On the Remote SQL Server, start **Microsoft SQL Management Studio** and connect to the SQL instance you want to use in the DPM upgrade.  If this is a SQL Cluster, do this on the Active node that you copied the DPM backup file to.  The backup file should now be located on the shared cluster disk.
-6. Right-click the Databases icon, then select the **Restore Database…** option. This starts the restore wizard.
+8. On the Installation Settings screen, make any changes to the location where Azure Backup Server is installed, or the scratch location. Once these are set, click **Next**.
 
-      ![Select restore database](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-select-restore-database.png)        
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
-7. Select **Device** under **Source**, and then locate the database backup file that was copied in the previous step and select it. Verify the restore options and restore location, and then select **OK** to start the restore. Fix any issue that arise until the restore is successful.
+9.
 
-      ![Restore database](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-restore-database.png)
+  ![setup installer](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
-8. After the restore is complete, the restored database will be seen under the **Databases** with the original name. This Database will be used during the upgrade. You can exit **Microsoft SQL Management Studio** and start the upgrade process on the original DPM Server.
 
-      ![Select DPMDB](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-select-dpmdb.png)
 
-9. If the new SQL Server is a remote SQL server, install the SQL management tools on the DPM server. The SQL management tools must be the same version matching the SQL server hosting the DPMDB.
 
-### Starting upgrade to migrate DPMDB to a different SQL Server
-
-> [!NOTE]
-> If sharing a SQL instance, run the DPM installations (or upgrades) sequentially. Parallel installations may cause errors.
-
-1. After the pre-migration preparation steps are complete, start the DPM 2016 Installation process.  DPM Setup shows the information about current instance of SQL Server pre-populated. This is where you can select a different instance of SQL Server, or change to a Clustered SQL instance used in the migration.
-
-      ![DPM setup](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-data-protection-manager-setup.png)
-
-2. Change the SQL Settings to use the instance of SQL Server you restored the DPM Database to. If it’s a SQL cluster, you must also specify a separate instance of SQL Server  used for SQL reporting. It's presumed that firewall rules and SQLPrep are already ran. You have to enter correct credentials and then click the **Check and Install** button.
-
-      ![Install database](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-install-database.png)
-
-3. Prerequisite check should succeed, press NEXT to continue with the upgrade.
-
-      ![Prerequisites check](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-prerequisites-check.png)
-
-4. Continue the wizard.
-
-5. After setup is complete, the corresponding database name on the instance specified will now be DPMPB_DPMServerName. Because this may be shared with other DPM servers, the naming convention for the DPM database will now be: DPM2016$DPMDB_DPMServerName
 
 ## Adding Storage for Modern Backup Storage
 
-To store backups efficiently, DPM 2016 uses Volumes. Disks can also be used to continue storing backups like DPM 2012 R2.
+To improve backup storage efficiency, Azure Backup Server v2 adds support for Volumes. Azure Backup Server v2 continues to support disks, just like in v1.
 
 ### Add Volumes and Disks
-If you run DPM 2016 on Windows Server, you can use volumes to store backup data. Volumes provide storage savings and faster backups. You can give the volume a friendly name, and you can change the name. You apply the friendly name while adding the volume, or later by clicking the **Friendly Name** column of the desired volume. You can also use PowerShell to add or change friendly names for volumes.
+If you run Azure Backup Server v2 on Windows Server 2016, you can use volumes to store backup data. Volumes provide storage savings and faster backups. Because volumes are new to Azure Backup Server, you must add them. When you add the volume to Azure Backup Server, give the volume a friendly name by click the **Friendly Name** column of the desired volume. You can change the name later, if necessary. You can also use PowerShell to add or change friendly names for volumes.
 
 To add a volume in the administrator console:
 
@@ -233,14 +205,3 @@ If you want to use legacy storage with DPM 2016, it may become necessary to add 
 ## New PowerShell cmdlets
 
 For DPM 2016, two new cmdlets: [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx) and [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx) are available. Click the cmdlet name to see its reference documentation.
-
-
-## Enable Cloud Protection
-
-You can back up a DPM server to Azure. The high level steps are:
-- create an Azure subscription,
-- register the server with the Azure Backup service,
-- download vault credentials and the Azure Backup Agent,
-- configure the server's vault credentials and backup policy,
-
-For more information on backing up DPM to the cloud, see the article, [Preparing to backup workloads to Azure with DPM](http://docs.microsoft.com/system-center/dpm/backup-azure-dpm-introduction).
