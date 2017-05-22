@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 05/19/2017
+ms.date: 05/22/2017
 ms.author: brjohnst
 
 ---
@@ -93,13 +93,19 @@ It is important that you keep your search user experience and business needs in 
 For our example, we've named our index "hotels" and defined our fields using a model class. Each property of the model class has attributes which determine the search-related behaviors of the corresponding index field. The model class is defined as follows:
 
 ```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
+using Newtonsoft.Json;
+
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
 // field names in the index.
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
-    [Key]
+    [System.ComponentModel.DataAnnotations.Key]
     [IsFilterable]
     public string HotelId { get; set; }
 
