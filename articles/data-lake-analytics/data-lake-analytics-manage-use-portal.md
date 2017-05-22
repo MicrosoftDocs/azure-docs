@@ -67,7 +67,7 @@ Data Lake Analytics currently supports the following data sources:
 
 **To explore data sources**    
 
-1. Open the Analytics account that you want to manage. For instructions, see [Access Data Lake Analytics accounts].
+1. Open the Analytics account that you want to manage.
 2. Click **Settings** and then click **Data Explorer**. 
    
     ![Azure Data Lake Analytics data explorer](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
