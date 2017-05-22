@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 
 ---
@@ -45,7 +45,7 @@ A gateway is installed on a computer in your network. One gateway must be instal
 * In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
 ## Supported on-premises data sources
-For preview, the gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
+The gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
 
 * SQL Server
 * SQL Data Warehouse
@@ -125,6 +125,25 @@ Under the hood, the on-premises data gateway used for connecting Azure Analysis 
 If you’re having trouble when installing and configuring a gateway, be sure to see [Troubleshooting the Power BI Gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). If you think you are having an issue with your firewall, see the firewall or proxy sections.
 
 If you think you're encountering proxy issues, with the gateway, see [Configuring proxy settings for the Power BI Gateways](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+
+### Telemetry
+Telemetry can be used for monitoring and troubleshooting. 
+
+**To turn on telemetry**
+
+1.	Check the On-premises data gateway client directory on the computer. Typically, it's %systemdrive%\Program Files\On-premises data gateway. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
+2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.	Save your changes and restart the Windows service: On-premises data gateway service.
+
+
+
 
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)

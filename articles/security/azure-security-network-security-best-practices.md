@@ -184,7 +184,7 @@ You can get this type of global load balancing in Azure by taking advantage of [
 
 For example, if the user is making a request to your service from the EU, the connection is directed to your services located in an EU datacenter. This part of Traffic Manager global load balancing helps to improve performance because connecting to the nearest datacenter is faster than connecting to datacenters that are far away.
 
-On the availability side, global load balancing makes sure that your service is available even if an entire datacenter should become available.
+On the availability side, global load balancing makes sure that your service is available even if an entire datacenter should become unavailable.
 
 For example, if an Azure datacenter should become unavailable due to environmental reasons or due to outages (such as regional network failures), connections to your service would be rerouted to the nearest online datacenter. This global load balancing is accomplished by taking advantage of DNS policies that you can create in Traffic Manager.
 

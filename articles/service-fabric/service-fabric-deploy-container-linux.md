@@ -1,6 +1,6 @@
 ---
 title: Service Fabric and Deploying Containers in Linux | Microsoft Docs
-description: Service Fabric and the use of Docker containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Docker container image into a cluster
+description: Service Fabric and the use of Linux containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Linux container image into a cluster
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/24/2017
+ms.date: 5/16/2017
 ms.author: msfussell
 
 ---
-# Deploy a Docker container to Service Fabric
+# Deploy a Linux container to Service Fabric
 > [!div class="op_single_selector"]
 > * [Deploy Windows Container](service-fabric-deploy-container.md)
-> * [Deploy Docker Container](service-fabric-deploy-container-linux.md)
+> * [Deploy Linux Container](service-fabric-deploy-container-linux.md)
 >
 >
 

@@ -19,7 +19,7 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 * Get the Microsoft Face API Android SDK [here](https://github.com/Microsoft/Cognitive-face-android)
-* Learn more about obtaining free subscription keys [here](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe)
+* Learn more about obtaining free subscription keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in Images with Face API Using Java <a name="Detect"> </a>
 Use the [Face - Detect method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
@@ -87,7 +87,7 @@ public class Main
 #### Face - Detect Response
 A successful response will be returned in JSON. The following is an example of a successful response: 
 
-```php
+```json
 [
     {
         "faceId": "c5c24a82-6845-4031-9d5d-978df9175426",
@@ -215,7 +215,6 @@ A successful response will be returned in JSON. The following is an example of a
                 "mustache": 0.8,
                 "beard": 0.1,
                 "sideburns": 0.02
-                }
             },
             "glasses": "sunglasses",
             "headPose": {

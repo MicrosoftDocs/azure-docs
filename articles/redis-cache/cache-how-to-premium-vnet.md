@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 05/11/2017
 ms.author: sdanie
 
 ---
@@ -86,20 +86,51 @@ The following list contains answers to commonly asked questions about the Azure 
 * [Do all cache features work when hosting a cache in a VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 ## What are some common misconfiguration issues with Azure Redis Cache and VNets?
-When Azure Redis Cache is hosted in a VNet, the ports in the following table are used. If these ports are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
+When Azure Redis Cache is hosted in a VNet, the ports in the following tables are used. 
+
+>[!IMPORTANT]
+>If the ports in the following tables are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
+> 
+> 
+
+- [Outbound port requirements](#outbound-port-requirements)
+- [Inbound port requirements](#inbound-port-requirements)
+
+### Outbound port requirements
+
+There are seven outbound port requirements.
+
+- If desired, all outbound connections to the internet can be made through a client's on-premise auditing device.
+- Three of the ports route traffic to Azure endpoints servicing Azure Storage and Azure DNS.
+- The remaining port ranges and for internal Redis subnet communications. No subnet NSG rules are required for internal Redis subnet communications.
 
 | Port(s) | Direction | Transport Protocol | Purpose | Remote IP |
 | --- | --- | --- | --- | --- |
 | 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) |* |
 | 53 |Outbound |TCP/UDP |Redis dependencies on DNS (Internet/VNet) |* |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure Load Balancing |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 8443 |Inbound/Outbound |TCP |Implementation Detail for Redis |VIRTUAL_NETWORK |
-| 8500 |Inbound |TCP/UDP |Azure Load Balancing |AZURE_LOADBALANCER |
-| 10221-10231 |Inbound/Outbound |TCP |Implementation Detail for Redis (can restrict remote endpoint to VIRTUAL_NETWORK) |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure Load Balancing |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure Load Balancing |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 16001 |Inbound |TCP/UDP |Azure Load Balancing |AZURE_LOADBALANCER |
-| 20226 |Inbound+Outbound |TCP |Implementation Detail for Redis Clusters |VIRTUAL_NETWORK |
+| 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |
+| 10221-10231 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |
+| 20226 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
+| 13000-13999 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
+| 15000-15999 |Outbound |TCP |Internal communications for Redis |(Redis subnet) |
+
+
+### Inbound port requirements
+
+There are eight inbound port range requirements. Inbound requests in these ranges are either inbound from other services hosted in the same VNET or internal to the Redis subnet communications.
+
+| Port(s) | Direction | Transport Protocol | Purpose | Remote IP |
+| --- | --- | --- | --- | --- |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing |Virtual Network, Azure Load Balancer |
+| 8443 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
+| 8500 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
+| 10221-10231 |Inbound |TCP |Internal communications for Redis |(Redis subnet), Azure Load Balancer |
+| 13000-13999 |Inbound |TCP |Client communication to Redis Clusters, Azure load balancing |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing |Virtual Network, Azure Load Balancer |
+| 16001 |Inbound |TCP/UDP |Azure load balancing |Azure Load Balancer |
+| 20226 |Inbound |TCP |Internal communications for Redis |(Redis subnet) |
+
+### Additional VNET network connectivity requirements
 
 There are network connectivity requirements for Azure Redis Cache that may not be initially met in a virtual network. Azure Redis Cache requires all the following items to function properly when used within a virtual network.
 
@@ -131,18 +162,18 @@ Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/servic
 
 By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity. With this configuration, client applications are able to connect to other Azure endpoints including Azure Redis Cache.
 
-However a common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure Redis Cache because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints.
+However a common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Redis Cache if the outbound traffic is then blocked on-premises such that the Azure Redis Cache instance is not able to communicate with its dependencies.
 
 The solution is to define one (or more) user-defined routes (UDRs) on the subnet that contains the Azure Redis Cache. A UDR defines subnet-specific routes that will be honored instead of the default route.
 
 If possible, it is recommended to use the following configuration:
 
 * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
-* The UDR applied to the subnet containing the Azure Redis Cache defines 0.0.0.0/0 with a next hop type of Internet (an example of this is farther down in this article).
+* The UDR applied to the subnet containing the Azure Redis Cache defines 0.0.0.0/0 with a working route for TCP/IP traffic to the public internet; for example by setting the next hop type to 'Internet'.
 
 The combined effect of these steps is that the subnet level UDR takes precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure Redis Cache.
 
-Although connecting to an Azure Redis Cache instance from an on-premises application using ExpressRoute is not a typical usage scenario due to performance reasons (for best performance Azure Redis Cache clients should be in the same region as the Azure Redis Cache), in this scenario the outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises. Doing so changes the effective NAT address of outbound network traffic from the Azure Redis Cache. Changing the NAT address of an Azure Redis Cache instance's outbound network traffic causes connectivity failures to many of the previously listed endpoints, resulting in failed Azure Redis Cache creation attempts.
+Connecting to an Azure Redis Cache instance from an on-premises application using ExpressRoute is not a typical usage scenario due to performance reasons (for best performance Azure Redis Cache clients should be in the same region as the Azure Redis Cache).
 
 >[!IMPORTANT] 
 >The routes defined in a UDR **must** be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The following example uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements using more specific address ranges.
@@ -153,7 +184,7 @@ Although connecting to an Azure Redis Cache instance from an on-premises applica
 
 Background information on user-defined routes is available in this [overview](../virtual-network/virtual-networks-udr-overview.md).
 
-For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
+For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
 ## Next steps
 Learn how to use more premium cache features.

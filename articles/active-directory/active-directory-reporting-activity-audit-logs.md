@@ -1,6 +1,7 @@
 ---
-title: Audit activity reports in the Azure Active Directory portal - preview | Microsoft Docs
-description: Introduction to the audit activity reports in the Azure Active Directory portal preview
+
+title: Audit activity reports in the Azure Active Directory portal | Microsoft Docs
+description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Audit activity reports in the Azure Active Directory portal - preview
+# Audit activity reports in the Azure Active Directory portal 
 
-With reporting in the Azure Active Directory [preview](active-directory-preview-explainer.md), you get all the information you need to determine how your environment is doing.
+With reporting in Azure Active Directory (Azure AD), you can get the information you need to determine how your environment is doing.
 
-The reporting architecture in Azure Active Directory consists of the following components:
+The reporting architecture in Azure AD consists of the following components:
 
 - **Activity** 
     - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
@@ -69,8 +70,7 @@ By clicking an item in the list view, you get all available details about it.
 To narrow down the reported data to a level that works for you, you can filter the audit data using the following fields:
 
 - Date range
-- Initiated by
-- Category
+- Initiated by (Actor)
 - Category
 - Activity resource type
 - Activity
@@ -88,7 +88,7 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-The **initiated by** filter enables you to define an actor's name or its universal pricipal name (UPN).
+The **initiated by** filter enables you to define an actor's name or its universal principal name (UPN).
 
 The **category** filter enables you to select one of the following filter:
 
@@ -307,7 +307,7 @@ With application-based audit reports, you can get answers to questions such as:
 * Have the names of applications been changed?
 * Who gave consent to an application?
 
-If you just want to review auditing data that is related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Application** as preselected **Activity Resource Type**.
+If you just want to review auditing data that is related to your applications, you can find a filtered view under **Audit logs** in the **Activity** section of the **Enterprise applications** blade. This entry point has **Enterprise applications** as preselected **Activity Resource Type**.
 
 ![Audit logs](./media/active-directory-reporting-activity-audit-logs/134.png "Audit logs")
 

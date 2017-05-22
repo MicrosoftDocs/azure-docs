@@ -139,7 +139,11 @@ Storage, and
 Now that you have deployed and registered the App Service resource provider, you can test it to make sure that tenants can deploy Web, Mobile, and API apps.
 
 > [!NOTE]
-> You need to create an offer, which has the Microsoft.Web namespace within the plan and then you need to have a tenant subscription, which has subscribed to this offer.  For more information, see the following articles - [Create Offer](azure-stack-create-offer.md) and [Create Plan](azure-stack-create-plan.md) 
+> You need to create an offer that has the Microsoft.Web namespace within the plan and then you need to have a tenant subscription that has subscribed to this offer.  For more information, see the following articles - [Create Offer](azure-stack-create-offer.md) and [Create Plan](azure-stack-create-plan.md)
+>
+>You **must** have a **Tenant Subscription** to create applications using App Service on Azure Stack.  The only capabilities that a Service Admin can complete within the Admin Portal are related to the resource provider administration of App Service such as adding capacity, configuring deployment sources, adding worker tiers and SKUs.
+>
+> As of TP3 to **create Web/Mobile/API Apps** you must use the **Tenant portal** and have a **tenant subscription**.  
 
 1. In the Azure Stack Tenant portal, click New, click Web + Mobile, and click Web App.
 2. In the Web App blade, type a name in the Web app box.
@@ -151,9 +155,6 @@ Now that you have deployed and registered the App Service resource provider, you
 8. In the web app blade, click Browse to view the default website for this app.
 
 ## Deploy a WordPress, DNN, or Django website (optional)**
-
-> [!NOTE]
-> You must have a Tenant Subscription to create applications using App Service on Azure Stack.  In TP3 only App Service Resource Provider Administration operations are supported within the Admin portal.
 
 1. In the **Azure Stack tenant portal**, click “+”, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database and doesn’t require any additional resource providers like SQL or MySQL.
 2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, input the user name as *User1@Server1* (with the user name and server name of your choice).
