@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/22/2017
 ms.author: jeedes
 
 ---
@@ -116,15 +116,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [eKincare support team](mailto:tech@ekincare.com) to get these values.
  
 4. eKincare application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this configuration.
+
+	The claim name will always be **"employeeid"** and the value of which we have mapped to user.extensionattribute1, that contains the employeeid of the user. The other two claims' name i.e **"organizationid"** and **"organizationname"** will always be same and their values contain the details of the organization of the user respectively.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-ekincare-tutorial/attribute.png)
 	
-	You have to add the "employeeid" and "organizationid" attribute with unique values. All these attributes shown above are required.
-
-	>[!Note]
-	>Each user of any organization has its own unique employeeid whose values need to be added in these attributes.
-	
-
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
 	| Attribute Name | Attribute Value |
