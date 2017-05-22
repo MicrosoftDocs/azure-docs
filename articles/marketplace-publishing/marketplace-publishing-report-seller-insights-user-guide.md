@@ -1,5 +1,5 @@
 ﻿---
-title: How to use the Microsoft Azure Marketplace Seller Insights portal | Microsoft Docs
+title: How to use the Azure Marketplace Seller Insights portal | Microsoft Docs
 description: As a seller on the Azure Marketplace, understand how to use the Azure Marketplace Seller Insights portal.
 services: marketplace publishing
 documentationcenter: na
@@ -17,19 +17,16 @@ ms.date: 03/03/2017
 ms.author: v-dabosl
 
 ---
-# How to use the Microsoft Azure Marketplace Seller Insights portal
+# How to use the Azure Marketplace Seller Insights portal
+
+This article discusses how administrators access the Seller Insights portal, add or delete users, and set permissions for users.
+
 ## Onboard users
 
->[!NOTE]
->Administrators only.
+This section discusses how administrators access the Seller Insights portal for the first time. 
 
 
 ### Overview of roles
-
-This section shows you how to access the Seller Insights portal for the first time.
-
-
-![Type of account][5]
 
 The Seller Insights portal administrator adds users, edits users, and delete users.
 
@@ -37,29 +34,33 @@ A Seller Insights portal user can view all data that is available to your organi
 
 Administrators and users are required to authenticate by using a valid [Microsoft account](http://signup.live.com), or your organizations's work or school account. Ensure that the new account ID is associated with a monitored mailbox.
 
+![Type of account][5]
+
+
+
 ### Invitation to activate your account
 
 Before signing in to the Seller Insights portal, the administrator should identify the accounts of the individuals they want to set up as users. Set up users with a work or school account, or a Microsoft account.
 
-To activate your service, the administrator should go to the URL that is listed in the invitation email: [https://reports.azure.com](https://reports.azure.com).
+To activate your service, the administrator should go to the [URL address](https://reports.azure.com) that appears in the invitation email.
 
 >[!NOTE]
->If the administrator email is listed as a Microsoft account, and you have not created a Microsoft account that's associated with the email address from which you received the invitation, you need to create the account before you sign in. To create the account, go to [https://signup.live.com](https://signup.live.com).
+>If the administrator email is listed as a Microsoft account, and you have not created a Microsoft account that's associated with the email address from which you received the invitation, you need to [create the account](https://signup.live.com) before you sign in.
 
 
-### Sign in to the Seller Insights portal
+### Administrator sign in to the Seller Insights portal
 
-1. Sign in to the Seller Insights portal by clicking the URL in the email sent to you.
+1. Sign in to the Seller Insights portal by clicking the URL in the email that is sent to you.
 2. Enter the administrator email address and password.
 3. Click the **Sign In** button.
 4. Begin to administer your account. Add users, set permissions, and edit users.
 5. Ensure your users have the URL for the Seller Insights portal.
 
-  ![Sign in page][6]
+    ![Sign in page][6]
 
-## Sign in to the portal
+## User sign in to the portal
 
-Your administrator should advise you through email that your account is created, and share the URL for the Seller Insights portal with you: [https://reports.azure.com](https://reports.azure.com).
+Your administrator should notify you through email that your account is created, and share the [URL address](https://reports.azure.com) for the Seller Insights portal with you.
 
 >[!NOTE]
 >The administrator is the owner of the account that publishes solutions to the Azure Marketplace. The owner of this account can provide access to others.  If you have access to the publishing portal as a co-administrator, you can find the administrator address by following these steps:
@@ -85,7 +86,7 @@ You can sign in to the Seller Insights portal by using a personal Microsoft acco
 5. Click the smile icon at any time to send feedback that is related to the Seller Insights portal.
 6. To sign out of the Seller Insights portal, click your name in the upper-right corner.
 
-  ![Default landing page][2]
+    ![Default landing page][2]
 
 
 ## Summary view
@@ -97,7 +98,7 @@ You can sign in to the Seller Insights portal by using a personal Microsoft acco
 5. Select a view from this panel. **Top 5 Market**, **Top 5 Performing Offers**, or **Top 5 Customers**.
 6. Payout trend for the selected time period is shown here for paid offers. If you only have BYOL or 1st-Party offers, this panel is not shown.
 
-  ![Summary view][7]
+    ![Summary view][7]
 
 ## Orders and usage
 ### Overview
@@ -317,7 +318,7 @@ This section shows you how to add new users or change their permissions in the S
   ![Edit a user panel][32]
 
 
-### Fill out and submit the request
+### Enter information and submit the request
 
 1. Enter your contact information, time zone, region, and language preferences, and then select **Continue**.
 2. Give your incident a title and provide as much information as possible.  You can also upload supporting files like a screenshot, and then select **Submit**.
@@ -335,13 +336,13 @@ This section shows you how to add new users or change their permissions in the S
 2. Go to [https://reports.azure.com](https://reports.azure.com) and sign out of any account that you may be signed in with. You can also open it within a private window to ensure no other accounts are signed in.
 3. Enter the publisher's email address, but don't enter a password. If it's registered in Azure Active Directory, it will redirect to *Step 4*.
 
-  >[!NOTE]
-  >Administrator accounts are registered. Work or school accounts that are set up by the administrator account are also registered.
+    >[!NOTE]
+    >Administrator accounts are registered. Work or school accounts that are set up by the administrator account are also registered.
 
 4. Choose **Work or school account**. Work or school accounts are set up by companies that are registered with Azure. 
 
-  >[!NOTE]
-  >It's possible that a user set up a Microsoft account by using their organization's email address. In this scenario, the organization later onboards to Azure, and the same email address is registered as a work or school account. This user can have a Microsoft account with the same password that they used to create the work or school account. This user can also have a work or school account with a separate password that is used by their organization.
+    >[!NOTE]
+    >It's possible that a user set up a Microsoft account by using their organization's email address. In this scenario, the organization later onboards to Azure, and the same email address is registered as a work or school account. This user can have a Microsoft account with the same password that they used to create the work or school account. This user can also have a work or school account with a separate password that is used by their organization.
 
 5. For the Seller Insights portal, when you select **Work or school account**, ensure that you use your work or school account password, and not a Microsoft account password.
 6. A work or school account redirects you to the publisher's page to sign in.
@@ -351,19 +352,19 @@ This section shows you how to add new users or change their permissions in the S
 
 **Password reset**
 
-Try to reset your password by using the following links.
+Use the following Microsoft and work or school accounts to reset your password.
 
 >[!NOTE]
 >For work or school accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you are able to reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
 
-* Microsoft account: [https://account.live.com/ResetPassword.aspx](https://account.live.com/ResetPassword.aspx)
+* [Microsoft account](https://account.live.com/ResetPassword.aspx)
 ![Password reset Microsoft account][3]
 
-* Work or school account: [https://passwordreset.microsoftonline.com/](https://passwordreset.microsoftonline.com/)
+* [Work or school account](https://passwordreset.microsoftonline.com/)
 ![Password reset work or school account][4]
 
 
-## Have other feedback?
+## Send feedback to improve the Seller Insights portal
 
   You can click the smile icon at any time to provide feedback.
 
