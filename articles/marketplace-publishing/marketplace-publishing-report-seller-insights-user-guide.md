@@ -48,7 +48,7 @@ To activate your service, the administrator should go to the [URL address](https
 >If the administrator email is listed as a Microsoft account, and you have not created a Microsoft account that's associated with the email address from which you received the invitation, you need to [create the account](https://signup.live.com) before you sign in.
 
 
-### Administrator sign in to the Seller Insights portal
+### Administrator sign-in to the Seller Insights portal
 
 1. Sign in to the Seller Insights portal by clicking the URL in the email that is sent to you.
 2. Enter the administrator email address and password.
@@ -56,9 +56,9 @@ To activate your service, the administrator should go to the [URL address](https
 4. Begin to administer your account. Add users, set permissions, and edit users.
 5. Ensure your users have the URL for the Seller Insights portal.
 
-    ![Sign in page][6]
+    ![Sign-in page][6]
 
-## User sign in to the portal
+## User sign-in to the portal
 
 Your administrator should notify you through email that your account is created, and share the [URL address](https://reports.azure.com) for the Seller Insights portal with you.
 
@@ -68,7 +68,7 @@ Your administrator should notify you through email that your account is created,
 >2. Click the **Publishers** tab.
 >3. Open the publisher in question (usually there is just one).
 >4. Click **Administrators** on the lower left.
->5. The administrator email address that you're looking for is labeled, *Owner*.
+>5. The administrator email address that you're looking for is labeled *Owner*.
 
 
 You can sign in to the Seller Insights portal by using a personal Microsoft account, or by using a work or school account. The kind of account depends on what your administrator sets up in your profile. Your administrator should advise you about the account you use.
@@ -287,7 +287,7 @@ This section shows you how to add new users or change their permissions in the S
 ### Edit user
 
 1. Select the **User Management** tab, and then select **Edit Users**.
-2. Find the user whose permissions you wish to modify.  You can also add new users. Click **Add Users**.
+2. Find the user whose permissions you want to modify.  You can also add new users. Click **Add Users**.
 3. Click the permissions you want to remove for the user.  You can also delete a user. Click **Delete User**.
 4. Click **Save** to continue.  You've successfully edited the user's permissions.
 
@@ -333,7 +333,7 @@ This section shows you how to add new users or change their permissions in the S
 
 1. *Validate that the account you're using is registered and the password doesn't work.* If you enter an account that is registered in Azure Active Directory, it automatically prompts you to choose how to sign in with the account. You use a work or school account, or a Microsoft account that serves as your personal account.
 2. Go to [https://reports.azure.com](https://reports.azure.com) and sign out of any account that you may be signed in with. You can also open it within a private window to ensure no other accounts are signed in.
-3. Enter the publisher's email address, but don't enter a password. If it's registered in Azure Active Directory, it will redirect to *Step 4*.
+3. Enter the publisher's email address, but don't enter a password. If it's registered in Azure Active Directory, it will redirect to step 4.
 
     >[!NOTE]
     >Administrator accounts are registered. Work or school accounts that are set up by the administrator account are also registered.
@@ -354,7 +354,7 @@ This section shows you how to add new users or change their permissions in the S
 Use the following Microsoft and work or school accounts to reset your password.
 
 >[!NOTE]
->For work or school accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you are able to reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
+>For work or school accounts that are set up by the administrator account, if the administrator turned on the capability to let you reset your own password, you can reset your own password. Otherwise, the password reset form gives you the option to contact your administrator.
 
 * [Microsoft account](https://account.live.com/ResetPassword.aspx)
 ![Password reset Microsoft account][3]
