@@ -110,130 +110,130 @@ Allows for the selection of one or more values.
 </ClaimType>
 ```
 
-## Add the claim to the singup/sign user journey
+## Add the claim to the sign up/sign in user journey
 
 1. Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the TechnicalProfile `LocalAccountSignUpWithLogonEmail` (found in the TrustFrameworkBase policy file).  Note this TechnicalProfile uses the SelfAssertedAttributeProvider.
 
-```xml
-<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-  <DisplayName>Email signup</DisplayName>
-  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  <Metadata>
-    <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-    <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-    <Item Key="language.button_continue">Create</Item>
-  </Metadata>
-  <CryptographicKeys>
-    <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-  </CryptographicKeys>
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-    <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-    <OutputClaim ClaimTypeReferenceId="newUser" />
-    <!-- Optional claims, to be collected from the user -->
-    <OutputClaim ClaimTypeReferenceId="givenName" />
-    <OutputClaim ClaimTypeReferenceId="surName" />
-    <OutputClaim ClaimTypeReferenceId="city"/>
-  </OutputClaims>
-  <ValidationTechnicalProfiles>
-    <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-  </ValidationTechnicalProfiles>
-  <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-</TechnicalProfile>
-```
+  ```xml
+  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+    <DisplayName>Email signup</DisplayName>
+    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Metadata>
+      <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+      <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+      <Item Key="language.button_continue">Create</Item>
+    </Metadata>
+    <CryptographicKeys>
+      <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+    </CryptographicKeys>
+    <InputClaims>
+      <InputClaim ClaimTypeReferenceId="email" />
+    </InputClaims>
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="objectId" />
+      <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+      <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+      <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+      <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+      <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+      <OutputClaim ClaimTypeReferenceId="newUser" />
+      <!-- Optional claims, to be collected from the user -->
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surName" />
+      <OutputClaim ClaimTypeReferenceId="city"/>
+    </OutputClaims>
+    <ValidationTechnicalProfiles>
+      <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+    </ValidationTechnicalProfiles>
+    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+  </TechnicalProfile>
+  ```
 
 2. Add the claim to the AAD-UserWriteUsingLogonEmail as a `<PersistedClaim ClaimTypeReferenceId="city" />` to write the claim to the AAD directory after collecting it from the user. You may skip this step if you prefer not to persist the claim in the directory for future use.
 
-```xml
-<!-- Technical profiles for local accounts -->
-<TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-  <Metadata>
-    <Item Key="Operation">Write</Item>
-    <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-  </Metadata>
-  <IncludeInSso>false</IncludeInSso>
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-  </InputClaims>
-  <PersistedClaims>
-    <!-- Required claims -->
-    <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-    <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-    <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-    <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-    <!-- Optional claims. -->
-    <PersistedClaim ClaimTypeReferenceId="givenName" />
-    <PersistedClaim ClaimTypeReferenceId="surname" />
-    <PersistedClaim ClaimTypeReferenceId="city" />
-  </PersistedClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-    <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-    <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-  </OutputClaims>
-  <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-  <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-</TechnicalProfile>
-```
+  ```xml
+  <!-- Technical profiles for local accounts -->
+  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+    <Metadata>
+      <Item Key="Operation">Write</Item>
+      <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    </Metadata>
+    <IncludeInSso>false</IncludeInSso>
+    <InputClaims>
+      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
+    </InputClaims>
+    <PersistedClaims>
+      <!-- Required claims -->
+      <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
+      <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
+      <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+      <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+      <!-- Optional claims. -->
+      <PersistedClaim ClaimTypeReferenceId="givenName" />
+      <PersistedClaim ClaimTypeReferenceId="surname" />
+      <PersistedClaim ClaimTypeReferenceId="city" />
+    </PersistedClaims>
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="objectId" />
+      <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+    </OutputClaims>
+    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+  </TechnicalProfile>
+  ```
 
 3. Add the claim to the TechnicalProfile that reads from the directory when a user logs in as an `<OutputClaim ClaimTypeReferenceId="city" />`
 
-```xml
-<TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-  <Metadata>
-    <Item Key="Operation">Read</Item>
-    <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-    <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-  </Metadata>
-  <IncludeInSso>false</IncludeInSso>
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-  </InputClaims>
-  <OutputClaims>
-    <!-- Required claims -->
-    <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-    <!-- Optional claims -->
-    <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-    <OutputClaim ClaimTypeReferenceId="displayName" />
-    <OutputClaim ClaimTypeReferenceId="otherMails" />
-    <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-    <OutputClaim ClaimTypeReferenceId="city" />
-  </OutputClaims>
-  <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-</TechnicalProfile>
-```
+  ```xml
+  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+    <Metadata>
+      <Item Key="Operation">Read</Item>
+      <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+    </Metadata>
+    <IncludeInSso>false</IncludeInSso>
+    <InputClaims>
+      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
+    </InputClaims>
+    <OutputClaims>
+      <!-- Required claims -->
+      <OutputClaim ClaimTypeReferenceId="objectId" />
+      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+      <!-- Optional claims -->
+      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="otherMails" />
+      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+      <OutputClaim ClaimTypeReferenceId="city" />
+    </OutputClaims>
+    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+  </TechnicalProfile>
+  ```
 
 4. Add the `<OutputClaim ClaimTypeReferenceId="city" />` to the RP policy file SignUporSignIn.xml so this claim is sent to the application in the token after a successful user journey.
 
-```xml
-<RelyingParty>
-  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-  <TechnicalProfile Id="PolicyProfile">
-    <DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="displayName" />
-      <OutputClaim ClaimTypeReferenceId="givenName" />
-      <OutputClaim ClaimTypeReferenceId="surname" />
-      <OutputClaim ClaimTypeReferenceId="email" />
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="identityProvider" />
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
-  </TechnicalProfile>
-</RelyingParty>
-```
+  ```xml
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
+  ```
 
 ## Test the custom policy using "Run Now"
 
@@ -266,7 +266,7 @@ The signup screen in test mode should look similar to this:
 }
 ```
 
-## Optional Remove email verification from signup journey
+## Optional: Remove email verification from signup journey
 
 To skip email verification, the policy author can choose to remove `PartnerClaimType="Verified.Email"`. The email address will be required but not verified, unless “Required” = true is removed.  Carefully consider if this option is right for your use cases!
 
