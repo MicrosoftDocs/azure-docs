@@ -66,7 +66,7 @@ If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.c
 Azure Cosmos DB is available in the Azure portal. First you must sign up for an Azure subscription. Once you sign up for an Azure subscription, you can add a DocumentDB API, Graph API (preview), Table API (preview) or MongoDB API account to your Azure subscription.
 
 ### What is a master key?
-A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the **Keys **blade of the [Azure Portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
+A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the **Keys **blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
 
 ### What are the regions to which PreferredLocations be set to? 
 The present valid region for PrefferredLocations are - "West US", "West Central US", "West US 2", "East US","East US 2", "Central US", "South Central US", "North Central US", "West Europe", "North Europe", "East Asia", "Southeast Asia", "Japan West", "Japan East", "Australia Southeast", "Australia East", "Central India", "South India", "West India", "Canada East", "Canada Central", "Germany Central", "Germany Northeast","China North", "China East", "Korea South", "Korea Central","UK West", "UK South", "Brazil South", "USGov Arizona", "USGov Texas".
@@ -80,7 +80,7 @@ Yes, Cosmos DB today's  provides a throughput optimized model. We plan to provid
 ## Questions about developing against the DocumentDB API
 
 ### How to do I start developing against DocumentDB API?
-Microsoft DocumentDB API is available in the [Azure Portal][azure-portal].  First you must sign up for an  Azure subscription.  Once you sign up for an Azure subscription, you can add DocumentDB API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](documentdb-create-account.md). If you had a DocumentDB account in the past, you now have an Azure Cosmos DB account.  
+Microsoft DocumentDB API is available in the [Azure portal][azure-portal].  First you must sign up for an  Azure subscription.  Once you sign up for an Azure subscription, you can add DocumentDB API container to your Azure subscription. For instructions on adding an Azure Cosmos DB account, see [Create an Azure Cosmos DB database account](documentdb-create-account.md). If you had a DocumentDB account in the past, you now have an Azure Cosmos DB account.  
 
 [SDKs](documentdb-sdk-dotnet.md) are available for .NET, Python, Node.js, JavaScript, and Java.  Developers can also use the [RESTful HTTP APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with Azure Cosmos DB resources from various platforms and languages.
 
@@ -100,7 +100,7 @@ A collection is a group of documents and their associated JavaScript application
 Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly based on the provisioned throughput and the storage space used. For more information, see [DocumentDB API  pricing](https://azure.microsoft.com/pricing/details/documentdb/).  
 
 ### How do I create a database?
-You can create databases using the [Azure Portal]() as described in [Create an Azure Cosmos DB collection and database](documentdb-create-collection.md), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
+You can create databases using the [Azure portal]() as described in [Create an Azure Cosmos DB collection and database](documentdb-create-collection.md), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
 ### How do I set up users and permissions?
 You can create users and permissions using one of the [DocumentDB API SDKs](documentdb-sdk-dotnet.md) or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).   
@@ -123,7 +123,7 @@ DocumentDB API supports language-integrated transactions via JavaScript stored p
 There are three ways to bulk insert documents into Azure Cosmos DB:
 
 * The data migration tool, as described in [Import data to DocumentDB API](documentdb-import-data.md).
-* Document Explorer in the Azure Portal, as described in [Bulk add documents with Document Explorer](documentdb-view-json-document-explorer.md#bulk-add-documents).
+* Document Explorer in the Azure portal, as described in [Bulk add documents with Document Explorer](documentdb-view-json-document-explorer.md#bulk-add-documents).
 * Stored procedures, as described in [ DocumentDB API server-side programming](documentdb-programming.md).
 
 ### Does DocumentDB API support resource link caching?
@@ -149,7 +149,7 @@ API for MongoDB has its own specific error codes in addition to the common Mongo
 
 | Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure Portal or retrying again. |
+| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through a more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Ex:  &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## Questions about developing with the Table API (preview)
@@ -160,12 +160,12 @@ The Azure Cosmos DB: Table API (preview) refers to premium offering by Azure Cos
 The standard Table SDK is the pre-existing Azure storage Table SDK. 
 
 ### How can I use the new Table API (preview) offering? 
-Microsoft Table API is available in the [Azure Portal][azure-portal].  First you must sign up for an Azure subscription.  Once you sign up for an Azure subscription, you can add Table API container to your Azure subscription.  
+Microsoft Table API is available in the [Azure portal][azure-portal].  First you must sign up for an Azure subscription.  Once you sign up for an Azure subscription, you can add Table API container to your Azure subscription.  
 In the preview period [SDKs](../cosmos-db/table-sdk-dotnet.md) are available for .NET,
 You can complete the [Table API](../cosmos-db/create-table-dotnet.md) quickstart to get started.
 
 ### Do I need a new SDK to use the Table API (preview)? 
-Yes – a new SDK in form of a Nuget package is available here [Table API](../cosmos-db/table-sdk-dotnet.md). It is called SDK for Windows Azure Storage 8.1.2 with Premium Table API (preview).  
+Yes – a new SDK in form of a NuGet package is available here [Table API](../cosmos-db/table-sdk-dotnet.md). It is called SDK for Windows Azure Storage 8.1.2 with Premium Table API (preview).  
 
 ### How do I provide the feedback about the SDK, bugs?
 Please share your feedback using one of these methods:
@@ -260,7 +260,7 @@ We commit the data durably in local region and push the data to other regions im
 Cosmos DB allows setting the consistency at container level that is a Table. The SDK also allows to change the level by providing the value for TableConsistencyLevel key in the app.config file. Theses are the possible values - Strong|Bounded Staleness|Session|ConsistentPrefix|Eventual. This is documented in the [consistency levels](documentdb-consistency-levels.md) article. Key here is to remember that request consistency can't be more than what is set for the Table. For example - if you have setup consistency for the Table at eventual and set consistency level of strong on request , that will not work. 
 
 ### How does Premium Table API (preview) account take care of failover in case a region goes down? 
-Premium Table API (preview) leverages the globally distributed platform of Cosmos DB. To ensure your application can tolerate datacenter downtime - you need to enable at least one more region for the account in the Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](documentdb-regional-failovers.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](documentdb-regional-failovers.md). You can add as many regions for the account and control where it can failover to by providing priority. Offcourse it goes without saying you need to provide an application there too to leverage the database. This way your customers will not see downtime. The client SDK is auto homing - it can detect the region being down and automatically failover to the new region.
+Premium Table API (preview) leverages the globally distributed platform of Cosmos DB. To ensure your application can tolerate datacenter downtime - you need to enable at least one more region for the account in the Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](documentdb-regional-failovers.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](documentdb-regional-failovers.md). You can add as many regions for the account and control where it can failover to by providing priority. Of course it goes without saying you need to provide an application there too to leverage the database. This way your customers will not see downtime. The client SDK is auto homing - it can detect the region being down and automatically failover to the new region.
 
 ### Is Premium Table API (preview) enabled for backups?
 Yes, Premium Table API (preview) leverages the platform of Cosmos DB for backups. Backups are taken automatically. Cosmos DB backup is documented here [Online backup and restore with Azure Cosmos DB](C:\Users\govindk\azure-docs-pr\articles\documentdb\documentdb-online-backup-and-restore.md)
@@ -357,7 +357,7 @@ Cosmos DB is SLA based system which provides latency, throughput, availability a
 
 ## Questions about developing against the Graph API (preview)
 ### How can I leverage Graph API (preview) with Cosmos DB?
-The functionality of Graph API (preview) can be leveraged from an extension library. It is called Microsoft Azure Graphs and available in nuget. 
+The functionality of Graph API (preview) can be leveraged from an extension library. It is called Microsoft Azure Graphs and available in NuGet. 
 
 ### It looks like you support gremlin as traversal language, do you plan to add some more forms of query ?
 Yes in future we have plans to add other mechanisms for query. 
