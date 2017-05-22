@@ -74,7 +74,7 @@ Creates these names:
 * storage2
 * storage3
 
-The copy operation is helpful when working with arrays because you can iterate through each element in the array. TUse the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array. So, the following example:
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array. So, the following example:
 
 ```json
 "parameters": { 
