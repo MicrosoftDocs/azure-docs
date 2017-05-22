@@ -24,7 +24,6 @@ Azure SQL Database can emit metrics and diagnostic logs for easier monitoring. Y
 - **Azure Event Hub**: For integrating Azure SQL Database telemetry with your custom monitoring solution or hot pipelines
 - **Azure Log Analytics**: For out of the box monitoring solution with reporting, alerting, and mitigating capabilities 
 
-
     <img src="./media/sql-database-metrics-diag-logging/architecture.png" alt="architecture" style="width: 780px;" />
 
 ## Enable logging
@@ -141,15 +140,15 @@ The easiest way to configure where databases record their metrics is through the
 
 ### Install the Azure SQL Analytics solution from gallery  
 
-1. Once the Log Analytics resource is created and your data is flowing into it, install Azure SQL DB Monitoring solution. This can be done through the **Solutions Gallery** that you can find on the OMS homepage and in the side menu. In the gallery, find and click **Azure SQL DB Monitoring** solution and click **Add**.
+1. Once the Log Analytics resource is created and your data is flowing into it, install Azure SQL Analytics solution. This can be done through the **Solutions Gallery** that you can find on the OMS homepage and in the side menu. In the gallery, find and click **Azure SQL Analytics** solution and click **Add**.
 
    <img src="./media/sql-database-metrics-diag-logging/monitoring-solution.png" alt="monitoring solution" style="width: 780px;" />
 
-2. On your OMS homepage, a new tile called **Azure SQL SQL Analytics** appears. Selecting this tile opens the Azure SQL Database dashboard.
+2. On your OMS homepage, a new tile called **Azure SQL SQL Analytics** appears. Selecting this tile opens the Azure SQL Analytics dashboard.
 
 ## Using Azure SQL Analytics Solution
 
-Azure SQL Database Monitoring is a hierarchical dashboard that allows you to navigate through the hierarchy of Azure SQL Database resources. This capability enables you to do high-level monitoring but it also enables you to scope your monitoring to just the right set of resources.
+Azure SQL Analytics is a hierarchical dashboard that allows you to navigate through the hierarchy of Azure SQL Database resources. This capability enables you to do high-level monitoring but it also enables you to scope your monitoring to just the right set of resources.
 Dashboard contains the lists of different resources under the selected resource. For example, for a selected subscription you can see the all servers, elastic pools and databases that belong to the selected subscription. Additionally, for Elastic Pools and databases, you can see the resource usage metrics of that resource. This includes charts for DTU, CPU, IO, LOG, sessions, workers, connections, and storage in GB.
 
 ## Stream into Azure Event Hub
@@ -191,11 +190,6 @@ For example, a blob name for 1-minute metrics might be:
    insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
    ```
 
-Another example, a blob name for Query Store logs might be:
-
-    ```
-    insights-logs-querystore/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-    ```
 In case you want to record the data from the Elastic Pool, blob name is a bit different:
 
     ```
