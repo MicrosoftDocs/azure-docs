@@ -13,7 +13,7 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 
