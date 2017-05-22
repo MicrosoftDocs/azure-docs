@@ -69,11 +69,7 @@ Data Lake Analytics currently supports the following data sources:
 
 1. Open the Analytics account that you want to manage.
 2. Click **Settings** and then click **Data Explorer**. 
-   
-    ![Azure Data Lake Analytics data explorer](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-data-explorer.png)
 3. Click a Data Lake Store account to open the account.
-   
-    ![Azure Data Lake Analytics data explorer storage account](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-explore-adls.png)
    
     For each Data Lake Store account, you can
    
@@ -101,16 +97,10 @@ Data Lake Analytics uses role-based access control with Azure Active Directory. 
 account, a "Subscription Admins" role is added to the account. You can add additional users and security groups with 
 the following roles:
 
-| Role | Description |
-| --- | --- |
-| Owner |Let you manage everything, including access to resources. |
-| Contributor |Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor needs the read or write permission to the Data Lake Store accounts. |
-| DataLakeAnalyticsDeveloper |Submit, monitor, and cancel jobs.  These users can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions, or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts |
-| Reader |Lets you view everything, but not make any changes. |
-| DevTest Labs User |Lets you view everything, and connect, start, restart, and shutdown virtual machines. |
-| User Access Administrator |Lets you manage user access to Azure resources. |
-
-For information on creating Azure Active Directory users and security groups, See [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
+* **Owner**: Let you manage everything, including access to resources.
+* **Contributor**: Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor needs the read or write permission to the Data Lake Store accounts.
+* **Reader**: Lets you view everything, but not make any changes.
+* **Data Lake Analytics Developer**: Submit, monitor, and cancel jobs.  These users can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions, or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts.
 
 **To add users or security groups to a Data Lake Analytics account**
 
