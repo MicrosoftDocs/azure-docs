@@ -368,8 +368,8 @@
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
-    - name: Common error codes
-      href: error-codes.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk for troubleshooting
       items:
       - name: Azure CLI

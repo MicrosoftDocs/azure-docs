@@ -382,8 +382,8 @@
       href: allocation-failure.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
-    - name: Common error codes
-      href: error-codes.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk to troubleshooting VM
       items:
       - name: Azure PowerShell
