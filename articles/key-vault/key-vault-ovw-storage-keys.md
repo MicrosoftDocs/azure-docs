@@ -46,7 +46,22 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 
 The storage keys feature is initially available through which interfaces ... 
 
-## Scenarios
+- REST 
+- .NET / C# 
+- PowerShell
+
+
+### Scenarios
+
+1. Azure Key Vault manages keys of an Azure Storage Account (SAS). 
+    - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
+    - Azure Key Vault regenerates (rotates) the keys periodically. 
+    - Key values are never returned in response to caller. 
+    - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts. 
+2. Azure Key Vault allow vault/object owner to define SAS (account or service sas) definitions. 
+    - The SAS value (created using SAS definition) is returned as a secret via /secrets route.  
+
+
 
 ### Naming
 
