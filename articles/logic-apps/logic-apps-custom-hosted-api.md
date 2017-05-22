@@ -279,21 +279,24 @@ So continue with these steps for the Azure portal or [Azure classic portal](#fin
 **Find application identity's client ID and tenant ID for your web app or API app in the Azure portal**
 
 1. Under **Authentication Providers**, choose **Azure Active Directory**. 
-On the **Azure Active Directory Settings** blade, set **Management mode** to **Advanced**.
 
-2. Copy the **Client ID**, and save that GUID for use in Part 3.
+   ![Choose "Azure Active Directory"](./media/logic-apps-custom-hosted-api/custom-api-app-identity-client-id-tenant-id.png)
 
-      > [!TIP] 
-      > If **Client ID** and **Issuer Url** don't appear, 
-      > try refreshing the Azure portal, and repeat Step 1.
+2. On the **Azure Active Directory Settings** blade, set **Management mode** to **Advanced**.
 
-3. Under **Issuer Url**, copy and save just the GUID for Part 3. 
+3. Copy the **Client ID**, and save that GUID for use in Part 3.
+
+   > [!TIP] 
+   > If **Client ID** and **Issuer Url** don't appear, 
+   > try refreshing the Azure portal, and repeat Step 1.
+
+4. Under **Issuer Url**, copy and save just the GUID for Part 3. 
 You can also use this GUID in your web app or API app's deployment template, if necessary.
 
    This GUID is your specific tenant's GUID ("tenant ID") and 
    should appear in this URL: `https://sts.windows.net/{GUID}`
 
-4. Without saving your changes, close the **Azure Active Directory Settings** blade.
+5. Without saving your changes, close the **Azure Active Directory Settings** blade.
 
 <a name="find-id-classic"></a>
 
