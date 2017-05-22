@@ -355,19 +355,21 @@
     items:
     - name: Virtual machine boot diagnostics 
       href: ../virtual-machine-boot-diagnostics.md
-    - name: Troubleshoot SSH connections
+    - name: SSH connections
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Troubleshoot access to applications
+    - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: Troubleshoot allocation failures
+    - name: Allocation failures
       href: allocation-failure.md
-    - name: Troubleshoot deployment issues
+    - name: Deployment issues
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk for troubleshooting
       items:
       - name: Azure CLI
