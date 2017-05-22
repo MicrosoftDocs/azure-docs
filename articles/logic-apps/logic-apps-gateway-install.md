@@ -50,19 +50,12 @@ These steps show how to first install the on-premises data gateway before you
 For more information about supported connectors, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list). 
 
-> [!NOTE]
-> If you have an existing gateway that you set up with 
-> an installer that's earlier than version 14.16.6317.4, 
-> you can't change your gateway's location by 
-> running the latest installer. 
-> However, you can use the latest installer to set up 
-> a new gateway with the location that you want instead.
-> 
-> Also, the location for previously installed gateways installed 
->
-> If you have a gateway installer that's earlier than 
-> version 14.16.6317.4, but you haven't installed 
-> your gateway yet, you can download and use the latest installer.
+For more information about data gateways for other Microsoft services, see these articles:
+
+*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/): [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
+*   [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+*   [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
+*   [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
 
 <a name="requirements"></a>
 ## Requirements
@@ -103,6 +96,18 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
   > Or, if you signed up for an Office 365 offering and didn't supply your actual work email, 
   > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
 
+* If you have an existing gateway that you set up with 
+  an installer that's earlier than version 14.16.6317.4, 
+  you can't change your gateway's location by 
+  running the latest installer. However, 
+  you can use the latest installer to set up 
+  a new gateway with the location that you want instead.
+  
+  If you have a gateway installer that's earlier than 
+  version 14.16.6317.4, but you haven't installed 
+  your gateway yet, you can download and use the latest installer.
+
+<a name="install-gateway"></a>
 ## Install the data gateway
 
 1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
@@ -289,6 +294,7 @@ and sends the query to the queue for the gateway to process.
 6. The results are sent from the data source, back to the gateway, and then to the gateway cloud service. 
 The gateway cloud service then uses the results.
 
+<a name="faq"></a>
 ## Frequently asked questions
 
 ### General

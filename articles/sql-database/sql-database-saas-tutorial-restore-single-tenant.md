@@ -1,5 +1,5 @@
 ---
-title: Restore a single tenant database (sample SaaS application using Azure SQL Database) | Microsoft Docs 
+title: Restore an Azure SQL database in a multi-tenant app  | Microsoft Docs 
 description: "Learn how to restore a single tenants SQL database after accidentally deleting data"
 keywords: sql database tutorial
 services: sql-database
@@ -46,7 +46,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 For the tenant restore pattern, there are two simple patterns for restoring an individual tenant's data. Because tenant databases are isolated from each other, restoring one tenant has no impact on any other tenant's data.
 
-In the first pattern, data is restored into a new database. The tenant is then given access to this database alongside their production data. This pattern allows a tenant admin to review the restored data and potentially use it to selectively overwrite current data values. It's up to the SaaS app designer to determine just how sophisticated the data recovery options should be. Simply being able to review data in the state it was in at a given point in time may be all that is required in some scenarios. If the database uses [Geo-Replication](sql-database-geo-replication-overview.md), we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize Geo-Replication.
+In the first pattern, data is restored into a new database. The tenant is then given access to this database alongside their production data. This pattern allows a tenant admin to review the restored data and potentially use it to selectively overwrite current data values. It's up to the SaaS app designer to determine just how sophisticated the data recovery options should be. Simply being able to review data in the state it was in at a given point in time may be all that is required in some scenarios. If the database uses [geo-replication](sql-database-geo-replication-overview.md), we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize geo-replication.
 
 In the second pattern, which assumes that the tenant has suffered a loss or corruption of data, the tenant’s production database is restored to a prior point in time. In the restore in place pattern, the tenant is taken offline for a brief time while the database is restored and brought back online. The original database is deleted, but can still be restored from if you need to go back to an even earlier point in time. A variation of this pattern could rename the database instead of deleting it, although renaming the database offers no additional advantage in terms of data security.
 
@@ -95,7 +95,7 @@ Run the ticket generator script and create additional data. The ticket generator
 
 This exercise restores the Contoso Concert Hall database to a point in time before the event was deleted. After the event is deleted in the previous steps, you want to recover and see the deleted data. You don't need to restore your production database with the deleted record, but you need to recover the old database to access the old data for other business reasons.
 
- The *Restore-TenantInParallel.ps1* script creates a parallel tenant database, and a parallel catalog entry both named *ContosoConcertHall\_old*. This pattern of restore is best suited for recovering from a minor data loss or for compliance and auditing recovery scenarios. It is also the recommended approach when you are using [Geo-Replication](sql-database-geo-replication-overview.md).
+ The *Restore-TenantInParallel.ps1* script creates a parallel tenant database, and a parallel catalog entry both named *ContosoConcertHall\_old*. This pattern of restore is best suited for recovering from a minor data loss or for compliance and auditing recovery scenarios. It is also the recommended approach when you are using [geo-replication](sql-database-geo-replication-overview.md).
 
 1. Complete the [simulate a user accidentally deleting data](#simulate-a-tenant-accidentally-deleting-data) section.
 1. Open ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_ in the *PowerShell ISE*.

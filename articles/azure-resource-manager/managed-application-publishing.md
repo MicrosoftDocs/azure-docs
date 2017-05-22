@@ -24,6 +24,7 @@ To create a managed application, you must create:
 * the user, group, or application that has access to the resource group in the customer's subscription
 * the appliance definition
 
+For examples of the files, see [Managed Application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
 
 ## Create managed application package
 
@@ -204,5 +205,6 @@ The parameters used in the preceding example are:
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
+* For examples of the files, see [Managed Application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
 * To understand the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
 * To learn about creating a UI definition file for a managed application, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
