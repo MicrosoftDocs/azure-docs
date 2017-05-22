@@ -28,7 +28,7 @@ This article provides information and code samples to help you quickly get start
 
 ## Analyze an Image With Computer Vision API Using Java <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 * A detailed list of tags related to the image content.
 * A description of image content in a complete sentence.
@@ -62,9 +62,9 @@ public class Main
         try
         {
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            URIBuilder builder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze");
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            URIBuilder builder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze");
 
             builder.setParameter("visualFeatures", "Categories");
             builder.setParameter("details", "Celebrities");
@@ -76,7 +76,7 @@ public class Main
             // Request headers.
             request.setHeader("Content-Type", "application/json");
 
-            // NOTE: Replace the second parameter with a valid subscription key.
+            // NOTE: Replace the example key with a valid subscription key.
             request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request body. Replace the example URL with the URL for the JPEG image of a celebrity.
@@ -235,11 +235,11 @@ public class Main
         try
         {
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
             //
             // Also, change "landmarks" to "celebrities" in the URL to use the Celebrities model.
-            URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze");
+            URIBuilder uriBuilder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze");
 
             // Change "landmarks" to "celebrities" to use the Celebrities model.
             uriBuilder.setParameter("model", "landmarks");
@@ -300,7 +300,7 @@ REST Response:
 
 ## Get a Thumbnail with Computer Vision API Using Java <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
 
 ### Get a Thumbnail Java Example Request
 
@@ -331,9 +331,9 @@ public class Main
         try
         {
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail");
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            URIBuilder uriBuilder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail");
 
             uriBuilder.setParameter("width", "100");
             uriBuilder.setParameter("height", "150");
@@ -396,7 +396,7 @@ A successful response contains the thumbnail image binary. If the request fails,
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using Java<a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR Java Example Request
 
@@ -423,9 +423,9 @@ public class Main
         try
         {
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr");
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            URIBuilder uriBuilder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr");
 
             uriBuilder.setParameter("language", "unk");
             uriBuilder.setParameter("detectOrientation ", "true");
@@ -565,11 +565,11 @@ public class Main
         try
         {
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
             //
             // Also, for printed text, set "handwriting" to false.
-            URI uri = new URI("https://westus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true");
+            URI uri = new URI("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true");
             HttpPost textRequest = new HttpPost(uri);
 
             // Request headers. Another valid content type is "application/octet-stream".

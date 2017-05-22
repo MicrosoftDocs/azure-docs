@@ -28,7 +28,7 @@ This article provides information and code samples to help you quickly get start
 
 ## Analyze an Image With Computer Vision API Using C# <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 * A detailed list of tags related to the image content.
 * A description of image content in a complete sentence.
@@ -80,9 +80,9 @@ namespace CSHttpClientSample
             string requestParameters = "visualFeatures=Categories&language=en";
 
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URI below with "westcentralus".
-            string uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?" + requestParameters;
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URI below with "westus".
+            string uri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?" + requestParameters;
             Console.WriteLine(uri);
 
             HttpResponseMessage response;
@@ -246,16 +246,16 @@ namespace CSHttpClientSample
         {
             var client = new HttpClient();
 
-            // Request headers. Replace the second parameter with a valid subscription key.
+            // Request headers. Replace the example key with a valid subscription key.
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request parameters. Change "landmarks" to "celebrities" on requestParameters and uri to use the Celebrities model.
             string requestParameters = "model=landmarks";
             
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URI below with "westcentralus".
-            string uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze?" + requestParameters;
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URI below with "westus".
+            string uri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze?" + requestParameters;
             Console.WriteLine(uri);
 
             HttpResponseMessage response;
@@ -303,7 +303,7 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ## Get a Thumbnail with Computer Vision API Using C# <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. You can even pick an aspect ratio that differs from the aspect ratio of the input image.
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. You can even pick an aspect ratio that differs from the aspect ratio of the input image.
 
 ### Get a Thumbnail C# Example Request
 
@@ -341,16 +341,16 @@ namespace CSHttpClientSample
         {
             var client = new HttpClient();
 
-            // Request headers. Replace the second parameter with a valid subscription key.
+            // Request headers. Replace the example key with a valid subscription key.
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request parameters and URI.
             string requestParameters = "width=200&height=150&smartCropping=true";
 
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URI below with "westcentralus".
-            string uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?" + requestParameters;
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URI below with "westus".
+            string uri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?" + requestParameters;
 
             HttpResponseMessage response;
 
@@ -374,7 +374,7 @@ A successful response contains the thumbnail image binary. If the request fails,
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using C#<a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR C# Example Request
 
@@ -412,16 +412,16 @@ namespace CSHttpClientSample
         {
             var client = new HttpClient();
 
-            // Request headers. Replace the second parameter with a valid subscription key.
+            // Request headers. Replace the example key with a valid subscription key.
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request parameters and URI
             string requestParameters = "language=unk&detectOrientation =true";
             
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URI below with "westcentralus".
-            string uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr?" + requestParameters;
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URI below with "westus".
+            string uri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?" + requestParameters;
 
             HttpResponseMessage response;
 
@@ -552,16 +552,16 @@ namespace CSHttpClientSample
         {
             var client = new HttpClient();
 
-            // Request headers. Replace the second parameter with a valid subscription key.
+            // Request headers. Replace the example key with a valid subscription key.
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request parameters and URI. Set "handwriting" to false for printed text.
             string requestParameter = "handwriting=true";
 
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URI below with "westcentralus".
-            string uri = "https://westus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?" + requestParameter;
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URI below with "westus".
+            string uri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?" + requestParameter;
 
             HttpResponseMessage response = null;
             IEnumerable<string> responseValues = null;

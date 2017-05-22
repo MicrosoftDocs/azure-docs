@@ -24,7 +24,7 @@ Learn more about obtaining free Subscription Keys [here](../Vision-API-How-to-To
 
 ## Analyze an Image With Computer Vision API Using JavaScript <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
@@ -57,9 +57,9 @@ Copy the following and save it to a file such as `analyze.html`. Change the `url
 
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?" + $.param(params),
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            url: "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?" + $.param(params),
             
             beforeSend: function(xhrObj){
                 // Request headers
@@ -188,11 +188,11 @@ Copy the following and save it to a file such as `landmark.html`. Change the `ur
 
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
             //
             // Also, change "landmarks" to "celebrities" in the url to use the Celebrities model.
-            url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze?" + $.param(params),
+            url: "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze?" + $.param(params),
 
             beforeSend: function(xhrObj) {
                 // Request headers.
@@ -251,7 +251,7 @@ A successful response is returned in JSON. Following is an example of a successf
 ```
 
 ## Get a Thumbnail with Computer Vision API Using JavaScript <a name="GetThumbnail"> </a>
-Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
 
 ### Get a Thumbnail JavaScript Example Request
 
@@ -277,9 +277,9 @@ Copy the following and save it to a file such as `thumbnail.html`. Change the `u
       
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?" + $.param(params),
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            url: "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail?" + $.param(params),
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
@@ -308,7 +308,8 @@ Copy the following and save it to a file such as `thumbnail.html`. Change the `u
 A successful response contains the thumbnail image binary. If the request failed, the response contains an error code and a message to help determine what went wrong.
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using JavaScript<a name="OCR"> </a>
-Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
+
+Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR JavaScript Example Request
 
@@ -333,9 +334,9 @@ Copy the following and save it to a file such as `thumbnail.html`. Change the `u
       
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-            //   URL below with "westcentralus".
-            url: "https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr?" + $.param(params),
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            url: "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr?" + $.param(params),
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");

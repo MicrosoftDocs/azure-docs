@@ -25,7 +25,7 @@ To use the Computer Vision API, you need a subscription key. You can get free su
 
 ## Analyze an Image With Computer Vision API Using Python <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 * A detailed list of tags related to the image content.
 * A description of image content in a complete sentence.
@@ -62,9 +62,9 @@ body = "{'url':'...'}"
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/analyze?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -98,9 +98,9 @@ body = "{'url':'...'}"
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/analyze?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -245,9 +245,9 @@ body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
 
     # Change "landmarks" to "celebrities" in the url to use the Celebrity model.
     conn.request("POST", "/vision/v1.0/models/landmarks/analyze?%s" % params, body, headers)
@@ -285,9 +285,9 @@ body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/models/landmarks/analyze?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -329,7 +329,7 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ## Get a Thumbnail with Computer Vision API Using Python <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
 
 ### Get a Thumbnail Python Example Request
 
@@ -359,9 +359,9 @@ body = "{'url':'...'}"
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/generateThumbnail?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -395,9 +395,9 @@ body = "{'url':'...'}"
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/generateThumbnail?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -414,7 +414,7 @@ A successful response contains the thumbnail image binary. If the request fails,
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using Python <a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR Python Example Request
 
@@ -443,9 +443,9 @@ body = "{'url':'...'}"
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -478,9 +478,9 @@ body = "{'url':'...'}"
 
 try:
     # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-    #   URL below with "westcentralus".
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -587,9 +587,9 @@ headers = {
 body = "{'url':'...'}"
 
 # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-#   URL below with "westcentralus".
-serviceUrl = 'westus.api.cognitive.microsoft.com'
+#   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+#   URL below with "westus".
+serviceUrl = 'westcentralus.api.cognitive.microsoft.com'
 
 # For printed text, set "handwriting" to false.
 params = urllib.urlencode({'handwriting' : 'true'})
@@ -639,9 +639,9 @@ requestHeaders = {
 body = {'url':'...'}
 
 # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-#   URL below with "westcentralus".
-serviceUrl = 'https://westus.api.cognitive.microsoft.com/vision/v1.0/RecognizeText'
+#   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+#   URL below with "westus".
+serviceUrl = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/RecognizeText'
 
 # For printed text, set "handwriting" to false.
 params = {'handwriting' : 'true'}

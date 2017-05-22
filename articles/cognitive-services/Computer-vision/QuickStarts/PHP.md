@@ -24,7 +24,7 @@ Learn more about obtaining free Subscription Keys [here](../Vision-API-How-to-To
 
 ## Analyze an Image With Computer Vision API Using PHP <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
@@ -43,9 +43,9 @@ Change the REST URL to use the location where you obtained your subscription key
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-//   URL below with "westcentralus".
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze');
+//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+//   URL below with "westus".
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze');
 $url = $request->getUrl();
 
 $headers = array(
@@ -207,11 +207,11 @@ Change the REST URL to use the location where you obtained your subscription key
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-//   URL below with "westcentralus".
+//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+//   URL below with "westus".
 //
 // Also, change "landmarks" to "celebrities" in the url to use the Celebrities model.
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze');
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze');
 $url = $request->getUrl();
 
 $headers = array(
@@ -279,7 +279,7 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ## Get a Thumbnail with Computer Vision API Using PHP <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
 
 ### Get a Thumbnail PHP Example Request
 
@@ -291,9 +291,9 @@ Change the REST URL to use the location where you obtained your subscription key
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
-//   URL below with "westcentralus".
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail');
+//   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+//   URL below with "westus".
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail');
 $url = $request->getUrl();
 
 $headers = array(
@@ -339,7 +339,7 @@ A successful response contains the thumbnail image binary. If the request failed
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using PHP <a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR PHP Example Request
 
@@ -350,7 +350,7 @@ Change the REST URL to use the location where you obtained your subscription key
 // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
-$request = new Http_Request2('https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr');
+$request = new Http_Request2('https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr');
 $url = $request->getUrl();
 
 $headers = array(
