@@ -26,7 +26,7 @@ As of May 2017, the following capabilities have been added to Azure Data Catalog
 *	A new developer sample is available for the bulk importing of business glossary terms. The Glossary Bulk Import sample is available on the [Data Catalog developer samples page](https://docs.microsoft.com/azure/data-catalog/data-catalog-samples). 
 *	Support for editing ODBC connection information in the Azure Data Catalog portal. Data asset owners and Data Catalog administrators can now edit the connection information for registered ODBC data sources without needing to re-register the data sources.
 *	Support for clickable URLs in business glossary definitions and descriptions. When URLs are included in the description and definition properties for business glossary terms, the URLs will be displayed as hyperlinks in the Data Catalog portal.
-*	Support for displaying expert names. When viewing experts in the properties for a data asset in the Data Catalog portal, the expert’s full name from Azure Active Directory will be displayed in the tooltip.
+*	Support for displaying expert names in addition to expert email addresses. When viewing experts in the properties for a data asset in the Data Catalog portal, the expert’s full name from Azure Active Directory will be displayed in the tooltip.
 
 ## What's new for April 2017 
 As of April 2017, the following capabilities have been added to Azure Data Catalog:
