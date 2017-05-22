@@ -1,6 +1,6 @@
 ---
-title: How to register data sources | Microsoft Docs
-description: How-to article highlighting how to register data sources with Azure Data Catalog, including the metadata fields extracted during registration.
+title: Register data sources in Azure Data Catalog | Microsoft Docs
+description: This article highlights how to register data sources in Azure Data Catalog, including the metadata fields extracted during registration.
 services: data-catalog
 documentationcenter: ''
 author: steelanddata
@@ -18,29 +18,32 @@ ms.date: 05/15/2017
 ms.author: maroche
 
 ---
-# How to register data sources
+# Register data sources in Azure Data Catalog
 ## Introduction
-**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. And the first step to making a data source discoverable via **Azure Data Catalog** is to register that data source.
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and discovery for enterprise data sources. In other words, Data Catalog helps people discover, understand, and use data sources, and it helps organizations get more value from their existing data. The first step to making a data source discoverable via Data Catalog is to register that data source.
 
-## Registering data sources
-Registration is the process of extracting metadata from the data source and copying that data into the **Azure Data Catalog** service. The data remains where it currently resides, and remains under the control of the administrators and policies of the current system.
+## Register data sources
+Registration is the process of extracting metadata from the data source and copying that data to the Data Catalog service. The data remains where it currently resides, and it remains under the control of the administrators and policies of the current system.
 
-To register a data source, simply launch the **Azure Data Catalog** data source registration tool from the **Azure Data Catalog** portal. Log in with your Work or school account (the same Azure Active Directory credentials you use to log in to the portal) and then select the data source you want to register.
-See the [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for more step-by-step details.
+To register a data source, do the following:
+1. In the Azure Data Catalog portal, start the Data Catalog data source registration tool. 
+2. Sign in with your work or school account with the same Azure Active Directory credentials that you use to sign in to the portal.
+3. Select the data source you want to register.
 
-Once the data source has been registered, the Catalog tracks its location and indexes its metadata, so that users can search, browse, and discover the data source, and then use its location to connect to it using the application or tool of their choice.
+For more step-by-step details, see the [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial.
 
-## Sources supported
-Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
-<br/>
+After you've registered the data source, the catalog tracks its location and indexes its metadata. Users can search, browse, and discover the data source, and then use its location to connect to it by using the application or tool of their choice.
+
+## Supported data sources
+For a list of currently supported data sources, see [Data Catalog DSR](data-catalog-dsr.md).
 
 ## Structural metadata
-When you’re registering a data source, the registration tool will extract information about the structure of the objects you select – this is referred to as structural metadata.
+When you register a data source, the registration tool extracts information about the structure of the objects you select. This information is referred to as structural metadata.
 
-For all objects, this structural metadata will include the object’s location, so that users who discover the data can use that information to connect to the object in the client tools of their choice. Other structural metadata includes object name and type, and attribute/column name and data type.
+For all objects, this structural metadata includes the object’s location, so that users who discover the data can use that information to connect to the object in the client tools of their choice. Other structural metadata includes object name and type, and attribute/column name and data type.
 
 ## Descriptive metadata
-In addition to the core structural metadata extracted from the data source, the data source registration tool will also extract descriptive metadata as well. For SQL Server Analysis Services and SQL Server Reporting Services, this is taken from the Description properties exposed by these services. For SQL Server, values provided using the ms_description extended property will be extracted. For Oracle Database, the data source registration tool will extract the COMMENTS column from the ALL_TAB_COMMENTS view.
+In addition to the core structural metadata that's extracted from the data source, the data source registration tool extracts descriptive metadata. For SQL Server Analysis Services and SQL Server Reporting Services, this metadata is taken from the Description properties exposed by these services. For SQL Server, values provided using the ms\_description extended property is extracted. For Oracle Database, the data-source registration tool extracts the COMMENTS column from the ALL\_TAB\_COMMENTS view.
 
 In addition to the descriptive metadata extracted from the data source, users can also enter descriptive metadata using the data source registration tool. Users can add tags, and can identify experts for the objects being registered. All of this descriptive metadata is copied to the **Azure Data Catalog** service along with the structural metadata.
 
