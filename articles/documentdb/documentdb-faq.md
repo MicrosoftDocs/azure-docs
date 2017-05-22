@@ -374,11 +374,11 @@ Azure Cosmos DB started as “Project Florence” in 2010 to address developer t
 
 Since that time, we’ve added new features and introduced significant new capabilities.  Azure Cosmos DB is the result.  As a part of this release of Azure Cosmos DB, DocumentDB customers, with their data, are automatically Azure Cosmos DB customers. The transition is seamless and you now have access to the new breakthrough system and capabilities offered by Azure Cosmos DB. These capabilities are in the areas of the core database engine as well as global distribution, elastic scalability, and industry-leading, comprehensive SLAs. Specifically, we have evolved the Azure Cosmos DB database engine to be able to efficiently map all popular data models, type systems, and APIs to the underlying data model of Azure Cosmos DB. 
 
-The current developer facing manifestation of this work is the new support for [Gremlin](graph-introduction.md) and [Table Storage APIs](table-introduction.md). And this is just the beginning… We will be adding other popular APIs and newer data models over time with more advances towards performance and storage at global scale. 
+The current developer facing manifestation of this work is the new support for [Gremlin](../cosmos-db/graph-introduction.md) and [Table Storage APIs](..cosmos-db/table-introduction.md). And this is just the beginning… We will be adding other popular APIs and newer data models over time with more advances towards performance and storage at global scale. 
 
 It is important to point out that DocumentDB’s [SQL dialect](../documentdb/documentdb-sql-query.md) has always been just one of the many APIs that the underlying Cosmos DB was capable of supporting. As a developer using a fully managed service like Azure Cosmos DB, the only interface to the service is the APIs exposed by the service. To that end, nothing really changes for you as an existing DocumentDB customer. Azure Cosmos DB offers exactly the same SQL API that DocumentDB did. However, now (and in the future) you can get access to other capabilities, which were previously not accessible. 
 
-Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. One of the very first manifestations of it is the [RU/m](request-units-per-minute.md) but we have more capabilities that we will be announcing in these areas. These new capabilities help reduce costs for our customers for various workloads. We have made several foundational enhancements to the global distribution subsystem. One of the many developer facing manifestations of this work is the consistent prefix consistency model (making in total five well-defined consistency models). However, there are many more interesting capabilities we will release as they mature. 
+Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. One of the very first manifestations of it is the [RU/m](../cosmos-db/request-units-per-minute.md) but we have more capabilities that we will be announcing in these areas. These new capabilities help reduce costs for our customers for various workloads. We have made several foundational enhancements to the global distribution subsystem. One of the many developer facing manifestations of this work is the consistent prefix consistency model (making in total five well-defined consistency models). However, there are many more interesting capabilities we will release as they mature. 
 
 ### What do I need to do to ensure my DocumentDB resources continue to run on Azure Cosmos DB?
 
@@ -396,7 +396,7 @@ Azure DocumentDB no longer appears in the portal as an Azure service. Instead Az
 
 ### Are there changes to pricing?
 
-No, the cost of running your app on Azure Cosmos DB is the same as it was before. However, you may benefit from the new **request unit per minute feature** we announced. For more information, see the [Scale throughput per minute](request-units-per-minute.md) article.
+No, the cost of running your app on Azure Cosmos DB is the same as it was before. However, you may benefit from the new **request unit per minute feature** we announced. For more information, see the [Scale throughput per minute](../cosmos-db/request-units-per-minute.md) article.
 
 ### Are there changes to the Service Level Agreements (SLAs)?
 
