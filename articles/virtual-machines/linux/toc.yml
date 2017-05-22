@@ -353,13 +353,13 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Virtual machine boot diagnostics 
-      href: ../virtual-machine-boot-diagnostics.md
     - name: Troubleshoot SSH connections
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
     - name: Troubleshoot access to applications
       href: troubleshoot-app-connection.md
     - name: Troubleshoot allocation failures
