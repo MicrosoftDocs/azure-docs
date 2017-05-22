@@ -360,7 +360,6 @@
         href: detailed-troubleshoot-ssh-connection.md
     - name: Boot diagnostics 
       href: boot-diagnostics.md
-    - name: Troubleshoot access to applications
     - name: Access to applications
       href: troubleshoot-app-connection.md
     - name: Allocation failures
