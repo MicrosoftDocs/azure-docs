@@ -1,5 +1,5 @@
 ---
-title: Boot Diagnostics for Virtual Machines
+title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
 description: Overview of the two debugging feature of Azure
 services: virtual-machines
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/18/2017
 ms.author: delhan
 ---
 
-# Storage Explorer Troubleshooting Guide
+# Azure Storage Explorer troubleshooting guide
 
 ## Introduction
 
@@ -25,7 +25,7 @@ Microsoft Azure Storage Explorer (Preview) is a stand-alone app that enables you
 
 This guide summarizes solutions for common issues seen in Storage Explorer.
 
-## Sign in Issues
+## Sign in issues
 
 Before you continue, try restarting your application and see whether the problems can be fixed.
 
@@ -114,9 +114,10 @@ If you are unable to remove an account, or if the reauthenticate link does not d
 
     - ~/.config/StorageExplorer for Linux
 
-**Note** You will have to reenter all your credentials if you delete these files.
+> [!NOTE]
+>  You will have to reenter all your credentials if you delete these files.
 
-## Proxy Issues
+## Proxy issues
 
 First, make sure that the following information you entered are all correct:
 
@@ -158,7 +159,7 @@ If your proxy settings are correct, you may have to contact your proxy server ad
 
 - Verify the authentication protocol used by your proxy server. Storage Explorer does not currently support NTLM proxies.
 
-## "Unable to Retrieve Children" Error Message
+## "Unable to Retrieve Children" error message
 
 If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you were granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
 
@@ -171,8 +172,10 @@ If you are connecting to a service using a SAS URL and experiencing this error:
 
 - If the SAS URL is based on an access policy, verify that the access policy has not been revoked.
 
-## Submit Your Issue to our Feedback tool
+## Next steps
 
 If none of the solutions work for you, submit your issue through the feedback tool with your email and as many details about the issue included as you can, so that we can contact you for fixing the issue.
+
+To do this, click **Help** menu, and then click **Send Feedback**.
 
 ![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)
