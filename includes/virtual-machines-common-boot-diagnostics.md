@@ -5,7 +5,7 @@ When bringing your own image to Azure or even booting one of the platform images
 
 For Linux Virtual Machines, you can easily view the output of your console log from the Portal:
 
-![Azure Portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![Azure portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
 However, for both Windows and Linux Virtual Machines, Azure also enables you to see a screenshot of the VM from the hypervisor:
 
@@ -16,7 +16,7 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
 ## Enable diagnostics on a new virtual machine
 1. When creating a new Virtual Machine from the Preview Portal, select the **Azure Resource Manager** from the deployment model dropdown:
  
-    ![Resouce Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
+    ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
 2. Configure the Monitoring option to select the storage account where you would like to place these diagnostic files.
  
@@ -48,7 +48,7 @@ To deploy a sample Virtual Machine with boot diagnostics enabled, check out our 
 
 ## Update an existing virtual machine ##
 
-To enable boot diagnostics through the Portal, You can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
+To enable boot diagnostics through the Portal, you can also update an existing Virtual Machine through the Portal. Select the Boot Diagnostics option and Save. Restart the VM to take effect.
 
 ![Update Existing VM](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
 
