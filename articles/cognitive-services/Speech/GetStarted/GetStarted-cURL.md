@@ -1,5 +1,5 @@
 ---
-title: Get started with the Speech REST API using cURL | Microsoft Docs
+title: Get started with the Azure Speech REST API using cURL | Microsoft Docs
 description: Apply the Azure Speech Recognition API in Microsoft Cognitive Services by using cURL to convert spoken audio to text.
 services: cognitive-services
 author: priyaravi20
