@@ -120,9 +120,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-360online-tutorial/tutorial_general_400.png)
-<CS>
+
 6. To configure single sign-on on **360 Online** side, you need to send the downloaded **Metadata XML** to [360 Online support team](mailto:360online@software-innovation.com). 
-<CE>
+
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
