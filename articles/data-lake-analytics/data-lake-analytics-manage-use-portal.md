@@ -33,14 +33,14 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 3. Type or select the following values:   
    * **Name**: Name the Data Lake Analytics account.
    * **Subscription**: Choose the Azure subscription used for the Analytics account.
-   * **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. 
+   * **Resource Group**: Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. 
    * **Location**. Select an Azure data center for the Data Lake Analytics account. 
    * **Data Lake Store**: Each Data Lake Analytics account has a dependent Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. 
 4. Click **Create**. 
 
 **To delete a Data Lake Analytics account**
 
-1. Open the Data Lake Analytics account in the Azure portal
+1. Open the Data Lake Analytics account in the Azure portal.
 2. Click **Delete** from the button menu on the top of the blade.
 3. Type the account name, and then click **Delete**.
 
@@ -50,6 +50,7 @@ Before you delete the Data Lake Analytics account, delete its default Data Lake 
 <!-- ################################ -->
 
 ## Manage account data sources
+
 Data Lake Analytics currently supports the following data sources:
 
 * Azure Data Lake Store
