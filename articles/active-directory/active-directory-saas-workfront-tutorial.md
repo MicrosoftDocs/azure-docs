@@ -250,10 +250,8 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 [2]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_04.png
-[21]:
-./media/active-directory-saas-workfront-tutorial/tutorial_attask_08.png
-[23]:
-./media/active-directory-saas-workfront-tutorial/tutorial_attask_06.png
+[21]:./media/active-directory-saas-workfront-tutorial/tutorial_attask_08.png
+[23]:./media/active-directory-saas-workfront-tutorial/tutorial_attask_06.png
 [100]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-workfront-tutorial/tutorial_general_200.png
