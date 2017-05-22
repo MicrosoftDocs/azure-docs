@@ -24,7 +24,7 @@ Azure SQL Database can emit metrics and diagnostic logs for easier monitoring. Y
 - **Azure Event Hub**: For integrating Azure SQL Database telemetry with your custom monitoring solution or hot pipelines
 - **Azure Log Analytics**: For out of the box monitoring solution with reporting, alerting, and mitigating capabilities 
 
-    <img src="./media/sql-database-metrics-diag-logging/architecture.png" alt="architecture" style="width: 780px;" />
+    ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## Enable logging
 
@@ -52,7 +52,7 @@ We recommend that you read both the [Overview of metrics in Microsoft Azure](../
 
 To enable metrics and diagnostic logs collection in the Azure portal, navigate to your Azure SQL database or elastic pool page, and then click **Diagnostic configuration**.
 
-   <img src="./media/sql-database-metrics-diag-logging/enable-portal.png" alt="enable in the Azure portal" style="width: 780px;" />
+   ![enable in the Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
 ### PowerShell
 
@@ -132,7 +132,7 @@ Monitoring Azure SQL Database fleet is simple with Log Analytics. Three steps ar
 3. Click **Log Analytics**
 4. Fill in the Log Analytics form with the additional information required: workspace name, subscription, resource group, location, and pricing tier.
 
-   <img src="./media/sql-database-metrics-diag-logging/log-analytics.png" alt="log analytics" style="width: 780px;" />
+   ![log analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
 
 ### Configure databases to record metrics and diagnostic logs
 
@@ -142,7 +142,7 @@ The easiest way to configure where databases record their metrics is through the
 
 1. Once the Log Analytics resource is created and your data is flowing into it, install Azure SQL Analytics solution. This can be done through the **Solutions Gallery** that you can find on the OMS homepage and in the side menu. In the gallery, find and click **Azure SQL Analytics** solution and click **Add**.
 
-   <img src="./media/sql-database-metrics-diag-logging/monitoring-solution.png" alt="monitoring solution" style="width: 780px;" />
+   ![monitoring solution](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
 2. On your OMS homepage, a new tile called **Azure SQL SQL Analytics** appears. Selecting this tile opens the Azure SQL Analytics dashboard.
 
