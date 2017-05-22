@@ -21,16 +21,16 @@ ms.author: raiye
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
 
 > [!IMPORTANT]
-> This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
-> 
-> 
+> This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines.
+>
+>
 
 
 > [!NOTE]
 > The RSS Feed was recently deprecated. Please stay tuned for updates on a new feed coming soon!
-> 
-> 
- 
+>
+>
+
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
@@ -66,16 +66,16 @@ Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NE
 .NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> Dates with a * are subject to change. 
-> 
+> Dates with a * are subject to change.
+>
 > The RDP Password for OS Family 5 must be a minimum of 10 characters.
 >
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.6_201704-01 |May 9 2017 |Post 5.8 |TBD | 
-| WA-GUEST-OS-5.5_201703-01 |April 10 2017 |Post 5.7 |TBD | 
-|~~WA-GUEST-OS-5.4_201612-01~~ |Jan 10 2017 |Post 5.6 |TBD | 
+| WA-GUEST-OS-5.6_201704-01 |May 9 2017 |Post 5.8 |TBD |
+| WA-GUEST-OS-5.5_201703-01 |April 10 2017 |Post 5.7 |TBD |
+|~~WA-GUEST-OS-5.4_201612-01~~ |Jan 10 2017 |Post 5.6 |TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |Dec 14 2016 |May 9 2017 |TBD |
 |~~WA-GUEST-OS-5.2_201610-02~~ |Nov 1 2016 |April 10 2017 |TBD |
 
@@ -86,8 +86,8 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
-> 
-> 
+>
+>
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
@@ -113,8 +113,8 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
-> 
-> 
+>
+>
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
@@ -140,8 +140,8 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > Dates with a * are subject to change
-> 
-> 
+>
+>
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
@@ -165,7 +165,7 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 The list of patches that are included with each monthly Guest OS release is available [here][patches].
 
 ## SDK support
-Even though the [retirement policy for the Azure SDK][retire policy sdk] indicates that only versions above 2.2 are supported, specific Guest OS families allow you to use earlier versions. You should always use the latest supported SDK. 
+Even though the [retirement policy for the Azure SDK][retire policy sdk] indicates that only versions above 2.2 are supported, specific Guest OS families allow you to use earlier versions. You should always use the latest supported SDK.
 
 | Guest OS Family | Compatible SDK Versions |
 | --- | --- |
@@ -176,23 +176,23 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 | 1 |Version 1.0+ |
 
 ## Guest OS Release Information
-There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS hits the **disabled** date it is removed from Azure. However, any Cloud Service targetting that Guest OS will still operate as normal. 
+There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS hits the **disabled** date it is removed from Azure. However, any Cloud Service targetting that Guest OS will still operate as normal.
 
-The window between the **disabled** date and the **expiration** date provide you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you'll always be on the latest version and you don't have to worry about it expiring. 
+The window between the **disabled** date and the **expiration** date provide you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you'll always be on the latest version and you don't have to worry about it expiring.
 
 When the **expiration** date passes and any Cloud Service still using that Guest OS will be stopped, deleted, or forced to upgrade. You can read more about the retirement policy [here][retirepolicy].
 
 ## Guest OS Family-Version Explanation
-The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number. 
+The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number.
 
 * **Guest OS family**  
   A Windows Server operating system release that a Guest OS is based on. For example, *family 3* is based on Windows Server 2012.
 * **Guest OS version**  
-  Specific to a Guest OS family image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches that are available at the date the new Guest OS version is produced. Not all patches may be included. 
-  
+  Specific to a Guest OS family image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches that are available at the date the new Guest OS version is produced. Not all patches may be included.
+
     Numbers start at 0 and increment by 1 each time a new set of updates is added. Trailing zeros are only shown if important. That is, version 2.10 is a different, much later version than version 2.1.
 * **Guest OS release**  
-  A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure classic portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
+  A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug.
 
 In the example below, 2 is the family, 12 is the version and "rel2" is the release.
 
@@ -200,14 +200,14 @@ In the example below, 2 is the family, 12 is the version and "rel2" is the relea
 
 **Configuration string for this release** - WA-GUEST-OS-2.12_201208-02
 
-The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image. 
+The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image.
 
 ## Guest OS System Update Process
-This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur at least 5 days after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family. 
+This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur at least 5 days after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family.
 
-Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We are aware that this is problematic for customers and working on a plan to limit or time reboots. 
+Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We are aware that this is problematic for customers and working on a plan to limit or time reboots.
 
-When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure classic portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. 
+When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file.
 
 For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
 
@@ -235,4 +235,3 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-
