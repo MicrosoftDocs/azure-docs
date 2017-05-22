@@ -123,5 +123,5 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 | [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |December 31, 2016 |
 
 ## See Also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) service page. 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
 
