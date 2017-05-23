@@ -129,8 +129,8 @@
     items:
     - name: VM creation overview
       href: creation-choices.md
-      - name: Create a VM from a specialized VHD
-        href: create-vm-specialized.md
+    - name: Create a VM from a specialized VHD
+      href: create-vm-specialized.md
     - name: Create VM with a template
       href: ps-template.md
     - name: Create VM with C#
