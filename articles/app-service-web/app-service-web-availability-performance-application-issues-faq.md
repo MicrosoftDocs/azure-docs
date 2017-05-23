@@ -34,16 +34,6 @@ Sometimes you can run into high CPU condition as your app may truly require more
 Sometimes you experience high memory condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when there is a bug in the code causing memory leak or just some coding practice that is driving memory consumption.   Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis.
 The Crash Diagnoser from Site Extension Gallery can perform both these steps in a few easy steps. Please find the step-by-step guidance via [here](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
-
-## I am getting started with Azure App Service Web Apps and I want to know how to publish
-Here are some basic steps to publish your web app code.
-1. If you have the Visual Studio Solution,  right click on the web application project and click on Publish.2. Another option is to deploy using FTP client. Download the publish profile for the web app that you want to deploy your code to in the Azure portal. Then upload the files to \site\wwwroot location using these publish prodile FTP credentials.
-For further detail, please refer to a product documentation [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
-
-## What are some resource move limitations I should be aware of when moving Azure App Services
-There are a few limitations we need to be aware of for Azure App Service Resource Move operations as discussed in [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
-
-
 ## How do I automate Azure App Service WebApps using Powershell
 We have a detailed blog ([Automating WebApps hosted in Azure App Service through PowerShell – ARM Way](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)) where we share how to use the ARM based PowerShell CmdLets to automate common tasks for managing or maintaining Azure App Service Web Apps. In this blog you can also find sample code for various web apps management tasks.
 Also, Reference to descriptions and syntax for all Azure App service web apps cmdlets can be found via [AzureRM.Websites](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
@@ -186,13 +176,6 @@ This issue is fixed in 1.0.2 version of Kestrel that is included in .NET Core 1.
 
 There may be many reasons that could prevent you from attaching a Visual Studio debugger to your Azure App Serfice Web App. This quick [blog article](https://blogs.msdn.microsoft.com/jpsanders/2016/02/09/manually-attach-a-debugger-to-azure-web-apps/) provides a workaround that may unblock you so you can debug your app.
 
-## Why is Autoscale not working as expected? It appears to be scaling only partially.
-
-Autoscale is triggered when metrics swing outside the preconfigured boundaries. Sometimes you may notice that the capacity is only partially filled compared to what you expected.  This is because, when desired number of instances are not available, Autoscale partially fills in with the available number of instances. It then runs the rebalance logic to get more capacity and allocates the remaining instances. Please note that this may take a few minutes.
-
-If you still do not see expected number of instances after giving a few minutes,  it could be because the partial refill was good enough to bring the metrics within the boundaries OR Autoscale scaled down because it hit the lower metrics boundary.
-
-If none of these conditions apply and the problem persists, please go ahead and open a support ticket.
 
 ## I cannot find my log files in the file structure of my Azure App Service Web App. Where can I find them?
 
