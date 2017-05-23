@@ -38,7 +38,7 @@ A function app hosts the execution of your functions in Azure. It is a best prac
  
      ![Function app settings blade](./media/functions-scenario-database-table-cleanup/mobile-app-connection.png)
 
-## Set connection string 
+## Set the connection string 
 
 4. Navigate to your function app, then select **Platform features** > **Application settings**.
    
@@ -50,7 +50,8 @@ A function app hosts the execution of your functions in Azure. It is a best prac
 
 Now, you can add the C# function code that connects to your SQL Database.
 
-## Update the function 
+## Update your function code
+
 1. In your function app, select the timer-triggered function.
  
 3. Add the following assembly references at the top of the existing function code:
