@@ -5,42 +5,43 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 05/22/2017
+ms.date: 05/23/2017
 ---
-# Azure Key Vault storage keys feature overview
+# Azure Key Vault storage keys
 
-Azure Storage Account Keys are secrets for authenticating to Azure Storage account. Today, developers manage azure storage key as a key vault secret and rotate it manually or through an external automation.  
+Today, developers manage thier own Azure Storage Account keys and rotate them manually or through an external automation. Azure Storage Account keys are [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure Storage Account. 
 
-Azure Storage Keys are not restrictive in terms of access to Azure Storage Account. An identity can perform a wide range of operation with azure storage key at hand. Shared access signatures (SAS) provide a more restrictive access to storage account. SAS are constructed using storage account keys. 
+Azure Storage Account keys are not restrictive in terms of access to Azure Storage Account. An identity can perform a wide range of operations with an Azure Storage Account key in hand. 
 
-Azure Storage Keys as a managed Key Vault Secret offer a great value through managing secret rotation for you, as a developer, and at the same time removing the need for direct developer contact with Azure storage key by offering SAS. 
+Shared Access Signatures (SAS) provide a more controlled access to an Azure Storage Account. SAS are constructed using storage account keys. 
 
->[!NOTE]
->For this preview version of Azure Key Vault only the **storage keys** feature is in preview. Azure Key Vault, as a whole, is a full production service.
+Azure Storage Account keys offer great value through managing secret rotation for you and at the same time removing the need for direct contact with Azure Storage Account key by offering SAS as a method. 
 
-## Why use KV storage account keys
+For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
-### Developer Experience Today 
+
+### Developer experience 
 
 #### Today 
-Developers use following coding practice by using storage account key to get access to storage. 
+Developers use the following practices with a storage account key to get access to Azure storage. 
  
  ```
 //create storage account using connection string containing account name and the storage key var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString")); 
  
-var blobClient = storageAccount.CreateCloudBlobClient(); 
+var blobClient = storageAccount.CreateCloudBlobClient();
  
  ```
- 
-
- 
  
 #### Tomorrow 
 
 ```
 //Get sastoken from Key Vault //.... 
  
-// Create new storage credentials using the SAS token. var accountSasCredential = new StorageCredentials(sasToken); // Use credentials and the Blob storage endpoint to create a new Blob service client. var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri("https://myaccount.blob.core.windows.net/"), null, null, null); var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
+// Create new storage credentials using the SAS token. var accountSasCredential = new StorageCredentials(sasToken); 
+
+// Use credentials and the Blob storage endpoint to create a new Blob service client. var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri("https://myaccount.blob.core.windows.net/"), null, null, null); 
+
+var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
 // If Sas token is about the expire then Get sastoken again from Key Vault //.... 
  
@@ -50,7 +51,7 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 
 ## Supporting interfaces
 
-The storage keys feature is initially available through which interfaces ... 
+The Azure Storage Account keys feature is initially available through the follwing interfaces.
 
 - REST 
 - .NET / C# 
