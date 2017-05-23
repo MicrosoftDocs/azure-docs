@@ -168,7 +168,7 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicated: 3,                                                         
+    targetDedicatedComputeNodes: 3,                                                         
     virtualMachineSize: "small",                                                
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 

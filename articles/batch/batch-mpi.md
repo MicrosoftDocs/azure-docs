@@ -53,7 +53,7 @@ This code snippet shows how to create a pool for multi-instance tasks using the 
 CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
-        targetDedicated: 3
+        targetDedicatedComputeNodes: 3
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 

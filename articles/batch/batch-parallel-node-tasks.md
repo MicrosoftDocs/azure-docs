@@ -58,7 +58,7 @@ This [Batch .NET][api_net] API code snippet shows a request to create a pool tha
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
-        targetDedicated: 4
+        targetDedicatedComputeNodes: 4
         virtualMachineSize: "large",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
@@ -79,7 +79,7 @@ This [Batch REST][api_rest] API snippet shows a request to create a pool that co
     "osFamily":"4",
     "targetOSVersion":"*",
   }
-  "targetDedicated":2,
+  "targetDedicatedComputeNodes":2,
   "maxTasksPerNode":4,
   "enableInterNodeCommunication":true,
 }

@@ -162,7 +162,7 @@ The following code snippet creates an Azure Batch pool.
 ```nodejs
 // Create a unique Azure Batch pool ID
 var poolid = "pool" + customerDetails.customerid;
-var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicated:numVms,enableAutoScale:false };
+var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicatedComputeNodes:numVms,enableAutoScale:false };
 // Creating the Pool for the specific customer
 var pool = batch_client.pool.add(poolConfig,function(error,result){
     if(error!=null){console.log(error.response)};
@@ -249,7 +249,7 @@ Following is a sample result object returned by the pool.get function.
         _config: [Object],
         _ordinalParseLenient: /\d{1,2}(th|st|nd|rd)|\d{1,2}/ } },
   currentDedicated: 0,
-  targetDedicated: 4,
+  targetDedicatedComputeNodes: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
   maxTasksPerNode: 1,
