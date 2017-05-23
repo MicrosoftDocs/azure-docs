@@ -23,7 +23,31 @@ This topic provides answers to some of the most common questions about Configura
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## How do I set the server Timezone for my web app
+## How can I use a custom domain name for my web app
+Several frequently asked questions are answered in our 7 minute screencast via [here](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). We provide a walkthrough of how to add a custom domain name so that you can use your own URL instead of the AzureWebSites.net URL with your App Service.
+In addition, our documentation also provides a detailed walkthrough on [mapping a custom domain name](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-custom-domain-name).
+
+
+## How can I purchase a custom domain for my Web App
+The article  ([Buy and Configure a custom domain name in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/custom-dns-web-site-buydomains-web-app/)) explains how to buy and configure a custom domain with App Service Web Apps.
+
+## How can I upload and configure an SSL certificate
+The steps to upload and configure a custom SSL certificate can be found [here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/#step-2-upload-and-bind-the-custom-ssl-certificate).
+
+
+## How to buy and configure an SSL certificate in Azure for my Azure App Service
+[This article](https://azure.microsoft.com/en-us/documentation/articles/web-sites-purchase-ssl-web-site/) explains how to buy and configure an SSL certificate in Azure for your Azure App Service in simple steps.
+
+
+## I am trying to move Application Insights resources
+Application Insights does not currently enable the move operation. So if your original resource group also includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
+To understand how you can approach this scenario, please review the guidance via [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
+
+## Guidance checklist and other considerations for Resource Move operations
+The documentation in the link below shows you how to move resources to either a new subscription or a new resource group in the same subscription. You can find information about the resource move checklist, which services enable move and which services don't, App Service limitations and several other useful topics in good detail.
+See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations) for more information.
+
+## How do I set the server Timezone for my web app?
 
 * In the Azure Portal, open the Application settings menu of your Azure App Service.
 * In the 'Application Settings' menu, scroll down to find 'App settings' and add a setting as shown below:
@@ -31,7 +55,7 @@ This topic provides answers to some of the most common questions about Configura
     * Value = Desired Time Zone
 * Save Changes.
 
-## Why do my continuous WebJobs fail sometimes
+## Why do my continuous WebJobs fail sometimes?
 
 By default, web apps are unloaded if they are idle for some period of time. This lets the system conserve resources.
 
@@ -41,7 +65,7 @@ If your web app runs continuous WebJobs, you should enable Always On, or the web
 
 See [Create a continuously running WebJob](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateContinuous) for more information.
 
-## How to get the outbound IP address for my web app
+## How to get the outbound IP address for my web app?
 
 Follow these steps to get the list of outbound IP addresses for your web app.
 1. Open the **Properties** menu of your web app.
@@ -50,7 +74,7 @@ You will see the list of Outbound IP addresses listed here.
 
 If your site is hosted on **Application Service Environment**, see [Outbound Network Addresses](https://azure.microsoft.com/en-us/documentation/articles/app-service-app-service-environment-network-architecture-overview/#outbound-network-addresses) for instructions to get Outbound IP Address.
 
-## How can I get reserved or dedicated Inbound IP Address for my Azure App Service
+## How can I get reserved or dedicated Inbound IP Address for my Azure App Service?
 
 If you need to configure a dedicated\reserved IP address for inbound calls made to the azure web app site, you will need to install and configure an IP based SSL certificate.
 
@@ -216,39 +240,10 @@ For more information on scheduled WebJobs, please see [Create a scheduled WebJob
 
 To perform penetration testing, you will need to submit a request. Click [here](https://security-forms.azure.com/penetration-testing/terms) to submit a request.
 
-## How can I use a custom domain name for my web app?
-
-Several frequently asked questions are answered in our 7 minute screencast via [here](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). We provide a walkthrough of how to add a custom domain name so that you can use your own URL instead of the AzureWebSites.net URL with your App Service.
-
-In addition, our documentation also provides a detailed walkthrough on [mapping a custom domain name](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-custom-domain-name).
-
-## How can I purchase a custom domain for my Web App?
-
-The article  ([Buy and Configure a custom domain name in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/custom-dns-web-site-buydomains-web-app/)) explains how to buy and configure a custom domain with App Service Web Apps.
-
 ## How do I configure a custom domain name for a web app in Azure App Service that uses Traffic Manager?
 
 The article ([Configuring a custom domain name for a web app in Azure App Service using Traffic Manager](https://azure.microsoft.com/en-us/documentation/articles/web-sites-traffic-manager-custom-domain-name/)) provides instructions for using a custom domain name with Azure App Service that use Traffic Manager for load balancing.
 
-## How can I upload and configure an SSL certificate?
-
-The steps to upload and configure a custom SSL certificate can be found [here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/#step-2-upload-and-bind-the-custom-ssl-certificate).
-
-## How to buy and configure an SSL certificate in Azure for my Azure App Service?
-
-[This article](https://azure.microsoft.com/en-us/documentation/articles/web-sites-purchase-ssl-web-site/) explains how to buy and configure an SSL certificate in Azure for your Azure App Service in simple steps.
-
-## I am trying to move Application Insights resources. What are some things I should be aware of?
-
-Application Insights does not currently enable the move operation. So if your original resource group also includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
-
-To understand how you can approach this scenario, please review the guidance via [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
-
-## Guidance, checklist and other considerations for Resource Move operations.
-
-The documentation in the link below shows you how to move resources to either a new subscription or a new resource group in the same subscription. You can find information about the resource move checklist, which services enable move and which services don't, App Service limitations and several other useful topics in good detail.
-
-See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations) for more information.
 
 ## My App Service Certificate is flagged for fraud. How can I take care of this?
 
