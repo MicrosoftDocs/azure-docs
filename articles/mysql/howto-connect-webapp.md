@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 05/23/2017
 ---
 
 # Connect an existing Azure App Service to Azure Database for MySQL server
@@ -32,7 +32,8 @@ To make sure the availability of your Azure App Service is not compromised, we r
 > We are working with Azure App Service team for a long term solution to avoid allowing all IPs.
 
 1. On the MySQL server blade, under Settings heading, click **Connection Security** to open the Connection Security blade for the Azure Database for MySQL.
-![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+
+   ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
 2. Enter **RULE NAME**, **START IP**, and **END IP**. Then click **Save**.
 
@@ -41,21 +42,19 @@ To make sure the availability of your Azure App Service is not compromised, we r
 |*RULE NAME*|Allow-All-IPs|
 |*START IP*|0.0.0.0|
 |*END IP*|255.255.255.255|
-|        |               |
 
-![Azure portal - Add all IPs](./media/howto-connect-webapp/1_2-add-all-ips.png)
+   ![Azure portal - Add all IPs](./media/howto-connect-webapp/1_2-add-all-ips.png)
 
 ## Solution 2 - Create a server-level firewall rule to explicitly allow outbound IPs
-
 You can explicitly add all the outbound IPs of your Azure App Service.
 
 1. On the App Service Properties blade, view your **OUTBOUND IP ADDRESS**.
 
-![Azure portal - View outbound IPs](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   ![Azure portal - View outbound IPs](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
 
 2. On the MySQL Connection security blade, add outbound IPs one by one.
 
-![Azure portal - Add explicit IPs](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   ![Azure portal - Add explicit IPs](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
 
 3. Remeber to **Save** your firewall rules.
 
