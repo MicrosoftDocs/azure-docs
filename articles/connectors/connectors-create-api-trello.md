@@ -26,7 +26,7 @@ Trello gives you perspective over all your projects, at work and at home.  It is
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The Trello connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
@@ -543,5 +543,5 @@ Gets list by Id: Gets list by Id
 | board |not defined |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

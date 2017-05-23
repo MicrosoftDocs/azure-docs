@@ -1,9 +1,9 @@
 ---
-title: Migrating to Azure Premium Storage | Microsoft Docs
-description: Migrate your existing virtual machines to Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
+title: Migrating VMs to Azure Premium Storage | Microsoft Docs
+description: Migrate your existing VMs to Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 services: storage
 documentationcenter: na
-author: aungoo-msft
+author: yuemlu
 manager: tadb
 editor: tysonn
 
@@ -13,12 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: yuemlu
 
 ---
-# Migrating to Azure Premium Storage
-## Overview
+# Migrating to Azure Premium Storage (Unmanaged Disks)
+
+> [!NOTE]
+> This article discusses how to migrate a VM that uses unmanaged standard disks to a VM that uses unmanaged premium disks. We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks. Managed Disks handle the underlying storage accounts so you don't have to. For more information, please see our [Managed Disks Overview](storage-managed-disks-overview.md).
+>
+
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating your application's VM disks to Azure Premium Storage.
 
 The purpose of this guide is to help new users of Azure Premium Storage better prepare to make a smooth transition from their current system to Premium Storage. The guide addresses three of the key components in this process:
@@ -32,7 +36,6 @@ You can either migrate VMs from other platforms to Azure Premium Storage or migr
 > [!NOTE]
 > You can find a feature overview and pricing of Premium Storage in Premium Storage: [High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md). We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage, which stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs.
 >
->
 
 Completing the migration process in its entirety may require additional actions both before and after the steps provided in this guide. Examples include configuring virtual networks or endpoints or making code changes within the application itself which may require some downtime in your application. These actions are unique to each application, and you should complete them along with the steps provided in this guide to make the full transition to Premium Storage as seamless as possible.
 
@@ -42,13 +45,13 @@ This section ensures that you are ready to follow the migration steps in this ar
 ### Prerequisites
 * You will need an Azure subscription. If you don’t have one, you can create a one-month [free trial](https://azure.microsoft.com/pricing/free-trial/) subscription or visit [Azure Pricing](https://azure.microsoft.com/pricing/) for more options.
 * To execute PowerShell cmdlets, you will need the Microsoft Azure PowerShell module. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for the install point and installation instructions.
-* When you plan to use Azure VMs running on Premium Storage, you need to use the Premium Storage capable VMs. You can use both Standard and Premium Storage disks with Premium Storage capable VMs. Premium storage disks will be available with more VM types in the future. For more information on all available Azure VM disk types and sizes, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md).
+* When you plan to use Azure VMs running on Premium Storage, you need to use the Premium Storage capable VMs. You can use both Standard and Premium Storage disks with Premium Storage capable VMs. Premium storage disks will be available with more VM types in the future. For more information on all available Azure VM disk types and sizes, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Considerations
 An Azure VM supports attaching several Premium Storage disks so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can achieve 80,000 IOPS (input/output operations per second) per VM and 2000 MB per second disk throughput per VM with extremely low latencies for read operations. You have options in a variety of VMs and Disks. This section is to help you to find an option that best suits your workload.
 
 #### VM sizes
-The Azure VM size specifications are listed in [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
+The Azure VM size specifications are listed in [Sizes for virtual machines](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
 
 #### Disk sizes
 There are three types of disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
@@ -59,7 +62,7 @@ There are three types of disks that can be used with your VM and each has specif
 | IOPS per disk |500 |2300 |5000 |
 | Throughput per disk |100 MB per second |150 MB per second |200 MB per second |
 
-Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](storage-premium-storage-performance.md#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces][4], you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details.
+Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](storage-premium-storage-performance.md#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces][4], you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details.
 
 #### Storage account scalability targets
 Premium Storage accounts have the following scalability targets in addition to the [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md). If your application requirements exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts.
@@ -68,7 +71,7 @@ Premium Storage accounts have the following scalability targets in addition to t
 |:--- |:--- |
 | Disk capacity: 35TB<br />Snapshot capacity: 10 TB |Up to 50 gigabits per second for Inbound + Outbound |
 
-For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](storage-premium-storage.md#scalability-and-performance-targets).
 
 #### Disk caching policy
 By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance. The cache settings for existing data disks can be updated using [Azure Portal](https://portal.azure.com) or the *-HostCaching* parameter of the *Set-AzureDataDisk* cmdlet.
@@ -263,7 +266,7 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 	```azcopy
 	AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
 	```
-	
+
     Example:
 
 	```azcopy
@@ -310,7 +313,7 @@ A sample migration script is provided at the end of this section. This simple sc
 Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
 
 > [!NOTE]
-> If you are creating an Azure Resource Manager VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) for deploying Resource Manager VM using existing disk.
+> If you are creating an Azure Resource Manager VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) for deploying Resource Manager VM using existing disk.
 >
 >
 
@@ -753,8 +756,8 @@ Databases and other complex applications may require special steps as defined by
 See the following resources for specific scenarios for migrating virtual machines:
 
 * [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Create and upload a Windows Server VHD to Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Create and upload a Windows Server VHD to Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:

@@ -4,13 +4,11 @@
 
 # Get Started
 
-## [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
-### [PowerShell](dns-getstarted-create-dnszone.md)
-### [CLI](dns-getstarted-create-dnszone-cli.md)
-
-## [Create DNS records](dns-getstarted-create-recordset-portal.md)
-### [PowerShell](dns-getstarted-create-recordset.md)
-### [CLI](dns-getstarted-create-recordset-cli.md)
+## Create a DNS zone and record
+### [Portal](dns-getstarted-portal.md)
+### [PowerShell](dns-getstarted-powershell.md)
+### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
+### [Azure CLI 2.0](dns-getstarted-cli.md)
 
 ## [Delegate your domain to Azure DNS](dns-domain-delegation.md)
 ## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
@@ -19,14 +17,15 @@
 
 ## Manage DNS zones
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
+
 
 ## [Manage DNS records](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## [Manage reverse DNS records](dns-reverse-dns-record-operations-ps.md)
-### [CLI](dns-reverse-dns-record-operations-cli.md)
+### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Import and export a DNS zone file](dns-import-export.md)
@@ -34,9 +33,12 @@
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
+## Troubleshoot
+### [Troubleshooting guide](dns-troubleshoot.md)
+
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
-## [Azure CLI 2.0 (Preview)](/cli/azure/network/dns)
+## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)

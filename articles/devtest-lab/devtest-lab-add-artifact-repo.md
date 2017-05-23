@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 01/11/2017
 ms.author: tarcher
 
 ---
 # Add a Git artifact repository to a lab in Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/How-to-add-your-private-Artifacts-Repository-in-a-DevTest-Lab/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-add-your-private-Artifacts-Repository-in-a-DevTest-Lab/player]
 > 
 > 
 
@@ -42,7 +42,7 @@ To get the GitHub repository clone URL and personal access token, follow these s
 4. Select the profile image in the upper-right corner of GitHub, and select **Settings**.
 5. In the **Personal settings** menu on the left, select **Personal access tokens**.
 6. Select **Generate new token**.
-7. On the **New personal access token** page, enter a **Token description**, accept the default items in the **Select scopes**, and then choose **Generate Token**.
+7. On the **New personal access token** page, enter a **Token description**. If it's a public repo, accept the default items in the **Select scopes**; otherwise, select **repo** scope. Then choose **Generate Token**. [Read more about OAuth scopes in GitHub](https://developer.github.com/v3/oauth/#scopes).
 8. Save the generated token as you need it later.
 9. You can close GitHub now.   
 10. Continue to the [Connect your lab to the artifact repository](#connect-your-lab-to-the-artifact-repository) section.

@@ -3,7 +3,7 @@ title: How to use Table storage (C++) | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 
 ---
 # How to use Table storage from C++
@@ -48,8 +48,8 @@ To install the Azure Storage Client Library for C++, you can use the following m
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/table.h"
+#include <was/storage_account.h>
+#include <was/table.h>
 ```
 
 ## Set up an Azure storage connection string

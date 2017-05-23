@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
@@ -27,13 +28,12 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 
 > [!NOTE]
 > If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see [What you need to know about Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
 
-* A Hadoop on HDInsight cluster (Linux or Windows-based)
+* A Hadoop on HDInsight cluster
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -89,7 +89,7 @@ To complete the steps in this article, you will need the following:
    > 
 4. When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file; in this case, **wasbs:///example/curl**. This address stores the output of the job in the **example/curl** directory in the default storage container used by your HDInsight cluster.
 
-You can list and download these files by using the [Azure CLI](../xplat-cli-install.md). For example, to list files in the **example/curl**, use the following command:
+You can list and download these files by using the [Azure CLI](../cli-install-nodejs.md). For example, to list files in the **example/curl**, use the following command:
 
     azure storage blob list <container-name> example/curl
 

@@ -24,7 +24,7 @@ Azure Functions makes it easy to configure continuous deployment for your functi
 Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated. It also lets you maintain source control on your functions code. The following deployment sources are currently supported:
 
 * [Bitbucket](https://bitbucket.org/)
-* [Dropbox](https://bitbucket.org/)
+* [Dropbox](https://www.dropbox.com/)
 * [Git local repo](../app-service-web/app-service-deploy-local-git.md)
 * Git external repo
 * [GitHub]

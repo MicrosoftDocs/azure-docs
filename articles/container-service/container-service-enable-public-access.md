@@ -1,10 +1,10 @@
 ---
-title: Enable Public Access to an ACS app | Microsoft Docs
-description: How to enable public access to an Azure Container Service.
+title: Enable access to Azure DC/OS container app | Microsoft Docs
+description: How to enable public access to DC/OS containers in Azure Container Service.
 services: container-service
 documentationcenter: ''
-author: Thraka
-manager: timlt
+author: sauryadas
+manager: madhana
 editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
-ms.author: timlt
+ms.author: saudas
 
 ---
 # Enable public access to an Azure Container Service application

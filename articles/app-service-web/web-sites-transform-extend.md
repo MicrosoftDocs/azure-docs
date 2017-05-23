@@ -4,7 +4,7 @@ description: Use XML Document Transformation(XDT) declarations to transform the 
 author: cephalin
 writer: cephalin
 editor: mollybos
-manager: wpickett
+manager: erikre
 services: app-service
 documentationcenter: ''
 
@@ -166,7 +166,7 @@ Note that the URL looks just like the URL for your web app, except that it uses 
 It is possible to disable all private (not pre-installed) extensions for your web app during development and investigations by adding an app settings with the key `WEBSITE_PRIVATE_EXTENSIONS` and a value of `0`.
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

@@ -1,10 +1,22 @@
 ---
+title: Azure SQL Data Warehouse Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
+services: sql-data-warehouse
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: sql-data-warehouse
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # SQL Data Warehouse Documentation
 
-Azure SQL Data Warehouse combines the SQL Server relational database with Azure cloud scale-out capabilities.  Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
+Learn how to use SQL Data Warehouse, which combines the SQL Server relational database with massively parallel processing. Tutorials and other documentation show you how to load data into the warehouse, then analyze, manage, and export it.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -44,13 +56,14 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
         </a>
     </li>
      <li>
-        <a href="/azure/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
+        <a href="/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -71,7 +84,8 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlets</a></p>
                     </div>
                 </div>
@@ -95,11 +109,4 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download SQL Data Warehouse Documentation
-        </div>
-    </a>
-</div>
+

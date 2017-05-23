@@ -33,7 +33,8 @@ Follow the steps in this article to create a local working branch on your comput
         git pull upstream master
 9. Push the changes to your fork on GitHub:
    
-       git push origin <working branch>
+        git push origin <working branch>
+       
 10. When you are ready to submit your content to the upstream master branch for staging, validation, and/or publishing, in the GitHub UI, create a pull request from your fork to the master branch.
 11. If you are an employee working in the private repository, the changes you submit are automatically staged and a staging link is written to the pull request. Please review your staged content and sign off in the pull request comments by adding the **#sign-off** comment.  This indicates the changes are ready to be pushed live.  If you don't want the pull request to be accepted - if you are just staging the changes - add the **#hold-off** note to the pull request.
 12. If your update is small in scope, the PR may qualify for automatic merge. If not, the pull request review team reviews your pull request, provides feedback, and merges it if the PR meets [the minimum quality criteria](contributor-guide-pr-criteria).
@@ -54,3 +55,5 @@ Then, to keep your local copy of the release branch up to date with the upstream
     git pull upstream <release-branch-name>
     
 The person repsonsible for managing the release from the content side needs to update the release branch with updates from master on a daily basis.
+
+**TIP:** If you receive a *fatal: Cannot update paths and switch to branch 'release-branch' at the same time* error when issuing the `checkout` command, execute `git fetch upstream`, then the checkout command. The `fetch` grabs all the new remote-tracking branches (such as the release branch you want to work with) and tags without merging those changes into your own branches.

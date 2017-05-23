@@ -101,8 +101,8 @@ container = azure_blob_service.create_container("test-container",
 
 Valid values for the **:public\_access\_level** option are:
 
-* **blob:** Specifies full public read access for container and blob data. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.
-* **container:** Specifies public read access for blobs. Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
+* **blob:** Specifies public read access for blobs. Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
+* **container:** Specifies full public read access for container and blob data. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.
 
 Alternatively, you can modify the public access level of a container by using **set\_container\_acl()** method to specify the public access level.
 

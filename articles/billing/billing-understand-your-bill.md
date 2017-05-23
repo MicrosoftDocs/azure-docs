@@ -1,10 +1,10 @@
 ---
-title: Understanding your bill | Microsoft Docs
+title: Understanding your bill for Azure | Microsoft Docs
 description: Learn how to read and understand the usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
 author: genlin
-manager: stevenpo
+manager: ruchic
 editor: ''
 tags: billing
 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 02/03/2017
 ms.author: erihur;genli
 
 ---
 # Understand your bill for Microsoft Azure
-To understand your Azure bill, review the invoice with the summary of charges and the separate detailed daily usage file. This article describes most of the terms shown in the invoice and the daily usage file. To get these files, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md). If you're using a free trial subscription, you can get your daily usage information but you don't have an invoice.
+To understand your Azure bill, review the invoice with the summary of charges and the separate detailed daily usage file. This article describes most of the terms shown in the invoice and the daily usage file. To get these files, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). If you're using a free trial subscription, you can get your daily usage information but you don't have an invoice.
 
 The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, like the Visual Studio Enterprise (MPN) subscribers, include monthly credits that you can use on any Azure service based on your needs.
 
 Up to 24 hours of usage at the end of the previous billing period may show up in your current bill. Also charges listed on billing statements for international customers are for estimation purposes only. Banks have different costs for the conversion rates.
 
 ## <a name="pdf"></a> Understand your invoice (.pdf)
-The invoice provides a summary of your charges. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com). For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md). 
+The invoice provides a summary of your charges. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com). For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md). 
 
 The following sections list most of the terms that you see on your invoice and descriptions for each term.
 
@@ -40,10 +40,10 @@ The account information section shows information about your usage and profile.
 | Invoice No. |A unique invoice identifier for tracking purposes |
 | Billing cycle |Date range that this invoice covers |
 | Invoice date |Date that the invoice was generated |
-| Payment method |Type of payment used on the account (invoice or credit card). If you need to update your credit card, see [How to change the credit card used to pay for an Azure subscription](../billing-how-to-change-credit-card.md). If you represent a business, you can pay for your Azure subscription with invoice payment methods like checks, overnight checks, or wire transfers. See [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/). |
-| Bill to |Microsoft Azure payments address. You can update the billing address associated with your credit card by going to the subscription page in the [Azure Account Center](https://account.windowsazure.com/subscriptions). |
-| Subscription offer |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). If you want to change Pay-As-You-Go to another subscription offer, see [Switch your Azure subscription to another offer](../billing-how-to-switch-azure-offer.md). |
-| Account owner email |The account email address that the Microsoft Azure account is registered under. To change the email address, see [How to change profile information of your Azure account such as contact email, address and phone number](../billing-how-to-change-azure-account-profile.md). |
+| Payment method |Type of payment used on the account (invoice or credit card). If you need to update your credit card, see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md). If you represent a business, you can pay for your Azure subscription with invoice payment methods like checks, overnight checks, or wire transfers. See [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/). |
+| Bill to |Microsoft Azure payments address. Learn how to update your billing information by seeing [Change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md). |
+| Subscription offer |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). If you want to change Pay-As-You-Go to another subscription offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). |
+| Account owner email |The account email address that the Microsoft Azure account is registered under. To change the email address, see [How to change profile information of your Azure account such as contact email, address and phone number](billing-how-to-change-azure-account-profile.md). |
 
 ### Understand the invoice summary
 The **Invoice Summary** section of the bill summarizes transactions since your last bill, and your current usage charges.
@@ -73,11 +73,11 @@ The following table describes the sold to and payment instructions shown on your
 
 | Term | Description |
 | --- | --- |
-| Sold to |This is prepopulated with the profile address on the account. If you need to change this, see [How to change profile information of your Azure account such as contact email, address and phone number](../billing-how-to-change-azure-account-profile.md). |
+| Sold to |This is prepopulated with the profile address on the account. If you need to change this, see [How to change profile information of your Azure account such as contact email, address and phone number](billing-how-to-change-azure-account-profile.md). |
 | Payment instructions |If your payment method is invoice, this is where to send checks, wire transfers, or overnight checks. For more information, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) |
 
 ## <a name="csv"></a> Understand detailed usage charges (.csv)
-The usage file shows how much of each resource was used within the current billing period. It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application. If you see two versions available, download version 2. That's the most current file format. For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md).
+The usage file shows how much of each resource was used within the current billing period. It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application. If you see two versions available, download version 2. That's the most current file format. For more information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
 Usage charges are the total **monthly** charges on a subscription minus any credit or discount. You are billed for your past month’s usage.  
 
@@ -128,6 +128,15 @@ The Daily usage section of the file shows usage details that affect the billing 
 |Service Info 1 |The project name that the service belongs to on your subscription. |
 |Service Info 2 |This is a legacy field that captures optional service-specific metadata. |
 
+## Tips for cost management
+It's good to be proactive about controlling your costs:
+
+- Estimate costs using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and when you add a service
+- [Set up billing alerts](billing-set-up-alerts.md)
+- [Review your usage and costs regularly in Azure portal](billing-getting-started.md#costs)
+
+To learn more, see [Getting started with Azure billing and cost management](billing-getting-started.md).
+
 ## How do I make a payment?
 If you set up a credit card or a debit card as your payment method, the payment is made automatically. If you are set up to use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -135,7 +144,7 @@ If you set up a credit card or a debit card as your payment method, the payment 
 [Create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to ask for the status of your payment. 
 
 ## What about Marketplace orders or external service charges?
-External services used to be called Marketplace orders. External Services are provided by independent service vendors, but are integrated within the Azure ecosystem. To learn more, see [Understand your Azure external service charges](../billing-understand-your-azure-marketplace-charges.md).
+External services used to be called Marketplace orders. External Services are provided by independent service vendors, but are integrated within the Azure ecosystem. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
 ## Need help? Contact support. 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

@@ -4,7 +4,7 @@ description: Learn how to deploy Azure WebJobs to Azure App Service Web Apps usi
 services: app-service
 documentationcenter: ''
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Deploy WebJobs using Visual Studio

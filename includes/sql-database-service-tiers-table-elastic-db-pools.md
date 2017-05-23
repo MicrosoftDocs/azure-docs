@@ -31,7 +31,7 @@ sql-database-service-tiers.md
 | Max eDTUs per database | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
-### Standard elastic pool limits (continued) **
+### Standard elastic pool limits (continued) 
 
 | Pool size (eDTUs)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -57,7 +57,7 @@ sql-database-service-tiers.md
 | Max eDTUs per database | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |  
 ||||||||
 
-### Premium elastic pool limits (continued) **
+### Premium elastic pool limits (continued) 
 
 | Pool size (eDTUs)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -70,6 +70,5 @@ sql-database-service-tiers.md
 | Max eDTUs per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
+\* Pooled databases share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database. Max storage per pool refers to the maximum storage of the data files in the pool and does not include space used by log files.
 
-\** The 3000 eDTU pool size for a Standard elastic pool and the 4000 eDTU pool size for a Premium elastic pool are currently only available via PowerShell and the REST API. These pool sizes will be available in the Azure portal soon. 

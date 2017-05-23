@@ -1,9 +1,22 @@
 ---
+title: Azure Key Vault Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+services: key-vault
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 # Key Vault Documentation
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
+Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys that access and encrypt your resources and solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,7 +122,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
-                         <p><a href="/cli/azure/keyvault">Azure 2​.0 CLI (Preview)</a></p>
+                         <p><a href="/cli/azure/keyvault">Azure CLI 2​.0</a></p>
                     </div>
                 </div>
             </div>
@@ -146,11 +159,3 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Key Vault Documentation
-        </div>
-    </a>
-</div>

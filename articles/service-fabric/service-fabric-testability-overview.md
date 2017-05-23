@@ -3,7 +3,7 @@ title: Fault Analysis Service overview | Microsoft Docs
 description: This article describes the Fault Analysis Service in Service Fabric for inducing faults and running test scenarios against your services.
 services: service-fabric
 documentationcenter: .net
-author: rishirsinha
+author: anmolah
 manager: timlt
 editor: vturecek
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2016
-ms.author: rsinha
+ms.date: 03/01/2017
+ms.author: anmola
 
 ---
 # Introduction to the Fault Analysis Service

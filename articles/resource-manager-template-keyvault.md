@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-template-keyvault
+redirect_url: /azure/templates/microsoft.keyvault/vaults
 ---

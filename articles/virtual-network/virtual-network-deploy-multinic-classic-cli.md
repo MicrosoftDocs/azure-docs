@@ -1,10 +1,10 @@
 ---
-title: Create a VM (Classic) with multiple NICs using the Azure CLI | Microsoft Docs
-description: Learn how to create a VM with multiple NICs through the classic deployment model using the Azure CLI.
+title: Create a VM (Classic) with multiple NICs - Azure CLI 1.0 | Microsoft Docs
+description: Learn how to create a VM (Classic) with multiple NICs using the Azure command-line interface (CLI) 1.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create a VM (Classic) with multiple NICs using the Azure CLI
+# Create a VM (Classic) with multiple NICs using the Azure CLI 1.0
+
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multiple NICs enable separation of traffic types across NICs. For example, one NIC might communicate with the Internet, while another communicates only with internal resources not connected to the Internet. The ability to separate network traffic across multiple NICs is required for many network virtual appliances, such as application delivery and WAN optimization solutions.

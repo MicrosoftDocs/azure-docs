@@ -1,6 +1,6 @@
 ---
-title: Create NSGs using PowerShell | Microsoft Docs
-description: Learn how to create NSGs using PowerShell | Resource Manager.
+title: Create network security groups - Azure PowerShell | Microsoft Docs
+description: Learn how to create and deploy network security groups using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
-# Create NSGs using PowerShell
+# Create network security groups using PowerShell
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]

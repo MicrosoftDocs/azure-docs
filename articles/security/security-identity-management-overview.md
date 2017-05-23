@@ -1,6 +1,6 @@
 ---
-title: Azure identity management security overview | Microsoft Docs
-description: " Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and conditional access policies. This article provides an overview of the core Azure security features that help with identity management. "
+title: Azure security features that help with identity management | Microsoft Docs
+description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation such as multi-factor authentication and conditional access policies. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 03/09/2017
 ms.author: terrylan
 
 ---
@@ -106,15 +106,15 @@ Learn more:
 * [Azure Active Directory B2C Preview: Types of Applications](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## Device registration
-Azure AD Device Registration is the foundation for device-based [conditional access](../active-directory/active-directory-conditional-access-on-premises-setup.md) scenarios. When a device is registered, Azure Active Directory Device Registration provides the device with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises.
+Azure AD Device Registration is the foundation for device-based [conditional access](../active-directory/active-directory-conditional-access-device-registration-overview.md) scenarios. When a device is registered, Azure Active Directory Device Registration provides the device with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises.
 
 When combined with a mobile device management (MDM) solution such as Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance.
 
 Learn more:
 
 * [Get started with Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-* [Setting up on-premises conditional access using Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-on-premises-setup.md)
 * [Automatic device registration with Azure Active Directory for Windows domain-joined devices](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+* [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## Privileged identity management
 Azure Active Directory (AD) Privileged Identity Management lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.

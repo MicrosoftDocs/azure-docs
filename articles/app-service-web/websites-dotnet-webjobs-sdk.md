@@ -4,7 +4,7 @@ description: An introduction to the Azure WebJobs SDK. Explains what the SDK is,
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # What is the Azure WebJobs SDK

@@ -4,7 +4,7 @@ description: This topic shows how to configure different asset delivery policies
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -24,12 +24,10 @@ If you plan to deliver dynamically encrypted assets, one of the steps in the Med
 
 This topic discusses why and how to create and configure asset delivery policies.
 
-> [!NOTE]
-> To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
-> 
-> Also, your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
-> 
-> 
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>
+>Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
 You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 

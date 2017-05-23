@@ -1,6 +1,6 @@
 ---
-title: Cluster Model | Microsoft Docs
-description: Cluster Model
+title: (deprecated) Cluster Model - Azure | Microsoft Docs
+description: (deprecated) Cluster Model
 services: machine-learning
 documentationcenter: ''
 author: FrancescaLazzeri
@@ -12,12 +12,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: lazzeri
 
+ROBOTS: NOINDEX, NOFOLLOW
+#To remove completely, uncomment the following metadata
+#redirect_url: https://gallery.cortanaintelligence.com/
+
 ---
-# Cluster Model
+# (deprecated) Cluster Model
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 How can we predict groups of credit cardholders’ behaviors in order to reduce the charge-off risk of credit card issuers? How can we define groups of personality traits of employees in order to improve their performance at work? How can doctors classify patients into groups based on the characteristics of their diseases? In principle, all of these questions can be answered through cluster analysis.   
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

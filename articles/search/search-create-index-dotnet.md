@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 
 ---
@@ -33,10 +33,10 @@ Before following this guide and creating an index, you should have already [crea
 
 Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
 
-## I. Identify your Azure Search service's admin api-key
+## Identify your Azure Search service's admin api-key
 Now that you have provisioned an Azure Search service, you are almost ready to issue requests against your service endpoint using the .NET SDK. First, you will need to obtain one of the admin api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. To find your service's api-keys you must log into the [Azure portal](https://portal.azure.com/)
+1. To find your service's api-keys, sign in to the [Azure portal](https://portal.azure.com/)
 2. Go to your Azure Search service's blade
 3. Click on the "Keys" icon
 
@@ -49,7 +49,7 @@ For the purposes of creating an index, you can use either your primary or second
 
 <a name="CreateSearchServiceClient"></a>
 
-## II. Create an instance of the SearchServiceClient class
+## Create an instance of the SearchServiceClient class
 To start using the Azure Search .NET SDK, you will need to create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
 The code below creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (`app.config` or `web.config`):
@@ -70,7 +70,7 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 <a name="DefineIndex"></a>
 
-## III. Define your Azure Search index
+## Define your Azure Search index
 A single call to the `Indexes.Create` method will create your index. This method takes as a parameter an `Index` object that defines your Azure Search index. You need to create an `Index` object and initialize it as follows:
 
 1. Set the `Name` property of the `Index` object to the name of your index.
@@ -153,7 +153,7 @@ var definition = new Index()
 };
 ```
 
-## IV. Create the index
+## Create the index
 Now that you have an initialized `Index` object, you can create the index simply by calling `Indexes.Create` on your `SearchServiceClient` object:
 
 ```csharp
@@ -173,6 +173,6 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## Next
+## Next steps
 After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 

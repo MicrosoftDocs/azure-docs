@@ -4,7 +4,7 @@ description: Learn how to manage the global settings of your application using A
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b

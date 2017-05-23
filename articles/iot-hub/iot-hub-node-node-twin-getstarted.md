@@ -222,7 +222,7 @@ Use the following resources to learn how to:
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md

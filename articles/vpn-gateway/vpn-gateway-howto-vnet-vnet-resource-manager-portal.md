@@ -1,10 +1,10 @@
 ---
-title: Connect VNets using the Resource Manager deployment model and the Azure portal  | Microsoft Docs
+title: 'Connect an Azure virtual network to another VNet: Portal | Microsoft Docs'
 description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 03/27/2017
 ms.author: cherylmc
 
 ---
@@ -22,9 +22,9 @@ ms.author: cherylmc
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Classic - Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > 
-> 
+>
 
 This article walks you through the steps to create a connection between VNets in the Resource Manager deployment model by using VPN Gateway and the Azure portal.
 
@@ -61,7 +61,7 @@ You may want to connect virtual networks for the following reasons:
   
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+For more information about VNet-to-VNet connections, see [VNet-to-VNet considerations](#faq) at the end of this article.
 
 ### <a name="values"></a>Example settings
 When using these steps as an exercise, you can use the sample configuration values. For example purposes, we use multiple address spaces for each VNet. However, VNet-to-VNet configurations don't require multiple address spaces.
@@ -134,7 +134,7 @@ If you are creating this configuration as an exercise, refer to these [Example s
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="DNSServer"></a>4. Specify a DNS server (optional)
-If you want to have name resolution for virtual machines that are deployed to your VNets, you should specify a DNS server.
+DNS is not required for VNet-to-VNet connections. However, if you want to have name resolution for resources that are deployed to your virtual network, you should specify a DNS server. This setting lets you specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -186,7 +186,7 @@ You can double-click each connection separately to view more information about t
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
-## <a name="faq"></a>VNet-to-VNet FAQ
+## <a name="faq"></a>VNet-to-VNet considerations
 View the FAQ details for additional information about VNet-to-VNet connections.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]

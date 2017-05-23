@@ -65,7 +65,7 @@ You need to get a separate API key for each VSTS release template.
    
     Paste your API key to the ApiKey variable definition.
    
-    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated.](./media/app-insights-annotations/50.png)
+    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated, and click the lock icon.](./media/app-insights-annotations/50.png)
 7. Finally, **Save** the release definition.
 
 

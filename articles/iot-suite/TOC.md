@@ -19,6 +19,7 @@
 ## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
 ## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
+## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
 
 # Reference

@@ -1,5 +1,5 @@
 ---
-title: How to configure Virtual Network support for a Premium Azure Redis Cache | Microsoft Docs
+title: Configure a Virtual Network for a Premium Azure Redis Cache | Microsoft Docs
 description: Learn how to create and manage Virtual Network support for your Premium tier Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
@@ -13,14 +13,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/09/2017
 ms.author: sdanie
 
 ---
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
-Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier.
-
-The Azure Redis Cache premium tier features include clustering, persistence, and virtual network (VNet) support. A VNet is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
+Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. A VNet is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
 
 > [!NOTE]
 > Azure Redis Cache supports both classic and ARM VNets.
@@ -57,7 +55,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 > 
 > 
 
-After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Settings** blade.
+After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Resource menu**.
 
 ![Virtual network][redis-cache-vnet-info]
 

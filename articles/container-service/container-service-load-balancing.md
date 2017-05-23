@@ -1,6 +1,6 @@
 ---
-title: Load balance containers in an Azure Container Service cluster | Microsoft Docs
-description: Load balance across multiple containers in an Azure Container Service cluster.
+title: Load balance containers in Azure DC/OS cluster | Microsoft Docs
+description: Load balance across multiple containers in an Azure Container Service DC/OS cluster.
 services: container-service
 documentationcenter: ''
 author: rgardler
@@ -12,14 +12,14 @@ keywords: Containers, Micro-services, DC/OS, Azure
 ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 
 ---
-# Load balance containers in an Azure Container Service cluster
+# Load balance containers in an Azure Container Service DC/OS cluster
 In this article, we'll explore how to create an internal load balancer in a a DC/OS managed Azure Container Service using Marathon-LB. This will enable you to scale your applications horizontally. It will also enable you to take
 advantage of the public and private agent clusters by placing your load balancers on the public cluster and your application containers on the private cluster.
 

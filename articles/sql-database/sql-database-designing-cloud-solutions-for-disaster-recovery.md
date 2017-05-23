@@ -1,6 +1,6 @@
 ---
-title: Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Docs
-description: Learn how to design cloud disaster recovery solutions for business continuity planning using geo-replication for app data backup with Azure SQL Database.
+title: Disaster recovery app design - Azure SQL Database | Microsoft Docs
+description: Learn about application design for Azure SQL Database disaster recovery using geo-replication.
 keywords: cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning
 services: sql-database
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: monicar
 
 ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
 ms.service: sql-database
-ms.custom: app development
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -19,7 +19,7 @@ ms.date: 07/20/2016
 ms.author: sashan
 
 ---
-# Design an application for cloud disaster recovery using Active Geo-Replication in SQL Database
+# Application design for cloud disaster recovery using Active Geo-Replication in SQL Database
 > [!NOTE]
 > [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
 >

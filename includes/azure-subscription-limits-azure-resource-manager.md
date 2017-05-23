@@ -6,7 +6,7 @@
 | [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
 | [Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
 | [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |
-| [Availability Sets](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2000 per Region |2000 per Region |
+| [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2000 per Region |2000 per Region |
 | Resource Manager API Reads |15000 per hour |15000 per hour |
 | Resource Manager API Writes |1200 per hour |1200 per hour |
 | Resource Manager API request size |4194304 bytes |4194304 bytes |

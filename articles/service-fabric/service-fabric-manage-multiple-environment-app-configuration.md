@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/01/2016
+ms.date: 2/06/2017
 ms.author: seanmck
 
 ---
@@ -92,6 +92,94 @@ This parameter can then be configured by environment as shown above. You can do 
 > In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application parameter file. Service Fabric will always choose from the application parameter file first (if specified), then the application manifest, and finally the configuration package.
 > 
 > 
+
+### Setting and using environment variables 
+You can specify and set environment variables in the ServiceManifest.xml file and then override these in the ApplicationManifest.xml file on a per instance basis.
+The example below shows two environment variables, one with a value set and the other will be overridden. You can use application parameters to set environment variables values in the same way that these were used for config overrides.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Description>An example service manifest</Description>
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="MyServiceType" />
+  </ServiceTypes>
+  <CodePackage Name="MyCode" Version="CodeVersion1">
+    <SetupEntryPoint>
+      <ExeHost>
+        <Program>MySetup.bat</Program>
+      </ExeHost>
+    </SetupEntryPoint>
+    <EntryPoint>
+      <ExeHost>
+        <Program>MyServiceHost.exe</Program>
+      </ExeHost>
+    </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentVariables>
+  </CodePackage>
+  <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
+  <DataPackage Name="MyData" Version="DataVersion1" />
+</ServiceManifest>
+```
+To override the environment variables in the ApplicationManifest.xml, reference the code package in the ServiceManifest with the `EnvironmentOverrides` element.
+
+```xml
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="FrontEndServicePkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentOverrides CodePackageRef="MyCode">
+      <EnvironmentVariable Name="MyEnvVariable" Value="mydata"/>
+    </EnvironmentOverrides>
+  </ServiceManifestImport>
+ ``` 
+ Once the named service instance is created you can access the environment variables from code. e.g. In C# you can do the following
+
+```csharp
+    string EnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
+```
+
+### Service Fabric environment variables
+Service Fabric has built in environment variables set for each service instance. The full list of environment variables is below, where the ones in bold are the ones that you will use in your service, the other being used by Service Fabric runtime. 
+
+* Fabric_ApplicationHostId
+* Fabric_ApplicationHostType
+* Fabric_ApplicationId
+* **Fabric_ApplicationName**
+* Fabric_CodePackageInstanceId
+* **Fabric_CodePackageName**
+* **Fabric_Endpoint_[YourServiceName]TypeEndpoint**
+* **Fabric_Folder_App_Log**
+* **Fabric_Folder_App_Temp**
+* **Fabric_Folder_App_Work**
+* **Fabric_Folder_Application**
+* Fabric_NodeId
+* **Fabric_NodeIPOrFQDN**
+* **Fabric_NodeName**
+* Fabric_RuntimeConnectionAddress
+* Fabric_ServicePackageInstanceId
+* Fabric_ServicePackageName
+* Fabric_ServicePackageVersionInstance
+* FabricPackageFileName
+
+The code belows shows how to list the Service Fabric environment variables
+ ```csharp
+    foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+    {
+        if (de.Key.ToString().StartsWith("Fabric"))
+        {
+            Console.WriteLine(" Environment variable {0} = {1}", de.Key, de.Value);
+        }
+    }
+```
+Below are example environment variables for an application type called `GuestExe.Application` with a service type called `FrontEndService` when run on your local dev machine.
+
+* **Fabric_ApplicationName = fabric:/GuestExe.Application**
+* **Fabric_CodePackageName = Code**
+* **Fabric_Endpoint_FrontEndServiceTypeEndpoint = 80**
+* **Fabric_NodeIPOrFQDN = localhost**
+* **Fabric_NodeName = _Node_2**
 
 ### Application parameter files
 The Service Fabric application project can include one or more application parameter files. Each of them defines the specific values for the parameters that are defined in the application manifest:

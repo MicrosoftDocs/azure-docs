@@ -1,6 +1,6 @@
 
 ## Start your PowerShell session
-First, you should have the latest [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+First, you should have the latest Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../articles/azure-resource-manager/resource-group-overview.md), so examples use the [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) for Resource Manager. The service management (classic) deployment model [Azure SQL Database Service Management cmdlets](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) are supported for backward compatibility, but we recommend you use the Resource Manager cmdlets.

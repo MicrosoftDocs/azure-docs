@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
 ms.service: sql-database
 ms.workload: sql-database
-ms.custom: elastic
+ms.custom: multiple databases
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

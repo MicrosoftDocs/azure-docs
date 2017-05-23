@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/03/2017
 ms.author: kirillg
 
 ---
@@ -85,12 +85,12 @@ To retrieve your connection string, do the following:
 If you are using the connection string in the [DocumentDB Database Migration Tool](documentdb-import-data.md), append the database name to the end of the connection string. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a id="delete"></a> Delete a DocumentDB account
-To remove a DocumentDB account from the Azure Portal that you are no longer using, use the **Delete Account** command on the **DocumentDB account** blade.
+To remove a DocumentDB account from the Azure Portal that you are no longer using, right-click the account name, and click **Delete account**.
 
 ![How to delete a DocumentDB account in the Azure Portal](./media/documentdb-manage-account/deleteaccount.png)
 
 1. In the [Azure portal](https://portal.azure.com/), access the DocumentDB account you wish to delete.
-2. On the **DocumentDB account** blade, click **More**, and then click **Delete Account**. Or, right-click the name of the database, and click **Delete Account**.
+2. On the **DocumentDB account** blade, right-click the account, and then click **Delete Account**. 
 3. On the resulting confirmation blade, type the DocumentDB account name to confirm that you want to delete the account.
 4. Click the **Delete** button.
 
@@ -98,8 +98,6 @@ To remove a DocumentDB account from the Azure Portal that you are no longer usin
 
 ## <a id="next"></a>Next steps
 Learn how to [get started with your DocumentDB account](http://go.microsoft.com/fwlink/p/?LinkId=402364).
-
-To learn more about DocumentDB, see the Azure DocumentDB documentation on [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 <!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png

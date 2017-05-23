@@ -19,7 +19,7 @@ ms.author: tarcher
 ---
 # Getting started with Storage Explorer (Preview)
 ## Overview
-Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OS X, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
+Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux. In this article, you learn the various ways of connecting to and managing your Azure storage accounts.
 
 ![Microsoft Azure Storage Explorer (Preview)][15]
 
@@ -27,11 +27,11 @@ Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you 
 * [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
 
 ## Connect to a storage account or service
-Storage Explorer (Preview) provides a myriad ways to connect to storage accounts. This includes connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator. In addition, you can work with storage accounts in global and national Azure:
+Storage Explorer (Preview) provides a number of ways to connect to storage accounts. This includes connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator. In addition, you can work with storage accounts in global and national Azure:
 
 * [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
 * [Work with local development storage](#work-with-local-development-storage) - Manage local storage using the Azure Storage Emulator.
-* [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription or under national Azure clouds using the storage account's name, key and endpoints.
+* [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription or under national Azure clouds using the storage account's name, key, and endpoints.
 * [Attach storage account using SAS](#attach-storage-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
 * [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.
 
@@ -44,14 +44,14 @@ Storage Explorer (Preview) provides a myriad ways to connect to storage accounts
 1. In Storage Explorer (Preview), select **Azure Account settings**.
 
     ![Azure account settings][0]
-2. The left pane will now display all the Microsoft accounts you've logged into. To connect to another account, select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
+2. The left pane displays all the Microsoft accounts you've logged in to. To connect to another account, select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
 > [!NOTE]
->Connecting to national Azure such as Black Forest Azure, Fairfax Azure and Mooncake Azure via sign-in is currently not supported. See **Attach or detach an external storage account** section for how to connect to national Azure storage accounts.
+>Connecting to national Azure such as Black Forest Azure, Fairfax Azure, and Mooncake Azure via sign-in is currently not supported. See **Attach or detach an external storage account** section for how to connect to national Azure storage accounts.
 
-3. Once you successfully sign in with a Microsoft account, the left pane will populate with the Azure subscriptions associated with that account. Select the Azure subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.)
+3. Once you successfully sign in with a Microsoft account, the left pane populates with the Azure subscriptions associated with that account. Select the Azure subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.)
 
     ![Select Azure subscriptions][3]
-4. The left pane will now display the storage accounts associated with the selected Azure subscriptions.
+4. The left pane displays the storage accounts associated with the selected Azure subscriptions.
 
     ![Selected Azure subscriptions][4]
 
@@ -66,10 +66,10 @@ Storage Explorer (Preview) enables you to work against local storage using the A
 1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached** > **Storage Accounts** > **(Development)** node.
 
     ![Local development node][21]
-2. If you have not yet installed the Azure Storage Emulator, you'll be prompted to do so via an infobar. If the infobar is displayed, select **Download the latest version**, and install the emulator.
+2. If you have not yet installed the Azure Storage Emulator, you are prompted to do so via an infobar. If the infobar is displayed, select **Download the latest version**, and install the emulator.
 
     ![Download Azure Storage Emulator prompt][22]
-3. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, select on the appropriate link below:
+3. Once the emulator is installed, you have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, select one of the following links:
 
    * [Manage Azure blob storage resources](vs-azure-tools-storage-explorer-blobs.md)
    * Manage Azure file share storage resources - *Coming soon*
@@ -80,7 +80,7 @@ Storage Explorer (Preview) enables you to work against local storage using the A
 Storage Explorer (Preview) provides the ability to attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
 
 ### Get the storage account credentials
-In order to share an external storage account, the owner of that account must first get the
+To share an external storage account, the owner of that account must first get the
 credentials - account name and key - for the account and then share that information with the
 person wanting to attach to that (external) account. Obtaining the storage account credentials
 can be done via the Azure portal by following these steps:
@@ -97,7 +97,7 @@ can be done via the Azure portal by following these steps:
    ![Access keys][6]
 
 ### Attach to an external storage account
-To attach to an external storage account, you'll need the account's name and key. The section *Get the storage account credentials*
+To attach to an external storage account, you need the account's name and key. The section *Get the storage account credentials*
 explains how to obtain these values from the Azure portal. However, note that in the portal, the account key is called "key 1" so where
 the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) the "key 1" value.
 
@@ -113,8 +113,8 @@ the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) 
 3. In the **Attach External Storage** dialog, enter the storage account name in the **Account name** box, specify any other desired settings, and select **Next** when done.
 
    ![Attach external storage dialog][8]
-4. In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
-5. Once connected, the external storage account will be displayed with the text **(External)** appended to the storage account name.
+4. In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and reenter the desired settings. Once finished, select **Connect**.
+5. Once connected, the external storage account is displayed with the text **(External)** appended to the storage account name.
 
    ![Result of connecting to an external storage account][9]
 
@@ -144,7 +144,7 @@ allow UserB to access a storage account for a limited time with certain permissi
 2. On the **Shared Access Signature** dialog, specify the time frame and permissions you want for the account, and select **Create**.
 
     ![Get SAS dialog][14]
-3. A second **Shared Access Signature** dialog will appear displaying the SAS. Select **Copy** next to the **Connection String** to copy it to the clipboard. Select **Close** to dismiss the dialog.
+3. A second **Shared Access Signature** dialog displays the SAS. Select **Copy** next to the **Connection String** to copy it to the clipboard. Select **Close** to dismiss the dialog.
 
 ### Attach to the shared account using the SAS
 1. In Storage Explorer (Preview), select **Connect to Azure storage**.
@@ -153,8 +153,8 @@ allow UserB to access a storage account for a limited time with certain permissi
 2. On the **Connect to Azure Storage** dialog, specify the connection string, and then select **Next**.
 
    ![Connect to Azure storage dialog][24]
-3. In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
-4. Once attached, the storage account will be displayed with the text (SAS) appended to the account name you supplied.
+3. In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and reenter the desired settings. Once finished, select **Connect**.
+4. Once attached, the storage account displays with the text (SAS) appended to the account name you supplied.
 
    ![Result of attached to an account using SAS][17]
 
@@ -178,15 +178,15 @@ explain how to generate the SAS for the listed service:
 2. On the **Connect to Azure Storage** dialog, specify the SAS URI, and then select **Next**.
 
    ![Connect to Azure storage dialog][24]
-3. In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
-4. Once attached, the newly attached service will be displayed under the **(Service SAS)** node.
+3. In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and reenter the desired settings. Once finished, select **Connect**.
+4. Once attached, the newly attached service displays under the **(Service SAS)** node.
 
    ![Result of attaching to a shared service using SAS][20]
 
 ## Search for storage accounts
 If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane.
 
-As you are typing into the search box, the left pane will display only the storage accounts that match the
+As you are typing into the search box, the left pane displays only the storage accounts that match the
 search value you've entered up to that point. The following screen shot illustrates an example where I've searched for all storage accounts where the storage account name contains the text "tarcher".
 
 ![Storage account search][11]

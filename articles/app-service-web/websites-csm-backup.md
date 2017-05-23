@@ -4,7 +4,7 @@ description: Learn how to use RESTful API calls to back up and restore an app in
 services: app-service
 documentationcenter: ''
 author: NKing92
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: f94d0aea-edc1-43ab-9b51-ea7375859276

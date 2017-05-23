@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 
 ---
@@ -38,10 +38,10 @@ This IoT Hub developer guide includes the following articles:
 * [Use device twins to synchronize state and configurations][devguide-device-twins] describes the *device twin* concept and the functionality it exposes such as synchronizing a device with its device twin. The article includes information about the data stored in a device twin.
 * [Invoke a direct method on a device][devguide-directmethods] describes the lifecycle of a direct method, information about how to invoke methods on a device from your back-end app and handle the direct method on your device.
 * [Schedule jobs on multiple devices][devguide-jobs] describes how you can schedule jobs on multiple devices. The article describes how to submit jobs that perform tasks as executing a direct method, updating a device using a device twin. It also describes how to query the status of a job.
-* [Reference - IoT Hub endpoints][devguide-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations. The article also describes how you can add additional endpoints to your IoT hub, and how to use a field gateway to enable some devices to connect to your IoT Hub endpoints.
+* [Reference - IoT Hub endpoints][devguide-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations. The article also describes how you can create additional endpoints in your IoT hub, and how to use a field gateway to enable devices connectivity to your IoT Hub endpoints in non-standard scenarios.
 * [Reference - IoT Hub query language for device twins and jobs][devguide-query] describes that IoT Hub query language that enables you to retrieve information from your hub about your device twins and jobs.
 * [Reference - quotas and throttling][devguide-quotas] summarizes the quotas set in the IoT Hub service and the throttling behavior you can expect to see when you exceed a quota.
-* [Reference - pricing][devguide-pricing] provides general information on different SKUs and pricing for IoT Hub and additional details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
+* [Reference - pricing][devguide-pricing] provides general information on different SKUs and pricing for IoT Hub and details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
 * [Reference - Device and service SDKs][devguide-sdks] lists the Azure IoT SDKs you can use to develop both device and service apps that interact with your IoT hub. The article includes links to online API documentation.
 * [Reference - IoT Hub MQTT support][devguide-mqtt] provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built-in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
 * [Glossary][devguide-glossary] a list of common IoT Hub-related terms.

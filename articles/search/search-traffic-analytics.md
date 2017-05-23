@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.workload: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/22/2017
 ms.author: betorres
 ---
 
@@ -40,7 +40,7 @@ Open your Azure Search service in the [Azure portal](http://portal.azure.com). U
 ![][1]
 
 Change the Status to **On**, select the Azure Storage account to use, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics.
-You can set the retention policy for your data from 1 to 365 days. If you don't want to retain the data indefinitely, set retention (days) to 0.
+You can set the retention policy for your data from 1 to 365 days. To retain the data indefinitely, set retention (days) to 0.
 
 ![][2]
 
@@ -139,20 +139,27 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 #### Power BI Desktop
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. See the starter query in the following section:
 
-1. Open a new PowerBI Desktop report
+1. Open a new PowerBI Desktop report.
+
 2. Select Get Data -> More...
 
     ![][5]
-3. Select Microsoft Azure Blob Storage and Connect
+
+3. Select Microsoft Azure Blob Storage and Connect.
 
     ![][6]
-4. Enter the Name and Account Key of your storage account
-5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click Edit
-6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
+
+4. Enter the Name and Account Key of your storage account.
+
+5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click Edit.
+
+6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor.
 
     ![][7]
+    
 7. Keep the first two lines and replace the rest with the following query:
 
+   ~~~~
    > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
    > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
@@ -181,9 +188,13 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    >
    > # "Changed Type2"
    >
-8. Click Done
+   ~~~~
+
+8. Click Done.
+
 9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query:
 
+   ~~~~
    > # "insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
    > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
@@ -204,6 +215,8 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    >
    > # "Inserted Date"
    >
+   ~~~~
+
 10. Click Done and then select Close&Apply in the Home tab.
 
 11. Your data for the last 30 days is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).

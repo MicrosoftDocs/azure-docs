@@ -1,5 +1,5 @@
 ---
-title: Change your StorSimple passwords | Microsoft Docs
+title: Change passwords via StorSimple Device Manager | Microsoft Docs
 description: Describes how to use the StorSimple Manager service to change your StorSimple Snapshot Manager and device administrator passwords.
 services: storsimple
 documentationcenter: NA

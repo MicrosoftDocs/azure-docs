@@ -1,5 +1,5 @@
 ---
-title: Conditional Access for Applications Published with Azure AD Application Proxy
+title: Conditional access to on-prem apps - Azure AD | Microsoft Docs
 description: Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
-# Working with conditional access
+# Working with conditional access in Azure AD Application Proxy
 You can configure access rules to grant conditional access to applications published using Application Proxy. This enables you to:
 
 * Require multi-factor authentication per application
@@ -40,11 +40,11 @@ Access rules are evaluated when a user accesses a federated application that use
 3. Click **Applications** and scroll down to the **Access Rules** section. The access rules section only appears for applications published using Application Proxy that use federated authentication.
 4. Enable the rule by selecting **Enable Access Rules** to **On**.
 5. Specify the users and groups to whom the rules will apply. Use the **Add Group** button  to select one or more groups to which the access rule will apply. This dialog can also be used to remove selected groups.  When the rules are selected to apply to groups, the access rules will only be enforced for users that belong to one of the specified security groups.  
-   
+
    * To explicitly exclude security groups from the rule, check **Except**  and specify one or more groups. Users who are members of a group in the Except list will not be required to perform multi-factor authentication.  
    * If a user was configured using the per-user multi-factor authentication feature, this setting will take precedence over the application multi-factor authentication rules. This means that a user who has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application's multi-factor authentication rules. Learn more about [multi-factor authentication and per-user settings](../multi-factor-authentication/multi-factor-authentication.md).
 6. Select the access rule you want to set:
-   
+
    * **Require Multi-factor authentication**: Users to whom access rules apply will be required to complete multi-factor authentication before accessing the application to which the rule applies.
    * **Require Multi-factor authentication when not at work**: Users trying to access the application from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
    * **Block access when not at work**: Users trying to access the application from outside your corporate network will not be able to access the application.
@@ -63,4 +63,3 @@ In addition to setting this flag, the federated tenant AD FS instance must be co
 * [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-

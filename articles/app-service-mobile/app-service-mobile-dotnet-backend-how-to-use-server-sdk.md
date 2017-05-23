@@ -5,7 +5,7 @@ keywords: app service, azure app service, mobile app, mobile service, scale, sca
 services: app-service\mobile
 documentationcenter: ''
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b

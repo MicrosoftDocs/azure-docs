@@ -12,12 +12,13 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
 
 ---
-# Create, start, or delete an application gateway
+# Create, start, or delete an application gateway with PowerShell 
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-gateway-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Use Storage Analytics to collect logs and metrics data | Microsoft Docs
+title: Use Azure Storage Analytics to collect logs and metrics data | Microsoft Docs
 description: Storage Analytics enables you to track metrics data for all storage services, and to collect logs for Blob, Queue, and Table storage.
 services: storage
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 
 ---
 # Storage Analytics
-## Overview
+
 Azure Storage Analytics performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
 
 To use Storage Analytics, you must enable it individually for each service you want to monitor. You can enable it from the [Azure Portal](https://portal.azure.com). For details, see [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Get Blob Service Properties](https://msdn.microsoft.com/library/hh452239.aspx), [Get Queue Service Properties](https://msdn.microsoft.com/library/hh452243.aspx), [Get Table Service Properties](https://msdn.microsoft.com/library/hh452238.aspx), and [Get File Service Properties](https://msdn.microsoft.com/library/mt427369.aspx) operations to enable Storage Analytics for each service.
@@ -160,7 +160,7 @@ These tables are automatically created when Storage Analytics is enabled for a s
 All data in the metrics tables can be accessed by using the Table service APIs, including the .NET APIs provided by the Azure managed library. The storage account administrator can read and delete table entities, but cannot create or update them.
 
 ## Billing for Storage Analytics
-Storage Analytics is enabled by a storage account owner; it is not enabled by default. All metrics data is written by the services of a storage account. As a result, each write operation performed by Storage Analytics is billable. Additionally, the amount of storage used by metrics data is also billable.
+All metrics data is written by the services of a storage account. As a result, each write operation performed by Storage Analytics is billable. Additionally, the amount of storage used by metrics data is also billable.
 
 The following actions performed by Storage Analytics are billable:
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/09/2017
 ms.author: yurid
 
 ---
@@ -36,4 +36,3 @@ Microsoft bounty programs pay researchers for novel exploitation techniques, def
 Learn more about these programs at the [MSRC Bug Bounty](https://technet.microsoft.com/security/dn425036) page and the [MSRC blog](https://blogs.technet.microsoft.com/msrc/).
 
 To learn more about the MSRC, please visit the [MSRC home page](https://technet.microsoft.com/library/dn440717.aspx).
-

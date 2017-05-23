@@ -16,6 +16,8 @@ ms.workload: NA
 ms.date: 03/30/2016
 ms.author: alanwar
 
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-introduction
+
 ---
 # Architecture for stateful and stateless Reliable Services
 An Azure Service Fabric Reliable Service may be stateful or stateless. Each type of service runs within a specific architecture. These architectures are described in this article.

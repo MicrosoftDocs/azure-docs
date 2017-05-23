@@ -26,7 +26,7 @@ Connect to OneDrive for Business to manage your files. You can perform various a
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The OneDrive for Business connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats.
@@ -316,5 +316,5 @@ Extract folder: Extracts a folder to OneDrive for Business
 
 ### Object
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

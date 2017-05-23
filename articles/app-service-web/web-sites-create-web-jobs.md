@@ -4,7 +4,7 @@ description: Learn how to run background tasks in Azure web apps.
 services: app-service
 documentationcenter: ''
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Run Background tasks with WebJobs

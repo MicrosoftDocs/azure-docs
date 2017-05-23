@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 
 ---
@@ -144,7 +144,7 @@ For more information about developing Java applications in Azure, see the [Java 
 [Azure Portal]: https://portal.azure.com/
 [activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Try App Service]: https://azure.microsoft.com/try/app-service/
 [web app in Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Developer Center]: /develop/java/
 [Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md

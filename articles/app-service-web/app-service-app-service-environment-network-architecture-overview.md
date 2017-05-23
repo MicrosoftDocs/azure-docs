@@ -4,7 +4,7 @@ description: Architectural overview of network topology ofApp Service Environmen
 services: app-service
 documentationcenter: ''
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52

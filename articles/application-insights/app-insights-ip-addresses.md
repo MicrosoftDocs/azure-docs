@@ -30,7 +30,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
 | Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221 |443 |
-| Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |variable |443 |
+| Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## Status Monitor
 Status Monitor Configuration - needed only when making changes.
@@ -187,3 +187,9 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API docs |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 
+## Profiler
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Agent | agent.azureserviceprofiler.net | dynamic | 443
+| Portal | gateway.azureserviceprofiler.net | dynamic | 443

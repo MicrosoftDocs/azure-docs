@@ -1,9 +1,21 @@
 ---
+title: Azure Redis Cache Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to use Azure Redis Cache, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more.
+services: redis-cache
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: redis-cache
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Redis Cache Documentation
 
-Azure Redis Cache is based on the popular open-source Redis Cache. It gives you access to a secure dedicated Redis cache managed by Microsoft and accessible from any application within Azure. Azure Redis Cache provides high throughput and consistent low-latency data access to power fast, scalable Azure applications.
+Learn how to use Azure Redis Cache, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Redis Cache from any application on Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -179,11 +191,4 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Redis Cache Documentation
-        </div>
-    </a>
-</div>
+

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/01/2017
 ms.author: juliako;
 
 ---
@@ -23,7 +23,7 @@ ms.author: juliako;
 
 This topic gives details about **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
-The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. In the current release, there is a 10 minute limit on processed video length.
+The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. 
 
 ## Face redaction modes
 Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process is very complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.

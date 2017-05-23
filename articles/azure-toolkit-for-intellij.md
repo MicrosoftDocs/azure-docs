@@ -4,7 +4,7 @@ description: Learn about the Azure Toolkit for IntelliJ.
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 115a095d-1b70-41d6-adb4-78f24b2a4451
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 
 ---
@@ -52,7 +52,7 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
   * [Create a Hello World Web App for Azure in IntelliJ]
   * [What's New in the Azure Toolkit for IntelliJ]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
 <!-- URL List -->
 
@@ -66,6 +66,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Debug a Java Web App on Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
 [HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md

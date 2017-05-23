@@ -1,11 +1,22 @@
 ---
+title: Azure Notification Hubs Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to send push notifications from any backend to any mobile device with Notification Hubs. Tutorials, API references, and other documentation.
+services: notification-hubs
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid:	
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
+
 #Notification Hubs Documentation
 
-Azure Notification Hubs provide an easy-to-use, multi-platform, scaled-out push infrastructure that enables you to send mobile push notifications from any backend (in the cloud or on-premises) to any mobile platform.
-
-With Notification Hubs, you can easily send cross-platform, personalized push notifications, abstracting the details of the different platform notification systems (PNS). With a single API call, you can target individual users or entire audience segments containing millions of users, across all their devices.
+Learn how to use Notification Hubs, a multi-platform, scalable push-notification engine for quickly sending millions of messages. Tutorials, API references, and other documentation show you how to set up and send push notifications from any backend to any mobile device. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -196,13 +207,3 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Notification Hubs Documentation
-        </div>
-    </a>
-</div>

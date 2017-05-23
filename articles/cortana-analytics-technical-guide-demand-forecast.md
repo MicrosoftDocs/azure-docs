@@ -28,7 +28,7 @@ The deployment process will guide you through several steps to set up your solut
 The goal of this document is to explain the reference architecture and different components provisioned in your subscription as part of this Solution Template. The document also talks about how to replace the sample data, with real data of your own to be able to see insights/predictions from you won data. Additionally, the document talks about the parts of the Solution Template that would need to be modified if you want to customize the solution with your own data. Instructions on how to build the Power BI dashboard for this Solution Template are provided at the end.
 
 ## **Big Picture**
-![](media\\cortana-analytics-technical-guide-demand-forecast\\ca-topologies-energy-forecasting.png)
+![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### Architecture Explained
 When the solution is deployed, various Azure services within Cortana
@@ -123,7 +123,7 @@ For the Demand Forecasting for Energy Solution Template, the Azure Stream Analyt
 The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) query can be found by:
 
 * Logging into the [Azure management portal](https://manage.windowsazure.com/)
-* Locating the stream analytics jobs ![](media\\cortana-analytics-technical-guide-demand-forecast\\icon-stream-analytics.png) that were
+* Locating the stream analytics jobs ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) that were
   generated when the solution was deployed. One is for pushing data to blob storage (e.g. mytest1streaming432822asablob) and the other one is for pushing data to Power BI (e.g. mytest1streaming432822asapbi).
 * Selecting
 
@@ -154,7 +154,7 @@ that move and process the data using various technologies.
 This section discusses the necessary [pipelines](data-factory/data-factory-create-pipelines.md) and [activities](data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
-![](media\\cortana-analytics-technical-guide-demand-forecast\\ADF2.png)
+![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
 Five of the pipelines of this factory contain
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
@@ -223,7 +223,7 @@ Once the Data Generator is launched, the pipeline begins to get hydrated and the
     One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on **Azure Blob Storage** component of your solution from the screen you successfully deployed the solution and then click **Open** in the right panel, it will take you to the [Azure management portal](https://portal.azure.com). Once there, click on **Blobs**. In the next panel, you will see a list of Containers. Click on **"energysadata"**. In the next panel, you will see the **"demandongoing"** folder. Inside the rawdata folder, you will see folders with names such as date=2016-01-28 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see files that should have finite sizes in MB in those folders.
 2. Check the data from Azure SQL Database.
 
-    The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [Azure management portal](https://manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media\\cortana-analytics-technical-guide-demand-forecast\\SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page under **"Connect to your database"** section, click **"Run Transact-SQL queries against your SQL database"**.
+    The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [Azure management portal](https://manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page under **"Connect to your database"** section, click **"Run Transact-SQL queries against your SQL database"**.
 
     Here, you can click on New Query and query for the number of rows (e.g. "select count(*) from DemandRealHourly)" As your database grows, the number of rows in the table should increase.)
 3. Check the data from Power BI dashboard.
@@ -261,14 +261,14 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 3. Create the "Demand by Timestamp" tile:
 
    * Click dataset **‘EnergyStreamData’** on the left panel Datasets section.
-   * Click **"Line Chart"** icon ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic8.png).
+   * Click **"Line Chart"** icon ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic8.png).
    * Click ‘EnergyStreamData’ in **Fields** panel.
    * Click **“Timestamp”** and make sure it shows under "Axis". Click **“Load”** and make sure it shows under "Values".
    * Click **SAVE** on the top and name the report as “EnergyStreamDataReport”. The report named “EnergyStreamDataReport” will be shown in Reports section in the Navigator pane on left.
-   * Click **“Pin Visual”**![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic6.png) icon on top right corner of this line chart, a "Pin to Dashboard" window may show up for you to choose a dashboard. Please select "EnergyStreamDataReport", then click "Pin".
+   * Click **“Pin Visual”**![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) icon on top right corner of this line chart, a "Pin to Dashboard" window may show up for you to choose a dashboard. Please select "EnergyStreamDataReport", then click "Pin".
    * Hover the mouse over this tile on the dashboard, click "edit" icon on top right corner to change its title as "Demand by Timestamp"
 4. Create other dashboard tiles based on appropriate datasets. The final dashboard view is shown below.
-     ![](media\\cortana-analytics-technical-guide-demand-forecast\\PBIFullScreen.png)
+     ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### Setup Cold Path Dashboard
 In cold path data pipeline, the essential goal is to get the demand forecast of each region. Power BI connects to an Azure SQL database as its data source, where the prediction results are stored.
@@ -295,7 +295,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
    * In the **"DemandForecastingDataGeneratorv1.0"** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. The initial visualizations are based on dummy data. **Note:** If you see an error massage, please make sure you have installed the latest version of Power BI Desktop.
 
      Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
-     ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic1.png)
+     ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
    * In the pop out window, replace **"Server"** and **"Database"** with
      your own server and database names, and then click **"OK"**. For server
      name, make sure you specify the port 1433
@@ -319,18 +319,18 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
      demoprediction.pbix in Power BI". To find detailed instructions, see [Publish from Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * To create a new dashboard: click the **+** sign next to the
      **Dashboards** section on the left pane. Enter the name "Demand Forecasting Demo" for this new dashboard.
-   * Once you open the report, click ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic6.png) to pin all the
+   * Once you open the report, click ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) to pin all the
      visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Go to the dashboard page and
      adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.
 
-     ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic7.png)
+     ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic7.png)
 4. (Optional) Schedule refresh of the data source.
 
-   * To schedule refresh of the data, hover your mouse over the **EnergyBPI-Final** dataset, click ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic3.png) and then choose **Schedule Refresh**.
+   * To schedule refresh of the data, hover your mouse over the **EnergyBPI-Final** dataset, click ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) and then choose **Schedule Refresh**.
      **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
 
-     ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic4.png)
+     ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Expand the **Schedule Refresh** section. Turn on "keep your
      data up-to-date".
    * Schedule the refresh based on your needs. To find more information, see

@@ -1,5 +1,5 @@
 ---
-title: Read messages persisted in Azure Storage | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 3: Monitor messages | Microsoft Docs'
 description: Monitor the device-to-cloud messages as they are written to your Azure Table storage.
 services: iot-hub
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
