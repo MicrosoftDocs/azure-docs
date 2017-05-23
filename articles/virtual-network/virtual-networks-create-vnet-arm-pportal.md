@@ -19,11 +19,11 @@ ms.author: jdial
 ms.custom: 
 
 ---
-# Create a virtual network that has multiple subnets
+# Create a virtual network with multiple subnets
 
-In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. You can connect Azure resources, like virtual machines, Azure App Service environments, virtual machine scale sets, Azure HDInsight, and other cloud services to subnets. Resources that are connected to virtual networks can communicate with each other over the private Azure network.
+In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. You can connect Azure resources, like virtual machines, Azure App Service environments, virtual machine scale sets, Azure HDInsight, and other cloud services to subnets. Resources that are connected to virtual networks can communicate with each other over your private Azure network.
 
-The following sections include steps that you can take to deploy a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#cli)), [Azure PowerShell](#powershell), and [Azure Resource Manager template](#template). The result is the same, regardless of which tool you use to deploy the virtual network. To learn more about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual subnets](virtual-network-manage-subnet.md).
+The following sections include steps that you can take to deploy a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#deploy-a-virtual-network-by-using-a-template). The result is the same, regardless of which tool you use to deploy the virtual network. Just click a link to go to that section of the tutorial. To learn more about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual subnets](virtual-network-manage-subnet.md).
 
 ## Create a virtual network
 
@@ -31,7 +31,7 @@ To create a virtual network, complete the steps for the tool you want to use.
 
 ### <a name="portal"></a>Azure portal
 
-1. In an Internet browser, go to the [Azure portal](https://portal.azure.com). Sign in by using your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
+1. In an Internet browser, go to the [Azure portal](https://portal.azure.com). Sign in by using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. In the portal, click **+New** > **Networking** > **Virtual network**.
 3. On the **Virtual network** blade, under **Select a deployment model**, leave **Resource Manager** selected, and then click **Create**.
 4. On the **Create virtual network** blade, enter the following values, and then click **Create**:
@@ -58,7 +58,7 @@ To create the second subnet, in the **Search resources** box at the top of the p
 
 Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The following instructions are for executing a Bash script that has Azure CLI commands:
 
-1. In an Internet browser, open the [Azure portal](https://portal.azure.com). Sign in by using your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
+1. In an Internet browser, open the [Azure portal](https://portal.azure.com). Sign in by using your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. At the top of the portal page, to the right of the **Search resources** box, click the **>_** icon to start Bash Azure Cloud Shell (Preview). The Cloud Shell pane appears at the bottom of the portal. After a few seconds, a **username@Azure:~$** prompt appears. Cloud Shell automatically signs you in to Azure by using the credentials you used to sign in to the portal.
 3. In your browser, copy the following script:
     ```azurecli
@@ -128,7 +128,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     ```
 7. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
 
-## Create a virtual network by using a template
+## Deploy a virtual network by using a template
 
 You can deploy a virtual network by using an Azure Resource Manager template. To learn more about templates, see [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). To access the template and learn about its parameters, see the [Create a virtual network with two subnets template](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). You can deploy the template by using the [portal](#template-portal), [Azure CLI](#template-cli), or [PowerShell](#template-powershell).
 
@@ -138,7 +138,7 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 
 1. In your browser, open the [template page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
 2. Click the **Deploy to Azure** button. This opens the Azure portal sign-in page.
-3. Sign in to the portal by using your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
+3. Sign in to the portal by using your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Enter the following values for the parameters:
 
     |Parameter|Value|
@@ -157,20 +157,20 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 
 ### <a name="template-cli"></a>Azure CLI
 
-1. In the [portal](https://portal.azure.com), sign in with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). 
+1. In the [portal](https://portal.azure.com), sign in with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. To the right of the **Search resources** box, click the **>_** icon to start Bash Azure Cloud Shell (Preview). The Cloud Shell pane appears at the bottom of the portal. After a few seconds, a **username@Azure:~$** prompt appears. Cloud Shell automatically signs you in to Azure by using the credentials you used to sign in to the Azure portal.
 3. To create a resource group for the virtual network, enter the following command:
     `az group create --name MyResourceGroup --location eastus`
 4. You can deploy the template by using one of the following parameters options:
     - **Default parameter values**. Enter the following command: 
         `az group deployment create --resource-group MyResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
-    - **Custom parameter values**. Download and modify the template before you deploy the template. You also can deploy the template with parameters from the command line, or deploy the template by using a separate parameters file. To download the template and parameter files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets template webpage](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). In GitHub, click the **azuredeploy.parameters.json** or **azuredeploy.json** file. Then, click the **Raw** button to see the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
+    - **Custom parameter values**. Download and modify the template before you deploy the template. You also can deploy the template with parameters from the command line, or deploy the template by using a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json** or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameters values in the template, or deploy the template with a separate parameters file.  
 
     To learn more about how to deploy templates by using these methods, type `az group deployment create --help`.
 
 ### <a name="template-powershell"></a>PowerShell
 
-1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
 3. In the PowerShell window, to sign in with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), enter `login-azurermaccount`.
 4. To create a resource group for the virtual network, enter the following command:
@@ -178,12 +178,12 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 5. You can deploy the template by using one of the following parameters options:
     - **Default parameter values**. Enter the following command: 
         `New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName MyResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`        
-    - **Custom parameter values**. Download and modify the template before you deploy it. You also can deploy the template by using parameters from the command line, or deploy the template with a separate parameters file. To download the template and parameter files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets template page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file. Then, click the **Raw** button to see the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
+    - **Custom parameter values**. Download and modify the template before you deploy it. You also can deploy the template by using parameters from the command line, or deploy the template with a separate parameters file. To download the template and parameters files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template page. In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file. Then, click the **Raw** button to display the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameters values in the template, or deploy the template with a separate parameters file.  
 
     To learn more about how to deploy templates by using these methods, type `Get-Help New-AzureRmResourceGroupDeployment`. 
 
 ## <a name="delete"></a>Delete resources
-When you've finish this tutorial, you might want to delete the resources that you used for the tutorial, so you don't incur usage charges. Deleting a resource group also deletes all resources within the resource.
+When you've finish this tutorial, you might want to delete the resources that you used for the tutorial, so you don't incur usage charges. Deleting a resource group also deletes all resources within the resource group.
 
 ### <a name="delete-portal"></a>Azure portal
 
