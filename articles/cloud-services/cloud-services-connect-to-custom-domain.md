@@ -30,7 +30,7 @@ Follow this step-by-step guide and if you run into any issues, leave us a commen
 The network that is referenced by the cloud service must be a **classic virtual network**.
 
 ## Create a Virtual Network
-You can create a Virtual Network in Azure using the Azure classic portal or PowerShell. For this tutorial, we will use PowerShell. To create a Virtual Network using the Azure classic portal, see [Create Virtual Network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+You can create a Virtual Network in Azure using the Azure portal or PowerShell. For this tutorial, we will use PowerShell. To create a Virtual Network using the Azure portal, see [Create Virtual Network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ```powershell
 #Create Virtual Network
