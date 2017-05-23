@@ -3,7 +3,7 @@ title: Exploring HockeyApp data in Azure Application Insights | Microsoft Docs
 description: Analyze usage and performance of your Azure app with Application Insights.
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Exploring HockeyApp data in Application Insights
@@ -54,8 +54,6 @@ Analytics is a powerful tool for ad-hoc querying of your data, allowing you to d
 ![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
 * [Learn more about Analytics](app-insights-analytics-tour.md)
-* [Introduction video](https://channel9.msdn.com/events/Build/2016/T666)
-* [Advanced concepts video](https://channel9.msdn.com/Events/Build/2016/P591)
 
 ## Continuous export
 Continuous Export allows you to export your data into an Azure Blob Storage container. This is very useful if you need to keep your data for longer than the retention period currently offered by Application Insights. You can keep the data in blob storage, process it into a SQL Database, or your preferred data warehousing solution.

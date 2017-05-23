@@ -22,6 +22,9 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 
 You can copy data from HDFS to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an on-premises HDFS to other data stores, but not for moving data from other data stores to an on-premises HDFS.
 
+> [!NOTE]
+> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
+
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises HDFS using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Use the gateway to connect to HDFS even if it is hosted in an Azure IaaS VM.
 
@@ -420,7 +423,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
               REALM.COM = .
              }
 
-        **Restart** the KDC service after configuration.
+  **Restart** the KDC service after configuration.
 
 2.	Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
 

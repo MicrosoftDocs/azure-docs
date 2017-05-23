@@ -53,7 +53,7 @@ The following tables show the different fault types (id under results from the p
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
 | NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | No Connections are not connected. This is only a warning.| Yes|
+| ConnectionsNotConnected | Connections are not connected. This is only a warning.| Yes|
 | GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
 
 ### Connection

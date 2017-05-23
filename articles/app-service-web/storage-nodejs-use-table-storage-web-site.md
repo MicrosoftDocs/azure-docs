@@ -14,7 +14,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -555,7 +555,7 @@ While the steps in this article describe using the Table Service to store inform
 
 <!-- URLs -->
 
-[Build and deploy a Node.js web app in Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
+[Build and deploy a Node.js web app in Azure App Service]: app-service-web-get-started-nodejs.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -573,18 +573,12 @@ While the steps in this article describe using the Table Service to store inform
 
 [Azure Portal]: https://portal.azure.com
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: app-service-web-get-started-nodejs.md
 
 <!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
 [download-publishing-settings]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
-[portal-new]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
-[portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
-[portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-[go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
-[web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
-[app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png

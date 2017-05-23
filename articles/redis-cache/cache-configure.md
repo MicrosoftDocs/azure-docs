@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/27/2017
+ms.date: 05/11/2017
 ms.author: sdanie
 
 ---
@@ -43,7 +43,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Access keys](#access-keys)
 	* [Advanced settings](#advanced-settings)
 	* [Redis Cache Advisor](#redis-cache-advisor)
-	* [Pricing tier](#pricing-tier)
+	* [Scale](#scale)
 	* [Redis cluster size](#cluster-size)
 	* [Redis data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
@@ -96,7 +96,7 @@ The **Settings** section allows you to access and configure the following settin
 * [Access keys](#access-keys)
 * [Advanced settings](#advanced-settings)
 * [Redis Cache Advisor](#redis-cache-advisor)
-* [Pricing tier](#pricing-tier)
+* [Scale](#scale)
 * [Redis cluster size](#cluster-size)
 * [Redis data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
@@ -186,11 +186,11 @@ Each pricing tier has different limits for client connections, memory, and bandw
 | Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
 | Memory usage |[Cache performance - size](cache-faq.md#cache-performance) |
 
-To upgrade your cache, click **Upgrade now** to change the [pricing tier](#pricing-tier) and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+To upgrade your cache, click **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 
-### Pricing tier
-Click **Pricing tier** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
+### Scale
+Click **Scale** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
 ![Redis Cache pricing tier](./media/cache-configure/pricing-tier.png)
 
@@ -450,6 +450,13 @@ For more information about databases, see [What are Redis databases?](cache-faq.
   * P3 (26 GB - 260 GB) - up to 30,000 connections
   * P4 (53 GB - 530 GB) - up to 40,000 connections
 
+> [!NOTE]
+> While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+> 
+> 
+
+
+
 ## Redis commands not supported in Azure Redis Cache
 > [!IMPORTANT]
 > Because configuration and management of Azure Redis Cache instances is managed by Microsoft, the following commands are disabled. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
@@ -472,11 +479,7 @@ For more information about Redis commands, see [http://redis.io/commands](http:/
 You can securely issue commands to your Azure Redis Cache instances using the **Redis Console**, which is available for Standard and Premium caches.
 
 > [!IMPORTANT]
-> The Redis Console does not work with VNET, clustering, and databases other than 0. 
-> 
-> * [VNET](cache-how-to-premium-vnet.md) - When your cache is part of a VNET, only clients in the VNET can access the cache. Because the Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
-> * [Clustering](cache-how-to-premium-clustering.md) - The Redis Console uses the redis-cli.exe client, which does not currently support clustering. The redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
-> * The Redis Console makes a new connection to database 0 each time you submit a command. You can't use the `SELECT` command to select a different database, because the database is reset to 0 with each command. For information on running Redis commands, including changing to a different database, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+> The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
 > 
 > 
 

@@ -80,6 +80,26 @@ When a  failover is triggered, it involves following steps:
 >
 > 
 
+## Time taken for failover to Azure
+
+In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. These cases are as following:
+
+* VMware virtual machines using mobility service of version older than 9.8
+* Physical servers 
+* VMware Linux virtual machines
+* Hyper-V virtual machines protected as physical servers
+* VMware virtual machines where following drivers are not present as boot drivers 
+	* storvsc 
+	* vmbus 
+	* storflt 
+	* intelide 
+	* atapi
+* VMware virtual machines that don't have DHCP service enabled irrespective of whether they are using DHCP or static IP addresses
+
+In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower. 
+
+
+
 
 
 ## Using scripts in Failover
@@ -90,7 +110,7 @@ You might want to automate certain actions while doing a failover. You can use s
 
 
 
-## Next Steps
+## Next steps
 Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
 
 Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.

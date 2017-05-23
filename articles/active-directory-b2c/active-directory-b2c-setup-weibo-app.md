@@ -20,7 +20,7 @@ ms.author: parakhj
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with Weibo accounts
 
 > [!NOTE]
-> This feature is still in preview.
+> This feature is in preview. Do not use this identity provider in your production environment.
 > 
 
 ## Create a Weibo application

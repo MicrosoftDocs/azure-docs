@@ -46,7 +46,7 @@ Nowadays, many people choose Hive and Pig over MapReduce.  For more information,
 **Prerequisites**:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+* **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **A workstation with Azure PowerShell**.
 
     > [!IMPORTANT]
@@ -77,7 +77,7 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
                                 -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
-                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput1"
+                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
@@ -310,9 +310,14 @@ namespace cat
             }
 
             string line;
+            char[] separators = { ' ', '\n'};
             while ((line = Console.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+                string[] words = line.Split(separators);
+                foreach (var word in words)
+                {
+                    Console.WriteLine("{0}\t1", word);
+                }
             }
         }
     }
@@ -327,6 +332,7 @@ The mapper code in the cat.cs file uses a [StreamReader][streamreader] object to
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections;
 
 namespace wc
 {
@@ -335,16 +341,33 @@ namespace wc
         static void Main(string[] args)
         {
             string line;
-            var count = 0;
 
-            if (args.Length > 0){
+            if (args.Length > 0)
+            {
                 Console.SetIn(new StreamReader(args[0]));
             }
 
-            while ((line = Console.ReadLine()) != null) {
-                count += line.Count(cr => (cr == ' ' || cr == '\n'));
+            Hashtable wordCount = new Hashtable();
+            while ((line = Console.ReadLine()) != null)
+            {
+                string[] words = line.Split('\t');
+
+                string key = words[0];
+
+                if (wordCount.ContainsKey(key) == true)
+                {
+                    int n = Convert.ToInt32(wordCount[key]);
+                    wordCount[key] = Convert.ToString(n + 1);
+                }
+                else
+                {
+                    wordCount[key] = words[1];
+                }
             }
-            Console.WriteLine(count);
+            foreach (var key in wordCount.Keys)
+            {
+                Console.WriteLine("{0} {1}", key, wordCount[key]);
+            }
         }
     }
 }

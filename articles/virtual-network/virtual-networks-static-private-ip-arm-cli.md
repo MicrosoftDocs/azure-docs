@@ -123,7 +123,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
             "resourceGuid": "<guid>"
         }
     }
-        ```
+    ```
     
     Parameters:
 
