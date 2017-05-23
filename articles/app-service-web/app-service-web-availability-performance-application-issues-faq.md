@@ -18,8 +18,8 @@ ms.date: 5/16/2017
 ms.author: v-six
 
 ---
-# Frequently asked questions for availability, performance, and application issues in Azure Web Apps
-This topic provides answers to some of the most common questions about Availability, Performance, and Application in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
+# Availability, performance, and application issues for Azure Web Apps: Frequently asked questions (FAQs)
+This article includes frequently asked questions about availability, performance, and application issues for [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
