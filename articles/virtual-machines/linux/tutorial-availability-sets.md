@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/22/2017
 ms.author: cynthn
 
 ---
@@ -31,7 +31,10 @@ In this tutorial, you learn how to:
 > * Create a VM in an availability set
 > * Check available VM sizes
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
+
 
 ## Availability set overview
 

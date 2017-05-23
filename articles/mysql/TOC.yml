@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
+    - name: Web App
+      href: howto-connect-webapp.md
 - name: Reference
   items:
   - name: Azure CLI

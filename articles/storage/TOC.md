@@ -117,6 +117,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Monitor and troubleshoot
+### [Troubleshoot Storage Explorer](storage-explorer-troubleshooting.md)
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
 #### [Enable and view metrics](storage-enable-and-view-metrics.md)
