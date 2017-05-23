@@ -25,35 +25,39 @@ This section describes how to enable or disable monitoring on Virtual machines r
 >
 > Version 3.0 of the Linux Diagnostic Extension can be enabled instead. For more information, see [the documentation](./diagnostic-extension.md).
 
-## Enable / Disable Monitoring through the Azure Portal
+## Enable / Disable Monitoring through the Azure portal
 
-You can enable  monitoring of your Azure VM, which provides data about your instance in 1-minute periods. (storage changes apply). Detailed diagnostics data is then available for the VM in the portal graphs or through the API. By default, Azure portal enables monitoring, but you can turn it off as described below. You can enable monitoring while the VM is running or in stopped state.
+You can enable  monitoring of your Azure VM, which provides data about your instance in 1-minute periods. (storage changes apply). Detailed diagnostics data is then available for the VM in the portal graphs or through the API. By default, Azure portal enables host-based monitoring of a limited set of metrics. You can enable monitoring of metrics from within a VM while the VM is running or in stopped state.
 
 * Open the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 * In the left navigation, click Virtual machines.
-* In the list Virtual machines, select a running or stopped instance. Virtual machine blad will open.
-* Click "All settings".
-* Click "Diagnostics".
+* In the list Virtual machines, select a running or stopped instance. The "Virtual machine" blade opens.
+* Click All settings.
+* Click Diagnostics.
 * Change status to On or Off. You can also pick in this blade the level of monitoring details you would like to enable for your virtual machine.
 
-![Enable / Disable Monitoring through the Azure Portal.][1]
+![Enable / Disable Monitoring through the Azure portal.][1]
 
 ## Enable / Disable Monitoring with Azure CLI
 
 To enable monitoring for an Azure VM.
 
-* Create a file named such as PrivateConfig.json with the following content.
-        {
-            "storageAccountName":"the storage account to receive data",
-            "storageAccountKey":"the key of the account"
-        }
-* Run the following Azure CLI command.
+* Create a file (named such as PrivateConfig.json):
 
-        azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.3 --private-config-path PrivateConfig.json
+```json
+{
+        "storageAccountName":"the storage account to receive data",
+        "storageAccountKey":"the key of the account"
+}
+```
 
-For more details about configuring monitoring metrics and samples, see [Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Enable the extension via Azure CLI.
+
+```azurecli
+azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.3 --private-config-path PrivateConfig.json
+```
+
+For more information, see [Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Image references-->
 [1]: ./media/vm-monitoring/portal-enable-disable.png
-
-
