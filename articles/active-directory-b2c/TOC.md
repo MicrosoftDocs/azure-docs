@@ -79,7 +79,6 @@
 ## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat management](active-directory-b2c-reference-threat-management.md)
-## [Limitations & restrictions](active-directory-b2c-limitations.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
 
 # Related
