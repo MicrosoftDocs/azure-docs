@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -166,7 +166,7 @@ When you create a pool, you can specify the following attributes. Some settings 
     You can specify [application packages](#application-packages) to deploy to the compute nodes in the pool. Application packages provide simplified deployment and versioning of the applications that your tasks run. Application packages that you specify for a pool are installed on every node that joins that pool, and every time a node is rebooted or reimaged.
 
     > [!NOTE]
-    > Application packages are supported on all Batch pools created after XXX March 2017. Earlier versions of the Batch service support application packages for pools created with the cloud service configuration only. For more information about using application packages to deploy your applications to your Batch nodes, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
+    > Application packages are supported on all Batch pools created after XXX May 2017. They are supported on Batch pools created between 10 March 2016 and XXX May 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages. For more information about using application packages to deploy your applications to your Batch nodes, see [Application deployment with Azure Batch application packages](batch-application-packages.md).
     >
     >
 
