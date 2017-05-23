@@ -169,10 +169,10 @@ The behavior of the patch orchestration app can be configured to meet your needs
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get windows updates, For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Bool <br> (default: True)                 | This flag allows windows OS updates to be installed.            |
 | WUOperationTimeOutInMinutes | Int <br>(Default: 90)                   | Specifies the timeout for any Windows Update operation (search/ download/ install). If operation is not completed within the specified timeout, it is aborted.       |
-| WURescheduleCount     | Int <br> (Default: 5)                  | This configuration decides the maximum number of times the service would reschedule the Windows Update in case operation fails persistently          |
-| WURescheduleTimeInMinutes | Int <br>(Default: 30) | This configuration decides the interval at which service would reschedule the Windows Update in case failure persists |
+| WURescheduleCount     | Int <br> (Default: 5)                  | The maximum number of times the service would reschedule the Windows Update in case operation fails persistently          |
+| WURescheduleTimeInMinutes | Int <br>(Default: 30) | The interval at which service would reschedule the Windows Update in case failure persists |
 | WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and Possible Values are as below <br>-   Monthly,DD,HH:MM:SS Ex: Monthly,5,12:22:32 <br> -   Weekly,DAY,HH:MM:SS Ex: Weekly, Tuesday, 12:22:32  <br> -   Daily, HH:MM:SS Ex: Daily, 12:22:32  <br> -  None - Indicates that Windows Update shouldn't be done  <br><br> NOTE: All the times are in UTC|
-| AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, application accepts EULA for Windows Update on behalf of owner of machine.              |
+| AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, application accepts EULA for Windows Update on behalf of the owner of the machine.              |
 
 
 ## Deploy the app
