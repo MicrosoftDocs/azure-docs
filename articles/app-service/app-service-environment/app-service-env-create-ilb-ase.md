@@ -20,7 +20,7 @@ ms.author: ccompy
 ---
 	
 
-#Create and Use an Internal Load Balancer with an App Service Environment#
+# Create and Use an Internal Load Balancer with an App Service Environment #
 
 This article shows you how to create an _ILB ASE_. This is the second of two types of [App Service Environments][Intro] (ASE):
 
@@ -109,8 +109,8 @@ certificate makes it easier to test HTTPS, but the expectation is that you will 
 
 There are a variety of ways to obtain a valid SSL certificate including internal CAs, purchasing a certificate from an external issuer, and using a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
 
--   *Subject*: This attribute must be set to *\*.your-root-domain-here.com*.
--   *Subject Alternative Name*: This attribute must include both*\*.your-root-domain-here.com*, and *\*.scm.your-root-domain-here.com*. The reason for the second entry is that SSL connections to the SCM/Kudu site associated with each app will be made using an address of the form *your-app-name.scm.your-root-domain-here.com*.
+-   _Subject_: This attribute must be set to _\*.your-root-domain-here_
+-   _Subject Alternative Name_: This attribute must include both _\*.your-root-domain-here_, and _\*.scm.your-root-domain-here_. The reason for the second entry is that SSL connections to the SCM/Kudu site associated with each app will be made using an address of the form _your-app-name.scm.your-root-domain-here_
 
 With a valid SSL certificate in hand, two additional preparatory steps are needed. The SSL certificate needs to be converted/saved as a .pfx file. Remember that the .pfx file needs to include all intermediate and root certificates, and also needs to be secured with a password.
 
@@ -121,7 +121,8 @@ If you want to create your own certificate using PowerShell you can use the comm
 	$certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
 	$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 	
-	$fileName = "exportedcert.pfx" Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
+	$fileName = "exportedcert.pfx" 
+	Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 
 The certificate that these PowerShell commands generate will still be flagged by browsers, because it was not created by a CA that is in the chain of trust used by your browser. The only way to get a certificate that your browser will not have an issue with is to procure it from a commercial CA that is in the browser chain of trust.  
 
