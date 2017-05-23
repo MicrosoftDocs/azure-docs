@@ -248,6 +248,11 @@ This technology allows you to detect and extract handwritten text from notes, le
 
 Handwritten text recognition saves time and effort and can make you more productive by allowing you to take images of text, rather than having to transcribe it. It makes it possible to digitize notes. This digitization allows you to implement quick and easy search. It also reduces paper clutter.
 
+Input requirements:
+- Supported image formats: JPEG, PNG, and BMP.
+- Image file size must be less than 4 MB.
+- Image dimensions must be at least 40 x 40, at most 3200 x 3200.
+
 Note: this technology is currently in preview and is only available for English text.
 
 ## <a name="Thumbnails">Generating Thumbnails</a>
