@@ -23,7 +23,34 @@ This topic provides answers to some of the most common questions about Availabil
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## How can I view event logs of my web app
+## My App is performing slow
+There can be various reasons that could contribute to slow performance.
+We have a detailed list of guided 'Recommended Actions' to help you resolve these errors.
+
+
+## How do I troubleshoot a High CPU consumption scenario
+Sometimes you can run into high CPU condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when High CPU is due to a bad loop or a coding practice that you would like to gain better insight about.  Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis. Click [here](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/) for step by step instructions to perform these action.
+
+
+## How do I troubleshoot a High memory consumption scenario
+Sometimes you experience high memory condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when there is a bug in the code causing memory leak or just some coding practice that is driving memory consumption.   Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis.
+The Crash Diagnoser from Site Extension Gallery can perform both these steps in a few easy steps. Please find the step-by-step guidance via [here](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+
+
+## I am getting started with Azure App Service Web Apps and I want to know how to publish
+Here are some basic steps to publish your web app code.
+1. If you have the Visual Studio Solution,  right click on the web application project and click on Publish.2. Another option is to deploy using FTP client. Download the publish profile for the web app that you want to deploy your code to in the Azure portal. Then upload the files to \site\wwwroot location using these publish prodile FTP credentials.
+For further detail, please refer to a product documentation [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+
+## What are some resource move limitations I should be aware of when moving Azure App Services
+There are a few limitations we need to be aware of for Azure App Service Resource Move operations as discussed in [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
+
+
+## How do I automate Azure App Service WebApps using Powershell
+We have a detailed blog ([Automating WebApps hosted in Azure App Service through PowerShell – ARM Way](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)) where we share how to use the ARM based PowerShell CmdLets to automate common tasks for managing or maintaining Azure App Service Web Apps. In this blog you can also find sample code for various web apps management tasks.
+Also, Reference to descriptions and syntax for all Azure App service web apps cmdlets can be found via [AzureRM.Websites](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+
+## How can I view event logs of my web app?
 
 1. 1.Log into KUDU website https://*yourwebsitename*.scm.azurewebsites.net.
 2. In the top menu select **Debug Console | CMD**.
@@ -31,20 +58,14 @@ This topic provides answers to some of the most common questions about Availabil
 4. Click on the pencil icon next to **eventlog.xml** to view event logs.
 5. Powershell cmdlet to download these logs is `Save-AzureWebSiteLog -Name webappname.`
 
-## My App is performing slow
-
-There can be various reasons that could contribute to slow performance.
-
-We have a detailed list of guided 'Recommended Actions' to help you resolve these errors.
-
-## How do I capture user mode memory dump of my web app
+## How do I capture user mode memory dump of my web app?
 
 1. Log into KUDU console by browsing to http://*yourwebappName*.scm.azurewebsites.net.
 2. Click on Process Explorer menu.
 3. Right click on the w3wp.exe process or your webjob process.
 4. Select Download Memory Dump | Full Dump.
 
-## How do I view process level info for my web app
+## How do I view process level info for my web app?
 
 Here are two simple  ways to view process level information:
 
@@ -147,16 +168,6 @@ Also note that 64-bit environment requires Basic or Standard mode.Free and Share
 
 See [Configure web apps in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure) for more information.
 
-## What are some resource move limitations I should be aware of when moving Azure App Services?
-
-There are a few limitations we need to be aware of for Azure App Service Resource Move operations as discussed in [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
-
-## How do I automate Azure App Service WebApps using Powershell?
-
-We have a detailed blog ([Automating WebApps hosted in Azure App Service through PowerShell – ARM Way](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)) where we share how to use the ARM based PowerShell CmdLets to automate common tasks for managing or maintaining Azure App Service Web Apps. In this blog you can also find sample code for various web apps management tasks.
-
-Also, Reference to descriptions and syntax for all Azure App service web apps cmdlets can be found via [AzureRM.Websites](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
-
 ## Why does my request timeout after 240 seconds?
 
 Azure Load Balancer has an ‘idle timeout’ setting of 4 minutes by default, which is generally a very reasonable response time limit for a web request. If you have a requirement for background processing within your web application, then the recommended solution is to use Azure WebJobs. The Azure Web app can call the Azure Webjob and be notified once the background processing is done. There are many ways that Azure provides such as queues triggers etc. and you can choose the method that suits you the best.
@@ -174,14 +185,6 @@ You can turn on compression for both static and dynamic content types with the f
 ```
 You can also specify the specific dynamic and static MIME types that you would like to be compressed. More detail can be found in our response to a forum [httpCompression settings on a simple Azure Website](https://social.msdn.microsoft.com/Forums/azure/en-US/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).
 
-## I am getting started with Azure App Service Web Apps and I want to know how to publish.
-
-Here are some basic steps to publish your web app code.
-
-1. If you have the Visual Studio Solution,  right click on the web application project and click on Publish.
-2. Another option is to deploy using FTP client. Download the publish profile for the web app that you want to deploy your code to in the Azure portal. Then upload the files to \site\wwwroot location using these publish prodile FTP credentials.
-
-For further detail, please refer to a product documentation [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
 
 ## How to determine the installed .NET version in Azure App Services?
 
@@ -190,16 +193,6 @@ The quickest way to find this is through the Kudu console. for your Azure App Se
 ## How do I remote debug my Azure App Service Web App using Visual Studio?
 
 Please find a detailed step-by-step walkthrough showing how to debug your web app using Visual Studio via [Remote debug your Azure App Service Web App](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
-
-## How do I troubleshoot a High CPU consumption scenario?
-
-Sometimes you can run into high CPU condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when High CPU is due to a bad loop or a coding practice that you would like to gain better insight about.  Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis. Click [here](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/) for step by step instructions to perform these action.
-
-## How do I troubleshoot a High memory consumption scenario?
-
-Sometimes you experience high memory condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when there is a bug in the code causing memory leak or just some coding practice that is driving memory consumption.   Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis.
-
-The Crash Diagnoser from Site Extension Gallery can perform both these steps in a few easy steps. Please find the step-by-step guidance via [here](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## ASP.NET Core applications may experience intermittent hangs when hosted in Azure App Service.
 
