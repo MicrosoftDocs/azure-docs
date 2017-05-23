@@ -19,7 +19,7 @@ In a typical application, a front page links to several articles or other types 
 
 Custom Decision Service is easy to use. The easiest integration mode requires only an RSS feed for your content and a few lines of JavaScript to be added into your application.
 
-Custom Decision Service converts your content into features for machine learning. The system uses these features to understand your content in terms of its text, images, videos, and overall sentiment. We leverage several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), such as
+Custom Decision Service converts your content into features for machine learning. The system uses these features to understand your content in terms of its text, images, videos, and overall sentiment. We leverage several other [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services), such as
 [Entity Linking](../entitylinking/home.md),
 [Text Analytics](../Text-Analytics/overview.md),
 [Emotion](../emotion/home.md), and
