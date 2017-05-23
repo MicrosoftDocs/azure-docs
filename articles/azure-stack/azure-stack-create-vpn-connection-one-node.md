@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/26/2017
+ms.date: 5/23/2017
 ms.author: scottnap
 
 ---
