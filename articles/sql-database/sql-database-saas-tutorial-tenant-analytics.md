@@ -114,5 +114,5 @@ Congratulations!
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic Jobs](sql-database-elastic-jobs-overview.md)

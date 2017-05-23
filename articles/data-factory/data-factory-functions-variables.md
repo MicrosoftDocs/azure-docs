@@ -121,8 +121,8 @@ In the following example, input and output parameters for the Hive activity are 
                     "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
                     "scriptLinkedService": "StorageLinkedService",
                     "defines": {
-                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)",
+                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)"
                     },
                     "scheduler": {
                         "frequency": "Hour",
@@ -203,8 +203,8 @@ To read data from previous day instead of day represented by the SliceStart, use
                     "scriptLinkedService": "StorageLinkedService",
                     "defines": {
                         "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
-                        "Month": "$$Text.Format('{0:%M}',WindowStart)",
-                        "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                        "Month": "$$Text.Format('{0:MM}',WindowStart)",
+                        "Day": "$$Text.Format('{0:dd}',WindowStart)"
                     }
                 },
                 "scheduler": {
