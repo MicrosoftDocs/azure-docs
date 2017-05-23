@@ -49,9 +49,7 @@ Azure App Service supports two types of credentials for local Git deployment and
 The File Structure for your Azure App Service is documented [here](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
 
 ## How can I resolve FTP Error 550 There is not enough space on the disk when I try to FTP files?
-You are likely running into disk quota on the pricing Tier your web app is using.
-You may need to scale up to a higher pricing tier based on your disk space needs.
-Please refer to [App Service Pricing ](https://azure.microsoft.com/en-us/pricing/details/app-service/) for info on Pricing tiers and resource limits.
+You are likely running into disk quota on the pricing Tier your web app is using. You may need to scale up to a higher pricing tier based on your disk space needs. Please refer to [App Service Pricing ](https://azure.microsoft.com/en-us/pricing/details/app-service/) for info on Pricing tiers and resource limits.
 
 
 ## How can I set up continuous deployment for my Azure App Service?
@@ -64,14 +62,14 @@ The information via [Investigating continuous deployment](https://github.com/pro
 
 ## I am not able to FTP to my site and publish my code. How can I resolve the issue?
 
-1. 1.Please check that you are entering the correct host name and credentials. Detailed information about different types of credentials and usage can be found [here](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Please check that you are entering the correct host name and credentials. Detailed information about different types of credentials and usage can be found [here](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Please check that the FTP ports are not blocked by a firewall.
  * FTP control connection port: 21
  * FTP data connection port: 989 , 10001-10300
 
 ## How do I publish my code to Azure App Service?
 
-The Quickstart experience is designed to guide you to deploy your app using the deployment stack and method of your choice. You can locate Quickstart under the App Deployment section of the **Settings** menu.
+The Quickstart experience is designed to guide you to deploy your app using the deployment stack and method of your choice. In the Azure portal, You can locate Quickstart under the App Deployment section of the Settings menu.
 
 ## When does my application restart after deployment to Azure App Service?
 
