@@ -52,13 +52,11 @@ The patch orchestration app is comprised of the following subcomponents:
 
 ### The cluster runs Service Fabric version 5.5 or later
 
-Patch orchestration app can be run on clusters having Service
-Fabric runtime version v5.5 or above.
+The patch orchestration app must be run on clusters having Service Fabric runtime version v5.5 or later.
 
 ### Enable repair manager service (if not running already)
 
-The patch orchestration app requires the repair manager system service to be
-enabled on the cluster.
+The patch orchestration app requires the repair manager system service to be enabled on the cluster.
 
 #### Enable the repair manager service on Azure clusters
 
@@ -154,7 +152,7 @@ Inside the `WadCfg` section in the Azure Resource Manager template, add the foll
 > If your Service Fabric cluster has multiple node types, then the above
 section has to be added for all the `WadCfg` sections.
 
-## Download the application package
+## Download the app package
 
 Download the application from [Download
 link](https://go.microsoft.com/fwlink/P/?linkid=849590)
