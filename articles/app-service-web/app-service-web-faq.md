@@ -55,8 +55,7 @@ This topic lists some of the most common questions about Web Apps, it also provi
 * [My ClearDB database is down?](app-service-web-open-source-technologies-faq#my-cleardb-database-is-down)
 * [More questions](app-service-web-open-source-technologies-faq.md)
 
-**Autoscale Service and Function App**
+**Function App**
 
-* [Why is Autoscale not working as expected?](app-service-web-others-faq#why-is-autoscale-not-working-as-expected)
 * [Functions Preview Versions Deprecation](app-service-web-others-faq#functions-preview-versions-deprecation)
 * [More questions](app-service-web-others-faq.md)
