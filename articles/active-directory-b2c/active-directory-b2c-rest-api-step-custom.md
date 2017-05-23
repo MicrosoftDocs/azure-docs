@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: REST API claims exchange as a step in your B2C Custom Policies| Microsoft Docs'
+title: 'Azure Active Directory B2C: REST API Claims Exchange Orchestration Step | Microsoft Docs'
 description: A topic on Azure Active Directory B2C custom policies integrating with API
 services: active-directory-b2c
 documentationcenter: ''
