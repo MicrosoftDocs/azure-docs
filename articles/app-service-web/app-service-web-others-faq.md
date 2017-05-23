@@ -23,10 +23,6 @@ This topic provides answers to more requently asked questions in [Azure Web Apps
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Autoscale Service**
-
-* [Why is Autoscale not working as expected?](#why-is-autoscale-not-working-as-expected)
-
 **Function App**
 
 * [Functions Preview Versions Deprecation](#functions-preview-versions-deprecation)
