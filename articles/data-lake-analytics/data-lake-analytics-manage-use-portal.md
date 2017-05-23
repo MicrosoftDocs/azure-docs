@@ -41,7 +41,7 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 
 **To delete a Data Lake Analytics account**
 
-1. Open the Data Lake Analytics account.
+1. Open the Data Lake Analytics account in the Azure portal.
 2. Click **Delete**.
 3. Type the account name.
 4. Click **Delete**.
@@ -62,7 +62,7 @@ The **Data Explorer** allows you to browse the data sources and perform basic fi
 
 **To add a data source**
 
-1. Open a Data Lake Analytics account
+1. Open the Data Lake Analytics account in the Azure portal.
 2. Click **Settings** > **Data Sources**.
 3. Click **Add Data Source**.
     
@@ -78,14 +78,15 @@ The standard Azure RBAC roles have the folloing capabilities with respect to Dat
 * **Contributor**: Can submit job, monitor jobs, and cancel jobs from any user, and configure the account.
 * **Reader**: Can monitor jobs.
 
-The **Data Lake Analytics Developer** is a new role introduced by Azure Data Lake. U-SQL developers should be assigned to this role. The role allows users to:
+Use the **Data Lake Analytics Developer** to enable U-SQL developers to use the Data Lake Analytics service. The Data Lake Analytics Developer role allows a user to:
 * submit jobs
-* monitor jobs from any user
-* cancel their own jobs
+* monitor jobs status and progress of jobs submitted by any user
+* see the U-SQL scripts from jobs submitted by any user 
+* cancel only their own jobs
 
 **To add users or security groups to a Data Lake Analytics account**
 
-1. Open the Analytics account that you want to manage.
+1. Open the Data Lake Analytics account in the Azure portal.
 2. Click **Settings** >  **Users** > **Add**.
 4. Select a role.
 5. Add a user.
@@ -102,7 +103,7 @@ The **Data Lake Analytics Developer** is a new role introduced by Azure Data Lak
 
 **To submit a job**
 
-1. Open the Analytics account that you want to manage. For instructions, see [Access Data Lake Analytics accounts].
+1. Open the Data Lake Analytics account in the Azure portal.
 2. Click **New Job**.
    
     For each job, you can configure:
@@ -115,9 +116,10 @@ The **Data Lake Analytics Developer** is a new role introduced by Azure Data Lak
 
 **To monitor jobs**
 
-1. Click **Job Management**.
-2. Click a job from the lists. 
-3. Optionally click **Filter** to help you to find the jobs by **Time Range**, **Job Name**, and **Author**. 
+1. Open the Data Lake Analytics account in the Azure portal.
+2. Click **Job Management**.
+3. Click a job from the lists. 
+4. Optionally click **Filter** to help you to find the jobs by **Time Range**, **Job Name**, and **Author**. 
 
 ## See also
 
