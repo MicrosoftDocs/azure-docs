@@ -162,19 +162,11 @@ Azure Load Balancer has an ‘idle timeout’ setting of 4 minutes by default, w
 
 Azure Webjobs are designed for background processing and you can do as much background processing as you want within them. For more information on Azure WebJobs, please see [Run Background tasks with WebJobs](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-create-web-jobs).
 
-## How do I remote debug my Azure App Service Web App using Visual Studio?
-
-Please find a detailed step-by-step walkthrough showing how to debug your web app using Visual Studio via [Remote debug your Azure App Service Web App](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
-
 ## ASP.NET Core applications may experience intermittent hangs when hosted in Azure App Service.
 
 If you are noticing intermittent hangs or an error message that says "The specified CGI Application encountered an error and the server terminated the process." in your ASP.NET Core 1.0 app hosted in Azure App Service, you may be running into a known issue as discussed via [UvException (Error -4047 EPIPE broken pipe) timing out HTTP requests](https://github.com/aspnet/KestrelHttpServer/issues/1182).
 
 This issue is fixed in 1.0.2 version of Kestrel that is included in .NET Core 1.0.3 update. Please make sure to update your app dependencies to use 1.0.2 version of Kestrel to resolve this issue. Alternatively, you can use one of the two available workarounds as described in the blog article via [ASP.NET Core 1.0 slow perf issues on Azure App Service Web Apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
-
-## I am unable to remote debug my web app in Visual Studio. How can I address this?
-
-There may be many reasons that could prevent you from attaching a Visual Studio debugger to your Azure App Serfice Web App. This quick [blog article](https://blogs.msdn.microsoft.com/jpsanders/2016/02/09/manually-attach-a-debugger-to-azure-web-apps/) provides a workaround that may unblock you so you can debug your app.
 
 
 ## I cannot find my log files in the file structure of my Azure App Service Web App. Where can I find them?
@@ -192,9 +184,3 @@ This error typically happens if the **outbound TCP connections** on the VM insta
 This error can also occur if you try to access a **local address** from your application. For more details refer to https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests.
 
 A blog post in this regard is http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/.
-
-## How can I migrate from a on-premise environment to Azure App Services?
-
-The **Azure App Service** Migration tool can be utilized to migrate sites from Windows and Linux web servers to Azure App Service.
-
-As part of the migration the tool will create Web Apps and databases on Azure if needs be, publish content and publish your database. For more details refer to https://www.movemetothecloud.net/
