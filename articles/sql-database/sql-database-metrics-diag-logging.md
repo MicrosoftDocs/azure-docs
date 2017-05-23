@@ -50,7 +50,7 @@ We recommend that you read both the [Overview of metrics in Microsoft Azure](../
 
 ### Azure portal
 
-To enable metrics and diagnostic logs collection in the Azure portal, navigate to your Azure SQL database or elastic pool page, and then click **Diagnostic configuration**.
+To enable metrics and diagnostic logs collection in the Azure portal, navigate to your Azure SQL database or elastic pool page, and then click **Diagnostic settings**.
 
    ![enable in the Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
@@ -80,7 +80,7 @@ To enable metrics and diagnostics logging using PowerShell, use the following co
 
     ```(Get-AzureRmOperationalInsightsWorkspace).ResourceId```
 
-   You can combine these parameters to enable multiple output options.
+You can combine these parameters to enable multiple output options.
 
 ### CLI
 
@@ -104,7 +104,7 @@ To enable metrics and diagnostics logging using the Azure CLI, use the following
 
     ```azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true```
 
-   You can combine these parameters to enable multiple output options.
+You can combine these parameters to enable multiple output options.
 
 ### REST API
 
@@ -115,7 +115,7 @@ Read about how to [change Diagnostic settings using the Azure Monitor REST API](
 Read about how to [enable Diagnostic settings at resource creation using Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
 ## Streaming into Log Analytics 
-Azure SQL Database metrics and diagnostic logs can be streamed into Log Analytics using the built-in “Export to Log Analytics” option in the portal, or by enabling Log Analytics in a diagnostic setting via Azure PowerShell cmdlets, Azure CLI, or Azure Monitor REST API.
+Azure SQL Database metrics and diagnostic logs can be streamed into Log Analytics using the built-in “Send to Log Analytics” option in the portal, or by enabling Log Analytics in a diagnostic setting via Azure PowerShell cmdlets, Azure CLI, or Azure Monitor REST API.
 
 ### Installation overview
 
@@ -136,7 +136,7 @@ Monitoring Azure SQL Database fleet is simple with Log Analytics. Three steps ar
 
 ### Configure databases to record metrics and diagnostic logs
 
-The easiest way to configure where databases record their metrics is through the Azure portal. In the Azure portal, navigate to your Azure SQL Database resource and click **Diagnostics**. 
+The easiest way to configure where databases record their metrics is through the Azure portal. In the Azure portal, navigate to your Azure SQL Database resource and click **Diagnostics settings**. 
 
 ### Install the Azure SQL Analytics solution from gallery  
 
@@ -144,16 +144,16 @@ The easiest way to configure where databases record their metrics is through the
 
    ![monitoring solution](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. On your OMS homepage, a new tile called **Azure SQL SQL Analytics** appears. Selecting this tile opens the Azure SQL Analytics dashboard.
+2. On your OMS homepage, a new tile called **Azure SQL Analytics** appears. Selecting this tile opens the Azure SQL Analytics dashboard.
 
-## Using Azure SQL Analytics Solution
+### Using Azure SQL Analytics Solution
 
 Azure SQL Analytics is a hierarchical dashboard that allows you to navigate through the hierarchy of Azure SQL Database resources. This capability enables you to do high-level monitoring but it also enables you to scope your monitoring to just the right set of resources.
 Dashboard contains the lists of different resources under the selected resource. For example, for a selected subscription you can see the all servers, elastic pools and databases that belong to the selected subscription. Additionally, for Elastic Pools and databases, you can see the resource usage metrics of that resource. This includes charts for DTU, CPU, IO, LOG, sessions, workers, connections, and storage in GB.
 
 ## Stream into Azure Event Hub
 
-Azure SQL Database metrics and diagnostic logs can be streamed into Event Hub using the built-in “Export to Event Hub” option in the portal, or by enabling Service Bus Rule Id in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI, or Azure Monitor REST API. 
+Azure SQL Database metrics and diagnostic logs can be streamed into Event Hub using the built-in “Stream to an event hub” option in the portal, or by enabling Service Bus Rule Id in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI, or Azure Monitor REST API. 
 
 ### What to do with metrics and diagnostic logs in Event Hub?
 Once the selected data is streamed into Event Hub, you are one step closer to enabling advanced monitoring scenarios. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an Event Hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule. For more information on Event Hub, see:
@@ -170,7 +170,7 @@ Here are just a few ways you might use the streaming capability:
 
 ## Stream into Azure Storage
 
-Azure SQL Database metrics and diagnostic logs can be stored into Azure Storage using the built-in “Export to Azure Storage” option in the portal, or by enabling Azure Storage in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI, or Azure Monitor REST API.
+Azure SQL Database metrics and diagnostic logs can be stored into Azure Storage using the built-in "Archive to a storage account” option in the Azure portal, or by enabling Azure Storage in a diagnostic setting via Azure PowerShell Cmdlets, Azure CLI, or Azure Monitor REST API.
 
 ### Schema of metrics and diagnostic logs in the storage account
 
@@ -205,8 +205,9 @@ See [Download metrics and diagnostic logs from Azure Storage](../storage/storage
 | |  |
 |---|---|
 |**Resource**|**Metrics**|
-|Database|DTU percentage, DTU limit, CPU percentage, Physical data read percentage, Log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage|
-|Elastic pool|eDTU percentage, eDTU limit, CPU percentage, Physical data read percentage, Log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage |
+|Database|DTU percentage, DTU used, DTU limit, CPU percentage, Physical data read percentage, Log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, deadlocks |
+|Elastic pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, Physical data read percentage, Log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
+percentage |
 |||
 
 ## Next steps
