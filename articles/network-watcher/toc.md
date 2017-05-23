@@ -18,12 +18,14 @@
 ## Verify IP flows to and from a VM
 ### [Portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-### [CLI](network-watcher-check-ip-flow-verify-cli.md)
+### [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Analyze next hop
 ### [Portal](network-watcher-check-next-hop-portal.md)
 ### [PowerShell](network-watcher-check-next-hop-powershell.md)
-### [CLI](network-watcher-check-next-hop-cli.md)
+### [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-next-hop-cli.md)
 ### [REST](network-watcher-check-next-hop-rest.md)
 ## View your network topology
 ### [PowerShell](network-watcher-topology-powershell.md)
