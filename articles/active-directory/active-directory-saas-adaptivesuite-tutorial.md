@@ -86,7 +86,7 @@ To configure and test Azure AD single sign-on with Adaptive Suite, you need to c
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an Adaptive Suite test user](#creating-a-adaptive-suite-test-user)** - to have a counterpart of Britta Simon in Adaptive Suite that is linked to the Azure AD representation of user.
+3. **[Creating an Adaptive Suite test user](#creating-an-adaptive-suite-test-user)** - to have a counterpart of Britta Simon in Adaptive Suite that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -254,7 +254,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+The objective of this section is to test your Microsoft Azure AD Single Sign-On configuration using the Access Panel.
+
+When you click the Adaptive Suite tile in the Access Panel, you should get automatically signed-on to your Adaptive Suite application.
 
 
 ## Additional resources
