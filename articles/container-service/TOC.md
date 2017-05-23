@@ -43,6 +43,7 @@
 #### [Monitor with OMS](container-service-kubernetes-oms.md)
 #### [Monitor with Datadog](container-service-kubernetes-datadog.md)
 #### [Monitor with Sysdig](container-service-kubernetes-sysdig.md)
+#### [Monitor with CoScale](container-service-kubernetes-coscale.md)
 ## Manage with Docker Swarm
 ### [Docker and Docker Compose](container-service-docker-swarm.md)
 
