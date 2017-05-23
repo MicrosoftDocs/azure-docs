@@ -29,9 +29,11 @@ NOTE: Your subscription keys are valid for only one of these [Microsoft Azure Re
 | Southeast Asia | southeastasia.api.cognitive.microsoft.com |
 
 
-If you sign up using the Computer Vision free trial, your subscription keys are valid for the **westcentral** region (`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/`). That is the most common case. However, if you sign-up for Computer Vision with your Microsoft Azure account through the [https://azure.microsoft.com/](https://azure.microsoft.com/) website, you specify the region for your Computer Vision trial from the above list of Microsoft Azure Regions. 
+If you sign up using the Computer Vision free trial, your subscription keys are valid for the **westcentral** region (`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/`). That is the most common case. However, if you sign-up for Computer Vision with your Microsoft Azure account through the [https://azure.microsoft.com/](https://azure.microsoft.com/) website, you specify the region for your trial from the preceding list of regions. 
 
 For example, if you sign up for Computer Vision with your Microsoft Azure account and you specify `westus` for your region, you must use the `westus` region for your REST API calls (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
+
+If you forget the region for your subscription key after obtaining your trial key, you can find your region at [https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/](https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/).
 
 Subscriptions
 
