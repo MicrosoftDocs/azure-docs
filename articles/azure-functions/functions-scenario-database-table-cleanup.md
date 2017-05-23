@@ -27,7 +27,7 @@ This topic shows you how to use Azure Functions to create a scheduled job that c
 
 + This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in table named *TodoItems* in a SQL Database. To create the TodoItems table, complete the [Azure App Service Mobile Apps quickstart tutorial](../app-service-mobile/app-service-mobile-ios-get-started.md). 
 
-## Get the SQL Database connection string from the mobile app
+## Get the connection string
 A function app hosts the execution of your functions in Azure. It is a best practice to store connection strings and other secrets in your function app settings. This prevents accidental disclosure of the connection string with your code. 
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
@@ -38,7 +38,7 @@ A function app hosts the execution of your functions in Azure. It is a best prac
  
      ![Function app settings blade](./media/functions-scenario-database-table-cleanup/mobile-app-connection.png)
 
-## Set the SQL Database connection string in the function app
+## Set connection string 
 
 4. Navigate to your function app, then select **Platform features** > **Application settings**.
    
@@ -50,7 +50,7 @@ A function app hosts the execution of your functions in Azure. It is a best prac
 
 Now, you can add the C# function code that connects to your SQL Database.
 
-## Update the timer-triggered function 
+## Update the function 
 1. In your function app, select the timer-triggered function.
  
 3. Add the following assembly references at the top of the existing function code:
