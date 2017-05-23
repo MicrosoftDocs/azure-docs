@@ -18,8 +18,8 @@ ms.date: 5/16/2017
 ms.author: v-six
 
 ---
-# More requently asked questions in Azure Web Apps
-This article includes answers to more requently asked questions in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
+# More frequently asked questions in Azure Web Apps
+This article includes answers to more frequently asked questions in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -29,7 +29,7 @@ This article includes answers to more requently asked questions in [Azure Web Ap
 
 **Web Apps FAQ Overview**
 
-* [Visit all Web Apps requently asked questions](app-service-web-faq.md)
+* [Visit all Web Apps frequently asked questions](app-service-web-faq.md)
 
 ## Functions Preview Versions Deprecation
 
