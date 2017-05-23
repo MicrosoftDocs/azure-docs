@@ -269,7 +269,7 @@ Next we deploy the Java application to an Azure appservice.
 Create an appservice plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
 
 > [!NOTE] 
-? An appservice plan represents the collection of physical resources used to host your apps. All applications assigned to an appservice plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
+> An appservice plan represents the collection of physical resources used to host your apps. All applications assigned to an appservice plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
 > 
 > appservice plans define: 
 >
