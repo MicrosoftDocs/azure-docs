@@ -23,6 +23,15 @@ This topic provides answers to some of the most common questions about Deploymen
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
+## I am getting started with Azure App Service Web Apps and I want to know how to publish
+
+Here are some basic steps to publish your web app code.
+1. If you have the Visual Studio Solution,  right click on the web application project and click on Publish.
+2. Another option is to deploy using FTP client. Download the publish profile for the web app that you want to deploy your code to in the Azure portal. Then upload the files to \site\wwwroot location using these publish prodile FTP credentials.
+
+For further detail, please refer to a product documentation [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+
+
 ## I am running into errors while trying to deploy from Visual Studio
 If you are running into an error with a message “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Please re-register for this provider in order to have access to this location”, you may be using an older version of SDK.
 You can resolve this error by upgrading to the latest SDK, which can be downloaded from [here](https://azure.microsoft.com/en-us/downloads/). If you continue to run into the issue even after upgrading to the latest SDK, please proceed to create a support incident.
