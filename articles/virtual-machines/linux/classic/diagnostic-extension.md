@@ -2,7 +2,6 @@
 title: Monitoring a Linux VM with a VM extension | Microsoft Docs
 description: Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure.
 services: virtual-machines-linux
-documentationcenter: ''
 author: NingKuang
 manager: timlt
 editor: ''
@@ -16,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-
 ---
 # Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
 
-This document describes version 2.3 of the Linux Diagnostic Extension. This version is deprecated; please see the [documentation for version 3.0 of the Linux Diagnostic Extension](../../virtual-machines-linux-diagnostic-extension.md).
+This document describes version 2.3 of the Linux Diagnostic Extension.
+
+> [!IMPORTANT]
+> This version is deprecated, and it may be unpublished any time after June 30, 2018. It has been replaced by version 3.0. Please see the [documentation for version 3.0 of the Linux Diagnostic Extension](../../virtual-machines-linux-diagnostic-extension.md).
 
 ## Introduction
+
 (**Note**: The Linux Diagnostic Extension is open-sourced on [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) where the most current information on the extension is first published. You might want to check the [GitHub page](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) first.)
 
 The Linux Diagnostic Extension helps a user monitor the Linux VMs that are running on Microsoft Azure. It has the following capabilities:
@@ -40,7 +42,7 @@ In the current version 2.3, the data includes:
 This extension works with both the classic and Resource Manager deployment models.
 
 ### Current version of the extension and deprecation of old versions
-The latest version of the extension is **2.3**, and **any old versions (2.0, 2.1, and 2.2) will be deprecated and unpublished by end of this year (2016)**. If you installed the Linux Diagnostic extension with automatic minor version upgrade disabled, it's strongly recommended that you uninstall the extension and reinstall it with automatic minor version upgrade enabled. On classic (ASM) VMs, you can achieve this by specifying '2.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell. On ARM VMs, you can achieve this by including '"autoUpgradeMinorVersion": true' in the VM deployment template. Also, any new installation of the extension should have the auto minor version upgrade option turned on.
+The latest version of the extension is **2.3**, and **any old versions (2.0, 2.1, and 2.2) will be deprecated and unpublished by end of this year (2017)**. If you installed the Linux Diagnostic extension with automatic minor version upgrade disabled, it's strongly recommended that you uninstall the extension and reinstall it with automatic minor version upgrade enabled. On classic (ASM) VMs, you can achieve this by specifying '2.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell. On ARM VMs, you can achieve this by including '"autoUpgradeMinorVersion": true' in the VM deployment template. Also, any new installation of the extension should have the auto minor version upgrade option turned on.
 
 ## Enable the extension
 You can enable this extension by using the [Azure portal](https://portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.

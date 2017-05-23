@@ -16,7 +16,7 @@
 ### [Use Remote Desktop with a Linux VM](remote-desktop.md)
 ### [Manage VM extensions](manage-extensions.md)
 ### [Manage VMs with Visual Studio](manage-visual-studio.md)
-### [Monitor VMs using the Diagnostic VM Extension](diagnostic-extension.md)
+### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)

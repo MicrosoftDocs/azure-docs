@@ -13,7 +13,10 @@ ms.author: jasonzio
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
 
-This document describes version 3.0 and newer of the Linux Diagnostic Extension. For information about version 2.3 and older, see [this document](./classic/diagnostic-extension.md).
+This document describes version 3.0 and newer of the Linux Diagnostic Extension.
+
+> [!IMPORTANT]
+> For information about version 2.3 and older, see [this document](./classic/diagnostic-extension.md).
 
 ## Introduction
 
@@ -88,9 +91,10 @@ After you've changed your Protected or Public settings, deploy them to the VM by
 
 The latest version of the extension is **3.0**. **Any old versions (2.x) are deprecated and may be unpublished on or after July 31, 2018**.
 
-This extension introduces breaking changes to the configuration of the extension. One such change was made to improve the security of the extension; as a result, backwards compatibility with 2.x could not be maintained. Also, the Extension Publisher for this extension is different than the publisher for the 2.x versions.
-
-To migrate from 2.x to this new version of the extension, you must uninstall the old extension (under the old publisher name), then install version 3 of the extension.
+> [!IMPORTANT]
+> This extension introduces breaking changes to the configuration of the extension. One such change was made to improve the security of the extension; as a result, backwards compatibility with 2.x could not be maintained. Also, the Extension Publisher for this extension is different than the publisher for the 2.x versions.
+>
+> To migrate from 2.x to this new version of the extension, you must uninstall the old extension (under the old publisher name), then install version 3 of the extension.
 
 Recommendations:
 
