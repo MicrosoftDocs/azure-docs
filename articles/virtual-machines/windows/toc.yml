@@ -361,8 +361,6 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Virtual machine boot diagnostics 
-      href: ../virtual-machine-boot-diagnostics.md
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
       items:
@@ -372,6 +370,8 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Restarting or resizing a VM
@@ -382,6 +382,8 @@
       href: allocation-failure.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk to troubleshooting VM
       items:
       - name: Azure PowerShell
