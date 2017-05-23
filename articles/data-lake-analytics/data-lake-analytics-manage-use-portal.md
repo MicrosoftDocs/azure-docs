@@ -117,9 +117,8 @@ Use the **Data Lake Analytics Developer** to enable U-SQL developers to use the 
 **To monitor jobs**
 
 1. Open the Data Lake Analytics account in the Azure portal.
-2. Click **Job Management**.
-3. Click a job from the lists. 
-4. Optionally click **Filter** to help you to find the jobs by **Time Range**, **Job Name**, and **Author**. 
+2. Click **View All Jobs**. Now you can see a list of all the active and recently finished jobs in the account.
+3. Optionally click **Filter** to help you to find the jobs by **Time Range**, **Job Name**, and **Author**. 
 
 ## See also
 
