@@ -76,7 +76,7 @@ At a later point, you can specify whether you observed a click on the first cont
 curl -v https://ds.microsoft.com/<appId>/reward/<eventId> -X POST
 ```
 
-Finally, you need to provide the Action Set API, which returns the list of articles (aka, actions) to be considered by Custom Decision Service. Implement this API as an RSS feed, as shown here:
+Finally, you need to provide the Action Set API, which returns the list of articles (actions) to be considered by Custom Decision Service. Implement this API as an RSS feed, as shown here:
 
 ```xml
 <rss version="2.0">
