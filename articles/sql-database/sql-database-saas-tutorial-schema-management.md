@@ -128,6 +128,6 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
 * [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)
