@@ -1,5 +1,5 @@
 ---
-title: How to save searches and pin data assets | Microsoft Docs
+title: Save searches and pin data assets in Azure Data Catalog | Microsoft Docs
 description: How-to article highlighting capabilities in Azure Data Catalog for saving data sources and data assets for later reuse.
 services: data-catalog
 documentationcenter: ''
@@ -18,40 +18,46 @@ ms.date: 05/15/2017
 ms.author: maroche
 
 ---
-# How to save searches and pin data assets
+# Save searches and pin data assets in Azure Data Catalog
 ## Introduction
-Microsoft Azure Data Catalog provides capabilities for data source discovery. Users can quickly search and filter the catalog to locate data sources and understand their intended purpose, making it easier to find the right data for the job at hand.
+Azure Data Catalog provides capabilities for data source discovery. You can quickly search and filter the catalog to locate data sources and understand their intended purpose, making it easier to find the right data for the job at hand.
 
-But what about when users need to regularly work with the same data? What about when users regularly contribute their knowledge to the same data sources in the catalog? In these situations, having to repeatedly issue the same searches can be inefficient – this is where saved search and pinned data assets can help.
+But what if you need to regularly work with the same data? And what if you and other users regularly contribute your knowledge to the same data sources in the catalog? In these situations, having to repeatedly issue the same searches can be inefficient. This is where saved search and pinned data assets can help.
 
 ## Saved searches
-A saved search in Azure Data Catalog is a reusable, per-user search definition. Once a user has defined a search – including search terms, tags, and other filters – he can save it for later use. The saved search definition can then be re-run at a later date, to return any data assets that match its search criteria.
+A saved search in Data Catalog is a reusable, per-user search definition. You can define a search, including search terms, tags, and other filters, and then save it. You can re-run the saved search definition later to return any data assets that match its search criteria.
 
-### Creating a saved search
-To create a saved search, first enter the search criteria to be reused. Then click the “Save” link in the “Current Search” box in the Azure Data Catalog portal.
+### Create a saved search
+To create a saved search, do the following:
+1. In the Azure Data Catalog portal, in the **Current Search** window, click **Save**. 
 
- ![Select 'Save' to save the current search settings](./media/data-catalog-how-to-save-pin/01-save-option.png)
+    ![Current Search settings Save link](./media/data-catalog-how-to-save-pin/01-save-option.png) 
 
-When prompted, enter a name for the saved search. Pick a name that is meaningful and descriptive of the data assets that will be returned by the search.
+2. Enter the search criteria that you want to reuse, and then click **Save**.
 
- ![Provide a name for the saved search](./media/data-catalog-how-to-save-pin/02-name.png)
+    ![Current Search settings saved search name](./media/data-catalog-how-to-save-pin/02-name.png)
 
-### Managing saved searches
-Once a user has saved one or more searches, a “Saved Searches” option will appear in the Azure Data Catalog portal under the “Current Search” box. When expanded, the complete list of saves searches will be displayed.
+3. When you are prompted, enter a name for the saved search. Pick a name that is meaningful and descriptive of the data assets that will be returned by the search.
+
+### Manage saved searches
+After you have saved one or more searches, a **Saved Searches** option is displayed beneath the **Current Search** box. When the list is expanded, all saved searches are displayed.
 
  ![List of saved searches](./media/data-catalog-how-to-save-pin/03-list.png)
 
-Selecting a saved search from the list will cause the search to be executed.
+Do any of the following:
 
-Selecting the drop-down menu will provide a set of management options:
+* To execute a search, select a saved search in the list.
 
- ![Options for managing saved searches](./media/data-catalog-how-to-save-pin/04-managing.png)
+* To view a list of management options for a saved search, click the down arrow next to the search name.
 
-Selecting “Rename” will prompt the user to enter a new name for the saved search. The search definition will not be changed.
+    ![Options for managing saved searches](./media/data-catalog-how-to-save-pin/04-managing.png)
 
-Selecting “Delete” will prompt the user for confirmation, and will then remove the saved search from the user’s list.
+* To enter a new name for the saved search, select **Rename**.
+The search definition is not changed.
 
-Selecting “Save as Default” will mark the chosen saved search as the default search for the user. If the user performs an “empty” search from the Azure Data Catalog home page, the user’s default search will be executed. In addition, the search marked as default will appear at the top of the saved search list.
+* To remove the saved search from your list, select **Delete**, and then confirm the deletion.
+
+* Selecting “Save as Default” will mark the chosen saved search as the default search for the user. If the user performs an “empty” search from the Azure Data Catalog home page, the user’s default search will be executed. In addition, the search marked as default will appear at the top of the saved search list.
 
 ### Organizational saved searches
 Every user can save searches for their own use. Data Catalog administrators can also save searches for all users within the organization. When saving a search, administrators are presented with an option to share the saved search within the company. If this option is selected, the saved search will be included in the list of available searches for all users.
