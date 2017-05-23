@@ -19,7 +19,7 @@ ms.author: v-six
 
 ---
 # More requently asked questions in Azure Web Apps
-This topic provides answers to more requently asked questions in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
+This article includes answers to more requently asked questions in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
