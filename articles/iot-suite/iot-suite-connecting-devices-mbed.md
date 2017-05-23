@@ -17,6 +17,7 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 
+ROBOTS: NOINDEX
 ---
 # Connect your device to the remote monitoring preconfigured solution (mbed)
 
