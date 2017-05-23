@@ -22,8 +22,30 @@ ms.author: cynthn
 This article shows you how to use Azure PowerShell to create an image of a generalized Azure VM. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
 
 ## Prerequisites
-* You need to have already [generalized the VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. You can also generalize a Linux VM using `sudo waagent -deprovision+user` and then use PowerShell to capture the VM. For information about using the CLI to capture a VM, see [How to generalize and capture a Linux virtual machine using the Azure CLI ](../linux/capture-image.md)
-* You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](/powershell/azure/overview) for installation steps.
+You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](/powershell/azure/overview) for installation steps.
+
+## Generalize the Windows VM using Sysprep
+
+Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+
+Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+> [!IMPORTANT]
+> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
+> 
+> 
+
+1. Sign in to the Windows virtual machine.
+2. Open the Command Prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
+3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
+4. In **Shutdown Options**, select **Shutdown**.
+5. Click **OK**.
+   
+    ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. When Sysprep completes, it shuts down the virtual machine. Do not restart the VM.
+
+
+You can also generalize a Linux VM using `sudo waagent -deprovision+user` and then use PowerShell to capture the VM. For information about using the CLI to capture a VM, see [How to generalize and capture a Linux virtual machine using the Azure CLI ](../linux/capture-image.md)
 
 ## Log in to Azure PowerShell
 1. Open Azure PowerShell and sign in to your Azure account.

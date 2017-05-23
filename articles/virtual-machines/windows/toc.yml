@@ -216,18 +216,6 @@
       href: expand-data-disks.md
     - name: Use D as data disk
       href: change-drive-letter.md
-    - name: Create VMs using unmanaged disks
-      items:
-      - name: Upload a VHD
-        href: upload-image.md
-      - name: Create an unmanaged image
-        href: capture-image.md
-      - name: Create an unmanaged VM from a generalized VHD
-        href: create-vm-generalized.md
-      - name: Copy a VM
-        href: vhd-copy.md
-      - name: Attach an unmanaged data disk
-        href: attach-disk-portal.md
   - name: VM networking
     href: ps-common-network-ref.md
     items:
