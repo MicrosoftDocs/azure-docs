@@ -78,16 +78,16 @@ Data Lake Analytics currently supports the following data sources:
    * **Upload**: Upload files to the Storage account from your workstation.
    * **Access**: Configure access permissions.
    * **Rename Folder**: Rename a folder.
-   * **Folder properties**: Show properties such as path, last modified time, and so on.
+   * **Folder properties**: Show properties such as path, and last modified time.
    * **Delete Folder**: Delete a folder.
 
 **To upload files to Data Lake Store account**
 
 1. From the Portal, click **Browse** from the left menu, and then click **Data Lake Store**.
 2. Click the Data Lake Store account that you want to upload data to.
-3. Click **Data Explorer** from the top menu.
-4. Click **New Directory** to create a new folder, or click a folder name to change folder.
-5. Click **Upload** from the top menu to upload file.
+3. Click **Data Explorer**.
+4. Click **New Directory** to create a new folder.
+5. Click **Upload** to upload a file.
 
 **To upload files to Azure Blob storage account**
 
@@ -129,7 +129,7 @@ the following roles:
    
     For each job, you can configure:
 
-    * **Job Name**: The the name of the job.
+    * **Job Name**: The name of the job.
     * **Priority**: Lower numbers have higher priority. If two jobs are both queued, the one with lower priority runs first
     * **Parallelism**: The Max number of compute processes to reserve for this job.
 
