@@ -41,11 +41,11 @@ These capabilities are available to customers who purchase an Azure Active Direc
 * License for Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services, configured for SSO to Azure AD
 * Windows Server 2012 R2 Web Application Proxy 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [Download Azure AD Connect](http://www.microsoft.com/en-us/download/details.aspx?id=47594).
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Download Azure AD Connect)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
 * Verified domain
 
 ## Known issues in this release
-* Device-based conditional access policies require device object write-back to Active Directory from Azure Active Directory. It can take up to three hours for device objects to be written back to Active Directory.
+* Device-based conditional access policies require device object writeback to Active Directory from Azure Active Directory. It can take up to three hours for device objects to be written back to Active Directory.
 
 * iOS 7 devices  always prompt the user to select a certificate during client certificate authentication.
 
@@ -86,7 +86,7 @@ Follow the steps in the checklist to enable and configure the Azure Active Direc
 | Complete part two of Enabling device writeback in Azure AD Connect. After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## [Optional] Part 4: Enable multi-factor authentication
-We strongly recommended that you configure one of the several options for multi-factor authentication. If you want to require multi-factor authentication, see [Choose the multi-factor security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
+We strongly recommended that you configure one of the several options for Multi-Factor Authentication. If you want to require multi-factor authentication, see [Choose the Multi-Factor security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
 
 ## Part 5: Verification
 The deployment is now complete, and you can try out some scenarios. Use the following links to experiment with the service and become familiar with its features.
@@ -96,7 +96,7 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 | Join some devices to your workplace by using Azure Active Directory device registration service. You can join iOS, Windows, and Android devices. |[Join devices to your workplace using Azure Active Directory device registration service](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | View and enable or disable registered devices by using the administrator portal. In this task, you view some registered devices by using the administrator portal. |[Azure Active Directory device registration service overview](active-directory-device-registration-get-started.md) |
 | Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory. |[Verify registered devices are written back to Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
-| Now that users can register their devices, you can create application access polices in AD FS that allows only registered devices. In this task, you create an application access rule and a custom access-denied message. |[Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
+| Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task, you create an application access rule and a custom access-denied message. |[Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## Integrate Azure Active Directory with on-premises Active Directory
 This step helps you integrate your Azure AD tenant with your on-premises Active Directory by using Azure AD Connect. Although the steps are available in the Azure classic portal, make note of any special instructions that are listed in this section.
@@ -173,7 +173,7 @@ There are many different ways to communicate this URL to your users. For example
 4. When prompted, sign in with your credentials. The device is now joined.
 
 ### Join a Windows 7 device by using Azure Active Directory device registration
-To register Windows 7 domain joined devices, you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7, and it's available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). 
+To register Windows 7 domain-joined devices, you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7, and it's available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). 
 
 Instructions about how to use the package are available in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
