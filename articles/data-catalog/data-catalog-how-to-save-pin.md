@@ -1,6 +1,6 @@
 ---
 title: Save searches and pin data assets in Azure Data Catalog | Microsoft Docs
-description: How-to article highlighting capabilities in Azure Data Catalog for saving data sources and data assets for later reuse.
+description: How-to article highlighting capabilities in Azure Data Catalog for saving data sources and data assets for later use.
 services: data-catalog
 documentationcenter: ''
 author: steelanddata
@@ -52,33 +52,32 @@ Do any of the following:
 
     ![Options for managing saved searches](./media/data-catalog-how-to-save-pin/04-managing.png)
 
-* To enter a new name for the saved search, select **Rename**.
-The search definition is not changed.
+* To enter a new name for the saved search, select **Rename**. The search definition is not changed.
 
 * To remove the saved search from your list, select **Delete**, and then confirm the deletion.
 
-* Selecting “Save as Default” will mark the chosen saved search as the default search for the user. If the user performs an “empty” search from the Azure Data Catalog home page, the user’s default search will be executed. In addition, the search marked as default will appear at the top of the saved search list.
+* To mark the saved search as your default search, select **Save as Default**. If you perform an “empty” search from the Azure Data Catalog home page, your default search is executed. In addition, the search that's marked as the default search is displayed at the top of the **Saved Searches** list.
 
 ### Organizational saved searches
-Every user can save searches for their own use. Data Catalog administrators can also save searches for all users within the organization. When saving a search, administrators are presented with an option to share the saved search within the company. If this option is selected, the saved search will be included in the list of available searches for all users.
+All user in your organization can save searches for their own use. Data Catalog administrators can also save searches for all users within the organization. When administrators save a search, they're presented with a **Share within the company** option. Selecting this option shares the saved search for all users in the organization.
 
  ![Organizational saved searches](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## Pinned data assets
-Saved searches allow users to save and reuse search definitions; the data assets returned by the searches may change over time as the contents of the catalog change. Pinning data assets allows users to explicitly identify specific data assets to make them easier to access without needing to use a search.
+With saved searches, you can save and reuse search definitions. The data assets that are returned by the searches might change over time as the contents of the catalog change. When you pin data assets, you can explicitly identify specific data assets to make them easier to access without needing to use a search.
 
-Pinning a data asset is straightforward – users can simply click the “pin” icon for the data asset to add it to their pinned list. This icon appears in the corner of the asset tile in the tile view, and in the left-most column in the list view in the Azure Data Catalog portal.
+Pinning a data asset is straightforward. To add the data asset to your pinned list, you simply click the **pin** icon. The icon is displayed in the corner of the asset tile in the tile view, and in the left-most column in the list view in the Azure Data Catalog portal.
 
-![Pinning a data asset](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![The data-asset pin icon](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
-Unpinning an asset is equally straightforward – users simply click the “pin” icon again to toggle the setting for the selected asset.
+Unpinning a data asset is equally straightforward. Simply click the **unpin** icon to toggle the setting for the selected asset.
 
-![Unpinning a data asset](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![The data-asset unpin icon](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## “My Assets”
-The Azure Data Catalog portal home page includes a “My Assets” section that displays assets of interest to the current user. This section includes both pinned assets and saved searches.
+## The My Assets section
+The Data Catalog portal home page includes a **My Assets** section that displays assets of interest to the current user. This section includes both pinned assets and saved searches.
 
-!['My Assets' on the home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
+![The My Assets section on the home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
 
 ## Summary
-Azure Data Catalog provides capabilities that make it easier for users to discover the data sources they need, so they can spend less time looking for data and more time working with it. Saved searches and pinned data assets build on these core capabilities so users can easily identify data sources with which they will work repeatedly.
+Azure Data Catalog provides capabilities that make it easier to discover the data sources you need, so you and other organization members can spend less time looking for data and more time working with it. Saved searches and pinned data assets build on these core capabilities so users can easily identify data sources that they work with repeatedly.
