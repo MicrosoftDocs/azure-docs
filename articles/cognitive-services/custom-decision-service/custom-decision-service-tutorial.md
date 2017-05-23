@@ -65,7 +65,6 @@ For more information on the feed format, see the [API reference](custom-decision
 
     ![New feed dialog box](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
-
     Action feeds can be used by any app, regardless of where they are specified. After you specify both action feeds in our scenario, they are listed as follows:
 
     ![List of feeds](./media/custom-decision-service-tutorial/feeds.png)
@@ -113,7 +112,7 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Using appId and eventId in the click-handling code requires some care. For example, you can implement the `callback()` function as follows:
+Using `appId` and `eventId` in the click-handling code requires some care. For example, you can implement the `callback()` function as follows:
 
 ```javascript
 function callback(data) {
