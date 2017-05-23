@@ -56,7 +56,7 @@ To create the second subnet, in the **Search resources** box at the top of the p
 
 ### Azure CLI
 
-Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting difference between operating system shells. The following instructions are for executing a Bash script that has Azure CLI commands:
+Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The following instructions are for executing a Bash script that has Azure CLI commands:
 
 1. In an Internet browser, open the [Azure portal](https://portal.azure.com). Sign in by using your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account).
 2. At the top of the portal page, to the right of the **Search resources** box, click the **>_** icon to start Bash Azure Cloud Shell (Preview). The Cloud Shell pane appears at the bottom of the portal. After a few seconds, a **username@Azure:~$** prompt appears. Cloud Shell automatically signs you in to Azure by using the credentials you used to sign in to the portal.
@@ -86,7 +86,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 5. To save the file as myscript.sh, press Ctrl+X, type **y**, and then press the Enter key.
 6. At the Cloud Shell command prompt, to mark the file as executable, run the `chmod +x myscript.sh` command.
 7. To execute the script, enter `./myscript.sh`.
-8. When the script is is finished running, to review the subnets for the virtual network, copy the following command, and then paste it in the Bash Cloud Shell pane:
+8. When the script is finished running, to review the subnets for the virtual network, copy the following command, and then paste it in the Bash Cloud Shell pane:
     ```azurecli
     az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
     ```
@@ -178,18 +178,18 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 5. You can deploy the template by using one of the following parameters options:
     - **Default parameter values**. Enter the following command: 
         `New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName MyResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`        
-    - **Custom parameter values**. Download and modify the template before you deploy the template. You also can, deploy the template with parameters from the command line or deploy the template by using a separate parameters file. To download the template and parameter files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets template webpage](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file. Then, click the **Raw** button to see the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
+    - **Custom parameter values**. Download and modify the template before you deploy it. You also can deploy the template by using parameters from the command line, or deploy the template with a separate parameters file. To download the template and parameter files, click the **Browse on GitHub** button on the [Create a virtual network with two subnets template page](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). In GitHub, click the **azuredeploy.parameters.json**  or **azuredeploy.json** file. Then, click the **Raw** button to see the file. In your browser, copy the contents of the file. Save the contents to a file on your computer. You can modify the parameter values in the template, or deploy the template with a separate parameters file.  
 
     To learn more about how to deploy templates by using these methods, type `Get-Help New-AzureRmResourceGroupDeployment`. 
 
 ## <a name="delete"></a>Delete resources
-After completing this tutorial, you might want to delete the resources that you used for the tutorial, so you don't incur usage charges. Deleting a resource group also deletes all resources within the resource.
+When you've finish this tutorial, you might want to delete the resources that you used for the tutorial, so you don't incur usage charges. Deleting a resource group also deletes all resources within the resource.
 
 ### <a name="delete-portal"></a>Azure portal
 
 1. In the portal search box, enter **MyResourceGroup**. In the search results, click **MyResourceGroup**.
 2. On the **MyResourceGroup** blade, click the **Delete** icon.
-3. To confirm deletion, in the **TYPE THE RESOURCE GROUP NAME** box, enter **MyResourceGroup**, and then click **Delete**.
+3. To confirm the deletion, in the **TYPE THE RESOURCE GROUP NAME** box, enter **MyResourceGroup**, and then click **Delete**.
 
 ### <a name="delete-cli"></a>Azure CLI
 
