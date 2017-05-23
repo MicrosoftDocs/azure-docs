@@ -25,7 +25,6 @@ This topic lists some of the most common questions about Web Apps, it also provi
 
 * [How do I automate Azure App Service WebApps using Powershell?](app-service-web-availability-performance-application-issues-faq#how-do-i-automate-azure-app-service-webapps-using-powershell)
 * [What are some resource move limitations I should be aware of when moving Azure App Services?](app-service-web-availability-performance-application-issues-faq#what-are-some-resource-move-limitations-i-should-be-aware-of-when-moving-azure-app-services)
-* [I am getting started with Azure App Service Web Apps and I want to know how to publish.](app-service-web-availability-performance-application-issues-faq#i-am-getting-started-with-azure-app-service-web-apps-and-i-want-to-know-how-to-publish)
 * [How do I troubleshoot a High memory consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-memory-consumption-scenario)
 * [How do I troubleshoot a High CPU consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-cpu-consumption-scenario)
 * [My App is performing slow.](app-service-web-availability-performance-application-issues-faq#my-app-is-performing-slow)
@@ -41,7 +40,7 @@ This topic lists some of the most common questions about Web Apps, it also provi
 * [More questions](app-service-web-configuration-and-management-faq.md)
 
 **Deployment**
-
+* [I am getting started with Azure App Service Web Apps and I want to know how to publish.](app-service-web-availability-performance-application-issues-faq#i-am-getting-started-with-azure-app-service-web-apps-and-i-want-to-know-how-to-publish)
 * [I am running into errors while trying to deploy from Visual Studio](app-service-web-deployment-faq#i-am-running-into-errors-while-trying-to-deploy-from-visual-studio)
 * [How can I deploy an Asp.Net application from Visual Studio to Azure App Service?](app-service-web-deployment-faq#how-can-i-deploy-an-asp.net-application-from-visual-studio-to-azure-app-service)
 * [What are the different types of deployment credentials? How do I configure them?](app-service-web-deployment-faq#what-are-the-different-types-of-deployment-credentials)
