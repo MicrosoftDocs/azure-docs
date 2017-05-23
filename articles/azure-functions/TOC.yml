@@ -65,6 +65,8 @@
     href: functions-monitoring.md
   - name: Install Functions Runtime
     href: functions-runtime-install.md
+  - name: Connect to SQL Database
+    href: functions-scenario-database-table-cleanup.md
 - name: Reference
   items:
   - name: Develop function apps
