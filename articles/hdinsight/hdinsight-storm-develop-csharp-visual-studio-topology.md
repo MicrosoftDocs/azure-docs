@@ -540,38 +540,6 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 
 ## Troubleshooting common issues with topologies
 
-### Submission failure
-
-Submissions can fail for multiple reasons:
-
-* JDK is not installed or is not in the path
-* Required Java dependencies not included in the submission
-* Incompatible dependencies
-* Duplicate topology names
-
-To troubleshoot submission failures, use the following steps:
-
-1. Connect to the cluster headnode using SSH:
-
-    ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
-    ```
-
-    For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
-
-2. View the SCP Web API log to find errors that occurred during topology submission. The following example opens the log for viewing using the `less` command:
-
-    ```bash
-    less /var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out
-    ```
-
-#### FileNotFoundException
-
-If the `hdinsight-scpwebapi.out` log contains a `FileNotFoundException`, this might be caused by the following conditions:
-
-* The JDK is not in the path on the development environment. Verify that the JDK is installed in the development environment, and that `%JAVA_HOME%/bin` is in the path
-* You are missing a Java dependency. Make sure you are including any required .jar files as part of the submission.
-
 ### Null pointer exceptions
 
 When using a C# topology with a Linux-based HDInsight cluster, bolt and spout components that use ConfigurationManager to read configuration settings at runtime may return null pointer exceptions.
@@ -755,7 +723,19 @@ If you encounter errors submitting a topology to HDInsight, you can find logs fo
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
-Replace __sshuser__ with the SSH user account for the cluster. Replace __clustername__ with the name of the HDInsight cluster. If you used a password for the SSH account, you are prompted to enter it. The command downloads the file to the directory that the command is ran from.
+Replace __sshuser__ with the SSH user account for the cluster. Replace __clustername__ with the name of the HDInsight cluster. For more information on using `scp` and `ssh` with HDInsight, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+
+Submissions can fail for multiple reasons:
+
+* JDK is not installed or is not in the path
+* Required Java dependencies not included in the submission
+* Incompatible dependencies
+* Duplicate topology names
+
+If the `hdinsight-scpwebapi.out` log contains a `FileNotFoundException`, this might be caused by the following conditions:
+
+* The JDK is not in the path on the development environment. Verify that the JDK is installed in the development environment, and that `%JAVA_HOME%/bin` is in the path
+* You are missing a Java dependency. Make sure you are including any required .jar files as part of the submission.
 
 ## Next steps
 

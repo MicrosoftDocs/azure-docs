@@ -50,7 +50,9 @@ C# topologies must also target .NET 4.5.
 
 ## How to work with Event Hubs
 
-Microsoft provides a set of Java components that can be used to communicate with Azure Event Hubs from a Storm topology. You can find the jar file that contains the latest version of these components at [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+Microsoft provides a set of Java components that can be used to communicate with Azure Event Hubs from a Storm topology. You can find the jar file that contains the an HDInsight 3.3 and 3.4 compatible version of these components at [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+
+For HDInsight 3.5 or greater, the components are located at [https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 > [!IMPORTANT]
 > While the components are written in Java, you can easily use them from a C# topology.
@@ -185,7 +187,9 @@ You can download a complete version of the project created in this tutorial from
 
 The spout and bolt are distributed as a single Java archive (.jar) file named **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**, where #.# is the version of the file.
 
-To use this solution with HDInsight 3.5, use the version 0.9.5 jar file from  [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+To use this solution with HDInsight 3.3 or 3.4, use the version 0.9.5 jar file from  [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+
+For HDInsight 3.5 or 3.6, use the jar file from [https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 Create a directory named `eventhubspout` and save the file into the directory.
 
