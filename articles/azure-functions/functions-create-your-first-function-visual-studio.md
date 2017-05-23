@@ -23,7 +23,7 @@ ms.author: rachelap
 
 Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application.
 
-In this tutorial, you will learn how to create an Azure Function app using **Functions Core Tools** for Visual Studio. An HTTP trigger will invoke your function, so every time there is an HTTP request to your function's URL, your function will run.   
+In this tutorial, you learn how to create an Azure Function app using **Functions Core Tools** for Visual Studio. HTTP trigger invoke your function, so every time there is an HTTP request to your function's URL, your function runs.   
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -43,7 +43,7 @@ Open Visual Studio and launch the **New Project** dialog. You'll find the Azure 
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-project.png)
 
-Visual Studio will create a project containing a `local.settings.json` and [`host.json`](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
+Visual Studio creates a project containing a `local.settings.json` and [`host.json`](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
 
 Now that you have a fresh Azure Functions queue triggered project, you now must create one or more Azure functions.
 
@@ -51,9 +51,9 @@ Now that you have a fresh Azure Functions queue triggered project, you now must 
 
 You can either use the File menu to add a new file or right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**. Choose **Azure Function** from the dialog box.
 
-![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function.png)
+![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-A new dialog will appear giving you more options. Select **HttpTrigger** and provide the following information in the next dialog box:
+A new dialog appears giving you more options. Select **HttpTrigger** and provide the following information in the next dialog box:
 
 | Setting      | Suggested value  | Description                                        |
 | ------------ |  ------- | -------------------------------------------------- |
@@ -89,12 +89,12 @@ The table below details the required fields in order to publish your Function Ap
 | Setting      | Suggested value  | Description                                        |
 | ------------ |  ------- | -------------------------------------------------- |
 | Function App Name | Globally unique name | The function's name. This must be unique.  |
-| Subscription | Choose an existing subscription | The MSDN subscription that this function will be published under. |
+| Subscription | Choose an existing subscription | The MSDN subscription . |
 | Resource Group | myResourceGroup |  The Azure resource group to contain the function. |
 | App Service Plan | Existing App Service Plan name |  The function's App Service plan.  |
 | Storage Account | Globally unique name |  The storage account for the function. |
 
-Click the **Create** button, and the final confirmation page will display. Click **Publish** to deploy. Verify that your function has been published by logging into the Azure portal and locating the function.
+Click the **Create** button, and the final confirmation page displays. Click **Publish** to deploy. Verify that your function has been published by logging into the Azure portal and locating the function.
 
 ## Next steps
 
