@@ -94,7 +94,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-        to: "recipient@contoso.com",
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: "sender@contoso.com",        
         subject: "Azure news",
         content: [{
