@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/23/2017
 ms.author: jeedes
 
 ---
@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<customer-domain>.concursolutions.com`
 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Identifier. Contact [Concur Client support team](https://www.concur.co.in/contact) to get this value. 
+	> These values are not the real. Update these values with the actual Sign on URL and Identifier. Contact [Concur Client support team](https://www.concur.co.in/contact) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -204,7 +204,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Concur tile in the Access Panel, you should get login page of Concur application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
