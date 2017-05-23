@@ -57,8 +57,8 @@ By using the Data Catalog data-source registration tool, you can include a snaps
 >
 >
 
-## Including data profiles
-Just as including previews can provide valuable context for users who search for data sources in Data Catalog, including a data profile can also make it easier to understand discovered data sources.
+## Include data profiles
+Just as including previews can provide valuable context for users who search for data sources in Data Catalog, including a data profile can make it easier to understand discovered data sources.
 
 By using the Data Catalog data-source registration tool, you can include a data profile for each table and view that is registered. If you choose to include a data profile during registration, the registration tool includes aggregate statistics about the data in each table and view, including:
 
