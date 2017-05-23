@@ -146,7 +146,7 @@ The expected effect is an HTTP response of 200 (OK). Assuming that an Azure stor
 
 ## Action Set API (customer provided)
 
-On a high level, the Action Set API returns a list of articles (aka, actions). Each article is specified by the URL of an article and (optionally) the article title and the publication date. You can specify multiple action sets on the portal. A different Action Set API should be specified for each action set, as a distinct URL.
+On a high level, the Action Set API returns a list of articles (actions). Each article is specified by the URL of an article and (optionally) the article title and the publication date. You can specify multiple action sets on the portal. A different Action Set API should be specified for each action set, as a distinct URL.
 
 Each Action Set API can be implemented in two ways: as an RSS feed or as an Atom feed. Either one should conform to the respective standard and return a correct XML. For RSS, a representative example is as follows:
 
