@@ -55,6 +55,7 @@ Now, you can add the C# function code that connects to your SQL Database.
 1. In your function app, select the timer-triggered function.
  
 3. Add the following assembly references at the top of the existing function code:
+
 	```cs
         #r "System.Configuration"
         #r "System.Data"
@@ -99,6 +100,3 @@ See these topics for more information about Azure Functions.
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption plan, and how to choose the right plan.  
-
-
-
