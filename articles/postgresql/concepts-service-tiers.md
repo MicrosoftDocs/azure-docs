@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 05/17/2017
 ---
 # Azure Database for PostgreSQL options and performance: Understand what’s available in each Pricing tier
-When you create an Azure Database for PostgreSQL server, you decide upon three main choices to set the resources allocated for that server. These choices impact the performance and scale of the server.
+When you create an Azure Database for PostgreSQL server, you decide upon three main choices to configure the resources allocated for that server. These choices impact the performance and scale of the server.
 - Pricing tier
 - Compute Units
 - Storage (GB)
 
-Each pricing tier has a range of performance levels (Compute Units) to choose from, depending on your workloads requirements. Higher performance levels provide additional resources for your server designed to deliver higher throughput. You can change the server's performance level within a pricing tier without application downtime.
+Each pricing tier has a range of performance levels (Compute Units) to choose from, depending on your workloads requirements. Higher performance levels provide additional resources for your server designed to deliver higher throughput. You can change the server's performance level within a pricing tier with virtually no application downtime.
 
 > [!IMPORTANT]
 > While the service is in public preview, there is not a guaranteed Service Level Agreement (SLA).
 
-Within an Azure Database for PostgreSQL server, you can have one or multiple databases. You can opt to create a single database per server to use the resources in a dedicated fashion, or create multiple databases to share the resources. 
+Within an Azure Database for PostgreSQL server, you can have one or multiple databases. You can opt to create a single database per server to utilize all the resources, or create multiple databases to share the resources. 
 
 ## Choose a pricing tier
-While in preview, Azure Database for PostgreSQL offers two pricing tiers: Basic and Standard. Standard tier is available only in limited regions during the preview. Premium tier is not yet available, but is coming soon. 
+While in preview, Azure Database for PostgreSQL offers two pricing tiers: Basic and Standard. Premium tier is not yet available, but is coming soon. 
 
 The following table provides examples of the pricing tiers best suited for different application workloads.
 
