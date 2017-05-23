@@ -136,8 +136,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Configure Single Sign-On On App Side](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
    
-     Copy the content of the downloaded metadata XML file, and then paste it into the **Identity Provider (IDP) Metadata** textbox.
-    b. Click the "**Save all saml settings**" button. 
+    a. Copy the content of the downloaded metadata XML file, and then paste it into the **Identity Provider (IDP) Metadata** textbox.
+    
+	b. Click the "**Save all saml settings**" button. 
 
 9. Go to the "**User Attribute Mapping**" tab.
    
