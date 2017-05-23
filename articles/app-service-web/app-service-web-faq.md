@@ -17,7 +17,7 @@ ms.date: 05/17/2017
 ms.author: v-six
 ---
 # Frequently asked questions for Web Apps
-This topic lists some of the most common questions about Web Apps, it also provides the links of the answers.
+This article includes some of the most common questions about [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/), it also provides the links of the answers.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
