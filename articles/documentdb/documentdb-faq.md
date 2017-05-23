@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 05/23/2017
 ms.author: mimig
 
 ---
@@ -365,8 +365,8 @@ Yes in future we have plans to add other mechanisms for query.
 Complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quickstart to get started.
 
 <a id="moving-to-cosmos-db"></a>
-## Questions for DocumentDB customers moving to Cosmos DB
-### Why move to Azure Cosmos DB? 
+## Answers to frequent questions from DocumentDB customers
+### Why the move to Azure Cosmos DB? 
 
 Azure Cosmos DB is the next big leap in globally distributed, at scale, cloud databases. As a DocumentDB customer, you now have access to the new breakthrough system and capabilities offered by Azure Cosmos DB.
 
