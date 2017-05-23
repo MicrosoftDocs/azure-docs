@@ -17,7 +17,7 @@ ms.author: bbenz
 ---
 # Build a Java and MySQL web app in Azure
 This tutorial shows you how to create a Java web app in Azure that connects to a MySQL database. 
-The first step is to clone an application to your local machine, and get it working with a local MySQL instance.
+The first step is to clone an application to your local machine, and have it work with a local MySQL instance.
 The next step is to set up Azure services for the Java app and MySQL, then deploy the application to an Azure appservice.
 When you are finished, you will have a to-do list application running on Azure and connecting to the Azure MySQL database service.
 
@@ -211,7 +211,7 @@ Exit your server connection by typing `quit`.
 quit
 ```
 
-### Configure the local MySQL connection with the new Azure MySQL service
+### Configure the local MySQL connection with the new Azure Database for MySQL service
 In this step, you connect your Java application to the MySQL database you created in Azure Database for MySQL. 
 
 To enable access from the local application to the Azure MySQL service, Set your new MySQL endpoint, user ID, and password in WebContent/WEB-INF/jetty-env.xml:
@@ -224,20 +224,19 @@ To enable access from the local application to the Azure MySQL service, Set your
      <Arg>
         <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
            <Set name="Url">jdbc:mysql:<mysql_server_name>.mysql.database.azure.com/itemdb</Set>
-           <Set name="User">Azure MySQL userID</Set>
+           <Set name="User">Javaapp_user@mysql_server_name</Set>
            <Set name="Password">Azure MySQL Password</Set>
         </New>
      </Arg>
     </New>
 </Configure>
-
 ```
 
 Save your changes.
 
 ## Test the application
 
-Use the same maven command as before to run the sample locally again, but this time connecting to the Azure MySQL service.: 
+Use the same maven command as before to run the sample locally again, but this time connecting to the Azure Database for MySQL service: 
 
 ```bash
 mvn package jetty:run
@@ -345,7 +344,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 }
 ```
 
-### Set the Java version, the Java Application Server type and the Application Server version
+### Set the Java version, the Java Application Server type, and the Application Server version
 Set the Java version, Java App Server (container), and container version by using the [az appservice web config update](/cli/azure/appservice/web/config#update) command.
 
 The following command sets the Java version to 8, the Java App Server to Jetty, and the Jetty version to Newest Jetty 9.3.
@@ -359,7 +358,7 @@ az appservice web config update --name <app_name> --resource-group myResourceGro
 You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
 For this example, we use Maven to compile a .WAR file and FTP to deploy the .WAR file to the Web App
 
-To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command, like this: 
+To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command: 
 
 ```azurecli
 
@@ -373,7 +372,7 @@ To prepare the local Java application to run on the Azure Web App, recompile all
 ```bash 
 mvn clean package
 ``` 
-Toward the end of the Maven package process, you'll see the location of the .WAR file.  The output should look something like this:
+Toward the end of the Maven package process, notice the location of the .WAR file.  The output should look like this:
 
 ```bash
 
@@ -387,7 +386,7 @@ Toward the end of the Maven package process, you'll see the location of the .WAR
 
 ```
 
-Note the location of the .War file, and use your favorite FTP method to deploy the .WAR file to the Jetty WebApps folder.  Note that the Jetty WebApps folder is located at /site/wwwroot/webapps in an Azure Web App. 
+Note the location of the .War file, and use your favorite FTP method to deploy the .WAR file to the Jetty WebApps folder.  In this example, the Jetty WebApps folder is located at /site/wwwroot/webapps in an Azure Web App. 
 
 ### Browse to the Azure web app
 
