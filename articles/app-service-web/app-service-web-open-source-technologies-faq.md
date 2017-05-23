@@ -26,6 +26,9 @@ This topic provides answers to some of the most common questions about Open Sour
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
+## My ClearDB database is down
+Please contact [ClearDB Support](https://www.cleardb.com/developers/help/support) for any database related issues. Also please refer to the [ClearDB FAQ](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/) which answers several questions.
+
 ## Why is my ClearDB database not visible in the portal
 
 If you create ClearDB database using the new [Azure portal](http://portal.azure.com/), it will not be visible in the [classic Azure portal](http://manage.windowsazure.com/).
@@ -65,7 +68,7 @@ FAQ for ClearDB MySql databases with Azure App Service can be found [here](https
 
 For more details, see [Enable WordPress Error Logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
-## How can I log python application errors in apps hosted in Azure App Service
+## How can I log python application errors in apps hosted in Azure App Service?
 
 The following are the steps to capture Python application errors:
 1. Navigate to your new azure portal and click on settings in your Web App.
@@ -119,10 +122,6 @@ If you see this error in your debug.log or php_errors.log, then your application
 * Navigate to kudu console (https://*Your_Webapp_name*.scm.azurewebsites.net/DebugConsole).
 * Browse your Application Logs folder available @ D:\home\LogFiles\Application.
 * Check for content in logging_errors.txt file.
-
-## My ClearDB database is down. How do I resolve this issue?
-
-Please contact [ClearDB Support](https://www.cleardb.com/developers/help/support) for any database related issues. Also please refer to the [ClearDB FAQ](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/) which answers several questions.
 
 ## Installing Native python modules on Azure App service Web Apps or API Apps.
 
