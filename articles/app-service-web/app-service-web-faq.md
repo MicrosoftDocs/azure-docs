@@ -24,13 +24,13 @@ This topic lists some of the most common questions about Web Apps, it also provi
 **Availability, Performance and Application Issues**
 
 * [How do I automate Azure App Service WebApps using Powershell?](app-service-web-availability-performance-application-issues-faq#how-do-i-automate-azure-app-service-webapps-using-powershell)
-* [What are some resource move limitations I should be aware of when moving Azure App Services?](app-service-web-availability-performance-application-issues-faq#what-are-some-resource-move-limitations-i-should-be-aware-of-when-moving-azure-app-services)
 * [How do I troubleshoot a High memory consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-memory-consumption-scenario)
 * [How do I troubleshoot a High CPU consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-cpu-consumption-scenario)
 * [My App is performing slow.](app-service-web-availability-performance-application-issues-faq#my-app-is-performing-slow)
 * [More questions](app-service-web-availability-performance-application-issues-faq.md)
 
 **Configuration and Management**
+* [What are some resource move limitations I should be aware of when moving Azure App Services?](app-service-web-availability-performance-application-issues-faq#what-are-some-resource-move-limitations-i-should-be-aware-of-when-moving-azure-app-services)
 * [Guidance, checklist and other considerations for Resource Move operations.](app-service-web-configuration-and-management-faq#guidance-checklist-and-other-considerations-for-resource-move-operations)
 * [I am trying to move Application Insights resources.](app-service-web-configuration-and-management-faq#i-am-trying-to-move-application-Insights-resources)
 * [How to buy and configure an SSL certificate in Azure for my Azure App Service?](app-service-web-configuration-and-management-faq#how-to-buy-and-configure-an-ssl-certificate-in-azure-for-my-azure-app-service)
