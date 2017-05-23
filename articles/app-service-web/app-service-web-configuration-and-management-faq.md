@@ -18,8 +18,8 @@ ms.date: 5/16/2017
 ms.author: v-six
 
 ---
-# Frequently asked questions for configuration and management in Azure Web Apps
-This topic provides answers to some of the most common questions about Configuration and Management in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
+# Configuration and management issues for Azure Web Apps: Frequently asked questions (FAQs)
+This article includes frequently asked questions about configuration and management issues for [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
