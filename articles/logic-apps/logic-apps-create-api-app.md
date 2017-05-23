@@ -14,7 +14,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/12/2017
+ms.date: 5/26/2017
 ms.author: LADocs; jehollan
 ---
 
@@ -107,12 +107,12 @@ To have your API perform tasks that could take longer than the
 you can use the asynchronous pattern. This approach has 
 your API do work in a separate thread, 
 but keep an active connection to the Logic Apps engine. 
-That way, the logic app doesn't time out or continue 
-workflow before your API finishes its job.
+That way, the logic app doesn't time out or continue its 
+workflow before your API finishes working.
 
 Here's the general pattern:
 
-1. Make sure that the Logic Apps engine knows that your API hasn't timed out.
+1. Make sure that the engine knows that your API is still working.
 2. Let the engine know when your API finishes the task.
 3. Return relevant data to the engine so that the logic app workflow can continue.
 
@@ -148,11 +148,11 @@ checks and return these responses:
    * If the job is still processing, return another HTTP `202 ACCEPTED` response, 
    but with the same headers as the original response.
 
-When you use this pattern for your API, you don't have to do anything in the 
+When you use this pattern in your API, you don't have to do anything in the 
 logic app workflow definition to continue checking job status. 
-When the Logic Apps engine gets an HTTP `202 ACCEPTED` response and a 
-valid `location` header, the engine honors the asynchronous pattern and 
-continues polling the `location` header until your API returns a non-202 response.
+When the engine gets an HTTP `202 ACCEPTED` response and a 
+valid `location` header, the engine respects the asynchronous pattern 
+and checks the `location` header until your API returns a non-202 response.
 
 For an example that shows this pattern, review this 
 [asynchronous controller response sample in GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample), 
@@ -294,7 +294,7 @@ have your API follow the *polling trigger* or *webhook trigger* pattern.
 ### Polling trigger: check for new data or events
 
 A *polling trigger* acts much like the [long-running asynchronous action](#async-pattern) 
-previously described in this topic. The Logic Apps engine periodically calls and checks the trigger endpoint for new data or events. If the engine finds new data or an event that meets your specified condition, the trigger fires, and the engine creates a logic app instance that processes the data as input. To prevent processing the same data multiple times, the trigger should clean up data that was already read and passed to the logic app. 
+previously described in this topic. The Logic Apps engine periodically calls and checks the trigger endpoint for new data or events. If the engine finds new data or an event that meets your specified condition, the trigger fires. Then, the engine creates a logic app instance that processes the data as input. To prevent processing the same data multiple times, the trigger should clean up data that was already read and passed to the logic app. 
 
 Based on your App Service plan, this interval is 15 seconds for Premium plans, 
 1 minute for Standard plans, and 1 hour for Free plans. Each polling request counts as an action execution, even when no logic app instance is created.
