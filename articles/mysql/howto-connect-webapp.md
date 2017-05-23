@@ -35,12 +35,9 @@ To ensure the availability of your Azure App Service, we recommend using this so
    ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
 2. Enter **RULE NAME**, **START IP**, and **END IP**. Then click **Save**.
-
-|           |             |
-|-----------|-------------|
-|*RULE NAME*|Allow-All-IPs|
-|*START IP*|0.0.0.0|
-|*END IP*|255.255.255.255|
+   - Rule name: Allow-All-IPs
+   - Start IP: 0.0.0.0
+   - End IP: 255.255.255.255
 
    ![Azure portal - Add all IPs](./media/howto-connect-webapp/1_2-add-all-ips.png)
 
