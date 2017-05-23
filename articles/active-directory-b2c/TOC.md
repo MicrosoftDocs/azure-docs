@@ -47,7 +47,7 @@
 ## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
 ### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
-## [Use the reporting API](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
 
 # Identity Experience Framework
