@@ -44,7 +44,7 @@ It also assumes that you have the `az` Azure CLI and `kubectl` tools installed.
 
 You can test if you have the `az` tool installed by running:
 
-```bash
+```azurecli
 az --version
 ```
 
@@ -85,5 +85,5 @@ The CoScale agent is automatically deployed on new machines in the cluster. The 
 
 ## Next steps
 
-See the [CoScale documentation](http://docs.coscale.com/) and [blog](https://www.coscale.com/blog) for more more information about container monitoring solutions. 
+See the [CoScale documentation](http://docs.coscale.com/) and [blog](https://www.coscale.com/blog) for more more information about CoScale monitoring solutions. 
 
