@@ -16,9 +16,9 @@ ms.author: juliakuz
 
 Computer Vision services require special subscription keys. Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
 
-To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change.
+To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change.
 
-NOTE: Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/en-us/regions/). 
+NOTE: Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/regions/). 
 
 | Region | Address |
 |---|---|
@@ -33,9 +33,9 @@ If you sign up using the Computer Vision free trial, your subscription keys are 
 
 For example, if you sign up for Computer Vision with your Microsoft Azure account and you specify `westus` for your region, you must use the `westus` region for your REST API calls (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
 
-If you forget the region for your subscription key after obtaining your trial key, you can find your region at [https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/](https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/).
+If you forget the region for your subscription key after obtaining your trial key, you can find your region at [https://azure.microsoft.com/try/cognitive-services/my-apis/](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 Subscriptions
 
 ### Related Links:
-* [Pricing Options for Microsoft Cognitive APIs](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/)
+* [Pricing Options for Microsoft Cognitive APIs](https://azure.microsoft.com/pricing/details/cognitive-services/)
