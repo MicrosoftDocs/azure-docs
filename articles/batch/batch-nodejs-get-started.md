@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.workload: big-compute
-ms.date: 04/25/2017
+ms.date: 05/22/2017
 ms.author: shwetams
 ---
 
@@ -248,7 +248,7 @@ Following is a sample result object returned by the pool.get function.
         _abbr: 'en',
         _config: [Object],
         _ordinalParseLenient: /\d{1,2}(th|st|nd|rd)|\d{1,2}/ } },
-  currentDedicated: 0,
+  currentComputeNodes: 0,
   targetDedicatedComputeNodes: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,

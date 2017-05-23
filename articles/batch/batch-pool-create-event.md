@@ -34,7 +34,7 @@ ms.author: tamram
 		"subnetId": " "
 	},
 	"resizeTimeout": "300000",
-	"targetDedicatedComputeNodes": 2,
+	"targetDedicated": 2,
 	"maxTasksPerNode": 1,
 	"vmFillType": "Spread",
 	"enableAutoScale": false,
