@@ -52,7 +52,10 @@ An App Service Environment is dedicated exclusively to a single subscription and
 
 An App Service Environment is composed of front-ends and workers. The front-ends are responsible for HTTP/HTTPS termination as well automatic load balancing of app requests within an App Service Environment. Front-ends are automatically added as the App Service plans in the App Service Environment are scaled out.
 
-The workers are roles that host customer apps. The workers are available in 3 fixed sizes; 1 core/3.5 GB Ram, 2 core/7GB Ram and 4 core/14GB Ram.
+The workers are roles that host customer apps. The workers are available in 3 fixed sizes:
+* 1 core/3.5 GB Ram
+* 2 core/7GB Ram
+* 4 core/14GB Ram.
 
 Customers do not need to manage the front-ends and workers. All infrastructure is automatically added as customers scale out their App Service plans. As App Service plans are created or scaled in an App Service Environment, the required infrastructure is added or removed as appropriate.
 
