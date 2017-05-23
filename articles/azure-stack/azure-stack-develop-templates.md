@@ -33,8 +33,8 @@ Azure service versions may differ between Azure and Azure Stack. Each resource r
 | Resource Provider | apiVersion |
 | --- | --- |
 | Compute |`'2015-06-15'` |
-| Network |`'2015-06-15', '2015-05-01-preview'` |
-| Storage |`'2016-01-01', '2015-06-15', '2015-05-01-preview'` |
+| Network |`'2015-06-15'`, `'2015-05-01-preview'` |
+| Storage |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
 | KeyVault | `'2015-06-01'` |
 | App Service |`'2015-08-01'` |
 | MySQL |`'2015-09-01'` |
