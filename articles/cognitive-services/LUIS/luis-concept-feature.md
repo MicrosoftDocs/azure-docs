@@ -21,24 +21,15 @@ In machine learning, a *feature* is a distinguishing trait or attribute of data 
 
 You add features to a language model, to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities, but features are not intents or entities themselves. Instead, features might provide examples of related terms, or a pattern to recognize in related terms.  
 
-<!-- TODO: Make this a detailed table -->
-<!--
-A LUIS model may have the following types of features. 
-
-* Phrase list feature -- A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them will be automatically applied to the others as well. 
-
-For example, in a travel agent app, you can create a phrase list named "Cities" that contains the values London, Paris, and Cairo. If you label one of these values as an entity, LUIS will learn to recognize the others. A phrase list may be exchangeable or non-exchangeable.
-* Pattern features -- A pattern specifies a regular expression to help LUIS recognize regular patterns that are frequently used in your application's domain, such as the pattern of flight numbers in a travel app or product codes in a shopping app.
--->
 ## Types of features
 
-LUIS offers the following types of entities:
+LUIS offers the following types of features:
 
 
 | Type          | Description           |
 | ------------- |-----------------------|
-| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them will be automatically applied to the others as well. <br/><br/> For example, in a travel agent app, you can create a phrase list named "Cities" that contains the values London, Paris, and Cairo. If you label one of these values as an entity, LUIS will learn to recognize the others. <br/><br>A phrase list may be exchangeable or non-exchangeable. An *exchangeable* phrase list is for values that are synonyms, and a *non-exchangeable* phrase list is intended for values that aren't synonyms but are similar in another way. <br/></br><ul><li> The maximum length of a phrase list is 5000 items. You may have a maximum of 10 phrase lists per LUIS app. </li></ul>|
-| Pattern      | A pattern specifies a regular expression to help LUIS recognize regular patterns that are frequently used in your application's domain, such as the pattern of flight numbers in a travel app or product codes in a shopping app. | 
+| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. <br/><br/> For example, in a travel agent app, you can create a phrase list named "Cities" that contains the values London, Paris, and Cairo. If you label one of these values as an entity, LUIS learns to recognize the others. <br/><br>A phrase list may be exchangeable or non-exchangeable. An *exchangeable* phrase list is for values that are synonyms, and a *non-exchangeable* phrase list is intended for values that aren't synonyms but are similar in another way. <br/></br><ul><li> The maximum length of a phrase list is 5000 items. You may have a maximum of 10 phrase lists per LUIS app. </li></ul>|
+| Pattern      | A pattern specifies a regular expression to help LUIS recognize regular patterns that are frequently used in your application's domain. Some examples are the pattern of flight numbers in a travel app or product codes in a shopping app. | 
 
 ## How to use phrase lists
 
