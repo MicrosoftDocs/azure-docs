@@ -29,7 +29,7 @@ to detect faces in an image and return face attributes including:
 
 #### Face Detect Python Example Request
 
-Copy the appropriate section for your version of Python and save it to a file such as `test.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to a photograph of a celebrity to the `body` variable, and change the REST URL to use the region where you obtained your subscription keys.
+Copy the appropriate section for your version of Python and save it to a file such as `test.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to a photograph of a face to the `body` variable, and change the REST URL to use the region where you obtained your subscription keys.
 
 ```python
 ########### Python 2.7 #############
