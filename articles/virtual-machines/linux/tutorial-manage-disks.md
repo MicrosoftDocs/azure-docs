@@ -31,7 +31,7 @@ Azure virtual machines use disks to store the VMs operating system, applications
 > * Resizing disks
 > * Disk snapshots
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
 
 ## Default Azure disks
 
@@ -43,7 +43,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ### Temporary disk sizes
 
-| Type | VM Size | Max temp disk size |
+| Type | VM Size | Max temp disk size (GB) |
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
