@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 05/22/2017
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -37,7 +37,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
-| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **South America** |Brazil South |Sao Paulo |
 | **Europe** |North Europe, West Europe, UK West, UK South |Amsterdam, Dublin, London, Newport(Wales), Paris |
 | **Asia** |East Asia, Southeast Asia |Hong Kong, Singapore |
@@ -50,7 +50,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **China** |China North, China East |Beijing, Shanghai |
 | **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
@@ -84,12 +84,12 @@ The following table shows connectivity locations and the service providers for e
 | **Newport(Wales)** |Next Generation Data |
 | **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
-| **Paris** |Interxion, Equinix+ |
+| **Paris** |Interxion, Equinix |
 | **Quebec City** | Megaport |
 | **Sao Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
 | **Seoul** |KINX, Sejong Telecom |
-| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
+| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 | **Singapore** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tokyo** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
