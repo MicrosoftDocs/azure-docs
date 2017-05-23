@@ -20,9 +20,9 @@ ms.author: v-six
 ---
 
 
-# Frequently asked questions for open source technologies in Azure Web Apps
+# Open source technologies issues for Azure Web Apps: Frequently asked questions (FAQs)
 
-This topic provides answers to some of the most common questions about Open Source Technologies in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
+This article includes frequently asked questions about open source technologies issues for [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
