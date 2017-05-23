@@ -128,6 +128,6 @@ The `clouddrive` directory syncs to the Azure portal storage blade. Use this to 
 You should now see the file accessible in your clouddrive directory in Cloud Shell.
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md) 
-[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-[Learn about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+[Cloud Shell Quickstart](quickstart.md) <br>
+[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Learn about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
