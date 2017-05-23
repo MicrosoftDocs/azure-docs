@@ -79,20 +79,15 @@ Storage account names must be between 3 and 24 characters in length and may cont
  
 A SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z. 
 
-### Storage keys behavior
-
-
-### Storage keys defaults
-
 ### Recommended Developer Practices 
 
-1. Azure Storage Account keys must not be managed out of band. 
-2. Keys must not be managed by more than one vault object. 
-3. If it’s required to manually regenerate keys, then it’s recommended to regenerate keys via Key vault. 
-4. Don’t manually regenerate both the keys in a short period of time. Ensure all applications are migrated to the newer key before regenerating the other key. 
-5. Application must re-retrieve SAS before it expires for continued access to storage. 6. Validity period of SAS token must be less than regeneration period of the key. A key is valid for two times the regeneration period unless it’s regenerated forcefully (manually). Hence, SAS token having validity period of less than regeneration period must never become invalid before its expiration time unless key was regenerated forcefully (manually).
-
-
-## See also
-
+1. Key Vault ASA keys must not be managed out of band.
+    - Allow only Key Vault to manage your ASA keys. 
+2. Key Vault ASA keys must not be managed by more than one key vault object. 
+3. If it’s required to manually regenerate keys, we  recommend you regenerate them via Key Vault. 
+4. Don’t manually regenerate both the keys in a short period of time. 
+    - Ensure all applications are migrated to the newer key before regenerating the other key. 
+5. Your application must re-retrieve SAS before it expires for continued access to storage. 
+6. The validity period of a SAS token must be less than regeneration period of the key. 
+- A key is valid for two times the regeneration period unless it’s regenerated forcefully (manually). Hence, SAS token having validity period of less than regeneration period must never become invalid before its expiration time unless key was regenerated forcefully (manually).
 
