@@ -48,7 +48,7 @@ complete this configuration.
 On both POC1 and POC2, prepare an offer so that a user can subscribe to the offer and deploy virtual machines. Use the following article to create an offer: [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)
 
 ## Review and complete the network configuration table
-The following table summarizes the network configuration for both POC environments. Review this information and then follow the procedure following the table to fill in the External BGPNAT address specific for your network.
+The following table summarizes the network configuration for both POC environments. Use the procedure following the table to fill in the External BGPNAT address specific for your network.
 
 **Network configuration table**
 |   |POC1|POC2|
@@ -61,7 +61,7 @@ The following table summarizes the network configuration for both POC environmen
 |External BGPNAT address     |         |         |
 
 
-The external BGPNAT IP addresses in the example environment is 10.16.167.195 for POC1 and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your POC hosts and record them in the table.
+The external BGPNAT IP addresses in the example environment are 10.16.167.195 for POC1 and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your POC hosts and record them in the table.
 
 ### Get the IP address of the external adapter of the NAT VM
 1. Log in to the Azure Stack physical machine for POC1.
@@ -82,7 +82,7 @@ The external BGPNAT IP addresses in the example environment is 10.16.167.195 for
 Repeat this procedure on POC2.
 
 ## Create the Network Resources in POC1
-Now you will create the network resources you need to set up your gateways. These instructions show you how to create resources using the portal, but the same thing can be accomplished using PowerShell.
+Now you create the network resources you need to set up your gateways. These instructions show you how to create resources using the portal, but the same thing can be accomplished using PowerShell.
 
 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
@@ -105,14 +105,14 @@ you log in.
 
 6. You should see the Subscription you created earlier populated in the
    **Subscription** field.
-7. For Resource Group, you can either create a new Resource Group or if
+7. For Resource Group, you can either create a Resource Group or if
    you already have one, select **Use existing**.
 8. Verify the default location.
 9. Click **Pin to dashboard**.
 10. Click **Create**.
 
 ### Create the Gateway Subnet
-1. Open the Virtual Network resource you just created (VNET-01) from
+1. Open the Virtual Network resource you created (VNET-01) from
    the dashboard.
 2. On the Settings blade, select **Subnets**.
 3. Click **Gateway Subnet** to add a gateway subnet to
@@ -146,7 +146,7 @@ The implementation of a *local network gateway* in this Azure Stack evaluation d
 
 Just like in Azure, you have the concept of a local network gateway. However, in an Azure deployment a *local network gateway* represents an on-premise (at the tenant)  physical device you use to connect to a virtual network gateway in Azure. But in this Azure Stack evaluation deployment, both ends of the connection are virtual network gateways!
 
-A way to think about this more generically is that the Local Network Gateway resource is always meant to indicate the remote gateway at the other end of the connection. Because of the way the POC was designed, you need to provide the IP address of the external network adapter on the NAT VM of the other POC as the Public IP Address of the local network gateway. You will then create NAT mappings on the NAT VM to make sure that both ends are connected properly.
+A way to think about this more generically is that the Local Network Gateway resource is always meant to indicate the remote gateway at the other end of the connection. Because of the way the POC was designed, you need to provide the IP address of the external network adapter on the NAT VM of the other POC as the Public IP Address of the local network gateway. You then create NAT mappings on the NAT VM to make sure that both ends are connected properly.
 
 
 ### Create the Local Network Gateway Resource
@@ -156,8 +156,8 @@ A way to think about this more generically is that the Local Network Gateway res
 4. Select **local network gateway** from the list of resources.
 5. In the **Name** field type **POC2-GW**.
 6. In the **IP address** field, type the External BGPNAT address for POC2 that you recorded in the table.
-7. In the **Address Space** field type the address space of the VNET
-   that you will create in POC2. This is going to be
+7. In the **Address Space** field, type the address space of the VNET
+   that you will create in POC2. This will be
    **10.0.20.0/23** so type that value.
 8. Verify that your **Subscription**, **Resource Group** and
    **location** are all correct and click **Create**.
@@ -191,8 +191,8 @@ POC1 now and put it on your VM subnet in your virtual network.
    then click **OK**.
 7. On the **Size** blade, click a virtual machine size for this instance and then
    click **Select**.
-8. On the **Settings** blade, you can accept the defaults; just ensure
-   that the Virtual network selected is **VNET-01** and the Subnet is
+8. On the **Settings** blade, you can accept the defaults. Just ensure
+   the virtual network selected is **VNET-01** and the subnet is
    set to **10.0.10.0/24**. Click **OK**.
 9. Review the settings on the **Summary** blade and click **OK**.
 
@@ -254,7 +254,7 @@ you log in.
 5. Select **Local network gateway** from the list of resources.
 6. In the **Name** field type **POC1-GW**.
 7. In the **IP address** field, type the External BGPNAT address for POC1 that you recorded in the table earlier.
-8. In the **Address Space** field type the address space of
+8. In the **Address Space** field, type the address space of
    **VNET-01** from POC1 - **10.0.10.0/23**.
 9. Verify that your **Subscription**, **Resource Group** and **Location** are all correct and click **Create**.
 
@@ -411,10 +411,10 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, yo
 10. Now from the virtual machine on POC2, ping the virtual machine on POC1, through
    the tunnel. To do this you ping the DIP that you recorded from VM01.
    In the example environment this is **10.0.10.4**, but be sure to ping the address you
-   noted in your lab. You should see a result that looks like this:
+   noted in your lab. You should see a result that looks like the following:
    
     ![A successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-8. A reply from the remote virtual machine indicates a successful test! You can
+11. A reply from the remote virtual machine indicates a successful test! You can
    close the virtual machine window. Or you can try doing some other
    data transfers like a file copy to test your connection.
 
@@ -429,7 +429,7 @@ went through the VPN connection.
 2. Click the **All resources** menu item and find the **POC2-POC1** connection and click it. **Connections**.
 4. On the Connection Overview blade, you can see statistics for **Data in** and
    **Data out**. In the following screen shot you see some larger numbers than just
-   a ping will create. That’s because of some additional file transfers
+   a ping creates. That’s because of some additional file transfers
    as well. You should see some non-zero values there.
    
     ![Data in and out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
