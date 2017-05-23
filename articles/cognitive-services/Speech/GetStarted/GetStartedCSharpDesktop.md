@@ -21,9 +21,9 @@ Develop a basic Windows application that uses Bing Speech Recognition API to con
 #### Platform Requirements
 The below example has been developed for Windows 8+ and .NET Framework 4.5+ using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 #### Get the Client Library and Example
-You may download the Speech API client library and example through [SDK](https://github.com/microsoft/cognitive-speech-stt-windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
+You may download the Speech API client library [SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) and [sample](https://github.com/microsoft/cognitive-speech-stt-windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
 #### Subscribe to Speech API and Get a Free Trial Subscription Key
-Before creating the example, you must subscribe to Speech API which is part of Microsoft Cognitive Services (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
+Before creating the example, you must subscribe to Speech API which is part of Microsoft Cognitive Services (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/?api=speech-api). Both the primary and secondary key can be used in this tutorial.
 
 <a name="Step1"></a>
 ## Step 1: Install the Example Application
