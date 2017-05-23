@@ -44,7 +44,7 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. [Planning your solution][## Planning your solution]
+1. Planning your solution
 2. Configure a system integration user in Workday 
 3. Configuring user synchronization from Workday to Active Directory 
 4. Configuring user synchronization from Active Directory to Azure Active Directory
@@ -80,6 +80,7 @@ Azure AD provides a rich set of provisioning connectors to help you solve provis
 Once you have answers to these questions, you can plan your Workday provisioning deployment by following the guidance below.
 
 **Provisioning Connector Apps**
+
 Azure Active Directory supports pre-integrated provisioning connectors for Workday and a large number of other SaaS applications. 
 
 A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be setup by simply adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
@@ -110,7 +111,7 @@ To facilitate these multiple workflows to multiple source and target systems, Az
 
 How to set up and configure these special provisioning connector apps is the subject of the remaining sections of this tutorial. Which apps you choose to configure will depend on which systems you need to provision to, and how many Active Directory Forests and Azure AD tenants are in your environment.
 
-![Overview](./media/active-directory-saas-workday-inbound-tutorial/WD_Overview.png)
+![Overview](./media/active-directory-saas-workday-inbound-tutorial/WD_Overview.PNG)
 
 ## Configure a system integration user in Workday
 A common requirement of all the Workday provisioning connectors is they require credentials for a Workday system integration account to connect to the Workday Human Resources API. This section describes how to create a system integrator account in Workday.
@@ -273,7 +274,7 @@ Follow these instructions to configure user account provisioning from Workday to
     i.  If it fails, double-check that the Workday credentials are valid
         in Workday. If all else fails, contact <asmalser@microsoft.com>.
 
-![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.png)
+![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
 ### Part 2: Configure attribute mappings 
 
@@ -292,17 +293,17 @@ Active Directory.
     a.  Example: Scope to users with Worker IDs between 1000000 and
         2000000
 
-        i.  Attribute: WorkerID
+       i.  Attribute: WorkerID
 
-        ii. Operator: REGEX Match
+       ii. Operator: REGEX Match
 
-        iii. Value: (1\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\])
+       iii. Value: (1\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\])
 
     b.  Example: only employees and not contingent workers
 
-        i.  Attribute: EmployeeID
+       i.  Attribute: EmployeeID
 
-        ii. Operator: IS NOT NULL
+       ii. Operator: IS NOT NULL
 
 3.  In the **Target Object Actions** field, you can globally filter what
     actions are allowed to be performed on Active Directory. **Create**
@@ -318,51 +319,51 @@ Active Directory.
 
     c.  An individual attribute mapping supports these properties:
 
-        i.  **Mapping Type**
+       i.  **Mapping Type**
 
-            1.  **Direct** – Writes the value of the Workday attribute
+       1.  **Direct** – Writes the value of the Workday attribute
                 to the AD attribute, with no changes
 
-            2.  **Constant** - Write a static, constant string value to
+       2.  **Constant** - Write a static, constant string value to
                 the AD attribute
 
-            3.  **Expression** – Allows you to write a custom value to
+       3.  **Expression** – Allows you to write a custom value to
                 the AD attribute, based on one or more Workday
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-        ii. **Source attribute** - The user attribute from Workday.
+       ii. **Source attribute** - The user attribute from Workday.
 
-        iii. **Default value** – Optional. If the source attribute has
+       iii. **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
             Most common configuration is to leave this blank.
 
-        iv. **Target attribute** – The user attribute in Active
+       iv. **Target attribute** – The user attribute in Active
             Directory.
 
-        v.  **Match objects using this attribute** – Whether or not this
+       v.  **Match objects using this attribute** – Whether or not this
             mapping should be used to uniquely identify users between
             Workday and Active Directory. This is typically set on the
             Worker ID field for Workday, which is typically mapped to
             one of the Employee ID attributes in Active Directory.
 
-        vi. **Matching precedence** – Multiple matching attributes can
+       vi. **Matching precedence** – Multiple matching attributes can
             be set. When there are multiple, they are evaluated in the
             order defined by this field. As soon as a match is found, no
             further matching attributes are evaluated.
 
-        vii. **Apply this mapping**
-
-            1.  **Always** – Apply this mapping on both user creation
+       vii. **Apply this mapping**
+       
+       1.  **Always** – Apply this mapping on both user creation
                 and update actions
 
-            2.  **Only during creation** - Apply this mapping only on
+       2.  **Only during creation** - Apply this mapping only on
                 user creation actions
 
     d.  To save your mappings, click **Save** at the top of the
         Attribute Mapping section.
 
-![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_2.png)
+![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
 
 **Below are some example attribute mappings between Workday and Active
 Directory, with some common expressions **
@@ -508,7 +509,7 @@ v.  The Windows Application log on the agent machine will show all
 vi. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
-![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.png)
+![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
 
 ## Configuring provisioning to Azure Active Directory
@@ -587,17 +588,17 @@ Azure Active Directory for cloud-only users.
     a.  Example: Scope to users with Worker IDs between 1000000 and
         2000000
 
-        i.  Attribute: WorkerID
+       i.  Attribute: WorkerID
 
-        ii. Operator: REGEX Match
+       ii. Operator: REGEX Match
 
-        iii. Value: (1\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\])
+       iii. Value: (1\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\])
 
     b.  Example: Only contingent workers and not regular employees
 
-        i.  Attribute: ContingentID
+       i.  Attribute: ContingentID
 
-        ii. Operator: IS NOT NULL
+       ii. Operator: IS NOT NULL
 
 3.  In the **Target Object Actions** field, you can globally filter what
     actions are allowed to be performed on Azure AD. **Create**
@@ -613,44 +614,44 @@ Azure Active Directory for cloud-only users.
 
     c.  An individual attribute mapping supports these properties:
 
-        i.  **Mapping Type**
+       i.  **Mapping Type**
 
-            1.  **Direct** – Writes the value of the Workday attribute
+       1.  **Direct** – Writes the value of the Workday attribute
                 to the AD attribute, with no changes
 
-            2.  **Constant** - Write a static, constant string value to
+       2.  **Constant** - Write a static, constant string value to
                 the AD attribute
 
-            3.  **Expression** – Allows you to write a custom value to
+       3.  **Expression** – Allows you to write a custom value to
                 the AD attribute, based on one or more Workday
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-        ii. **Source attribute** - The user attribute from Workday.
+       ii. **Source attribute** - The user attribute from Workday.
 
-        iii. **Default value** – Optional. If the source attribute has
+       iii. **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
             Most common configuration is to leave this blank.
 
-        iv. **Target attribute** – The user attribute in Azure AD.
+       iv. **Target attribute** – The user attribute in Azure AD.
 
-        v.  **Match objects using this attribute** – Whether or not this
+       v.  **Match objects using this attribute** – Whether or not this
             mapping should be used to uniquely identify users between
             Workday and Azure AD. This is typically set on the
             Worker ID field for Workday, which is typically mapped to
             the Employee ID attribute (new) or an extension attribute in Azure AD.
 
-        vi. **Matching precedence** – Multiple matching attributes can
+       vi. **Matching precedence** – Multiple matching attributes can
             be set. When there are multiple, they are evaluated in the
             order defined by this field. As soon as a match is found, no
             further matching attributes are evaluated.
 
-        vii. **Apply this mapping**
+       vii. **Apply this mapping**
 
-            1.  **Always** – Apply this mapping on both user creation
+       1.  **Always** – Apply this mapping on both user creation
                 and update actions
 
-            2.  **Only during creation** - Apply this mapping only on
+       2.  **Only during creation** - Apply this mapping only on
                 user creation actions
 
     d.  To save your mappings, click **Save** at the top of the
