@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 05/23/2017
 ---
 # Azure Database for PostgreSQL options and performance: Understand what’s available in each Pricing tier
 When you create an Azure Database for PostgreSQL server, you decide upon three main choices to configure the resources allocated for that server. These choices impact the performance and scale of the server.
@@ -33,10 +33,10 @@ The following table provides examples of the pricing tiers best suited for diffe
 | Pricing tier | Target workloads |
 | :----------- | :----------------|
 | Basic | Best suited for small workloads that require scalable compute and storage without IOPS guarantee. Examples include servers used for development or testing, or small-scale infrequently used applications. |
-| Standard | The go-to option for cloud applications that need IOPS guarantee with an ability to scale to higher compute and storage independently for high throughput. Examples include web or analytical applications. |
-| Premium | Best suited for workloads that need brief latencies for transactions and IO, along with high IO and workload throughput. Provides the best support for many concurrent users. Applicable to databases that support mission critical applications.<br />The Premium pricing tier is not available in preview. |
+| Standard | The go-to option for cloud applications that need IOPS guarantee with high throughput. Examples include web or analytical applications. |
+| Premium | Best suited for workloads that need low latency for transactions and IO. Provides the best support for many concurrent users. Applicable to databases that support mission critical applications.<br />The Premium pricing tier is not available in preview. |
 
-To decide on a pricing tier, first start by determining if your workload need IOPS guarantee. Then determine the minimum features that you need. The database backup retention period varies across each pricing tier as well.
+To decide on a pricing tier, first start by determining if your workload need IOPS guarantee.
 
 | **Pricing tier features** | **Basic** | **Standard** |
 | :------------------------ | :-------- | :----------- |
@@ -45,9 +45,6 @@ To decide on a pricing tier, first start by determining if your workload need IO
 | Storage IOPS guarantee | N/A | Yes | 
 | Maximum storage IOPS | N/A | 3,000 | 
 | Database backup retention period | 7 days | 35 days | 
-
-The Standard pricing tier in preview currently supports up to 800 Compute Units, and a maximum of 1 TB of storage and 3,000 IOPS.
-Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS. 
 
 During the preview timeframe, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
 
@@ -74,8 +71,24 @@ Once you have determined the pricing tier for your Azure Database for PostgreSQL
 
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
+The Standard pricing tier in preview currently supports up to 800 Compute Units, and a maximum of 1 TB of storage and 3,000 IOPS.
+Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS. 
+
+
+## Storage 
+The Storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server. Storage includes the database files, transaction logs, and the PostgreSQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the Storage configuration.
+
+Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
+
+Basic tier does not provide any IOPS guarantee. Standard tier provides a provisioned IOPS guarantee, and is fixed to three times the provisioned storage.  For example, in standard tier, selecting 125 GB of storage capacity provides 375 IOPS available to your server. 
+
+Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
+
+>[!IMPORTANT]
+> Once provisioned, Storage cannot be dynamically scaled down.
+
 ## Scaling a server up or down
-You initially chose the pricing tier and performance level when you create your Azure Database for PostgreSQL. Later, you can scale the Compute Units up or down dynamically within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier blade, or script it by following this example: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
+You initially choose the pricing tier and performance level when you create your Azure Database for PostgreSQL. Later, you can scale the Compute Units up or down dynamically within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier blade, or script it by following this example: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
 
 Scaling the Compute Units is done independently of the maximum storage size you have chosen. While in preview, changing the storage size  is not supported. You must choose the amount of storage at the time when the server is first created.
 
