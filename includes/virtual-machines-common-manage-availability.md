@@ -7,9 +7,9 @@ There are two types of Microsoft Azure platform events that can affect the avail
 To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
 
 * [Configure multiple virtual machines in an availability set for redundancy]
+* [Use managed disks for VMs in an availability set]
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
-* [Use managed disks for VMs in an availability set]
 
 ## Configure multiple virtual machines in an availability set for redundancy
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -60,5 +60,5 @@ If you plan to use VMs with [unmanaged disks](../articles/storage/storage-about-
 [Configure each application tier into separate availability sets]: #configure-each-application-tier-into-separate-availability-sets
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Use Managed Disks for VMs in Availability Set]: #use-managed-disks-for-vms-in-availability-set
+[Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
 
