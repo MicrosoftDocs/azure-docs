@@ -18,8 +18,8 @@ ms.date: 5/16/2017
 ms.author: v-six
 
 ---
-# Frequently asked questions for deployment in Azure Web Apps
-This topic provides answers to some of the most common questions about Deployment in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
+# Deployment issues for Azure Web Apps: Frequently asked questions (FAQs)
+This article includes frequently asked questions about deployment issues for [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
