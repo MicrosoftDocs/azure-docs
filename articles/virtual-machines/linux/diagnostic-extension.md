@@ -134,7 +134,7 @@ You can easily construct the required SAS token through the Azure portal.
 1. Make the appropriate sections as previously described
 1. Click the "Generate SAS" button.
 
-![image](./media/diagnostic-extension/makeSAS.png)
+![image](./media/diagnostic-extension/make_sas.png)
 
 Copy the generated SAS into the storageAccountSasToken field; remove the leading question-mark ("?").
 
