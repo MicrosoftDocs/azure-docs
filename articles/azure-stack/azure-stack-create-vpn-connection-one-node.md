@@ -314,7 +314,7 @@ the Site-to-Site VPN Connection to connect on both ends. To do this, you must cr
 1. Determine the **Internal IP address** to use in the following PowerShell script. Open the virtual network gateway (GW1 and GW2), on the **Overview** blade note the value for the **Public IP address**.
 ![The internal IP address](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 2. Log in to the Azure Stack physical machine for POC1.
-3. Copy and edit the following PowerShell script and run in an elevated Windows PowerShell ISE to configure the NAT on each POC. Edit the script to replace the <External BGPNAT address> and <Internal IP address>:
+3. Copy and edit the following PowerShell script and run in an elevated Windows PowerShell ISE to configure the NAT on each POC. Edit the script to replace the **External BGPNAT address** and **Internal IP address**:
 
    ```
    # Designate the external NAT address for the ports that use the IKE authentication.
