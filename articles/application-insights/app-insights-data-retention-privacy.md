@@ -3,7 +3,7 @@ title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca

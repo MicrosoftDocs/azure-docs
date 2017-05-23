@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/21/2017
 ms.author: cynthn
 ---
 
@@ -69,13 +69,13 @@ exit
 To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate). 
    
 ```azurecli
-az vm deallocate --resource-group myRGCaptureImage --name myVM
+az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
    
 ```azurecli
-az vm generalize --resource-group myResourceGroupImages --name myVM
+az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
 ### Create the image
@@ -84,7 +84,7 @@ Now you can create an image of the VM by using [az image create](/cli//azure/ima
    
 ```azurecli
 az image create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myImage \
     --source myVM
 ```
@@ -95,7 +95,7 @@ Now that you have an image, you can create one or more new VMs from the image us
 
 ```azurecli
 az vm create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myVMfromImage \
     --image myImage \
     --admin-username azureuser \
@@ -109,9 +109,8 @@ Here are some examples of common image management tasks and how to complete them
 List all images by name in a table format.
 
 ```azurecli
-az resource list \
-    --resource-type=Microsoft.Compute/images \
-	--output table
+az image list \
+  --resource-group myResourceGroup
 ```
 
 Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.

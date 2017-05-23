@@ -10,7 +10,6 @@
 ## [Deploy cluster - Portal](container-service-deployment.md)
 ## [Deploy cluster - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [CI/CD with Kubernetes and Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD with DC/OS and VSTS](container-service-setup-ci-cd.md)
 ## [CI/CD with Docker Swarm and VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Concepts
