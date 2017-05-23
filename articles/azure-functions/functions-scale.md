@@ -29,7 +29,7 @@ You can run Azure Functions in two different modes: Consumption plan and Azure A
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 
-When you create a function app, you must configure a hosting plan for functions that the app contains. In either mode, functions are executed by an instance of the *Azure Functions host*. The type of plan controls:
+When you create a function app, you must configure a hosting plan for functions that the app contains. In either mode, an instance of the *Azure Functions host* executes the functions. The type of plan controls:
 
 * How host instances are scaled out.
 * The resources that are available to each host.
