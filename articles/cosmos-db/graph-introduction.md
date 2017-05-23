@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/21/2017
 ms.author: arramac
 
 ---
@@ -21,7 +21,7 @@ ms.author: arramac
 
 ![Gremlin, graph, and Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png) 
 
-Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10 ms read latencies and <15 ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB can be queried using [Apache TinkerPop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other TinkerPop-compatible graph systems.
+Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10 ms read latencies and <15 ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB can be queried using [Apache TinkerPop's](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other TinkerPop-compatible graph systems like [Apache Spark GraphX](spark-connector-graph.md).
 
 In this article, we provide an overview of the Azure Cosmos DB's Graph API, and how you can use it to store massive graphs with billions of vertices and edges, query them within order of milliseconds latency, and evolve the graph structure and schema easily. 
 
@@ -57,7 +57,7 @@ Azure Cosmos DB offers the following differentiated capabilities compared to oth
 
 * **Automatic indexing**: By default, Azure Cosmos DB automatically indexes all the properties within nodes and edges in the graph and does not expect or require any schema or creation of secondary indices. 
 
-* **Compatibility with Apache TinkerPop**: Azure Cosmos DB natively supports the open-source Apache TinkerPop standard, and can be integrated with other TinkerPop-enabled graph systems. So, you can easily migrate from an another different graph database like Titan or Neo4j, or use Azure Cosmos DB with graph analytics frameworks like Apache Spark GraphX.
+* **Compatibility with Apache TinkerPop**: Azure Cosmos DB natively supports the open-source Apache TinkerPop standard, and can be integrated with other TinkerPop-enabled graph systems. So, you can easily migrate from an another different graph database like Titan or Neo4j, or use Azure Cosmos DB with graph analytics frameworks like [Apache Spark GraphX](spark-connector-graph.md).
 
 * **Tunable consistency levels:** Select from five well-defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, Azure Cosmos DB offers five distinct consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. These granular, well-defined consistency levels allow you to make sound tradeoffs between consistency, availability, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](../documentdb/documentdb-consistency-levels.md).
 
