@@ -197,7 +197,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an Allocadia test user
 
-Application supports Just in time user provisioning. After authentication users are created in the application automatically.. 
+Application supports Just in time user provisioning. After authentication users are created in the application automatically.
 
 ### Assigning the Azure AD test user
 
