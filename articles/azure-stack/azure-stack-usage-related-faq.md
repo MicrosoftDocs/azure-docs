@@ -25,8 +25,9 @@ Currently, usage is reported for the network, storage, and compute
 resource providers.
 
 | **Resource provider** | **Meter ID** | **Meter name** | **Unit** | **Additional info** |
-| --- | --- | --- | --- | --- |
-| **Network** |f114cb19-ea64-40b5-bcd7-aee474b62853 |Public IP Address Usage |IP address |Count of IP addresses used |
+| --- | --- | --- | --- | --- | 
+| **Network** |F271A8A388C44D93956A063E1D2FA80B |Static IP Address Usage |IP addresses|Count of IP addressess used | 
+| |9E2739BA86744796B465F64674B822BA |Dynamic IP Address Usage |IP addresses|Count of IP addressess used | 
 | **Storage** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*hours |Total capacity consumed by tables |
 | | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*hours |Total capacity consumed by page blobs |
 | | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*hours |Total capacity consumed by queue |

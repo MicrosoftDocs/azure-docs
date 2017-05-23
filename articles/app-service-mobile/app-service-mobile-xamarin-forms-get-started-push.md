@@ -181,7 +181,7 @@ With the back end configured with FCM, you can add components and codes to the c
             }
         }
 
-        Note that this code uses the `messageParam` parameter in the template registration.
+    Note that this code uses the `messageParam` parameter in the template registration.
 12. Add the following code that implements **OnMessage**:
 
         protected override void OnMessage(Context context, Intent intent)

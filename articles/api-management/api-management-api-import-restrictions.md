@@ -33,7 +33,7 @@ WSDL files are used to generate SOAP Pass-through APIs, or serve as the backend 
 
 * **WSDL:Import** we do not currently support APIs using this attribute. Customers should merge the imported elements into one document.
 * **Messages with multiple parts** are currently not supported.
-* **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding.
+* **WCF wsHttpBinding** SOAP services created with Windows Communication Foundation should use basicHttpBinding - wsHttpBinding is not supported.
 * **MTOM** Services using MTOM <em>may</em> work. Official support is not offered at this time.
 * **Recursion** types that are defined recursively (e.g. refer to an array of themselves) are not supported.
 

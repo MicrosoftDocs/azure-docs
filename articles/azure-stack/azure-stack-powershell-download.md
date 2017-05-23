@@ -25,20 +25,33 @@ AzureStack-Tools is a GitHub repository that hosts PowerShell modules that you c
 To clone the repository, download [Git](https://git-scm.com/download/win) for Windows, open a Command Prompt window and run the following command:
 
 ```PowerShell
+# Change directory to the root directory 
+cd \
 
+# clone the repository
 git clone https://github.com/Azure/AzureStack-Tools.git --recursive
 
+# Change to the tools directory
 cd AzureStack-Tools
 ```
 
 To download the tools folder, run the following command:
 
 ```PowerShell
+# Change directory to the root directory 
+cd \
 
-invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
+# Download the tools archive
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  -OutFile master.zip
 
-expand-archive master.zip -DestinationPath . -Force
+# Expand the downloaded files
+expand-archive master.zip `
+  -DestinationPath . `
+  -Force
 
+# Change to the tools directory
 cd AzureStack-Tools-master
 
 ```

@@ -21,7 +21,7 @@ ms.author: seguler
 
 ## Java sample index
 
-The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in Github.
+The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Sample Code</th></tr></thead><tbody> 
 <tr> 

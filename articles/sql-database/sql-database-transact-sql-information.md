@@ -10,24 +10,24 @@ tags: ''
 
 ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
-ms.custom: overview
+ms.custom: migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/03/2017
+ms.date: 03/17/2017
 ms.author: rickbyh
 
 ---
 # Resolving Transact-SQL differences during migration to SQL Database   
-When [migrating your database](sql-database-cloud-migrate.md) from SQL Server to Azure SQL Server, you may discover that your database requires some re-engineering before the SQL Server can be migrated. This topic provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. 
+When [migrating your database](sql-database-cloud-migrate.md) from SQL Server to Azure SQL Server, you may discover that your database requires some re-engineering before the SQL Server can be migrated. This topic provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities, use the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## Overview
 Most Transact-SQL features that applications use are fully supported in both Microsoft SQL Server and Azure SQL Database. For example, the core SQL components such as data types, operators, string, arithmetic, logical, and cursor functions, work identically in SQL Server and SQL Database. There are, however, a few T-SQL differences in DDL (data-definition language) and DML (data manipulation language) elements resulting in T-SQL statements and queries that are only partially supported (which we discuss later in this topic).
 
 In addition, there are some features and syntax that is not supported at all because Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As such, most server-level activities are inappropriate for SQL Database. T-SQL statements and options are not available if they configure server-level options, operating system components, or specify file system configuration. When such capabilities are required, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service. 
 
-For example, high availability is built into Azure, so configuring Always On is not necessary (although you may want to configure Active Geo-Replication for faster recovery in the event of a disaster). So, T-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are also not supported.
+For example, high availability is built into Azure, so configuring Always On is not necessary (although you may want to configure active geo-replication for faster recovery in the event of a disaster). So, T-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are also not supported.
 
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](sql-database-features.md). The list on this page supplements that guidelines and features topic, and focuses on Transact-SQL statements.
 

@@ -3,7 +3,7 @@ title: Administer your Azure AD directory | Microsoft Docs
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: curtand
 writer: markvi
 manager: femila
 
@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/11/2017
-ms.author: markvi
+ms.date: 04/06/2017
+ms.author: curtand
 
 ---
 # Administer your Azure AD directory

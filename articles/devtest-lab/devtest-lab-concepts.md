@@ -18,15 +18,6 @@ ms.author: tarcher
 
 ---
 # DevTest Labs concepts
-> [!NOTE]
-> This article is part 3 of a 3 part series:
->
-> 1. [What is DevTest Labs?](devtest-lab-overview.md)
-> 2. [Why DevTest Labs?](devtest-lab-why.md)
-> 3. **[DevTest Labs concepts](devtest-lab-concepts.md)**
->
->
-
 ## Overview
 The following list contains key DevTest Labs concepts and definitions:
 
@@ -34,9 +25,14 @@ The following list contains key DevTest Labs concepts and definitions:
 A lab is the infrastructure that encompasses a group of resources, such as Virtual Machines (VMs), that lets you better manage those resources by specifying limits and quotas.
 
 ## Virtual machine
-An Azure VM is one of several types of [on-demand, scalable computing resources](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it, although you still need to maintain the VM by performing certain tasks, such as configuring, patching, and installing the software that runs on it.
+An Azure VM is one of several types of [on-demand, scalable computing resources](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it, although you still need to maintain the VM by performing certain tasks, such as configuring, patching, and installing the software that runs on it.
 
-[Overview of Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-overview) gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+[Overview of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+
+## Claimable VM
+An Azure Claimable VM is a virtual machine that is available for use by any lab user with permissions. A lab admin can prepare VMs with specific base images and artifacts and save them to a shared pool. A lab user can then claim a working VM from the pool when they need one with that specific configuration.
+
+A VM that is claimable is not initially assigned to any particular user, but will show up in every user's list under "Claimable virtual machines". After a VM is claimed by a user, it is moved up to their "My virtual machines" area and is no longer claimable by any other user.
 
 ## Environment
 In DevTest Labs, an environment refers to a collection of Azure resources in a lab. [This blog post](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) discusses how to create multi-VM environments from your Azure Resource Manager templates.
@@ -83,10 +79,10 @@ To see how to create custom roles in DevTest Labs, refer to the article, [Grant 
 
 Since scopes are hierarchical, when a user has permissions at a certain scope, they are automatically granted those permissions at every lower-level scope encompassed. For instance, if a user is assigned to the role of subscription owner, then they have access to all resources in a subscription, which include all virtual machines, all virtual networks, and all labs. Therefore, a subscription owner automatically inherits the role of lab owner. However, the opposite is not true. A lab owner has access to a lab, which is a lower scope than the subscription level. Therefore, a lab owner will not be able to see virtual machines or virtual networks or any resources that are outside of the lab.
 
-## ARM templates
-All of the concepts discussed in this article can be configured by using Azure Resource Manager (ARM) templates. ARM templates let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
+## Azure Resource Manager templates
+All of the concepts discussed in this article can be configured by using Azure Resource Manager templates, which let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
 
-[ARM templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
+[Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

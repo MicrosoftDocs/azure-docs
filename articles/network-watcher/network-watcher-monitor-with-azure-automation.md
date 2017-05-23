@@ -6,7 +6,7 @@ services: network-watcher
 documentationcenter: na
 author: georgewallace
 manager: timlt
-editor: 
+editor:
 
 
 ms.service: network-watcher
@@ -22,8 +22,6 @@ ms.author: gwallace
 # Monitor VPN gateways with Network Watcher troubleshooting
 
 Gaining deep insights on your network performance is critical to provide reliable services to customers. It is therefore critical to detect network outage conditions quickly and take corrective action to mitigate the outage condition. Azure Automation enables you to implement and run a task in a programmatic fashion through runbooks. Using Azure Automation creates a perfect recipe for performing continuous and proactive network monitoring and alerting.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## Scenario
 
@@ -52,7 +50,7 @@ Before you start this scenario, you must have the following pre-requisites:
 
 ### Create the runbook
 
-The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md#create-a-new-automation-account-from-the-azure-portal)
+The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)
 
 ### Step 1
 
@@ -188,16 +186,3 @@ Now that you have an understanding on how to integrate Network Watcher troublesh
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-
-
-
-
-
-
-
-
-
-
-
-
-

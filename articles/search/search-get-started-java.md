@@ -69,7 +69,7 @@ All REST API calls into Azure Search require that you provide the service URL an
 5. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
 ## Download the sample files
-1. Go to [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on Github.
+1. Go to [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on GitHub.
 2. Click **Download ZIP**, save the .zip file to disk, and then extract all the files it contains. Consider extracting the files into your Java workspace to make it easier to find the project later.
 3. The sample files are read-only. Right-click folder properties and clear the read-only attribute.
 

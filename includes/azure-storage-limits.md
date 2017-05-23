@@ -16,7 +16,7 @@
 | Max size of a file share |5 TB |
 | Max size of a file in a file share |1 TB |
 | Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
-| Max 8 KB IOPS per share |1000 |
+| Max IOPS per share |1000 |
 | Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |Only limit is the 500 TB storage account capacity |
 | Max number of stored access policies per container, file share, table, or queue |5 |

@@ -1,10 +1,10 @@
 ---
-title: Exploring Metrics in Application Insights | Microsoft Docs
+title: Exploring Metrics in Azure Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Exploring Metrics in Application Insights
@@ -192,8 +192,12 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
 * If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
 * Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). It isn't available for Azure websites.
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## Next steps
-* [Monitoring usage with Application Insights](app-insights-overview-usage.md)
+* [Monitoring usage with Application Insights](app-insights-web-track-usage.md)
 * [Using Diagnostic Search](app-insights-diagnostic-search.md)
 
 <!--Link references-->

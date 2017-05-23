@@ -10,11 +10,11 @@ editor: ''
 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 
@@ -43,8 +43,9 @@ In this tutorial, you learn how to use SQL Server Management Studio to work with
 
 * **SQL Server Management Studio**. You can download and install the latest version of SQL Server Management Studio (SSMS) at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Always use the latest version of SSMS when connecting to Azure SQL Database as new capabilities are continually being released.
 
-* **Completed the base tutorial**. You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md) of this tutorial. If not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) of this tutorial before continuing.
+* **Base server and databases** To install and configure a server and the two databases used in this tutorial, click the **Deploy to Azure** button. Clicking the button opens the **Deploy from a template** blade; create a new resource group, and provide the **Admin Login Password** for the new server that will be created:
 
+   [![download](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
 
 ## Sign in to the Azure portal using your Azure account
@@ -53,11 +54,6 @@ The steps in this procedure show you how to connect to the Azure portal using yo
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
 2. Sign in to the [Azure portal](https://portal.azure.com/).
 3. On the **Sign in** page, provide the credentials for your subscription.
-   
-   ![Sign in](./media/sql-database-get-started/login.png)
-
-
-<a name="create-logical-server-bk"></a>
 
 ## View logical server security information in the Azure portal
 
@@ -79,11 +75,11 @@ The steps in this procedure show you how to view information about the server ad
 
 1. Open SQL Server Management Studio and connect to your server as the server admin using SQL Server Authentication and the Server admin account.
 
-   ![connect to server](./media/sql-database-get-started/connect-to-server.png)
+   ![connect to server](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. Click **Connect**.
 
-   ![connected to server](./media/sql-database-get-started/connected-to-server.png)
+   ![connected to server](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your server - the only login on a new server is the login for server admin account.
 
@@ -265,7 +261,7 @@ The steps in this procedure show you how to create a database-level firewall rul
     
    ![Connect as user1 without firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Click **Options** to specify the database to which you want to connect and then type **sqldbtutorialdb** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
+3. Click **Options** in the **Connect to server** dialog box to specify the database to which you want to connect and then type **sqldbtutorialdb** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
    ![Connect as user1 without firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
@@ -394,7 +390,7 @@ The steps in this procedure show you how to create a login and user in the maste
 To create the logins and users, add them to roles, grant them permissions, create database-level firewall rules, and create server-level firewall rules, execute the following statements in the appropriate databases on your server.
 
 ### master database
-Execute these statements in the master database using the Server admin account, adding the appropriate IP addresses or range.
+Execute these statements in the master database using the server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE LOGIN dbcreator WITH PASSWORD = 'p@ssw0rd';
@@ -405,7 +401,7 @@ EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule',
 ```
 
 ### sqldbtutorialdb database
-Execute these statements in the sqldbtutorialdb database using the Server admin account, adding the appropriate IP addresses or range.
+Execute these statements in the sqldbtutorialdb database using the server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE USER user1 WITH PASSWORD = 'p@ssw0rd';
@@ -415,7 +411,7 @@ EXEC sp_set_database_firewall_rule @name = N'sqldbtutorialdbFirewallRule',
 ```
 
 ### blankdb database
-Execute these statements in the blankdb database using the Server admin account, adding the appropriate IP addresses or range.
+Execute these statements in the blankdb database using the server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE USER blankdbadmin

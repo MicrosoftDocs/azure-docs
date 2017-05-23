@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 3/09/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate Voyance with Azure Active Directory
 Integrating Voyance with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Voyance
-- You can enable your users to automatically get signed-on to Voyance (Single Sign-On) with their Azure AD accounts
+- You can enable your users to automatically get signed-on to Voyance single sign-on (SSO) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -33,17 +33,16 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Voyance, you need the following items:
 
 - An Azure AD subscription
-- A Voyance single-sign on enabled subscription
+- A Voyance SSO enabled subscription
 
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
+>[!NOTE]
+>To test the steps in this tutorial, we do not recommend using a production environment.
+>
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Scenario description
@@ -51,10 +50,9 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Voyance from the gallery
-2. Configuring and testing Azure AD single sign-on
+2. Configuring and testing Azure AD SSO
 
-
-## Adding Voyance from the gallery
+## Add Voyance from the gallery
 To configure the integration of Voyance into Azure AD, you need to add Voyance from the gallery to your list of managed SaaS apps.
 
 **To add Voyance from the gallery, perform the following steps:**
@@ -86,22 +84,22 @@ To configure the integration of Voyance into Azure AD, you need to add Voyance f
 	![Creating an Azure AD test user](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_0001.png)
 
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Voyance based on a test user called "Britta Simon".
+## Configure and test Azure AD single sign-on
+In this section, you configure and test Azure AD SSO with Voyance based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Voyance is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Voyance needs to be established.
+For SSO to work, Azure AD needs to know what the counterpart user in Voyance is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Voyance needs to be established.
 
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Voyance.
 
 To configure and test Azure AD single sign-on with Voyance, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a Voyance test user](#creating-a-voyance-test-user)** - to have a counterpart of Britta Simon in Voyance that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Voyance application.
 
@@ -119,23 +117,19 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
 
     ![Configure Single Sign-On](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_03.png)
-
-	a. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.nyansa.com`.
-
-    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.nyansa.com/saml/create/`.
-
-	c. Click **Next**.
+  1. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.nyansa.com`.
+  2. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.nyansa.com/saml/create/`.
+  3. Click **Next**.
 
 4. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_04.png)
+  1. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.nyansa.com/`.
+  2. Click **Next**.
 
-	a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.nyansa.com/`.
-
-	b. Click **Next**.
-
-	> [!NOTE]
-	> Please note that you have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Voyance support team](emaiLto:support@nyansa.com).
+	  >[!NOTE]
+	  >You have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Voyance support team](emaiLto:support@nyansa.com).
+	  >
 
 5. On the **Configure single sign-on at Voyance** page, click **Download certificate** and then save the file on your computer:
 
@@ -147,29 +141,25 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_001.png) 
 
-8. Click on "**Admin Settings**".
+8. Click "**Admin Settings**".
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_002.png)
 
-9. Click on "**User Access**" Tab
+9. Click "**User Access**" tab.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_003.png)
 
-10. Click on "**SSO is disabled**" button to configure Azure AD as an IdP using SAML 2.0.
+10. Click the "**SSO is disabled**" button to configure Azure AD as an IdP using SAML 2.0.
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_004.png)
 
 11. Go to **SAML v2** section and perform below steps:
 
 	![Configure Single Sign-On On App Side](./media/active-directory-saas-voyance-tutorial/tutorial_voyance_005.png)
-
-	a. Select **Enabled**.
-
-	b. In the **IdP Login URL** textbox put the value of **SAML SSO URL** from Azure AD application configuration wizard.
-
-	c. Open your Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Cert** textbox.
-
-	d. Click **Save** button.
+ 1. Select **Enabled**.
+ 2. In the **IdP Login URL** textbox put the value of **SAML SSO URL** from Azure AD application configuration wizard.
+ 3. Open your Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Cert** textbox.
+ 4. Click **Save**.
 
 12. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
@@ -180,7 +170,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	![Azure AD Single Sign-On][11]
 
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the classic portal called Britta Simon.
 
 ![Create Azure AD User][20]
@@ -204,26 +194,18 @@ The objective of this section is to create a test user in the classic portal cal
 5. On the **Tell us about this user** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/active-directory-saas-voyance-tutorial/create_aaduser_05.png) 
-
-    a. As Type Of User, select New user in your organization.
-
-    b. In the User Name **textbox**, type **BrittaSimon**.
-
-    c. Click **Next**.
+ 1. As Type Of User, select New user in your organization.
+ 2. In the User Name **textbox**, type **BrittaSimon**.
+ 3. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps:
 
 	![Creating an Azure AD test user](./media/active-directory-saas-voyance-tutorial/create_aaduser_06.png) 
-
-    a. In the **First Name** textbox, type **Britta**.  
-
-    b. In the **Last Name** textbox, type, **Simon**.
-
-    c. In the **Display Name** textbox, type **Britta Simon**.
-
-    d. In the **Role** list, select **User**.
-
-    e. Click **Next**.
+ 1. In the **First Name** textbox, type **Britta**.  
+ 2. In the **Last Name** textbox, type, **Simon**.
+ 3. In the **Display Name** textbox, type **Britta Simon**.
+ 4. In the **Role** list, select **User**.
+ 5. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
 
@@ -232,24 +214,20 @@ The objective of this section is to create a test user in the classic portal cal
 8. On the **Get temporary password** dialog page, perform the following steps:
 
 	![Creating an Azure AD test user](./media/active-directory-saas-voyance-tutorial/create_aaduser_08.png) 
+ 1. Write down the value of the **New Password**.
+ 2. Click **Complete**.   
 
-    a. Write down the value of the **New Password**.
-
-    b. Click **Complete**.   
-
-
-
-### Creating a Voyance test user
+### Create a Voyance test user
 
 The objective of this section is to create a user called Britta Simon in Voyance. Voyance supports just-in-time provisioning, which is by default enabled.
 
 There is no action item for you in this section. A new user will be created during an attempt to access Voyance if it doesn't exist yet.
 
-> [!NOTE]
-> If you need to create an user manually, you need to contact [Voyance support team](emaiLto:support@nyansa.com).
+>[!NOTE]
+>If you need to create an user manually, you need to contact [Voyance support team](emaiLto:support@nyansa.com).
+>
 
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Voyance.
 
@@ -276,8 +254,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![Assign User][205]
 
 
-
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

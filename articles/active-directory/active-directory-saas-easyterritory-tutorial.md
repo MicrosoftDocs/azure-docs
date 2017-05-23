@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn how to integrate EasyTerritory with Azure Active Dir
 Integrating EasyTerritory with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to EasyTerritory
-- You can enable your users to automatically get signed-on to EasyTerritory (Single Sign-On) with their Azure AD accounts
+- You can enable your users to automatically get signed-on to EasyTerritory single sign-on (SSO) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure Management portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -33,26 +33,25 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with EasyTerritory, you need the following items:
 
 - An Azure AD subscription
-- An EasyTerritory single-sign on enabled subscription
+- An EasyTerritory single-sign (SSO) on enabled subscription
 
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
+>[!NOTE]
+>To test the steps in this tutorial, we do not recommend using a production environment.
+>
+>
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get an one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
+- If you don't have an Azure AD trial environment, you can get trial [an one-month](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD SSO in a test environment. 
+
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding EasyTerritory from the gallery
-2. Configuring and testing Azure AD single sign-on
-
+2. Configuring and testing Azure AD SSO
 
 ## Adding EasyTerritory from the gallery
 To configure the integration of EasyTerritory into Azure AD, you need to add EasyTerritory from the gallery to your list of managed SaaS apps.
@@ -79,54 +78,49 @@ To configure the integration of EasyTerritory into Azure AD, you need to add Eas
 
 	![Creating an Azure AD test user](./media/active-directory-saas-easyterritory-tutorial/tutorial_easyterritory_0001.png)
 
+##  Configure and test Azure AD single sign-on
+In this section, you configure and test Azure AD SSO with EasyTerritory based on a test user called "Britta Simon".
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with EasyTerritory based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in EasyTerritory is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in EasyTerritory needs to be established.
+For SSO to work, Azure AD needs to know what the counterpart user in EasyTerritory is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in EasyTerritory needs to be established.
 
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in EasyTerritory.
 
-To configure and test Azure AD single sign-on with EasyTerritory, you need to complete the following building blocks:
+To configure and test Azure AD SSO with EasyTerritory, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating an EasyTerritory test user](#creating-an-easyterritory-test-user)** - to have a counterpart of Britta Simon in EasyTerritory that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your EasyTerritory application.
+In this section, you enable Azure AD single sign-on in the Azure Management portal and configure SSO in your EasyTerritory application.
 
-**To configure Azure AD single sign-on with EasyTerritory, perform the following steps:**
+**To configure Azure AD SSO with EasyTerritory, perform the following steps:**
 
 1. In the Azure Management portal, on the **EasyTerritory** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
+2. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable SSO.
  
 	![Configure Single Sign-On](./media/active-directory-saas-easyterritory-tutorial/tutorial_easyterritory_01.png)
 
 3. On the **EasyTerritory Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-easyterritory-tutorial/tutorial_easyterritory_02.png)
-
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://apps.easyterritory.com/<tenant id>/DEV/`
-	
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://apps.easyterritory.com/<tenant id>/DEV/AuthServices/Acs`
+   1. In the **Identifier** textbox, type a URL using the following pattern: `https://apps.easyterritory.com/<tenant id>/DEV/`
+   2. In the **Reply URL** textbox, type a URL using the following pattern: `https://apps.easyterritory.com/<tenant id>/DEV/AuthServices/Acs`
 	
 4. If you wish to configure the application in **SP initiated mode**, on the **EasyTerritory Domain and URLs** section perform the following steps:
 	
 	![Configure Single Sign-On](./media/active-directory-saas-easyterritory-tutorial/tutorial_easyterritory_03.png)
+  1. Click on the **Show advanced URL settings** option.
+  2. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.easyterritory.com/`
 
-	a. Click on the **Show advanced URL settings** option
-
-	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.easyterritory.com/`
-
-	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL.Contact [EasyTerritory support team](mailto:sales@easyterritory.com) to get these values.
+	>[!NOTE] 
+	>These are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL.Contact [EasyTerritory support team](mailto:sales@easyterritory.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
@@ -150,8 +144,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 10. To get SSO configured for your application, contact [EasyTerritory support team](mailto:sales@easyterritory.com) and provide them with downloaded **metadata**. 
 
-
-### Creating an Azure AD test user
+### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
 
 ![Create Azure AD User][100]
@@ -173,25 +166,18 @@ The objective of this section is to create a test user in the Azure Management p
 4. On the **User** dialog page, perform the following steps:
  
 	![Creating an Azure AD test user](./media/active-directory-saas-easyterritory-tutorial/create_aaduser_04.png) 
+ 1. In the **Name** textbox, type **BrittaSimon**.
+ 2. In the **User name** textbox, type the **email address** of BrittaSimon.
+ 3. Select **Show Password** and write down the value of the **Password**.
+ 4. Click **Create**. 
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**. 
-
-
-
-### Creating an EasyTerritory test user
+### Create an EasyTerritory test user
 
 In this section, you create a user called Britta Simon in EasyTerritory. Please work with [EasyTerritory support team](mailto:sales@easyterritory.com) to add the users in the EasyTerritory platform.
 
+### Assign the Azure AD test user
 
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to EasyTerritory.
+In this section, you enable Britta Simon to use Azure SSO by granting her access to EasyTerritory.
 
 ![Assign User][200] 
 
@@ -220,13 +206,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 7. Click **Assign** button on **Add Assignment** dialog.
 	
 
-
 ### Testing single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD SSO configuration using the Access Panel.
 
 When you click the EasyTerritory tile in the Access Panel, you should get automatically signed-on to your EasyTerritory application.
-
 
 ## Additional resources
 

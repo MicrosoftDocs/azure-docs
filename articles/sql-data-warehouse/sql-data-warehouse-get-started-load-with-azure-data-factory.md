@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+ms.custom: loading
 
 ---
 # Load Data with Azure Data Factory
