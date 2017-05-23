@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: femila
+ms.date: 05/18/2017
+ms.author: curtand
 
 ---
 # Assigning administrator roles in Azure Active Directory
