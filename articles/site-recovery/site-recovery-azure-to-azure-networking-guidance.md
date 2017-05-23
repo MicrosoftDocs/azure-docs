@@ -21,7 +21,7 @@ ms.author: sujayt
 
 This article details the networking guidance for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
-## Site Recovery Architecture
+## Site Recovery architecture
 
 Site Recovery provides a simple and easy way to replicate applications running on Azure virtual machines to another Azure region so that they can be recovered in the even of a disruption in primary region. You can refer to more details about the [scenario and its architecture in this document](site-recovery-azure-to-azure-architecture).
 
@@ -64,7 +64,7 @@ If you are using any IP based firewall proxy or Network Security Group (NSG) rul
 
 - Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
 
-- Ensure that you whitelist the below IPs ranges depending on your target location.
+- Ensure that you whitelist Site recovery service endpoint IPs depending on your target location. You can get the IPs in an [XML file here](https://aka.ms/site-recovery-public-ips).
 
 **Target Location** | **Site recovery service IPs** |  **Site recovery monitoring IP**
  --- | --- | ---
@@ -95,6 +95,14 @@ UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
 
 ## Sample Network Security Group (NSG) configuration
 This section explains in detail steps to be followed to configure NSG rules so that Site recovery replication can work on the virtual machine. If you are using Network Security Group (NSG) rules to control outbound connectivity, you need to ensure the "Allow HTTPS outbound" rules for all the required IP ranges.
+
+>[!Note]
+>
+> You can use the [script available](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) here to automatically create the required NSG rules on the NSG in source location.
+
+>You can use the same script to create the required NSG rules on the NSG in the target location for reprotect to work post failover.
+
+
 
 For example, if your VM's source location is 'East US' and your replication is target location is 'Central US', you need to follow the blow steps.
 
@@ -155,8 +163,6 @@ a.	A common customer configuration is to define a default route (0.0.0.0/0) whic
  >[!IMPORTANT]
  >
  > If the primary region is completely down, then the disconnect operation can fail. That will prevent target VNet from getting the ExpressRoute connectivity.
-
-
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-azure-vm-enable-rep.md)
