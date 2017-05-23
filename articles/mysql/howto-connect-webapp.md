@@ -18,7 +18,7 @@ ms.date: 05/22/2017
 This document explains how to connect an existing Azure App Service to your Azure Database for MySQL server.
 
 ## Before you begin
-Log in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server. For details, please refer to [How to create Azure Database for MySQL server from Portal](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) or [How to create Azure Database for MySQL server using CLI](https://docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli).
+Log in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server. For details, please refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Currently we offer two solutions to enable access from Azure App Service to Azure Database for MySQL. Both solutions involve setting up server-level firewall rules.
 
@@ -31,10 +31,10 @@ To make sure the availability of your Azure App Service is not compromised, we r
 > [!NOTE]
 > We are working with Azure App Service team for a long term solution to avoid allowing all IPs.
 
-1) On the MySQL server blade, under Settings heading, click **Connection Security** to open the Connection Security blade for the Azure Database for MySQL.
+1. On the MySQL server blade, under Settings heading, click **Connection Security** to open the Connection Security blade for the Azure Database for MySQL.
 ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2) Enter **RULE NAME**, **START IP**, and **END IP**. Then click **Save**.
+2. Enter **RULE NAME**, **START IP**, and **END IP**. Then click **Save**.
 
 |           |             |
 |-----------|-------------|
@@ -49,15 +49,15 @@ To make sure the availability of your Azure App Service is not compromised, we r
 
 You can explicitly add all the outbound IPs of your Azure App Service.
 
-1) On the App Service Properties blade, view your **OUTBOUND IP ADDRESS**.
+1. On the App Service Properties blade, view your **OUTBOUND IP ADDRESS**.
 
 ![Azure portal - View outbound IPs](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
 
-2) On the MySQL Connection security blade, add outbound IPs one by one.
+2. On the MySQL Connection security blade, add outbound IPs one by one.
 
 ![Azure portal - Add explicit IPs](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
 
-3) Remeber to **Save** your firewall rules.
+3. Remeber to **Save** your firewall rules.
 
 Azure App Service team is doing their best to keep the outbound IPs remain the same, but when recycle or scale operation occurs, it may change since new machines will be added on every region frequently to increase the capacity to serve customers.  If this changes, the app will experience downtime since it can no longer connect to the database. Please keep this in mind when choosing one of the solution mentioned above.
 
