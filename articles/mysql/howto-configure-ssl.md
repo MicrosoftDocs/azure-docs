@@ -117,7 +117,7 @@ The following examples show how to connect to your MySQL server through both the
 Using the MySQL command-line interface, execute the following command:
 
 ```dos
-mysql.exe -h yourserver. -uUsername@Servername -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
+mysql.exe -h yourservername.mysql.database.azure.com -uUsername@yourservername -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
 ```
 Execute the mysql **status** command to verify that you have connected to your MySQL server using SSL:
 

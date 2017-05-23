@@ -44,8 +44,8 @@ The `<resourcegrouplocation>` must be one of the regions in which Azure Cosmos D
 
 ### Notes
 
-* Execute 'az documentdb -h' to get a full list of available commands or visit the [reference page][az-documentdb-ref].
-* Execute 'az documentdb &lt;command&gt; -h' to get a list of details of the required and optional parameters per command.
+* Execute 'az cosmosdb -h' to get a full list of available commands or visit the [reference page][az-documentdb-ref].
+* Execute 'az cosmosdb &lt;command&gt; -h' to get a list of details of the required and optional parameters per command.
 
 ## Register your subscription to use Azure Cosmos DB
 
@@ -88,16 +88,16 @@ Arguments
 ```
 
 ```azurecli
-az documentdb create -g <resourcegroupname> -n <uniquedocumentdbaccountname> --kind <typeofdatabaseaccount>
+az cosmosdb create -g <resourcegroupname> -n <uniquedocumentdbaccountname> --kind <typeofdatabaseaccount>
 ```
 
 Examples: 
 
-    az documentdb create -g rg-test -n docdb-test
-    az documentdb create -g rg-test -n docdb-test --kind MongoDB
-    az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
-    az documentdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
-    az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
+    az cosmosdb create -g rg-test -n docdb-test
+    az cosmosdb create -g rg-test -n docdb-test --kind MongoDB
+    az cosmosdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
+    az cosmosdb create -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
+    az cosmosdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
 ### Notes 
 * The locations must be regions in which Azure Cosmos DB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
@@ -134,9 +134,9 @@ Arguments
 
 Examples: 
 
-    az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
-    az documentdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
-    az documentdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
+    az cosmosdb update -g rg-test -n docdb-test --locations "East US"=0 "West US"=1 "South Central US"=2
+    az cosmosdb update -g rg-test -n docdb-test --ip-range-filter "13.91.6.132,13.91.6.1/24"
+    az cosmosdb update -g rg-test -n docdb-test --default-consistency-level BoundedStaleness --max-interval 10 --max-staleness-prefix 200
 
 ## <a id="add-remove-region-documentdb-account-cli"></a> Add/remove region from an Azure Cosmos DB database account
 
@@ -144,8 +144,8 @@ To add or remove region(s) from your existing Azure Cosmos DB database account, 
 
 Example:
 
-    az documentdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1
-    az documentdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
+    az cosmosdb create -g rg-test -n docdb-test --locations "East US"=0 "West US"=1
+    az cosmosdb update -g rg-test -n docdb-test --locations "East US"=0 "North Europe"=1 "South Central US"=2
 
 
 ## <a id="delete-documentdb-account-cli"></a> Delete an Azure Cosmos DB database account
@@ -160,7 +160,7 @@ Arguments
 
 Example:
 
-    az documentdb delete -g rg-test -n docdb-test
+    az cosmosdb delete -g rg-test -n docdb-test
 
 ## <a id="get-documentdb-properties-cli"></a> Get properties of an Azure Cosmos DB database account
 
@@ -174,7 +174,7 @@ Arguments
 
 Example:
 
-    az documentdb show -g rg-test -n docdb-test
+    az cosmosdb show -g rg-test -n docdb-test
 
 ## <a id="list-account-keys-cli"></a> List account keys
 
@@ -188,7 +188,7 @@ Arguments
 
 Example:
 
-    az documentdb list-keys -g rg-test -n docdb-test
+    az cosmosdb list-keys -g rg-test -n docdb-test
 
 ## <a id="list-connection-strings-cli"></a> List connection strings
 
@@ -202,7 +202,7 @@ Arguments
 
 Example:
 
-    az documentdb list-connection-strings -g rg-test -n docdb-test
+    az cosmosdb list-connection-strings -g rg-test -n docdb-test
 
 ## <a id="regenerate-account-key-cli"></a> Regenerate account key
 
@@ -218,7 +218,7 @@ Arguments
 
 Example:
 
-    az documentdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
+    az cosmosdb regenerate-key -g rg-test -n docdb-test --key-kind secondary
 
 ## <a id="modify-failover-priority-cli"></a> Modify failover priority of an Azure Cosmos DB database account
 
@@ -234,7 +234,7 @@ Arguments
 
 Example:
 
-    az documentdb failover-priority-change "East US"=1 "West US"=0 "South Central US"=2
+    az cosmosdb failover-priority-change "East US"=1 "West US"=0 "South Central US"=2
 
 ## Next steps
 
