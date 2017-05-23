@@ -26,14 +26,6 @@ After completing this article, you will have a sign-up and sign-in custom policy
 
 Before proceeding, you must complete [Getting started with custom policies](active-directory-b2c-get-started-custom.md).  You should have a working custom policy for sign-up and sign-in with local accounts.
 
-### Confirming your B2C tenant
-
-Because custom policies are still in private preview, confirm that your Azure AD B2C tenant is enabled for custom policy upload:
-
-1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
-1. Click **All Policies**.
-1. Make sure **Upload Policy** is available.  If the button is disabled, email AADB2CPreview@microsoft.com.
-
 ## The page UI customization feature
 
 With the page UI customization feature, you can customize the look and feel of any custom policy.  Maintain brand and visual consistency between your application and Azure AD B2C.

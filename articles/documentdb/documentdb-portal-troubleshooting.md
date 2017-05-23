@@ -1,20 +1,6 @@
 ---
-title: Troubleshooting Azure Cosmos DB portal issues | Microsoft Docs
-description: Find out to resolve issues in the Azure Cosmos DB Azure portal.
-services: cosmosdb
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: monicar
-
-ms.assetid: 36ad9bf4-2617-4347-ba29-edebf62fc3ec
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/22/2016
-ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-manage-account
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Azure Cosmos DB portal troubleshooting tips
