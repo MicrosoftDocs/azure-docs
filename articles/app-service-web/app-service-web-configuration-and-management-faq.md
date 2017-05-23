@@ -9,7 +9,7 @@ editor: ''
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
+ms.service: app-service-webf
 ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
@@ -22,6 +22,9 @@ ms.author: v-six
 This topic provides answers to some of the most common questions about Configuration and Management in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## What are some resource move limitations I should be aware of when moving Azure App Services
+There are a few limitations we need to be aware of for Azure App Service Resource Move operations as discussed in [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
 
 ## How can I use a custom domain name for my web app
 Several frequently asked questions are answered in our 7 minute screencast via [here](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). We provide a walkthrough of how to add a custom domain name so that you can use your own URL instead of the AzureWebSites.net URL with your App Service.
@@ -57,13 +60,7 @@ See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-grou
 
 ## Why do my continuous WebJobs fail sometimes?
 
-By default, web apps are unloaded if they are idle for some period of time. This lets the system conserve resources.
-
-In Basic or Standard mode, you can enable Always On to keep the web app loaded all the time.
-
-If your web app runs continuous WebJobs, you should enable Always On, or the webjobs may not run reliably.
-
-See [Create a continuously running WebJob](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateContinuous) for more information.
+By default, web apps are unloaded if they are idle for some period of time. This lets the system conserve resources. In Basic or Standard mode, you can enable Always On to keep the web app loaded all the time. If your web app runs continuous WebJobs, you should enable Always On, or the webjobs may not run reliably. See [Create a continuously running WebJob](https://azure.microsoft.com/en-us/documentation/articles/web-sites-create-web-jobs/#CreateContinuous) for more information.
 
 ## How to get the outbound IP address for my web app?
 
@@ -180,15 +177,9 @@ To view HAR file, you can use this [website](http://www.softwareishard.com/har/v
 
 When trying to connect an Azure App Service Web App to a VNET that's connected to ExpressRoute it will fail with the following error:
 
-"Gateway is not a VPN gateway".
+"Gateway is not a VPN gateway"
 
-This scenario is currently not supported:
-
-Point-to-site is not supported: You can't enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute.
-
-Point-to-site VPN and ExpressRoute cannot coexist for the same VNet.
-
-For more information, see [Limits and limitations](https://azure.microsoft.com/en-us/documentation/articles/expressroute-howto-coexist-classic/#limits-and-limitations).
+This scenario is currently not supported. You cannot enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-site VPN and ExpressRoute cannot coexist for the same VNet. For more information please click [here](https://azure.microsoft.com/en-us/documentation/articles/expressroute-howto-coexist-classic/#limits-and-limitations).
 
 ## How can I connect an Azure App Service Web App to a VNET with a static routing (policy based) gateway?
 
@@ -266,10 +257,6 @@ $actionProperties = @{
 Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
-## Why does my Azure App Service certificate show "The certificate has been revoked. You should replace it with a new certificate as soon as possible.”?
-
-If your App Service Certificate is showing "The certificate has been revoked. You should replace it with a new certificate as soon as possible.”, you may want to review the [Incident Report](https://blogs.msdn.microsoft.com/waws/2017/01/11/incident-report-from-godaddy-regarding-azure-app-service-certificates/) from GoDaddy regarding Azure App Service Certificates. The article also outlines the next steps.
-
 ## How do I schedule my WebJobs to run at a specific time?
 
 For scheduling WebJobs we recommend that you add a CRON expression to the WebJobs settings. This is discussed in more detail at this article. https://github.com/projectkudu/kudu/wiki/WebJobs#scheduling-a-triggered-webjob
@@ -292,6 +279,24 @@ http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/
 ## How to determine the installed .NET version in Azure App Services?
 The quickest way to find this is through the Kudu console. for your Azure App Service.  You can access the kudu console  from the portal or by using the URL of your Azure App Service. Step-by-Step instructions can be found [here](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
 
-## Why is Autoscale not working as expected
+## Why is Autoscale not working as expected?
 If you have noticed that Autoscale has not scaled-in or scaled-out the web app instances as you expected, you may be running into a scenario where we intentionally choose not to scale to avoid an infinite loop due to flapping. This usually happens when there isn't adequate margin between the scale-out and scale-in thresholds. How to avoid flapping and other Autoscale best practices are explained in good detail at this [link](https://azure.microsoft.com/en-us/documentation/articles/insights-autoscale-best-practices/#autoscale-best-practices).
 
+## How can I enable HTTP compression for my content?
+You can turn on compression for both static and dynamic content types with the following configuration in application-level web.config:
+
+```
+<system.webServer>
+<urlCompression doStaticCompression="true" doDynamicCompression="true" />
+< /system.webServer>
+```
+
+You can also specify the specific dynamic and static MIME types that you would like to be compressed. More detail can be found in our response to a forum [httpCompression settings on a simple Azure Website](https://social.msdn.microsoft.com/Forums/azure/en-US/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).
+
+
+## Why is Autoscale not working as expected? It appears to be scaling only partially.
+Autoscale is triggered when metrics swing outside the preconfigured boundaries. Sometimes you may notice that the capacity is only partially filled compared to what you expected.  This is because, when desired number of instances are not available, Autoscale partially fills in with the available number of instances. It then runs the rebalance logic to get more capacity and allocates the remaining instances. Please note that this may take a few minutes.
+
+If you still do not see expected number of instances after giving a few minutes,  it could be because the partial refill was good enough to bring the metrics within the boundaries OR Autoscale scaled down because it hit the lower metrics boundary.
+
+If none of these conditions apply and the problem persists, please go ahead and open a support ticket.
