@@ -111,7 +111,7 @@ Select duplicate check settings in EDIFACT agreement receive settings to enable 
 
 1. Create a [logic app](../logic-apps/logic-apps-create-a-logic-app.md) in a secondary region.    
 
-2. Search on **edifact**, and select **EDIFACT - When a control number is modified**.     
+2. Search on **EDIFACT**, and select **EDIFACT - When a control number is modified**.     
 ![X12 search](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
 
 4. The trigger prompts you to establish a connection to an integration account. The trigger should be connected to a primary region integration account. Enter a connection name, select your **primary region integration account** from the list, and click **Create**.    
@@ -123,7 +123,7 @@ Select duplicate check settings in EDIFACT agreement receive settings to enable 
 6. Select **New step** > **Add an action**.    
 ![Add an action](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN4.png)
 
-7. Search on **edifact**, and select **EDIFACT - Add or update control numbers**.   
+7. Search on **EDIFACT**, and select **EDIFACT - Add or update control numbers**.   
 ![Received control number modification](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN5.png)
 
 8. To connect an action to a secondary region integration account, select **Change connection** > **Add new connection** for a list of the available integration accounts. Enter a connection name, select your **secondary region integration account** from the list, and click **Create**.   

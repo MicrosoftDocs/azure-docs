@@ -51,7 +51,7 @@ B2B communication involves the exchange of messages between two running business
 6. Select **Add** to add **Logic Apps B2B** messages to the home page.  
 ![Select Add](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-7. **Logic Apps B2B Messages** appears on the home page.   
+7. **Logic Apps B2B Messages** appear on the home page.   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 ## Track data in the Operations Management Suite portal
