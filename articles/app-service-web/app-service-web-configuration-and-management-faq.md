@@ -183,10 +183,7 @@ This scenario is currently not supported. You cannot enable point-to-site VPN co
 
 ## How can I connect an Azure App Service Web App to a VNET with a static routing (policy based) gateway?
 
-Currently it's not supported to connect an Azure App Service Web App to a VNET that has an Static routing (policy based) gateway.
-
-If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app. You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing.
-
+Currently connecting an Azure App Service Web App to a VNET that has an Static routing (policy based) gateway is not supported.If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app. You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing. 
 For more information, please click [here](https://azure.microsoft.com/en-us/documentation/articles/web-sites-integrate-with-vnet/#getting-started).
 
 ## In an App Service Environment (ASE) why can I only create one App Service Plan (ASP) even though I have 2 workers available?
@@ -256,10 +253,6 @@ $actionProperties = @{
     };
 Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
-
-## How do I schedule my WebJobs to run at a specific time?
-
-For scheduling WebJobs we recommend that you add a CRON expression to the WebJobs settings. This is discussed in more detail at this article. https://github.com/projectkudu/kudu/wiki/WebJobs#scheduling-a-triggered-webjob
 
 ## How does Authentication\Authorization work in App Service ?
 
