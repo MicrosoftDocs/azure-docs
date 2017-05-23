@@ -95,7 +95,7 @@ Use the Azure CLI 2.0 to generalize and capture the VM. In the following example
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Generalize the VM with [az vm generalize](/cli//azure/vm#generalize). The following example generalizes the VM named *myVM* in the resource group named *myResourceGroup*:
+2. Generalize the VM with [az vm generalize](/cli//azure/vm#generalize). If you have used a tool such as [Packer](http://www.packer.io) to build your source VM, skip this step as your image has already been generalized. The following example generalizes the VM named *myVM* in the resource group named *myResourceGroup*:
    
     ```azurecli
     az vm generalize --resource-group myResourceGroup --name myVM
