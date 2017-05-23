@@ -53,18 +53,19 @@ LUIS offers a set of programmatic REST APIs that can be used by developers to au
 * [LUIS Programmatic API](https://dev.projectoxford.ai/docs/services/56d95961e597ed0f04b76e58/operations/5739a8c71984550500affdfa).
 
 ## Integrate LUIS with a bot
-It's easy to use a LUIS app from a bot built using the [Bot Framework](https://docs.microsoft.com/bot-framework/), which provides the Bot Builder SDK for Node.js or .NET. You simply reference the HTTPS endpoint for the LUIS app as shown in the following examples:
+It's easy to use a LUIS app from a bot built using the [Bot Framework](https://docs.microsoft.com/bot-framework/), which provides the Bot Builder SDK for Node.js or .NET. You simply reference the LUIS app as shown in the following examples:
 
 #### Node.js 
 ```javascript
-// Add global LUIS recognizer to bot
-var model = process.env.model || 'https://api.projectoxford.ai/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key=6d0966209c6e4f6b835ce34492f3e6d9';
+// Add a global LUIS recognizer to your bot using the endpoint URL of your LUIS app
+var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/2c2afc3e-5f39-4b6f-b8ad-c47ce1b98d8a?subscription-key=9823b65a8c9045f8bce7fee87a5e1fbc';
 bot.recognizer(new builder.LuisRecognizer(model));
 ```
 
 #### C#
 ```cs
-    [LuisModel("<YOUR_LUIS_APP_ID>", "<YOUR_LUIS_SUBSCRIPTION_KEY>")]
+    // The LuisModel attribute specifies your LUIS app ID and your LUIS subscription key
+    [LuisModel("2c2afc3e-5f39-4b6f-b8ad-c47ce1b98d8a", "9823b65a8c9045f8bce7fee87a5e1fbc")]
     [Serializable]
     public class TravelGuidDialog : LuisDialog<object>
     {
