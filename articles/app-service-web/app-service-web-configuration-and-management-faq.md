@@ -52,7 +52,7 @@ See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-grou
 * In the Azure Portal, open the Application settings menu of your Azure App Service.
 * In the 'Application Settings' menu, scroll down to find 'App settings' and add a setting as shown below:
     * Key = WEBSITE_TIME_ZONE
-    * Value = Desired Time Zone
+    * Value = *Desired Time Zone*
 * Save Changes.
 
 ## Why do my continuous WebJobs fail sometimes?
@@ -68,7 +68,7 @@ See [Create a continuously running WebJob](https://azure.microsoft.com/en-us/doc
 ## How to get the outbound IP address for my web app?
 
 Follow these steps to get the list of outbound IP addresses for your web app.
-1. Open the **Properties** menu of your web app.
+1. In Azure Portal, Open the Properties menu of your web app.
 2. Search for OUTBOUND IP ADDRESSES.
 You will see the list of Outbound IP addresses listed here.
 
@@ -80,9 +80,12 @@ If you need to configure a dedicated\reserved IP address for inbound calls made 
 
 Please note that in order to do this your App Service Plan should be in Basic or higher pricing tier.
 
-## Can I export my App Service certificatefor use outside of Azure, such as for a website hosted elsewhere? OR Can I export my App Service certificate for use with other Azure services such as Cloud Services?
+## Can I export my App Service certificatefor use outside of Azure, such as for a website hosted elsewhere? 
+App Service certificates are to be considered Azure resources and are not intended for use outside of your Azure services. You cannot export them for use outside of Azure. For more details please see [here](https://social.msdn.microsoft.com/Forums/azure/en-US/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
-App Service certificates are Azure resources and are not intended for use outside of your Azure App Service applications. You cannot export them for use outside of Azure.  App Service certificates cannot be moved between Azure services. They are tied to your App Service applications running under your subscription.
+## Can I export my App Service certificate for use with other Azure services such as Cloud Services?
+
+While the portal provides first class experience for deploying App Service Certificate through Key Vault to App Service Apps, we have been receiving customer requests where they would like to use these certificates outside of App Service platform, say with Azure Virtual Machines. In the blogpost at this [link](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/), you can find how to create a local PFX copy of App Service Certificate so that you can use with other Azure resources.
 
 See [FAQ on App Service Certificates and Custom Domains](https://social.msdn.microsoft.com/Forums/azure/en-US/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview) for more information.
 
@@ -285,3 +288,10 @@ We have detailed documentation on authentication and authorization via [here](ht
 When you create a new website using Azure Web Apps you get a default *sitename*.azurewebsites.net domain assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain anymore, the post at the following link explains how to redirect all traffic aimed at your site’s default domain to your custom domain instead.
 
 http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/
+
+## How to determine the installed .NET version in Azure App Services?
+The quickest way to find this is through the Kudu console. for your Azure App Service.  You can access the kudu console  from the portal or by using the URL of your Azure App Service. Step-by-Step instructions can be found [here](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
+
+## Why is Autoscale not working as expected
+If you have noticed that Autoscale has not scaled-in or scaled-out the web app instances as you expected, you may be running into a scenario where we intentionally choose not to scale to avoid an infinite loop due to flapping. This usually happens when there isn't adequate margin between the scale-out and scale-in thresholds. How to avoid flapping and other Autoscale best practices are explained in good detail at this [link](https://azure.microsoft.com/en-us/documentation/articles/insights-autoscale-best-practices/#autoscale-best-practices).
+
