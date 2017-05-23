@@ -39,7 +39,7 @@ This topic lists some of the most common questions about Web Apps, it also provi
 
 **Deployment**
 
-* [I am getting 550 'There is not enough space on the disk' error when I try to FTP files](app-service-web-deployment-faq#how-can-i-resolve-ftp-error-550-there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-files)
+* [I am running into errors while trying to deploy from Visual Studio](app-service-web-deployment-faq#i-am-running-into-errors-while-trying-to-deploy-from-visual-studio)
 * [How can I deploy an Asp.Net application from Visual Studio to Azure App Service?](app-service-web-deployment-faq#how-can-i-deploy-an-asp.net-application-from-visual-studio-to-azure-app-service)
 * [What are the different types of deployment credentials? How do I configure them?](app-service-web-deployment-faq#what-are-the-different-types-of-deployment-credentials)
 * [What is the directory structure of my files?](app-service-web-deployment-faq#what-is-the-file-or-directory-structure-of-my-azure-app-service-web-app)
@@ -50,7 +50,7 @@ This topic lists some of the most common questions about Web Apps, it also provi
 * [Why is my ClearDB database not visible in the portal?](app-service-web-open-source-technologies-faq#why-is-my-cleardb-database-not-visible-in-the-portal)
 * [Why was my ClearDB database not migrated during subscription migration?](app-service-web-open-source-technologies-faq#why-was-my-cleardb-database-not-migrated-during-subscription-migration)
 * [How can I enable PHP logging to troubleshoot PHP issues?](app-service-web-open-source-technologies-faq#how-can-i-enable-php-logging-to-troubleshoot-php-issues)
-* [How can I log python application errors in apps hosted in Azure App Service?](app-service-web-open-source-technologies-faq#how-can-i-log-python-application-errors-in-apps-hosted-in-azure-app-service)
+* [My ClearDB database is down?](app-service-web-open-source-technologies-faq#my-cleardb-database-is-down)
 * [More questions](app-service-web-open-source-technologies-faq.md)
 
 **Autoscale Service and Function App**
