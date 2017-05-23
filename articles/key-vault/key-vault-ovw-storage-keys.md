@@ -9,15 +9,18 @@ ms.date: 05/23/2017
 ---
 # Azure Key Vault storage keys
 
-Today, developers manage thier own Azure Storage Account keys and rotate them manually or through an external automation. Azure Storage Account keys are [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure Storage Account. 
+Today, developers manage thier own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Azure Key Vault storage account keys are [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure storage account. 
 
-Azure Storage Account keys are not restrictive in terms of access to Azure Storage Account. An identity can perform a wide range of operations with an Azure Storage Account key in hand. 
+Key Vault ASA keys are not restricted to only be used with Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key. (BRP - Such as?)
 
-Shared Access Signatures (SAS) provide a more controlled access to an Azure Storage Account. SAS are constructed using storage account keys. 
-
-Azure Storage Account keys offer great value through managing secret rotation for you and at the same time removing the need for direct contact with Azure Storage Account key by offering SAS as a method. 
+Key Vault ASA keys offer great value through managing secret rotation for you and at the same time removing the need for direct contact with a Azure Storage Account key by offering SAS as a method. 
 
 For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+
+## Further security through access limits
+Shared access signatures (SAS), constructed using Key Vault storage account keys, provide even more controlled access to an Azure storage account. For more information, see [Using shared access signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
+
+(BRP - Not clear about the mention of this (above) in the spec. What is the significance? Does it really belong here?)
 
 
 ### Developer experience 
@@ -47,15 +50,7 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
  
 // and update the accountSasCredential accountSasCredential.UpdateSASToken(sasToken); 
  ```
- 
 
-## Supporting interfaces
-
-The Azure Storage Account keys feature is initially available through the follwing interfaces.
-
-- REST 
-- .NET / C# 
-- PowerShell
 
 
 ### Scenarios
@@ -68,13 +63,21 @@ The Azure Storage Account keys feature is initially available through the follwi
 2. Azure Key Vault allow vault/object owner to define SAS (account or service sas) definitions. 
     - The SAS value (created using SAS definition) is returned as a secret via /secrets route.  
 
+## Supporting interfaces
 
+The Azure Storage Account keys feature is initially available through the follwing interfaces.
+
+- REST 
+- .NET / C# 
+- PowerShell
+
+## Using Key Vault storage account keys
 
 ### Naming
 
 Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.  
  
-SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z. 
+A SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z. 
 
 ### Storage keys behavior
 
@@ -83,7 +86,7 @@ SAS definition name must be 1-102 characters in length containing only 0-9, a-z,
 
 ### Recommended Developer Practices 
 
-1. Keys must not be managed out of band. 
+1. Azure Storage Account keys must not be managed out of band. 
 2. Keys must not be managed by more than one vault object. 
 3. If it’s required to manually regenerate keys, then it’s recommended to regenerate keys via Key vault. 
 4. Don’t manually regenerate both the keys in a short period of time. Ensure all applications are migrated to the newer key before regenerating the other key. 
