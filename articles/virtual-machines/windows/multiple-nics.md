@@ -185,9 +185,9 @@ A NIC can also be removed from a VM.
 3. View all the NICs on the VM and copy the name of the one you want to remove:
 
    ```powershell
-   $vm.NetworkProfile.NetworkInterfaces
-   Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
-       Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    $vm.NetworkProfile.NetworkInterfaces
+    Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $vm.NetworkProfile.NetworkInterfaces[0].Id
+    Update-AzureRmVm -ResourceGroupName "myResourceGroup" -VM $vm
    ```
 
 ## Create multiple NICs by using Resource Manager templates
