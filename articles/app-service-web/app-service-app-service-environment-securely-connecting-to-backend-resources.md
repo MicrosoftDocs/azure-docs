@@ -4,7 +4,7 @@ description: Learn about how to securely connect to backend resources from an Ap
 services: app-service
 documentationcenter: ''
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b

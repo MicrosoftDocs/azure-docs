@@ -118,7 +118,7 @@ To fulfill these requirements, Dave enables the [Azure Security Center](../secur
 The business leadership in the supply chain business unit has identified various opportunities to increase engagement with Contoso's customers by using a loyalty card. Alice's team must create this application and decides that Azure increases their ability to meet the business need. Alice works with Dave from ETS to configure two subscriptions for developing and operating this application.
 
 ### Azure subscriptions
-Dave logs in to the Azure Enterprise Portal and sees that the supply chain department already exists.  However, as this project is the first development project for the supply chain team in Azure, Dave recognizes the need for a new account for Alice’s development team.  He creates the "R&D" account for her team and assigns access to Alice. Alice logs in via the Account portal and creates two subscriptions: one to hold the development servers and one to hold the production servers.  She follows the previously established naming standards when creating the following subscriptions:
+Dave logs in to the Azure Enterprise Portal and sees that the supply chain department already exists.  However, as this project is the first development project for the supply chain team in Azure, Dave recognizes the need for a new account for Alice’s development team.  He creates the "R&D" account for her team and assigns access to Alice. Alice logs in via the Azure portal and creates two subscriptions: one to hold the development servers and one to hold the production servers.  She follows the previously established naming standards when creating the following subscriptions:
 
 | Subscription use | Name |
 | --- | --- |

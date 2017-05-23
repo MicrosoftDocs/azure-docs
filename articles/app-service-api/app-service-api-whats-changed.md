@@ -4,7 +4,7 @@ description: Learn what's new for API Apps in Azure App Service.
 services: app-service\api
 documentationcenter: .net
 author: mohitsriv
-manager: wpickett
+manager: erikre
 editor: tdykstra
 
 ms.assetid: a9b58066-e8fd-48b8-a651-4613b1736433

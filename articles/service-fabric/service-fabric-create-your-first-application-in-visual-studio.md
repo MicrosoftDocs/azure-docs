@@ -1,5 +1,5 @@
 ---
-title: Create your first Service Fabric application in Visual Studio | Microsoft Docs
+title: Create your first Azure microservices application | Microsoft Docs
 description: Create, deploy, and debug a Service Fabric application using Visual Studio
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/14/2016
+ms.date: 05/05/2017
 ms.author: ryanwi
 
 ---
@@ -25,7 +25,7 @@ ms.author: ryanwi
 > 
 > 
 
-The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio.
+The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio 2017 or Visual Studio 2015.
 
 ## Prerequisites
 Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md).
@@ -33,7 +33,7 @@ Before you get started, make sure that you have [set up your development environ
 ## Video walkthrough
 The following video walks through the steps in this tutorial:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -112,18 +112,38 @@ Now that you have an application, try running it.
    
     ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
 
-## Switch cluster mode
+## Cleaning up the local cluster (optional)
+Before wrapping up, it's important to remember that the local cluster is real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
+
+1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
+2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+
+## Deploy your application to an Azure cluster
+Now that you have deployed your application locally, you can deploy the same application to Azure. The [create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md) document walks through the steps using Azure PowerShell or the portal.
+
+Once you have set up an Azure cluster, you can publish this application from Visual Studio to Azure by following the [publish to an Azure cluster](service-fabric-publish-app-remote-cluster.md) article.  
+
+## Switch cluster mode of your local development cluster
 By default, the local development cluster is configured to run as a five-node cluster, which is useful for debugging services deployed across multiple nodes. Deploying an application to the five-node development cluster can take some time, however. If you want to iterate code changes quickly, without running your app on five nodes, switch the development cluster to one-node mode. To run your code on a cluster with one node, right-click on the Local Cluster Manager in the system tray and select **Switch Cluster Mode -> 1 Node**.  
 
 ![Switch cluster mode][switch-cluster-mode]
 
 The development cluster resets when you change cluster mode and all applications provisioned or running on the cluster are removed.
 
-## Cleaning up
-Before wrapping up, it's important to remember that the local cluster is real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
+You can also change the cluster mode using PowerShell:
 
-1. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
-2. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Delete the cluster only if you don't intend to use the local cluster for some time or if you need to reclaim resources.
+1. Launch a new PowerShell window as an administrator.
+2. Run the cluster setup script from the SDK folder:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Cluster setup takes a few moments. After setup is finished, you should see output similar to:
+   
+    ![Cluster setup output][cluster-setup-success-1-node]
+
+
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
@@ -147,3 +167,4 @@ Before wrapping up, it's important to remember that the local cluster is real. S
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png

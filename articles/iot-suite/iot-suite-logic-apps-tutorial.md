@@ -4,7 +4,7 @@ description: A tutorial on how to hook up Logic Apps to Azure IoT Suite for busi
 services: ''
 suite: iot-suite
 documentationcenter: ''
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 03/09/2017
+ms.author: corywink
 
 ---
 # Tutorial: Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution
@@ -27,6 +27,8 @@ Before you start this tutorial, you should:
 
 * Provision the remote monitoring preconfigured solution in your Azure subscription.
 * Create a SendGrid account to enable you to send an email that triggers your business process. You can sign up for a free trial account at [SendGrid](https://sendgrid.com/) by clicking **Try for Free**. After you have registered for your free trial account, you need to create an [API key](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) in SendGrid that grants permissions to send mail. You need this API key later in the tutorial.
+
+To complete this tutorial, you need Visual Studio 2015 or Visual Studio 2017 to modify the actions in the preconfigured solution back end.
 
 Assuming you’ve already provisioned your remote monitoring preconfigured solution, navigate to the resource group for that solution in the [Azure portal][lnk-azureportal]. The resource group has the same name as the solution name you chose when you provisioned your remote monitoring solution. In the resource group, you can see all the provisioned Azure resources for your solution except for the Azure Active Directory application that you can find in the Azure Classic Portal. The following screenshot shows an example **Resource group** blade for a remote monitoring preconfigured solution:
 
@@ -45,7 +47,7 @@ To begin, set up the logic app to use with the preconfigured solution.
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Select **Request**. This action specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
-7. Paste the following into the Request Body JSON Schema:
+7. Paste the following code into the Request Body JSON Schema:
    
     ```
     {
@@ -113,8 +115,8 @@ In this section, you connect your preconfigured solution to the Logic App you cr
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this UR>" },
-        { "Raise Alarm", "<Http Post to this UR> }
+        { "Send Message", "<Http Post to this URL>" },
+        { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
 5. Save the changes in solution and exit Visual Studio.

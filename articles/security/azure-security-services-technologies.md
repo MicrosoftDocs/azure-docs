@@ -43,12 +43,12 @@ The following is our initial effort at providing a list. Over time, this list wi
 ## Azure Database Security
 * [Azure SQL Firewall](../sql-database/sql-database-firewall-configure.md)
 * [Azure SQL Cell Level Encryption](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Azure SQL Connection Encryption](../sql-database/sql-database-security-guidelines.md)
-* [Azure SQL Authentication](../sql-database/sql-database-security-guidelines.md)
+* [Azure SQL Connection Encryption](../sql-database/sql-database-control-access.md)
+* [Azure SQL Authentication](../sql-database/sql-database-control-access.md)
 * [Azure SQL Always Encryption](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Azure SQL Column Level Encryption](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Azure SQL Transparent Data Encryption](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Azure SQL Database Auditing](../sql-database/sql-database-auditing-get-started.md)
+* [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
 ## Azure Identity and Access Management
 * [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md)

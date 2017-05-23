@@ -1,5 +1,5 @@
 ---
-title: Service Fabric architecture | Microsoft Docs
+title: Architecture of Azure Service Fabric | Microsoft Docs
 description: Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/09/2016
+ms.date: 04/19/2017
 ms.author: rsinha
 
 ---

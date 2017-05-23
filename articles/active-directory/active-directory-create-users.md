@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: curtand;jeffsta
 
 ---
 # Add new users  or users with Microsoft accounts to Azure Active Directory
@@ -25,7 +25,7 @@ Add users to populate your directory. This article explains how to add new users
 2. Select **Active Directory**, and then select the name of your organization directory.
 3. Select the **Users** tab, and then, in the command bar, select **Add User**.
 4. On the **Tell us about this user** page, under **Type of user**, select either:
-   
+
    * **New user in your organization** – adds a new user account in your directory.
    * **User with an existing Microsoft account** – adds an existing Microsoft consumer account to your directory (for example, an Outlook account)
 5. Depending on **Type of user**, enter a user name (for new user) or an email address (for a user with a Microsoft account).
@@ -34,11 +34,11 @@ Add users to populate your directory. This article explains how to add new users
 
 > [!IMPORTANT]
 > If your organization uses more than one domain, you should know about the following issues when you add a user account:
-> 
+>
 > * TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.onmicrosoft.com, **followed by** geoffgrisso@contoso.com.
 > * **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com. This order is important, and can be cumbersome to undo.
-> 
-> 
+>
+>
 
 ## Change user information
 You can change any user attribute except for the object ID.

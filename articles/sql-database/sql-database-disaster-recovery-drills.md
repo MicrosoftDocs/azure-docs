@@ -1,6 +1,6 @@
 ---
 title: SQL Database Disaster Recovery Drills | Microsoft Docs
-description: Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages.
+description: Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills to help keep your mission critical business applications resilient to failures and outages.
 services: sql-database
 documentationcenter: ''
 author: anosov1960
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
-ms.author: sstein; sashan
+ms.author: sashan
 
 ---
 # Performing Disaster Recovery Drill
@@ -29,35 +29,35 @@ Performing a disaster recovery drill consists of:
 
 Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. Below we describe the best practices conducting a disaster recovery drill in the context of Azure SQL Database.
 
-## Geo-Restore
+## Geo-restore
 To prevent the potential data loss when conducting a disaster recovery drill, we recommend performing the drill using a test environment by creating a copy of the production environment and using it to verify the application’s failover workflow.
 
 #### Outage simulation
-To simulate the outage you can delete or rename the source database. This will cause application connectivity failure.
+To simulate the outage, you can delete or rename the source database. This causes application connectivity failures.
 
 #### Recovery
-* Perform the Geo-Restore of the database into a different server as described [here](sql-database-disaster-recovery.md).
-* Change the application configuration to connect to the recovered database(s) and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
+* Perform the geo-restore of the database into a different server as described [here](sql-database-disaster-recovery.md).
+* Change the application configuration to connect to the recovered database and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 #### Validation
-* Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+* Complete the drill by verifying the application integrity post recovery (including connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
 
-## Geo-Replication
-For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remain in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment.
+## Geo-replication
+For a database that is protected using geo-replication the drill exercise involves planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remain in sync when the roles are switched. Unlike the unplanned failover, this operation does not result in data loss, so the drill can be performed in the production environment.
 
 #### Outage simulation
-To simulate the outage you can disable the web application or virtual machine connected to the database. This will result in the connectivity failures for the web clients.
+To simulate the outage, you can disable the web application or virtual machine connected to the database. This results in the connectivity failures for the web clients.
 
 #### Recovery
-* Make sure the application configuration in the DR region points to the former secondary which will become fully accessible new primary.
-* Perform [planned failover](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
+* Make sure the application configuration in the DR region points to the former secondary which becomes the fully accessible new primary.
+* Perform [planned failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) to make the secondary database a new primary
 * Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
 
 #### Validation
-* Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+* Complete the drill by verifying the application integrity post recovery (including connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
 
 ## Next steps
 * To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-* To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+* To learn about faster recovery options, see [active geo-replication](sql-database-geo-replication-overview.md)  

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -64,7 +64,7 @@ You can configure the following Connectivity parameters:
 | Password |<Blank> |Password of the credential to store for use when the connector is run. |
 | Impersonate Connector Account |False |When true, the synchronization service runs the Windows PowerShell scripts in the context of the credentials supplied. When possible, it is recommended that the **$Credentials** parameter is passed to each script is used instead of impersonation. For more information on additional permissions that are required to use this option, see [Additional Configuration for Impersonation](#additional-configuration-for-impersonation). |
 | Load User Profile When Impersonating |False |Instructs Windows to load the user profile of the connector’s credentials during impersonation. If the impersonated user has a roaming profile, the connector does not load the roaming profile. For more information on additional permissions that are required to use this parameter, see [Additional Configuration for Impersonation](#additional-configuration-for-impersonation). |
-| Logon Type When Impersonating |None |Logon type during impersonation. For more information, refer to the [dwLogonType][dw] documentation. |
+| Logon Type When Impersonating |None |Logon type during impersonation. For more information, see the [dwLogonType][dw] documentation. |
 | Signed Scripts Only |False |If true, the Windows PowerShell connector validates that each script has a valid digital signature. If false, ensure that the Synchronization Service server’s Windows PowerShell execution policy is RemoteSigned or Unrestricted. |
 
 **Common Module**  

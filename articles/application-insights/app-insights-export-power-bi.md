@@ -4,7 +4,7 @@ description: Analytics queries can be displayed in Power BI.
 services: application-insights
 documentationcenter: ''
 author: noamben
-manager: douge
+manager: carmonm
 
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Feed Power BI from Application Insights
@@ -23,7 +23,7 @@ There are three recommended methods of exporting Application Insights data to Po
 
 * [**Power BI adapter**](#power-pi-adapter) - set up a complete dashboard of telemetry from your app. The set of charts is predefined, but you can add your own queries from any other sources.
 * [**Export Analytics queries**](#export-analytics-queries) - write any query you want using Analytics, and export it to Power BI. You can place this query on a dashboard along with any other data.
-* [**Continous export and Stream Analytics**](app-insights-export-stream-analytics.md) - This involves more work to set up. It is useful if you want to keep your data for long periods. Otherwise, the other methods are recommended.
+* [**Continuous export and Stream Analytics**](app-insights-export-stream-analytics.md) - This involves more work to set up. It is useful if you want to keep your data for long periods. Otherwise, the other methods are recommended.
 
 ## Power BI adapter
 This method creates a complete dashboard of telemetry for you. The initial data set is predefined, but you can add more data to it.

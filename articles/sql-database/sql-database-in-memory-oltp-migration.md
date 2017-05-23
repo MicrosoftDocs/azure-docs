@@ -22,13 +22,13 @@ ms.author: jodebrui
 [In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the pricing tier. 
 
 > [!NOTE] 
-> Learn how [Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Learn how [Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
 ## Step 1: Ensure you are using a Premium database
-In-Memory OLTP is supported only in v12 Premium databases. In-Memory is supported if the returned result is 1 (not 0):
+In-Memory OLTP is supported only in Premium databases. In-Memory is supported if the returned result is 1 (not 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

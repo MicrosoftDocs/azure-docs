@@ -1,5 +1,5 @@
 ---
-title: Hybrid on-premises/cloud application (.NET) | Microsoft Docs
+title: Azure WCF Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
 description: Learn how to create a .NET on-premises/cloud hybrid application using Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 02/16/2017
 ms.author: sethm
 
 ---
 # .NET on-premises/cloud hybrid application using Azure WCF Relay
 ## Introduction
-This article describes how to build a hybrid cloud application with Microsoft Azure and Visual Studio. The tutorial assumes you have no prior experience using Azure. In less than
+This article shows how to build a hybrid cloud application with Microsoft Azure and Visual Studio. The tutorial assumes you have no prior experience using Azure. In less than
 30 minutes, you will have an application that uses multiple Azure resources up and running in the cloud.
 
 You will learn:
@@ -45,13 +45,13 @@ reach for access by the cloud solution. Many internal services are not
 built or hosted in a way that they can be easily exposed at the
 corporate network edge.
 
-Azure Relay is designed for the use-case of taking existing
+[Azure Relay](https://azure.microsoft.com/services/service-bus/) is designed for the use-case of taking existing
 Windows Communication Foundation (WCF) web services and making those
 services securely accessible to solutions that reside outside the
 corporate perimeter without requiring intrusive changes to the corporate
 network infrastructure. Such relay services are still hosted
 inside their existing environment, but they delegate listening for
-incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature](../service-bus-messaging/service-bus-sas-overview.md) (SAS) authentication.
+incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) authentication.
 
 ## Solution scenario
 In this tutorial, you will create an ASP.NET website that enables you to see a list of products on the product inventory page.
@@ -74,22 +74,18 @@ The following is a screen shot of the start page of the completed web applicatio
 ![][1]
 
 ## Set up the development environment
-Before you can begin developing Azure applications, get the tools and set up your development environment.
+Before you can begin developing Azure applications, download the tools and set up your development environment:
 
-1. Install the Azure SDK for .NET from the [Get Tools and SDK][Get Tools and SDK] page.
-2. Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
+1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
+2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2015.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
    necessary to start to develop the app. The SDK includes tools that let you
-   easily develop Azure applications in Visual Studio. If you
-   do not have Visual Studio installed, the SDK also installs the free
-   Visual Studio Express.
+   easily develop Azure applications in Visual Studio.
 
 ## Create a namespace
-To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](relay-create-namespace-portal.md) to create a Relay namespace.
 
 ## Create an on-premises server
 First, you will build a (mock) on-premises product catalog system. It
@@ -101,7 +97,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
 
 ### Create the project
 1. Using administrator privileges, start Microsoft Visual
-   Studio. To start Visual Studio with administrator privileges, right-click the **Visual Studio** program icon, and then click **Run as administrator**.
+   Studio. To do so, right-click the Visual Studio program icon, and then click **Run as administrator**.
 2. In Visual Studio, on the **File** menu, click **New**, and then
    click **Project**.
 3. From **Installed Templates**, under **Visual C#**, click **Console
@@ -125,7 +121,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
    click **Add**.
 10. In **ProductsContract.cs**, replace the namespace definition with the following code, which defines the contract for the service.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System.Collections.Generic;
@@ -162,7 +158,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
 11. In Program.cs, replace the namespace definition with the following
     code, which adds the profile service and the host for it.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System;
@@ -214,9 +210,9 @@ This project is a Visual Studio console application, and uses the [Azure Service
         }
     }
     ```
-12. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the **&lt;system.ServiceModel&gt;** element (but still within &lt;system.ServiceModel&gt;), add the following XML code. Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the SAS key you retrieved earlier from the portal:
+12. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the `<system.ServiceModel>` element (but still within `<system.ServiceModel>`), add the following XML code. Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the SAS key you retrieved earlier from the portal:
 
-    ```
+    ```xml
     <system.serviceModel>
     ...
       <services>
@@ -237,9 +233,9 @@ This project is a Visual Studio console application, and uses the [Azure Service
       </behaviors>
     </system.serviceModel>
     ```
-13. Still in App.config, in the **&lt;appSettings&gt;** element, replace the connection string value with the connection string you previously obtained from the portal.
+13. Still in App.config, in the `<appSettings>` element, replace the connection string value with the connection string you previously obtained from the portal.
 
-    ```
+    ```xml
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
        <add key="Microsoft.ServiceBus.ConnectionString"
@@ -269,7 +265,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
    ![][19]
 8. Click **OK**.
-9. Now you must configure Azure resources for a new web app. Follow all the steps in [Create a web application](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) and [Create the Azure resources](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Then, return to this tutorial and proceed to the next step.
+9. Now you must configure Azure resources for a new web app. Follow all the steps in [Create a web application](../app-service-web/app-service-web-get-started-dotnet.md) and [Create the Azure resources](../app-service-web/app-service-web-get-started-dotnet.md). Then, return to this tutorial and proceed to the next step.
 10. In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
@@ -279,22 +275,22 @@ In this section you will build a simple ASP.NET application that displays data r
 ### Modify the web application
 1. In the Product.cs file in Visual Studio, replace the existing namespace definition with the following code.
 
-   ```
-   // Declare properties for the products inventory.
+   ```csharp
+	// Declare properties for the products inventory.
     namespace ProductsWeb.Models
-   {
+	{
        public class Product
        {
            public string Id { get; set; }
            public string Name { get; set; }
            public string Quantity { get; set; }
        }
-   }
-   ```
+	}
+	```
 2. In Solution Explorer, expand the **Controllers** folder, then double-click the **HomeController.cs** file to open it in Visual Studio.
 3. In **HomeController.cs**, replace the existing namespace definition with the following code.
 
-    ```
+    ```csharp
     namespace ProductsWeb.Controllers
     {
         using System.Collections.Generic;
@@ -321,7 +317,7 @@ In this section you will build a simple ASP.NET application that displays data r
 7. In Solution Explorer, expand the Views\Home folder, then double-click **Index.cshtml** to open it in the Visual Studio editor.
    Replace the entire contents of the file with the following code.
 
-   ```
+   ```html
    @model IEnumerable<ProductsWeb.Models.Product>
 
    @{
@@ -379,7 +375,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
    ![][24]
 6. Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
-   ```
+   ```csharp
    namespace ProductsWeb.Controllers
    {
        using System.Linq;
@@ -441,7 +437,7 @@ Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page
 Close both applications before proceeding to the next step.
 
 ## Deploy the ProductsPortal project to an Azure web app
-The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). After deployment is complete, return to this tutorial and proceed to the next step.
+The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to Azure](../app-service-web/app-service-web-get-started-dotnet.md). After deployment is complete, return to this tutorial and proceed to the next step.
 
 > [!NOTE]
 > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
@@ -486,7 +482,6 @@ To learn more about Azure Relay, see the following resources:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png

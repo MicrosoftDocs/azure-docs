@@ -1,5 +1,5 @@
 ---
-title: Role based access control troubleshooting | Microsoft Docs
+title: Troubleshoot Azure RBAC | Microsoft Docs
 description: Get help with issues or questions about Role Based Access Control resources.
 services: azure-portal
 documentationcenter: na
@@ -13,27 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 
 ---
 # Role-Based Access Control troubleshooting
-## Introduction
-[Role-Based Access Control](role-based-access-control-configure.md) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to use exactly what they need, and no more. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
 
-This document will let you know what to expect when using some of the roles in the Azure portal. These three roles cover all resource types:
+This document article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
 
 * Owner  
 * Contributor  
 * Reader  
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we’ll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
+Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](role-based-access-control-configure.md) for details on how to grant access.
 
 ## App service workloads
 ### Write access capabilities
-If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and won’t be available in any read-only scenario.
+If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and aren’t available in any read-only scenario.
 
-* Commands (e.g. start, stop, etc.)
+* Commands (like start, stop, etc.)
 * Changing settings like general configuration, scale settings, backup settings, and monitoring settings
 * Accessing publishing credentials and other secrets like app settings and connection strings
 * Streaming logs
@@ -85,7 +83,7 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 * Load balanced set  
 * Alert rules  
 
-If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the Resource group.
+If you can't access any of these tiles, youneed to ask your administrator for Contributor access to the Resource group.
 
 ## See more
 * [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.

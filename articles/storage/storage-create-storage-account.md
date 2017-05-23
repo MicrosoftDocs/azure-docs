@@ -1,6 +1,6 @@
 ---
-title: How to create, manage, or delete a storage account in the Azure Portal | Microsoft Docs
-description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts.
+title: How to create, manage, or delete a storage account in the Azure portal | Microsoft Docs
+description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
 author: robinsh
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 
 ---
 # About Azure storage accounts
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
 An Azure storage account provides a unique namespace to store and access your Azure Storage data objects. All objects in a storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
@@ -150,6 +150,7 @@ If the storage account uses the Classic deployment model, you can remove the vir
 For more information, see the [Azure Virtual Machine documentation](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Next steps
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md)
 * [Azure Storage replication](storage-redundancy.md)
 * [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)

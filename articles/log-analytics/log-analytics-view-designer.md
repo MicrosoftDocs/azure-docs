@@ -1,6 +1,6 @@
 ---
-title: Log Analytics View Designer | Microsoft Docs
-description: View Designer in Log Analytics allows you to create custom Views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
+title: Create views to analyze data in OMS Log Analytics | Microsoft Docs
+description: View Designer in Log Analytics allows you to create custom Views that are displayed in the OMS and Azure portal and contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 
 ---
-# Log Analytics View Designer
-The View Designer in Log Analytics allows you to create custom views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
+# Use View Designer to create custom views in Log Analytics
+The View Designer in [Log Analytics](log-analytics-overview.md) allows you to create custom views in the OMS console that contain different visualizations of data in the OMS repository. This article contains an overview of View Designer and procedures for creating and editing custom views.
 
 Other articles available for View Designer are:
 

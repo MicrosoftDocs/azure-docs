@@ -4,7 +4,7 @@ description: Describes the scenarios where you can move Web Apps and App Service
 services: app-service
 documentationcenter: ''
 author: ZainRizvi
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 22f97607-072e-4d1f-a46f-8d500420c33c

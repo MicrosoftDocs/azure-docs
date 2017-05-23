@@ -4,7 +4,7 @@ description: If you know how to deploy AD Domain Services and AD Federation Serv
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: stevenpo
+manager: femila
 editor: ''
 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2016
+ms.date: 05/16/2017
 ms.author: femila
 
 ---
@@ -33,7 +33,7 @@ This article assumes that the reader is familiar with the following concepts:
 * Deploying, configuring, and managing relying party applications (websites and web services) that can consume Windows Server AD FS tokens
 * General virtual machine concepts, such as how to configure a virtual machine, virtual disks, and virtual networks
 
-This article highlights the requirements for a hybrid deployment scenario in which Windows Server AD DS or AD FS are partly deployed on-premises and partly deployed on Azure virtual machines. The document first covers the critical differences between running Windows Server AD DS and AD FS on Azure virtual machines versus on-premises, and important decisions that affect design and deployment. The rest of the paper explains guidelines for each of the decision points in more detail, and how to apply the guidelines to various deployment scenarios.
+This article highlights the requirements for a hybrid deployment scenario in which Windows Server AD DS or AD FS are partly deployed on-premises and partly deployed on Azure virtual machines. The document first covers the critical differences between running Windows Server AD DS and AD FS on Azure virtual machines versus on-premises, and important decision points that affect design and deployment. The rest of the paper explains guidelines for each of the decision points in more detail, and how to apply the guidelines to various deployment scenarios.
 
 This article does not discuss the configuration of [Azure Active Directory](http://azure.microsoft.com/services/active-directory/), which is a REST-based service that provides identity management and access control capabilities for cloud applications. Azure Active Directory (Azure AD) and Windows Server AD DS are, however, designed to work together to provide an identity and access management solution for today’s hybrid IT environments and modern applications. To help understand the differences and relationships between Windows Server AD DS and Azure AD, consider the following:
 
@@ -104,7 +104,7 @@ For more information about how DCs are impacted, see [USN and USN Rollback](http
 Beginning with Windows Server 2012, [additional safeguards are built in to AD DS](https://technet.microsoft.com/library/hh831734.aspx). These safeguards help protect virtualized domain controllers against the aforementioned problems, as long as the underlying hypervisor platform supports VM-GenerationID. Azure supports VM-GenerationID, which means that domain controllers that run Windows Server 2012 or later on Azure virtual machines have the additional safeguards.
 
 > [!NOTE]
-> You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure classic portal. Today, using the classic portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
+> You should shut down and restart a VM that runs the domain controller role in Azure within the guest operating system instead of using the **Shut Down** option in the Azure portal or classic portal. Today, using the portal to shut down a VM causes the VM to be deallocated. A deallocated VM has the advantage of not incurring charges, but it also resets the VM-GenerationID, which is undesirable for a DC. When the VM-GenerationID is reset, the invocationID of the AD DS database is also reset, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services (AD DS) Virtualization](https://technet.microsoft.com/library/hh831734.aspx) and [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
 > 
 > 
 
@@ -390,7 +390,7 @@ For fault tolerance and performance reasons, it is optimal to install the Window
 
 VMs register their DNS name automatically on startup or when there is a name change.
 
-For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](/powershell/azureps-cmdlets-docs) and [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841).
+For more information about this example and another example that shows how to provision the first VM and install AD DS on it, see [Install a new Active Directory forest on Microsoft Azure](active-directory-new-forest-virtual-machine.md). For more information about using Windows PowerShell, see [Install Azure PowerShell](/powershell/azureps-cmdlets-docs) and [Azure Management Cmdlets](/powershell/module/azurerm.compute/#virtual_machines).
 
 ### <a name="BKMK_DistributedDCs"></a>Geo-distributed DCs
 Azure offers advantages when hosting multiple DCs on different virtual networks:

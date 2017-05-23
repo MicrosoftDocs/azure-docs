@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Docs'
+title: Azure AD Connect MV Designer | Microsoft Docs'
 description: Understand the Metaverse Designer tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 02/27/2017
 ms.author: billmath
-
+ms.custom: H1Hack27Feb2017
 ---
-# Azure AD Connect sync: Synchronization Service Manager
+# Sync Service Manager Metaverse Designer
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvdesigner.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Create a Path-based rule for an application gateway by using the portal | Microsoft Docs
+title: Create a path-based rule - Azure Application Gateway - Azure Portal | Microsoft Docs
 description: Learn how to create a Path-based rule for an application gateway by using the portal
 services: application-gateway
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 
 ---
@@ -24,9 +24,9 @@ ms.author: gwallace
 > * [Azure portal](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
-URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
+URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL listed in the Application Gateway and sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
-URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and Path-Based rules. Basic rule type provides round-robin service for the back-end pools while Path-Based rules in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
+URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and path-based rules. The basic rule type, provides round-robin service for the back-end pools while path-based rules in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the appropriate backend pool.
 
 ## Scenario
 
@@ -76,6 +76,8 @@ The second section of the **Add path-based rule** blade is where you define the 
 Adding a path-based rule to an existing application gateway is an easy process through the portal. Once a path-based rule has been created, it can be edited to add additional rules easily. 
 
 ![adding additional path-based rules][3]
+
+This configures a path based route. It is important to understand that requests are not re-written, as requests come in application gateway inspects the request and basic on the url pattern sends the request to the appropriate back-end.
 
 ## Next steps
 

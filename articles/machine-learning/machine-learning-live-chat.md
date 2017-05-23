@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 04/10/2017
 ms.author: garye
 
 ---
@@ -28,8 +28,11 @@ Type in your question and get your answers!
 
 ![Azure ML Chat Dialog](./media/machine-learning-live-chat/AzureMLChat.png)
 
-## Don't see the Live Chat Icon?
+**Don't see the Live Chat Icon?**
+
 The Live Chat is staffed by members of the Machine Learning team. If you don't see the live chat icon it's because the team is not currently available. For example, it may be outside of normal working hours. 
+
+You can always post your questions on the [Machine Learning Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), where they will be seen by members of the Machine Learning team and other knowledgeable data scientists and developers.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

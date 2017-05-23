@@ -1,10 +1,10 @@
----
-title: Create a VM with multiple NICs using a template | Microsoft Docs
-description: Create a VM with multiple NICs using a template through Azure Resource Manager.
+﻿---
+title: Create a VM with multiple NICs - Azure Resource Manager template | Microsoft Docs
+description: Create a VM with multiple NICs using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a VM with multiple NICs using a template
@@ -90,7 +91,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	},
 	```
 
-6. Notice the **vmSize** contains the value *Standard_DS3*. Only certain VM sizes allow for the use of multiple NICs. You can verify which VM sizes support multiple NICs by reading the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) articles.
+6. Notice the **vmSize** contains the value *Standard_DS3*. Only certain VM sizes allow for the use of multiple NICs. You can verify which VM sizes support multiple NICs by reading the [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) articles.
 
 7. Scroll down to **resources** and notice the first element. It describes a storage account. This storage account will be used to maintain the data disks used by each database VM. In this scenario, each database VM has an OS disk stored in regular storage, and two data disks stored in SSD (premium) storage.
 
@@ -242,7 +243,7 @@ The figure below shows the contents of the new resource group, after deployment.
 ![Back end resource group](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## Deploy the template by using PowerShell
-To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azureps-cmdlets-docs) article and then complete the following steps:
+To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](/powershell/azure/overview) article and then complete the following steps:
 
 Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 
@@ -278,7 +279,7 @@ Expected output:
 ## Deploy the template by using the Azure CLI
 To deploy the template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
 	```azurecli

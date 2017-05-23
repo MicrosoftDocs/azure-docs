@@ -1,5 +1,5 @@
 ---
-title: Save messages to the Azure cloud and read them from the cloud | Microsoft Docs
+title: 'Simulated device & Azure IoT Gateway - Lesson 4: Save messages | Microsoft Docs'
 description: Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud.
 services: iot-hub
 documentationcenter: ''
@@ -8,13 +8,16 @@ manager: timtl
 tags: ''
 keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
+
 ms.assetid: ffed0c2e-b092-40e1-9113-8196ec057d67
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---

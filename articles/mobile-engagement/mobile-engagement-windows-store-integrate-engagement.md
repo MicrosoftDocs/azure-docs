@@ -4,7 +4,7 @@ description: How to Integrate Azure Mobile Engagement with Windows Universal App
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05

@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Batch Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently. Tutorials, API references, and other documentation.
+services: batch
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Batch Documentation
 
@@ -44,7 +55,7 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,6 +108,24 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
         </div>
         </a>
     </li>
+     <li>
+        <a href="/azure/batch/batch-nodejs-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/logos/logo_nodejs.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Batch using Node.js</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
@@ -109,7 +138,8 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch">PowerShell</a></p>
+                        <p><a href="/cli/azure/batch">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -137,6 +167,20 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/batchservice">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Batch</h3>
+                        <p><a href="/azure/batch/batch-diagnostics">Batch diagnostic logs</a></p>
+                        <p><a href="/azure/batch/batch-analytics">Batch Analytics</a></p>
+                        <p><a href="/azure/batch/batch-compute-node-environment-variables">Batch compute node environment variables</a></p>
                     </div>
                 </div>
             </div>

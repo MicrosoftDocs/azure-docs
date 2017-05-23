@@ -3,8 +3,8 @@ title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Troubleshooting no data - Application Insights for .NET
@@ -30,18 +30,18 @@ ms.author: awills
 
 *I [installed Status Monitor](app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
-* See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). 
+* See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
 
 ## <a name="q01"></a>No 'Add Application Insights' option in Visual Studio
-*When I create a new project in Visual Studio, or when I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
+*When I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
 
 * Not all types of .NET project are supported by the tools. Web and WCF projects are supported. For other project types such as desktop or service applications, you can still [add an Application Insights SDK to your project manually](app-insights-windows-desktop.md).
-* Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Application Insights Tools.
-* Select **Tools**, **Extensions and Updates** and check that **Application Insights Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
+* Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Developer Analytics tools, which provide the Application Insights SDK.
+* Select **Tools**, **Extensions and Updates** and check that **Developer Analytics Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
 * Open the New Project dialog and choose ASP.NET Web application. If you see the Application Insights option there, then the tools are installed. If not, try uninstalling and then re-installing the Application Insights Tools.
 
 ## <a name="q02"></a>Adding Application Insights failed
-*When I create a new web project, or when I try to add Application Insights to an existing project, I see an error message.*
+*When I try to add Application Insights to an existing project, I see an error message.*
 
 Likely causes:
 
@@ -59,7 +59,7 @@ Fix:
 ## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
 
-In Solution Explorer, right-click `ApplicationInsights.config` and choose **Configure Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
+In Solution Explorer, right-click your project and choose **Application Insights > Configure Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
 
 ## <a name="NuGetBuild"></a> "NuGet package(s) are missing" on my build server
 *Everything builds OK when I'm debugging on my development machine, but I get a NuGet error on the build server.*
@@ -73,14 +73,14 @@ and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/mi
 Likely causes:
 
 * If you created the Application Insights resource manually, or if the project is of a type that isn't supported by the Application Insights tools.
-* The Application Insights tools are disabled in your Visual Studio.
+* The Developer Analytics tools are disabled in your Visual Studio. 
 * Your Visual Studio is older than 2013 Update 3.
 
 Fix:
 
 * Make sure your Visual Studio version is 2013 update 3 or later.
-* Select **Tools**, **Extensions and Updates** and check that **Application Insights Tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
-* Right-click your project in Solution Explorer. If you see the command **Configure Application Insights**, use it to connect your project to the resource in the Application Insights service.
+* Select **Tools**, **Extensions and Updates** and check that **Developer Analytics tools** is installed and enabled. If so, click **Updates** to see if there's an update available.
+* Right-click your project in Solution Explorer. If you see the command **Application Insights > Configure Application Insights**, use it to connect your project to the resource in the Application Insights service.
 
 Otherwise, your project type isn't directly supported by the Application Insights tools. To see your telemetry, sign in to the [Azure portal](https://portal.azure.com), choose Application Insights on the left navigation bar, and select your application.
 

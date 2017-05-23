@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 
 ---
@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Proofpoint on Demand, you need the following items:
 
 * An Azure AD subscription
-* A Proofpoint on Demand single sign-on subscription
+* A Proofpoint on Demand single sign-on (SSO) subscription
 
 To test the steps in this tutorial, follow these recommendations:
 
@@ -44,8 +44,8 @@ In this tutorial, you test Azure AD single sign-on in a test environment.
 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Add Proofpoint on Demand from the gallery.
-2. Configure and test Azure AD single sign-on.
+* Add Proofpoint on Demand from the gallery.
+* Configure and test Azure AD single sign-on.
 
 ## Add Proofpoint on Demand from the gallery
 To configure the integration of Proofpoint on Demand into Azure AD, you need to add Proofpoint on Demand from the gallery to your list of managed SaaS apps.
@@ -95,28 +95,19 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 3. On the **Configure App Settings** page, perform the following steps:
    
     !["Configure App Settings" page with boxes filled in](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
-   
-    a. In the **SIGN ON URL** box, type the URL where users sign on to your Proofpoint on Demand application. Use the following pattern: **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**
-   
-    b. In the **IDENTIFIER** box, type the URL by using the following pattern: **https://\<hostname/>.pphosted.com/ppssamlsp**
-   
-    c. In the **REPLY URL** box, type the URL by using the following pattern: **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**
-   
-    d. Click **Next**.
+   1. In the **SIGN ON URL** box, type the URL where users sign on to your Proofpoint on Demand application. Use the following pattern: **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**
+   2. In the **IDENTIFIER** box, type the URL by using the following pattern: **https://\<hostname/>.pphosted.com/ppssamlsp**
+   3. In the **REPLY URL** box, type the URL by using the following pattern: **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**  
+   4. Click **Next**.
 4. On the **Configure single sign-on at Proofpoint on Demand** page, perform the following steps:
    
     !["Configure single sign-on at Proofpoint on Demand" page with "Download certificate" button](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
-   
-    a. Click **Download certificate**, and then save the file on your computer.
-   
-    b. Click **Next**.
+   1. Click **Download certificate**, and then save the file on your computer.   
+   2. Click **Next**.
 5. To get SSO configured for your application, contact the Proofpoint on Demand support team and provide them with the following:
-   
-    • The downloaded certificate
-   
-    • The entity ID
-   
-    • The SAML SSO URL
+   * The downloaded certificate
+   * The entity ID
+   * The SAML SSO URL
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Check box that confirms that you have configured single sign-on][10]
@@ -140,35 +131,27 @@ In this section, you create a test user named Britta Simon in the classic portal
    
     ![ADD USER button](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
 5. On the **Tell us about this user** page, perform the following steps:
-    !["Tell us about this user" page with boxes filled in](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)
-   
-    a. In the **TYPE OF USER** box, select **New user in your organization**.
-   
-    b. In the **USER NAME** box, type **BrittaSimon**.
-   
-    c. Click **Next**.
+
+    !["Tell us about this user" page with boxes filled in](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)   
+   1. In the **TYPE OF USER** box, select **New user in your organization**.
+   2. In the **USER NAME** box, type **BrittaSimon**.
+   3. Click **Next**.
 6. On the **user profile** page, perform the following steps:
-   ![The "user profile" page with boxes filled in](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)
-   
-   a. In the **FIRST NAME** box, type **Britta**.  
-   
-   b. In the **LAST NAME** box, type **Simon**.
-   
-   c. In the **DISPLAY NAME** box, type **Britta Simon**.
-   
-   d. In the **ROLE** list, select **User**.
-   
-   e. Click **Next**.
+
+  ![The "user profile" page with boxes filled in](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)   
+   1. In the **FIRST NAME** box, type **Britta**.  
+   2. In the **LAST NAME** box, type **Simon**.
+   3. In the **DISPLAY NAME** box, type **Britta Simon**.
+   4. In the **ROLE** list, select **User**.
+   5. Click **Next**.
 7. On the **Get temporary password** page, click **create**.
    
-    ![Button for creating a temporary password](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
+   ![Button for creating a temporary password](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
 8. On the **Get temporary password** page, perform the following steps:
    
-    !["Get temporary password" page with password info](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)
-   
-    a. Write down the value in the **NEW PASSWORD** box.
-   
-    b. Click **Complete**.   
+   !["Get temporary password" page with password info](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)  
+   1. Write down the value in the **NEW PASSWORD** box.
+   2. Click **Complete**.   
 
 ### Create a Proofpoint on Demand test user
 In this section, you create a user called Britta Simon in Proofpoint on Demand. Please work with Proofpoint on Demand support team to add users in the Proofpoint on Demand platform.

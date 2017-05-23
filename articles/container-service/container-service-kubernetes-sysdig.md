@@ -1,6 +1,6 @@
 ---
-title: Monitoring Kubernetes in Azure Container Service using Sysdig | Microsoft Docs
-description: Monitoring Kubernetes in Azure Container Service using Sysdig
+title: Monitor Azure Kubernetes cluster - Sysdig | Microsoft Docs
+description: Monitoring Kubernetes cluster in Azure Container Service using Sysdig
 services: container-service
 documentationcenter: ''
 author: bburns
@@ -20,7 +20,7 @@ ms.author: bburns
 
 ---
 
-# Monitor an Azure Container Service Kubenrnetes cluster using Sysdig
+# Monitor an Azure Container Service Kubernetes cluster using Sysdig
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).

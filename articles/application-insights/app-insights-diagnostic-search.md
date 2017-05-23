@@ -3,7 +3,7 @@ title: Using Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Using Search in Application Insights
@@ -134,7 +134,7 @@ If your app generates a lot of telemetry (and you are using the ASP.NET SDK vers
 
 
 ## Create work item
-You can create a bug in Visual Studio Team Services with the details from any telemetry item. 
+You can create a bug in GitHub or Visual Studio Team Services with the details from any telemetry item. 
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
 
@@ -142,7 +142,7 @@ The first time you do this, you are asked to configure a link to your Team Servi
 
 ![Fill the URL of your Team Services server and the Project name, and click Authorize](./media/app-insights-diagnostic-search/41.png)
 
-(You can also get to the configuration blade from Settings > Work Items.)
+(You can also configure the link on the Work Items blade.)
 
 ## Save your search
 When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
@@ -161,7 +161,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 * Capture log traces from your favorite logging framework in [.NET](app-insights-asp-net-trace-logs.md) or [Java](app-insights-java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
 * [Write code](app-insights-api-custom-events-metrics.md) to send custom events, page views, and exceptions. 
 
-[Learn how to send logs and custom telemetry to Application Insights](app-insights-search-diagnostic-logs.md).
+[Learn how to send logs and custom telemetry to Application Insights](app-insights-asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Q & A
 ### <a name="limits"></a>How much data is retained?
@@ -169,10 +169,14 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 See the [Limits summary](app-insights-pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
-We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-search-diagnostic-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
+We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
+
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Next steps
 * [Write complex queries in Analytics](app-insights-analytics-tour.md)
-* [Send logs and custom telemetry to Application Insights](app-insights-search-diagnostic-logs.md)
+* [Send logs and custom telemetry to Application Insights](app-insights-asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](app-insights-monitor-web-app-availability.md)
 * [Troubleshooting](app-insights-troubleshoot-faq.md)
