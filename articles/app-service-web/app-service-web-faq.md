@@ -23,18 +23,21 @@ This topic lists some of the most common questions about Web Apps, it also provi
 
 **Availability, Performance and Application Issues**
 
-* [How to view Website Eventlogs](app-service-web-availability-performance-application-issues-faq#how-can-i-view-event-logs-of-my-web-app)
-* [My App is performing slow](app-service-web-availability-performance-application-issues-faq#my-app-is-performing-slow)
-* [How do I capture user mode memory dump of my web app](app-service-web-availability-performance-application-issues-faq#how-do-i-capture-user-mode-memory-dump-of-my-web-app)
-* [How do I view process level info for my web app?](app-service-web-availability-performance-application-issues-faq#how-do-i-view-process-level-info-for-my-web-app)
+* [How do I automate Azure App Service WebApps using Powershell?](app-service-web-availability-performance-application-issues-faq#how-do-i-automate-azure-app-service-webapps-using-powershell)
+* [What are some resource move limitations I should be aware of when moving Azure App Services?](app-service-web-availability-performance-application-issues-faq#what-are-some-resource-move-limitations-i-should-be-aware-of-when-moving-azure-app-services)
+* [I am getting started with Azure App Service Web Apps and I want to know how to publish.](app-service-web-availability-performance-application-issues-faq#i-am-getting-started-with-azure-app-service-web-apps-and-i-want-to-know-how-to-publish)
+* [How do I troubleshoot a High memory consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-memory-consumption-scenario)
+* [How do I troubleshoot a High CPU consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-cpu-consumption-scenario)
+* [My App is performing slow.](app-service-web-availability-performance-application-issues-faq#my-app-is-performing-slow)
 * [More questions](app-service-web-availability-performance-application-issues-faq.md)
 
 **Configuration and Management**
-
-* [How do I set the server Timezone for my web app?](app-service-web-configuration-and-management-faq#how-do-i-set-the-server-timezone-for-my-web-app)
-* [Why do my continuous WebJobs fail sometimes?](app-service-web-configuration-and-management-faq#why-do-my-continuous-webjobs-fail-sometimes)
-* [How to get the outbound IP address for my web app?](app-service-web-configuration-and-management-faq#how-to-get-the-outbound-ip-address-for-my-web-app)
-* [How can I get reserved or dedicated Inbound IP Address for my Azure App Service?](app-service-web-configuration-and-management-faq#how-can-i-get-reserved-or-dedicated-inbound-ip-address-for-my-azure-app-service)
+* [Guidance, checklist and other considerations for Resource Move operations.](app-service-web-configuration-and-management-faq#guidance-checklist-and-other-considerations-for-resource-move-operations)
+* [I am trying to move Application Insights resources.](app-service-web-configuration-and-management-faq#i-am-trying-to-move-application-Insights-resources)
+* [How to buy and configure an SSL certificate in Azure for my Azure App Service?](app-service-web-configuration-and-management-faq#how-to-buy-and-configure-an-ssl-certificate-in-azure-for-my-azure-app-service)
+* [How can I upload and configure an SSL certificate?](app-service-web-configuration-and-management-faq#how-can-i-upload-and-configure-an-ssl-certificate)
+* [How can I purchase a custom domain for my Web App?](app-service-web-configuration-and-management-faq#how-can-i-purchase-a-custom-domain-for-my-web-app)
+* [How can I use a custom domain name for my web app?](app-service-web-configuration-and-management-faq#how-can-i-use-a-custom-domain-name-for-my-web-app)
 * [More questions](app-service-web-configuration-and-management-faq.md)
 
 **Deployment**
