@@ -47,11 +47,11 @@ Custom Decision Service can be used in two learning modes. The APIs are identica
 
 Custom Decision Service learns from the click patterns of users in response to the content presented in your application. Learning can be slow if your application has relatively low traffic. This problem is pronounced for dynamic content, such as news. Such applications might not have enough time to learn the quality of an article and apply this learning before new content arrives.
 
-For *low-traffic applications with dynamic content*, we recommend to pool data across multiple applications. By using the pooled data, we learn a single model for all applications that sign up for this learning mode. Then we use this model to customize their content. For example, you might promote a breaking news story if users on other websites were interested in it, even before anyone read it on your website. Your privacy is respected because the raw data is never shared with any individual application. Only the decisions made by the system are shared.
+For *low-traffic applications with dynamic content*, we recommend pooling data across multiple applications. By using the pooled data, we learn a single model for all applications that sign up for this learning mode. Then we use this model to customize their content. For example, you might promote a breaking news story if users on other websites were interested in it, even before anyone read it on your website. User privacy is respected because the raw data is never shared with any individual application. Only the decisions made by the system are shared.
 
 ### Application-specific learning mode
 
-When your data volume permits, we recommend the application-specific learning mode. Then Custom Decision Service learns a model based only on how *your* users interact with *your* content. This type of model performs better than one learned in the pooled mode because other applications' users and content might be different from yours.
+When your user-traffic volume permits, we recommend the application-specific learning mode. Then Custom Decision Service learns a model based only on how *your* users interact with *your* content. This type of model performs better than one learned in the pooled mode because other applications' users and content might be different from yours.
 
 Custom Decision Service creates a deployment of the entire learning pipeline for your application. You can also access the collected data offline to derive further insights about user preferences.
 
