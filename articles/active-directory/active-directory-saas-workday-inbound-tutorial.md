@@ -297,7 +297,7 @@ Active Directory.
 
        ii. Operator: REGEX Match
 
-       iii. Value: (1\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\])
+       iii. Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
     b.  Example: only employees and not contingent workers
 
@@ -421,70 +421,57 @@ complete the procedure.
 
 After installing agent, run the Powershell commands below to configure the agent for your environment.
 
-**Command \#1**
+**Command #1**
 
 cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization
 Agent\\Modules\\AADSyncAgent
 
 import-module AADSyncAgent.psd1
 
-**Command \#2**
+**Command #2**
 
 Add-ADSyncAgentActiveDirectoryConfiguration
 
-> **Inputs**
->
-> Directory Name: &lt;AD Forest name, as entered in part \#2&gt;
->
-> Domain admin username and password for Active Directory forest
+   **Inputs**
+   Directory Name: &lt;AD Forest name, as entered in part \#2&gt;
+   Domain admin username and password for Active Directory forest
 
-**Command \#3**
+**Command #3**
 
 Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
-> **Inputs**
->
-> Global admin username and password for your Azure AD tenant
+   **Inputs**
+   Global admin username and password for your Azure AD tenant
 
-**Command \#4**
+**Command #4**
 
-Get-AdSyncAgentProvisioningTasks
+   Get-AdSyncAgentProvisioningTasks
 
-> **Action**\
-> Confirm data is returned. This command automatically discovers Workday
-> provisioning apps in your Azure AD tenant. Example output:
->
+   **Action**
+   Confirm data is returned. This command automatically discovers Workday provisioning apps in your Azure AD tenant. Example output:
+
 > Name          : My SyncForest11 AD Forest Provisioning
->
 > Enabled       : True
->
 > DirectoryName : syncforest11.fimbvt.nttest.microsoft.com
->
 > Credentialed  : False
->
 > Identifier    :
 > WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
->
 > Name          : My Workday AD Forest Provisioning
->
 > Enabled       : True
->
 > DirectoryName : workday.fimbvt.nttest.microsoft.com
->
 > Credentialed  : True
->
 > Identifier    :
 > WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.5fef5cdf-cae1-43b7-8903-daf4aa9b58e6
 
-**Command \#5**
+**Command #5**
 
 Start-AdSyncAgentSynchronization -Automatic
 
-**Command \#6**
+**Command #6**
 
 net stop aadsyncagent
 
-**Command \#7**
+**Command #7**
 
 net start aadsyncagent
 
