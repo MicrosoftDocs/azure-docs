@@ -28,7 +28,7 @@ Azure Cosmos DB started in late 2010 to address developer pain-points that are f
 For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 ### What happened to DocumentDB?
-The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (preview), Table API (preview)  and MongoDB API. 
+The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (preview), Table API (preview) and MongoDB API. For more information, see [Answers to frequent questions from DocumentDB customers](moving-to-cosmos-db).
 
 ### How do I get to my DocumentDB account in the Azure portal?
 Just click the Azure Cosmos DB icon in the menu on the left side of the Azure portal. If you had a DocumentDB account before, you now have an Azure Cosmos DB account, with no change to your billing.
