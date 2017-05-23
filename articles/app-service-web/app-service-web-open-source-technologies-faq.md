@@ -125,23 +125,11 @@ If you see this error in your debug.log or php_errors.log, then your application
 
 ## Installing Native python modules on Azure App service Web Apps or API Apps.
 
-Some packages may not install using pip when run on Azure.
-
-It may simply be that the package is not available on the Python Package Index.
-
-Or it could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
-
-This [blog article](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/) provides guidance on installing native modules on Azure App Service Web Apps and API Apps.
+Some packages may not install using pip when run on Azure. It may simply be that the package is not available on the Python Package Index. Or it could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service). This [blog article](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/) provides guidance on installing native modules on Azure App Service Web Apps and API Apps.
 
 ## Deploying Django App to Azure App Services using Git and new version of Python.
 
 For guidance on installing Django, see [Deploying Django App to Azure App Services using Git and new version of Python](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
-
-## Would you like to try Azure App Service MySQL in-app for your MySQL needs?
-
-App Service MySQL in-app is a cool new feature for Web developers using Azure App Service to create Web applications that use MySQL. MySQL in-app enables developers to run the MySQL server side-by-side with their Web application within the same environment, which makes it easier to develop and test PHP applications that use MySQL.
-
-See [Announcing general availability for MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app/) for more information.
 
 ## Where is the location of Tomcat Log files?
 
