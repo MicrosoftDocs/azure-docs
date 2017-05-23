@@ -35,7 +35,7 @@ You also need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed a
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to capture an image of a Linux VM in Azure. More detailed information and context for each step can be found in the rest of the document, starting [here](#detailed-steps). In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVM* and *myImage*.
 
-1. Deprovision your source VM. The *+user* parameter will also remove the last provisioned user account. If you are baking account credentials in to the VM, use *-deprovision* to leave the user account in place.
+1. Deprovision your source VM. The *+user* parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, use *-deprovision* to leave the user account in place.
 
     ```bash
     ssh ops@myvm.westus.cloudapp.azure.com
@@ -81,7 +81,7 @@ To make the VM ready for generalizing, you deprovision the VM using the Azure VM
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The *+user* parameter will also remove the last provisioned user account. If you are baking account credentials in to the VM, use *-deprovision* to leave the user account in place.
+   > Only run this command on a VM that you intend to capture as an image. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The *+user* parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, use *-deprovision* to leave the user account in place.
  
 3. Type *y* to continue. You can add the *-force* parameter to avoid this confirmation step.
 4. After the command completes, type `exit`. This step closes the SSH client.
