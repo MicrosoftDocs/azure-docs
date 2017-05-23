@@ -37,7 +37,7 @@ To create a saved search, do the following:
 
     ![Current Search settings saved search name](./media/data-catalog-how-to-save-pin/02-name.png)
 
-3. When you are prompted, enter a name for the saved search. Pick a name that is meaningful and descriptive of the data assets that will be returned by the search.
+3. When you are prompted, enter a name for the saved search. Pick a name that is meaningful and that describes the data assets that will be returned by the search.
 
 ### Manage saved searches
 After you have saved one or more searches, a **Saved Searches** option is displayed beneath the **Current Search** box. When the list is expanded, all saved searches are displayed.
@@ -56,7 +56,7 @@ Do any of the following:
 
 * To remove the saved search from your list, select **Delete**, and then confirm the deletion.
 
-* To mark the saved search as your default search, select **Save as Default**. If you perform an “empty” search from the Azure Data Catalog home page, your default search is executed. In addition, the search that's marked as the default search is displayed at the top of the **Saved Searches** list.
+* To mark the saved search as your default search, select **Save As Default**. If you perform an “empty” search from the Azure Data Catalog home page, your default search is executed. In addition, the search that's marked as the default search is displayed at the top of the **Saved Searches** list.
 
 ### Organizational saved searches
 All user in your organization can save searches for their own use. Data Catalog administrators can also save searches for all users within the organization. When administrators save a search, they're presented with a **Share within the company** option. Selecting this option shares the saved search for all users in the organization.
