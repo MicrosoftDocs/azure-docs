@@ -205,7 +205,7 @@ You’ll need to register Azure AD B2C as a Connected App in Salesforce.
 
     1. Enter the following URL in the **ACS URL** field, make sure your replace the `tenantName`. 
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase /samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
         ```
 
     1. Leave all other settings with their defaults

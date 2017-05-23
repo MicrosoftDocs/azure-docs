@@ -79,7 +79,7 @@ If a NoSQL database best suits your requirements, continue to the next section t
 ## What are the Microsoft Azure NoSQL offerings?
 Azure has four fully-managed NoSQL services: 
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 * [Azure Table Storage](https://azure.microsoft.com/services/storage/)
 * [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
@@ -117,7 +117,7 @@ We invite you to learn more about our SQL and NoSQL products by trying them out 
 
 * For all Azure services, you can sign up for a [free one-month trial](https://azure.microsoft.com/pricing/free-trial/) and receive $200 to spend on any of the Azure services.
   
-  * [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)
+  * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
   * [Azure HBase as a part of HDInsight](https://azure.microsoft.com/services/hdinsight/)
   * [Azure Redis Cache](https://azure.microsoft.com/services/cache/)
   * [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)
