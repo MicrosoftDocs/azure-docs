@@ -59,3 +59,14 @@ This topic lists some of the most common questions about Web Apps, it also provi
 
 * [Functions Preview Versions Deprecation](app-service-web-others-faq#functions-preview-versions-deprecation)
 * [More questions](app-service-web-others-faq.md)
+
+## How can I migrate from a on-premise environment to Azure App Services?
+
+The **Azure App Service** Migration tool can be utilized to migrate sites from Windows and Linux web servers to Azure App Service. As part of the migration, the tool creates Web Apps and databases on Azure as needed, publishes content and creates the database.
+## I am unable to remote debug my web app in Visual Studio. How can I address this?
+
+There may be many reasons that could prevent you from attaching a Visual Studio debugger to your Azure App Serfice Web App. This quick [blog article](https://blogs.msdn.microsoft.com/jpsanders/2016/02/09/manually-attach-a-debugger-to-azure-web-apps/) provides a workaround that may unblock you so you can debug your app.
+## How do I remote debug my Azure App Service Web App using Visual Studio?
+
+Please find a detailed step-by-step walkthrough showing how to debug your web app using Visual Studio via [Remote debug your Azure App Service Web App](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+
