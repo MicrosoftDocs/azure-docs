@@ -107,8 +107,8 @@ To have your API perform tasks that could take longer than the
 you can use the asynchronous pattern. This approach has 
 your API do work in a separate thread, 
 but keep an active connection to the Logic Apps engine. 
-That way, the logic app doesn't time out or continue its 
-workflow before your API finishes working.
+That way, the logic app doesn't time out or continue with 
+its workflow before your API finishes working.
 
 Here's the general pattern:
 
@@ -155,7 +155,7 @@ valid `location` header, the engine respects the asynchronous pattern
 and checks the `location` header until your API returns a non-202 response.
 
 > [!TIP]
-> For an example that shows this pattern, review this 
+> For an example asynchronous pattern, review this 
 > [asynchronous controller response sample in GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
 
 <a name="webhook-actions"></a>
@@ -191,7 +191,7 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > function in any of the previous fields as necessary.
 
 > [!TIP]
-> For an example that shows the webhook pattern, review this 
+> For an example webhook pattern, review this 
 > [webhook trigger sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 <a name="triggers"></a>
@@ -233,11 +233,11 @@ you might build a polling trigger that has these behaviors:
 | # files found | API response |
 | ------------- | -------------|
 | Single file | Return an HTTP `200 OK` status and the content payload, update `triggerState` to the `DateTime` for the returned file, and set `retry-after` interval to 15 seconds. |
-| Multiple files | Return one file at a time and an HTTP `200 OK` status, update `triggerState`, and set the `retry-after` interval to 0 seconds. </br>These steps let the engine know that more data is available, and that the engine should immediately request that data from the URL in the `location` header. |
+| Multiple files | Return one file at a time and an HTTP `200 OK` status, update `triggerState`, and set the `retry-after` interval to 0 seconds. </br>These steps let the engine know that more data is available, and that the engine should immediately request the data from the URL in the `location` header. |
 | No files | Return an HTTP `202 ACCEPTED` status, don't change `triggerState`, and set the `retry-after` interval to 15 seconds. |
 
 > [!TIP]
-> For an example that shows a polling trigger, review this 
+> For an example polling trigger pattern, review this 
 > [poll trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
 
 <a name="webhook-triggers"></a>
@@ -275,7 +275,7 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > function in any of the previous fields as necessary.
 
 > [!TIP]
-> For an example that shows a webhook trigger, review this 
+> For an example webhook pattern, review this 
 > [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
 ## Deploy, call, and secure custom APIs
