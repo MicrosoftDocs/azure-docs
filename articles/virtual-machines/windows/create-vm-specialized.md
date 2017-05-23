@@ -23,8 +23,8 @@ ms.author: cynthn
 Create a new VM by attaching a specialized managed disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. 
 
 You have two options:
-* [Upload a VHD](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copy the VHD of an existing Azure VM](create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
+* [Upload a VHD](#option-1-upload-a-specialized-vhd)
+* [Copy the VHD of an existing Azure VM](#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
 This topic shows you how to use managed disks, if you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md)
 
