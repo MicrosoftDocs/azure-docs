@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/16/2017
+ms.date: 05/20/2017
 ms.author: TomSh
 
 ---
@@ -37,6 +37,8 @@ The physical or virtual machine running the Azure Log Integration service requir
 At a minimum, the installation of AzLog requires the following items:
 * An **Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A **storage account** that can be used for Windows Azure diagnostic logging (you can use a pre-configured storage account, or create a new one – will we demonstrate how to configure the storage account later in this article)
+  >[!NOTE]
+  Depending on your scenario a storage account may not be required. For the Azure diagnostics scenario covered in this article one is needed.
 * **Two systems**: a machine that will run the Azure Log Integration service, and a machine that will be monitored and have its logging information sent to the Azlog service machine.
    * A machine you want to monitor – this is a VM running as an [Azure Virtual Machine](../virtual-machines/virtual-machines-windows-overview.md)
    * A machine that will run the Azure log integration service; this machine will collect all the log information that will later be imported into your SIEM.
