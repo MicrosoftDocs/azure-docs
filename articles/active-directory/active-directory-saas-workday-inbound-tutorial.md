@@ -41,14 +41,15 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 * **Employee re­hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
+## Gettinmg Started
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. [Planning your solution]()
-2. [Configure a system integration user in Workday]()
-3. [Configuring user provisioning from Workday to Active Directory]() 
-4. [Configuring user provisioning to Azure Active Directory]()
-5. [Configuring writeback to Workday]() 
+1. [Planning your solution](#planning-your-solution)
+2. [Configure a system integration user in Workday](#Configure-a-system-integration-user-in-Workday)
+3. [Configuring user provisioning from Workday to Active Directory](#[Configuring-user-provisioning-from-Workday-to-Active-Directory) 
+4. [Configuring user provisioning to Azure Active Directory](#Configuring-user-provisioning-to-Azure-Active-Directory)
+5. [Configuring writeback to Workday](#Configuring-writeback-to-Workday) 
 
 ## Planning your solution
 
