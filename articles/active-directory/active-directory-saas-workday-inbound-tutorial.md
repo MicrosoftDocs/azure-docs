@@ -44,11 +44,11 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Planning your solution
-2. Configure a system integration user in Workday 
-3. Configuring user synchronization from Workday to Active Directory 
-4. Configuring user synchronization from Active Directory to Azure Active Directory
-5. Configuring writeback to Workday 
+1. [Planning your solution]()
+2. [Configure a system integration user in Workday]()
+3. [Configuring user provisioning from Workday to Active Directory]() 
+4. [Configuring user provisioning to Azure Active Directory]()
+5. [Configuring writeback to Workday]() 
 
 ## Planning your solution
 
