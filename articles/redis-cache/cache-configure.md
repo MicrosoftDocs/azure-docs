@@ -351,7 +351,7 @@ For more information on Azure Redis Cache monitoring and diagnostics, see [How t
 * [Diagnostics](#diagnostics)
 
 ### Redis metrics
-Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) for your cache.
+Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#view-cache-metrics) for your cache.
 
 ### Alert rules
 
