@@ -172,7 +172,7 @@ Typically in IT, an environment (or tier) is a system in which multiple applicat
 
 A common architecture for these types of multi-tier environments consists of DevOps (development and testing), UAT (staging), and production environments. Organizations can leverage single or multiple Azure AD tenants to define access and rights to these environments. The previous diagram shows a case where two different Azure AD tenants are used: one for DevOps and UAT, and the other exclusively for production.
 
-The presence of different Azure AD tenants enforces the separation between environments. The same group of users (as an example, Central IT) need to authenticate using a different URI to access a different AD tenant modify the roles or permissions of either the DevOps or production environments of a project. The presence of different user authentication to access different environments reduces possible outages and other issues caused by human errors.
+The presence of different Azure AD tenants enforces the separation between environments. The same group of users (as an example, Central IT) needs to authenticate using a different URI to access a different AD tenant modify the roles or permissions of either the DevOps or production environments of a project. The presence of different user authentication to access different environments reduces possible outages and other issues caused by human errors.
 
 #### Component Type: Infrastructure
 This component type is where most of the supporting infrastructure resides. It's also where your centralized IT, Security, and/or Compliance teams spend most of their time.
@@ -235,7 +235,7 @@ It is recommended to use one set of NVAs for traffic originating on the Internet
 Most large enterprises manage multiple domains. Azure DNS can be used to host the DNS records for a particular domain. As example, the Virtual IP Address (VIP) of the Azure external load balancer (or the WAFs) can be registered in the A record of an Azure DNS record.
 
 [**Azure Load Balancer**][ALB]
-Azure load balancer offers a high availability Layer 4 (TCP, UDP) service, which can distribute incoming traffic among service instances defined in a load-balanced set. Traffic sent to the load balancer from front-end endpoints (public IP endpoints or private IP endpoints) can be redistributed with or without address translation to a set of back-end IP address pool (examples being, Network Virtual appliances or VMs).
+Azure load balancer offers a high availability Layer 4 (TCP, UDP) service, which can distribute incoming traffic among service instances defined in a load-balanced set. Traffic sent to the load balancer from front-end endpoints (public IP endpoints or private IP endpoints) can be redistributed with or without address translation to a set of back-end IP address pool (examples being; Network Virtual Appliances or VMs).
 
 Azure Load Balancer can probe the health of the various server instances as well, and when a probe fails to respond the load balancer stops sending traffic to the unhealthy instance. In a vDC, we have the presence of an external load balancer in the hub (for instance, balance the traffic to NVAs), and in the spokes (to perform tasks like balancing traffic between different VMs of a multitier application).
 
@@ -283,7 +283,7 @@ Line-of-business applications are computer applications critical to the ongoing 
 -   **Integrated**. LOB applications offer integration with other systems within or outside the organization.
 
 **Customer facing web sites (Internet or Internal facing)**
-Most applications that interact with the Internet are web sites. Azure offers the capability to run a web site on an IaaS VM or from an [Azure Web Apps][WebApps] site (PaaS). Azure Web Apps support integration with VNets that allow the deployment of the Web Apps in the spoke of a vDC. With the VNET integration you don't need to expose an Internet endpoint for your applications but can use the resources private non-internet routable address from your private VNet instead.
+Most applications that interact with the Internet are web sites. Azure offers the capability to run a web site on an IaaS VM or from an [Azure Web Apps][WebApps] site (PaaS). Azure Web Apps support integration with VNets that allow the deployment of the Web Apps in the spoke of a vDC. With the VNET integration, you don't need to expose an Internet endpoint for your applications but can use the resources private non-internet routable address from your private VNet instead.
 
 **Big Data/Analytics**
 When data needs to scale up to a very large volume, databases may not scale up properly. Hadoop technology offers a system to run distributed queries in parallel on large number of nodes. Customers have the option to run data workloads in IaaS VMs or PaaS ([HDInsight][HDI]). HDInsight supports deploying into a location-based VNet, can be deployed to a cluster in a spoke of the vDC.
@@ -307,7 +307,7 @@ In addition to SLA concerns, there are several common scenarios where deploying 
 -   Mechanism to divert traffic between DC
 
 #### Regional/Global presence
-Azure data centers are present in numerous regions worldwide. When selecting multiple Azure data centers, customers need to consider two related factors: geographical distances and latency. Customers need to evaluate the geographical distance between the vDCs and  the distance between the vDC and the end-users, to offer the best user experience.
+Azure data centers are present in numerous regions worldwide. When selecting multiple Azure data centers, customers need to consider two related factors: geographical distances and latency. Customers need to evaluate the geographical distance between the vDCs and  the distance between the vDC and the end users, to offer the best user experience.
 
 The Azure Region where vDCs are hosted also need to conform with regulatory requirements established by any legal jurisdiction under which your organization operates.
 
@@ -333,23 +333,23 @@ Traffic Manager works on Azure public endpoints and can be used, for example, to
 The Virtual Data Center is an approach to data center migration into the cloud that uses a combination of features and capabilities to create a scalable architecture in Azure that maximizes cloud resource use, reducing costs, and simplifying system governance. The vDC concept is based on a hub-spokes topology, providing common shared services in the hub and allowing specific applications/workloads in the spokes. A vDC matches the structure of company roles, where different departments (Central IT, DevOps, operation and maintenance) work together, each with a specific list of roles and duties. A vDC satisfies the requirements for a "Lift and Shift" migration, but also provides many advantages to native cloud deployments.
 
 ## References
-The following features were discussed in this document, follow the links to learn more.
+The following features were discussed in this document. Click the links to learn more.
 
 | | | |
 |-|-|-|
 |Network Features|Load Balancing|Connectivity|
-|[Azure Virtual Networks][VNet]</br>[Network Security Groups][NSG]</br>[NSG Logs][NSGLog]</br>[User Defined Routing][UDR]</br>[Network Virtual Appliances][NVA]</br>[Public IP Addresses][PIP]|[Azure Load Balancer (L3)][ALB]</br>[Application Gateway (L7)][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet Peering][VNetPeering]</br>[Virtual Private Network][VPN]</br>[ExpressRoute][ExR]
+|[Azure Virtual Networks][VNet]</br>[Network Security Groups][NSG]</br>[NSG Logs][NSGLog]</br>[User Defined Routing][UDR]</br>[Network Virtual Appliances][NVA]</br>[Public IP Addresses][PIP]|[Azure Load Balancer (L3) ][ALB]</br>[Application Gateway (L7) ][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet Peering][VNetPeering]</br>[Virtual Private Network][VPN]</br>[ExpressRoute][ExR]
 |Identity</br>|Monitoring</br>|Best Practices</br>|
 |[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access Controls][RBAC]</br>[Default AAD Roles][Roles] |[Activity Logs][ActLog]</br>[Diagnostic Logs][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Perimeter Networks Best Practices][DMZ]</br>[Subscription Management][SubMgmt]</br>[Resource Group Management][RGMgmt]</br>[Azure Subscription Limits][Limits] |
 |Other Azure Services|
-|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop)][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
 ## Next Steps
- - Explore [VNet Peering][VNetPeering] as this is the underpinning technolgy for the vDC hub and spoke designs
+ - Explore [VNet Peering][VNetPeering], the underpinning technology for vDC hub and spoke designs
  - Implement [AAD][AAD] to get started with [RBAC][RBAC] exploration
- - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and polices of your organization. The most important activity is holistic planning. As much as practical, plan for re-organizations, mergers, new product lines, etc.
+ - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and polices of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, etc.
 
 <!--Image References-->
 [0]: ./media/virtual-network-vdc/redundant-equipment.png "Examples of component overlap" 
