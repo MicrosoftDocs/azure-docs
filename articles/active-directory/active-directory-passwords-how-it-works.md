@@ -237,7 +237,12 @@ To set up the appropriate permissions for password writeback to occur
 4. From the Permissions tab, click Add
 5. Pick the account that permissions are being applied to (from Azure AD Connect setup)
 6. In the Applies to drop down box select Descendent User objects
-7. Under permissions check the boxes for Reset Password, Change Password, Write lockoutTime, and Write pwdLastSet
+7. Under permissions check the boxes for the following
+    * Unexpire-Password
+    * Reset Password
+    * Change Password
+    * Write lockoutTime
+    * Write pwdLastSet
 8. Click Apply/OK through to apply and exit any open dialog boxes.
 
 ## How does password reset work for B2B users?
