@@ -25,7 +25,7 @@ This topic shows you how to use Azure Functions to create a scheduled job that c
 
 + This topic uses a timer triggered function. Complete the steps in the topic [Create a function in Azure that is triggered by a timer](functions-create-scheduled-function.md) to create a C# version of this function.   
 
-+ This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in the _OrderItems_ table in the AdventureWorks sample database. To create the AdventureWorks sample database in SQL Database, complete the steps in the topic [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md). 
++ This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in the **SalesOrderHeader** table in the AdventureWorksLT sample database. To create the AdventureWorksLT sample database, complete the steps in the topic [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md). 
 
 ## Get connection information
 
@@ -37,7 +37,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
 4. Click **Show database connection strings** and copy the complete **ADO.NET** connection string.
 
-    ![ADO.NET connection string](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
+    ![Copy the ADO.NET connection string.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
 ## Set the connection string 
 
@@ -45,11 +45,11 @@ A function app hosts the execution of your functions in Azure. It is a best prac
 
 1. Navigate to your function app, then select **Platform features** > **Application settings**.
    
-    ![Function app settings blade](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
+    ![Application settings for the function app.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
 
-2. Scroll down to **Connection strings**, 
+2. Scroll down to **Connection strings** and add a connection string using the settings as specified in the table.
    
-    ![App Service setting connection string](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
+    ![Add a connection string to the function app settings.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
 
     | Setting       | Suggested value | Description             | 
     | ------------ | ------------------ | --------------------- | 
