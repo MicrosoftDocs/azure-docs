@@ -175,7 +175,7 @@ A common architecture for these types of multi-tier environments consists of Dev
 The presence of different Azure AD tenants enforces the separation between environments. The same group of users (as an example, Central IT) need to authenticate using a different URI to access a different AD tenant modify the roles or permissions of either the DevOps or production environments of a project. The presence of different user authentication to access different environments reduces possible outages and other issues caused by human errors.
 
 #### Component Type: Infrastructure
-These components are where major supporting infrastructure reside. It's also where your centralized IT, Security, and/or Compliance teams spend most of their time.
+This component type is where most of the supporting infrastructure resides. It's also where your centralized IT, Security, and/or Compliance teams spend most of their time.
 
 [![6]][6]
 
@@ -307,7 +307,7 @@ In addition to SLA concerns, there are several common scenarios where deploying 
 -   Mechanism to divert traffic between DC
 
 #### Regional/Global presence
-Azure data centers are present in numerous regions worldwide. When selecting multiple Azure data centers, customers need to consider two related factors: geographical distances and latency. Customers need to evaluate the geographical distance between vDCs and between the vDC and the location of end-users, to offer the best user experience.
+Azure data centers are present in numerous regions worldwide. When selecting multiple Azure data centers, customers need to consider two related factors: geographical distances and latency. Customers need to evaluate the geographical distance between the vDCs and  the distance between the vDC and the end-users, to offer the best user experience.
 
 The Azure Region where vDCs are hosted also need to conform with regulatory requirements established by any legal jurisdiction under which your organization operates.
 
@@ -378,7 +378,7 @@ The Virtual Data Center is an approach to data center migration into the cloud t
 [7]: ./media/virtual-network-vdc/highlevel-perimeter-networks.png "High-level infrastructure diagram"
 [8]: ./media/virtual-network-vdc/vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
 [9]: ./media/virtual-network-vdc/high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
-[10]: ./media/best-practice-vdc/high-level-workloads.png "High-level diagram for Workload"
+[10]: ./media/virtual-network-vdc/high-level-workloads.png "High-level diagram for Workload"
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
