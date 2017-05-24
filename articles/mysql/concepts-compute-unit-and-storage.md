@@ -1,5 +1,5 @@
 ---
-title: 'Explaining Azure DB for MySQL Compute Units | Microsoft Docs'
+title: 'Explaining Compute Units in Azure Database for MySQL | Microsoft Docs'
 description: 'Azure DB for MySQL: This article explains the concepts of Compute Units and what happens when your workload reaches the maximum Compute Units.'
 services: mysql
 author: jasonwhowell
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/23/2017
 ---
-# Explaining Compute Units
+# Explaining Compute Units in Azure Database for MySQL
 This article explains the concept of Compute Units and what happens when your workload reaches the maximum Compute Units.
 
 ## What are Compute Units?
