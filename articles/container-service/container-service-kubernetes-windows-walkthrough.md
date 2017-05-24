@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Quickstart - Kubernetes cluster | Microsoft Docs
+title: Quickstart - Azure Kubernetes cluster for Windows | Microsoft Docs
 description: Quickly learn to create a Kubernetes cluster for Windows containers in Azure Container Service with the Azure CLI.
 documentationcenter: ''
 author: dlepow
@@ -69,8 +69,7 @@ az acs create --orchestrator-type=kubernetes \
     --admin-password myPassword12
 ```
 
-After several minutes, the command completes, and you should have a working Kubernetes cluster.
-
+After several minutes, the command completes, and shows you information about your deployment.
 
 ## Install kubectl
 
@@ -78,7 +77,7 @@ To connect to the Kubernetes cluster from your client computer, use [`kubectl`](
 
 If you're using CloudShell, `kubectl` is alredy installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
-The following example installs `kubectl` to a full path you specify with the `--install-location` option. If you are running the Azure CLI on macOS or Linux, you might need to run with `sudo`.
+The following Azure CLI example installs `kubectl` to a full path you specify with the `--install-location` option. If you are running the Azure CLI on macOS or Linux, you might need to run the command with `sudo`.
 
 ```azurecli
 sudo az acs kubernetes install-cli --install-location full-path-to-kubectl 
@@ -88,14 +87,14 @@ After `kubectl` is installed, add it to your system path.
 
 ## Configure kubectl and connect
 
-To connect `kubectl` to your Kubernetes cluster, run the [az acs kubernetes get-credentials](cli/azure/acs/kubernetes#get-credentials) command. The following example
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](cli/azure/acs/kubernetes#get-credentials) command. The following example
 downloads the cluster configuration for your Kubernetes cluster.
 
 ```azurecli
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Now you are ready to access your cluster from your machine. Try running:
+Now you are ready to connect to your cluster from your machine. Try running:
 
 ```bash
 kubectl get nodes
@@ -104,100 +103,104 @@ kubectl get nodes
 `kubectl` shows output similar to the following.
 
 ```bash
-
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
+k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ```
 
 
 
-## Create your first Windows container
+## Deploy your first Windows container
 
-After creating the cluster and connecting with `kubectl`, try starting a Windows app from a Docker container and expose it to the internet. This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates it using `kubctl apply`. 
+After creating the cluster and connecting with `kubectl`, try starting a containerized Windows app in a Kubernetes pod, which can contain one or more containers. This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using `kubctl apply`. 
 
-1. Create a local file named `iis.json` and copy the following. This file tells Kubernetes to run IIS on Windows Server 2016 Server Core, using a public image from [Docker Hub](https://hub.docker.com/r/microsoft/iis/). The container uses port 80, but initially is only accessible within the cluster network.
+Create a local file named `iis.json` and copy the following. This file tells Kubernetes to run IIS on Windows Server 2016 Server Core, using a public image from [Docker Hub](https://hub.docker.com/r/microsoft/iis/). The container uses port 80, but initially is only accessible within the cluster network.
 
-  ```JSON
-  {
-    "apiVersion": "v1",
-    "kind": "Pod",
-    "metadata": {
-      "name": "iis",
-      "labels": {
-        "name": "iis"
-      }
-    },
-    "spec": {
-      "containers": [
-        {
-          "name": "iis",
-          "image": "microsoft/iis",
-          "ports": [
-            {
-            "containerPort": 80
-            }
-          ]
-        }
-      ],
-      "nodeSelector": {
-        "beta.kubernetes.io/os": "windows"
-      }
+ ```JSON
+ {
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "iis",
+    "labels": {
+      "name": "iis"
     }
-  }
-  ```
-2. To start the application, type:  
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "iis",
+        "image": "microsoft/iis",
+        "ports": [
+          {
+          "containerPort": 80
+          }
+        ]
+      }
+    ],
+    "nodeSelector": {
+     "beta.kubernetes.io/os": "windows"
+     }
+   }
+ }
+ ```
+
+To start the pod, type:
   
-  ```bash
-  kubectl apply -f iis.json
-  ```  
-3. To track the deployment of the container, type:  
-  ```bash
-  kubectl get pods
-  ```
-  While the container is deploying, the status is `ContainerCreating`. 
+```bash
+kubectl apply -f iis.json
+```  
 
-  ![IIS container in ContainerCreating state](media/container-service-kubernetes-windows-walkthrough/iis-pod-creating.png)   
-
-  Because of the size of the IIS image, it can take several minutes for the container to enter the `Running` state.
-
-  ![IIS container in Running state](media/container-service-kubernetes-windows-walkthrough/iis-pod-running.png)
-
-4. To expose the container to the world, type the following command:
-
-  ```bash
-  kubectl expose pods iis --port=80 --type=LoadBalancer
-  ```
-
-  With this command, Kubernetes creates an Azure load balancer rule with a public IP address. The change takes a few minutes to propagate to the load balancer. For details, see [Load balance containers in a Kubernetes cluster in Azure Container Service](container-service-kubernetes-load-balancing.md).
-
-5. Run the following command to see the status of the service.
-
-  ```bash
-  kubectl get svc
-  ```
-
-  Initially the IP address appears as `pending`:
-
-  ![Pending external IP address](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose.png)
-
-  After a few minutes, the IP address is set:
+To track the deployment, type:
   
-  ![External IP address for IIS](media/container-service-kubernetes-windows-walkthrough/iis-svc-expose-public.png)
+```bash
+kubectl get pods
+```
+
+While the pod is deploying, the status is `ContainerCreating`. Because of the size of the IIS image, it can take several minutes for the container to enter the `Running` state.
+
+```output
+NAME     READY        STATUS        RESTARTS    AGE
+iis      1/1          Running       0           32s
+```
+
+## View the IIS welcome page
+
+To expose the pod to the world with a public IP address, type the following command:
+
+```bash
+kubectl expose pods iis --port=80 --type=LoadBalancer
+```
+
+With this command, Kubernetes creates an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address. 
+
+Run the following command to see the status of the service.
+
+```bash
+kubectl get svc
+```
+
+Initially the IP address appears as `pending`. After a few minutes, the external IP address of the `iis` pod is set:
+  
+```output
+NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       kubernetes   10.0.0.1       <none>          443/TCP        21h       iis          10.0.111.25    13.64.158.233   80/TCP         22m
+```
+
+You can use a web browser of your choice to see the default IIS welcome page at the external IP address:
+
+![Image of browsing to IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
 
-6. After the external IP address is available, you can browse to it in your browser:
+## Delete cluster
+When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
 
-  ![Image of browsing to IIS](media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
+```azurecli
+az group delete --name myResourceGroup
+```
 
-7. To delete the IIS pod, type:
-
-  ```bash
-  kubectl delete pods iis
-  ```
 
 ## Next steps
 
-* To use the Kubernetes UI, run the `kubectl proxy` command. Then, browse to http://localhost:8001/ui.
-
-* For steps to build a custom IIS website and run it in a Windows container, see the guidance at [Docker Hub](https://hub.docker.com/r/microsoft/iis/).
-
-* To access the Windows nodes through an RDP SSH tunnel to the master with PuTTy, see the [ACS-Engine documentation](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#create-port-80-tunnel-to-the-master). 
+In this quickstart, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container. To learn more about Azure Container Service, continue to [TODO: Link to tutorial?]
