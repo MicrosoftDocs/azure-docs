@@ -69,7 +69,7 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../monitorin
 To access your metrics, you can view them in the Azure portal as previously described in this article, and you can also access them using the [Azure Monitor Metrics REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 > [!NOTE]
-> Only metrics that are stored in the selected storage account are available for display and retrieval. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
+> If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
 > 
 > 
 
