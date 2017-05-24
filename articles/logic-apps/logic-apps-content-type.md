@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Handle content types in logic apps

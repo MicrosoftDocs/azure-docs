@@ -186,23 +186,17 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
 3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Register for the accelerated networking for Azure preview by completing the following steps:
-    - Enter the following commands:
-
-        ```powershell
-        Register-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-        ```
-    - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. 
+    - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. Please wait for an email confirmation from Microsoft about your subscription being enabled.
     - Enter the following command to confirm you are registered for the preview:
     
-        `Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network`
+        `Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingForLinux -ProviderNamespace Microsoft.Network`
 
         Do not continue with step 5 until **Registered** appears in the output after you enter the previous command. Your output must look like the following output before continuing:
     
         ```
         FeatureName                       ProviderName      RegistrationState
         -----------                       ------------      -----------------
-        AllowAcceleratedNetworkingFeature Microsoft.Network Registered
+        AllowAcceleratedNetworkingForLinux Microsoft.Network Registered
         ```
       >[!NOTE]
       >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
@@ -287,16 +281,22 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 6. Enter **yes** to the question asking you if you want to continue connecting, then press Enter.
 7. Enter the password you entered when creating the VM. Once successfully logged in to the VM, you see an adminuser@MyVm:~$ prompt. You are now logged in to the VM through the cloud shell session. **Note:** Cloud shell sessions time out after 10 minutes of inactivity.
 8. At the prompt, enter `uname -r` and confirm the output matches the following version: “4.4.0-77-generic.”
-9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes. 
-    - `wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh`
-    - `chmod +x ./bondvf.sh`
-    - `sudo ./bondvf.sh`
-    - `sudo mv ~/bondvf.sh /etc/init.d`
-    - `sudo update-rc.d bondvf.sh defaults` Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
-    - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg` Opens the GNU nano editor to edit the file.
-    - In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example:
-        - #auto eth0
-        - #iface eth0 inet dhcp
+9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
+
+    ```
+    wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh
+ 
+    chmod +x ./bondvf.sh
+
+    sudo ./bondvf.sh
+
+    sudo mv ~/bondvf.sh /etc/init.d
+
+    sudo update-rc.d bondvf.sh defaults
+    ```
+
+    Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+
 10. Hold down the **Ctrl+X** keys, enter **Y**, then press the **Enter** key to save the file.
 11. Restart the VM by entering the `sudo shutdown -r now` command.
 12. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
