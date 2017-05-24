@@ -20,11 +20,9 @@ ms.author: sdanie
 # How to monitor Azure Redis Cache
 Azure Monitor and Azure Redis Cache provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.
 
-Metrics for Azure Redis Cache instances are collected approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules.
+Metrics for Azure Redis Cache instances are collected using the Redis [INFO](http://redis.io/commands/info) command approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
-
-To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Redis Cache provides some built-in charts on the Overview blade **Redis metrics** blade.
+To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Redis Cache provides some built-in charts on the **Overview** blade and the **Redis metrics** blade.
 
 ![Redis metrics][redis-cache-redis-metrics-blade]
 
