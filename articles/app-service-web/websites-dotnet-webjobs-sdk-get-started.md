@@ -78,14 +78,18 @@ An Azure storage account provides resources for storing queue and blob data in t
 In a real-world application, you typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial you'll use just one account.
 
 1. Open the **Server Explorer** window in Visual Studio.
-2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure**.
+2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure Subscription...**.
+   
    ![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+
 3. Sign in using your Azure credentials.
 4. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
+   
    ![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+   
 5. In the **Create Storage Account** dialog, enter a name for the storage account.
 
-    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use you'll get a chance to change it.
+    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use, you'll get a chance to change it.
 
     The URL to access your storage account will be *{name}*.core.windows.net.
 6. Set the **Region or Affinity Group** drop-down list to the region closest to you.
