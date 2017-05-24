@@ -32,7 +32,6 @@ Point-to-Site connections use certificates to authenticate. This article shows y
 > 
 
 
-
 You must perform the steps in this article on a computer running Windows 10. The PowerShell cmdlets that you use to generate certificates are part of the Windows 10 operating system and do not work on other versions of Windows. The Windows 10 computer is only needed to generate the certificates. Once the certificates are generated, you can upload them, or install them on any [supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). 
 
 If you do not have access to a Windows 10 computer, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) to generate certificates. However, MakeCert can't generate SHA-2 certificates, only SHA-1. SHA-1 certificates are still valid for Point-to-Site connections, but SHA-1 uses an encryption hash that is not as strong as SHA-2. For this reason, we recommend that you use these PowerShell steps, if at all possible. The certificates that you generate using either method can be installed on any [supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq).
@@ -53,7 +52,7 @@ If you do not have access to a Windows 10 computer, you can use [MakeCert](vpn-g
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](vpn-gateway-howto-point-to-site-rm-ps.md#upload).
+The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](vpn-gateway-howto-point-to-site-rm-ps.md#uploadfile). To add an additional trusted root certificate, [this section](vpn-gateway-howto-point-to-site-rm-ps.md#add) of the article.
 
 ### Export the self-signed root certificate and public key to store it (optional)
 
