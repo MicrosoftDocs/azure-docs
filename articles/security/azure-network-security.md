@@ -120,7 +120,7 @@ As you can see, an Azure Virtual Network provides virtual machines to connect to
 
 -	Routing
 
-##### Isolation
+**Isolation**
 
 VNets are [isolated](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) from one another. You can create separate VNets for development, testing, and production that use the same [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) address blocks. Conversely, you can create multiple VNets that use different CIDR address blocks and connect networks together. You can segment a VNet into multiple subnets.
 
@@ -134,7 +134,7 @@ You can implement multiple VNets within each Azure [subscription](https://docs.m
 
 -	Use Azure-provided name resolution or specify your own DNS server for use by resources connected to a VNet. To learn more about name resolution in VNets, read the [Name resolution for VMs and Cloud Services](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
-##### Internet connectivity
+**Internet connectivity**
 
 All [Azure Virtual Machines (VM)](https://docs.microsoft.com/azure/virtual-machines/windows/) and Cloud Services role instances connected to a VNet have access to the Internet, by default. You can also enable inbound access to specific resources, as needed.(VM) and Cloud Services role instances connected to a VNet have access to the Internet, by default. You can also enable inbound access to specific resources, as needed.
 
@@ -142,13 +142,13 @@ All resources connected to a VNet have outbound connectivity to the Internet by 
 
 To communicate inbound to Azure resources from the Internet, or to communicate outbound to the Internet without SNAT, a resource must be assigned a public IP address. To learn more about public IP addresses, read the [Public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-##### Azure resource connectivity
+**Azure resource connectivity**
 
 [Azure resources](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) such as Cloud Services and VMs can be connected to the same VNet. The resources can connect to each other using private IP addresses, even if they are in different subnets. Azure provides default routing between subnets, VNets, and on-premises networks, so you don't have to configure and manage routes.
 
 You can connect several Azure resources to a VNet, such as Virtual Machines (VM), Cloud Services, App Service Environments, and Virtual Machine Scale Sets. VMs connect to a subnet within a VNet through a network interface (NIC). To learn more about NICs, read the [Network interfaces](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
 
-##### VNet connectivity
+**VNet connectivity**
 [VNets](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) can be connected to each other, enabling resources connected to any VNet to communicate with any resource on any other VNet.
 
 You can connect VNets to each other, enabling resources connected to either VNet to communicate with each other across VNets. You can use either or both of the following options to connect VNets to each other:
@@ -157,7 +157,7 @@ You can connect VNets to each other, enabling resources connected to either VNet
 
 -	**VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway. To learn more about connecting VNets with a VNet-to-VNet connection. To learn more, read the [Configure a VNet-to-VNet connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
-##### On-premises connectivity
+**On-premises connectivity**
 
 VNets can be connected to [on-premises](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) networks through private network connections between your network and Azure, or through a site-to-site VPN connection over the Internet.
 
@@ -171,7 +171,7 @@ You can connect your on-premises network to a VNet using any combination of the 
 
 To learn more about all the previous connection options, read the [Connection topology diagrams](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-##### Traffic filtering
+**Traffic filtering**
 VM and Cloud Services role instances [network traffic](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) can be filtered inbound and outbound by source IP address and port, destination IP address and port, and protocol.
 
 You can filter network traffic between subnets using either or both of the following options:
@@ -182,7 +182,7 @@ To learn more about NSGs, read the [Network security groups](https://docs.micros
 
 -	**Virtual Network Appliances:** A virtual network appliance is a VM running software that performs a network function, such as a firewall. View a list of available NVAs in the Azure Marketplace. NVAs are also available that provide WAN optimization and other network traffic functions. NVAs are typically used with user-defined or BGP routes. You can also use an NVA to filter traffic between VNets.
 
-##### Routing
+**Routing**
 You can optionally override Azure's default routing by configuring your own routes, or using BGP routes through a network gateway.
 
 Azure creates route tables that enable resources connected to any subnet in any VNet to communicate with each other, by default. You can implement either or both of the following options to override the default routes Azure creates:
@@ -422,7 +422,7 @@ Following are the Network availability controls:
 
 -	Traffic Manager
 
-##### Azure Load balancer
+**Azure Load balancer**
 Delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set.
 
  ![Azure Load Balancer](media/azure-network-security/azure-network-security-fig-14.png)
@@ -438,11 +438,11 @@ Azure Load Balancer can be configured to:
 
 All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Azure uses non-routable IP addresses for its resources. Azure uses network address translation (NAT) with public IP addresses to communicate to the Internet.
 
-##### Application gateway
+ **Application gateway**
 
  Application Gateway works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
 
-##### Traffic manager
+ **Traffic manager**
 
 Microsoft Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and cloud services. You can also use Traffic Manager with external, non-Azure endpoints.
 
