@@ -36,7 +36,7 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | Connection type | Command |
 | --- | --- |
 | [Azure (Classic deployment model)](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Azure (Resource Manager deployment model)](/powershell/module/azurerm.profile/add-azurermaccount) commands |`Login-AzureRmAccount -EnvironmentName AzureUSGovernment` |
+| [Azure (Resource Manager deployment model)](/powershell/module/azurerm.profile/add-azurermaccount) commands |`Login-AzureRmAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 | [Azure Active Directory (Resource Manager deployment model)](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
 
