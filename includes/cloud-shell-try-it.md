@@ -5,7 +5,7 @@ The [Azure Cloud Shell](../articles/cloud-shell/quickstart.md) (in public previe
 
 You can also open the Cloud Shell from the Azure portal by clicking the ![Cloud Shell](./media/cloud-shell-try-it/cs-button.png) button on the top navigation. 
  
-If you prefer not to use the Cloud Shell please make sure you have installed the latest version of the [Azure CLI](/cli/azure/install-azure-cli) and log in using the **az login** command.
+
 
 
 
