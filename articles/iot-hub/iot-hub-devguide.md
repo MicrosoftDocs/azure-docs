@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/25/2017
 ms.author: dobett
 
 ---
 # Azure IoT Hub developer guide
+
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end.
 
 Azure IoT Hub provides you with:
@@ -29,9 +30,15 @@ Azure IoT Hub provides you with:
 
 This IoT Hub developer guide includes the following articles:
 
-* [Send and receive messages with IoT Hub][devguide-messaging] describes the messaging features (device-to-cloud and cloud-to-device) that IoT Hub exposes. The article also includes information about topics such as message routing, message formats, and the supported communications protocols and the port numbers they use.
 * [Device-to-cloud communication guidance][lnk-d2c-guidance] helps you choose between device-to-cloud messages, device twin's reported properties, and file upload.
 * [Cloud-to-device communication guidance][lnk-c2d-guidance] helps you choose between direct methods, device twin's desired properties, and cloud-to-device messages.
+* [Device-to-cloud and cloud-to-device messaging with IoT Hub][devguide-messaging] describes the messaging features (device-to-cloud and cloud-to-device) that IoT Hub exposes.
+  * [Send device-to-cloud messages to IoT Hub][devguide-messages-d2c].
+  * [Read device-to-cloud messages from the built-in endpoint][devguide-builtin].
+  * [Use custom endpoints and routing rules for device-to-cloud messages][devguide-custom].
+  * [Send cloud-to-device messages from IoT Hub][devguide-messages-c2d].
+  * [Create and read IoT Hub messages][devguide-format].
+  * [Choose a communication protocol][devguide-protocol].
 * [Upload files from a device][devguide-upload] describes how you can upload files from a device. The article also includes information about topics such as the notifications the upload process can send.
 * [Manage device identities in IoT Hub][devguide-identities] describes what information each IoT hub's identity registry stores, and how you can access and modify it.
 * [Control access to IoT Hub][devguide-security] describes the security model used to grant access to IoT Hub functionality for both devices and cloud components. The article includes information about using tokens and X.509 certificates, and details of the permissions you can grant.
@@ -62,4 +69,9 @@ This IoT Hub developer guide includes the following articles:
 [devguide-pricing]: iot-hub-devguide-pricing.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-
+[devguide-messages-d2c]: iot-hub-devguide-messages-d2c.md
+[devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
+[devguide-custom]: iot-hub-devguide-messages-read-custom.md
+[devguide-messages-c2d]: iot-hub-devguide-messages-c2d.md
+[devguide-format]: iot-hub-devguide-messages-construct.md
+[devguide-protocol]: iot-hub-devguide-messaging-protocols.md

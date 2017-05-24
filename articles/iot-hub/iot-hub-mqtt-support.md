@@ -19,12 +19,15 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Communicate with your IoT hub using the MQTT protocol
+
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883 or MQTT v3.1.1 over WebSocket protocol on port 443. IoT Hub requires all device communication to be secured using TLS/SSL (hence, IoT Hub doesn’t support non-secure connections over port 1883).
 
 ## Connecting to IoT Hub
+
 A device can use the MQTT protocol to connect to an IoT hub either by using the libraries in the [Azure IoT SDKs][lnk-device-sdks] or by using the MQTT protocol directly.
 
 ## Using the device SDKs
+
 [Device SDKs][lnk-device-sdks] that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
 
 When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to send messages to and receive messages from an IoT hub.
@@ -40,6 +43,7 @@ The following table contains links to code samples for each supported language a
 | [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
 
 ### Migrating a device app from AMQP to MQTT
+
 If you are using the [device SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated above.
 
 When doing so, make sure to check the following items:
@@ -74,6 +78,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel with additional information that can help you to troubleshoot connectivity issues.
 
 ### Sending device-to-cloud messages
+
 After making a successful connection, a device can send messages to IoT Hub using `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as a **Topic Name**. The `{property_bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
 
 ```
@@ -94,6 +99,7 @@ The device app can also use `devices/{device_id}/messages/events/{property_bag}`
 For more information, see [Messaging developer's guide][lnk-messaging].
 
 ### Receiving cloud-to-device messages
+
 To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard **#** in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the **#** or **?** wildcards for filtering of sub-topics. Since IoT Hub is not a general purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
 Note, that the device will not receive any messages from IoT Hub, before it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After successful subscription has been established, the device will start receiving only cloud-to-device messages that have been sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription will be persisted across different sessions. In this case, the next time it connects with **CleanSession 0** the device will receive outstanding messages that have been sent to it while it was disconnected. If the device uses **CleanSession** flag set to **1** though, it will not receive any messages from IoT Hub until it subscribes to its device-endpoint.
@@ -190,9 +196,11 @@ To respond, the device will send a message with a valid JSON or empty body to th
 For more information, see [Direct method developer's guide][lnk-methods].
 
 ### Additional considerations
+
 As a final consideration, if you need to customize the MQTT protocol behavior on the cloud side, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
 
 ## Next steps
+
 For more information, see [Notes on MQTT support][lnk-mqtt-devguide] in the IoT Hub developer guide.
 
 To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-docs].
