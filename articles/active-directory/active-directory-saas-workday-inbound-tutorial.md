@@ -25,11 +25,11 @@ The objective of this tutorial is to show you the steps you need to perform to i
 
 The [Azure Active Directory user provisioning service](active-directory-saas-app-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. Azure AD uses this connection to enable the following user provisioning workflows:
 
-* **Workday to Active Directory provisioning** - Synchronize selected sets of users from Workday into one or more Active Directory forests. 
+* **Provisioning users to Active Directory** - Synchronize selected sets of users from Workday into one or more Active Directory forests. 
 
-* **Workday to Azure Active Directory provisioning** - Hybrid users who exist in both Active Directory and Azure Active Directory can be provisioned into the latter using [AAD Connect](connect/active-directory-aadconnect.md). However, users that are cloud-only can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service.
+* **Provisioning users to Azure Active Directory** - Hybrid users who exist in both Active Directory and Azure Active Directory can be provisioned into the latter using [AAD Connect](connect/active-directory-aadconnect.md). However, users that are cloud-only can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service.
 
-* **Writeback to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
+* **Writeback of email addresses to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
 
 The Workday user provisioning workflows supported by the Azure AD user provisioning service enables automation of the following human resources and identity lifecycle management scenarios:
 
@@ -41,7 +41,7 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 * **Employee re­hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
-## Gettinmg Started
+## Getting Started
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
@@ -49,7 +49,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 2. [Configure a system integration user in Workday](#Configure-a-system-integration-user-in-Workday)
 3. [Configuring user provisioning from Workday to Active Directory](#[Configuring-user-provisioning-from-Workday-to-Active-Directory) 
 4. [Configuring user provisioning to Azure Active Directory](#Configuring-user-provisioning-to-Azure-Active-Directory)
-5. [Configuring writeback to Workday](#Configuring-writeback-to-Workday) 
+5. [Configuring writeback to Workday](#Configuring-writeback-of-email-addresses-to-Workday) 
 
 ## Planning your solution
 
@@ -219,7 +219,7 @@ In this step, you grant to the new security group permissions for **Get** and **
    
     ![Activate Pending Security](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "Activate Pending Security")  
 
-## Configuring Workday to Active Directory provisioning
+## Configuring user provisioning from Workday to Active Directory
 Follow these instructions to configure user account provisioning from Workday to each Active Directory forest that you require provisioning to.
 
 ### Part 1: Adding the provisioning connector app and creating the connection to Workday
@@ -500,14 +500,14 @@ vi. One completed, it will write an audit summary report in the
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
 
-## Configuring provisioning to Azure Active Directory
+## Configuring user provisioning to Azure Active Directory
 How you configure provisioning to Azure Active Directory will depend on your provisioning requirements, as detailed in the table below.
 
 | Scenario | Solution |
 | -------- | -------- |
-| Users need to be provisioned to Active Directory and Azure AD | Use **[AAD Connect](connect/active-directory-aadconnect.md)** |
-| Users need to be provisioned to Active Directory only | Use **[AAD Connect](connect/active-directory-aadconnect.md)** |
-| Users need to be provisioned to Azure AD only (cloud only) | Use the **Workday to Azure Active Directory provisioning** app in the app gallery |
+| **Users need to be provisioned to Active Directory and Azure AD** | Use **[AAD Connect](connect/active-directory-aadconnect.md)** |
+| **Users need to be provisioned to Active Directory only** | Use **[AAD Connect](connect/active-directory-aadconnect.md)** |
+| **Users need to be provisioned to Azure AD only (cloud only)** | Use the **Workday to Azure Active Directory provisioning** app in the app gallery |
 
 For instructions on setting up Azure AD Connect, see the [Azure AD Connect documentation](connect/active-directory-aadconnect.md).
 
