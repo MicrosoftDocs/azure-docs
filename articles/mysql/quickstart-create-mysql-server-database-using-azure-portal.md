@@ -23,8 +23,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Log in to Azure
 Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to log in to the portal. The default view is your service dashboard.
 
-![Azure portal - login and dashboard](./media/quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
-
 ## Create Azure Database for MySQL server
 
 1. Navigate to **Databases** > **MySQL**. If you cannot find Azure Database for MySQL Server under the **Databases** category, click **See all** to show all available database services. You can also type **MySQL** in the search box to quickly find the service.
