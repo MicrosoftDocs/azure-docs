@@ -181,6 +181,9 @@ sudo yum update
 sudo reboot
 ```
 
+## RDMA network for NC24r VMs
+
+
 
 ## Install GRID drivers for NV VMs
 
@@ -237,18 +240,14 @@ Make an SSH connection to each NV VM and run the following commands:
 
   sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
   ``` 
+5. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, click **Yes**.
 
-  > [!NOTE]
-  > If the installation detects a Nouveau kernel driver in use, installation fails. Follow the previous steps to disable the driver, reboot, and run the installer again.
-  > 
- 
-
-5. Add the following to `/etc/nvidia/gridd.conf.template`:
+6. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
  
   ```
   IgnoreSP=TRUE
   ```
-Proceed to verify the installation
+Proceed to verify the installation.
 
 ### Verify driver installation
 
@@ -259,30 +258,9 @@ Output similar to the following appears:
 
 ![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
  
-If you need a X11 server that your customer can connect to remotely, I recommend also installing  x11vnc, as that particular version allows hardware acceleration of graphics. Because there are multiple video devices, and because the Hyper-V console is the primary device, the BusID of the M60 device will have to be manually added to the xconfig file, with a “Device” section similar to the following:
- 
-Section "Device"
-    Identifier     "Device0"
-    Driver         "nvidia"
-    VendorName     "NVIDIA Corporation"
-    BoardName      "Tesla M60"
-    BusID          "38754:0:0:0"
-EndSection
- 
-(Also, update your “Screen” section to use this device.)
- 
-The BusID can be found by running
- 
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
- 
-Because when a VM gets reallocated or rebooted the BusID can change, you may want to use a script like this to update the BusID in the X11 configuration when a VM is rebooted:
- 
-#!/bin/bash
-BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
-if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
-This file can be invoked as root on boot by creating an entry for it in /etc/rc.d/rc3.d
 
-## RDMA network for NC24r VMs
+
+
 
 ## Troubleshooting
 
