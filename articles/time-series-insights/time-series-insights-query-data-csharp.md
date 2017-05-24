@@ -23,6 +23,7 @@ ms.author: ankryach
 
 This C# sample demonstrates how to query data from Azure Time Series Insights environment.
 The sample shows several basic examples of Query API usage:
+1. As a preparation step, the access token is acquired using Azure Active Directory API. This token should be passed in `Authorization` header of every Query API request. For setting up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.
 2. The list of environments user has access to is obtained. One of the environments is picked up as the environment of interest and further data is queried for this environment.
 3. As an example of HTTPS request, availability data is requested for the environment of interest.
 4. As an example of web socket request, event aggregates data is requested for the environment of interest. Data is requested for the whole availability time range.
