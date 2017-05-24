@@ -136,7 +136,7 @@ Alert actions have the following structure.  This includes common variables and 
 
 
 	{
-		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').ID, '/', variables('Schedule').ScheduleID, '/', variables('Alert').Name)]",
+		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
 		"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
 		"apiVersion": "[variables('LogAnalyticsApiVersion')]",
 		"dependsOn": [
@@ -234,7 +234,7 @@ Webhook actions start a process by calling a URL and optionally providing a payl
 If your alert will call a webhook, then it will need an action resource with a type of **Webhook** in addition to the **Alert** action resource.  
 
     {
-      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').ID, '/', variables('Schedule').ScheduleID, '/', variables('Webhook').Name)]",
+      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
       "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
       "apiVersion": "[variables('LogAnalyticsApiVersion')]",
       "dependsOn": [
