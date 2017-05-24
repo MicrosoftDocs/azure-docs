@@ -23,16 +23,6 @@ ms.author: genli
 
 This article lists common problems that are related to Microsoft Azure File storage when you connect from Linux clients. It also provides possible causes of and resolutions for these problems.
 
-**Common problems**
-
-- ["[Permission denied] Disk quota exceeded" on Linux when you try to open a file in Azure File Storage](#permissiondenied)
-- [Slow file copying to and from Azure file storage on Linux](#slowfilecopying)
-- [“Mount error(112): Host is down” on Linux client because of reconnection timeout when you try to mount a file share in Azure File Storage](#error112)
-- ["Mount error(115): Operation now in progress" when you try to mount Azure File Storage on a Linux VM by using SMB 3.0](#error115)
-- [Slow performance on an Azure file share that is mounted on Linux VM](#slowperformance)
-- [“Mount error(11): Resource temporarily unavailable” when you try to mount an Azure File Share to the Ubuntu 4.8 kernel](#error11)
-- [Timestamps were lost when copying files from Windows to Linux](#timestampslost)
-
 <a id="permissiondenied"></a>
 ## "[Permission denied] Disk quota exceeded" when you try to open a file
 

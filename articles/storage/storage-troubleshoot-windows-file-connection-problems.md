@@ -23,16 +23,6 @@ ms.author: genli
 
 This article lists common problems and resolutions that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes of and resolutions for these problems.
 
-**Common problems**
-
--	[Error 53, Error 67, or Error 87 when you try to mount or unmount an Azure Files share](#error53-67-87)
--	[Error 1816 “Not enough quota is available to process this command” when you try to copy to an Azure Files share](#error1816)
--	[Slow file copying to and from Azure file storage on Windows](#slowfilecopying)
--	[If you map an Azure file share as an administrator using net use, the share appears to be missing (no drive icon for the share appears in My Computer)](#shareismissing)
--	[Storage account contains a forward slash (/) character, and the net use command fails](#netuse)
--	[The application or service cannot access the mounted Azure Files drive](#cannotaccess)
--	[Error "You are copying a file to a destination that does not support encryption" when you try to upload or copy files to Azure Files](#doesnotsupportencryption)
-
 <a id="error53-67-87"></a>
 ##  Error 53, Error 67, or Error 87 when you mount or unmount an Azure File Share
 
@@ -177,7 +167,7 @@ In order to copy a file over the network, the file is decrypted on the source co
 You are copying the file to a destination that does not support encryption
 
 ### Cause
-This can occur is you are using Encrypted File System (EFS). Bitlocker-encrypted files can be copied to Azure Files. However, Azure File storage does not support NTFS EFS.
+This can occur if you are using Encrypted File System (EFS). Bitlocker-encrypted files can be copied to Azure Files. However, Azure File storage does not support NTFS EFS.
 
 ### Workaround
 To copy a file over the network, you must first decrypt it. You can do this by using one of the following methods:
