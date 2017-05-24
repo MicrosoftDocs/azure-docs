@@ -18,9 +18,9 @@ ms.author: bwren
 
 ---
 # OMS tutorial - Collect data in Log Analytics with an Azure Automation runbook
-You can collect a significant amount of data in Log Analytics from the different [data sources](log-analytics-data-sources.md) collected from agents and also [data collected from Azure](log-analytics-azure-storage.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.
+You can collect a significant amount of data in Log Analytics from the different [data sources](../log-analytics/log-analytics-data-sources.md) collected from agents and also [data collected from Azure](../log-analytics/log-analytics-azure-storage.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.
 
-In these cases, you can use the [HTTP Data Collector API]() to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.  The runbook collects data from some source which can be any service or application accessible from a runbook.  It then uses the Data Collector API to write this data to Log Analaytics using a data type custom to your solution.  
+In these cases, you can use the [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.  The runbook collects data from some source which can be any service or application accessible from a runbook.  It then uses the Data Collector API to write this data to Log Analaytics using a data type custom to your solution.  
 
 This article explains scenario and walks through writing and scheduling a sample runbook.
 
@@ -33,8 +33,8 @@ This article explains scenario and walks through writing and scheduling a sample
 ## Prerequisites
 This scenario requires the following resources configured in your Azure subscription.  
 
-- [Log Analytics workspace](log-analytics-get-started.md).  Can be a free account.
-- [Azure automation account](automation-offering-get-started.md).  Can be a free account.
+- [Log Analytics workspace](../log-analytics/log-analytics-get-started.md).  Can be a free account.
+- [Azure automation account](../automation/automation-offering-get-started.md).  Can be a free account.
 
 ## Overview
 Runbooks in Azure Automation are implemented with PowerShell, so we'll start by writing and testing our script in the Azure Automation editor.  Once we verify that we're collecting the required information, we'll write that data to Log Analytics and verify our custom data type.  Finally, we'll create a schedule to start the runbook at regular intervals.
@@ -44,9 +44,9 @@ For this tutorial, we'll write a runbook that collects information about Automat
 ## Process
 
 ### 1. Install Data Collector API module
-Every [request from the HTTP Data Collector API](log-analytics-data-collector-api.md#create-a-request) must be formatted appropriately and include an authorization header.  You can do this in your runbook, but you can make it simpler and reduce the amount of code required by using a module that provides these functions.  One module that you can use is [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI) in the PowerShell Gallery.
+Every [request from the HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md#create-a-request) must be formatted appropriately and include an authorization header.  You can do this in your runbook, but you can make it simpler and reduce the amount of code required by using a module that provides these functions.  One module that you can use is [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI) in the PowerShell Gallery.
 
-To use a [module](automation-integration-modules.md) in a runbook, it must be installed in your Automation account.  Any runbook in the same account can then use the functions in the module.  You can install a new module by selecting **Assets** > **Modules** > **Add a module** in your Automation account.  
+To use a [module](../automation/automation-integration-modules.md) in a runbook, it must be installed in your Automation account.  Any runbook in the same account can then use the functions in the module.  You can install a new module by selecting **Assets** > **Modules** > **Add a module** in your Automation account.  
 
 The PowerShell Gallery though gives us a quick option to deploy a module directly to our automation account so we can use that option for our example.
 Since we're installing a module from the PowerShell Gallery for our example, you can just click on the **Deploy to Azure Automation** button on the modules page which will launch the Azure portal to install the module.
@@ -201,5 +201,5 @@ Everytime a runbook is started, a job is created and any output logged.  You can
 
 
 ## Next steps
-- Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
+- Use the [Log Search API](../log-analytics/log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
 
