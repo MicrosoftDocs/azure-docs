@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/23/2017
 ---
 
 # Design your first Azure Database for MySQL database
@@ -21,7 +21,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
@@ -177,10 +177,10 @@ In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
 > * Restore data
 
-[Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)
+For additional CLI script samples, try [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)

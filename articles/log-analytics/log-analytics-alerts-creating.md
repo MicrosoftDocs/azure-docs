@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
 
 ---
@@ -28,6 +28,9 @@ This article describes the processes to create and edit alert rules using the OM
 ## Create an alert rule
 
 To create an alert rule using the OMS portal, you start by creating a log search for the records that should invoke the alert.  The **Alert** button will then be available so you can create and configure the alert rule.
+
+>[!NOTE]
+> A maximum of 250 alert rules can currently be created in an OMS workspace. 
 
 1. From the OMS Overview page, click **Log Search**.
 2. Either create a new log search query or select a saved log search. 
