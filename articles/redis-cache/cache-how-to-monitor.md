@@ -67,8 +67,6 @@ The **Usage** charts display the following metrics.
 | Network Bandwidth |Cache Write |
 | CPU Usage |CPU |
 
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
-
 ## View metrics with Azure monitor
 To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
 
