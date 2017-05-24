@@ -282,7 +282,7 @@ If you set the initial value for the variable, it must be configured as the corr
 | string   | Enclose value in double quotes.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Numeric value with single quotes.| "64" | 64 |
 | boolean  | **true** or **false** in quotes.  Note that this value must be lowercase. | "true" | true |
-| datetime | Serialized date value.<br>You can use the ConvertTo-Json cmdlet in PowerShell to generate this value for a particular date.<br>Example: get-date "5/12/2017 12\:37\:32" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 31\:14\:57 |
+| datetime | Serialized date value.<br>You can use the ConvertTo-Json cmdlet in PowerShell to generate this value for a particular date.<br>Example: get-date "5/12/2017 12:37:32" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 31:14:57 |
 
 ## Modules
 Your management solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available in your Automation account.  You do need to include a resource for any other module used by your runbooks.
