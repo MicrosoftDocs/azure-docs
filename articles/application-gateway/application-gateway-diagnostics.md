@@ -205,6 +205,17 @@ This log is only generated if you've enabled it on a per Application Gateway bas
 
 This log is only generated if you have enabled it on a per Application Gateway basis as detailed in the preceding steps. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
 
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     |  Application Gateway instance         |
+|healthyHostCount     | Number of healthy hosts in the backend pool        |
+|unHealthyHostCount     | Number of unhealthy hosts in the backend pool        |
+|requestCount     | Number of requests served        |
+|latency | Latency of requests from the instance to backend serving the requests |
+|failedRequestCount| Number of failed requests|
+|throughput|Number of bytes transmitted to the backend pool |
+
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -230,6 +241,25 @@ This log is only generated if you have enabled it on a per Application Gateway b
 ### Firewall log
 
 This log is only generated if you have enabled it on a per application gateway basis as detailed in the preceding steps. This log also requires that web application firewall is configured on an application gateway. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
+
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Application Gateway instance          |
+|clientIp     |  IP of the client       |
+|clientPort     | Port used by the client        |
+|requestUri     | URL of the request        |
+|ruleSetType     | Rule set type. Available values: OWASP        |
+|ruleSetVersion     | Rule set version used       |
+|ruleId     | Rule ID of the finding        |
+|message     | Description of the rule        |
+|action     |  Action taken on request       |
+|site     | Global        |
+|details     | Details of the finding        |
+|details.message     | Description of the rule        |
+|details.data     | Specific data found in request that matched the rule         |
+|details.file     | The configuration file that contained the rule        |
+|details.line     | The line number that contained the rule        |
 
 ```json
 {
