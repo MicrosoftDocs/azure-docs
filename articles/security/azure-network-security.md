@@ -408,7 +408,7 @@ You can also ingest these logs into your own analytics system using [Azure Log I
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities, such as SQL injection, cross site scripting attacks, and other attacks that appear in the [OWASP top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project). Preventing such exploits in the application requires rigorous maintenance, patching, and monitoring at multiple layers of the application topology.
 
- ![Azure Web Application Firewall (WAF)](/media/azure-network-security/azure-network-security-fig-13.png)
+ ![Azure Web Application Firewall (WAF)](./media/azure-network-security/azure-network-security-fig-13.png)
 
 A centralized [web application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) can protect against web attacks and simplifies security management without requiring any application changes.
 
@@ -656,7 +656,7 @@ The following logs are supported for [network security groups](https://docs.micr
 
 -	**NetworkSecurityGroupRuleCounter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
-## Next Step
+## Next Steps
 Find out more about security by reading some of our in-depth security topics:
 
 -	[Log Analytics for Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
