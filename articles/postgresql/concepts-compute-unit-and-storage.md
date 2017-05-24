@@ -37,7 +37,7 @@ Performance levels are calibrated and governed to provide resources to run your 
 
 If your workload reaches the maximum limits in either the Compute Units or provisioned IOPS limits, you can continue to utilize the resources at the maximum allowed level, but your queries are likely to see increased latencies. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries time out. 
 
-If your workload reaches the maximum limits on number of connections, explicit errors are raised. See [Limitations in Azure Database for PostgreSQL](concepts-limits.md) for more information on resources limits.
+If your workload reaches the maximum limits on number of connections, explicit errors are raised. For more information on resources limits, see [Limitations in Azure Database for PostgreSQL](concepts-limits.md).
 
 ## Next steps
 For more information on Compute Units and Storage, see [Azure Database for PostgreSQL pricing tiers](./concepts-service-tiers.md).
