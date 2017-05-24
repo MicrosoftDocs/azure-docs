@@ -203,22 +203,6 @@ For **Portal AppSetting Deployment**, the log file location D:\home\LogFiles. Pl
 
 Azure App Services does not have a built-in email feature. But you can find some good approaches at the StackOverflow discussion at via [here](http://stackoverflow.com/questions/17666161/sending-email-from-azure).
 
-## I need help using SendGrid email with Azure App Service.
-
-SendGrid is an Azure Market Place Solution. Technical Product Support is provided by SendGrid support who can be contacted via [here](https://support.sendgrid.com/hc/en-us).
-
-More information on Marketplace support is available in the FAQ via [here](https://azure.microsoft.com/en-us/marketplace/faq/).
-
-If you have any issues with Azure App Service or Azure Platform, please continue to create a support incident with Azure support.
-
-## How can I setup Tinfoil to use with Azure App Services?
-
-Web vulnerability scanning powered by Tinfoil Security is now available for Azure App Services. Setup guidance is available via [here](https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/).
-
-For technical support related to Tinfoil, please contact Tinfoil support. Tinfoil is an Azure Market Place Solution and Technical support is provided by the publishers of the Marketplace solution. More information on Marketplace support is available in the FAQ via [here](https://azure.microsoft.com/en-us/marketplace/faq/).
-
-If you have any issues with Azure App Service or Azure Platform, please continue to create a support incident with Azure support.
-
 ## Why is my WordPress site redirecting to another URL?
 
 If you have recently migrated to Azure, WordPress may redirect to the old domain URL. This is caused by a setting on the MySQL database.
