@@ -293,3 +293,7 @@ Autoscale is triggered when metrics swing outside the preconfigured boundaries. 
 If you still do not see expected number of instances after giving a few minutes,  it could be because the partial refill was good enough to bring the metrics within the boundaries OR Autoscale scaled down because it hit the lower metrics boundary.
 
 If none of these conditions apply and the problem persists, please go ahead and open a support ticket.
+
+## How can I migrate from a on-premise environment to Azure App Services?
+
+The **Azure App Service** Migration tool can be utilized to migrate sites from Windows and Linux web servers to Azure App Service. As part of the migration, the tool creates Web Apps and databases on Azure as needed, publishes content and creates the database. For more details refer to https://www.movemetothecloud.net/.
