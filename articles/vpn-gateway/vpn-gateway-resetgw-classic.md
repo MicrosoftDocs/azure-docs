@@ -58,7 +58,7 @@ You can reset a Resource Manager VPN gateway using the Azure portal. If you want
 
 ### Resource Manager deployment model
 
-To reset the gateway, make sure you have the latest version of the [Resource Manager PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). The cmdlet for resetting a gateway is **Reset-AzureRmVirtualNetworkGateway**. The following example resets a virtual network gateway named VNet1GW in the TestRG1 resource group:
+The cmdlet for resetting a gateway is **Reset-AzureRmVirtualNetworkGateway**. Before performing a reset, make sure you have the latest version of the [Resource Manager PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). The following example resets a virtual network gateway named VNet1GW in the TestRG1 resource group:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
@@ -71,7 +71,7 @@ You will see a return result when the gateway has been reset. When you get a res
 
 ### <a name="resetclassic"></a>Classic deployment model
 
-To reset the gateway, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). The cmdlet for resetting a gateway is **Reset-AzureVNetGateway**. The following example resets the gateway for a virtual network named "ContosoVNet":
+The cmdlet for resetting a gateway is **Reset-AzureVNetGateway**. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). The following example resets the gateway for a virtual network named "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”
