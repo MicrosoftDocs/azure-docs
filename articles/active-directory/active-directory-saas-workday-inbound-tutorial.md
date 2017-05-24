@@ -31,6 +31,8 @@ The [Azure Active Directory user provisioning service](active-directory-saas-app
 
 * **Writeback of email addresses to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
 
+### Scenarios covered
+
 The Workday user provisioning workflows supported by the Azure AD user provisioning service enables automation of the following human resources and identity lifecycle management scenarios:
 
 * **Hiring new employees** - When a new employee is added to Workday, a user account will be automatically created in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md), with write back of the email address to Workday.
@@ -41,7 +43,7 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 * **Employee re­hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
-### Getting Started
+### Getting started
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
@@ -433,23 +435,23 @@ import-module AADSyncAgent.psd1
 
 Add-ADSyncAgentActiveDirectoryConfiguration
 
-   **Inputs**
-   Directory Name: &lt;AD Forest name, as entered in part \#2&gt;
-   Domain admin username and password for Active Directory forest
+**Inputs**
+* Directory Name: &lt;AD Forest name, as entered in part \#2&gt;
+* Domain admin username and password for Active Directory forest
 
 **Command #3**
 
 Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
-   **Inputs**
-   Global admin username and password for your Azure AD tenant
+**Inputs**
+* Global admin username and password for your Azure AD tenant
 
 **Command #4**
 
-   Get-AdSyncAgentProvisioningTasks
+Get-AdSyncAgentProvisioningTasks
 
-   **Action**
-   Confirm data is returned. This command automatically discovers Workday provisioning apps in your Azure AD tenant. Example output:
+**Action**
+* Confirm data is returned. This command automatically discovers Workday provisioning apps in your Azure AD tenant. Example output:
 
 > Name          : My AD Forest
 >
