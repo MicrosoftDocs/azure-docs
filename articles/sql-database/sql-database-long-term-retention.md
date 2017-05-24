@@ -20,14 +20,14 @@ ms.author: sashan
 
 ---
 # Store Azure SQL Database backups for up to 10 years
-Many applications have regulatory, compliance, or other business purposes that require you to retain automatic full database backups beyond the 7-35 days provided by SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term backup retention feature, you can store your SQL database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
+Many applications have regulatory, compliance, or other business purposes that require you to retain automatic full database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term backup retention feature, you can store your SQL database backups in an Azure Recovery Services vault for up to 10 years. You can store up to 1000 databases per vault. You can select any backup in the vault to restore it as a new database.
 
 > [!IMPORTANT]
 > Long-term backup retention is currently in preview and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.
 >
 
 > [!NOTE]
-> You can enable up to 200 databases per vault during a 24-hour period. Therefore, we recommend that you use a separate vault for each server to minimize the impact of this limit. 
+> You can enable up to 200 databases per vault during a 24-hour period. We recommend that you use a separate vault for each server to minimize the impact of this limit. 
 > 
 
 ## How SQL Database long-term backup retention works
@@ -39,7 +39,7 @@ With long-term backup retention, you can associate a SQL database server with an
 * You can then restore the database from any of these backups to a new database in any server in the subscription. Azure storage creates a copy from existing backups, and the copy has no performance impact on the existing database.
 
 > [!TIP]
-> For a how-to guide, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)
+> For a how-to guide, see [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
 
 ## Enable long-term backup retention
 
@@ -47,7 +47,7 @@ To configure long-term backup retention for a database:
 
 1. Create an Azure Recovery Services vault in the same region, subscription, and resource group as your SQL database server. 
 2. Register the server to the vault.
-3. Create an Azure Recovery Services Protection Policy.
+3. Create an Azure Recovery Services protection policy.
 4. Apply the protection policy to the databases that require long-term backup retention.
 
 To configure, manage, and restore a database from long-term backup retention of automated backups in an Azure Recovery Services vault, do either of the following:
@@ -56,7 +56,7 @@ To configure, manage, and restore a database from long-term backup retention of 
 
    ![Select a database for long-term backup retention](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
-* Using PowerShell: Go to [Configure and restore from Azure SQL database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
+* Using PowerShell: Go to [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
 
 ## Restore a database that's stored with the long-term backup retention feature
 
@@ -121,7 +121,7 @@ No, the vault and server must be in the same region to minimize copy time and av
 
 **How many databases can I store in one vault?**
 
-Currently, we support up to 1000 databases per vault. 
+Currently, we support up to 1,000 databases per vault. 
 
 **How many vaults can I create per subscription?**
 
@@ -139,9 +139,9 @@ Yes. Any database in the pool can be configured with the retention policy.
 
 No, SQL Database controls the backup schedule to minimize the performance impact on your databases.
 
-**I have TDE enabled for my database. Can I use TDE with the vault?** 
+**I have transparent data encryption enabled for my database. Can I use it with the vault?** 
 
-Yes, TDE is supported. You can restore the database from the vault even if the original database no longer exists.
+Yes, transparent data encryption is supported. You can restore the database from the vault even if the original database no longer exists.
 
 **What happens with the backups in the vault if my subscription is suspended?** 
 
