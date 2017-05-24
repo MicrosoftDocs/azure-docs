@@ -36,7 +36,7 @@ The following table provides examples of the pricing tiers best suited for diffe
 | Standard | The go-to option for cloud applications that need IOPS guarantee with high throughput. Examples include web or analytical applications. |
 | Premium | Best suited for workloads that need low latency for transactions and IO. Provides the best support for many concurrent users. Applicable to databases that support mission critical applications.<br />The Premium pricing tier is not available in preview. |
 
-To decide on a pricing tier, first start by determining if your workload need IOPS guarantee.
+To decide on a pricing tier, first start by determining if your workload need IOPS guarantee. If so, use Standard pricing tier.
 
 | **Pricing tier features** | **Basic** | **Standard** |
 | :------------------------ | :-------- | :----------- |
@@ -50,6 +50,8 @@ During the preview timeframe, you cannot change pricing tier once the server is 
 
 ## Choose a performance level (Compute Units)
 Once you have determined the pricing tier for your Azure Database for PostgreSQL server, you are ready to determine the performance level by selecting the number of Compute Units needed. A good starting point is 200 or 400 Compute Units for applications that require higher user concurrency for their web or analytical workloads, and adjust incrementally as needed. 
+
+Compute Units are a measure of CPU processing throughput that is guaranteed to be available to a single Azure Database for PostgreSQL server. A Compute Unit is a blended measure of CPU and memory resources.  For more information, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
 
 ### Basic pricing tier performance levels:
 
@@ -71,16 +73,12 @@ Once you have determined the pricing tier for your Azure Database for PostgreSQL
 
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
-The Standard pricing tier in preview currently supports up to 800 Compute Units, and a maximum of 1 TB of storage and 3,000 IOPS.
-Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS. 
-
-
 ## Storage 
-The Storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server. Storage includes the database files, transaction logs, and the PostgreSQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the Storage configuration.
+The Storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server. The storage used by the service includes the database files, transaction logs, and the PostgreSQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the Storage configuration.
 
-Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
+Some storage capacity is included at a minimum with each pricing tier, noted in the table above as "Included storage size". Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 
-Basic tier does not provide any IOPS guarantee. Standard tier provides a provisioned IOPS guarantee, and is fixed to three times the provisioned storage.  For example, in standard tier, selecting 125 GB of storage capacity provides 375 IOPS available to your server. 
+The maximum provisioned IOPS in each performance level relates to the pricing tier and the storage size. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS.
 
 Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
 
@@ -97,5 +95,5 @@ Behind the scenes, changing the performance level of a database creates a replic
 The duration of the entire scale process depends on both the size and pricing tier of the server before and after the change. For example, a server that is changing Compute Units within the Standard pricing tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 
 ## Next Steps
-- For more on Compute Units and storage, see [Explaining Compute Units and storage](concepts-compute-unit-and-storage.md)
+- For more on Compute Units, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
 - Learn how to [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
