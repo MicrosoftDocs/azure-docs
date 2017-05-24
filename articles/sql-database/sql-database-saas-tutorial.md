@@ -46,7 +46,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Deploy the Wingtip SaaS Application
 
-Deploy the Wingtip tickets platform in less than five minutes:
+Deploy the Wingtip SaaS app in less than five minutes:
 
 1. Click to deploy:
 
@@ -92,23 +92,19 @@ The app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic
 
 In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
 
-## Get the Wingtip application scripts
+## Get the Wingtip SaaS application scripts
 
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure. For details, see [Download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
-## Provision a new tenant
-
-The initial deployment creates three sample tenants, but we need to create more tenants for the best tutorial experience. In this step you quickly create a new tenant. Later you should dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it would be to implement a registration component into the application, and automatically provision tenants as customers sign up.
-
-### Initialize the user config file for your deployment
-
-Because this is the first script you are going to run after the initial deployment, you must update the user configuration file. Update the variables with the specific values from your deployment.
+After you deploy the Wingtip SaaS app, you must update the user configuration file. Update the variables with the specific values from your deployment:
 
    1. Open ...\\Learning Modules\\*UserConfig.psm1* in the *PowerShell ISE*
    1. Modify _$userConfig.ResourceGroupName_ to the _resource group_ you set when you deployed the app.
    1. Modify _$userConfig.Name_ to the _User_ name you set when you deployed app.
 
-### Provision the new tenant
+## Provision a new tenant
+
+The initial deployment creates three sample tenants, but we need to create more tenants for the best tutorial experience. In this step you quickly create a new tenant. Later you should dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it would be to implement a registration component into the application, and automatically provision tenants as customers sign up.
 
 1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE*.
 1. Press **F5** to run the script (leave the script's default values for now).
@@ -117,13 +113,13 @@ The new tenant is registered into the catalog. Their database is created and add
 
 ![New tenant](./media/sql-database-saas-tutorial/red-maple-racing.png)
 
-Refresh the Events Hub and verify the new tenant is in the list.
+Refresh the *Events Hub* and verify the new tenant appears in the list.
 
 ## Start generating load on the tenant databases
 
-Now that we have several tenant databases, let’s put them to work! A PowerShell script is provided that simulates a workload running against all tenant databases. The load runs for 60 minutes by default. Wingtip Tickets is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the pattern to emerge, so let the load generator run for about 5-10 minutes before attempting to monitor the load in the following sections.
+Now that we have several tenant databases, let’s put them to work! A PowerShell script is provided that simulates a workload running against all tenant databases. Wingtip is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the pattern to emerge, so let the load generator run for about 5-10 minutes before attempting to monitor the load in the following sections.
 
-1. Open ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.psm1* in the **PowerShell ISE**
+1. Open ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* in the **PowerShell ISE**
 1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
 
 > [!IMPORTANT]
@@ -146,7 +142,7 @@ Now that you have explored the application, provisioned a new tenant, and starte
 
 If the load generator has been running for several minutes, enough data should be available to start looking at some of the monitoring capabilities built into pools and databases.
 
-1. Browse to server *tenants1-&lt;USER&gt;*, and click **Pool1** to view resource utilization for the pool:
+1. Browse to server **tenants1-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool (the load generator ran for an hour in the following charts):
 
    ![monitor pool](./media/sql-database-saas-tutorial/monitor-pool.png)
 
@@ -177,7 +173,7 @@ Now try the [Provision and catalog tutorial](sql-database-saas-tutorial-provisio
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip SaaS application deployment](sql-database-wtp-overview.md)
+* [Additional tutorials that build upon the initial Wingtip SaaS application deployment](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)

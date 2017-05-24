@@ -53,6 +53,21 @@ While the application is somewhat complete and compelling as a sample applicatio
 
 The benefits of working with the application comes from diving into the provided scripts and examining how the different SaaS patterns are implemented.
 
+## Download the Wingtip SaaS scripts
+
+If you download and extract the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting. Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted.
+
+1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
+1. Click **Clone or download**.
+1. Click **Download ZIP** and save the file.
+1. **IMPORTANT**: before extracting, unblock the contents to ensure the scripts are allowed to run.
+1. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
+1. Select **Unblock**, and click **Apply**.
+1. Click **OK**.
+1. You can now extract the files.
+
+Scripts are located in the ...\\WingtipSaaS-master\\Learning Modules folder.
+
 To view the provided scripts and modules, and to facilitate stepping through them for a better understanding, use the [Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Because most of the scripts prefixed with *Demo-* contain variables that you can modify before execution, using the PowerShell ISE simplifies working with these scripts.
 
 For each Wingtip SaaS app deployment, there is a **UserConfig.psm1** file containing two parameters for setting the resource group and user name values that you defined during deployment. After deployment is complete, edit the **UserConfig.psm1** module setting the _ResourceGroupName_ and _Name_  parameters. These values are used by other scripts to successfully run, so setting them when the deployment completes is recommended!
@@ -83,7 +98,7 @@ Tips for working with and [debugging PowerShell scripts](https://msdn.microsoft.
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the application servers and databases.
 
-The deployment initially has two SQL Database servers to connect to - the *tenants1-&lt;User&gt;* server, and the *catalog-&lt;User&gt;* server:
+The deployment initially has two SQL Database servers to connect to - the *tenants1-&lt;User&gt;* server, and the *catalog-&lt;User&gt;* server. To ensure a successful demo connection, both servers have a [firewall rule](sql-database-firewall-configure.md) allowing all IPs through.
 
 
 1. Open *SSMS* and connect to the *tenants1-&lt;User&gt;.database.windows.net* server.
