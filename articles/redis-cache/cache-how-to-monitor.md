@@ -18,25 +18,33 @@ ms.author: sdanie
 
 ---
 # How to monitor Azure Redis Cache
-Azure Monitor and Azure Redis Cache provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.
+Azure Redis Cache uses [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) to provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.
 
-Metrics for Azure Redis Cache instances are collected using the Redis [INFO](http://redis.io/commands/info) command approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
+Metrics for Azure Redis Cache instances are collected using the Redis [INFO](http://redis.io/commands/info) command approximately once per minute and stored so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Redis Cache provides some built-in charts on the **Overview** blade and the **Redis metrics** blade.
+To view common sets of cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Redis Cache provides some built-in charts on the **Overview** blade and the **Redis metrics** blade. Each chart can be customized by adding or removing metrics and changing the reporting interval.
 
 ![Redis metrics][redis-cache-redis-metrics-blade]
 
-The **Redis metrics** blade has **Monitoring** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. For viewing and configuring operations and alerts, the **Redis Cache** blade has an **Operations** section that displays cache **Events** and **Alert rules**.
-
-To create custom charts using Azure Monitor, click Metrics from the Resource menu, and customize your chart using the desired metrics, reporting interval, chart type, and more.
+To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
 
 ![Redis metrics](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-## Enable cache diagnostics
-By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) for your cache metrics.
+For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 
 
+<a name="how-to-view-metrics-and-customize-chart"></a>
+<a name="enable-cache-diagnostics"></a>
+## Export cache metrics
+By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. If you do not want to apply any retention policy and retain data forever, set **Retention (days)** to **0**.
 
-To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
+![Redis diagnostics](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
+
+>[!NOTE]
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>
+>
+
+To access your metrics, you can view them in the azure portal, and you can also access them using the [Azure Monitor Metrics REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 > [!NOTE]
 > Only metrics that are stored in the selected storage account are displayed in the Azure portal. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
@@ -69,49 +77,6 @@ Each metric includes two versions. One metric measures performance for the entir
 | CPU |The CPU utilization of the Azure Redis Cache server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. |
 | Cache Read |The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.** |
 | Cache Write |The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client. |
-
-## How to view metrics and customize charts
-You can view an overview of the metrics for your cache on the **Redis metrics** blade. To access the **Redis metrics** blade choose **All settings** > **Redis metrics**.
-
-![Redis metrics][redis-cache-redis-metrics]
-
-The **Redis metrics** blade contains the following charts.
-
-| Redis metrics chart | Displayed metrics |
-| --- | --- |
-| Cache Read and Cache Write |Cache Read |
-| Cache Write | |
-| Connected Clients |Connected Clients |
-| Hits and Misses |Cache Hits |
-| Cache Misses | |
-| Total Commands |Total Operations |
-| Gets and Sets |Gets |
-| Sets | |
-| CPU Usage |CPU |
-| Memory Usage |Used Memory |
-| Used Memory RSS | |
-| Redis Server Load |Server Load |
-| Key Count |Total Keys |
-| Evicted Keys | |
-| Expired Keys | |
-
-For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the **Redis metrics** blade to display the **Metric** blade for that chart.
-
-![Metric blade][redis-cache-metric-blade]
-
-Any alerts that are set on the metrics displayed by a chart are listed at the bottom of the **Metric** blade for that chart.
-
-To add or remove metrics or change the reporting interval, choose **Edit Chart**.
-
-To add or remove metrics from the chart, click the checkbox beside the name of the metric. To change the reporting interval, click the desired interval. To change the **Chart type**, click the desired style. Once the desired changes are made, click **Save**. 
-
-![Edit chart][redis-cache-edit-chart]
-
-When you click **Save** your changes will persist until you leave the **Metric** blade. When you come back later, you'll see the original metric and time range again. For more information on customizing charts, see [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
-
-To view the metrics for a specific time period on a chart, hover the mouse over one of the specific bars or points on the chart that corresponds to the desired time, and the metrics for that interval are displayed.
-
-![View chart details][redis-cache-view-chart-details]
 
 ## How to monitor a premium cache with clustering
 Premium caches that have [clustering](cache-how-to-premium-clustering.md) enabled can have up to 10 shards. Each shard has its own metrics, and these metrics are aggregated to provide metrics for the cache as a whole. Each metric includes two versions. One metric measures performance for the entire cache and a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has 3 shards, `Cache Hits` is the total amount of hits for the entire cache, and `Cache Hits (Shard 2)` is just the hits for that shard of the cache.
