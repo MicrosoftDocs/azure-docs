@@ -20,7 +20,7 @@ ms.author: sstein
 
 The *Wingtip SaaS* application is a sample multi-tenant app, that demonstrates the unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including several SaaS design and management patterns. To quickly get up and running, [the Wingtip SaaS app deploys in less than five minutes](sql-database-saas-tutorial.md)!
 
-Application source code and management scripts are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. To run the scripts, download the [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules) folder to your local computer, maintaining its folder structure.
+Application source code and management scripts are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. To run the scripts, [download the Learning Modules folder](#download-the-wingtip-saas-scripts) to your local computer.
 
 ## SQL Database Wingtip SaaS tutorials
 
@@ -49,26 +49,28 @@ The Wingtip SaaS app uses the database-per-tenant model, and uses SQL elastic po
 
 While the application is somewhat complete and compelling as a sample application, it is important to focus on the core SaaS patterns as they relate to the data tier. In other words, focus on the data tier, and don't over analyze the app itself. Understanding the implementation of these core SaaS patterns is key to implementing these patterns in your applications, while considering any necessary modifications for your specific business requirements.
 
-## Working with the Wingtip SaaS PowerShell Scripts
-
-The benefits of working with the application comes from diving into the provided scripts and examining how the different SaaS patterns are implemented.
-
 ## Download the Wingtip SaaS scripts
 
-If you download and extract the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting. Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted.
+ 
 
 1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
 1. Click **Clone or download**.
 1. Click **Download ZIP** and save the file.
-1. **IMPORTANT**: before extracting, unblock the contents to ensure the scripts are allowed to run.
+
+**IMPORTANT**: Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run:
+
 1. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
 1. Select **Unblock**, and click **Apply**.
 1. Click **OK**.
 1. You can now extract the files.
 
-Scripts are located in the ...\\WingtipSaaS-master\\Learning Modules folder.
+Scripts are located in the *...\\WingtipSaaS-master\\Learning Modules* folder.
 
-To view the provided scripts and modules, and to facilitate stepping through them for a better understanding, use the [Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Because most of the scripts prefixed with *Demo-* contain variables that you can modify before execution, using the PowerShell ISE simplifies working with these scripts.
+## Working with the Wingtip SaaS PowerShell Scripts
+
+The benefits of working with the application comes from diving into the provided scripts and examining how the different SaaS patterns are implemented.
+
+To view the provided scripts and modules, and to facilitate stepping through them for a better understanding, **use the [Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise)**. Because most of the scripts prefixed with *Demo-* contain variables that you can modify before execution, using the PowerShell ISE simplifies working with these scripts.
 
 For each Wingtip SaaS app deployment, there is a **UserConfig.psm1** file containing two parameters for setting the resource group and user name values that you defined during deployment. After deployment is complete, edit the **UserConfig.psm1** module setting the _ResourceGroupName_ and _Name_  parameters. These values are used by other scripts to successfully run, so setting them when the deployment completes is recommended!
 

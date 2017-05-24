@@ -1,6 +1,6 @@
 ---
-title: Deploy and explore a SaaS application that uses Azure SQL Database | Microsoft Docs 
-description: "Deploy and explore the Azure SQL Database Wingtip SaaS app"
+title: Deploy and explore the multi-tenant Wingtip SaaS application that uses Azure SQL Database | Microsoft Docs 
+description: "Deploy and explore the Wingtip SaaS multi-tenant application, that demonstrates SaaS patterns using Azure SQL Database."
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,11 +19,11 @@ ms.date: 05/19/2017
 ms.author: sstein
 
 ---
-# Deploy and explore a multi-tenant SaaS application that uses Azure SQL Database
+# Deploy and explore the multi-tenant Wingtip SaaS application that uses Azure SQL Database
 
-In this tutorial, you deploy and explore the Wingtip SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that enable SaaS scenarios, and SaaS design and management patterns.
+In this tutorial, you deploy and explore the Wingtip SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that simplify enable SaaS scenarios, and SaaS design and management patterns.
 
-Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to inspect and work with the individual application components.
+Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to explore and work with the individual application components.
 
 Scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo.
 
@@ -38,7 +38,7 @@ In this tutorial you learn:
 > * How to view pool utilization to monitor tenant activity
 > * How to delete sample resources to stop related billing
 
-To explore various SaaS design and management patterns, a [series of related tutorials](sql-database-wtp-overview.md) is available that build upon this initial deployment. While going through the tutorials, dive into the provided scripts, and examine how the different SaaS patterns are implemented. Step through the scripts in each tutorial to gain a deeper understanding how to implement the many SQL Database features that simplify developing SaaS applications.
+To explore various SaaS design and management patterns, a [series of related tutorials](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) is available that build upon this initial deployment. While going through the tutorials, dive into the provided scripts, and examine how the different SaaS patterns are implemented. Step through the scripts in each tutorial to gain a deeper understanding how to implement the many SQL Database features that simplify developing SaaS applications.
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
@@ -72,7 +72,7 @@ Deploy the Wingtip SaaS app in less than five minutes:
 
    ![deployment succeeded](media/sql-database-saas-tutorial/succeeded.png)
 
-## Explore the application
+## Run the application
 
 The app showcases venues, such as concert halls, jazz clubs, sports clubs, that host events. Venues register as customers (or tenants) of the Wingtip platform, for an easy way to list events and sell tickets. Each venue gets a personalized web app to manage and list their events and sell tickets, independent and isolated from other tenants. Under the covers, each tenant gets a SQL database deployed into a SQL Elastic pool.
 
@@ -173,7 +173,7 @@ Now try the [Provision and catalog tutorial](sql-database-saas-tutorial-provisio
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip SaaS application deployment](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts)
+* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
