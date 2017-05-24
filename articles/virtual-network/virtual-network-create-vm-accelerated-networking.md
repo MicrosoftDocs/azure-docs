@@ -314,13 +314,9 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 
    -    In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example: 
 
-        ```
-        #auto eth0
-        ```
- 
-        ```
-        #iface eth0 inet dhcp
-        ```
+           - #auto eth0
+           - #iface eth0 inet dhcp
+      
 10. Hold down the **Ctrl+X** keys, enter **Y**, then press the **Enter** key to save the file.
 11. Restart the VM by entering the `sudo shutdown -r now` command.
 12. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
