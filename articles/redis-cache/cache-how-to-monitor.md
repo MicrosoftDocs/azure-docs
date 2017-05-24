@@ -30,7 +30,7 @@ To view Redis metrics and create custom charts using Azure Monitor, click **Metr
 
 ![Redis metrics](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 
+For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
@@ -44,10 +44,10 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../monitorin
 >
 >
 
-To access your metrics, you can view them in the azure portal, and you can also access them using the [Azure Monitor Metrics REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+To access your metrics, you can view them in the Azure portal as previously described in this article, and you can also access them using the [Azure Monitor Metrics REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
 > [!NOTE]
-> Only metrics that are stored in the selected storage account are displayed in the Azure portal. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
+> Only metrics that are stored in the selected storage account are available for display and retrieval. If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the Azure portal.  
 > 
 > 
 
@@ -103,64 +103,34 @@ By default each chart includes the top-level cache performance counter as well a
 
 For more information on the available performance counters, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-## Operations and alerts
-The **Operations** section on the **Redis Cache** blade has **Events** and **Alert rules** sections.
+<a name="operations-and-alerts"></a>
+## Alerts
+You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
 
-![Oeprations][redis-cache-operations-events]
+* Send an email notification
+* Call a webhook
+* Invoke an Azure Logic App
 
-To see a list of recent cache operations, click the **Events** chart to display the **Events** blade. Examples of operations include retrieving and regenerating access keys, and the activation and resolution of alert rules. For more information about each event, click the event in the **Events** blade.
+To configure Alert rules for your cache, click **Alert rules** from the **Resource menu**.
 
-For more information on events, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md).
+![Monitoring](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-The **Alert rules** section displays the count of alerts for the cache instance. An alert rule enables you to monitor your cache instance and receive an email whenever a certain metric value reaches the threshold defined in the rule. 
+For more information about configuring and using Alerts, see [Overview of Alerts](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Alert rules are evaluated approximately every five minutes, and when an alert rule is activated, any configured notifications are sent. Alert rule activations and notifications are not processed instantaneously; there may be a delay of several minutes before an alert rule is activated and notifications sent.
-
-Alert rules can be viewed and set from the **Metric** blade for a specific monitoring chart, or from the **Alert rules** blade.
-
-Alert rules have the following properties.
-
-| Alert rule property | Description |
-| --- | --- |
-| Resource |The resource evaluated by the alert rule. When creating an alert rule from a Redis cache, the cache is the resource. |
-| Name |Name that uniquely identifies the alert rule within the current cache instance. |
-| Description |Optional description of the alert rule. |
-| Metric |The metric to be monitored by the alert rule. For a list of cache metrics, see Available metrics and reporting intervals. |
-| Condition |The condition operator for the alert rule. Possible choices are: greater than, greater than or equal to, less than, less than or equal to |
-| Threshold |The value used to compare with the metric using the operator specified by the condition property. Depending on the metric, this value may be in bytes/second, bytes, %, or count. |
-| Period |Specifies the period over which the average value of the metric is used for the alert rule comparison. For example, if the period is Over the last hour, the average value of the metric over the previous hour interval is used for the comparison. If you want to be notified when the threshold is met due to a spike in activity, then a shorter period is appropriate. To be notified when there is sustained activity above the threshold, use a longer period. |
-| Email service and co-administrators |When true, the service administrator and co-administrator are emailed when the alert is activated. |
-| Additional administrator email |Optional email address for an additional administrator to be notified when the alert is activated. |
-
-Only one notification is sent per alert rule activation. Once the threshold for a rule is exceeded and a notification is sent, the rule is not re-evaluated until the metric falls below the threshold. If the metric subsequently exceeds the threshold, the alert is reactivated and a new notification is sent.
-
-To view all of the alert rules for your cache instance, click the **Alert rules** part in the **Redis Cache** blade. To view only the alert rules that use a specific metric, navigate to the **Metric** blade for the chart that contains that metric.
-
-![Alert rules][redis-cache-alert-rules]
-
-To add an alert rule, click **Add alert** from either the **Metric** blade or the **Alert rules** blade. 
-
-Enter the desired rule criteria into the **Add an alert** rule blade and click **OK**. 
-
-![Add alert rule][redis-cache-add-alert]
+## Activity Logs
+Activity logs provide insight into the operations that were performed on your Azure Redis Cache instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Redis Cache instances. 
 
 > [!NOTE]
-> When an alert rule is created by clicking **Add alert** from the **Metric** blade, only the metrics displayed on the chart in that blade appear in the **Metric** drop-down. When an alert rule is created by clicking **Add alert** from the **Alert rules** blade, all cache metrics are available in the **Metric** drop-down.
-> 
-> 
+> Activity logs do not include read (GET) operations.
 
-Once an alert rule is saved it appears on the **Alert rules** blade as well as on the **Metric** blade for any charts that display the metric used in the alert rule. To edit an alert rule, click the name of the alert rule to display the **Edit Rule** blade. From the **Edit Rule** blade you can edit the properties of the rule, delete or disable the alert rule, or re-enable the rule if it was previously disabled.
+You can access activity logs in your API Management service, or access logs of all your Azure resources in Azure Monitor. To view activity logs in your API Management service:
+1. Open the Azure portal.
+2. Go to your API Management service.
+3. Click **Activity log**.
 
-> [!NOTE]
-> Any changes you make to the properties of the rule may take a moment before they are reflected on the **Alert rules** blade or the **Metric** blade.
-> 
-> 
+![Activity logs blade][activity-logs-blade]
 
-When an alert rule is activated, an email is sent depending on the configuration of the alert rule, and an alert icon is displayed in the **Alert rules** part on the **Redis Cache** blade.
-
-An alert rule is considered to be resolved when the alert condition no longer evaluates to true. Once the alert rule condition is resolved, the alert icon is replaced with a check mark. For details on alert activations and resolutions, click the **Events** part on the **Redis Cache** blade to view the events on the **Events** blade.
-
-For more information about alerts in Azure, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+For more information about how to use Metrics, see [Overview of Activity Logs].
 
 ## Metrics on the Redis Cache blade
 The **Redis Cache** blade displays the following categories of metrics.
