@@ -285,21 +285,13 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 
     ```
     wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh
-    ```
-
-    ```
+ 
     chmod +x ./bondvf.sh
-    ```
 
-    ```
     sudo ./bondvf.sh
-    ```
 
-    ```
     sudo mv ~/bondvf.sh /etc/init.d
-    ```
 
-    ```
     sudo update-rc.d bondvf.sh defaults
     ```
 
