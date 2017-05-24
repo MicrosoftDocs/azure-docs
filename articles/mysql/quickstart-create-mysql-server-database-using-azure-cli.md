@@ -116,7 +116,6 @@ Open the command prompt and enter the following:
  mysql> status
 ```
 If everything goes well, the command-line tool should output the following:
-
 ```dos
 C:\Users\v-chenyh>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 Enter password: ***********
@@ -174,11 +173,10 @@ mysql>
 | *Username* | myadmin@mycliserver (Server admin login you previously noted) |
 | *Password* | you can store the admin account password in vault |
 
-![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-3.	Click **Test Connection** to test if all parameters are correctly configured.
-
-4.	Now, you can click the connection just created to successfully connect to the server.
+Click **Test Connection** to test if all parameters are correctly configured.
+Now, you can click the connection just created to successfully connect to the server.
 
 ## Clean up resources
 
