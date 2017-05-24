@@ -39,9 +39,9 @@ The **Monitoring** charts display the following metrics.
 | Monitoring chart | Cache metrics |
 | --- | --- |
 | Hits and Misses |Cache Hits |
-| Cache Misses | |
+|  | Cache Misses |
 | Gets and Sets |Gets |
-| Sets | |
+|  | Sets |
 | Connections |Connected Clients |
 | Total Commands |Total Operations |
 
