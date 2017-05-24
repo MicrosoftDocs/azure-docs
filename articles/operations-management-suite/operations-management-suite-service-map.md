@@ -47,12 +47,12 @@ Service Map agents gather information about all TCP-connected processes on the s
 
 ![Service Map overview](media/oms-service-map/service-map-overview.png)
 
-Machines can be expanded in the map to show the running processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown. The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a server port group, along with other connections to the same port number.
+Machines can be expanded in the map to show the running processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown. The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group, along with other connections to the same port number.
 
 By default, Service Map maps show the last 30 minutes of dependency information. By using the time controls at the upper left, you can query maps for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred). Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
 ## Status badges and border coloring
-Beneath each server in the map can be a list of status badges conveying status information about the server. The badges indicate that there is some relevant information for the server from one of the Operations Management Suite solution integrations. Clicking a badge takes you directly to the details of the status in the right pane. The currently available status badges include Alerts, Changes, Security, and Updates.
+At the bottom of each server in the map can be a list of status badges conveying status information about the server. The badges indicate that there is some relevant information for the server from one of the Operations Management Suite solution integrations. Clicking a badge takes you directly to the details of the status in the right pane. The currently available status badges include Alerts, Changes, Security, and Updates.
 
 Depending on the severity of the status badges, machine node borders can be colored red (critical), yellow (warning), or blue (informational). The color represents the most severe status of any of the status badges. A gray border indicates a node that has no status indicators.
 
@@ -79,19 +79,19 @@ Failed connections are shown in Service Map maps for processes and computers, wi
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding. Failed connections are sometimes harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers being unable to talk after a cloud migration.
 
-## Client groups
-Client groups are boxes on the map that represent client machines that do not have dependency agents. A single client group represents the clients for an individual process.
+## Client Groups
+Client Groups are boxes on the map that represent client machines that do not have Dependency Agents. A single Client Group represents the clients for an individual process.
 
-![Client groups](media/oms-service-map/client-groups.png)
+![Client Groups](media/oms-service-map/client-groups.png)
 
-To see the IP addresses of the servers in a client group, select the group. The contents of the group are listed in the **Client Group Properties** pane.
+To see the IP addresses of the servers in a Client Group, select the group. The contents of the group are listed in the **Client Group Properties** pane.
 
-![Client group properties](media/oms-service-map/client-group-properties.png)
+![Client Group properties](media/oms-service-map/client-group-properties.png)
 
-## Server port groups
-Server port groups are boxes that represent server ports on servers that do not have dependency agents. The box contains the server port and a count of the number of servers with connections to that port. Expand the box to see the individual servers and connections. If there is only one server in the box, the name or IP address is listed.
+## Server Port Groups
+Server Port Groups are boxes that represent server ports on servers that do not have Dependency Agents. The box contains the server port and a count of the number of servers with connections to that port. Expand the box to see the individual servers and connections. If there is only one server in the box, the name or IP address is listed.
 
-![Server port groups](media/oms-service-map/server-port-groups.png)
+![Server Port Groups](media/oms-service-map/server-port-groups.png)
 
 ## Context menu
 Clicking the ellipsis (...) at the top right of any server displays the context menu for that server.
