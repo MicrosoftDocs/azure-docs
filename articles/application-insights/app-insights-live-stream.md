@@ -36,12 +36,14 @@ Live Metrics Stream is currently available on ASP.NET apps running on-premises o
 
 ## Get started
 
-1. If you haven't yet [installed Application Insights](app-insights-asp-net.md) in your ASP.NET web app or [Windows server app](app-insights-windows-services), do that now. 
+1. If you haven't yet [installed Application Insights](app-insights-asp-net.md) in your ASP.NET web app or [Windows server app](app-insights-windows-services.md), do that now. 
 2. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, check **Include prerelease**, and select all the Microsoft.ApplicationInsights.* packages.
 
     Redeploy your app.
 
 3. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
+
+4. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
 
 ![In the Overview blade, click Live Stream](./media/app-insights-live-stream/live-stream-2.png)
@@ -60,7 +62,7 @@ Check the [outgoing ports for Live Metrics Stream](app-insights-ip-addresses.md#
 |On demand|Data is streamed while you open Live Metrics|Data is sent whenever the SDK is installed and enabled|
 |Free|There is no charge for Live Stream data|Subject to [pricing](app-insights-pricing.md)
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](app-insights-api-filtering-sampling.md)|
-|Control channel|Filter control signals are sent to the SDK|Communication is one-way, to the portal|
+|Control channel|Filter control signals are sent to the SDK. We recommend you [secure this channel](#secure-channel).|Communication is one-way, to the portal|
 
 
 ## Select and filter your metrics
@@ -103,7 +105,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 ## SDK Requirements
 Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Remember to select "Include Prerelease" option from NuGet package manager.
 
-## Secure Channel
+## Secure the control channel
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
 
