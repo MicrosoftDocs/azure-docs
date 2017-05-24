@@ -154,6 +154,12 @@ The following are errors or problems commonly encountered when using Git to publ
       OR
   * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
+**Symptom** : error: RPC failed; HTTP 502 curl 22 The requested URL returned error: 502 Bad Gateway fatal: The remote end hung up unexpectedly fatal: The remote end hung up unexpectedly
+
+**Cause**: This error occur if your git http.postBuffer is low 
+
+**Resolution**: Increase http.postBuffer size by running this git config --global http.postBuffer 524299000 command
+
 ## Additional Resources
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
