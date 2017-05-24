@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
+ms.custom: aaddev
 
 ---
 # How Azure Active Directory uses the SAML protocol

@@ -15,6 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
 ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # Add sign-in to a Node.js web app
