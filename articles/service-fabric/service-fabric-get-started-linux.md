@@ -181,7 +181,7 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 
 1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
 2. To install the Service Fabric plugin, choose **Help > Install New Software...**
-3. In the "Work with" textbox, enter: http://dl.microsoft.com/eclipse/azure/servicefabric
+3. In the "Work with" textbox, enter: http://dl.microsoft.com/eclipse
 4. Click Add.
 
     ![Eclipse plugin][sf-eclipse-plugin]
