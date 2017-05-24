@@ -20,7 +20,7 @@ ms.author: sdanie
 # How to monitor Azure Redis Cache
 Azure Redis Cache uses [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) to provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.
 
-Metrics for Azure Redis Cache instances are collected using the Redis [INFO](http://redis.io/commands/info) command approximately once per minute and automatically stored for 30 days (see [Export cache metrics](#export-cache-metrics) to configure a different retention policy) so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
+Metrics for Azure Redis Cache instances are collected using the Redis [INFO](http://redis.io/commands/info) command approximately twice per minute and automatically stored for 30 days (see [Export cache metrics](#export-cache-metrics) to configure a different retention policy) so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -40,32 +40,12 @@ The **Monitoring** section in the **Overview** blade has **Hits and Misses**, **
 
 ![Monitoring charts][redis-cache-monitoring-part]
 
-The **Monitoring** charts display the following metrics.
-
-| Monitoring chart | Cache metrics |
-| --- | --- |
-| Hits and Misses |Cache Hits |
-| &nbsp; | Cache Misses |
-| Gets and Sets |Gets |
-| &nbsp; | Sets |
-| Connections |Connected Clients |
-| Total Commands |Total Operations |
-
 ### Usage charts
 The **Usage** section in the **Overview** blade has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
 
 ![Usage charts][redis-cache-usage-part]
 
 The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
-
-The **Usage** charts display the following metrics.
-
-| Usage chart | Cache metrics |
-| --- | --- |
-| Redis Server Load |Server Load |
-| Memory Usage |Used Memory |
-| Network Bandwidth |Cache Write |
-| CPU Usage |CPU |
 
 ## View metrics with Azure monitor
 To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
