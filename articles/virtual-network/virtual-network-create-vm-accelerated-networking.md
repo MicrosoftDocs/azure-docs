@@ -309,9 +309,10 @@ Once you create the VM in Azure, you must install the accelerated networking dri
     ```
     sudo nano /etc/network/interfaces.d/50-cloud-init.cfg
     ```
+    
        Opens the GNU nano editor to edit the file. 
 
--    In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example: 
+   -    In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example: 
 
         ```
         #auto eth0
