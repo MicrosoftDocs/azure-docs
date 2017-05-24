@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2017
 ms.author: skwan;bryanla
+ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 authentication libraries
