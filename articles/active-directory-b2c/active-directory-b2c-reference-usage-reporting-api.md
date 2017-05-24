@@ -1,5 +1,5 @@
 ---
-title: Azure AD B2C Usage Reporting API Samples and Definitions| Microsoft Docs
+title: 'Azure Active Directory B2C: Usage Reporting API Samples and Definitions | Microsoft Docs'
 description: Guide and sample on how to get reports on B2C Tenant users, authentications, and MFA.
 services: active-directory-b2c
 documentationcenter: dev-center-name
@@ -33,7 +33,7 @@ Before you get started, you need to complete the [Prerequisites to access the Az
 ## PowerShell script
 This script demonstrates the four usage reports using the **TimeStamp** parameter and the **-ApplicationId** filter.
 
-```
+```powershell
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
@@ -100,7 +100,8 @@ if ($oauth.access_token -ne $null) {
  * TotalUserCount = Count of all user objects
  * OtherUserCount = # of AAD Directory users (non-B2C users)
  * LocalUserCount = # of B2C user accounts created with credentials local to the B2C Tenant
- * AlternateIdUserCount** = # of B2C users registered with external Identity providers (for example, facebook, Microsoft Account, other AAD tenants - aka OrgId)
+
+**AlternateIdUserCount** = # of B2C users registered with external Identity providers (for example, facebook, Microsoft Account, other AAD tenants - aka OrgId)
 
 **b2cAuthenticationCountSummary** – Sum the daily count of billable authentications over the last 30 days by day and by type of authentication flow
 
@@ -118,10 +119,10 @@ if ($oauth.access_token -ne $null) {
 
 ## Next steps
 ### Estimating your Azure AD monthly bill.
-When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful as you plan changes in tenant behavior which may impact overall cost.  Actual costs can be reviewed under your [linked Azure Subscription.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-how-to-enable-billing)
+When combined with [the most current Azure AD B2C pricing available](https://azure.microsoft.com/pricing/details/active-directory-b2c/), you can estimate daily, weekly, and monthly Azure consumption.  An estimate is especially useful as you plan changes in tenant behavior which may impact overall cost.  Actual costs can be reviewed under your [linked Azure Subscription.](active-directory-b2c-how-to-enable-billing.md)
 
 ### Options for other output formats
-```
+```powershell
 # to output to JSON use following line in the PowerShell sample
 $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
 
@@ -131,9 +132,3 @@ $myReport.Content | Out-File -FilePath b2cUserJourneySummaryEvents.json -Force
 # to output the content in XML use the following line
 (($myReport.Content | ConvertFrom-Json).value | ConvertTo-Xml).InnerXml | Out-File -FilePath name-your-file.xml -Force
 ```
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    

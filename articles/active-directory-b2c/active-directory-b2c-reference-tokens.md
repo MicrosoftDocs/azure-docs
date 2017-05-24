@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: 'Azure Active Directory B2C: Token Reference | Microsoft Docs'
 description: The types of tokens issued in the Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''

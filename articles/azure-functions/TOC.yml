@@ -75,8 +75,10 @@
     href: functions-monitoring.md
   - name: Install Functions Runtime
     href: functions-runtime-install.md
-  - name: Open API 2.0
-    href: functions-api-definition.md     
+  - name: Connect to SQL Database
+    href: functions-scenario-database-table-cleanup.md
+  - name: Create an Open API 2.0 definition
+    href: functions-api-definition-getting-started.md     
   - name: Best practices for Azure Functions
     href: functions-best-practices.md     
 - name: Reference
@@ -113,6 +115,8 @@
       href: functions-bindings-timer.md
     - name: Twilio output binding
       href: functions-bindings-twilio.md
+  - name: OpenAPI Reference
+    href: functions-api-definition.md     
 - name: Resources
   items:
   - name: Pricing
