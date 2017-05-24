@@ -3,7 +3,7 @@ title: Manage pricing and data volume for Azure Application Insights | Microsoft
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 
 ---
 # Manage pricing and data volume in Application Insights
@@ -44,6 +44,7 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 ### Enterprise plan
 
 * In the Enterprise plan, your app can use all the features of Application Insights. [Continuous Export](app-insights-export-telemetry.md) and 
+
 [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) are available without any extra charge in the Enterprise plan.
 * You pay per node that is sending telemetry for any apps in the Enterprise plan. 
  * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
@@ -76,7 +77,15 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 There's an additional charge for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). This refers to web tests that perform a sequence of actions. 
 
 There is no separate charge for 'ping tests' of a single page. Telemetry from both ping tests and multi-step tests is charged along with other telemetry from your app.
+ 
+### Azure Application Insights Enterprise as part of Operations Management Suite subscription
 
+As [recently announced](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), customers who purchase Microsoft Operations Management Suite E1 and E2 are able to get Application Insights Enterprise as an additional component at no additional cost. Specifically, each unit of Operations Management Suite E1 and E2 includes an entitlement to 1 node of the Enterprise tier of Application Insights. Each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no additional cost. 
+
+> [!NOTE]
+> To ensure that you get this entitlement, you must have your Application Insights resources in the Enterprise pricing plan.  
+>
+ 
 ## Review pricing plan and estimate costs for your Application Insights resource
 Open the Features + Pricing blade in the Application Insights resource for your application.
 

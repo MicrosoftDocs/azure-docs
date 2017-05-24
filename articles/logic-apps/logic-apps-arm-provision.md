@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
-ms.author: mandia
+ms.author: LADocs; mandia
 
 ---
 # Create a Logic App using a template

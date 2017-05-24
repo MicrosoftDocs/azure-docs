@@ -3,8 +3,8 @@ title: Develop for Azure File Storage with C++ | Microsoft Docs
 description: Learn how to develop C++ applications and services that use Azure File Storage to store file data.
 services: storage
 documentationcenter: .net
-author: seguler
-manager: jahogg
+author: renashahmsft
+manager: aungoo
 editor: tysonn
 
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: renashahmsft
 ---
 
 # Develop for Azure File Storage with C++

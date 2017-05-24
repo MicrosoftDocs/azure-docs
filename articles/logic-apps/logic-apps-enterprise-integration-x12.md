@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: cgronlun
+editor: 
 
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 
 ---
 # Exchange X12 messages for enterprise integration with logic apps
@@ -339,6 +339,9 @@ and return to your integration account blade.
 On your integration account blade, choose **Overview**, then select the **Agreements** tile.
 
 	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+
+## View the swagger
+See the [swagger details](/connectors/x12/). 
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
