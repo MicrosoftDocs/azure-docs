@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 05/24/2017
 ms.author: vvasic
 
 ---
@@ -60,25 +60,35 @@ To enable metrics and diagnostics logging using PowerShell, use the following co
 
 - To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
-    ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   ```
 
    The Storage Account ID is the resource id for the storage account to which you want to send the logs.
 
 - To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
-    ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   ```
 
    The Service Bus Rule ID is a string with this format:
 
-    ```{service bus resource ID}/authorizationrules/{key name}``` 
+   ```powershell
+   {service bus resource ID}/authorizationrules/{key name}
+   ``` 
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-    ```Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   ```
 
 - You can obtain the resource id of your Log Analytics workspace using the following command:
 
-    ```(Get-AzureRmOperationalInsightsWorkspace).ResourceId```
+   ```powershell
+   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   ```
 
 You can combine these parameters to enable multiple output options.
 
@@ -88,21 +98,29 @@ To enable metrics and diagnostics logging using the Azure CLI, use the following
 
 - To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
-    ```azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true```
+   ```azurecli
+   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   ```
 
    The Storage Account ID is the resource id for the storage account to which you want to send the logs.
 
 - To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
-    ```azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true```
+   ```azurecli
+   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   ```
 
    The Service Bus Rule ID is a string with this format:
 
-    ```{service bus resource ID}/authorizationrules/{key name}```
+   ```azurecli
+   {service bus resource ID}/authorizationrules/{key name}
+   ```
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-    ```azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true```
+   ```azurecli
+   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   ```
 
 You can combine these parameters to enable multiple output options.
 
@@ -114,7 +132,7 @@ Read about how to [change Diagnostic settings using the Azure Monitor REST API](
 
 Read about how to [enable Diagnostic settings at resource creation using Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
-## Streaming into Log Analytics 
+## Stream into Log Analytics 
 Azure SQL Database metrics and diagnostic logs can be streamed into Log Analytics using the built-in “Send to Log Analytics” option in the portal, or by enabling Log Analytics in a diagnostic setting via Azure PowerShell cmdlets, Azure CLI, or Azure Monitor REST API.
 
 ### Installation overview
@@ -176,25 +194,27 @@ Azure SQL Database metrics and diagnostic logs can be stored into Azure Storage 
 
 Once you have set up metrics and diagnostic logs collection, a storage container is created in the storage account you selected when the first rows of data are available. The structure of these blobs is:
 
-    ```
-    insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
-    ```
+```powershell
+insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ databases/{database_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+    
 Or, more simply:
 
-    ```
-    insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
-    ```
+```powershell
+insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+
 For example, a blob name for 1-minute metrics might be:
 
-   ```
-   insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-   ```
+```powershell
+insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
 
 In case you want to record the data from the Elastic Pool, blob name is a bit different:
 
-    ```
-    insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
-    ```
+```powershell
+insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
 
 ### Download metrics and logs from Azure storage
 
