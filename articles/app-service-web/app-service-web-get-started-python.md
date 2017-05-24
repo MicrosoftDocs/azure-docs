@@ -105,9 +105,6 @@ az group create --name myResourceGroup --location westeurope
 
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
-<!--
- An App Service plan represents the collection of physical resources used to ..
--->
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 The following example creates an App Service Plan named `quickStartPlan` using the **FREE** pricing tier.
