@@ -15,30 +15,42 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: bbenz
 ---
+
 # Build a Java and MySQL web app in Azure
-This tutorial shows you how to create a Java web app in Azure that connects to a MySQL database. 
-The first step is to clone an application to your local machine, and have it work with a local MySQL instance.
-The next step is to set up Azure services for the Java app and MySQL, then deploy the application to an Azure appservice.
-When you are finished, you will have a to-do list application running on Azure and connecting to the Azure MySQL database service.
+
+This tutorial shows you how to create a Java web app in Azure and connect it to a MySQL database. 
+When you are finished, you will have a Spring Boot to-do list application storing data in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) running on [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a MySQL database in Azure
+> * Connect a sample app to the MySQL database
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Monitor the app in the Azure portal
+
 
 ## Before you begin
 Before running this sample, install the following prerequisites locally:
 
-1. [Download and install git](https://git-scm.com/)
-1. [Download and install Java 7 or above](http://Java.net/downloads.Java)
-1. [Download and install Maven](https://maven.apache.org/download.cgi)
-1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Download and install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+1. [Git](https://git-scm.com/)
+1. [Java 7 or above](http://Java.net/downloads.Java)
+1. [Maven](https://maven.apache.org/download.cgi)
+1. [MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+1. [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL database
 
-In this step, you create a database in a local MySQL server for your use in this tutorial.
+In this step, you create a database in a local MySQL server for use in testing the app locally on your machine.
 
 ### Connect to MySQL server
+
 Connect to your local MySQL server from the command line:
 
 ```bash
@@ -55,9 +67,7 @@ If you're prompted for a password, enter the password for the `root` account. If
 In the `mysql` prompt, create a database and a table for the to-do items.
 
 ```sql
-CREATE DATABASE todoItemDb;
-USE todoItemDb;
-CREATE TABLE ITEMS ( id varchar(255), name varchar(255), category varchar(255), complete bool);
+CREATE DATABASE tododb;
 ```
 
 Exit your server connection by typing `quit`.
@@ -66,65 +76,50 @@ Exit your server connection by typing `quit`.
 quit
 ```
 
-## Create local Java application
+## Create and run the sample app 
+
 In this step, you clone a GitHub repo, configure the MySQL database connection, and run the app locally. 
 
 ### Clone the sample
 
-From the command prompt, navigate to a working directory.  
-
-Run the following commands to clone the sample repository. 
+From the command prompt, navigate to a working directory and clone the sample repository. 
 
 ```bash
-git clone https://github.com/bbenz/azure-mysql-java-todo-app
+git clone https://github.com/Azure-Samples/azure-mysql-java-todo-app
 ```
 
-Next, set up lombok.jar by following the steps in the repo's readme.
+### Configure MySQL
 
-
-### Configure MySQL connection
-
-This application uses the Maven Jetty plugin to run the application locally and connect to the MySQL database.
-To enable access to the local MySQL instance, Set your local MySQL user ID and password in WebContent/WEB-INF/jetty-env.xml.
-
-Update the User and Password values with your local MySQL instance's user ID and password:
+Update the application.properties file in `src/main/resources` with your the same MySQL password used when logging into to create the database:
 
 ```
-<Configure id='wac' class="org.eclipse.jetty.webapp.WebAppContext">
-  <New id="itemdb" class="org.eclipse.jetty.plus.jndi.Resource">
-     <Arg></Arg>
-     <Arg>jdbc/todoItemDb</Arg>
-     <Arg>
-        <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-           <Set name="Url">jdbc:mysql://localhost:3306/itemdb</Set>
-           <Set name="User">root</Set>
-           <Set name="Password"></Set>
-        </New>
-     </Arg>
-    </New>
-</Configure>
-
+spring.datasource.password=mysqlpass
 ```
 
-> [!NOTE]
-> For information on how Jetty uses the `jetty-env.xml` file, see the [Jetty XML Reference](http://www.eclipse.org/jetty/documentation/9.4.x/jetty-env-xml.html).
+### Build and run the sample
 
-### Run the sample
+Build the sample using the Maven wrapper included in the repo, then run the executable jar from the command line to start the sample:
 
-Use a Maven command to run the sample: 
-
-```bash
-mvn package jetty:run
+```
+mvnw package 
+java -jar target/TodoDemo-0.0.1-SNAPSHOT.jar
 ```
 
-Next, navigate to `http://localhost:8080` in a browser. Add a few tasks in the page.
+Open your browser to [http://localhost:8080](http://localhost:8080) the sample app. Add a few tasks in the page. You can view the updates in the MySQL database as you work in the sample using the folloowing commands:
 
-To stop the application at any time, type `Ctrl`+`C` at the command prompt. 
+```SQL
+use testdb;
+select * from todo_item;
+```
 
-## Create an Azure Database for MySQL
-In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md). Later, you will configure your Java application to connect to this database.
+Stop the application by hitting `Ctrl`+`C` in the command prompt. 
+
+## Create an MySQL database in Azure
+
+In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance. You will configure the Java application to connect to this database in a later step in the tutorial.
 
 ### Log in to Azure
+
 Use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Java application in Azure appservice. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
 ```azurecli 
@@ -132,9 +127,9 @@ az login
 ``` 
 
 ### Create a resource group
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container where related resources like web apps, databases, and storage accounts are deployed and managed. 
 
-The following example creates a resource group in the North Europe region:
+Create a resource group for the sample in the North Europe region:
 
 ```azurecli
 az group create --name myResourceGroup  --location "North Europe"
@@ -162,7 +157,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysql_server_name",
   "location": "northeurope",
   "name": "mysql_server_name",
-  "resourceGroup": "myResourceGroup",
+  "resourceGroup": "mysqlJavaResourceGroup",
   ...
 }
 ```
@@ -176,11 +171,11 @@ az mysql server firewall-rule create --name allIPs --server mysql_server_name --
 ```
 
 > [!NOTE]
-> Azure Database for MySQL (Preview) does not presently enable connections from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses for now. As the service is in preview, better methods for securing your database will be enabled soon.
+> Azure Database for MySQL (Preview) does not currently automatically enable connections from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses for now. As the service continues its preview, better methods for securing your database will be enabled.
 
 ### Connect to the MySQL server
 
-In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for `<admin_user>` and `<mysql_server_name>`.
+In the terminal window on your computer, connect to the MySQL server in Azure. Use the value you specified previously for `<admin_user>` and `<mysql_server_name>`.
 
 ```bash
 mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
@@ -191,14 +186,12 @@ mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.
 In the `mysql` prompt, create a database and a table for the to-do items.
 
 ```sql
-CREATE DATABASE todoItemDb;
-USE todoItemDb;
-CREATE TABLE ITEMS ( id varchar(255), name varchar(255), category varchar(255), complete bool);
+CREATE DATABASE tododb;
 ```
 
 ### Create a user with permissions
 
-Create a database user and give it all privileges in the `todoItemDb` database. Replace the placeholders `<Javaapp_user>` and `<Javaapp_password>` with your own unique app name.
+Create a database user and give it all privileges in the `tododb` database. Replace the placeholders `<Javaapp_user>` and `<Javaapp_password>` with your own unique app name.
 
 ```sql
 CREATE USER '<Javaapp_user>' IDENTIFIED BY '<Javaapp_password>'; 
@@ -211,58 +204,47 @@ Exit your server connection by typing `quit`.
 quit
 ```
 
-### Configure the local MySQL connection with the new Azure Database for MySQL service
+### Configure the sample to use the Azure Database for MySQL database
+
 In this step, you connect your Java application to the MySQL database you created in Azure Database for MySQL. 
 
-To enable access from the local application to the Azure MySQL service, Set your new MySQL endpoint, user ID, and password in WebContent/WEB-INF/jetty-env.xml:
+Update the application.properties file in `src/main/resources` with your database URL in Azure and the  username and password you created in the previous step.
 
 ```
-<Configure id='wac' class="org.eclipse.jetty.webapp.WebAppContext">
-  <New id="itemdb" class="org.eclipse.jetty.plus.jndi.Resource">
-     <Arg></Arg>
-     <Arg>jdbc/todoItemDb</Arg>
-     <Arg>
-        <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-           <Set name="Url">jdbc:mysql:<mysql_server_name>.mysql.database.azure.com/itemdb</Set>
-           <Set name="User">Javaapp_user@mysql_server_name</Set>
-           <Set name="Password">Azure MySQL Password</Set>
-        </New>
-     </Arg>
-    </New>
-</Configure>
+spring.datasource.url=jdbc:mysql://<mysql_server_name>.mysql.database.azure.com/tododb
+spring.datasource.username=Javaapp_user
+spring.datasource.password=Javaapp_password
 ```
-
-Save your changes.
 
 ## Test the application
 
-Use the same maven command as before to run the sample locally again, but this time connecting to the Azure Database for MySQL service: 
+Use the same commands as before to run the sample. This time the app will store the todo items in the Azure Database for MySQL service: 
 
 ```bash
-mvn package jetty:run
+mvnw package 
+java -jar target/TodoDemo-0.0.1-SNAPSHOT.jar
 ```
 
-Navigate to `http://localhost:8080` in a browser. If the page loads without errors, then your Java application is connecting to the MySQL database in Azure. 
+Open your browser to [http://localhost:8080](http://localhost:8080) to load the sample app. Add a few tasks in the page. 
 
-You should not have Add a few tasks in the page.
-
-To stop the application at any time, type `Ctrl`+`C` in the terminal. 
+Stop the application by hitting `Ctrl`+`C` in the command prompt.  
 
 ### Secure sensitive data
 
-Make sure that the sensitive data in `WebContent/WEB-INF/jetty-env.xml` is not committed into Git.
+Make sure that the sensitive data in `src/main/resources/application.properties` is not committed in Git.
 
-To do this, open `.gitignore` from the repository root and add `WebContent/WEB-INF/jetty-env.xml` in a new line. Save your changes.
+To do this, open `.gitignore` from the repository root and add `src/main/resources/application.properties` in a new line. Save your changes.
 
 Commit your changes to `.gitignore`.
 
 ```bash
 git add .gitignore
-git commit -m "keep sensitive data in WebContent/WEB-INF/jetty-env.xml out of git"
+git commit -m "keep sensitive data out of the repo"
 ```
 
 ## Deploy the Java application to Azure
-Next we deploy the Java application to an Azure appservice.
+
+Next we deploy the Java application to an Azure.
 
 ### Create an appservice plan
 
@@ -345,6 +327,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 ```
 
 ### Set the Java version, the Java Application Server type, and the Application Server version
+
 Set the Java version, Java App Server (container), and container version by using the [az appservice web config update](/cli/azure/appservice/web/config#update) command.
 
 The following command sets the Java version to 8, the Java App Server to Jetty, and the Jetty version to Newest Jetty 9.3.
@@ -352,7 +335,6 @@ The following command sets the Java version to 8, the Java App Server to Jetty, 
 ```azurecli
 az appservice web config update --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Jetty --java-container-version 9.3
 ```
-
 
 ### Get credentials for deployment to the Web App using FTP 
 You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
