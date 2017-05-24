@@ -94,13 +94,13 @@ In a production environment, you would typically create a CNAME DNS record to [
 
 ## Get the Wingtip SaaS application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure. For details, see [Download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 After you deploy the Wingtip SaaS app, you must update the user configuration file. Update the variables with the specific values from your deployment:
 
    1. Open ...\\Learning Modules\\*UserConfig.psm1* in the *PowerShell ISE*
    1. Modify _$userConfig.ResourceGroupName_ to the _resource group_ you set when you deployed the app.
-   1. Modify _$userConfig.Name_ to the _User_ name you set when you deployed app.
+   1. Modify _$userConfig.Name_ to the _User_ name you set when you deployed the app.
 
 ## Provision a new tenant
 
