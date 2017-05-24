@@ -11,9 +11,9 @@ ms.date: 05/24/2017
 
 Before Azure Key Vault Storage Account Keys, developers had to manage thier own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Azure Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) and are for authenticating with an Azure storage account. 
 
-Also, Key Vault ASA keys are not restricted to be only used with Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key. *(BRP - Such as?)*
+Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key. *(BRP - Such as?)*
 
-The Key Vault ASA key feature adds value through managing secret rotation for you and at the same time removing the need for direct contact with your Azure Storage Account key by offering shared access signatures (SAS) as a method. 
+The Key Vault ASA key feature adds value through managing secret rotation for you. It also removes the need for your direct contact with an Azure Storage Account key by offering shared access signatures (SAS) as a method. 
 
 For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -44,16 +44,16 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If Sas token is about the expire then Get sastoken again from Key Vault //.... 
+// If Sas token is about to expire then Get sastoken again from Key Vault //.... 
  
 // and update the accountSasCredential accountSasCredential.UpdateSASToken(sasToken); 
  ```
 
 
 
-## What Key Vault mandages
+## What Key Vault manages
 
-Key Vault preforms a number of internal management functions on your behalf when you use Storage Account Keys.
+Key Vault performs several internal management functions on your behalf when you use Storage Account Keys.
 
 1. Azure Key Vault manages keys of an Azure Storage Account (SAS). 
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
@@ -83,8 +83,8 @@ A SAS definition name must be 1-102 characters in length containing only 0-9, a-
 
 ### Developer best practices 
 
-1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as this will interfer. 
-2. ASA keys must not be managed by more than one key vault object. 
+1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management will interfere with Key Vault's processes. 
+2. Do not allow ASA keys to be managed by more than one key vault object. 
 3. If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
 
 
