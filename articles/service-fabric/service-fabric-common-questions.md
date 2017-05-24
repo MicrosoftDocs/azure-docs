@@ -79,7 +79,7 @@ While we're working on an improved experience, today, you are responsible for th
 
 ## Container Support
 
-### Why are my containers that are deployed to SF are unable to resolve DNS addresses?
+### Why are my containers that are deployed to SF unable to resolve DNS addresses?
 
 This issue has been reported on clusters that are on 5.6.204.9494 version 
 
