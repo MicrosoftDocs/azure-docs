@@ -16,7 +16,8 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 
----3
+---
+
 # Tutorial: Build your first Azure data factory using Azure portal
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
@@ -27,12 +28,14 @@ ms.author: spelluru
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-In this article, you learn how to use the [Azure portal](https://portal.azure.com/) to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list. 
+In this article, you learn how to use [Azure portal](https://portal.azure.com/) to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list. 
+
+The pipeline in this tutorial has one activity: **HDInsight Hive activity**. This activity runs a hive script on an Azure HDInsight cluster that transforms input data to produce output data. The pipeline is scheduled to run once a month between the specified start and end times. 
 
 > [!NOTE]
-> The data pipeline in this tutorial transforms input data to produce output data. It does not copy data from a source data store to a destination data store. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> The data pipeline in this tutorial transforms input data to produce output data. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> This tutorial uses only one activity of type: Copy. A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+> A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## Prerequisites
 1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.

@@ -36,7 +36,7 @@ sections:
     - image: 
         src: media/index/http.svg
       text: HTTP
-      href: /azure/azure-functions/functions-create-an-azure-connected-function
+      href: /azure/azure-functions/functions-create-first-azure-function
     - image: 
         src: media/index/stopwatch.svg
       text: Timer
@@ -77,3 +77,5 @@ sections:
     items:
     - title: Command-Line
       html: <p><a href="/cli/azure">Azure CLI</a></p>
+    - title: Bindings 
+      html: <p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB bindings</p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio output binding</p>

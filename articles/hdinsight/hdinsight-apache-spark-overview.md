@@ -26,8 +26,6 @@ This article provides you with an introduction to Spark on HDInsight. <a href="h
 
 When you create a Spark cluster on HDInsight, you create Azure compute resources with Spark installed and configured. It only takes about ten minutes to create a Spark cluster in HDInsight. The data to be processed is stored in Azure Storage or Azure Data Lake Store. See [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-![What is Apache Spark on HDInsight?](./media/hdinsight-apache-spark-overview/hdinsight-introduction-to-spark.png "Introduction to Spark on HDInsight")
-
 **To create a Spark cluster on HDInsight**, see [QuickStart: create a Spark cluster on HDInsight and run interactive query using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 
