@@ -28,7 +28,7 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall (preview), cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
