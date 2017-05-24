@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc; ladocs
+ms.author: LADocs; padmavc
 
 ---
 
@@ -82,7 +82,8 @@ The Decode EDIFACT connector performs these tasks:
 
 * Validates the envelope against trading partner agreement.
 * Resolves the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier.
-* Splits multiple interchanges in a single message into separate.
+* Splits an interchange into multiple transactions when the interchange has 
+more than one transaction based on the agreement's receive settings configuration.
 * Disassembles the interchange.
 * Validates EDI and partner-specific properties including:
   * Validation of the interchange envelope structure
@@ -114,8 +115,8 @@ The Decode EDIFACT connector performs these tasks:
   * A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
   * A functional acknowledgment acknowledges accept or reject a received interchange or a group
 
-## View the swagger
-See the [swagger details](/connectors/edifact/). 
+## View Swagger file
+To view the Swagger details for the EDIFACT connector, see [EDIFACT](/connectors/edifact/).
 
 ## Next steps
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 

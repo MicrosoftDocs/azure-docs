@@ -1,6 +1,6 @@
 ---
-title: Setup and run log analytics (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Setup and use Log Analytics with the WTP sample SaaS app"
+title: Use Log Analytics with a SQL Database multi-tenant app | Microsoft Docs 
+description: "Setup and use Log Analytics (OMS) with the Azure SQL Database sample Wingtip Tickets (WTP) app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -129,6 +129,6 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

@@ -1,25 +1,10 @@
 ---
-title: 'Azure Cosmos DB portal tool: Query Explorer | Microsoft Docs'
-description: Learn about the Azure Cosmos DB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against an Azure Cosmos DB collection.
-keywords: writing sql queries, sql query editor
-services: cosmosdb
-author: kirillg
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: ac378240-b11f-4522-ae9f-09da3a6f9c16
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/10/2017
-ms.author: kirillg
+redirect_url: https://docs.microsoft.com/en-us/azure/cosmos-db/create-documentdb-dotnet
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Write, edit, and run SQL queries for Azure Cosmos DB using Query Explorer in the Azure portal
-This article provides an overview of the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) Query Explorer, an Azure portal tool that enables you to write, edit, and run SQL queries against a [DocumentDB collection](documentdb-create-collection.md).
+This article provides an overview of the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Query Explorer, an Azure portal tool that enables you to write, edit, and run SQL queries against a [DocumentDB collection](documentdb-create-collection.md).
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 

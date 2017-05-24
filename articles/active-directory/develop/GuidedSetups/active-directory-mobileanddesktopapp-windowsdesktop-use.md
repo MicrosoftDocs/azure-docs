@@ -58,10 +58,7 @@ public partial class MainWindow : Window
 
         try
         {
-            if (authResult == null)
-            {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
-            }
+            authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
         }
         catch (MsalUiRequiredException ex)
         {

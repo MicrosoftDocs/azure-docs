@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 05/17/2017
 ms.author: larryfr
 
 ---
@@ -101,7 +101,6 @@ All services publicly exposed on the internet must be authenticated:
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Head nodes |10001 |Thrift |Service for programmatically connecting to Hive (Thrift/JDBC) |
-| HiveServer |Head nodes |10000 |Thrift |Service for programmatically connecting to Hive (Thrift/JDBC) |
 | Hive Metastore |Head nodes |9083 |Thrift |Service for programmatically connecting to Hive metadata (Thrift/JDBC) |
 
 ### WebHCat ports

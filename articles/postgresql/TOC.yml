@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Resources
     items:
-    - name: Service tiers
+    - name: Pricing tiers
       href: concepts-service-tiers.md
-    - name: Compute Units & Storage Units
+    - name: Compute Units
       href: concepts-compute-unit-and-storage.md
     - name: Limits
       href: concepts-limits.md
@@ -90,7 +90,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforPostgreSQL
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Feedback forum

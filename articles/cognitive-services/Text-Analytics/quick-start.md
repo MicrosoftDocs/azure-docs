@@ -1,5 +1,5 @@
 ---
-title: 'Text Analytics Quick Start | Microsoft Docs'
+title: 'Azure Text Analytics Quick Start | Microsoft Docs'
 description: Get information to help you quickly get started using the Text Analytics API in Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 05/16/2017
 ms.author: onewth
 
 ---
@@ -54,14 +54,7 @@ It's easy to detect sentiment, key phrases, and languages in your text. You will
 > 
 > 
 
-The supported languages are as follows:
-
-| Feature | Supported language codes |
-|:--- |:--- |
-| Sentiment |`en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Sentiment (additional preview languages) |`da` (Danish), `de` (German), `el` (Greek), `fi` (Finnish), `it` (Italian), `nl` (Dutch), `no` (Norwegian), `pl` (Polish), `ru` (Russian), `sv` (Swedish), `tr` (Turkish) |
-| Key Phrases |`de` (German), `en` (English), `es` (Spanish), `ja` (Japanese) |
-| Topics |`en` (English) |
+Refer to the [Text Analytics Overview](overview.md#supported-languages) for details of supported languages
 
 1. Set the headers as shown below. JSON is currently the only accepted input format for the APIs. XML is not supported.
    

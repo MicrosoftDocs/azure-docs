@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 05/22/2017
 ms.author: tomfitz
 
 ---
@@ -25,7 +25,7 @@ The resource group is the lifecycle container for the application and its collec
 
 ## Example template
 
-To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you to specify a resource group that is different the resource group used by the parent template. All the resource groups must exist before running the deployment. The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group named `crossResourceGroupDeployment`:
+To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you to specify a different resource group for the nested deployment. All the resource groups must exist before running the deployment. The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group named `crossResourceGroupDeployment`:
 
 ```json
 {
@@ -85,7 +85,7 @@ If you set `resourceGroup` to the name of a resource group that does not exist, 
 
 ## Deploy the template
 
-To deploy the example template, you can use either Azure PowerShell or Azure CLI. You must use a release of Azure PowerShell or Azure CLI from May 2017 or later. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
+To deploy the example template, you can use either Azure PowerShell or Azure CLI. You must use a release of Azure PowerShell or Azure CLI from May 2017 or later. Currently, the portal does not support cross resource group deployment. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
 
 For PowerShell:
 

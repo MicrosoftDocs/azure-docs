@@ -1,5 +1,5 @@
 - name: Windows VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
@@ -37,7 +37,8 @@
     href: tutorial-monitoring.md
   - name: 11 - Manage VM security
     href: tutorial-azure-security.md
-
+  - name: 12 - Team Services CI/CD
+    href: tutorial-vsts-iis-cicd.md
 - name: Samples
   items:
   - name: PowerShell
@@ -157,8 +158,6 @@
       href: download-template.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
-    - name: Manage VMs using PowerShell
-      href: ps-manage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Manage VMs using CLI
@@ -371,6 +370,8 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Restarting or resizing a VM
@@ -381,6 +382,8 @@
       href: allocation-failure.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk to troubleshooting VM
       items:
       - name: Azure PowerShell

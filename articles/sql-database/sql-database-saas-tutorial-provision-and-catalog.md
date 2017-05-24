@@ -1,6 +1,6 @@
 ---
-title: Provision and catalog new tenants (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Provision and catalog new tenants"
+title: Provision new tenants in a multi-tenant app using Azure SQL Database | Microsoft Docs 
+description: "Provision and catalog new tenants in the Wingtip Tickets (WTP) sample SQL Database SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -175,6 +175,6 @@ In this tutorial you learned how to:
 
 ## Additional Resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic database client library](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [How to Debug Scripts in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
