@@ -368,16 +368,16 @@ The Virtual Data Center is an approach to data center migration into the cloud t
  - Develop a Subscription and Resource management model and your RBAC model
 
 <!--Image References-->
-[0]: ./media/best-practice-vdc/redundant-equipment.png "Examples of component overlap" 
-[1]: ./media/best-practice-vdc/vdc-high-level.png "High-level example of hub and spoke vDC"
-[2]: ./media/best-practice-vdc/hub-spokes-cluster.png "Cluster of hubs and spokes"
-[3]: ./media/best-practice-vdc/spoke-to-spoke.png "Spoke-to-spoke"
-[4]: ./media/best-practice-vdc/vdc-block-level-diagram.png "Block level diagram of the vDC"
-[5]: ./media/best-practice-vdc/users-groups-subsciptions.png "Users, groups, subscriptions, and projects"
-[6]: ./media/best-practice-vdc/infrastructure-high-level.png "High-level infrastructure diagram"
-[7]: ./media/best-practice-vdc/highlevel-perimeter-networks.png "High-level infrastructure diagram"
-[8]: ./media/best-practice-vdc/vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
-[9]: ./media/best-practice-vdc/high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
+[0]: ./media/virtual-network-vdc/redundant-equipment.png "Examples of component overlap" 
+[1]: ./media/virtual-network-vdc/vdc-high-level.png "High-level example of hub and spoke vDC"
+[2]: ./media/virtual-network-vdc/hub-spokes-cluster.png "Cluster of hubs and spokes"
+[3]: ./media/virtual-network-vdc/spoke-to-spoke.png "Spoke-to-spoke"
+[4]: ./media/virtual-network-vdc/vdc-block-level-diagram.png "Block level diagram of the vDC"
+[5]: ./media/virtual-network-vdc/users-groups-subsciptions.png "Users, groups, subscriptions, and projects"
+[6]: ./media/virtual-network-vdc/infrastructure-high-level.png "High-level infrastructure diagram"
+[7]: ./media/virtual-network-vdc/highlevel-perimeter-networks.png "High-level infrastructure diagram"
+[8]: ./media/virtual-network-vdc/vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
+[9]: ./media/virtual-network-vdc/high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
 [10]: ./media/best-practice-vdc/high-level-workloads.png "High-level diagram for Workload"
 
 <!--Link References-->
