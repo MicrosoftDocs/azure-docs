@@ -1,7 +1,7 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-## [About Azure identity management](fundamentals-identity.md)
+## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
@@ -298,6 +298,7 @@
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Elevate tenant admin access](role-based-access-control-tenant-admin-access.md)
 #### [Troubleshoot](role-based-access-control-troubleshooting.md)
 #### [Resource Provider operations](role-based-access-control-resource-provider-operations.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
