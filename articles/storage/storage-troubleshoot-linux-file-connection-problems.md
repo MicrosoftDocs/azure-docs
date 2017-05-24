@@ -1,10 +1,10 @@
 ---
-title: Troubleshooting Azure File storage problems in Windows | Microsoft Docs
-description: Troubleshooting Azure File storage issues in Windows
+title: Troubleshooting Azure File storage problems in Linux | Microsoft Docs
+description: Troubleshooting Azure File storage issues in Linux
 services: storage
 documentationcenter: ''
 author: genlin
-manager: felixwu
+manager: willchen
 editor: na
 tags: storage
 
@@ -13,181 +13,139 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/24/2017
 ms.author: genli
 
 ---
-# Troubleshooting Azure File storage problems in Windows
+# Troubleshooting Azure File storage problems in Linux
 
 [!INCLUDE [storage-troubleshoot-linux-file-connection-problems](../../includes/storage-troubleshoot-file-connection-problems-selector.md)]
 
-This article lists common problems and resolutions that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes of and resolutions for these problems.
+This article lists common problems that are related to Microsoft Azure File storage when you connect from Linux clients. It also provides possible causes of and resolutions for these problems.
 
--	[Error 53, Error 67, or Error 87 when you try to mount or unmount an Azure Files share](#error53-67-87)
--	[Error 1816 “Not enough quota is available to process this command” when you try to copy to an Azure Files share](#error1816)
--	[Slow file copying to and from Azure file storage on Windows](#slowfilecopying)
--	[If you map an Azure file share as an administrator using net use, the share appears to be missing (no drive icon for the share appears in My Computer)](#shareismissing)
--	[Storage account contains a forward slash (/) character, and the net use command fails](#netuse)
--	[The application or service cannot access the mounted Azure Files drive](#cannotaccess)
--	[Error "You are copying a file to a destination that does not support encryption" when you try to upload or copy files to Azure Files](#doesnotsupportencryption)
+**Common problems**
 
-<a id="error53-67-87"></a>
-##  Error 53, Error 67, or Error 87 when you mount or unmount an Azure File Share
+- ["[Permission denied] Disk quota exceeded" on Linux when you try to open a file in Azure File Storage](#permissiondenied)
+- [Slow file copying to and from Azure file storage on Linux](#slowfilecopying)
+- [“Mount error(112): Host is down” on Linux client because of reconnection timeout when you try to mount a file share in Azure File Storage](#error112)
+- ["Mount error(115): Operation now in progress" when you try to mount Azure File Storage on a Linux VM by using SMB 3.0](#error115)
+- [Slow performance on an Azure file share that is mounted on Linux VM](#slowperformance)
+- [“Mount error(11): Resource temporarily unavailable” when you try to mount an Azure File Share to the Ubuntu 4.8 kernel](#error11)
+- [Timestamps were lost when copying files from Windows to Linux](#timestampslost)
 
-When you try to mount a file share from on-premises or from a different data center, you may receive the following errors:
+<a id="permissiondenied"></a>
+## "[Permission denied] Disk quota exceeded" when you try to open a file
 
-- System error 53 has occurred. The network path was not found
-- System error 67 has occurred. The network name cannot be found
-- System error 87 has occurred. The parameter is incorrect
+In Linux, you receive an error messages that resemble the following:
 
-### Cause 1: Unencrypted communication channel
-
-For security reasons, connections to Azure Files shares are blocked if the communication channel isn’t encrypted and the connection attempt is not made from the same data center on which the Azure File shares reside. Communication channel encryption is not provided if the user’s client OS doesn’t support SMB encryption.
-Windows 8, Windows Server 2012, and later versions of each system negotiate requests that include SMB 3.0, which supports encryption.
-
-### Solution for Cause 1
-
-Connect from a client that meets the requirements of Windows 8, Windows Server 2012 or later versions, or that connects from a virtual machine that is on the same data center as the Azure Storage account that is used for the Azure File share.
-
-### Cause 2: Port 445 is blocked
-
-System Error 53 or System Error 67 can occur if Port 445 outbound communication to Azure Files data center is blocked. Click [here](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) to see the summary of ISPs that allow or disallow access from port 445.
-
-To understand whether this is the reason behind the "System Error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
-
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
-
-If the TCP 445 is blocked by a rule along the network path, you will see the following output:
-
-  **TCP port 445 (microsoft-ds service): FILTERED**
-
-For more information about how to use Portqry, see [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099).
-
-### Solution for Cause 2
-
-Work with your IT department to open Port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-
-### Cause 3 NTLMv1 is enabled
-
-System Error 53 or System error 87 can also be received if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication will be blocked for Azure Files. To determine whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
-
-HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
-
-For more information, see the [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) topic on TechNet.
-
-### Solution for Cause 3
-
-To resolve this issue, revert the **LmCompatibilityLevel** value to the default value of 3 in the following registry subkey:
-
-  **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
-
-<a id="error1816"></a>
-## Error 1816 “Not enough quota is available to process this command” when you copy to an Azure file share
+**<filename> [permission denied] Disk quota exceeded**
 
 ### Cause
 
-The problem occurs because you have reached the upper limit of concurrent open handles that are allowed for a file on the computer on which the file share is being mounted.
+The problem occurs because you have reached the upper limit of concurrent open handles that are allowed for a file.
 
 ### Solution
 
-Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
+Reduce the number of concurrent open handles by closing some handles, and then retry the operation. For more information, see [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
 
 <a id="slowfilecopying"></a>
-## Slow file copying to and from Azure file storage on Windows
+## Slow file copying to and from Azure file storage on Linux
 
-You may see slow performance when you try to transfer files to the Azure File service.
+1.	If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
+2.	If you know the final size of a file that you are extending by using writes, and your software doesn’t experience compatibility issues when unwritten tail on the file containing zeros, then set the file size in advance instead of having every write being an extending write.
+3.	Use the right copy method:
 
--	 If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
--	If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility issues when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
--	Use the right copy method:
+  -	Use [AZCopy](storage-use-azcopy.md#file-copy) for any transfer between two file shares.
+  -	Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between a file share an on-premises computer.
 
-  -	Use AZCopy for any transfer between two file shares. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md#file-copy) for more details.
+<a id="error112"></a>
+## "Mount error(112): Host is down" because of a reconnection time-out
 
-  -	Use Robocopy between a file share an on-premises computer. See [Multi-threaded robocopy for faster copies](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) for more details.
-
-**Considerations for Windows 8.1 or Windows Server 2012 R2**
-
-For clients who are running Windows 8.1 or Windows Server 2012 R2, make sure that the [KB3114025](https://support.microsoft.com/help/3114025) hotfix is installed. This hotfix improves the create and close handle performance.
-
-You can run the following script to check whether the hotfix has been installed on:
-
-`reg query HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
-
-If hotfix is installed, the following output is displayed:
-
-**HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1**
-
-**Note** Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
-
-<a id="shareismissing"></a>
-## If you map an Azure file share as an Administrator by using net use, the share appears to be missing:  no folder with a drive letter in “My Computer”
+This error occurs on the Linux client when the client has been idle for an extended time. When the client is idle for long time, the client disconnects, and the connection times out.  
 
 ### Cause
 
-By default, Windows File Explorer does not run as Administrator. If you run net use from an Administrator command prompt, you map the network drive "As Administrator." Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account.
+The connection can be idle for the followingreasons:
 
-### Solution
-Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/library/ee844140.aspx) to configure the EnableLinkedConnections registry value.
-
-<a id="netuse"></a>
-## Net use command fails if the Storage account contains a forward slash ( / )
-
-### Cause
-
-The net use command interprets a forward slash ( / ) as a command-line option. If your user account name starts with a forward slash, this causes the drive mapping to fail.
+-	Network communication failures that prevent re-establishing a TCP connection to the server when the default “soft” mount option is used.
+-	Recent reconnection fixes that are not present in older kernels.
 
 ### Solution
 
-You can use either of the following steps to work around the issue:
+This reconnection problem in the Linux kernel is now fixed as part of the following sets of change:
 
-- Run the following PowerShell command:
+- [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+-	[Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+-	[CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+-	[CIFS: Fix a possible double locking of mutex during reconnect - for kernels v4.9 and higher](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-`New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
-
-From a batch file this can be done as the following:
-
-`Echo new-smbMapping ... | powershell -command –`
-
-- Put double quotation marks around the key to work around this issue — unless "/" is the first character. If it is, either use the interactive mode and enter your password separately or regenerate your keys to get a key that doesn't start with the forward slash (/) character.
-
-<a id="cannotaccess"></a>
-## Application or service cannot access mounted Azure Files drive
-
-### Cause
-
-Drives are mounted per user. If your application or service is running under a different user account than the one that mounted the drive, the application will not see the drive.
-
-### Solution
-
-One of the following solutions can be user:
-
--	Mount drive from the same user account under which the application is. This can be done using tools such as psexec.
-
-- Another option for net use is to pass in the storage account name and key in the user name and password parameters of the net use command.
-
-After you follow these instructions, you may receive the following error message: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated" when you run net use for the system/network service account. If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.windows.net").
-
-<a id="doesnotsupportencryption"></a>
-## Error "You are copying a file to a destination that does not support encryption"
-
-In order to copy a file over the network, the file is decrypted on the source computer, transmitted in plain-text, and re-encrypted on the destination. However, you may see the following error when trying to copy an encrypted file:
-You are copying the file to a destination that does not support encryption
-
-### Cause
-This can occur is you are using Encrypted File System (EFS). Bitlocker-encrypted files can be copied to Azure Files. However, Azure File storage does not support NTFS EFS.
+However, this change may not be ported yet to all the Linux distributions. This fix and other reconnection fixes are made in the following popular Linux kernels: 4.4.40 4.8.16, and 4.9.1. You can get this fix by upgrading to one of these recommended kernel versions.
 
 ### Workaround
-To copy a file over the network, you must first decrypt it. You can do this by using one of the following methods:
 
-- Use copy /d (this allows the encrypted files that are being copied to be saved as decrypted files at the destination)
-- Set the following registry key:
+-	You can work around this issue by specifying a hard mount. This forces the client to wait until a connection is established or until it’s explicitly interrupted and can be used to prevent errors because of network time-outs. However, you should be aware that this could cause indefinite waits, and you should be prepared to stop connections as necessary.
 
-  - Path=HKLM\Software\Policies\Microsoft\Windows\System
-  - Value type=DWORD
-  - Name = CopyFileAllowDecryptedRemoteDestination
-  - Value = 1
+-  If you cannot upgrade to latest kernel versions, you can work around this issue by keeping a file in the Azure File share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
-However, be aware that setting the registry key affects all copy operations that are made to network shares.
+<a id="error115"></a>
+## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.0
+
+### Cause
+
+Linux distributions do not yet support encryption feature in SMB 3.0. In some distributions, users may receive a "115" error message if they try to mount Azure Files by using SMB 3.0 because of a missing feature.
+
+### Solution
+
+If the Linux SMB client that is used does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that is in the same data center as the File storage account.
+
+<a id="slowperformance"></a>
+## Slow performance on Azure file share mounted on Linux VM
+
+### Cause
+
+One possible cause of slow performance is disabled caching. To check whether caching is disabled, look for the "cache=" entry. 
+
+**Cache=none** indicates that caching is disabled.  Remount the share with default mount command or explicitly adding **cache=strict** option to mount command to ensure default caching or "strict" caching mode is enabled.
+
+In some scenarios, the **serverino** mount option can cause the **ls** command to run stat against every directory entry and this behavior results in performance degradation when listing a big directory. You can check the mount options in your "/etc/fstab" entry:
+
+`//azureuser.file.core.windows.net/cifs /cifs cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+You can also check whether the correct options are being used by just running the  **sudo mount | grep cifs** command and checking as its output, such as the following exmaple output:
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+
+If the **cache=strict** or **serverino** options are not present, unmount and mount Azure Files again by running the mount command from the [documentation](storage-how-to-use-files-linux.md#mount-the-file-share) and re-check that **/etc/fstab** entry has the correct options.
+
+<a id="error11"></a>
+## "Mount error(11): Resource temporarily unavailable" when mounting to Ubuntu 4.8 kernel
+
+### Cause
+
+This is a known issue in Ubuntu 16.10 kernel (version 4.8) in which the client is documented to support encryption but actually doesn’t.
+
+### Solution
+
+Until Ubuntu 16.10 is fixed, specify the `vers=2.1` mount option or use Ubuntu 16.04.
+
+<a id="timestampslost"></a>
+## Timestamps were lost when copying files from Windows to Linux
+
+On Linux/Unix platforms, the 'cp -p' command will fail if file1 and file 2 are owned by different users. The force flag 'f' in COPYFILE results in executing 'cp -p -f' on Unix, which also fails to preserve the timestamp of the file you do not own.
+
+### Cause
+
+This is a known issue.
+
+### Workaround
+
+Use the storage account user for copying the files:
+
+- Useadd : [stprage account name]
+- Passwd [storage account name]
+- Su [storage account name]
+- Cp -p filename.txt /share
 
 ## Need help? Contact support.
+
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

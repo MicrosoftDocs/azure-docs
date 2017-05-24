@@ -4,7 +4,7 @@ description: Troubleshooting Azure File storage issues in Windows
 services: storage
 documentationcenter: ''
 author: genlin
-manager: felixwu
+manager: willchen
 editor: na
 tags: storage
 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/24/2017
 ms.author: genli
 
 ---
