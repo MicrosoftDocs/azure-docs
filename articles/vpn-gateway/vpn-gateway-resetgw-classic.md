@@ -52,7 +52,7 @@ You can reset a Resource Manager VPN gateway using the Azure portal. If you want
 2. On the blade for the virtual network gateway, click 'Reset'.
 
   ![Reset VPN Gateway blade](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
-3. On the Reset blade, click the ![Reset VPN Gateway blade](./media/vpn-gateway-howto-reset-gateway/reset-button.png) button.
+3. On the Reset blade, click the **Reset** button.
 
 ## PowerShell
 
@@ -67,7 +67,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 Result:
 
-You will see a return result when the gateway has been reset. When you receive a result, you can assume the gateway reset was successful. However, there is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
+You will see a return result when the gateway has been reset. When you receive a result, you can assume the gateway reset was successful. However, there is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset occurred, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
 
 ### <a name="resetclassic"></a>Classic deployment model
 
@@ -98,4 +98,4 @@ az network vnet-gateway reset -n VNet5GW -g TestRG5
 
 Result:
 
-You will see a return result when the gateway has been reset. When you receive a result, you can assume the gateway reset was successful. However, there is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
+You will see a return result when the gateway has been reset. When you receive a result, you can assume the gateway reset was successful. However, there is nothing in the return result that indicates explicitly that the reset was successful. If you want to look closely at the history to see exactly when the gateway reset occurred, you can view that information in the [Azure portal](https://portal.azure.com). In the portal, navigate to **'GatewayName' -> Resource Health**.
