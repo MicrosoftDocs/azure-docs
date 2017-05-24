@@ -23,7 +23,7 @@ This article includes some of the most common questions about [Azure Web Apps](h
 
 **Availability, Performance and Application Issues**
 
-* [How do I troubleshoot a High memory consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-memory-consumption-scenario)
+* [How do I troubleshoot a High memory consumption scenario?](app-service-web-availability-performance-application-issues-faq.md#how-do-i-troubleshoot-a-high-memory-consumption-scenario)
 * [How do I troubleshoot a High CPU consumption scenario?](app-service-web-availability-performance-application-issues-faq#how-do-i-troubleshoot-a-high-cpu-consumption-scenario)
 * [My App is performing slow.](app-service-web-availability-performance-application-issues-faq#my-app-is-performing-slow)
 * [More questions](app-service-web-availability-performance-application-issues-faq.md)
