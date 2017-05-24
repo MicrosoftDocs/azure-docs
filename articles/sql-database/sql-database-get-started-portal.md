@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/242017
+ms.date: 05/24/2017
 ms.author: carlrab
 
 ---
