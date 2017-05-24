@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Concepts
   items:
-  - name: Hosting plans
+  - name: Consumption and App Service plans
     href: functions-scale.md
   - name: Triggers and bindings
     href: functions-triggers-bindings.md
+  - name: Languages
+    items:
+    - name: C# functions concepts
+      href: functions-reference-csharp.md
+    - name: F# functions concepts
+      href: functions-reference-fsharp.md
+    - name: JavaScript functions concepts
+      href: functions-reference-node.md    
 - name: How-to guides
   items:
+  - name: Developer guide
+    href: functions-reference.md
   - name: Testing Azure Functions
     href: functions-test-a-function.md
   - name: Develop and debug locally
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Install Functions Runtime
     href: functions-runtime-install.md
+  - name: Connect to SQL Database
+    href: functions-scenario-database-table-cleanup.md
+  - name: Create an Open API 2.0 definition
+    href: functions-api-definition-getting-started.md     
+  - name: Best practices for Azure Functions
+    href: functions-best-practices.md     
 - name: Reference
   items:
-  - name: Develop function apps
-    href: functions-reference.md
-    items:
-    - name: Open API 2.0
-      href: functions-api-definition.md
-  - name: Best practices for Azure Functions
-    href: functions-best-practices.md
   - name: Bindings
     items:
     - name: Cosmos DB bindings
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Twilio output binding
       href: functions-bindings-twilio.md
-  - name: Frameworks
-    items:
-    - name: C#
-      href: functions-reference-csharp.md
-    - name: F#
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: OpenAPI Reference
+    href: functions-api-definition.md     
 - name: Resources
   items:
   - name: Pricing

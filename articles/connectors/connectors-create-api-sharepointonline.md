@@ -43,7 +43,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 
 ## View the swagger
-See the [swagger details](/connectors/sharepoint/). 
+View any triggers, actions, and limits in the [swagger details](/connectors/sharepoint/).
 
 ## Next Steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
