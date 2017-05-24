@@ -29,6 +29,12 @@ To view cache metrics, [browse](cache-configure.md#configure-redis-cache-setting
 ![Redis metrics][redis-cache-redis-metrics-blade]
 
 ## View pre-configured metrics charts
+
+The **Overview** blade has the following pre-configured monitoring charts.
+
+* [Monitoring charts](#monitoring-charts)
+* [Usage charts](#usage-charts)
+
 ### Monitoring charts
 The **Monitoring** section in the **Overview** blade has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
 
