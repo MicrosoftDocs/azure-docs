@@ -23,6 +23,8 @@ ms.author: genli
 
 This article lists common problems and resolutions that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes of and resolutions for these problems.
 
+**Common problems**
+
 -	[Error 53, Error 67, or Error 87 when you try to mount or unmount an Azure Files share](#error53-67-87)
 -	[Error 1816 “Not enough quota is available to process this command” when you try to copy to an Azure Files share](#error1816)
 -	[Slow file copying to and from Azure file storage on Windows](#slowfilecopying)
@@ -117,7 +119,8 @@ If hotfix is installed, the following output is displayed:
 
 **HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1**
 
-**Note** Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
+> [!Note]
+> Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
 
 <a id="shareismissing"></a>
 ## If you map an Azure file share as an Administrator by using net use, the share appears to be missing:  no folder with a drive letter in “My Computer”
