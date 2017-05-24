@@ -1,4 +1,24 @@
-# Undestand a system reboot for Azure VM
+---
+title: Understand a system reboot for Azure VM | Microsoft Docs
+description: Lists the events that can cause the VM to reboot
+services: virtual-machines-windows, virtual-machines-linux, cloud-services
+documentationcenter: ''
+author: genlin
+manager: willchen
+editor: ''
+tags: ''
+
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 05/24/2017
+ms.author: genli
+
+---
+
+# Understand a system reboot for Azure VM
 
 Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, and with no evidence of a user initiating the reboot operation. 
 
@@ -56,7 +76,7 @@ Multi-instance updates (for VMs in an availability set) are applied one update d
  
 If the reboot is performed from the Azure portal, Azure PowerShell, Command Line interface or Reset API, the event can be found in the [Azure Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md.
 
-If the aciton is performed from VM's operation system, the event can be found in system logs.
+If the action is performed from VM's operation system, the event can be found in system logs.
 
 Other actions that implicitly cause the VM to reboot include multiple configuration change actions. Typically, the user will see a warning message indicating that executing a particular action will result in a reboot of the VM.
 Examples include any VM resize operations, changing the password of the administrative account and setting a static IP address.
@@ -78,7 +98,6 @@ The VM is hosted on a physical server running inside an Azure datacenter. The ph
 Server faults are typically caused by hardware failure such as a failure in a hard drive or solid state drive. Azure continuously monitors these occurrences, identifies the underlying bugs and rolls out updates after the mitigation has been implemented and tested.
 
 Since some host server faults can be very specific to that server, your VMs repeated reboot situation might be improved by manually redeploying it to another host server. This can be triggered via the “redeploy” option on the details page of the VM, or by stopping and restarting the VM in the Azure portal.
-The paragraph above could go away if Gaurav confirms that Service Healing should deal with it.
 
 ### Auto-recovery
 In case the host server reboot was not successful for any reason, the Azure platform will initiate an auto-recovery action to take the faulty host server out of rotation for further investigation. 
