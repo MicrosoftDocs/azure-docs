@@ -14,7 +14,7 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-#Event Hubs Documentation
+# Event Hubs Documentation
 
 Learn how to use Event Hubs to collect and manage millions of events per second from connected IoT devices and applications. Tutorials, API references, and other documentation show you how set up scalable ingestion for events on a broad set of platforms.
 
@@ -101,11 +101,20 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">Microsoft.Azure.EventHubs</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs.processor">Microsoft.Azure.EventHubs.Processor</a></p>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.servicebus.eventprocessorhost">Microsoft.Azure.ServiceBus.EventProcessorHost</a></p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/module/azurerm.eventhub/">PowerShell</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/">.NET API Browser</a></p>
                    </div>
                 </div>
             </div>
@@ -129,9 +138,8 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/rest/api/eventhub">REST</a></h3>
-                        <p><a href="/azure/event-hubs/event-hubs-messaging-exceptions">Exceptions</a></p>
-                        <p><a href="/azure/event-hubs/event-hubs-quotas">Quotas</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/eventhub">REST API Reference</a></p>
                     </div>
                 </div>
             </div>

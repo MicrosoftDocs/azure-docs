@@ -54,5 +54,5 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
-[Data providers](analysis-services-data-providers.md)
+[Client libraries](analysis-services-data-providers.md)
 

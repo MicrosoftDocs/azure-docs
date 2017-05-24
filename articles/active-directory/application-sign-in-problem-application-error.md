@@ -23,7 +23,7 @@ In this scenario, Azure AD has signed the user in, but the application is displa
 
 There are some possible reasons why the application didn’t accept the response from Azure AD. If the error in the application is not clear enough to know what is missing in the response, then:
 
--   If the application is the Azure AD Gallery, verify you have followed all the steps in the article [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saml-debugging).
+-   If the application is the Azure AD Gallery, verify you have followed all the steps in the article [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
 -   Use a tool like [Fiddler](http://www.telerik.com/fiddler) to capture SAML request, SAML response and SAML token.
 
@@ -91,7 +91,7 @@ To change the User Identifier value, follow the steps below:
 
 If the application expects another format for the EntityID attribute. Then, you won’t be able to select the EntityID (User Identifier) format that Azure AD sends to the application in the response after user authentication.
 
-Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
+Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
 
 ## The application expects a different signature method for the SAML response
 
@@ -154,4 +154,4 @@ To change the signing algorithm, follow the steps below:
 Next time the user signs in to the application, Azure AD sign the SAML token using SHA-1 algorithm.
 
 ## Next steps
-[How to debug SAML-based single sign-on to applications in Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saml-debugging)
+[How to debug SAML-based single sign-on to applications in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

@@ -8,19 +8,35 @@
 ## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
 ## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
+## [Connected factory solution overview](iot-suite-connected-factory-overview.md)
 ## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
+## [Connected factory solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
+## [Connect your Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### Use C
+#### [Simulated data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Use real sensors](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Implement firmware update](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Use Node.js
+#### [Simulated data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Use real sensors](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Implement firmware update](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Connect your Intel NUC gateway
+### [Simulated data](iot-suite-gateway-kit-get-started-simulator.md)
+### [Use real sensor](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # How To
-## [Connect your device to the remote monitoring solution (Windows)](iot-suite-connecting-devices.md)
-## [Connect your device to the remote monitoring solution (Linux)](iot-suite-connecting-devices-linux.md)
-## [Connect your device to the remote monitoring solution (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Connect your device to the remote monitoring solution (Node)](iot-suite-connecting-devices-node.md)
+## Connect a simulated device
+### [C on Windows](iot-suite-connecting-devices.md)
+### [C on Linux](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
 ## [Connect a Logic App to the remote monitoring solution](iot-suite-logic-apps-tutorial.md)
 ## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
 ## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
 ## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
+## [Deploy a gateway for connected factory](iot-suite-connected-factory-gateway-deployment.md)
+## [Customize connected factory](iot-suite-connected-factory-customize.md)
 
 # Reference
 ## [Security architecture](iot-security-architecture.md)

@@ -18,7 +18,7 @@ This article provides information and code samples to help you quickly get start
 * [Create a Person Group](#Create)
 
 ## Prerequisites
-* Get the Microsoft Face API Windows SDK [here](https://github.com/Microsoft/Cognitive-face-windows)
+* Get the Microsoft Face API Windows SDK [here](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)
 * Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in Images With Face API Using C# <a name="Detect"> </a>
@@ -94,7 +94,7 @@ namespace CSHttpClientSample
 #### Face - Detect Response
 A successful response will be returned in JSON. Following is an example of a successful response: 
 
-```php
+```json
 [
     {
         "faceId": "c5c24a82-6845-4031-9d5d-978df9175426",
@@ -222,7 +222,6 @@ A successful response will be returned in JSON. Following is an example of a suc
                 "mustache": 0.8,
                 "beard": 0.1,
                 "sideburns": 0.02
-                }
             },
             "glasses": "sunglasses",
             "headPose": {

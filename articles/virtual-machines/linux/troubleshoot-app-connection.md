@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 12/20/2016
+ms.date: 05/18/2017
 ms.author: iainfou
 
 ---
-# Troubleshoot application connectivity issues on a Linux Azure virtual machine
+# Troubleshoot application connectivity issues on a Linux virtual machine in Azure
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 

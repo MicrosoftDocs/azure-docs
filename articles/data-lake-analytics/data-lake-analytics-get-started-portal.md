@@ -42,30 +42,30 @@ account.
 **Create a Data Lake Analytics account**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Click **New**, click **Intelligence + analytics**, and then click **Data Lake Analytics**.
-3. Type or select the following values:
+2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
+3. Select the following values:
 
     ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
    * **Name**: Name your Data Lake Analytics account (Only lower case letters and numbers allowed).
    * **Subscription**: Choose the Azure subscription used for the Analytics account.
-   * **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
+   * **Resource Group**. Select an existing Azure Resource Group or create a new one.
    * **Location**. Select an Azure data center for the Data Lake Analytics account.
-   * **Data Lake Store**: Click *Configure required settings*. Follow the instruction to create a new Data Lake Store account, or select an existing one. Each Data Lake Analytics account has a dependent Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center.
+   * **Data Lake Store**: Follow the instruction to create a new Data Lake Store account, or select an existing one. 
 4. Select your Pricing Tier  
 5. Click **Create**. It returns you to your portal home screen where a new tile appears, showing "Deploying Azure Data Lake Analytics". The deploy process will take several minutes to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
 
 After a Data Lake Analytics account is created, you can add additional Data Lake Store accounts and Azure Storage
-accounts. For instructions, see [Manage Data lake Analytics account data sources](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+accounts. For instructions, see [Manage Data lake Analytics account data sources](data-lake-analytics-manage-use-portal.md).
 
 ## Prepare source data
-In this tutorial, you will process search logs.  The search log can be stored in either dData Lake store or Azure Blob storage.
+In this tutorial, you will process search logs.  The search log can be stored in either Data Lake store or Azure Blob storage.
 
 The Azure portal provides a user interface for copying sample data files to the default Data Lake Store account, which include a search log file.
 
 **Copy sample data files**
 
-1. From the [Azure portal](https://portal.azure.com), open your Data Lake Analytics account.  See [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account) to create one and open the account in the portal.
+1. From the [Azure portal](https://portal.azure.com), open your Data Lake Analytics account.  See [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md) to create one and open the account in the portal.
 2. Expand the **Essentials** pane, and then click **Explore sample scripts**. It opens another blade called **Sample
    Scripts**.
 
@@ -87,7 +87,7 @@ The Azure portal provides a user interface for copying sample data files to the 
      In this tutorial, you use SearchLog.tsv.
 
 In practice, you either program your applications to write data into a linked storage accounts or upload data. For uploading files, see
-[Upload data to Data Lake Store](data-lake-analytics-manage-use-portal.md#upload-data-to-adls) or [Upload data to Blob storage](data-lake-analytics-manage-use-portal.md#upload-data-to-wasb).
+[Upload data to Data Lake Store](data-lake-analytics-manage-use-portal.md) or [Upload data to Blob storage](data-lake-analytics-manage-use-portal.md).
 
 ## Create and submit Data Lake Analytics jobs
 After you have prepared the source data, you can start developing a U-SQL script.  
@@ -98,7 +98,7 @@ After you have prepared the source data, you can start developing a U-SQL script
 
     ![Azure Data Lake Analytics new job button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
 
-    If you don't see the blade, see [Open a Data Lake Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
+    If you don't see the blade, see [Open a Data Lake Analytics account from portal](data-lake-analytics-manage-use-portal.md).
 2. Enter **Job Name**, and the following U-SQL script:
 
         @searchlog =

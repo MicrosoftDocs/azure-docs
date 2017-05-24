@@ -3,7 +3,7 @@ title: Manage pricing and data volume for Azure Application Insights | Microsoft
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 
 ---
 # Manage pricing and data volume in Application Insights
@@ -44,6 +44,7 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 ### Enterprise plan
 
 * In the Enterprise plan, your app can use all the features of Application Insights. [Continuous Export](app-insights-export-telemetry.md) and 
+
 [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) are available without any extra charge in the Enterprise plan.
 * You pay per node that is sending telemetry for any apps in the Enterprise plan. 
  * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
@@ -76,7 +77,15 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 There's an additional charge for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). This refers to web tests that perform a sequence of actions. 
 
 There is no separate charge for 'ping tests' of a single page. Telemetry from both ping tests and multi-step tests is charged along with other telemetry from your app.
+ 
+### Azure Application Insights Enterprise as part of Operations Management Suite subscription
 
+As [recently announced](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), customers who purchase Microsoft Operations Management Suite E1 and E2 are able to get Application Insights Enterprise as an additional component at no additional cost. Specifically, each unit of Operations Management Suite E1 and E2 includes an entitlement to 1 node of the Enterprise tier of Application Insights. Each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no additional cost. 
+
+> [!NOTE]
+> To ensure that you get this entitlement, you must have your Application Insights resources in the Enterprise pricing plan.  
+>
+ 
 ## Review pricing plan and estimate costs for your Application Insights resource
 Open the Features + Pricing blade in the Application Insights resource for your application.
 
@@ -97,20 +106,18 @@ Application Insights charges are added to your Azure bill. You can see details o
 ## Data rate
 There are three ways in which the volume you send data is limited:
 
-* **Daily cap.** The maximum cap is 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day). When creating an Application Insights resource from the Azure portal this is set to its maximum. Use care when changing this, since hitting the cap will cause you to lose data for the remainder of the day. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade.
-* **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
-* **Throttling** limits the data rate to 32 k events per second, averaged over 1 minute. 
+* **Sampling:** This mechanism can be used reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics. This is the primary tool you have to tune the amount of data. Learn more about [sampling features](app-insights-sampling.md). 
+* **Daily cap:** When creating an Application Insights resource from the Azure portal this is set to 500 GB/day. The default when creating an Application Insights resource from Visual Studio, is small (only 32.3 MB/day) which is intended only to faciliate testing. In this case it is intended that the user will raise the daily cap before deploying the app into production. The maximum cap is 500 GB/day unless you have requested a higher maximum for a high traffic application. Use care when setting the daily cap, as your intent should be **never to hit the daily cap**, because you will then lose data for the remainder of the day and be unable to monitor your application. To change it, use the Daily volume cap blade, linked from the Data Volume Management blade (see below). Note that some subscription types have credit which cannot be used for Application Insights. If the subscription has a spending limit, the daily cap blade will have instructions how to remove it and enable the daily cap to be raised beyond 32.3 MB/day.  
+* **Throttling:** This limits the data rate to 32 k events per second, averaged over 1 minute. 
 
 
 *What happens if my app exceeds the throttling rate?*
 
-* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend, spreading a surge out over several minutes. If your app consistently sends data at above the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend in this way; other SDKs might simply drop throttled data.)
+* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend, spreading a surge out over several minutes. If your app consistently sends data at above the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend in this way; other SDKs might simply drop throttled data.) If throttling occurs, you'll see a notification warning that this has happened.
 
-If throttling occurs, you'll see a notification warning that this has happened.
+*How do I know how much data my app is sending?*
 
-*How do I know how many data points my app is sending?*
-
-* Open the Pricing blade to see the Data Volume chart.
+* Open the **Data volume management** blade to see the Daily data volume chart. 
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
 ## To reduce your data rate
@@ -128,7 +135,7 @@ You can use the daily volume cap to limit the data collected, but if the cap is 
 
 Instead, use  [Sampling](app-insights-sampling.md) to tune the data volume to the level you'd like, and use the daily cap only as a "last resort" in case your application starts sending much higher volumes of telemetery unexpectedly. 
 
-To change the daily cap, open **Features+pricing**, **Data management**.
+To change the daily cap, in the Configure section of your Application Insihgts resource, click **Data volume management** then **Daily Cap**.
 
 ![Adjusting the daily telemetry volume cap](./media/app-insights-pricing/daily-cap.png) 
 
@@ -147,10 +154,7 @@ To set ingestion sampling, set the control in the Pricing blade:
 ![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> The value shown on the Samples Retained tile indicates only the value you have set for ingestion sampling. It doesn't show the sampling rate that is operating at the SDK in your app. 
-> 
-> If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
-> 
+> The Data sampling blade only controls the value of ingestion sampling. It doesn't reflect the sampling rate that is being applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
 > 
 
 To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:

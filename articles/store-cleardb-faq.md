@@ -79,6 +79,9 @@ Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?
 When you perform resource migration across subscriptions, some [limitations](app-service-web/app-service-move-resources.md) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
 
+## I hit the spending limit on my subscription. I removed the limit and my App Service is online, however the database is not accessible. How do I re-enable the ClearDB database?
+Contact [ClearDB support](https://www.cleardb.com/developers/help/support) to re-enable the database. Provide them with your Azure subscription information and database name.
+
 ## Can I transfer a ClearDB database from a credit card subscription to an EA subscription?
 Existing ClearDB databases use the credit card associated with the existing subscriptions. To use an EA subscription you need to migrate your data to a new database:
 

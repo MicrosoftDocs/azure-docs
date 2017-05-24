@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate AWS VMs to Azure | Microsoft Docs
 description: Migrate an Amazon Web Services (AWS) EC2 instance to Azure Virtual Machines. This scenario uses Managed Disks to simplify your cloud storage.
 services: virtual-machines-windows
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/10/2017
 ms.author: cynthn
 
 ---
 
 # Migrate from Amazon Web Services (AWS) to Azure Managed Disks
 
-You can migrate an Amazon Web Services (AWS) EC2 instance to Azure by uploading the VHD. If you want to create multiple VMs in Azure from the same image, you must first generalize the VM and then export the generalized VHD to a local directory. Once the VHD is uploaded, you can create a new Azure VM that uses [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for storage. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure will create and manage the disk for you. 
+You can migrate an Amazon Web Services (AWS) EC2 instance to Azure by uploading the virtual hard disk (VHD). If you want to create multiple virtual machines (VMs) in Azure from the same image, you must first generalize the VM and then export the generalized VHD to a local directory. Once the VHD is uploaded, you can create a new Azure VM that uses [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for storage. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
 
 Before starting this process,  make sure that you review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
@@ -33,10 +33,10 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```powershell
 Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
-For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
-## Generalize the Windows VM using Sysprep
+## Generalize the VM
 
 Generalizing a VM using Sysprep removes any machine-specific information and personal account information from the VHD and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
@@ -58,7 +58,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 
 
-## Export the VHD from an EC2 instance
+## Export the VHD from AWS
 
 1.	If you are using Amazon Web Services (AWS), export the EC2 instance to a VHD in an Amazon S3 bucket. Follow the steps described in the Amazon documentation for Exporting Amazon EC2 Instances to install the Amazon EC2 command-line interface (CLI) tool and run the create-instance-export-task command to export the EC2 instance to a VHD file. Be sure to use VHD for the DISK_IMAGE_FORMAT variable when running the create-instance-export-task command. The exported VHD file is saved in the Amazon S3 bucket you designate during that process.
 
@@ -71,8 +71,13 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 
 
-## Log in to Azure
-If you don't already have PowerShell version installed, read [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+## Upload the VHD
+
+You need to log in to Azure, create a storage account and upload the VHD to the storage account before you can create the image. 
+
+### Log in to Azure
+
+If you don't already have PowerShell version installed, read [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
    
@@ -90,10 +95,10 @@ If you don't already have PowerShell version installed, read [How to install and
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-## Get the storage account
+### Get the storage account
 You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
-If you will be using the VHD to create a managed disk for a VM, the storage account location must be same the location where you will be creating the VM.
+If you are using the VHD to create a managed disk for a VM, the storage account location must be same the location where you create the VM.
 
 To show the available storage accounts, type:
 
@@ -117,7 +122,7 @@ If you need to create a storage account, follow these steps:
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
+2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -132,9 +137,9 @@ If you need to create a storage account, follow these steps:
    * **Standard_RAGRS** - Read access geo redundant storage. 
    * **Premium_LRS** - Premium locally redundant storage. 
 
-## Upload the VHD to your storage account
+### Upload the VHD 
 
-Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+Use the [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file is placed into the container named **mycontainer** and the new file name is **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -174,9 +179,9 @@ You can also upload a VHD to your storage account using one of the following:
 
 	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 
-	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
+	Import/Export can be used to copy to a standard storage account. To use Premium storage, you need to copy from the standard storage to a premium storage account using a tool like AzCopy.
 
-## Create a managed image from the uploaded VHD 
+## Create an image 
 
 Create a managed image using your generalized OS VHD.
 
@@ -199,7 +204,7 @@ Create a managed image using your generalized OS VHD.
 	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
-## Setup some variables for the image
+## Create VM from image
 
 First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West Central US** location. 
 
@@ -210,7 +215,7 @@ $imageName = "myImage"
 $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ```
 
-## Create a virtual network
+### Create a virtual network
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
 1. Create the subnet. This example creates a subnet named **mySubnet** with the address prefix of **10.0.0.0/24**.  
@@ -227,7 +232,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-## Create a public IP address and network interface
+### Create a public IP and NIC
 
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
@@ -246,7 +251,7 @@ To enable communication with the virtual machine in the virtual network, you nee
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-## Create the network security group and an RDP rule
+### Create NSG
 
 To be able to log in to your VM using RDP, you need to have a network security rule (NSG) that allows RDP access on port 3389. 
 
@@ -265,7 +270,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 
-## Create a variable for the virtual network
+### Create network variables
 
 Create a variable for the completed virtual network. 
 
@@ -274,15 +279,15 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ```
 
-## Get the credentials for the VM
+### Get the credentials 
 
-The following cmdlet will open a window where you will enter a new user name and password to use as the local administrator account for remotely accessing the VM. 
+The following cmdlet opens a window where you enter a new user name and password to use as the local administrator account for remotely accessing the VM. 
 
 ```powershell
 $cred = Get-Credential
 ```
 
-## Set variables for the VM name, computer name and the size of the VM
+### Set VM variables 
 
 1. Create variables for the VM name and computer name. This example sets the VM name as **myVM** and the computer name as **myComputer**.
 
@@ -302,7 +307,7 @@ $cred = Get-Credential
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 ```
 
-## Set the VM image as source image for the new VM
+### Set the VM image 
 
 Set the source image using the ID of the managed VM image.
 
@@ -310,7 +315,7 @@ Set the source image using the ID of the managed VM image.
 $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 ```
 
-## Set the OS configuration and add the NIC.
+### Set the OS configuration 
 
 Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to **PremiumLRS**, the disk size to **128 GB** and disk caching to **ReadWrite**.
 
@@ -324,15 +329,15 @@ $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName 
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-## Create the VM
+### Create the VM
 
-Create the new Vm using the configuration that we have built and stored in the **$vm** variable.
+Create the new VM using the configuration that we have built and stored in the **$vm** variable.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
 ```
 
-## Verify that the VM was created
+## Verify the VM
 When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 ```powershell

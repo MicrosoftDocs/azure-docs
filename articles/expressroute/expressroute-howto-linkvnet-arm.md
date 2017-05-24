@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Link a virtual network to an ExpressRoute circuit: PowerShell: Azure | Microsoft Docs'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and PowerShell.
 services: expressroute
@@ -30,7 +30,7 @@ ms.author: ganesr
 This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This article also shows you how to update a virtual network link. 
 
 ## Before you begin
-* Install the latest version of the Azure PowerShell modules. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Install the latest version of the Azure PowerShell modules. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 * Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * You must have an active ExpressRoute circuit. 
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
