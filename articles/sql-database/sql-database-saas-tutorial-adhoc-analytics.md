@@ -49,44 +49,45 @@ Accessing this data in a single multi-tenant database is easy, but not so easy w
 
 ## Get the Wingtip application scripts
 
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the Learning Modules folder to your local computer.
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 
 ## Explore the global views in the tenant databases
 
-As the Wingtip SaaS application in this sample is built using a tenant-per-database model, the tenant database schema has been defined from a single-tenant perspective.  Thus tenant-specific information exists in one table, Venue, which only ever has a single row, and is furthermore designed as a heap, without a primary key.  Other tables in the schema don’t need to be related to the Venue table, as in normal use by the SaaS application, there is never any doubt which tenant the data belongs to.  However, when we introduce the notion of querying across all databases, correlating data from tables in the database to a specific tenant becomes significant.  To simplify this, a set of views are introduced to the tenant database that provide a ‘global’ view of each tenant by projecting a tenant id onto each table that is to be queried over globally.  This makes it easy to discriminate data from each tenant.  As a convenience, these views have been pre-created in the tenant databases.
-This exercise explores the global views that have been pre-created in the tenant databases.
+The Wingtip SaaS application is built using a tenant-per-database model, so the tenant database schema is defined from a single-tenant perspective. Tenant-specific information exists in one table, *Venue*, which always has a single row, and is furthermore designed as a heap, without a primary key.  Other tables in the schema don't need to be related to the *Venue* table, because in normal use, there is never any doubt which tenant the data belongs to.  However, when querying across all databases, correlating data from tables in the database to a specific tenant becomes significant. To simplify this, a set of views are added to the tenant database that provide a 'global' view of each tenant. These global views project a tenant id into each table that will be queried over globally. This makes it easy to identify data from each tenant. As a convenience, these views have been pre-created in all tenant databases (as well as the golden db, so these views are available as new tenants are provisioned).
 
 1. Open SSMS and [connect to the tenants1-&lt;USER&gt; server](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 1. Expand **Databases**, right-click **contosoconcerthall**, and select **New Query**.
 1. Run the following queries to explore the global views:
 
-```SQL
--- This is the base Venue table, that has no VenueId associated.
-SELECT * FROM Venue
+   ```T-SQL
+   -- This is the base Venue table, that has no VenueId associated.
+   SELECT * FROM Venue
 
--- Notice the plural name of the view. This view projects a VenueId column.
--- In the sample database we calculated an integer id from a hash of the Venue name,
--- but any approach could be used to introduce a unique value.
--- This is similar to how we create the tenant key in the catalog,
--- but there is no requirement that the catalog key and this id be the same.
-SELECT * FROM Venues
+   -- Notice the plural name 'Venues'. This view projects a VenueId column.
+   -- In the sample database we calculated an integer id from a hash of the Venue name,
+   -- but any approach could be used to introduce a unique value.
+   -- This is similar to how we create the tenant key in the catalog,
+   -- but there is no requirement that the catalog key and this id be the same.
+   SELECT * FROM Venues
 
--- The base Events table which has no VenueId column.
-SELECT * FROM Events
+   -- The base Events table which has no VenueId column.
+   SELECT * FROM Events
 
--- This view projects the VenueId retrieved from the Venues table.
-SELECT * FROM VenueEvents
-```
+   -- This view projects the VenueId retrieved from the Venues table.
+   SELECT * FROM VenueEvents
+   ```
 
-In Object Explorer, expand **contosoconcethall** > **Views**:
+To examine a View and see how it's created:
 
-![views](media/sql-database-saas-tutorial-adhoc-analytics/views.png)
+1. In **Object Explorer**, expand **contosoconcethall** > **Views**:
 
-1. Right-click dbo.Venues.
+   ![views](media/sql-database-saas-tutorial-adhoc-analytics/views.png)
+
+1. Right-click **dbo.Venues**.
 1. Select **Script View as** > **CREATE To** > **New Query Editor Window**
 
-Do this for each view to examine how it's created.
+Do this for any *View* to examine how it's created.
 
 ## Deploy the database used for ad-hoc analytics queries
 
