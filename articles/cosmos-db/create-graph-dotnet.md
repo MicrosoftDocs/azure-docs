@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 
 ---
@@ -37,18 +37,6 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 ## Add a graph
 
 [!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## Add sample data
-
-You can now add data to your graph using Data Explorer.
-
-1. In Data Explorer, expand **sample-database**, **sample-graph**, click **Graph**, and then click **New Vertex** and **New Edge** to add items to your graph. The Data Explorer is also where you can scale your throughput, and add stored procedures, user-defined functions, and triggers to your container.
-
-    ![Add vertexes and edges to a graph in the Data Explorer](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Once you've added some items, click the **Apply Filter** button, or right-click **Graph** and click **New Graph Query** to see the visual graph of your data. You can change how data is labeled and styled by clicking the **Style** button and changing your settings. Here's an example graph in Data Explorer, the labels, colors, and data shown can all be modified.
-
-    ![Visual graph explorer in Data Explorer in the Azure portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
 
 ## Clone the sample application
 
