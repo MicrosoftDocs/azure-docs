@@ -20,7 +20,7 @@ ms.author: raynew
 # Create recovery plans
 
 
-This article provides information about creating and customizing recovery plans in [Azure Site Recovery?](site-recovery-overview.md).
+This article provides information about creating and customizing recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
