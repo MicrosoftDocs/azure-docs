@@ -88,7 +88,7 @@ Microsoft works closely with our partners to ensure the images available are upd
 * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## Getting started with Azure
+## Getting started with Linux on Azure
 To begin using Azure you need an Azure account, the Azure CLI installed, and a pair of SSH public and private keys.
 
 ### Sign up for an account
