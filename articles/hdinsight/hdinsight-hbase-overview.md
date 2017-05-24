@@ -1,7 +1,7 @@
 ---
-title: What is HBase in HDInsight? | Microsoft Docs
+title: What is HBase in Azure HDInsight? | Microsoft Docs
 description: An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters.
-keywords: bigtable,nosql,what is hbase
+keywords: bigtable,nosql,what is hbase,apache hbase,hbase,habase overview,
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -11,11 +11,12 @@ editor: cgronlun
 
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
+ms.date: 05/12/2017
 ms.author: jgao
 
 ---
@@ -31,6 +32,11 @@ The HDInsight implementation leverages the scale-out architecture of HBase to pr
 
 ## How is data managed in HDInsight HBase?
 Data can be managed in HBase by using the `create`, `get`, `put`, and `scan` commands from the HBase shell. Data is written to the database by using `put` and read by using `get`. The `scan` command is used to obtain data from multiple rows in a table. Data can also be managed using the HBase C# API, which provides a client library on top of the HBase REST API. An HBase database can also be queried by using Hive. For an introduction to these programming models, see [Get started using HBase with Hadoop in HDInsight][hbase-get-started]. Co-processors are also available, which allow data processing in the nodes that host the database.
+
+>
+> [!NOTE]
+> Thrift is not supported by HBase in HDInsight.
+>
 
 ## Scenarios: Use cases for HBase
 The canonical use case for which BigTable (and by extension, HBase) was created was web search. Search engines build indexes that map terms to the web pages that contain them. But there are many other use cases that HBase is suitable for—several of which are itemized in this section.

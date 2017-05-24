@@ -84,7 +84,7 @@ Learn how to set up and manage comprehensive consumer identity management in the
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an iOS app using a third-party libraryC</h3>
+                        <h3>Create an iOS app using a third-party library</h3>
                     </div>
                 </div>
             </div>

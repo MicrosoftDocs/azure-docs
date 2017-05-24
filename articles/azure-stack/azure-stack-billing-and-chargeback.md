@@ -1,4 +1,4 @@
----
+﻿---
 title: Customer Billing And Chargeback In Azure Stack | Microsoft Docs
 description: Learn how to retrieve resource usage information from Azure Stack.
 services: azure-stack
@@ -13,65 +13,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 04/08/2016
 ms.author: alfredop
 
 ---
-# Customer billing and chargeback in Azure Stack
-Now that you’re using Azure Stack, it’s a good idea to think about how
-to track usage. Service providers rely on usage information to bill
-their customers, and to understand the cost of providing services.
-Enterprises, too, typically track usage by department.
+# Usage and billing in Azure Stack
 
-Azure Stack is not a billing system. It won’t charge your tenants for
-the resources they use. But, Azure Stack does have the infrastructure to
-collect and aggregate usage data for every single resource provider. You
-can access this data and export it to a billing system by using a
-billing adapter, or export it to a business intelligence tool like
-Microsoft Power BI.
+Usage represents the quantity of resources consumed by a user. Azure Stack collects usage information for each user and uses it to bill them. This article describes how Azure Stack users are billed for resource usage, and how the billing information is accessed for analytics, chargeback, etc.
+
+Azure Stack contains the infrastructure to collect and aggregate usage data for all resources. You can access this data and export it to a billing system by using a billing adapter, or export it to a business intelligence tool like Microsoft Power BI. After exporting, this billing information is used for analytics or transferred to a chargeback system.
 
 ![Conceptual model of a billing adapter connecting Azure Stack to a Billing application](media/azure-stack-billing-and-chargeback/image1.png)
 
 ## What usage information can I find, and how?
-Azure Stack resource providers generate usage records at hourly
-intervals. The records show the amount of each resource that was
-consumed, and which subscription consumed the resource. This data is
-stored. You can access the data via the REST API.
 
-A service administrator can retrieve usage data for all tenant
-subscriptions. Individual tenants can retrieve only their own
-information.
+Azure Stack Resource providers, such as Compute, Storage, and Network, generate usage data at hourly intervals for each subscription. The usage data contains information about the resource used such as resource name, meter name, meter ID, quantity used etc. To learn about the meters ID resources, refer to the [usage API FAQ](azure-stack-usage-related-faq.md) article. 
 
-Usage records have information about storage, network, and compute
-usage. For a list of meters, see [this article](azure-stack-usage-related-faq.md).
+After the usage data has been collected, it is [reported to Azure](azure-stack-usage-reporting.md) to generate a bill, which can be viewed through the Azure billing portal. The Azure billing portal shows the usage data only for the chargeable resources. In addition to the chargeable resources, Azure Stack captures usage data for a broader set of resources, which you can access in your Azure Stack environment through REST APIs or PowerShell. Service administrators can retrieve the usage data for all tenant subscriptions whereas a tenant can get only their usage details.
 
 ## Retrieve usage information
-To generate records, it’s essential that you have resources running and
-actively using the system. If you’re unsure whether you have any
-resources running, in Azure Stack Marketplace deploy, then run a virtual
-machine (VM). Look at the VM monitoring blade to make sure it’s running.
 
-We recommend that you run Windows PowerShell cmdlets to view usage data.
-PowerShell calls the Resource Usage APIs.
+To generate the usage data, you should have resources that are running and actively using the system. If you’re not sure whether you have any resources running in Azure Stack Marketplace, deploy a virtual machine (VM), and verify the VM monitoring blade to make sure it’s running. Use the following PowerShell cmdlets to view the usage data:
 
-1. [Install and configure Azure
-   PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/).
-2. To sign in to Azure Resource Manager, use the PowerShell cmdlet
-   **Login-AzureRmAccount**.
-3. To select the subscription that you used to create resources, type
-   **Get-AzureRmSubscription –SubscriptionName “your sub” |
-   Select-AzureRmSubscription**.
-4. To retrieve the data, use the PowerShell cmdlet
-   [**Get-UsageAggregates**](https://msdn.microsoft.com/en-us/library/mt619285.aspx).
-   If usage data is available, it’s returned in PowerShell, as in the
-   following example. PowerShell returns 1,000 lines of usage per call.
-   You can use the *continuation* argument to retrieve sets of lines
-   beyond the first 1,000. For more information about usage data, see
-   the [Resource Usage API reference](azure-stack-provider-resource-api.md).
+1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
+2. [Configure PowerShell and sign in to your Azure Stack administrator or user subscription.](azure-stack-powershell-configure.md)
+3. To retrieve the usage data, use the [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
+   ```PowerShell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
+   If usage data is available, it’s returned in as shown in the following screenshot: 
    
-   ![](media/azure-stack-billing-and-chargeback/image2.png)
+   ![Usage aggregates](media/azure-stack-billing-and-chargeback/image2.png)
+   
+   PowerShell returns 1,000 lines of usage per call. You can use the continuation parameter to retrieve more than 1,000 lines
 
 ## Next steps
+
+[Report Azure Stack usage data to Azure](azure-stack-usage-reporting.md)
+
 [Provider Resource Usage API](azure-stack-provider-resource-api.md)
 
 [Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md)

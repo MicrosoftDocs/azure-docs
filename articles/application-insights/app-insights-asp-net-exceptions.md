@@ -3,7 +3,7 @@ title: Diagnose failures and exceptions in web apps with Azure Application Insig
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Diagnose exceptions in your web apps with Application Insights
@@ -24,6 +24,7 @@ Exceptions in your live web app are reported by [Application Insights](app-insig
   * Install [Application Insights SDK](app-insights-asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](app-insights-monitor-performance-live-website-now.md); or
   * Azure web apps: Add the [Application Insights Extension](app-insights-azure-web-apps.md)
+  * Java web apps: Install the [Java agent](app-insights-java-agent.md)
 * Install the [JavaScript snippet](app-insights-javascript.md) in your web pages to catch browser exceptions.
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
   * [Web forms](#web-forms)

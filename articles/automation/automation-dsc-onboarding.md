@@ -1,4 +1,4 @@
----
+﻿---
 title: Onboarding machines for management by Azure Automation DSC | Microsoft Docs
 description: How to setup machines for management with Azure Automation DSC
 services: automation
@@ -132,7 +132,7 @@ Azure virtual machines can be deployed and onboarded to Azure Automation DSC via
 
 ### PowerShell
 
-The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
+The [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
 ## Amazon Web Services (AWS) virtual machines
 
@@ -157,7 +157,7 @@ On-premises Windows machines and Windows machines in non-Azure clouds (such as A
 
 On-premises Linux machines, Linux machines in Azure, and Linux machines in non-Azure clouds can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
-1. Make sure the latest version of the [DSC Linux agent](http://www.microsoft.com/download/details.aspx?id=49150) is installed on the machines you want to onboard to Azure Automation DSC.
+1. Make sure the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines you want to onboard to Azure Automation DSC.
 2. If the [PowerShell DSC Local Configuration Manager defaults](https://msdn.microsoft.com/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC:
 
    + On each Linux machine to onboard to Azure Automation DSC, use Register.py to onboard using the PowerShell DSC Local Configuration Manager defaults:
@@ -386,5 +386,5 @@ Reregistration can be performed in the same way you registered the node initiall
 ## Related Articles
 
 * [Azure Automation DSC overview](automation-dsc-overview.md)
-* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)

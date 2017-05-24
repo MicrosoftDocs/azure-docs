@@ -19,7 +19,7 @@ ms.author: himad
 ---
 # Creating Endpoints
 > [!NOTE]
-> This topic describes techniques applicable to a classic Web service.
+>  This topic describes techniques applicable to a **Classic** Machine Learning Web service.
 > 
 > 
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 
 ---
@@ -66,7 +66,7 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
   - EVALUATION RESULT –- Result of analysis: Pass, Fail
 
 ## See also
-This article showed you how to implement the Security Center recommendation "Remediate OS vulnerabilities." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](http://cce.mitre.org) site for more information.
+This article showed you how to implement the Security Center recommendation "Remediate OS vulnerabilities." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](https://nvd.nist.gov/cce/index.cfm) site for more information.
 
 To learn more about Security Center, see the following:
 

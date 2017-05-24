@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a VM with a static public IP address - Azure Resource Manager template | Microsoft Docs
 description: Learn how to create a VM with a static public IP address using an Azure Resource Manager template.
 services: virtual-network
@@ -22,11 +22,11 @@ ms.custom: H1Hack27Feb2017
 # Create a VM with a static public IP address using an Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-- [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-- [Template](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+> * [Template](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -114,7 +114,7 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, complete the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
+1. If you have never used Azure PowerShell, complete the steps in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) article.
 2. In a PowerShell console, run the `New-AzureRmResourceGroup` cmdlet to create a new resource group, if necessary. If you already have a resource group created, go to step 3.
 
 	```powershell

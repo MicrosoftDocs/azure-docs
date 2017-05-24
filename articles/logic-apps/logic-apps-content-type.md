@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Handle content types in logic apps
@@ -54,7 +54,7 @@ you can manually cast it to JSON using the `@json()` function, for example: `@js
 
 The Request trigger lets you to enter a JSON schema for the payload you expect to receive. 
 This schema lets the designer generate tokens so you can consume the content of the request. 
-If you don't have a schema ready, select `Use sample payload to generate schema`, 
+If you don't have a schema ready, select **Use sample payload to generate schema**, 
 so you can generate a JSON schema from a sample payload.
 
 ![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
@@ -64,7 +64,7 @@ so you can generate a JSON schema from a sample payload.
 The `Parse JSON` action lets you parse JSON content into friendly tokens 
 for logic app consumption. Similar to the Request trigger, this action 
 lets you enter or generate a JSON schema for the content you want to parse. 
-This tool makes consuming data from Service Bus, DocumentDB, and so on, much easier.
+This tool makes consuming data from Service Bus, Azure Cosmos DB, and so on, much easier.
 
 ![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
 

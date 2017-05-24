@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Reset an Azure VPN gateway to reestablish IPsec tunnels | Microsoft Docs'
 description: This article walks you through resetting your Azure VPN Gateway to reestablish IPsec tunnels. The article applies to VPN gateways in both the classic, and the Resource Manager deployment models.
 services: vpn-gateway
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2017
+ms.date: 04/12/2017
 ms.author: cherylmc
 
 ---
@@ -57,16 +57,20 @@ You can reset a Resource Manager VPN gateway using the Azure portal. If you want
 
 ### Resource Manager deployment model
 
-You'll need the latest version of the PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information. The PowerShell Resource Manager cmdlet for resetting gateway is `Reset-AzureRmVirtualNetworkGateway`. The following example resets the Azure VPN gateway, "VNet1GW", in resource group "TestRG1".
+You'll need the latest version of the PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information. The PowerShell Resource Manager cmdlet for resetting gateway is `Reset-AzureRmVirtualNetworkGateway`. The following example resets the Azure VPN gateway, "VNet1GW", in resource group "TestRG1".
 
-    $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
-    Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+```powershell
+$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
+Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+```
 
 ### <a name="resetclassic"></a>Classic deployment model
 
-You'll need the latest version of the PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information. The PowerShell cmdlet for resetting Azure VPN gateway is `Reset-AzureVNetGateway`. The following example resets the Azure VPN gateway for the virtual network called "ContosoVNet".
+You'll need the latest version of the PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information. The PowerShell cmdlet for resetting Azure VPN gateway is **Reset-AzureVNetGateway**. The following example resets the Azure VPN gateway for the virtual network called "ContosoVNet".
 
-    Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+```powershell
+Reset-AzureVNetGateway –VnetName “ContosoVNet”
+``` 
 
 Result:
 

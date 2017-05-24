@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 05/08/2017
 ms.author: terrylan
 
 ---
@@ -45,7 +45,7 @@ Learn about Azure Security Center, its key capabilities, and how it works.
 | Respond | Suggests ways to stop the current attack and help prevent future attacks |
 
 ## Introductory walkthrough
- You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). [Sign in to the portal](https://portal.azure.com), select **Browse**, and then scroll to the **Security Center** option or select the **Security Center** tile that you previously pinned to the portal dashboard.
+ You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). [Sign in to the portal](https://portal.azure.com). Under the main portal menu, scroll to the **Security Center** option or select the **Security Center** tile that you previously pinned to the portal dashboard.
 
 ![Security tile in Azure portal][1]
 
@@ -79,7 +79,7 @@ On the **Security policy** blade, select a subscription to view the policy detai
 >
 >
 
-Select **Prevention policy** (see above) to open the **Prevention policy** blade. **Show recommendations for** lets you choose the security controls that you want to monitor and recommend based on the security needs of the resources within the subscription.
+Select **Prevention policy** (see above) to open the **Prevention policy** blade. **Show recommendations for** lets you choose the security controls that you want to monitor and the recommendations that you want to see based on the security needs of the resources within the subscription.
 
 Next, select a resource group to view policy details.
 
@@ -108,10 +108,10 @@ Click the **Recommendations** tile for a list of recommendations. Click each rec
 
 ![Security recommendations in Azure Security Center][5]
 
-### Resource health
-The **Resource security health** tile shows the overall security posture of the environment by resource type, including VMs, web applications, and other resources.   
+### Security state of Azure resources
+The **Prevention** section of the dashboard shows the overall security posture of the environment by resource type, including VMs, web applications, and other resources.   
 
-Select a resource type on the **Resource security health** tile to view more information, including a list of any potential security vulnerabilities that have been identified. (**Virtual machines** is selected in the example below.)
+Select a resource type under **Prevention** to view more information, including a list of any potential security vulnerabilities that have been identified. (**Compute** is selected in the example below.)
 
 ![Resources health tile][6]
 

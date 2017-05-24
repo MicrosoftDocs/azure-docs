@@ -26,8 +26,6 @@ ms.author: gwallace
 
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the effective and applied security rules to a virtual machine using REST API
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Before you begin
 
 In this scenario, you call the Network Watcher Rest API to get the security group view for a virtual machine. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)

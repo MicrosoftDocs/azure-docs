@@ -51,7 +51,8 @@ A common pattern for service failover is to send traffic to a primary service an
 
 
 - Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
-- Learn more about [performance routing method](traffic-manager-configure-performance-routing-method.md).
+- Learn about [performance routing method](traffic-manager-configure-performance-routing-method.md).
+- Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
 - Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
 
 <!--Image references-->

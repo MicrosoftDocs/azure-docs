@@ -1,0 +1,31 @@
+- name: Knowledge Exploration Service Documentation
+  href: ../index.md
+- name: Overview
+  items: 
+  - name: Learn about the Knowledge Exploration Service 
+    href: Overview.md
+- name: Get started
+  items: 
+  - name: Create a backend engine
+    href: GettingStarted.md
+  - name: Command line
+    href: CommandLine.md
+  - name: Schema format
+    href: SchemaFormat.md
+  - name: Data format
+    href: DataFormat.md
+  - name: Grammar format
+    href: GrammarFormat.md
+  - name: Semantic interpretation
+    href: SemanticInterpretation.md
+  - name: Web API interface
+    href: WebAPI.md
+    items:
+    - name: calchistogram
+      href: calchistogramMethod.md
+    - name: evaluate
+      href: evaluateMethod.md
+    - name: interpret
+      href: interpretMethod.md
+  - name: Structured query expressions
+    href: Expressions.md

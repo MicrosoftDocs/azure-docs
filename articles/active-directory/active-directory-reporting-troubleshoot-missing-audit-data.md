@@ -1,6 +1,7 @@
 ---
-title: 'Troubleshooting: Missing data in the Azure Active Directory activity log - preview | Microsoft Docs'
-description: Provides you with a resolution Lists the various available reports for Azure Active Directory preview
+
+title: 'Troubleshooting: Missing data in the Azure Active Directory activity log  | Microsoft Docs'
+description: Lists the various available reports for Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/09/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---

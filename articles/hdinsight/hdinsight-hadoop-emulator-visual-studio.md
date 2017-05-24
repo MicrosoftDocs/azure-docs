@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Tools for Visual Studio with Hortonworks Sandbox | Microsoft Docs
-description: Learn how to use the Azure Data Lake Tools for VIsual Studio with the Hortonworks sandbox (running in a local VM.) With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history.
+title: Data Lake Tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight | Microsoft Docs
+description: Learn how to use the Azure Data Lake Tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -9,17 +9,20 @@ editor: cgronlun
 
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
 # Use the Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox
 
-The Azure Data Lake tools for Visual Studio include tools for working with generic Hadoop clusters, in addition to tools for working with Azure Data Lake and HDInsight. This document provides the steps needed to use the Azure Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
+Learn how to use the Data Lake tools for Visual Studio with the Hortonworks Sandbox.
+
+The Data Lake Tools include tools for working with generic Hadoop clusters, in addition to tools for working with Azure Data Lake and HDInsight. This document provides the steps needed to use the Azure Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
 
 Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. Once you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
 
@@ -192,11 +195,11 @@ You may have noticed that you can select to view **Properties** on a database or
 
 ### Create a table
 
-To create a new table, right-click a database, and then select **Create Table**.
+To create a table, right-click a database, and then select **Create Table**.
 
 ![Create table](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
 
-You can then create the table using a form. You can see the raw HiveQL that will be used to create the table at the bottom of this page.
+You can then create the table using a form. You can see the raw HiveQL that is used to create the table at the bottom of this page.
 
 ![create table form](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 

@@ -9,7 +9,7 @@ editor: ''
 tags: acs, azure-container-service, kubernetes
 keywords: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -69,7 +69,7 @@ Analytics](../log-analytics/log-analytics-containers.md).
 For the OMS agent to talk to the service it needs to be configured with a workspace id and
 a workspace key. To get the workspace id and key you need to create an OMS account at <https://mms.microsoft.com>.
 Please follow the steps to create an account. Once you are done creating
-the account, you need to obtain your id and key by clicking 
+the account, you need to obtain your id and key by clicking
 **Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
 
  ![](media/container-service-monitoring-oms/image5.png)
@@ -78,41 +78,8 @@ the account, you need to obtain your id and key by clicking
 DaemonSets are used by Kubernetes to run a single instance of a container on each host in the cluster.
 They're perfect for running monitoring agents.
 
-Here is the DaemonSet YAML file. Save it to a file named `oms-daemonset.yaml` and 
-replace the place-holder values for `WSID` and `KEY` below with your workspace id and key in the file.
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: omsagent
-spec:
-  template:
-    metadata:
-      labels:
-        app: omsagent
-    spec:
-      containers:
-      - env:
-        - name: WSID
-          value: <your workspace ID>
-        - name: KEY
-          value: <your key>
-        image: microsoft/oms
-        name: omsagent
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-```
+Here is the [DaemonSet YAML file](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Save it to a file named `oms-daemonset.yaml` and
+replace the place-holder values for `WSID` and `KEY` with your workspace id and key in the file.
 
 Once you have added your workspace ID and key to the DaemonSet configuration, you can install the OMS agent
 on your cluster with the `kubectl` command line tool:

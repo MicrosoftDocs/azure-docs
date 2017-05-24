@@ -19,7 +19,7 @@ ms.date: 03/06/2017
 ms.author: chrande, glenga
 
 ---
-# Azure Functions Storage blob bindings
+# Azure Functions Blob storage bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Storage blob bindings in Azure Functions. 
@@ -54,9 +54,9 @@ Note the following:
 * For `path`, see [Name patterns](#pattern) to find out how to format blob name patterns.
 * `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
   editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+  one. To manually create this app setting, see [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
-When running on a Consumption plan, if a Function App has gone idle, there can be be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
+When running on a Consumption plan, if a Function App has gone idle, there can be be up to a 10-minute delay in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
 
 Also, see one of the following subheadings for more information:
 
@@ -102,7 +102,7 @@ For example:
 This path would find a blob named *{20140101}-soundfile.mp3* in the *images* container, and the `name` variable value in the function code 
 would be *soundfile.mp3*. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### Blob receipts
 The Azure Functions runtime makes sure that no blob trigger function gets called more than once for the same new or updated blob. 
@@ -246,7 +246,7 @@ Note the following:
   matches the blob name specified in the trigger message.   
 * `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
   editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+  one. To manually create this app setting, see [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
 <a name="inputusage"></a>
 
@@ -367,7 +367,7 @@ Note the following:
   matches the blob name specified in the trigger message.   
 * `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
   editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+  one. To manually create this app setting, see [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md). 
 
 <a name="outputusage"></a>
 

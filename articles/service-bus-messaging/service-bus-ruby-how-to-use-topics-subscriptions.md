@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
 
 ---
@@ -30,7 +30,7 @@ This article describes how to use Service Bus topics and subscriptions from Ruby
 For instructions, see [Create a Ruby Application on Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configure Your application to Use Service Bus
-To use Service Bus, download and use the Ruby Azure package, which includes a set of convenience libraries that communicate with the storage REST services.
+To use Service Bus, download and use the Azure Ruby package, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
@@ -91,7 +91,7 @@ subscription = azure_service_bus_service.create_subscription("test-topic", "all-
 ### Create subscriptions with filters
 You can also define filters that enable you to specify which messages sent to a topic should show up within a specific subscription.
 
-The most flexible type of filter supported by subscriptions is the **Azure::ServiceBus::SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more details about the expressions that can be used with a SQL filter, review the [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) syntax.
+The most flexible type of filter supported by subscriptions is the **Azure::ServiceBus::SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more details about the expressions that can be used with a SQL filter, review the [SqlFilter](service-bus-messaging-sql-filter.md) syntax.
 
 You can add filters to a subscription by using the **create\_rule()** method of the **Azure::ServiceBusService** object. This method enables you to add new filters to an existing subscription.
 
@@ -165,7 +165,7 @@ Service Bus provides functionality to help you gracefully recover from errors in
 
 There is also a timeout associated with a message locked within the subscription, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
 
-In the event that the application crashes after processing the message but before the **delete\_subscription\_message()** method is called, then the message is redelivered to the application when it restarts. This is often called **At Least Once Processing**; that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This logic is often achieved using the **message\_id** property of the message, which will remain constant across delivery attempts.
+In the event that the application crashes after processing the message but before the **delete\_subscription\_message()** method is called, then the message is redelivered to the application when it restarts. This is often called *At Least Once Processing*; that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This logic is often achieved using the **message\_id** property of the message, which will remain constant across delivery attempts.
 
 ## Delete topics and subscriptions
 Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The example below demonstrates how to delete the topic named "test-topic".
@@ -184,7 +184,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
 * See [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
-* API reference for [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
+* API reference for [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter).
 * Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
 
 [Azure portal]: https://portal.azure.com

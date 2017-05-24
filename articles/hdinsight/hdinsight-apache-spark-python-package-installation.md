@@ -1,6 +1,6 @@
 ---
-title: 'Script action: Install Python packages with Jupyter notebooks on Azure HDInsight | Microsoft Docs'
-description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
+title: Script action - Install Python packages with Jupyter on Azure HDInsight | Microsoft Docs
+description: Step-by-step instructions on how to use script action to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 21978b71-eb53-480b-a3d1-c5d428a7eb5b
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -61,11 +62,11 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 
 3. Open a PySpark Jupyter notebook
 
-    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-python-package-installation/hdispark.note.jupyter.createpysparknotebook.png "Create a new Jupyter notebook")
+    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Create a new Jupyter notebook")
 
 4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
-    ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Provide a name for the notebook](./media/hdinsight-apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "Provide a name for the notebook")
 
 5. You will now `import tensorflow` and run a hello world example. 
 
