@@ -333,39 +333,23 @@ Traffic Manager works on Azure public endpoints and can be used, for example, to
 The Virtual Data Center is an approach to data center migration into the cloud that uses a combination of features and capabilities to create a scalable architecture in Azure that maximizes cloud resource use, reducing costs, and simplifying system governance. The vDC concept is based on a hub-spokes topology, providing common shared services in the hub and allowing specific applications/workloads in the spokes. A vDC matches the structure of company roles, where different departments (Central IT, DevOps, operation and maintenance) work together, each with a specific list of roles and duties. A vDC satisfies the requirements for a "Lift and Shift" migration, but also provides many advantages to native cloud deployments.
 
 ## References
-[Limits]
-[Roles]
-[VNet]
-[NSG]
-[VNetPeering]
-[UDR]
-[RBAC]
-[MFA]
-[AAD]
-[VPN]
-[ExR]
-[NVA]
-[SubMgmt] 
-[RGMgmt]
-[DMZ]
-[ALB]
-[PIP]
-[AppGW]
-[WAF]
-[ActLog]
-[DiagLog]
-[NSGLog]
-[OMS]
-[WebApps]
-[HDI]
-[EventHubs]
-[ServiceBus]
-[TM]
+The following features were discussed in this document, follow the links to learn more.
+
+| | | |
+|-|-|-|
+|Network Features|Load Balancing|Connectivity|
+|[Azure Virtual Networks][VNet]</br>[Network Security Groups][NSG]</br>[NSG Logs][NSGLog]</br>[User Defined Routing][UDR]</br>[Network Virtual Appliances][NVA]</br>[Public IP Addresses][PIP]|[Azure Load Balancer (L3)][ALB]</br>[Application Gateway (L7)][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet Peering][VNetPeering]</br>[Virtual Private Network][VPN]</br>[ExpressRoute][ExR]
+|Identity</br>|Monitoring</br>|Best Practices</br>|
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access Controls][RBAC]</br>[Default AAD Roles][Roles] |[Activity Logs][ActLog]</br>[Diagnostic Logs][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[Perimeter Networks Best Practices][DMZ]</br>[Subscription Management][SubMgmt]</br>[Resource Group Management][RGMgmt]</br>[Azure Subscription Limits][Limits] |
+|Other Azure Services|
+|[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop)][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+
+
 
 ## Next Steps
- - Implement [VNet Peering][VNetPeering] to understand the capabilities
+ - Explore [VNet Peering][VNetPeering] as this is the underpinning technolgy for the vDC hub and spoke designs
  - Implement [AAD][AAD] to get started with [RBAC][RBAC] exploration
- - Develop a Subscription and Resource management model and your RBAC model
+ - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and polices of your organization. The most important activity is holistic planning. As much as practical, plan for re-organizations, mergers, new product lines, etc.
 
 <!--Image References-->
 [0]: ./media/virtual-network-vdc/redundant-equipment.png "Examples of component overlap" 
