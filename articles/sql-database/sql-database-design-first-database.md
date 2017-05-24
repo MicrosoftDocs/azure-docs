@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/07/2017
+ms.date: 05/24/2017
 ms.author: janeng
 
 ---
@@ -49,30 +49,43 @@ Follow these steps to create a blank SQL database.
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page. 
 
-    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
+   ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
 
-   - Database name: **mySampleDatabase**
-   - Resource group: **myResourceGroup**
-   - Source: **Blank database**
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Database name | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). | 
+   | Subscription | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+   | Resource group | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | Select source | Blank database | Specifies that a blank database should be created. |
 
-4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
+4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
-    ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Server name | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | Server admin login | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). |
+   | Password | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
+   | Location | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/) |
+
+   ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
+
 5. Click **Select**.
 
 6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this tutorial, select **20 DTUs** and **250** GB of storage.
 
-    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 7. Click **Apply**.  
 
-8. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
+8. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-9. On the toolbar, click **Notifications** to monitor the deployment process.
+9. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
 
-    ![notification](./media/sql-database-get-started-portal/notification.png)
+10. On the toolbar, click **Notifications** to monitor the deployment process.
+
+   ![notification](./media/sql-database-get-started-portal/notification.png)
 
 
 ## Create a server-level firewall rule
@@ -81,13 +94,13 @@ Azure SQL Databases are protected by a firewall. By default, all connections to 
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and click your new database, **mySampleDatabase**, on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170313.database.windows.net**) and provides options for further configuration.
 
-      ![server firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png) 
+   ![server firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
 3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-      ![set server firewall rule](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
+   ![set server firewall rule](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
 
 4. Click **OK** and then click the **X** to close the **Firewall settings** page.
 
@@ -107,18 +120,21 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 
     ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## Connect to your database using SQL Server Management Studio
+## Connect using Management Studio
 
 Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
 
 1. Open SQL Server Management Studio.
 
 2. In the **Connect to Server** dialog box, enter the following information:
-   - **Server type**: Specify Database engine
-   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
-   - **Authentication**: Specify SQL Server Authentication
-   - **Login**: Enter your server admin account
-   - **Password**: Enter the password for your server admin account
+
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Server type | Database engine | This value is required |
+   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | Login | The server admin account | This is the account that you specified when you created the server. |
+   | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
 
    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
