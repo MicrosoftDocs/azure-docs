@@ -134,7 +134,7 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 1. Update the ID of the `<TechnicalProfile>` node. This ID is used to refer to this technical profile from other parts of the policy.
 1. Update the value for `<DisplayName>`. This value will be displayed on the sign-in button on your sign-in screen.
 1. Update the value for `<Description>`.
-1. Azure AD uses the OpenID Connect protocol, so ensure that the value for `<Protocol>` is `"OpenIDConnect"`.
+1. Azure AD uses the OpenID Connect protocol, so ensure that the value for `<Protocol>` is `"OpenIdConnect"`.
 
 You need to update the `<Metadata>` section in the XML file referred to earlier to reflect the configuration settings for your specific Azure AD tenant. In the XML file, update the metadata values as follows:
 
