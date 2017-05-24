@@ -97,13 +97,13 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
-   | Database name | mySampleDatabase | The name of the database to which to connect. |
-   | Authentication | SQL Login| SQL Authentication is the only authentication type that we have configured in this tutorial. |
-   | User name | The server admin account | This is the account that you specified when you created the server. |
-   | Password (SQL Login) | The password for your server admin account | This is the password that you specified when you created the server. |
-   | Save Password? | Yes or No | Select Yes if you do not want to enter the password each time. |
-   | [Optional] Enter a name for this profile | A profile name, such as **mySampleDatabase** | A saved profile name speeds your connection on subsequent logins. | 
+   | **Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | **Database name** | mySampleDatabase | The name of the database to which to connect. |
+   | **Authentication** | SQL Login| SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | **User name** | The server admin account | This is the account that you specified when you created the server. |
+   | **Password (SQL Login)** | The password for your server admin account | This is the password that you specified when you created the server. |
+   | **Save Password?** | Yes or No | Select Yes if you do not want to enter the password each time. |
+   | **Enter a name for this profile** | A profile name, such as **mySampleDatabase** | A saved profile name speeds your connection on subsequent logins. | 
 
 5. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
 

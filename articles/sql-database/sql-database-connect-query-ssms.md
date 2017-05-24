@@ -60,11 +60,11 @@ Use SQL Server Management Studio to establish a connection to your Azure SQL Dat
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Server type | Database engine | This value is required. |
-   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
-   | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
-   | Login | The server admin account | This is the account that you specified when you created the server. |
-   | Password | The password for your server admin account | This is the password that you specified when you created the server. |
+   | **Server type** | Database engine | This value is required. |
+   | **Server name** | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | **Authentication** | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | **Login** | The server admin account | This is the account that you specified when you created the server. |
+   | **Password** | The password for your server admin account | This is the password that you specified when you created the server. |
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 

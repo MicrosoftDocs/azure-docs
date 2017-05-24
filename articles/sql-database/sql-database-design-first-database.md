@@ -55,19 +55,19 @@ Follow these steps to create a blank SQL database.
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Database name | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). | 
-   | Subscription | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | Resource group | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | Select source | Blank database | Specifies that a blank database should be created. |
+   | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). | 
+   | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Select source** | Blank database | Specifies that a blank database should be created. |
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Server name | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | Server admin login | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). |
-   | Password | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
-   | Location | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). |
+   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
+   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
 
