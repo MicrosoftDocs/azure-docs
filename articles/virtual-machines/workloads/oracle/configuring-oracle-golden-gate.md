@@ -32,7 +32,7 @@ To perform the Oracle Golden Gate install, you need to create two Azure VMs on t
 You are familiar with Unix editor vi and basic understanding of x11 (X Windows)
 
 >
-> The following is a summary of the enviroment configuration:
+> The following is a summary of the environment configuration:
 > 
 > |  | **Primary site** | **Replicate site** |
 > | --- | --- | --- |
@@ -41,7 +41,7 @@ You are familiar with Unix editor vi and basic understanding of x11 (X Windows)
 > | **Operating System** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
 > | **Replication Schema** |TEST|TEST |
-> | **Golden Gate Owner/Replicator** |C##GGADMIN |REPUSER |
+> | **Golden Gate Owner/Replicate** |C##GGADMIN |REPUSER |
 > | **Golden Gate Process** |EXTORA |REPORA|
 > 
 
@@ -107,7 +107,7 @@ Once the VM has been created, the Azure CLI shows information similar to the fol
 }
 ```
 
-Create myVM2 (replicat)
+Create myVM2 (replicant)
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -258,7 +258,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 $ sudo su - oracle
 $ lsnrctl start
 ```
-### Create Database on myVM2 (Replicat)
+### Create Database on myVM2 (Replicant)
 
 ``bash
 sudo su - oracle
@@ -607,7 +607,7 @@ TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887';
 GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
 ```
 
-### Service setup on myVM2 (replicat)
+### Service setup on myVM2 (replicant)
 
 
 1. Create or update tnsnames.ora file
@@ -643,7 +643,7 @@ pdb1=
   )
 ```
 
-2. Create replicat account
+2. Create replicate account
 
 ```bash
 $ sqlplus / as sysdba
@@ -709,7 +709,7 @@ GGSCI> ADD REPLICAT INITREP, SPECIALRUN
 ```
 ### Setting up the replication (myVM1 and myVM2)
 
-1. On myVM2 (replicat)
+1. On myVM2 (replicant)
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -740,7 +740,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-3. On myVM2 (replicat)
+3. On myVM2 (replicant)
 
 Change the SCN number with the number you obtained before
 
@@ -749,7 +749,7 @@ $ cd /u01/app/oracle/product/12.1.0/oggcore_1
 $ ./ggsci
 START REPLICAT REPORA, AFTERCSN 1857887
 ```
-The replication should begins, you can test it by inserting new records to TEST tables.
+The replication have began, you can test it by inserting new records to TEST tables.
 
 
 ### View job status and Troubleshooting
