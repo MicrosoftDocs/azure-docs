@@ -90,11 +90,11 @@ Azure Virtual Networks are like the virtual networks you use on-premises with yo
 
 You can connect VNets to each other, enabling resources connected to either VNet to communicate with each other across VNets. You can use either or both of the following options to connect VNets to each other:
 
-**Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNet is the same as if the resources were connected to the same VNet. To learn more about peering, read [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNet is the same as if the resources were connected to the same VNet. To learn more about peering, read [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
-**VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway.
+- **VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway.
 
 ![VNet-to-VNet connection](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -153,9 +153,9 @@ You can connect several Azure resources to a VNet, such as Virtual Machines (VM)
 
 You can connect VNets to each other, enabling resources connected to either VNet to communicate with each other across VNets. You can use either or both of the following options to connect VNets to each other:
 
-**Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNets is the same as if the resources were connected to the same VNet.To learn more about peering, read the [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) .
+- **Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNets is the same as if the resources were connected to the same VNet.To learn more about peering, read the [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) .
 
-**VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway. To learn more about connecting VNets with a VNet-to-VNet connection. To learn more, read the [Configure a VNet-to-VNet connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+- **VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway. To learn more about connecting VNets with a VNet-to-VNet connection. To learn more, read the [Configure a VNet-to-VNet connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 **On-premises connectivity**
 
@@ -163,13 +163,11 @@ VNets can be connected to [on-premises](https://docs.microsoft.com/azure/virtual
 
 You can connect your on-premises network to a VNet using any combination of the following options:
 
-**Point-to-site virtual private network (VPN):** Established between a single PC connected to your network and the VNet. This connection type is great if you're just getting started with Azure, or for developers, because it requires little or no changes to your existing network. The connection uses the SSTP protocol to provide encrypted communication over the Internet between the PC and the VNet. The latency for a point-to-site VPN is unpredictable since the traffic traverses the Internet.
+- **Point-to-site virtual private network (VPN):** Established between a single PC connected to your network and the VNet. This connection type is great if you're just getting started with Azure, or for developers, because it requires little or no changes to your existing network. The connection uses the SSTP protocol to provide encrypted communication over the Internet between the PC and the VNet. The latency for a point-to-site VPN is unpredictable since the traffic traverses the Internet.
 
-**Site-to-site VPN:** Established between your VPN device and an Azure VPN Gateway. This connection type enables any on-premises resource you authorize to access a VNet. The connection is an IPsec/IKE VPN that provides encrypted communication over the Internet between your on-premises device and the Azure VPN gateway. The latency for a site-to-site connection is unpredictable since the traffic traverses the Internet.
+- **Site-to-site VPN:** Established between your VPN device and an Azure VPN Gateway. This connection type enables any on-premises resource you authorize to access a VNet. The connection is an IPsec/IKE VPN that provides encrypted communication over the Internet between your on-premises device and the Azure VPN gateway. The latency for a site-to-site connection is unpredictable since the traffic traverses the Internet.
 
-**Azure ExpressRoute:** Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic does not traverse the Internet. The latency for an ExpressRoute connection is predictable since traffic doesn't traverse the Internet.
-
-To learn more about all the previous connection options, read the [Connection topology diagrams](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic does not traverse the Internet. The latency for an ExpressRoute connection is predictable since traffic doesn't traverse the Internet.To learn more about all the previous connection options, read the [Connection topology diagrams](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Traffic filtering**
 
@@ -177,11 +175,9 @@ VM and Cloud Services role instances [network traffic](https://docs.microsoft.co
 
 You can filter network traffic between subnets using either or both of the following options:
 
-**Network security groups (NSG):** Each NSG can contain multiple inbound and outbound security rules that enable you to filter traffic by source and destination IP address, port, and protocol. You can apply an NSG to each NIC in a VM. You can also apply an NSG to the subnet a NIC, or other Azure resource, is connected to.
+- **Network security groups (NSG):** Each NSG can contain multiple inbound and outbound security rules that enable you to filter traffic by source and destination IP address, port, and protocol. You can apply an NSG to each NIC in a VM. You can also apply an NSG to the subnet a NIC, or other Azure resource, is connected to.To learn more about NSGs, read the [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
-To learn more about NSGs, read the [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-
-**Virtual Network Appliances:** A virtual network appliance is a VM running software that performs a network function, such as a firewall. View a list of available NVAs in the Azure Marketplace. NVAs are also available that provide WAN optimization and other network traffic functions. NVAs are typically used with user-defined or BGP routes. You can also use an NVA to filter traffic between VNets.
+- **Virtual Network Appliances:** A virtual network appliance is a VM running software that performs a network function, such as a firewall. View a list of available NVAs in the Azure Marketplace. NVAs are also available that provide WAN optimization and other network traffic functions. NVAs are typically used with user-defined or BGP routes. You can also use an NVA to filter traffic between VNets.
 
 **Routing**
 
@@ -189,9 +185,9 @@ You can optionally override Azure's default routing by configuring your own rout
 
 Azure creates route tables that enable resources connected to any subnet in any VNet to communicate with each other, by default. You can implement either or both of the following options to override the default routes Azure creates:
 
-**User-defined routes:** You can create custom route tables with routes that control where traffic is routed to for each subnet. To learn more about user-defined routes, read the [User-defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **User-defined routes:** You can create custom route tables with routes that control where traffic is routed to for each subnet. To learn more about user-defined routes, read the [User-defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-**BGP routes:** If you connect your VNet to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate BGP routes to your VNets.
+- **BGP routes:** If you connect your VNet to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate BGP routes to your VNets.
 
 ### Hybrid internet connectivity: Connect to an on-premises network
 You can connect your on-premises network to a VNet using any combination of the following options:
@@ -425,6 +421,7 @@ Following are the Network availability controls:
 -	Traffic Manager
 
 **Azure Load balancer**
+
 Delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set.
 
  ![Azure Load Balancer](media/azure-network-security/azure-network-security-fig-14.png)
@@ -531,9 +528,9 @@ Network Watcher currently has the following capabilities:
 
 As resources are returned the connection between they are modeled under two relationships.
 
-**Containment** - Virtual Network contains a Subnet, which contains a NIC
+- **Containment** - Virtual Network contains a Subnet, which contains a NIC.
 
-**Associated** - A NIC is associated with a VM.
+- **Associated** - A NIC is associated with a VM.
 
 #### Variable packet capture
 
@@ -614,6 +611,7 @@ Network Watcher provides a diagnostic logs view. This view contains all networki
 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.
 
 Log Analytics offers the following solutions for monitoring your networks:
+
 -	Network Performance Monitor (NPM)
 
 -	Azure Application Gateway analytics
@@ -624,6 +622,7 @@ Log Analytics offers the following solutions for monitoring your networks:
 The [Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor) management solution is a network monitoring  solution that monitors the health, availability, and reachability of networks.
 
 It is used to monitor connectivity between:
+
 -	public cloud and on-premises
 
 -	data centers and user locations (branch offices)
@@ -634,6 +633,7 @@ It is used to monitor connectivity between:
 #### Azure application gateway analytics in log analytics
 
 The following logs are supported for Application Gateways:
+
 -	ApplicationGatewayAccessLog
 
 -	ApplicationGatewayPerformanceLog
@@ -647,9 +647,10 @@ The following metrics are supported for Application Gateways:
 #### Azure network security group analytics in log analytics
 
 The following logs are supported for [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
-**NetworkSecurityGroupEvent:** Contains entries for which NSG rules are applied to VMs and instance roles based on MAC address. The status for these rules is collected every 60 seconds.
 
-**NetworkSecurityGroupRuleCounter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
+- **NetworkSecurityGroupEvent:** Contains entries for which NSG rules are applied to VMs and instance roles based on MAC address. The status for these rules is collected every 60 seconds.
+
+- **NetworkSecurityGroupRuleCounter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
 ## Next steps
 Find out more about security by reading some of our in-depth security topics:
