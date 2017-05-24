@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
-ms.author: cherylmc
+ms.date: 05/24/2017
+ms.author: kaanan
 ---
 # ExpressRoute partners and peering locations
 
@@ -150,7 +150,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Los Angeles** | Equinix |Transtelco |
 | **Madrid** | Level3 | Zertia |
 | **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers |
-| **New York** |Equinix | Lightower |
+| **New York** |Equinix, Megaport | Lightower, Webair |
 | **Seattle** |Equinix | Alaska Communications |
 | **Silicon Valley** |Equinix | Cox Business, Windstream |
 | **Singapore** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
