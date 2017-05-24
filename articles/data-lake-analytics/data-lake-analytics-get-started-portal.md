@@ -42,16 +42,16 @@ account.
 **Create a Data Lake Analytics account**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Click **New**, click **Intelligence + analytics**, and then click **Data Lake Analytics**.
-3. Type or select the following values:
+2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
+3. Select the following values:
 
     ![Azure Data Lake Analytics portal blade](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
    * **Name**: Name your Data Lake Analytics account (Only lower case letters and numbers allowed).
    * **Subscription**: Choose the Azure subscription used for the Analytics account.
-   * **Resource Group**. Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. For more information, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
+   * **Resource Group**. Select an existing Azure Resource Group or create a new one.
    * **Location**. Select an Azure data center for the Data Lake Analytics account.
-   * **Data Lake Store**: Click *Configure required settings*. Follow the instruction to create a new Data Lake Store account, or select an existing one. Each Data Lake Analytics account has a dependent Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center.
+   * **Data Lake Store**: Follow the instruction to create a new Data Lake Store account, or select an existing one. 
 4. Select your Pricing Tier  
 5. Click **Create**. It returns you to your portal home screen where a new tile appears, showing "Deploying Azure Data Lake Analytics". The deploy process will take several minutes to create a Data Lake Analytics account. When the account is created, the portal opens the account on a new blade.
 
