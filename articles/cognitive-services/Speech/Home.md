@@ -58,7 +58,7 @@ Here is a quick comparison of features between the REST and WebSocket APIs for s
 Refer to [Output Format](api-reference-rest/bingvoicerecognition.md#output-format) in API reference for more information.
 
 ## Supported Languages  
-Speech recognition API supports many spoken languages in multiple dialects. Refer to [Recognition Languages](api-reference-rest/bingvoicerecognition#recognition-languages) for full list of supported languages for each recognition mode.
+Speech recognition API supports many spoken languages in multiple dialects. Refer to [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages) for full list of supported languages for each recognition mode.
 
 ## Text to Speech (Speech Synthesis)
 The speech synthesis REST API provides real-time text to speech conversion in a variety of different voices and languages. The maximum amount of audio returned for any single request must not exceed 15 seconds. 
