@@ -130,17 +130,13 @@ After you have prepared the source data, you can start developing a U-SQL script
 
 1. Click **Submit Job** from the top.   
 2. Wait until the job status is changed to **Succeeded**. You can see the job took about one minute to complete.
-
-    In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-3. At the bottom of the blade, click the **Output** tab, and then click **SearchLog-from-Data-Lake.csv**. You can preview, download, rename, and delete the output file.
+3. In case the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+4. At the bottom of the blade, click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. You can preview, download, rename, and delete the output file.
 
     ![Azure Data Lake Analytics job output file properties](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
 
 ## See also
-* To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+
 * To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
-* To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-* To see the same tutorial using other tools, click the tab selectors on the top of the page.
-* To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
