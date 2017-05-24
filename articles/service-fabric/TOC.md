@@ -48,8 +48,8 @@
 #### [Deploy Windows container](service-fabric-deploy-container.md)
 #### [Deploy Linux container](service-fabric-deploy-container-linux.md)
 #### [Docker compose (preview)](service-fabric-docker-compose.md)
-#### [Resource Governance for Containers and Services](service-fabric-resource-governance.md)
-#### [Volume and Log Drivers](service-fabric-containers-volume-logging-drivers.md)
+#### [Resource governance for containers and services](service-fabric-resource-governance.md)
+#### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
 
 ### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)

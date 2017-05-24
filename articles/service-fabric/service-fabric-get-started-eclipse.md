@@ -1,4 +1,11 @@
---- title: Azure Service Fabric plug-in for Eclipse | Microsoft Docs description:  Get started with the Service Fabric plug-in for Eclipse.  services: service-fabric documentationcenter: java author: sayantancs manager: timlt editor: ''
+--- 
+title: Azure Service Fabric plug-in for Eclipse | Microsoft Docs 
+description:  Get started with the Service Fabric plug-in for Eclipse.  
+services: service-fabric 
+documentationcenter: java 
+author: sayantancs 
+manager: timlt 
+editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
