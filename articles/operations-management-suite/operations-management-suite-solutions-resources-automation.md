@@ -278,7 +278,7 @@ The properties for variable resources are described in the following table.
 If you set the initial value for the variable, it must be configured as the correct data type.  The following table provides the different data types allowable and their syntax.  Note that values in JSON are expected to always be enclosed in quotes with any special characters within the quotes.  For example, a string value would be specified by quotes around the string (using the escape character (\\)) while a numeric value would be specified with one set of quotes.
 
 | Data type | Description | Example | Resolves to |
-|:--|:--|:--|
+|:--|:--|:--|:--|
 | string   | Enclose value in double quotes.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Numeric value with single quotes.| "64" | 64 |
 | boolean  | **true** or **false** in quotes.  Note that this value must be lowercase. | "true" | true |
