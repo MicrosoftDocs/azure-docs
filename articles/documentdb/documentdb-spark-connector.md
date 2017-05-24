@@ -27,7 +27,7 @@ For working with Spark GraphX and Azure Cosmos DB's Gremlin graph APIs, see [Per
 
 ## Download
 
-Get started by downloading the Spark to Azure Cosmos DB connector (preview) from the [azure-documentdb-spark](https://github.com/Azure/azure-documentdb-spark/) repo on GitHub.
+Get started by downloading the Spark to Azure Cosmos DB connector (preview) from the [azure-cosmosdb-spark](https://github.com/Azure/azure-documentdb-spark/) repo on GitHub.
 
 ## Connector components
 
@@ -171,27 +171,27 @@ You can also download the latest versions of the jar within the *releases* folde
 Prior to executing any code, you first need to include the Azure Cosmos DB Spark JAR.  If you are using the **spark-shell**, then you can include the JAR using the **--jars** option.  
 
 ```
-spark-shell --master $master --jars /$location/azure-documentdb-spark-0.0.3-jar-with-dependencies.jar
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-with-dependencies.jar
 ```
 
 or if you want to execute the jar without dependencies:
 
 ```
-spark-shell --master $master --jars /$location/azure-documentdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
+spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
 ```
 
 If you are using a notebook service such as Azure HDInsight Jupyter notebook service, you can use the **spark magic** commands:
 
 ```
 %%configure
-{ "jars": ["wasb:///example/jars/azure-documentdb-1.10.0.jar","wasb:///example/jars/azure-documentdb-spark-0.0.3.jar"],
+{ "jars": ["wasb:///example/jars/azure-documentdb-1.10.0.jar","wasb:///example/jars/azure-cosmosdb-spark-0.0.3.jar"],
   "conf": {
     "spark.jars.excludes": "org.scala-lang:scala-reflect"
    }
 }
 ```
 
-The **jars** command enables you to include the two jars needed for **azure-documentdb-spark** (itself and the Azure DocumentDB Java SDK) and excludes **scala-reflect** so it does not interfere with the Livy calls made (Jupyter notebook > Livy > Spark).
+The **jars** command enables you to include the two jars needed for **azure-cosmosdb-spark** (itself and the Azure DocumentDB Java SDK) and excludes **scala-reflect** so it does not interfere with the Livy calls made (Jupyter notebook > Livy > Spark).
 
 ### Connecting Spark to Cosmos DB using the connector
 While the communication transport is a little more complicated, executing a query from Spark to Cosmos DB using the connector is significantly faster.
