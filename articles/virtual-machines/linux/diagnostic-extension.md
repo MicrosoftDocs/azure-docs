@@ -16,7 +16,7 @@ ms.author: jasonzio
 This document describes version 3.0 and newer of the Linux Diagnostic Extension.
 
 > [!IMPORTANT]
-> For information about version 2.3 and older, see [this document](./classic/diagnostic-extension.md).
+> For information about version 2.3 and older, see [this document](./classic/diagnostic-extension-v2.md).
 
 ## Introduction
 
@@ -105,7 +105,7 @@ Recommendations:
   * LAD 3.0 stores syslog events in a table with a different name.
   * The counterSpecifier strings for `builtin` metrics differ in LAD 3.0.
 
-## Protected Settings
+## Protected settings
 
 This set of configuration information contains sensitive information that should be protected from public view, for example, storage credentials. These settings are transmitted to and stored by the extension in encrypted form.
 
@@ -220,7 +220,7 @@ This structure contains various blocks of settings that control the information 
 Element | Value
 ------- | -----
 StorageAccount | The name of the storage account in which data is written by the extension. Must be the same name as is specified in the [Protected settings](#Protected-settings).
-mdsdHttpProxy | (optional) Same as in the [Protected Settings](#Protected-Settings). The public value is overridden by the private value, if set. Place proxy settings that contain a secret, such as a password, in the [Protected settings](#Protected-settings).
+mdsdHttpProxy | (optional) Same as in the [Protected settings](#Protected-settings). The public value is overridden by the private value, if set. Place proxy settings that contain a secret, such as a password, in the [Protected settings](#Protected-settings).
 
 The remaining elements are described in detail in the following sections.
 
@@ -376,7 +376,7 @@ Element | Value
 ------- | -----
 namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | The OMI query to be executed.
-table | (optional) The Azure storage table, in the designated storage account (see [Protected Settings](#Protected-Settings)).
+table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#Protected-settings)).
 frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); minimum value is 15 seconds.
 sinks | (optional) A comma-separated list of names of additional sinks to which raw sample metric results should be published. No aggregation of these raw samples is computed by the extension or by Azure Metrics.
 
@@ -406,9 +406,9 @@ sinks | (optional) A comma-separated list of names of additional sinks to which 
 
 Either "table" or "sinks", or both, must be specified.
 
-## Metrics supported by the `builtin` provider
+## Metrics supported by the builtin provider
 
-The `builtin` metric provider is a source of metrics most interesting to a broad set of users. These metrics fall into five broad classes:
+The builtin metric provider is a source of metrics most interesting to a broad set of users. These metrics fall into five broad classes:
 
 * Processor
 * Memory
@@ -416,7 +416,7 @@ The `builtin` metric provider is a source of metrics most interesting to a broad
 * Filesystem
 * Disk
 
-### `builtin` metrics for the Processor class
+### builtin metrics for the Processor class
 
 The Processor class of metrics provides information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. In a two core VM, if one core was 100% busy and the other was 100% idle, the reported PercentIdleTime would be 50. If each core was 50% busy for the same period, the reported result would also be 50. In a four core VM, with one core 100% busy and the others idle, the reported PercentIdleTime would be 75.
 
@@ -434,7 +434,7 @@ The first four counters should sum to 100%. The last three counters also sum to 
 
 To obtain a single metric aggregated across all processors, set `"condition": "IsAggregate=TRUE"`. To obtain a metric for a specific processor, such as the second logical processor of a four core VM, set `"condition": "Name=\\"1\\""`. Logical processor numbers are in the range `[0..n-1]`.
 
-### `builtin` metrics for the Memory class
+### builtin metrics for the Memory class
 
 The Memory class of metrics provides information about memory utilization, paging, and swapping.
 
@@ -454,7 +454,7 @@ PercentUsedSwap | In-use swap space as a percentage of total swap
 
 This class of metrics has only a single instance. The "condition" attribute has no useful settings and should be omitted.
 
-### `builtin` metrics for the Network class
+### builtin metrics for the Network class
 
 The Network class of metrics provides information about network activity on an individual network interfaces since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
 
@@ -471,7 +471,7 @@ TotalCollisions | Number of collisions reported by the network ports since boot
 
  Although this class is instanced, LAD does not support capturing Network metrics aggregated across all network devices. To obtain the metrics for a specific interface, such as eth0, set `"condition": "InstanceID=\\"eth0\\""`.
 
-### `builtin` metrics for the Filesystem class
+### builtin metrics for the Filesystem class
 
 The Filesystem class of metrics provides information about filesystem usage. Absolute and percentage values are reported as they'd be displayed to an ordinary user (not root).
 
@@ -492,7 +492,7 @@ TransfersPerSecond | Read or write operations per second
 
 Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`.
 
-### `builtin` metrics for the Disk class
+### builtin metrics for the Disk class
 
 The Disk class of metrics provides information about disk device usage. These statistics apply to the entire drive. If there are multiple file systems on a device, the counters for that device are, effectively, aggregated across all of them.
 
@@ -684,12 +684,17 @@ Data sent to JsonBlob sinks is stored in blobs in the storage account named in t
 
 In addition, you can use these UI tools to access the data in Azure Storage:
 
-* [Microsoft Azure Storage Explorer](http://storageexplorer.com/)
 * Visual Studio Server Explorer.
-1. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#An-example-LAD-3.0-configuration).
 
 ![image](./media/diagnostic-extension/stg_explorer.png)
 
 See the relevant [EventHubs documentation](../../event-hubs/event-hubs-what-is-event-hubs.md) to learn how to consume messages published to an EventHubs endpoint.
+
+## Next steps
+
+* Create metric alerts in [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) for the metrics you collect.
+* Create [monitoring charts](../../monitoring-and-diagnostics/insights-hot-to-customize-monitoring.md) for your metrics.
+* Learn how to [create a virtual machine scale set](/azure/virtual-machines/linux/tutorial-create-vmss) using your metrics to control autoscaling.
