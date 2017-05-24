@@ -1,4 +1,4 @@
----
+G---
 title: Azure Compute - Linux Diagnostic Extension | Microsoft Docs
 description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
@@ -696,5 +696,5 @@ See the relevant [EventHubs documentation](../../event-hubs/event-hubs-what-is-e
 ## Next steps
 
 * Create metric alerts in [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) for the metrics you collect.
-* Create [monitoring charts](../../monitoring-and-diagnostics/insights-hot-to-customize-monitoring.md) for your metrics.
+* Create [monitoring charts](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) for your metrics.
 * Learn how to [create a virtual machine scale set](/azure/virtual-machines/linux/tutorial-create-vmss) using your metrics to control autoscaling.
