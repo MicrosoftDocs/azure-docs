@@ -227,7 +227,6 @@ See [Download metrics and diagnostic logs from Azure Storage](../storage/storage
 |**Resource**|**Metrics**|
 |Database|DTU percentage, DTU used, DTU limit, CPU percentage, Physical data read percentage, Log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, deadlocks |
 |Elastic pool|eDTU percentage, eDTU used, eDTU limit, CPU percentage, Physical data read percentage, Log write percentage, sessions percentage, workers percentage, storage, storage percentage, storage limit, XTP storage percentage |
-percentage |
 |||
 
 ## Next steps
