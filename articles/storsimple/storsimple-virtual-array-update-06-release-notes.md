@@ -76,6 +76,7 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **14.** |File server |If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery. | |
 | **15.** |File server |Symbolic links are not supported. | |
 | **16.** |File server |Files protected by Windows Encrypting File System (EFS) when copied over or stored on the StorSimple Virtual Array file server result in an unsupported configuration.  | |
+| **17.** |Updates |If you see Error code: 2359302 (hex 0x240006) when trying to install a hotfix through the local UI, then this implies that the hotfix is already installed on your device.   | |
 
 ## Next step
 [Install Update 0.6](storsimple-virtual-array-install-update-06.md) on your StorSimple Virtual Array.
