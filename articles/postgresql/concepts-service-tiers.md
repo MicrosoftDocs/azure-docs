@@ -36,7 +36,7 @@ The following table provides examples of the pricing tiers best suited for diffe
 | Standard | The go-to option for cloud applications that need IOPS guarantee with high throughput. Examples include web or analytical applications. |
 | Premium | Best suited for workloads that need low latency for transactions and IO. Provides the best support for many concurrent users. Applicable to databases that support mission critical applications.<br />The Premium pricing tier is not available in preview. |
 
-To decide on a pricing tier, first start by determining if your workload need IOPS guarantee. If so, use Standard pricing tier.
+To decide on a pricing tier, first start by determining if your workload need an IOPS guarantee. If so, use Standard pricing tier.
 
 | **Pricing tier features** | **Basic** | **Standard** |
 | :------------------------ | :-------- | :----------- |
@@ -78,12 +78,12 @@ The storage configuration defines the amount of storage capacity available to an
 
 Some storage capacity is included at a minimum with each pricing tier, noted in the preceding table as "Included storage size." Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 
-The maximum provisioned IOPS in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS.
+The IOPS in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to maximum storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB maximum, to guarantee 3,000 provisioned IOPS.
 
 Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
 
 >[!IMPORTANT]
-> While in preview, choose the amount of storage at the time when the server is first created. Changing the storage size is not yet supported. 
+> While in preview, choose the amount of storage at the time when the server is created. Changing the storage size on an existing server is not yet supported. 
 
 ## Scaling a server up or down
 You initially choose the pricing tier and performance level when you create your Azure Database for PostgreSQL. Later, you can scale the Compute Units up or down dynamically, within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier blade, or script it by following this example: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
