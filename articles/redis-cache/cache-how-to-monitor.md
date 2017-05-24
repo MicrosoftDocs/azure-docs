@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/25/2017
 ms.author: sdanie
 
 ---
@@ -39,9 +39,9 @@ The **Monitoring** charts display the following metrics.
 | Monitoring chart | Cache metrics |
 | --- | --- |
 | Hits and Misses |Cache Hits |
-|  | Cache Misses |
+| &nbsp; | Cache Misses |
 | Gets and Sets |Gets |
-|  | Sets |
+| &nbsp; | Sets |
 | Connections |Connected Clients |
 | Total Commands |Total Operations |
 
