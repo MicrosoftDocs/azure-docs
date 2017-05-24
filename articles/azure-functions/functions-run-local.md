@@ -28,6 +28,8 @@ Install the [Azure Functions Core Tools] from npm. This is a local version of th
 - `azfun`
 - `azurefunctions`
 
+Azure Functions Core Tools is [open-source and hosted on GitHub](https://github.com/azure/azure-functions-cli). To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
+
 ## Creating a local functions project
 
 When running locally, a function project is just a directory with the files *host.json* and *local.settings.json*. This is the equivalent of a Function App in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
@@ -88,14 +90,14 @@ Most triggers and bindings have a "connection" property that is the name of an e
 
 ```Warning: Cannot find value named 'MyStorageConnection' in local.settings.json that matches 'connection' property set on 'blobTrigger' in 'BlobTriggerCSharp\function.json'. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.```
 
+The file *local.settings.json* is only used by the Azure Functions Core Tools. To set app settings and connection strings in Azure, use the **Application Settings** blade.
+
 ### Configuring app settings
 
 To set a value for connection strings, you can do one of the following:
 - Manually enter a connection string from [Azure Storage Explorer](http://storageexplorer.com/)
 - Use `func azure functionapp fetch-app-settings <FunctionAppName>`. Requires `azure login`.
 - Use `func azure functionapp storage fetch-connection-string <StorageAccountName>`. Requires `azure login`.
-
-TODO: func settings
 
 ## Creating a function
 
@@ -130,7 +132,7 @@ The following options can be provided to `func host start`:
 - `--useHttps` - Bind to https://localhost:{port} rather than http://localhost:{port}. By default, this will create a trusted certificate on your machine.
 - `--pause-on-error` - Pause for additional input before exiting the process. Useful when launching the Core Tools from an IDE.
 
-When the functions host start, it outputs the URL of HTTP triggered functions:
+When the functions host starts, it outputs the URL of HTTP triggered functions:
 
 ```
 Found the following functions:
@@ -142,11 +144,17 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 ### Debugging
 
-To attach a debugger, pass the `--debug` argument, such as:
+To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
+
+To debug C# functions, use `--debug vs`. Alternatively, use the [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
+
+To launch the host and set up JavaScript debugging, run:
 
 ```func host start --debug vscode```
 
-TODO: add detailed info about debugging with VSCode
+Then in Visual Studio Code, select **Attach to Azure Functions** in the Debug View. Then, you can attach breakpoints, inspect variables, and step through code.
+
+![JavaScript debugging with Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
 
 ### Calling function with test data
 
@@ -165,15 +173,11 @@ For example, to call an HTTP triggered function and pass content body, run the f
 
 ## Publishing a function app
 
-<!--
-Things to document:
+To publish a function project to a function app in Azure, use the `publish` command:
 
-limitations of publish
-Blob vs queue triggers
-Timer trigger limitation
+```func azure functionapp publish <FunctionAppName>```
 
-
--->
+The publish command uploads the contents of the function project directory, but it does not delete files that have been deleted locally. To delete these files, launch Kudu from the Azure Functions portal at **Platform Features** -> **Advanced Tools (Kudu)**. 
 
 
 <!-- LINKS -->
