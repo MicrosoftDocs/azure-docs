@@ -96,7 +96,7 @@ Create a database with an [S0 performance level](sql-database-service-tiers.md) 
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
-    -SampleName "AdventureWorksLT"
+    -SampleName "AdventureWorksLT" `
     -RequestedServiceObjectiveName "S0"
 ```
 
