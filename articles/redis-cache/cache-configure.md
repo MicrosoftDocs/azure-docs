@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/11/2017
+ms.date: 05/25/2017
 ms.author: sdanie
 
 ---
@@ -355,13 +355,16 @@ Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#how-to-view-me
 
 ### Alert rules
 
-Click **Alert rules** to configure alerts based on Redis Cache metrics. For more information, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+Click **Alert rules** to configure alerts based on Redis Cache metrics. For more information, see [Alerts](cache-how-to-monitor.md#alerts).
 
 ### Diagnostics
 
-Click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#enable-cache-diagnostics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
 
-![Redis Cache Diagnostics](./media/cache-configure/redis-cache-diagnostics-settings.png)
+>[!NOTE]
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>
+>
 
 ## Support & troubleshooting settings
 The settings in the **Support + troubleshooting** section provide you with options for resolving issues with your cache.
