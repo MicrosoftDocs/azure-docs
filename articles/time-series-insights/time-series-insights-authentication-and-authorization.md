@@ -25,6 +25,7 @@ This page explains how to configure a custom application that calls data plane T
 
 This section explains how to configure an application to access Time Series Insights API on behalf of the application. Application can then query data or publish reference data in Time Series Insights environment with application credentials and not the user credentials.
 
+When you have an application that needs to access Time Series Insights, you must set up an Azure Active Directory (AD) application and assign the data access policies in Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
 
 * You can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do. For example, the application can only be allowed to read data in a particular Time Series Insights environment.
 * You do not have to change the app's credentials if your responsibilities change.
