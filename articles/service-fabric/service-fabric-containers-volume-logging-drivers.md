@@ -55,3 +55,9 @@ Service Fabric supports specifying [Docker volume plugins](https://docs.docker.c
 
 In the preceding example, the `Source` tag for the `Volume` refers to the source folder. The source folder could be a folder in the VM that hosts the containers or a persistent remote store. The `Destination` tag is the location that the `Source` is mapped within the running container. When using a volume plugin, the name of the plugin (`Driver` tag) is specified as shown in the preceding example.  If a Docker log driver is specified, it is necessary to deploy agents (or containers) to handle the logs in the cluster. 
 
+Refer to the following articles to deploy containers to a Service Fabric cluster:
+
+[Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md)
+
+[Deploy a Docker container to Service Fabric on Linux](service-fabric-deploy-container-linux.md)
+

@@ -43,17 +43,17 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
+
 3. Add the `dotnet` repo to your sources list.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
+
 4. Add the new GPG key to your apt keyring.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    ```
-    ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
@@ -62,7 +62,9 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     sudo apt-get update
     ```
+
 ## Install and set up the SDK for containers and guest executables
+
 Once your sources are updated, you can install the SDK.
 
 1. Install the Service Fabric SDK package. You are asked to confirm the installation and to agree to a license agreement.
@@ -70,6 +72,7 @@ Once your sources are updated, you can install the SDK.
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+
    The following commands automate accepting the license for Service Fabric packages:
     
     ```bash
@@ -107,17 +110,20 @@ The [Azure CLI][azure-xplat-cli-github] includes commands for interacting with S
     ```bash
     git clone https://github.com/Azure/azure-xplat-cli.git
     ```
+
 2. Switch into the cloned repo and install the CLI's dependencies using the Node Package Manager (npm).
 
     ```bash
     cd azure-xplat-cli
     npm install
     ```
+
 3. Create a symlink from the `bin/azure` folder of the cloned repo to `/usr/bin/azure`.
 
     ```bash
     sudo ln -s $(pwd)/bin/azure /usr/bin/azure
     ```
+
 4. Finally, enable auto-completion Service Fabric commands.
 
     ```bash
@@ -138,6 +144,7 @@ If everything has installed successfully, you should be able to start a local cl
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+
 2. Open a web browser and navigate to http://localhost:19080/Explorer. If the cluster has started, you should see the Service Fabric Explorer dashboard.
 
     ![Service Fabric Explorer on Linux][sfx-linux]
@@ -157,11 +164,13 @@ The Java SDK provides the libraries and templates required to build Service Fabr
     ```bash
     sudo apt-get install servicefabricsdkjava
     ```
+
 2. Run the SDK setup script.
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
+
 ## Install the Eclipse Neon plugin (optional)
 
 You can install the Eclipse plugin for Service Fabric from within the **Eclipse IDE for Java Developers**. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
@@ -172,15 +181,17 @@ You can install the Eclipse plugin for Service Fabric from within the **Eclipse 
 
 1. In Eclipse, ensure that you have latest eclipse **Neon** and latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
 2. To install the Service Fabric plugin, choose **Help > Install New Software...**
-3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
+3. In the "Work with" textbox, enter: http://dl.microsoft.com/eclipse/azure/servicefabric
 4. Click Add.
+
     ![Eclipse plugin][sf-eclipse-plugin]
-5. Choose the Service Fabric plugin and click next.
+
+5. Choose the Service Fabric plugin and click **Next**.
 6. Proceed through the installation and accept the end-user license agreement.
 
 If you already have the Service Fabric Eclipse plugin installed, make sure you are on the latest version. You can check by selecting ``Help => Installation Details`` and searching for Service Fabric in the list of installed plugins. Select update if a newer version is available. 
 
-For more information, see [Service fabric getting started with eclipse](service-fabric-get-started-eclipse.md).
+For more information, see [Service fabric getting started with Eclipse](service-fabric-get-started-eclipse.md).
 
 
 ## Install the .NET Core SDK (optional, if you wish to use the .NET Core programming models)
