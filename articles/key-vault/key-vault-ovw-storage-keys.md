@@ -84,23 +84,7 @@ A SAS definition name must be 1-102 characters in length containing only 0-9, a-
 ### Developer best practices 
 
 1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as this will interfer. 
-2. Key Vault ASA keys must not be managed by more than one key vault object. 
+2. ASA keys must not be managed by more than one key vault object. 
 3. If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
-4. Don’t manually regenerate both of the ASA keys in a short period of time. 
-    - Ensure all applications are migrated to the newer key before regenerating the other key. 
-    - *BRP - What is "both" referring to here?*
-5. Your application must re-retrieve *(BRP - re-retrieve is from the spec. Got a better word?)* SAS before it expires for continued access to storage. 
-6. In your implementation, the validity period of a SAS token must be less than the regeneration period of the ASA key. 
-- A key is valid for two times the regeneration period unless it’s regenerated forcefully (manually). Hence, a SAS token having a validity period of less than the regeneration period must never become invalid before its expiration time unless the key was regenerated forcefully (manually).
-
-*BRP - Statement is a bit unclear. Check my rewordsing below.*
-
-The period of time that a SAS token is valid (SAStokenValidTime) must be less than the regeneration period of the associated ASA key (ASAkeyRegerationPeriod). (i.e. `SAStokenValidTime must be < ASAkeyRegerationPeriod`)
-
-*BRP - The second point, from the spec, seems to contradict the first, see below, copied from the spec under `Recommended Developer Priaces'.
-
-6. Validity period of SAS token must be less than regeneration period of the key. A key is valid for to times te regeneration erio unless it’s regenerate orceully manually ence SAS token having validity period of less than regeneration period must never become invalid before its expiration time unless key was regenerated forcefully (manually). 
-
-*hmmmm*
 
 
