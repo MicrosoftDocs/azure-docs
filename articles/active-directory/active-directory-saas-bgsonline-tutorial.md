@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     * For production environment, use this pattern `https://<company name>.millwardbrown.report` 
 
     * For test environment, use this pattern `https://millwardbrown.marketingtracker.nl/mt5/`
-
+	
 	b. In the **Reply URL** textbox, type a URL using the following pattern: 
 
     * For production environment, use this pattern `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
