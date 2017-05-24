@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.workload:
-ms.date: 05/10/2017
+ms.date: 05/24/2017
 ---
 
 # Create an Azure Database for MySQL server using Azure CLI
@@ -23,7 +23,6 @@ To complete this quickstart, make sure you have installed the latest [Azure CLI 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to Azure
-
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli
@@ -169,10 +168,10 @@ mysql>
 |----------------|-----------------|
 |	*Connection Name* | specify a name for this connection (this can be anything) |
 | *Connection Method* | choose Standard (TCP/IP) |
-| *Hostname* | mycliserver.mysql.database.azure.com (Seerver name you previously noted) |
+| *Hostname* | mycliserver.mysql.database.azure.com (Server name you previously noted) |
 | *Port* | 3306 |
 | *Username* | myadmin@mycliserver (Server admin login you previously noted) |
-| *Password* | you can store the admin account password in vault |
+| *Password* | Please store the admin account password |
 
    ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
@@ -190,4 +189,4 @@ az group delete --name mycliresource
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design a MySQL Database with Azure CLI](./tutorial-design-database-using-cli.md).
+> [Design a MySQL Database with Azure CLI](./tutorial-design-database-using-cli.md)
