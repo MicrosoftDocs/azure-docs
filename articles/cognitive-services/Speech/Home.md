@@ -37,7 +37,7 @@ The API supports multiple types of speech input depending on speaking style. Cho
 | Dictation | Users are engaged in a human-to-human conversation. |
 | Conversation | The user recites longer utterances to the application for further processing. |
 
-Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition#recognition-modes) in API reference for more information.
+Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in API reference for more information.
 
 ### Quick Feature Comparison
 Here is a quick comparison of features between the REST and WebSocket APIs for speech recognition.
@@ -55,7 +55,7 @@ Here is a quick comparison of features between the REST and WebSocket APIs for s
 | N-Best | Up to 5 | Up to 5 |
 | Confidence | Yes| Yes |  
 
-Refer to [Output Format](api-reference-rest/bingvoicerecognition#output-format) in API reference for more information.
+Refer to [Output Format](api-reference-rest/bingvoicerecognition.md#output-format) in API reference for more information.
 
 ## Supported Languages  
 Speech recognition API supports many spoken languages in multiple dialects. Refer to [Recognition Languages](api-reference-rest/bingvoicerecognition#recognition-languages) for full list of supported languages for each recognition mode.
@@ -64,7 +64,7 @@ Speech recognition API supports many spoken languages in multiple dialects. Refe
 The speech synthesis REST API provides real-time text to speech conversion in a variety of different voices and languages. The maximum amount of audio returned for any single request must not exceed 15 seconds. 
 
 ### Supported Languages  
-Text to speech API supports many voices in many languages in multiple dialects. Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput#a-namesuplocalesasupported-locales-and-voice-fonts) for full list of supported languages and voices.
+Text to speech API supports many voices in many languages in multiple dialects. Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts) for full list of supported languages and voices.
 
 
 
