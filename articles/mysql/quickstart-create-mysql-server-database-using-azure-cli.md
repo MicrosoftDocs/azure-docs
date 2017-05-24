@@ -116,6 +116,7 @@ Open the command prompt and enter the following:
  mysql> status
 ```
 If everything goes well, the command-line tool should output the following:
+
 ```dos
 C:\Users\v-chenyh>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 Enter password: ***********
