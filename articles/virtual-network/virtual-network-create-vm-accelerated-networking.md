@@ -186,12 +186,6 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
 3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Register for the accelerated networking for Azure preview by completing the following steps:
-    - Enter the following commands:
-
-        ```powershell
-        Register-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-        ```
     - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. 
     - Enter the following command to confirm you are registered for the preview:
     
