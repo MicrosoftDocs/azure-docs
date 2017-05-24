@@ -113,7 +113,7 @@
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
-    - name: Custom Speach Service
+    - name: Custom Speech Service
       tocHref: /azure/cognitive-services/custom-speech-service/
       topicHref: /azure/cognitive-services/custom-speech-service/
     - name: Custom Vision Service
