@@ -80,4 +80,4 @@ The **Restore multi-factor authentication on all remembered devices** setting me
 
 - Get more information about how to [Configure Azure Multi-Factor Authentication settings](multi-factor-authentication-whats-next.md)
 
-- If your users need support, point them towards the [User guide for two-step verification](./end-user-multi-factor-authentication-end-user.md)
+- If your users need support, point them towards the [User guide for two-step verification](./end-user/multi-factor-authentication-end-user.md)
