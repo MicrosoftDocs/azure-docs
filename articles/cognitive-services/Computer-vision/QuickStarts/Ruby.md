@@ -23,7 +23,7 @@ Learn more about obtaining free Subscription Keys [here](../Vision-API-How-to-To
 
 ## Analyze an Image With Computer Vision API Using Ruby <a name="AnalyzeImage"> </a>
 
-With the Analyze Image method,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
