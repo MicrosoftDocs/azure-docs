@@ -18,7 +18,7 @@ ms.author: juluk
 ---
 
 # Persisting Files in Azure Cloud Shell
-On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you.
+On initial start, Azure Cloud Shell asks for your subscription to create an LRS storage account and Azure file share for you. Your subscription must have access to create a storage account in order to access Cloud Shell.
 
 ![](media/storage-prompt.png)
 
@@ -31,11 +31,14 @@ This file share will mount as `clouddrive` under your $Home directory. This file
 
 ### Cloud Shell persists files with both methods below:
 1. Create a disk image of your $Home directory to persist files within $Home. 
-This disk image is saved in your specified file share as `<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`
+This disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`
 
 2. Mount specified file share as `clouddrive` in your $Home directory for direct file share interaction. 
 `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
+> [!Note]
+> All files in your $Home directory such as SSH keys are persisted in your user disk image stored in your mounted file share. Apply best practices when persisting information in your $Home directory and mounted file share.
+
 ## Using clouddrive
 Cloud Shell allows users to run a command called `clouddrive` that enables manually updating the file share mounted to Cloud Shell.
 ![](media/clouddrive-h.png)
@@ -125,6 +128,6 @@ The `clouddrive` directory syncs to the Azure portal storage blade. Use this to 
 You should now see the file accessible in your clouddrive directory in Cloud Shell.
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md) 
-[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-[Learn about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+[Cloud Shell Quickstart](quickstart.md) <br>
+[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Learn about Storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

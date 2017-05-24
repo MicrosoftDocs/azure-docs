@@ -14,14 +14,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 05/21/2017
 ms.author: denlee
 
 ---
 
 # Accelerate real-time big-data analytics with the Spark to Azure Cosmos DB connector
 
-The Spark to Azure Cosmos DB connector enables Cosmos DB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) accelerates your ability to solve fast-moving data science problems, where data can be quickly persisted and queried using Cosmos DB. The Spark to Azure Cosmos DB connector efficiently utilizes the native Cosmos DB managed indexes and enables updateable columns when performing analytics, push-down predicate filtering against fast-changing globally distributed data, ranging from IoT, data science, and analytics scenarios. 
+The Spark to Azure Cosmos DB connector enables Cosmos DB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) accelerates your ability to solve fast-moving data science problems, where data can be quickly persisted and queried using Cosmos DB. The Spark to Azure Cosmos DB connector efficiently utilizes the native Cosmos DB managed indexes and enables updateable columns when performing analytics, push-down predicate filtering against fast-changing globally distributed data, ranging from IoT, data science, and analytics scenarios. 
+
+For working with Spark GraphX and Azure Cosmos DB's Gremlin graph APIs, see [Perform graph analytics using Spark and Apache TinkerPop Gremlin](../cosmos-db/spark-connector-graph.md).
 
 ## Download
 

@@ -53,10 +53,10 @@ ms.custom: H1Hack27Feb2017
 ## Release notes
 
 ### <a name="1.12.0"/>1.12.0</a>
-* Added support for Request Unit per Minute (RU/m) feature.
-* Added support for a new consistency level called ConsistentPrefix.
+* Added support for [Request Unit per Minute (RU/m)](../cosmos-db/request-units-per-minute.md) feature.
+* Added support for a new [consistency level](documentdb-consistency-levels.md) called ConsistentPrefix.
 * Added support for UriFactory.
-* Fixed the unicode support bug (github #171)
+* Fixed a unicode support bug. (GitHub issue #171)
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
@@ -191,5 +191,5 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) service page.
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
 
