@@ -1,5 +1,5 @@
 ---
-title: 'Explaining Azure DB for PostgreSQL Compute Units | Microsoft Docs'
+title: 'Explaining Compute Units in Azure Database for PostgreSQL | Microsoft Docs'
 description: 'Azure DB for PostgreSQL: This article explains the concepts of Compute Units and what happens when your workload reaches the maximum Compute Units.'
 services: postgresql
 author: kamathsun
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/23/2017
 ---
-# Explaining Compute Units
+# Explaining Compute Units in Azure Database for PostgreSQL
 This article explains the concept of Compute Units and what happens when your workload reaches the maximum Compute Units.
 
 ## What are Compute Units?
@@ -40,4 +40,4 @@ If your workload reaches the maximum limits in either the Compute Units or provi
 If your workload reaches the maximum limits on number of connections, explicit errors are raised. For more information on resources limits, see [Limitations in Azure Database for PostgreSQL](concepts-limits.md).
 
 ## Next steps
-For more information on Compute Units and Storage, see [Azure Database for PostgreSQL pricing tiers](./concepts-service-tiers.md).
+For more information on pricing tiers, see [Azure Database for PostgreSQL pricing tiers](./concepts-service-tiers.md).
