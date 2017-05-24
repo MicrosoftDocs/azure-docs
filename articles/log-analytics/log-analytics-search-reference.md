@@ -3,7 +3,7 @@ title: Azure Log Analytics search reference | Microsoft Docs
 description: The Log Analytics search reference describes the search language and provides the general query syntax options you can use when searching for data and filtering expressions to help narrow your search.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -607,7 +607,7 @@ This example returns one event (the latest event) per EventID.
 
 ### Join
 Joins the results of two queries to form a single result set.  Supports multiple join types described in the follow table.
-  
+
 | Join type | Description |
 |:--|:--|
 | inner | Return only records with a matching value in both queries. |
