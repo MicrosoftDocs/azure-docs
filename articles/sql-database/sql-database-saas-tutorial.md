@@ -21,7 +21,7 @@ ms.author: sstein
 ---
 # Deploy and explore the multi-tenant Wingtip SaaS application that uses Azure SQL Database
 
-In this tutorial, you deploy and explore the Wingtip SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that simplify enable SaaS scenarios, and SaaS design and management patterns.
+In this tutorial, you deploy and explore the Wingtip SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
 
 Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to explore and work with the individual application components.
 
