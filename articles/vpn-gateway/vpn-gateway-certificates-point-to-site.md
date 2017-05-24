@@ -52,7 +52,7 @@ If you do not have access to a Windows 10 computer, you can use [MakeCert](vpn-g
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](vpn-gateway-howto-point-to-site-rm-ps.md#uploadfile). To add an additional trusted root certificate, [this section](vpn-gateway-howto-point-to-site-rm-ps.md#add) of the article.
+The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](vpn-gateway-howto-point-to-site-rm-ps.md#upload). To add an additional trusted root certificate, [this section](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) of the article.
 
 ### Export the self-signed root certificate and public key to store it (optional)
 
