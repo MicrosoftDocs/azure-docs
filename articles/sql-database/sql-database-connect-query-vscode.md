@@ -102,7 +102,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
    | Authentication | SQL Login| SQL Authentication is the only authentication type that we have configured in this tutorial. |
    | User name | The server admin account | This is the account that you specified when you created the server. |
    | Password (SQL Login) | The password for your server admin account | This is the password that you specified when you created the server. |
-   | Save Password? | Yes or No | Select Yes if you do not want to enter the password each time |
+   | Save Password? | Yes or No | Select Yes if you do not want to enter the password each time. |
    | [Optional] Enter a name for this profile | A profile name, such as **mySampleDatabase** | A saved profile name speeds your connection on subsequent logins. | 
 
 5. Press the **ESC** key to close the info message that informs you that the profile is created and connected.

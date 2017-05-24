@@ -125,7 +125,7 @@ An [Azure SQL Database logical server](sql-database-features.md) acts as a centr
    | Password | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
    | Subscription | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | Resource group | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | Location | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/) |
+   | Location | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
    ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
 
