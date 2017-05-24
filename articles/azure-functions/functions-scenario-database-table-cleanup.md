@@ -1,5 +1,5 @@
 ---
-title: Use Azure Functions to perform a database clean-up task | Microsoft Docs
+title: Use Azure Functions to perform a database clean up task | Microsoft Docs
 description: Use Azure Functions to schedule a task that connects to Azure SQL Database to periodically clean up rows.
 services: functions
 documentationcenter: na
@@ -18,35 +18,46 @@ ms.date: 05/22/2017
 ms.author: glenga
 
 ---
-# Use Azure Functions to schedule clean up in an Azure SQL Database
+# Use Azure Functions to connect to an Azure SQL Database
 This topic shows you how to use Azure Functions to create a scheduled job that cleans up rows in a table in an Azure SQL Database. The new C# function is created based on a pre-defined timer trigger template in the Azure portal. To support this scenario, you must also set a database connection string as a setting in the function app. This scenario uses a bulk operation against the database. To have your function process individual CRUD operations in a Mobile Apps table, you should instead use [Mobile Apps bindings](functions-bindings-mobile-apps.md).
 
 ## Prerequisites
 
 + This topic uses a timer triggered function. Complete the steps in the topic [Create a function in Azure that is triggered by a timer](functions-create-scheduled-function.md) to create a C# version of this function.   
 
-+ This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in table named *TodoItems* in a SQL Database. To create the TodoItems table, complete the [Azure App Service Mobile Apps quickstart tutorial](../app-service-mobile/app-service-mobile-ios-get-started.md). 
++ This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in the _OrderItems_ table in the AdventureWorks sample database. To create the AdventureWorks sample database in SQL Database, complete the steps in the topic [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md). 
 
-## Get the connection string
-A function app hosts the execution of your functions in Azure. It is a best practice to store connection strings and other secrets in your function app settings. This prevents accidental disclosure of the connection string with your code. 
+## Get connection information
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
-2. Navigate to the mobile app you created when you completed the [Azure App Service Mobile Apps quickstart tutorial](../app-service-mobile/app-service-mobile-ios-get-started.md).
-
-3. Select **Application settings**, then under **Connection strings** select **Show connection string values** and copy the connection string value in **MS_TableConnectionString**. You add this connection string setting in your function app.
+1. Log in to the [Azure portal](https://portal.azure.com/).
  
-     ![Function app settings blade](./media/functions-scenario-database-table-cleanup/mobile-app-connection.png)
+3. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page.
+
+4. Click **Show database connection strings** and copy the complete **ADO.NET** connection string.
+
+    ![ADO.NET connection string](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
 ## Set the connection string 
 
-4. Navigate to your function app, then select **Platform features** > **Application settings**.
+A function app hosts the execution of your functions in Azure. It is a best practice to store connection strings and other secrets in your function app settings. Using application settings prevents accidental disclosure of the connection string with your code. 
+
+1. Navigate to your function app, then select **Platform features** > **Application settings**.
    
     ![Function app settings blade](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
 
-4. Scroll down to **Connection strings**, type `sqldb_connection` for **Name**, paste the connection string into **Value**, and click **Save**.
+2. Scroll down to **Connection strings**, 
    
     ![App Service setting connection string](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
+
+    | Setting       | Suggested value | Description             | 
+    | ------------ | ------------------ | --------------------- | 
+    | **Name**  |  sqldb_connection  | Used to access the stored connection string.    |
+    | **Value** | Copied string  | Past the connection string you copied in the previous section. |
+    | **Type** | SQL Database | Use the default SQL Database connection. |   
+
+3. Click **Save**.
 
 Now, you can add the C# function code that connects to your SQL Database.
 
@@ -57,46 +68,52 @@ Now, you can add the C# function code that connects to your SQL Database.
 3. Add the following assembly references at the top of the existing function code:
 
 	```cs
-        #r "System.Configuration"
-        #r "System.Data"
+    #r "System.Configuration"
+    #r "System.Data"
 	```
 
 3. Add the following `using` statements to the function:
 	```cs
-        using System.Configuration;
-        using System.Data.SqlClient;
-        using System.Threading.Tasks;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using System.Threading.Tasks;
 	```
 
 4. Replace the existing **Run** function with the following code:
 	```cs
-        public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    {
+        var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
+        using (SqlConnection conn = new SqlConnection(str))
         {
-            var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(str))
+            conn.Open();
+            var text = "UPDATE SalesLT.SalesOrderHeader " + 
+                    "SET [Status] = 5  WHERE ShipDate < GetDate();";
+
+            using (SqlCommand cmd = new SqlCommand(text, conn))
             {
-                conn.Open();
-                var text = "DELETE from dbo.TodoItems WHERE Complete='True'";
-                using (SqlCommand cmd = new SqlCommand(text, conn))
-                {
-                    // Execute the command and log the # rows deleted.
-                    var rows = await cmd.ExecuteNonQueryAsync();
-                    log.Info($"{rows} rows were deleted");
-                }
+                // Execute the command and log the # rows affected.
+                var rows = await cmd.ExecuteNonQueryAsync();
+                log.Info($"{rows} rows were updated");
             }
         }
+    }
 	```
 
-5. Click **Save**, watch the **Logs** windows for the next function execution, then note the number of rows deleted from the TodoItems table.
+    This sample command updates the **Status** column based on the ship date. It should update 32 rows of data.
 
-6. (Optional) Using the [Mobile Apps quickstart app](../app-service-mobile/app-service-mobile-ios-get-started.md), mark additional items as "completed" then return to the **Logs** window and watch the same number of rows get deleted by the function during the next execution. 
+5. Click **Save**, watch the **Logs** windows for the next function execution, then note the number of rows updated in the **SalesOrderHeader** table.
 
 ## Next steps
+
+Next, learn how to use Functions with Logic Apps to integrate with other services.
+
+> [!div class="nextstepaction"] 
+> [Create a function that integrates with Logic Apps](functions-twitter-email.md)
+
 See these topics for more information about Azure Functions.
 
 * [Azure Functions developer reference](functions-reference.md)  
   Programmer reference for coding functions and defining triggers and bindings.
 * [Testing Azure Functions](functions-test-a-function.md)  
-  Describes various tools and techniques for testing your functions.
-* [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Consumption plan, and how to choose the right plan.  
+  Describes various tools and techniques for testing your functions.  
