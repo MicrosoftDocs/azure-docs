@@ -351,6 +351,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Extended events - ring buffer
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Diagnostic logging
+      href: sql-database-metrics-diag-logging.md
   - name: Manage
     items:
     - name: Azure Automation
