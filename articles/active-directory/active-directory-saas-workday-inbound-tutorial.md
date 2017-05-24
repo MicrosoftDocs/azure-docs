@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/24/2017
-ms.author: asmalser-msft
+ms.author: asmalser
 
 ---
 # Tutorial: Configure Workday for Inbound Synchronization
@@ -27,7 +27,7 @@ The [Azure Active Directory user provisioning service](active-directory-saas-app
 
 * **Provisioning users to Active Directory** - Synchronize selected sets of users from Workday into one or more Active Directory forests. 
 
-* **Provisioning users to Azure Active Directory** - Hybrid users who exist in both Active Directory and Azure Active Directory can be provisioned into the latter using [AAD Connect](connect/active-directory-aadconnect.md). However, users that are cloud-only can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service.
+* **Provisioning cloud-only users to Azure Active Directory** - Hybrid users who exist in both Active Directory and Azure Active Directory can be provisioned into the latter using [AAD Connect](connect/active-directory-aadconnect.md). However, users that are cloud-only can be provisioned directly from Workday to Azure Active Directory using the Azure AD user provisioning service.
 
 * **Writeback of email addresses to Workday** - the Azure AD user provisioning service can write selected Azure AD user attributes back to Workday, such as the email address.
 
@@ -41,15 +41,15 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 * **Employee re­hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
-## Getting Started
+### Getting Started
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. [Planning your solution](#planning-your-solution)
-2. [Configure a system integration user in Workday](#Configure-a-system-integration-user-in-Workday)
-3. [Configuring user provisioning from Workday to Active Directory](#[Configuring-user-provisioning-from-Workday-to-Active-Directory) 
-4. [Configuring user provisioning to Azure Active Directory](#Configuring-user-provisioning-to-Azure-Active-Directory)
-5. [Configuring writeback to Workday](#Configuring-writeback-of-email-addresses-to-Workday) 
+2. [Configure a system integration user in Workday](#configure-a-system-integration-user-in-workday)
+3. [Configuring user provisioning from Workday to Active Directory](#[configuring-user-provisioning-from-workday-to-active-directory) 
+4. [Configuring user provisioning to Azure Active Directory](#configuring-user-provisioning-to-azure-active-directory)
+5. [Configuring writeback to Workday](#configuring-writeback-of-email-addresses-to-workday) 
 
 ## Planning your solution
 
@@ -80,7 +80,7 @@ Azure AD provides a rich set of provisioning connectors to help you solve provis
 
 Once you have answers to these questions, you can plan your Workday provisioning deployment by following the guidance below.
 
-**Provisioning Connector Apps**
+#### Using provisioning connector apps
 
 Azure Active Directory supports pre-integrated provisioning connectors for Workday and a large number of other SaaS applications. 
 
@@ -273,7 +273,7 @@ Follow these instructions to configure user account provisioning from Workday to
         the top.
 
     i.  If it fails, double-check that the Workday credentials are valid
-        in Workday. If all else fails, contact <asmalser@microsoft.com>.
+        in Workday. 
 
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
@@ -300,7 +300,7 @@ Active Directory.
 
        iii. Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-    b.  Example: only employees and not contingent workers
+    b.  Example: Only employees and not contingent workers 
 
        i.  Attribute: EmployeeID
 
@@ -451,18 +451,15 @@ Add-ADSyncAgentAzureActiveDirectoryConfiguration
    **Action**
    Confirm data is returned. This command automatically discovers Workday provisioning apps in your Azure AD tenant. Example output:
 
-> Name          : My SyncForest11 AD Forest Provisioning
+> Name          : My AD Forest
+>
 > Enabled       : True
-> DirectoryName : syncforest11.fimbvt.nttest.microsoft.com
+>
+> DirectoryName : mydomain.contoso.com
+>
 > Credentialed  : False
-> Identifier    :
-> WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
-> Name          : My Workday AD Forest Provisioning
-> Enabled       : True
-> DirectoryName : workday.fimbvt.nttest.microsoft.com
-> Credentialed  : True
-> Identifier    :
-> WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.5fef5cdf-cae1-43b7-8903-daf4aa9b58e6
+>
+> Identifier    : WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
 
 **Command #5**
 
@@ -580,7 +577,7 @@ Azure Active Directory for cloud-only users.
 
        ii. Operator: REGEX Match
 
-       iii. Value: (1\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\]\[0-9\])
+       iii. Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
     b.  Example: Only contingent workers and not regular employees
 
@@ -648,17 +645,17 @@ Azure Active Directory for cloud-only users.
 ### Part 3: Start the service
 Once parts 1-2 have been completed, you can start the provisioning service.
 
-i.  In the **Provisioning** tab, set the **Provisioning Status** to
+1.  In the **Provisioning** tab, set the **Provisioning Status** to
     **On**.
 
-ii. Click **Save**.
+2. Click **Save**.
 
-iii. This will start the initial sync, which can take a variable number
+3. This will start the initial sync, which can take a variable number
     of hours depending on how many users are in Workday.
 
-iv. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
+4. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
-v. One completed, it will write an audit summary report in the
+5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
 
@@ -730,17 +727,17 @@ Active Directory.
 ### Part 3: Start the service
 Once parts 1-2 have been completed, you can start the provisioning service.
 
-i.  In the **Provisioning** tab, set the **Provisioning Status** to
+1.  In the **Provisioning** tab, set the **Provisioning Status** to
     **On**.
 
-ii. Click **Save**.
+2. Click **Save**.
 
-iii. This will start the initial sync, which can take a variable number
+3. This will start the initial sync, which can take a variable number
     of hours depending on how many users are in Workday.
 
-iv. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
+4. Individual sync events can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
-v. One completed, it will write an audit summary report in the
+5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
 ## Additional Resources
