@@ -114,7 +114,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/">.NET API Browser</a></p>
+                        <p><a href="/dotnet/api/overview/azure/eventhub/">.NET</a></p>
                    </div>
                 </div>
             </div>
@@ -126,8 +126,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
                 <div class="card">
                     <div class="cardText">
                         <h3>Java</h3>
-                        <p><a href="/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></p>
+                        <p><a href="/java/api/overview/azure/eventhub/">Java</a></p>
                     </div>
                 </div>
             </div>
