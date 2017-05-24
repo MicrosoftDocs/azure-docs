@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/23/2017
 ---
-# Azure Database for MySQL options and performance: Understand what’s available in each Pricing tier
+# Azure Database for MySQL options and performance: Understand what’s available in each pricing tier
 When you create an Azure Database for MySQL server, you decide upon three main choices to configure the resources allocated for that server. These choices impact the performance and scale of the server.
 - Pricing tier
 - Compute Units
