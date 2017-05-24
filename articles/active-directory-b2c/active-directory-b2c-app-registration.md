@@ -47,7 +47,9 @@ You can also access the blade by clicking **More services** and then searching *
 4. Toggle the **Include web app / web API** switch to **Yes**. The **Reply URLs** are endpoints where Azure AD B2C will return any tokens that your application requests. For example, enter `https://localhost:44316/`.
 5. Click **Create** to register your application.
 6. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code. 
-7. If your web application will also be calling a web API secured by Azure AD B2C, you'll want to create an **Application Secret** by going to the **Keys** blade and clicking the **Generate Key** button.
+7. If your web application will also be calling a web API secured by Azure AD B2C, you'll want to:
+   1. Create an **Application Secret** by going to the **Keys** blade and clicking the **Generate Key** button.
+   2. Click on **API Access**, click on **Add** and select your web API and scopes (permissions).
 
 > [!NOTE]
 > An **Application Secret** is an important security credential, and should be secured appropriately.
@@ -74,7 +76,9 @@ You can also access the blade by clicking **More services** and then searching *
 5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#choosing-a-redirect-uri).
 6. Click **Save** to register your application.
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
-8. If your native application will also be calling a web API secured by Azure AD B2C, you'll want to create an **Application Secret** by going to the **Keys** blade and clicking the **Generate Key** button.
+8. If your native application will also be calling a web API secured by Azure AD B2C, you'll want to:
+   1. Create an **Application Secret** by going to the **Keys** blade and clicking the **Generate Key** button.
+   2. Click on **API Access**, click on **Add** and select your web API and scopes (permissions).
 
 > [!NOTE]
 > An **Application Secret** is an important security credential, and should be secured appropriately.
