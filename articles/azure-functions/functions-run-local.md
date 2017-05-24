@@ -58,8 +58,8 @@ The file *local.settings.json* stores app settings, connection strings, and sett
 {
   "IsEncrypted": false,   // If set to true, all values are encrypted using a local machine key. Use with "func settings" commands
   "Values": {
-    "AzureWebJobsStorage": "<Azure Storage connection string>",   // This is required for all triggers except HTTP
-    "AzureWebJobsDashboard": "<Azure Storage connection string>", // Optional, controls whether to log to Monitor tab in portal
+    "AzureWebJobsStorage": "<connection string>",   // This is required for all triggers except HTTP
+    "AzureWebJobsDashboard": "<connection string>", // Optional, controls whether to log to Monitor tab in portal
   },
   "Host": {
     "LocalHttpPort": 7071, // If specified, the default port for "host start" and "run". Can be overridden with --port command line option
@@ -75,10 +75,10 @@ App settings should be specified in the "Values" collection. These settings can 
 
 The app settings *AzureWebJobsStorage* is a special setting that is required by the Azure Functions runtime for all triggers other than HTTP. Internally, the runtime creates queues to manage triggers in this storage account. If a value for *AzureWebJobsStorage* is not specified, you will see the following error if you use triggers other than HTTP:
 
-```Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.```
+*Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.*
 
 > [!NOTE]
-> It is possible to use the local storage emulator, via the connection string  `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`. However, there may be differences in behavior as compared to the Azure Storage service.
+> It is possible to use the local storage emulator, via the connection string  "AzureWebJobsStorage": "UseDevelopmentStorage=true". However, there may be differences in behavior as compared to the Azure Storage service.
 
 The following settings customize the local functions host:
 - `LocalHttpPort`. The default port to use for `func host start` `func run`. The `--port` command line option takes precedence over this value.
@@ -88,7 +88,7 @@ Connection strings can be provided in the `ConnectionStrings` object. They will 
 
 Most triggers and bindings have a "connection" property that is the name of an environment variable or app setting in *local.settings.json*. If the app setting value is missing, you'll see the following warning:
 
-```Warning: Cannot find value named 'MyStorageConnection' in local.settings.json that matches 'connection' property set on 'blobTrigger' in 'BlobTriggerCSharp\function.json'. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.```
+*Warning: Cannot find value named 'MyStorageConnection' in local.settings.json that matches 'connection' property set on 'blobTrigger' in 'BlobTriggerCSharp\function.json'. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.*
 
 The file *local.settings.json* is only used by the Azure Functions Core Tools. To set app settings and connection strings in Azure, use the **Application Settings** blade.
 
@@ -96,8 +96,8 @@ The file *local.settings.json* is only used by the Azure Functions Core Tools. T
 
 To set a value for connection strings, you can do one of the following:
 - Manually enter a connection string from [Azure Storage Explorer](http://storageexplorer.com/)
-- Use `func azure functionapp fetch-app-settings <FunctionAppName>`. Requires `azure login`.
-- Use `func azure functionapp storage fetch-connection-string <StorageAccountName>`. Requires `azure login`.
+- Use **func azure functionapp fetch-app-settings <FunctionAppName>**. Requires **azure login**.
+- Use **func azure functionapp storage fetch-connection-string <StorageAccountName>**. Requires **azure login**.
 
 ## Creating a function
 
@@ -109,28 +109,34 @@ To create a new function, run `func new`, which has the following optional argum
 
 For instance, to create a JavaScript HTTP trigger, run:
 
-```func new --language JavaScript --template HttpTrigger --name MyHttpTrigger```
+```
+func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
+```
 
 To create a queue triggered function, run:
 
-```func new --language JavaScript --template QueueTrigger --name QueueTriggerJS```
+```
+func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
+```
 
 ## Running functions locally
 
 To run a functions project, run the functions host. This will enable all triggers for all functions in the project:
 
-```func host start```
+```
+func host start
+```
 
 The following options can be provided to `func host start`:
 
-- `--port [-p]` - Local port to listen on. Default value: 7071.
-- `--debug <type>` - Options are VSCode and VS.
-- `--cors` - A comma-separated list of CORS origins with no spaces.
-- `--nodeDebugPort [-n]` - Port for node debugger to use. Default: value from launch.json or 5858
-- `--debugLevel [-d]` - Console trace level (off, verbose, info, warning, or error). Default: Info
-- `--timeout [-t]` - Timeout for on the functions host to start in seconds. Default: 20 seconds.
-- `--useHttps` - Bind to https://localhost:{port} rather than http://localhost:{port}. By default, this will create a trusted certificate on your machine.
-- `--pause-on-error` - Pause for additional input before exiting the process. Useful when launching the Core Tools from an IDE.
+- `--port [-p]` Local port to listen on. Default value: 7071.
+- `--debug <type>` Options are VSCode and VS.
+- `--cors` Comma-separated list of CORS origins with no spaces.
+- `--nodeDebugPort [-n]` Port for node debugger to use. Default: value from launch.json or 5858
+- `--debugLevel [-d]` Console trace level (off, verbose, info, warning, or error). Default: Info
+- `--timeout [-t]` Timeout for on the functions host to start in seconds. Default: 20 seconds.
+- `--useHttps` Bind to https://localhost:{port} rather than http://localhost:{port}. By default, this will create a trusted certificate on your machine.
+- `--pause-on-error` Pause for additional input before exiting the process. Useful when launching the Core Tools from an IDE.
 
 When the functions host starts, it outputs the URL of HTTP triggered functions:
 
@@ -150,7 +156,9 @@ To debug C# functions, use `--debug vs`. Alternatively, use the [Azure Functions
 
 To launch the host and set up JavaScript debugging, run:
 
-```func host start --debug vscode```
+```
+func host start --debug vscode
+```
 
 Then in Visual Studio Code, select **Attach to Azure Functions** in the Debug View. Then, you can attach breakpoints, inspect variables, and step through code.
 
@@ -169,13 +177,17 @@ The following options can be provided to `func run`:
 
 For example, to call an HTTP triggered function and pass content body, run the following:
 
-```func run MyHttpTrigger -c '{\"name\": \"Azure\"}'```
+```
+func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
+```
 
 ## Publishing a function app
 
 To publish a function project to a function app in Azure, use the `publish` command:
 
-```func azure functionapp publish <FunctionAppName>```
+```
+func azure functionapp publish <FunctionAppName>
+```
 
 The publish command uploads the contents of the function project directory, but it does not delete files that have been deleted locally. To delete these files, launch Kudu from the Azure Functions portal at **Platform Features** -> **Advanced Tools (Kudu)**. 
 
