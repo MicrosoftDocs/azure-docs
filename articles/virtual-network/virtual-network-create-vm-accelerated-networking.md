@@ -186,17 +186,17 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
 3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [free trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Register for the accelerated networking for Azure preview by completing the following steps:
-    - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. 
+    - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. Please wait for an email confirmation from Microsoft about your subscription being enabled.
     - Enter the following command to confirm you are registered for the preview:
     
-        `Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network`
+        `Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingForLinux -ProviderNamespace Microsoft.Network`
 
         Do not continue with step 5 until **Registered** appears in the output after you enter the previous command. Your output must look like the following output before continuing:
     
         ```
         FeatureName                       ProviderName      RegistrationState
         -----------                       ------------      -----------------
-        AllowAcceleratedNetworkingFeature Microsoft.Network Registered
+        AllowAcceleratedNetworkingForLinux Microsoft.Network Registered
         ```
       >[!NOTE]
       >If you participated in the Accelerated networking for Windows VMs preview (it's no longer necessary to register to use Accelerated networking for Windows VMs), you are not automatically registered for the Accelerated networking for Linux VMs preview. You must register for the Accelerated networking for Linux VMs preview to participate in it.
