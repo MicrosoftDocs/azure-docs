@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Resources
     items:
-    - name: Service tiers
+    - name: Pricing tiers
       href: concepts-service-tiers.md
-    - name: Compute Units & Storage Units
+    - name: Compute Units
       href: concepts-compute-unit-and-storage.md
     - name: Limits
       href: concepts-limits.md
