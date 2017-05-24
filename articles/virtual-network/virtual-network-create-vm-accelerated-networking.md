@@ -283,27 +283,45 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 8. At the prompt, enter `uname -r` and confirm the output matches the following version: “4.4.0-77-generic.”
 9.	Create a bond between the standard networking vNIC and the accelerated networking vNIC by running the commands that follow. Network traffic uses the higher performing accelerated networking vNIC, while the bond ensures that networking traffic is not interrupted across certain configuration changes.
 
-  ```
-  wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh
-  ```
+    ```
+    wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh
+    ```
 
-  ```
-  chmod +x ./bondvf.sh
-  ```
+    ```
+    chmod +x ./bondvf.sh
+    ```
 
-  ```
-  sudo ./bondvf.sh
-  ```
+    ```
+    sudo ./bondvf.sh
+    ```
 
-  ```
-  sudo mv ~/bondvf.sh /etc/init.d
-  ```
+    ```
+    sudo mv ~/bondvf.sh /etc/init.d
+    ```
 
-  ```
-  sudo update-rc.d bondvf.sh defaults
-  ```
+    ```
+    sudo update-rc.d bondvf.sh defaults
+    ```
   
-  Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+       Note: If you receive an error that says *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*, you can disregard it.
+
+     
+    ```
+    sudo nano /etc/network/interfaces.d/50-cloud-init.cfg
+    ```
+       Opens the GNU nano editor to edit the file. 
+
+
+ 
+-    In the editor, comment out the *auto etho0* and *iface eth0 inet dhcp* lines by adding *#* to the beginning of each line. After adding *#* to each line, the lines look like the following example: 
+
+
+-        #auto eth0 
+
+
+ 
+-        #iface eth0 inet dhcp
+ 
 
 10. Hold down the **Ctrl+X** keys, enter **Y**, then press the **Enter** key to save the file.
 11. Restart the VM by entering the `sudo shutdown -r now` command.
