@@ -13,53 +13,30 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 05/24/2017
 ms.author: sdanie
 
 ---
 # How to monitor Azure Redis Cache
-Azure Redis Cache provides several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.
+Azure Monitor and Azure Redis Cache provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.
 
-When cache diagnostics are enabled, metrics for Azure Redis Cache instances are collected approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules.
+Metrics for Azure Redis Cache instances are collected approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules.
 
 Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis metrics** blade.
+To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Redis Cache provides some built-in charts on the Overview blade **Redis metrics** blade.
 
 ![Redis metrics][redis-cache-redis-metrics-blade]
 
-> [!IMPORTANT]
-> If the following message is displayed in the **Redis metrics** blade, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
-> 
-> `Monitoring may not be enabled. Click here to turn on Diagnostics.`
-> 
-> 
-
 The **Redis metrics** blade has **Monitoring** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. For viewing and configuring operations and alerts, the **Redis Cache** blade has an **Operations** section that displays cache **Events** and **Alert rules**.
 
+To create custom charts using Azure Monitor, click Metrics from the Resource menu, and customize your chart using the desired metrics, reporting interval, chart type, and more.
+
+![Redis metrics](./media/cache-how-to-monitor/redis-cache-monitor.png)
+
 ## Enable cache diagnostics
-Azure Redis Cache provides you the ability to have diagnostics data stored in a storage account so you can use any tools you want to access and process the data directly. In order for cache diagnostics to be collected, stored, and displayed in the Azure portal, a storage account must be configured. Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) for your cache metrics.
 
-To enable and configure cache diagnostics, navigate to the **Redis Cache** blade for your cache instance. If diagnostics are not yet enabled, a message is displayed instead of a diagnostics chart.
-
-![Enable cache diagnostics][redis-cache-enable-diagnostics]
-
-Click the message to display the **Metric** blade and click **Diagnostic settings** to enable and configure the diagnostic settings for the cache service instance.
-
-![Diagnostics settings][redis-cache-diagnostic-settings]
-
-![Configure diagnostics][redis-cache-configure-diagnostics]
-
-Click the **On** button to enable cache diagnostics and display the diagnostics configuration.
-
-Click the arrow to the right of **Storage Account** to select a storage account to hold diagnostic data. For best performance, select a storage account in the same region as your cache.
-
-Once the diagnostic settings are configured, click **Save** to save the configuration. Note that it may take a few moments for the changes to take effect.
-
-> [!IMPORTANT]
-> Caches in the same region and subscription share the same diagnostics storage settings, and when the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region.
-> 
-> 
 
 To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
 
@@ -301,6 +278,8 @@ For information on viewing the metrics and customizing the individual charts in 
 [redis-cache-redis-metrics]: ./media/cache-how-to-monitor/redis-cache-redis-metrics.png
 
 [redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
+
+
 
 
 
