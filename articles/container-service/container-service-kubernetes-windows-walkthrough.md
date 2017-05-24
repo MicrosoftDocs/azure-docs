@@ -1,7 +1,6 @@
 ---
-title: Azure Kubernetes cluster for Windows | Microsoft Docs
-description: Deploy and get started with a Kubernetes cluster for Windows containers in Azure Container Service
-services: container-service
+title: Azure CLI Quickstart - Kubernetes cluster | Microsoft Docs
+description: Quickly learn to create a Kubernetes cluster for Windows containers in Azure Container Service with the Azure CLI.
 documentationcenter: ''
 author: dlepow
 manager: timlt
@@ -15,125 +14,103 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 05/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# Get started with Kubernetes and Windows containers in Container Service
+# Create a Kubernetes cluster for Windows containers with the Azure CLI
 
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.
 
-This article shows you how to create a Kubernetes cluster in Azure Container Service that contains Windows nodes to run Windows containers. Get started with the `az acs` Azure CLI 2.0 commands to create the Kubernetes cluster in Azure Container Service. Then, use the Kubernetes `kubectl` command-line tool to start working with Windows containers built from Docker images. 
+To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!NOTE]
-> Support for Windows containers with Kubernetes in Azure Container Service is in preview. 
+> Support for Windows containers on Kubernetes in Azure Container Service is in preview. 
 >
 
 
 
-The following image shows the architecture of a Kubernetes cluster in Azure Container Service with one Linux master node and two Windows agent nodes. 
+## Log in to Azure 
 
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-windows-walkthrough/kubernetes-windows.png)
-
-* The Linux master serves the Kubernetes REST API and is accessible by SSH on port 22 or `kubectl` on port 443. 
-* The Windows agent nodes are grouped in an Azure availability set
-and run your containers. The Windows nodes can be accessed through an RDP SSH tunnel via the master node. Azure load balancer rules are dynamically added to the cluster depending on exposed services.
-
-
-
-All VMs are in the same private virtual network and are fully accessible to each other. All VMs run a kubelet, Docker, and a proxy.
-
-For more background, see the [Azure Container Service introduction](container-service-intro.md) and the [Kubernetes documentation](https://kubernetes.io/docs/home/).
-
-## Prerequisites
-To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
-* have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* have installed and logged in to the [Azure CLI 2.0](/cli/azure/install-az-cli2)
-
-You also need the following for your Kubernetes cluster. You can prepare these in advance, or use `az acs create` command options to generate them automatically during cluster deployment. 
-
-* **SSH RSA public key**: If you want to create Secure Shell (SSH) RSA keys, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
-
-* **Service principal client ID and secret**: For steps to create an Azure Active Directory service principal and additional information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
-
-The command example in this article automatically generates the SSH keys and service principal.
-  
-## Create your Kubernetes cluster
-
-Here are Azure CLI 2.0 commands to create your cluster. 
-
-### Create a resource group
-Create a resource group in a location where Azure Container Service is [available](https://azure.microsoft.com/regions/services/). The following command creates a resource group named *myKubernetesResourceGroup* in the *westus* location:
+Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli
-az group create --name=myKubernetesResourceGroup --location=westus
+az login
 ```
 
-### Create a Kubernetes cluster with Windows agent nodes
+## Create a resource group
 
-Create a Kubernetes cluster in your resource group by using the `az acs create` command with `--orchestrator-type=kubernetes` and the `--windows` agent option. For command syntax, see the `az acs create` [help](/cli/azure/acs#create).
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed. 
 
-The following command creates a Container Service cluster named *myKubernetesClusterName*, with a DNS prefix *myPrefix* for the management node and the specified credentials to reach the Windows nodes. This version of the command automatically generates the SSH RSA keys and service principal for the Kubernetes cluster.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+```
+
+## Create Kubernetes cluster
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+
+The following example creates a cluster named *myK8sCluster* with one Linux master node and two Windows agent nodes, and creates SSH keys and a [service principal](container-service-kubernetes-service-principal.md) if they don't already exist in the default locations. This example uses *azureuser* for an administrative user name and *myPassword12* as the password on the Windows nodes. Update these values to something appropriate to your environment. 
+
 
 
 ```azurecli
 az acs create --orchestrator-type=kubernetes \
-    --resource-group myKubernetesResourceGroup \
-    --name=myKubernetesClusterName \
-    --dns-prefix=myPrefix \
+    --resource-group myResourceGroup \
+    --name=myK8sCluster \
     --agent-count=2 \
     --generate-ssh-keys \
-    --windows --admin-username myWindowsAdminName \
-    --admin-password myWindowsAdminPassword
+    --windows --admin-username azureuser \
+    --admin-password myPassword12
 ```
 
 After several minutes, the command completes, and you should have a working Kubernetes cluster.
 
-> [!IMPORTANT]
-> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md). 
-> 
 
-## Connect to the cluster with kubectl
+## Install kubectl
 
 To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you don't have `kubectl` installed locally, you can install it with `az acs kubernetes install-cli`. (You can also download it from the [Kubernetes site](https://kubernetes.io/docs/tasks/kubectl/install/).)
+If you're using CloudShell, `kubectl` is alredy installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
-**Linux or macOS**
-
-```azurecli
-sudo az acs kubernetes install-cli
-```
-
-**Windows**
-```azurecli
-az acs kubernetes install-cli
-```
-
-> [!TIP]
-> By default, this command installs the `kubectl` binary to `/usr/local/bin/kubectl` on a Linux or macOS system, or `C:\Program Files (x86)\kubectl.exe` on Windows. To specify a different installation path, use the `--install-location` parameter.
->
-> After `kubectl` is installed, ensure that its directory is in your system path, or add it to the path. 
-
-
-Then, run the following command to download the master Kubernetes cluster configuration to the local `~/.kube/config` file:
+The following example installs `kubectl` to a full path you specify with the `--install-location` option. If you are running the Azure CLI on macOS or Linux, you might need to run with `sudo`.
 
 ```azurecli
-az acs kubernetes get-credentials --resource-group=myKubernetesResourceGroup --name=myKubernetesClusterName
+sudo az acs kubernetes install-cli --install-location full-path-to-kubectl 
 ```
 
-At this point, you are ready to access your cluster from your machine. Try running:
+After `kubectl` is installed, add it to your system path. 
+
+## Configure kubectl and connect
+
+To connect `kubectl` to your Kubernetes cluster, run the [az acs kubernetes get-credentials](cli/azure/acs/kubernetes#get-credentials) command. The following example
+downloads the cluster configuration for your Kubernetes cluster.
+
+```azurecli
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+```
+
+Now you are ready to access your cluster from your machine. Try running:
 
 ```bash
 kubectl get nodes
 ```
 
-Verify that you can see a list of the machines in your cluster.
+`kubectl` shows output similar to the following.
 
-![Nodes running in a Kubernetes cluster](media/container-service-kubernetes-windows-walkthrough/kubectl-get-nodes.png)
+```bash
 
-## Create your first Kubernetes service
+
+```
+
+
+
+## Create your first Windows container
 
 After creating the cluster and connecting with `kubectl`, try starting a Windows app from a Docker container and expose it to the internet. This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates it using `kubctl apply`. 
 
