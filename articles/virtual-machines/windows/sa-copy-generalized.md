@@ -1,6 +1,6 @@
 ---
-title: Create a copy of a generalized VM in Azure | Microsoft Docs
-description: Create an image of a generalized Windows VM to use to create multiple copies of the VM in Azure.
+title: Create an unmanaged image of a generalized VM in Azure | Microsoft Docs
+description: Create an unmanged image of a generalized Windows VM to use to create multiple copies of a VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 05/23/2017
 ms.author: cynthn
 
 ---
 
-# How to capture a VM image from a generalized Azure VM to a storage account
+# How to create an unmanaged VM image from an Azure VM
 
 This article covers using storage accounts. We recommend that you use managed disks and managed images instead of a storage account. For more information, see [Capture a managed image of a generalized VM in Azure](capture-image-resource.md).
 
@@ -96,7 +96,7 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 
 ## Create the image
 
-Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` parameter saves a copy of the JSON template locally. The `-DestinationContainerName` parameter is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
+Create an unmanaged virtual machine image in the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` parameter saves a copy of the JSON template for the source VM to your local computer. The `-DestinationContainerName` parameter is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
    
 ```powershell
 Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
