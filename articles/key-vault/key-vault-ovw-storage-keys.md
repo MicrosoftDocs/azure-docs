@@ -1,19 +1,19 @@
 ---
 ms.assetid: 
-title: Azure Key Vault storage keys
+title: Azure Key Vault Storage Account Keys
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 05/24/2017
 ---
-# Azure Key Vault Storage Keys - kind of a long name, don't ya think?
+# Azure Key Vault Storage Account Keys
 
-Before Azure Key Vault Storage Account Keys, developers had to manage thier own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Azure Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) and are for authenticating with an Azure storage account. 
-
-Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key. *(BRP - Such as?)*
+Before Azure Key Vault Storage Account Keys, developers had to manage thier own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Azure Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) and are for authenticating with an Azure storage account. 
 
 The Key Vault ASA key feature adds value through managing secret rotation for you. It also removes the need for your direct contact with an Azure Storage Account key by offering shared access signatures (SAS) as a method. 
+
+Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key. *(BRP - Such as?)*
 
 For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -27,10 +27,10 @@ SAS tokens, constructed using Key Vault storage account keys, provide even more 
 Developers used the following practices with a storage account key to get access to Azure storage. 
  
  ```
-//create storage account using connection string containing account name and the storage key var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString")); 
- 
-var blobClient = storageAccount.CreateCloudBlobClient();
- 
+//create storage account using connection string containing account name 
+// and the storage key 
+
+var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));var blobClient = storageAccount.CreateCloudBlobClient();
  ```
  
 ### After Azure Key Vault Storage Keys 
@@ -38,13 +38,18 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ```
 //Get sastoken from Key Vault //.... 
  
-// Create new storage credentials using the SAS token. var accountSasCredential = new StorageCredentials(sasToken); 
+// Create new storage credentials using the SAS token. 
 
-// Use credentials and the Blob storage endpoint to create a new Blob service client. var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri("https://myaccount.blob.core.windows.net/"), null, null, null); 
+var accountSasCredential = new StorageCredentials(sasToken); 
+
+// Use credentials and the Blob storage endpoint to create a new Blob service client. 
+
+var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null); 
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If Sas token is about to expire then Get sastoken again from Key Vault //.... 
+// If Sas token is about to expire then Get sastoken again from Key Vault 
+//.... 
  
 // and update the accountSasCredential accountSasCredential.UpdateSASToken(sasToken); 
  ```
@@ -86,5 +91,19 @@ A SAS definition name must be 1-102 characters in length containing only 0-9, a-
 1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management will interfere with Key Vault's processes. 
 2. Do not allow ASA keys to be managed by more than one key vault object. 
 3. If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
+
+### Storage account onboarding 
+
+A key vault object owner adds a storage account object on AzKV to onboard a storage account. During onboarding Key Vault needs to verify that identity onboarding the account has access to list and regenerate the storage keys. Key Vault will get OBO token from EvoSTS with audience as ARM and make a list key call to Storage RP. If list fails, then the Key Vault object creation will fail with Forbidden http status code. The keys listed in this fashion will be cached with key vault entity storage. 
+
+Additionally, it is also required that Key Vault verifies that identity has regenerate permissions before key vault take ownership of regenerating keys. To verify that identity (via OBO token) and as well as key vault first party identity has permission to rotate and list keys, key vault will list RBAC permissions on the storage account resource and validate the response via regular expression matching of actions and not actions. Some resources on how to achieve this as follows: 
+
+- Example 
+[VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
+- Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
+
+If the identity (via OBO token) does not have regenerate permissions or if Key Vault first party identity doesn’t have list or regenerate permission then the onboaring request fails as a bad request with appropriate the error code and message. 
+
+Note that the OBO token will only work when you use first-party, native client applications of PowerShell and CLI.  
 
 
