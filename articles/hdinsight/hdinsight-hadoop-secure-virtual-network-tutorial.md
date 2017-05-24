@@ -73,6 +73,10 @@ Metastore: Why you want to use an external one
 
 Should we create an edge node? We recommend it as a way to reduce load on headnodes
 
+## Example: Azure Resource Manager Template
+
+Have an example template that does everything the steps do. User would just modify the NSG rules for it maybe.
+
 ## Task: Using SSH
 
 ## Task: Using Web UIs
