@@ -20,6 +20,27 @@ For more general information on Azure Storage accounts, see [About Azure storage
 ## Further security through access limits
 SAS tokens, constructed using Key Vault storage account keys, provide even more controlled access to an Azure storage account. For more information, see [Using shared access signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
+## What Key Vault manages
+
+Key Vault performs several internal management functions on your behalf when you use Storage Account Keys.
+
+1. Azure Key Vault manages keys of an Azure Storage Account (SAS). 
+    - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
+    - Azure Key Vault regenerates (rotates) the keys periodically. 
+    - Key values are never returned in response to caller. 
+    - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts. 
+2. Azure Key Vault allows you, the vault/object owner, to create SAS (account or service SAS) definitions. 
+    - The SAS value, created using SAS definition, is returned as a secret via /secrets route.
+
+    *BRP - Is "/secrets route" referring to a general CS method or is this a REST term. Would pathway be a better general term?*
+
+## Supporting interfaces
+
+The Azure Storage Account keys feature is initially available through the follwing interfaces.
+
+- REST 
+- .NET / C# 
+- PowerShell
 
 ## Developer experience 
 
@@ -53,31 +74,6 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
  
 // and update the accountSasCredential accountSasCredential.UpdateSASToken(sasToken); 
  ```
-
-
-
-## What Key Vault manages
-
-Key Vault performs several internal management functions on your behalf when you use Storage Account Keys.
-
-1. Azure Key Vault manages keys of an Azure Storage Account (SAS). 
-    - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
-    - Azure Key Vault regenerates (rotates) the keys periodically. 
-    - Key values are never returned in response to caller. 
-    - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts. 
-2. Azure Key Vault allows you, the vault/object owner, to create SAS (account or service SAS) definitions. 
-    - The SAS value, created using SAS definition, is returned as a secret via /secrets route.
-
-    *BRP - Is "/secrets route" referring to a general CS method or is this a REST term. Would pathway be a better general term?*
-
-## Supporting interfaces
-
-The Azure Storage Account keys feature is initially available through the follwing interfaces.
-
-- REST 
-- .NET / C# 
-- PowerShell
-
 ## Using Key Vault storage account keys
 
 ### Naming
@@ -105,5 +101,19 @@ Additionally, it is also required that Key Vault verifies that identity has rege
 If the identity (via OBO token) does not have regenerate permissions or if Key Vault first party identity doesn’t have list or regenerate permission then the onboaring request fails as a bad request with appropriate the error code and message. 
 
 Note that the OBO token will only work when you use first-party, native client applications of PowerShell and CLI.  
+
+### RBAC permissions
+
+Key Vault needs permissions to list and regenerate keys on a storage account. Follow these steps to set this up. 
+
+1. Get ObjectId of KV through this command: 
+`Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`  
+ 
+2. Assign “Storage Key Operator” role to Azure Key Vault Identity: 
+`New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'` 
+
+For a classic account set the role parameter to 'Classic Storage Account Key Operator Service Role'. 
+
+Note: The Key Vault’s identity might be invisible in tenants which had vaults created prior to <date>*(BRP - what's the date?)*. As a workaround, you can create a new vault and delete it to make Key Vault’s identity visible in these tenants.
 
 
