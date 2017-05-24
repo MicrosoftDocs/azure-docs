@@ -1,5 +1,5 @@
 ---
-title: Copy or move data to Storage with AzCopy on Windows| Microsoft Docs
+title: Copy or move data to Azure Storage with AzCopy on Windows| Microsoft Docs
 description: Use the AzCopy on Windows utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
 documentationcenter: ''
@@ -18,7 +18,6 @@ ms.author: seguler
 
 ---
 # Transfer data with the AzCopy on Windows
-## Overview
 AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
 
 There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
