@@ -222,7 +222,6 @@ P2S connections do not require a VPN device or a public-facing IP address. You e
 ![Site-to-Site VPN](media/azure-network-security/azure-network-security-fig-6.png)
 
 > [!Note]
-
 > For more information about Point-to-Site connections, see the [Point-to-Site FA v Q](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal).
 
 A Site-to-Site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel.
@@ -234,7 +233,6 @@ While site-to-site VPN is a trusted, reliable, and established technology, traff
 If you require an exceptional level of security or performance for your cross-premises connections, we recommend that you use Azure ExpressRoute for your cross-premises connectivity. ExpressRoute is a dedicated WAN link between your on-premises location or an Exchange hosting provider. Because this is a telco connection, your data doesn’t travel over the Internet and therefore is not exposed to the potential risks inherent i Internet communications.
 
 > [!Note]
-
 > For more information about VPN gateways, see About [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 #### Dedicated WAN Link
@@ -245,7 +243,6 @@ ExpressRoute connections do not go over the public Internet. This allows Express
 ![ Dedicated WAN Link](media/azure-network-security/azure-network-security-fig-7.png)
 
 > [!Note]
-
 > For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) and [ExpressRoute technical overview](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 As with the site-to-site VPN options, ExpressRoute also allows you to connect to resources that are not necessarily in only one VNet. In fact, depending on the SKU, you can connect to 10 VNets. If you have the [premium add-on](https://docs.microsoft.com/azure/expressroute/expressroute-faqs), connections to up to 100 VNets are possible, depending on bandwidth. To learn more about what these types of connections look like, please read [Connection topology diagrams](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -342,7 +339,6 @@ The following section lists the current limitation of the routing table and rout
 - ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions.
 
 > [!Note]
-
 > Please see the [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) for more information.
 
 #### Network security appliances
@@ -505,7 +501,6 @@ Resource Manager provides several benefits:
 -	You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
 > [!Note]
-
 > Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager deployment and classic deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
 ## Azure Network Logging and Monitoring
@@ -593,7 +588,6 @@ The following features are available for resource level monitoring:
 Operations performed as part of the configuration of networks are logged. These audit logs are essential to establish various compliances. These logs can be viewed in the Azure portal or retrieved using Microsoft tools such as Power BI or third-party tools. Audit logs are available through the portal, PowerShell, CLI, and Rest API.
 
 > [!Note]
-
 > For more information on Audit logs, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 Audit logs are available for operations done on all network resources.
 
@@ -603,7 +597,6 @@ Audit logs are available for operations done on all network resources.
 Metrics are performance measurements and counters collected over a period. Metrics are currently available for Application Gateway. Metrics can be used to trigger alerts based on threshold. Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes. Application gateway sends the health probes with the same port that is defined in the back-end HTTP settings. This configuration ensures that the probe is testing the same port that customers would be using to connect to the backend.
 
 > [!Note]
-
 > See [Application Gateway Diagnostics](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview) to view how metrics can be used to create alerts.
 
 #### Diagnostic logs
