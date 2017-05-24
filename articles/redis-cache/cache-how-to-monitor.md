@@ -45,8 +45,6 @@ The **Monitoring** charts display the following metrics.
 | Connections |Connected Clients |
 | Total Commands |Total Operations |
 
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
-
 ### Usage charts
 The **Usage** section in the **Overview** blade has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
 
@@ -108,8 +106,7 @@ Each metric includes two versions. One metric measures performance for the entir
 | Connected Clients |The number of client connections to the cache during the specified reporting interval. This maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached subsequent connection attempts to the cache will fail. Note that even if there are no active client application, there may still be a few instances of connected clients due to internal processes and connections. |
 | Evicted Keys |The number of items evicted from the cache during the specified reporting interval due to the `maxmemory` limit. This maps to `evicted_keys` from the Redis INFO command. |
 | Expired Keys |The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command. |
-| Total Keys  | The maximum number of keys in the cache during the past reporting time period. This maps to the keyspace Redis INFO command.
-Due to a limitation of the underlying metrics system, for caches with clustering enabled, Total Keys returns the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.  |
+| Total Keys  | The maximum number of keys in the cache during the past reporting time period. This maps to the `keyspace` Redis INFO command. Due to a limitation of the underlying metrics system, for caches with clustering enabled, Total Keys returns the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.  |
 | Gets |The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval. |
 | Redis Server Load |The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. If this counter reaches 100 it means the Redis server has hit a performance ceiling and the CPU can't process work any faster. If you are seeing high Redis Server Load then you will see timeout exceptions in the client. In this case you should consider scaling up or partitioning your data into multiple caches. |
 | Sets |The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`. |
@@ -123,7 +120,7 @@ Due to a limitation of the underlying metrics system, for caches with clustering
 ## How to monitor a premium cache with clustering
 Premium caches that have [clustering](cache-how-to-premium-clustering.md) enabled can have up to 10 shards. Each shard has its own metrics, and these metrics are aggregated to provide metrics for the cache as a whole. Each metric includes two versions. One metric measures performance for the entire cache and a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has 3 shards, `Cache Hits` is the total amount of hits for the entire cache, and `Cache Hits (Shard 2)` is just the hits for that shard of the cache.
 
-Each monitoring chart displays the top level metrics for the cache along with the metrics for each cache shard.
+Each pre-configured monitoring chart displays the top level metrics for the cache along with the metrics for each cache shard.
 
 ![Monitor][redis-cache-premium-monitor]
 
