@@ -1,23 +1,23 @@
 ---
-    
-    title: How do information workers add B2B collaboration users to Azure Active Directory? | Microsoft Docs
-    description: B2B collaboration allows information workers to add users from their organization to Azure AD for access | Microsoft Docs
-    services: active-directory
-    documentationcenter: ''
-    author: sasubram
-    manager: femila
-    editor: 'curtand'
-    tags: ''
 
-    ms.assetid:
-    ms.service: active-directory
-    ms.devlang: NA
-    ms.topic: article
-    ms.tgt_pltfrm: NA
-    ms.workload: identity
-    ms.date: 05/23/2017
-    ms.author: sasubram
- ---
+title: How do information workers add B2B collaboration users to Azure Active Directory? | Microsoft Docs
+description: B2B collaboration allows information workers to add users from their organization to Azure AD for access | Microsoft Docs
+services: active-directory
+documentationcenter: ''
+author: sasubram
+manager: femila
+editor: 'curtand'
+tags: ''
+
+ms.assetid:
+ms.service: active-directory
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: identity
+ms.date: 05/23/2017
+ms.author: sasubram
+---
 
 # How do information workers add B2B collaboration users to Azure Active Directory?
 
