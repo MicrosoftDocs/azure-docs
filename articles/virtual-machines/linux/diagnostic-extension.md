@@ -219,8 +219,8 @@ This structure contains various blocks of settings that control the information 
 
 Element | Value
 ------- | -----
-StorageAccount | The name of the storage account in which data is written by the extension. Must be the same name as is specified in the [Protected settings](#Protected-settings).
-mdsdHttpProxy | (optional) Same as in the [Protected settings](#Protected-settings). The public value is overridden by the private value, if set. Place proxy settings that contain a secret, such as a password, in the [Protected settings](#Protected-settings).
+StorageAccount | The name of the storage account in which data is written by the extension. Must be the same name as is specified in the [Protected settings](#protected-settings).
+mdsdHttpProxy | (optional) Same as in the [Protected settings](#protected-settings). The public value is overridden by the private value, if set. Place proxy settings that contain a secret, such as a password, in the [Protected settings](#protected-settings).
 
 The remaining elements are described in detail in the following sections.
 
@@ -299,13 +299,13 @@ This optional section controls the collection of metrics. Raw samples are aggreg
 
 Element | Value
 ------- | -----
-sinks | (optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. See [sinksConfig](#sinksConfig). Example: `"EHsink1, myjsonsink"`.
+sinks | (optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. See [sinksConfig](#sinksconfig). Example: `"EHsink1, myjsonsink"`.
 type | Identifies the actual provider of the metric.
 class | Together with "counter", identifies the specific metric within the provider's namespace.
 counter | Together with "class", identifies the specific metric within the provider's namespace.
 counterSpecifier | Identifies the specific metric within the Azure Metrics namespace.
-condition | (optional) Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. For more information, see the [`builtin` metric definitions](#Metrics-supported-by-builtin).
-sampleRate | IS 8601 interval that sets the rate at which raw samples for this metric are collected. If not set, the collection interval is set by the value of [sampleRateInSeconds](#ladCfg). The shortest supported sample rate is 15 seconds (PT15S).
+condition | (optional) Selects a specific instance of the object to which the metric applies or selects the aggregation across all instances of that object. For more information, see the [`builtin` metric definitions](#metrics-supported-by-builtin).
+sampleRate | IS 8601 interval that sets the rate at which raw samples for this metric are collected. If not set, the collection interval is set by the value of [sampleRateInSeconds](#ladcfg). The shortest supported sample rate is 15 seconds (PT15S).
 unit | Should be one of these strings: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Defines the unit for the metric. Consumers of the collected data expect the collected data values to match this unit. LAD ignores this field.
 displayName | The label (in the language specified by the associated locale setting) to be attached to this data in Azure Metrics. LAD ignores this field.
 
@@ -376,7 +376,7 @@ Element | Value
 ------- | -----
 namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | The OMI query to be executed.
-table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#Protected-settings)).
+table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#protected-settings)).
 frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); minimum value is 15 seconds.
 sinks | (optional) A comma-separated list of names of additional sinks to which raw sample metric results should be published. No aggregation of these raw samples is computed by the extension or by Azure Metrics.
 
@@ -680,14 +680,14 @@ Use the Azure portal to view performance data or set alerts:
 
 The `performanceCounters` data are always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
-Data sent to JsonBlob sinks is stored in blobs in the storage account named in the [Protected settings](#Protected-settings). You can consume the blob data using any Azure Blob Storage APIs.
+Data sent to JsonBlob sinks is stored in blobs in the storage account named in the [Protected settings](#protected-settings). You can consume the blob data using any Azure Blob Storage APIs.
 
 In addition, you can use these UI tools to access the data in Azure Storage:
 
 * Visual Studio Server Explorer.
 * [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#An-example-LAD-3.0-configuration).
+This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-30-configuration).
 
 ![image](./media/diagnostic-extension/stg_explorer.png)
 
