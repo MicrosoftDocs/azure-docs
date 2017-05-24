@@ -1,6 +1,6 @@
 ---
-title: Use Azure Functions to perform a scheduled clean-up task | Microsoft Docs
-description: Use Azure Functions create a C# function that runs based on an event timer.
+title: Use Azure Functions to perform a database clean-up task | Microsoft Docs
+description: Use Azure Functions to schedule a task that connects to Azure SQL Database to periodically clean up rows.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -14,35 +14,48 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 05/22/2017
 ms.author: glenga
 
 ---
-# Use Azure Functions to perform a scheduled clean-up task
-This topic shows you how to use Azure Functions to create a new function in C# that runs based on an event timer to clean-up rows in a database table. The new function is created based on a pre-defined template in the Azure Functions portal. To support this scenario, you must also set a database connection string as an App Service setting in the function app.
+# Use Azure Functions to schedule clean up in an Azure SQL Database
+This topic shows you how to use Azure Functions to create a scheduled job that cleans up rows in a table in an Azure SQL Database. The new C# function is created based on a pre-defined timer trigger template in the Azure portal. To support this scenario, you must also set a database connection string as a setting in the function app. This scenario uses a bulk operation against the database. To have your function process individual CRUD operations in a Mobile Apps table, you should instead use [Mobile Apps bindings](functions-bindings-mobile-apps.md).
 
 ## Prerequisites
-Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 
-This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in table named *TodoItems* in a SQL Database. This same TodoItems table is created when you complete the [Azure App Service Mobile Apps quickstart tutorial](../app-service-mobile/app-service-mobile-ios-get-started.md). You can also use a sample database  If you choose to use a different table, you will need to modify the command.
++ This topic uses a timer triggered function. Complete the steps in the topic [Create a function in Azure that is triggered by a timer](functions-create-scheduled-function.md) to create a C# version of this function.   
 
-You can get the connection string used by a Mobile App backend in the portal under **All settings** > **Application settings** > **Connection strings** > **Show connection string values** > **MS_TableConnectionString**. You can also get the connection string direct from a SQL Database in the portal under **All settings** > **Properties** > **Show database connection strings** > **ADO.NET (SQL authentication)**.
++ This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in table named *TodoItems* in a SQL Database. To create the TodoItems table, complete the [Azure App Service Mobile Apps quickstart tutorial](../app-service-mobile/app-service-mobile-ios-get-started.md). 
 
-This scenario uses a bulk operation against the database. To have your function process individual CRUD operations in a Mobile Apps table, you should instead use Mobile Table binding.
+## Get the connection string
+A function app hosts the execution of your functions in Azure. It is a best practice to store connection strings and other secrets in your function app settings. This prevents accidental disclosure of the connection string with your code. 
 
-## Set a SQL Database connection string in the function app
-A function app hosts the execution of your functions in Azure. It is a best practice to store connection strings and other secrets in your function app settings. This prevents accidental disclosure when your function code ends-up in a repo somewhere.
+1. Go to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
-1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
-2. If you have an existing function app to use, select it from **Your function apps** then click **Open**. To create a new function app, type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**.
-3. In your function app, click **Function app settings** > **Go to App Service settings**.
-4. In your function app, click **All settings**, scroll down to **Application settings**, then under **Connection strings** type `sqldb_connection` for **Name**, paste the connection string into **Value**, click **Save**, then close the function app blade to return to the Functions portal.
+2. Navigate to the mobile app you created when you completed the [Azure App Service Mobile Apps quickstart tutorial](../app-service-mobile/app-service-mobile-ios-get-started.md).
+
+3. Select **Application settings**, then under **Connection strings** select **Show connection string values** and copy the connection string value in **MS_TableConnectionString**. You add this connection string setting in your function app.
+ 
+     ![Function app settings blade](./media/functions-scenario-database-table-cleanup/mobile-app-connection.png)
+
+## Set the connection string 
+
+4. Navigate to your function app, then select **Platform features** > **Application settings**.
+   
+    ![Function app settings blade](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
+
+4. Scroll down to **Connection strings**, type `sqldb_connection` for **Name**, paste the connection string into **Value**, and click **Save**.
+   
+    ![App Service setting connection string](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
 
 Now, you can add the C# function code that connects to your SQL Database.
 
-## Create a timer-triggered function from the template
-1. In your function app, click **+ New Function** > **TimerTrigger - C#** > **Create**. This creates a function with a default name that is run on the default schedule of once every minute. 
-2. In the **Code** pane in the **Develop** tab, add the following assembly references at the top of the existing function code:
+## Update your function code
+
+1. In your function app, select the timer-triggered function.
+ 
+3. Add the following assembly references at the top of the existing function code:
+
 	```cs
         #r "System.Configuration"
         #r "System.Data"
@@ -75,7 +88,8 @@ Now, you can add the C# function code that connects to your SQL Database.
 	```
 
 5. Click **Save**, watch the **Logs** windows for the next function execution, then note the number of rows deleted from the TodoItems table.
-6. (Optional) Using the [Mobile Apps quickstart app](../app-service-mobile/app-service-mobile-ios-get-started.md), mark additional items as "completed" then return to the **Logs** window and watch the same number of rows get deleted by the function during the next execution.
+
+6. (Optional) Using the [Mobile Apps quickstart app](../app-service-mobile/app-service-mobile-ios-get-started.md), mark additional items as "completed" then return to the **Logs** window and watch the same number of rows get deleted by the function during the next execution. 
 
 ## Next steps
 See these topics for more information about Azure Functions.

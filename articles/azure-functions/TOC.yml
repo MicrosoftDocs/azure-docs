@@ -75,8 +75,10 @@
     href: functions-monitoring.md
   - name: Install Functions Runtime
     href: functions-runtime-install.md
-  - name: OpenAPI Definition
-    href: functions-api-definition-getting-started.md
+  - name: Connect to SQL Database
+    href: functions-scenario-database-table-cleanup.md
+  - name: Create an Open API 2.0 definition
+    href: functions-api-definition-getting-started.md     
   - name: Best practices for Azure Functions
     href: functions-best-practices.md     
 - name: Reference
