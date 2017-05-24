@@ -37,13 +37,14 @@ The following applications support conditional access for Office 365 and other A
 | --- | --- | --- |
 | Office 365 Exchange Online |Windows 10 |Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) |
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) |
-| Office 365 Exchange Online |iOS, Android |Outlook mobile app |
+| Office 365 Exchange Online |iOS, 
+|Outlook mobile app |
 | Office 365 Exchange Online |Mac OS X |Outlook 2016 for multi-factor authentication and location only; device-based policy support planned for the future, Skype for Business support planned for the future |
 | Office 365 SharePoint Online |Windows 10 |Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support planned for the future, SharePoint app support planned for the future |
 | Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Office mobile apps |
 | Office 365 SharePoint Online |Mac OS X |Office 2016 apps for multi-factor authentication and location only; device-based policy support planned for the future |
-| Office 365 Yammer |Windows 10, iOS; Android support planned for the future |Office Yammer app |
+| Office 365 Yammer |Windows 10, iOS, Android |Office Yammer app |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS, and Android |Dynamics CRM app |
 | PowerBI service |Windows 10, Windows 8.1, Windows 7, and iOS | PowerBI app. The Power BI app for Android does not currently support device-based conditional access. |
 | Azure Remote App service |Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X |Azure Remote app |
