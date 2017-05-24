@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/14/2017
+ms.date: 05/24/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -22,8 +22,7 @@ ms.custom: H1Hack27Feb2017
 # Adding Azure Automation resources to an OMS management solution (Preview)
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
-> 
-> 
+
 
 [Management solutions in OMS](operations-management-suite-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
@@ -270,7 +269,7 @@ The properties for variable resources are described in the following table.
 |:--- |:--- |
 | description | Optional description for the variable. |
 | isEncrypted | Specifies whether the variable should be encrypted. |
-| type | Data type for the variable. |
+| type | This property currently has no effect.  The data type of the variable will be determined by the initial value. |
 | value | Value for the variable. |
 
 > [!NOTE]
@@ -282,8 +281,8 @@ If you set the initial value for the variable, it must be configured as the corr
 |:--|:--|:--|
 | string   | Enclose value in double quotes.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Numeric value with single quotes.| "64" | 64 |
-| boolean  | 0 or 1 with single quotes. | "0" | 0 |
-| datetime | Serialized date value.<br>You can use the ConvertTo-Json cmdlet in PowerShell to generate this value for a particular date.<br>Example: get-date "5/12/2017 12\:37\:32" | ConvertTo-Json | "\\/Date(1494782605328)\\/" |
+| boolean  | **true** or **false** in quotes.  Note that this value must be lowercase. | "true" | true |
+| datetime | Serialized date value.<br>You can use the ConvertTo-Json cmdlet in PowerShell to generate this value for a particular date.<br>Example: get-date "5/12/2017 12\:37\:32" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 31\:14\:57 |
 
 ## Modules
 Your management solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available in your Automation account.  You do need to include a resource for any other module used by your runbooks.
