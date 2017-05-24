@@ -34,7 +34,7 @@ Sometimes you can run into high CPU condition as your app may truly require more
 Sometimes you experience high memory condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when there is a bug in the code causing memory leak or just some coding practice that is driving memory consumption.   Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis.
 The Crash Diagnoser from Site Extension Gallery can perform both these steps in a few easy steps. Please find the step-by-step guidance via [here](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
-## How do I automate Azure App Service WebApps using Powershell
+## How do I automate Azure App Service WebApps using Powershell?
 We have a detailed blog ([Automating WebApps hosted in Azure App Service through PowerShell – ARM Way](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)) where we share how to use the ARM based PowerShell CmdLets to automate common tasks for managing or maintaining Azure App Service Web Apps. In this blog you can also find sample code for various web apps management tasks.
 Also, Reference to descriptions and syntax for all Azure App service web apps cmdlets can be found via [AzureRM.Websites](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
 
@@ -184,3 +184,11 @@ This error typically happens if the **outbound TCP connections** on the VM insta
 This error can also occur if you try to access a **local address** from your application. For more details refer to https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests.
 
 A blog post in this regard is http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/.
+
+## I am unable to remote debug my web app in Visual Studio. How can I address this?
+
+There may be many reasons that could prevent you from attaching a Visual Studio debugger to your Azure App Serfice Web App. This quick [blog article](https://blogs.msdn.microsoft.com/jpsanders/2016/02/09/manually-attach-a-debugger-to-azure-web-apps/) provides a workaround that may unblock you so you can debug your app.
+
+## How do I remote debug my Azure App Service Web App using Visual Studio?
+
+Please find a detailed step-by-step walkthrough showing how to debug your web app using Visual Studio via [Remote debug your Azure App Service Web App](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
