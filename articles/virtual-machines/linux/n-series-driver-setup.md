@@ -32,13 +32,13 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 ## Supported distributions and drivers
 
 
-The following distributions from the Azure Marketplace and NVIDIA drivers are supported on N-series Linux VMs.
+N-series Linux VMs support the following distributions from the Azure Marketplace and the listed NVIDIA drivers.
 
 
 | VM series | Supported distros | Supported drivers |
 | --- | --- | --- |
-| NC (Tesla K80 card) | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-based 7.3 | NVIDIA CUDA 8.0, driver branch R375<br/>[Installation steps](#install-cuda-drivers-for-nc-vms) |
-| NV (Tesla M60 card)| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-based 7.3 | NVIDIA GRID 4.2, driver branch R367<br/>[Installation steps](#install-grid-drivers-for-nv-vms) |
+| **NC** (Tesla K80 card) | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-based 7.3 | NVIDIA CUDA 8.0, driver branch R375<br/>[Installation steps](#install-cuda-drivers-for-nc-vms) |
+| **NV** (Tesla M60 card)| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-based 7.3 | NVIDIA GRID 4.2, driver branch R367<br/>[Installation steps](#install-grid-drivers-for-nv-vms) |
 
 
 
@@ -57,7 +57,7 @@ C and C++ developers can optionally install the full Toolkit to build GPU-accele
 
 
 > [!NOTE]
-> CUDA driver download links provided here are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
+> CUDA driver download links provided here are current at time of publication. For the latest CUDA drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
 >
 
 To install CUDA Toolkit, make an SSH connection to each VM. To verify that the system has a CUDA-capable GPU, run the following command:
@@ -99,7 +99,7 @@ Then run commands specific for your distribution.
 
 3. Reboot the VM and proceed to verify the installation.
 
-### CentOS 7.3 or Red Hat Enterprise Linux 7.3
+### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
 > [!IMPORTANT] 
 > Because of a known issue, NVIDIA CUDA driver installation fails on NC24r VMs running CentOS 7.3 or Red Hat Enterprise Linux 7.3.
@@ -173,7 +173,7 @@ sudo reboot
 ```
 
 
-#### CentOS 7.3 or Red Hat Enterprise Linux 7.3
+#### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
 ```bash
 sudo yum update
@@ -184,12 +184,12 @@ sudo reboot
 
 ## Install GRID drivers for NV VMs
 
-Here are steps to install NVIDIA GRID drivers on Linux NV VMs. 
+Here are steps to install NVIDIA GRID drivers on NV VMs running supported a supported Linux distribution. 
 
 ### Ubuntu 16.04 LTS
 
 
-#### CentOS 7.3 or Red Hat Enterprise Linux 7.3
+### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
 Make an SSH connection to each NV VM and run the following commands:
 
@@ -205,19 +205,13 @@ Make an SSH connection to each NV VM and run the following commands:
   sudo yum install dkms
   ```
 
-2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. Create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
 
   ```
   blacklist nouveau
   blacklist lbm-nouveau
   ```
  
-Might need either:
-
-    1. add the option rdblacklist=nouveau to your kernel's boot parameters in grub.conf (/boot/grub/grub.conf or /etc/grub.conf) end of the “kernel” line, or set:
-    2. GRUB_CMDLINE_LINUX_DEFAULT="nomodeset"
-
-
 2. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
  
   ```bash
@@ -232,7 +226,7 @@ Might need either:
   sudo reboot
   ```
  
-3. Reconnect to the VM and run the `lspci` command. Verify that the M60 card or cards are visible as PCI devices.
+3. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
  
 4. Download and install the GRID driver:
 
@@ -248,13 +242,22 @@ Might need either:
   > If the installation detects a Nouveau kernel driver in use, installation fails. Follow the previous steps to disable the driver, reboot, and run the installer again.
   > 
  
-The above prerequisites will ensure that the appropriate kernel support is there. The driver install should automatically blacklist other drivers that may try to access the card. Your customer should only use NVIDIA’s driver with the M60.
+
+5. Add the following to `/etc/nvidia/gridd.conf.template`:
  
-There is one config file change we need, add the following to /etc/nvidia/gridd.conf
- 
-IgnoreSP=TRUE
- 
-Test that the device is present and operating with nvidia-smi.
+  ```
+  IgnoreSP=TRUE
+  ```
+Proceed to verify the installation
+
+### Verify driver installation
+
+
+To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
+
+Output similar to the following appears:
+
+![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
  
 If you need a X11 server that your customer can connect to remotely, I recommend also installing  x11vnc, as that particular version allows hardware acceleration of graphics. Because there are multiple video devices, and because the Hyper-V console is the primary device, the BusID of the M60 device will have to be manually added to the xconfig file, with a “Device” section similar to the following:
  
