@@ -28,8 +28,8 @@ Traditionally, discovering enterprise data sources has been an organic process b
 
 * Users might not be aware that a data source exists unless they come into contact with it as part of another process. There is no central location where data sources are registered.
 * Unless users know the location of a data source, they cannot connect to the data by using a client application. Data-consumption experiences require users to know the connection string or path.
-* Unless users know the location of a data source's documentation, they cannot understand the intended uses of the data. Data sources and documentation might live in various places and be consumed through different experiences.
-* If users have questions about an information asset, they must locate the expert or team responsible for the data and engage those experts offline. There is no explicit connection between data and those with expert perspectives on its use.
+* Unless users know the location of a data source's documentation, they cannot understand the intended uses of the data. Data sources and documentation might live in a variety of places and be consumed through a variety of experiences.
+* If users have questions about an information asset, they must locate the expert or team that's responsible for the data and engage them offline. There is no explicit connection between data and those with expert perspectives on its use.
 * Unless users understand the process for requesting access to the data source, discovering the data source and its documentation still does not help them access the data.
 
 ## Discovery challenges for data producers
@@ -51,7 +51,7 @@ After a data source has been registered, its metadata can then be enriched, eith
 
 Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, application development, data science, or any other task where the right data is required. They can use the Data Catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice. 
 
-At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. Users can also register new data sources, which can then be discovered, understood, and consumed by the community of catalog users.
+At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which can then be discovered, understood, and consumed by the community of catalog users.
 
 ![Data Catalog capabilities](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
