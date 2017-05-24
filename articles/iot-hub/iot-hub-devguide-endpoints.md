@@ -94,10 +94,10 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-accesscontrol]: iot-hub-devguide-security.md#access-control-and-permissions
 [lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-device-identities]: iot-hub-devguide-identity-registry.md
 [lnk-upload]: iot-hub-devguide-file-upload.md
-[lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-query]: iot-hub-devguide-query-language.md

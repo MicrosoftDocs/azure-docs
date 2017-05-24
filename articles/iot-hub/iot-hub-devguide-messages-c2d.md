@@ -132,7 +132,7 @@ To try out receiving cloud-to-device messages, see the [Send cloud-to-device][ln
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-ttl]: iot-hub-devguide-messaging.md#message-expiration-time-to-live
-[lnk-c2d-configuration]: iot-hub-devguide-messaging.md#cloud-to-device-configuration-options
-[lnk-lifecycle]: iot-hub-devguide-messaging.md#message-lifecycle
+[lnk-ttl]: #message-expiration-time-to-live
+[lnk-c2d-configuration]: #cloud-to-device-configuration-options
+[lnk-lifecycle]: #message-lifecycle
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

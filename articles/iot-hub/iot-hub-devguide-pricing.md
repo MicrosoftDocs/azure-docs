@@ -57,4 +57,4 @@ In total, the device and the solution back end consume 185 messages per day.
 
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messaging.md#message-size
+[lnk-message-size]: iot-hub-devguide-messages-construct.md

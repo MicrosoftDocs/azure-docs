@@ -201,8 +201,6 @@ As a final consideration, if you need to customize the MQTT protocol behavior on
 
 ## Next steps
 
-For more information, see [Notes on MQTT support][lnk-mqtt-devguide] in the IoT Hub developer guide.
-
 To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-docs].
 
 To learn more about planning your IoT Hub deployment, see:
@@ -227,7 +225,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 [lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
-[lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-devices]: https://catalog.azureiotsuite.com/

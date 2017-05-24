@@ -84,7 +84,7 @@ The [Get Started][lnk-get-started] tutorials show you how to send device-to-clou
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-compatible-endpoint]: iot-hub-devguide-messaging.md#read-device-to-cloud-messages
+[lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
