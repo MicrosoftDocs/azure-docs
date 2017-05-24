@@ -30,7 +30,7 @@ Microsoft Azure provides confidentiality, integrity, and availability of custome
 
 This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself, please see the Azure security section in the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
 
-### Azure Platform
+### Azure platform
 
 Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java and Node.js; build back-ends for iOS, Android and Windows devices. Azure cloud services support the same technologies millions of developers and IT professionals already rely on and trust.
 
@@ -50,7 +50,7 @@ The intended audiences for this whitepaper include:
 
 -	SMEs or business process executives who want to get a high-level overview the Azure networking technologies and services that are relevant in discussions around network security in the Azure public cloud.
 
-## Azure Networking Big Picture
+## Azure networking big picture
 Microsoft Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the Internet and Azure.
 
 ![Azure Networking Big Picture](media/azure-network-security/azure-network-security-fig-1.png)
@@ -59,7 +59,7 @@ The [Azure network infrastructure](https://docs.microsoft.com/azure/virtual-mach
 
 Azure supports dedicated WAN link connectivity to your on-premises network and an Azure Virtual Network with [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). The link between Azure and your site uses a dedicated connection that does not go over the public Internet. If your Azure application is running in multiple datacenters, you can use [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to route requests from users intelligently across instances of the application. You can also route traffic to services not running in Azure if they are accessible from the Internet.
 
-## Enterprise view of Azure Networking Components
+## Enterprise view of Azure networking components
 Azure has many networking components that are relevant to network security discussions. In this section, we will describe these networking components and focus on the security issues related to them.
 
 > [!Note]
@@ -85,7 +85,7 @@ With the understanding that you use VMs to host servers in Azure, the question i
 
 Azure Virtual Networks are like the virtual networks you use on-premises with your own virtualization platform solutions, such as Microsoft Hyper-V or VMware.
 
-#### Intra-VNet Connectivity
+#### Intra-VNet connectivity
 
 You can connect VNets to each other, enabling resources connected to either VNet to communicate with each other across VNets. You can use either or both of the following options to connect VNets to each other:
 
@@ -102,7 +102,7 @@ You can connect VNets to each other, enabling resources connected to either VNet
 
 To learn more about connecting VNets with a VNet-to-VNet connection, read the [Configure a VNet-to-VNet connection article](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### Azure Virtual Network capabilities:
+#### Azure virtual network capabilities:
 
 As you can see, an Azure Virtual Network provides virtual machines to connect to the network so that they can connect to other network resources in a secure fashion. However, basic connectivity is just the beginning. The following capabilities of the Azure Virtual Network service expose security characteristics of the Azure Virtual Network:
 
@@ -157,7 +157,7 @@ You can connect VNets to each other, enabling resources connected to either VNet
 
 -	**VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway. To learn more about connecting VNets with a VNet-to-VNet connection. To learn more, read the [Configure a VNet-to-VNet connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
-##### On-premises connectivity.
+##### On-premises connectivity
 
 VNets can be connected to [on-premises](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) networks through private network connections between your network and Azure, or through a site-to-site VPN connection over the Internet.
 
@@ -191,7 +191,7 @@ Azure creates route tables that enable resources connected to any subnet in any 
 
 -	**BGP routes:** If you connect your VNet to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate BGP routes to your VNets.
 
-### Hybrid Internet Connectivity: Connect to an On-premises network
+### Hybrid internet connectivity: Connect to an on-premises network
 You can connect your on-premises network to a VNet using any combination of the following options:
 
 -	Internet connectivity
@@ -235,7 +235,7 @@ If you require an exceptional level of security or performance for your cross-pr
 > [!Note]
 > For more information about VPN gateways, see About [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
-#### Dedicated WAN Link
+#### Dedicated WAN link
 Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Azure over a dedicated private connection facilitated by a connectivity provider.
 
 ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
@@ -247,7 +247,7 @@ ExpressRoute connections do not go over the public Internet. This allows Express
 
 As with the site-to-site VPN options, ExpressRoute also allows you to connect to resources that are not necessarily in only one VNet. In fact, depending on the SKU, you can connect to 10 VNets. If you have the [premium add-on](https://docs.microsoft.com/azure/expressroute/expressroute-faqs), connections to up to 100 VNets are possible, depending on bandwidth. To learn more about what these types of connections look like, please read [Connection topology diagrams](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### Security Controls
+### Security controls
 An Azure Virtual Network provides a secure, logical network that is isolated from other virtual networks and supports many security controls that you use on your on-premises networks. Customers create their own structure by using: subnets—they use their own private IP address range, configure route tables, network security groups, access control lists (ACLs), gateways, and virtual appliances to run their workloads in the cloud.
 
 The following are security controls you can use on your Azure Virtual Networks:
@@ -264,7 +264,7 @@ The following are security controls you can use on your Azure Virtual Networks:
 
 -	Network Availability Control
 
-#### Network Access Controls
+#### Network access controls
 While the Azure Virtual Network (VNet) is the cornerstone of Azure networking model and provides isolation and protection, the [Network Security Group (NSG)](https://blogs.msdn.microsoft.com/igorpag/2016/05/14/azure-network-security-groups-nsg-best-practices-and-lessons-learned/) will be the main tool you use to enforce and control network traffic rules at the network level.
 
 ![ Network Access Controls](media/azure-network-security/azure-network-security-fig-8.png)
@@ -294,7 +294,7 @@ An NSG comes with some built-in rules that you should be aware of. These are:
 
 -	**Allow all traffic outbound to the Internet:** This rule allows VMs to initiate connections to the Internet. If you do not want these connections initiated, you need to create a rule to block those connections or enforce forced tunneling (which is explained later).
 
-#### System Routes and User-defined routes
+#### System routes and user-defined routes
 
 When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with each other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets.
 
@@ -370,7 +370,7 @@ Azure network security appliances improve VNet security and network functions, a
 
 -	Multifactor authentication
 
-#### Application Gateway
+#### Application gateway
 
 [Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) is a dedicated virtual appliance that provides an application delivery controller (ADC) as a service.
 
@@ -400,7 +400,7 @@ The JSON formatted log goes directly to the customer’s storage account. You ha
 
 You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) so you can use OMS log analytics to execute sophisticated fine-grained queries.
 
-#### Azure Web Application Firewall (WAF)
+#### Azure web application firewall (WAF)
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities, such as SQL injection, cross site scripting attacks, and other attacks that appear in the [OWASP top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project). Preventing such exploits in the application requires rigorous maintenance, patching, and monitoring at multiple layers of the application topology.
 
@@ -410,7 +410,7 @@ A centralized [web application firewall (WAF)](https://docs.microsoft.com/azure/
 
 A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
-#### Network availability Controls
+#### Network availability controls
 
 There are different options to distribute network traffic using Microsoft Azure. These options work differently from each other, having a different feature set and support different scenarios. They can each be used in isolation, or combining them.
 
@@ -422,7 +422,7 @@ Following are the Network availability controls:
 
 -	Traffic Manager
 
-##### Azure Load Balancer
+##### Azure Load balancer
 Delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set.
 
  ![Azure Load Balancer](media/azure-network-security/azure-network-security-fig-14.png)
@@ -438,11 +438,11 @@ Azure Load Balancer can be configured to:
 
 All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Azure uses non-routable IP addresses for its resources. Azure uses network address translation (NAT) with public IP addresses to communicate to the Internet.
 
-##### Application Gateway
+##### Application gateway
 
  Application Gateway works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
 
-##### Traffic Manager
+##### Traffic manager
 
 Microsoft Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and cloud services. You can also use Traffic Manager with external, non-Azure endpoints.
 
@@ -458,7 +458,7 @@ Traffic Manager provides two key benefits:
 
 When a client attempts to connect to a service, it must first resolve the DNS name of the service to an IP address. The client then connects to that IP address to access the service. Traffic Manager uses DNS to direct clients to specific service endpoints based on the rules of the traffic-routing method. Clients connect to the selected endpoint directly. Traffic Manager is not a proxy or a gateway. Traffic Manager does not see the traffic passing between the client and the service.
 
-### Azure Network Validation
+### Azure network validation
 
 Azure Operational Security refers to the services, controls and features available to users for protecting their data, applications and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cyber security threat landscape.
 
@@ -474,7 +474,7 @@ Azure Operational Security refers to the services, controls and features availab
 
 -	Azure Resource Manager
 
-#### Azure Resource Manager
+#### Azure resource manager
 
 The people and processes that operate Microsoft Azure are perhaps the most important security feature of the platform. This section describes features of Microsoft’s global datacenter infrastructure that help enhance and maintain security, continuity, and privacy.
 
@@ -503,7 +503,7 @@ Resource Manager provides several benefits:
 > [!Note]
 > Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager deployment and classic deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
-## Azure Network Logging and Monitoring
+## Azure network logging and monitoring
 
 Azure offers many tools to monitor, prevent, detect, and respond to network security events. Some of the most powerful tools available to you in this area include:
 
@@ -513,7 +513,7 @@ Azure offers many tools to monitor, prevent, detect, and respond to network secu
 
 -	Log Analytics
 
-### Network Watcher
+### Network watcher
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - Scenario-based monitoring is provided with the features in Network Watcher. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
 
@@ -533,7 +533,7 @@ As resources are returned the connection between they are modeled under two rela
 
 -	**Associated** - A NIC is associated with a VM.
 
-#### Variable Packet capture
+#### Variable packet capture
 
 Network Watcher [variable packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) allows you to create packet capture sessions to track traffic to and from a virtual machine. Packet capture helps to diagnose network anomalies both reactively and proactivity. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more.
 
@@ -561,7 +561,7 @@ Gets the effective and applied security rules that are applied on a VM. Network 
 
 [Network Security Group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group.
 
-#### Virtual Network Gateway and Connection troubleshooting
+#### Virtual network gateway and connection troubleshooting
 
 Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. [Resource troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) can be called by PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network gateway or a Connection and returns its findings.
 
@@ -575,7 +575,7 @@ This section takes you through the different management tasks that are currently
 
 [Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) provide you with details of the usage of each of the network resource in a subscription in a region against the maximum number of resources available.
 
-#### Configuring Diagnostics Log
+#### Configuring diagnostics Log
 
 Network Watcher provides a [diagnostic logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) view. This view contains all networking resources that support diagnostic logging. From this view, you can enable and disable networking resources conveniently and quickly.
 
@@ -607,7 +607,7 @@ Diagnostic logs are available for [Load Balancer](https://docs.microsoft.com/azu
 
 Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view, you can enable and disable networking resources conveniently and quickly.
 
-### Log Analytics
+### Log analytics
 
 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a service in [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.
 
@@ -618,7 +618,7 @@ Log Analytics offers the following solutions for monitoring your networks:
 
 -	Azure Network Security Group analytics
 
-#### Network Performance Monitor (NPM)
+#### Network performance monitor (NPM)
 The [Network Performance Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor) management solution is a network monitoring  solution that monitors the health, availability and reachability of networks.
 
 It is used to monitor connectivity between:
@@ -629,7 +629,7 @@ It is used to monitor connectivity between:
 -	subnets hosting various tiers of a multi-tiered application.
 
 
-#### Azure Application Gateway analytics in log analytics
+#### Azure application gateway analytics in log analytics
 
 The following logs are supported for Application Gateways:
 -	ApplicationGatewayAccessLog
@@ -642,14 +642,14 @@ The following metrics are supported for Application Gateways:
 
 -	5-minute throughput
 
-#### Azure Network Security Group analytics in log analytics
+#### Azure network security group analytics in log analytics
 
 The following logs are supported for [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 -	**NetworkSecurityGroupEvent:** Contains entries for which NSG rules are applied to VMs and instance roles based on MAC address. The status for these rules is collected every 60 seconds.
 
 -	**NetworkSecurityGroupRuleCounter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
-## Next Steps
+## Next steps
 Find out more about security by reading some of our in-depth security topics:
 
 -	[Log Analytics for Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
