@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/17/2017
 ms.author: parakhj
-redirect_url: /active-directory-b2c-overview
+redirect_url: /active-directory-b2c/active-directory-b2c-overview
 redirect_document_id: TRUE 
 
 ---
