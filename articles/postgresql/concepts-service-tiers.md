@@ -74,21 +74,21 @@ Compute Units are a measure of CPU processing throughput that is guaranteed to b
 \* Max server storage size refers to the maximum provisioned storage size for your server.
 
 ## Storage 
-The Storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server. The storage used by the service includes the database files, transaction logs, and the PostgreSQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the Storage configuration.
+The storage configuration defines the amount of storage capacity available to an Azure Database for PostgreSQL server. The storage used by the service includes the database files, transaction logs, and the PostgreSQL server logs. Consider the size of storage needed to host your databases and the performance requirements (IOPS) when selecting the storage configuration.
 
 Some storage capacity is included at a minimum with each pricing tier, noted in the table above as "Included storage size". Additional storage capacity can be added when the server is created, in increments of 125 GB, up to the maximum allowed storage. The additional storage capacity can be configured independently of the Compute Units configuration. The price changes based on the amount of storage selected.
 
-The maximum provisioned IOPS in each performance level relates to the pricing tier and the storage size. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS.
+The maximum provisioned IOPS in each performance level relates to the pricing tier and the storage size chosen. Basic tier does not provide an IOPS guarantee. Within the Standard pricing tier, the IOPS scale proportionally to provisioned storage size in a fixed 3:1 ratio. The included storage of 125 GB guarantees for 375 provisioned IOPS, each with an IO size of up to 256 KB. You can choose additional storage up to 1 TB, to guarantee 3,000 provisioned IOPS.
 
 Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and IOPS. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
 
 >[!IMPORTANT]
-> Once provisioned, Storage cannot be dynamically scaled down.
+> While in preview, choose the amount of storage at the time when the server is first created. Changing the storage size is not yet supported. 
 
 ## Scaling a server up or down
-You initially choose the pricing tier and performance level when you create your Azure Database for PostgreSQL. Later, you can scale the Compute Units up or down dynamically within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier blade, or script it by following this example: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
+You initially choose the pricing tier and performance level when you create your Azure Database for PostgreSQL. Later, you can scale the Compute Units up or down dynamically, within the range of the same pricing tier. In the Azure portal, slide the Compute Units on the server's Pricing tier blade, or script it by following this example: [Monitor and scale a single PostgreSQL server using Azure CLI](scripts/sample-scale-server-up-or-down.md)
 
-Scaling the Compute Units is done independently of the maximum storage size you have chosen. While in preview, changing the storage size  is not supported. You must choose the amount of storage at the time when the server is first created.
+Scaling the Compute Units is done independently of the maximum storage size you have chosen.
 
 Behind the scenes, changing the performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process. During the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
 
