@@ -8,6 +8,7 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Get Started
+## [Replicate Azure virtual machines](site-recovery-azure-to-azure.md)
 ## [Replicate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
 ## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
