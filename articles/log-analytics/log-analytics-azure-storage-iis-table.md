@@ -3,7 +3,7 @@ title: Use blob storage for IIS and table storage for events in Azure Log Analyt
 description: Log Analytics can read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---

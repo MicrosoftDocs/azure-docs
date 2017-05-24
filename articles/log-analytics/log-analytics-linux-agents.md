@@ -3,7 +3,7 @@ title: Connect Linux computers to Azure Log Analytics | Microsoft Docs
 description: Using Log Analytics, you can collect and act on data generated from Linux computers.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---
