@@ -34,7 +34,7 @@ Many applications have regulatory, compliance, or other business purposes that r
 
 With long-term backup retention, you can associate a SQL database server with an Azure Recovery Services vault. 
 
-* You must create the vault in the same Azure subscription that created the SQL server instance and in the same geographic region and resource group. 
+* You must create the vault in the same Azure subscription that created the SQL server and in the same geographic region and resource group. 
 * You then configure a retention policy for any database. The policy causes the weekly full database backups to be copied to the Recovery Services vault and retained for the specified retention period (up to 10 years). 
 * You can then restore the database from any of these backups to a new database in any server in the subscription. Azure storage creates a copy from existing backups, and the copy has no performance impact on the existing database.
 
@@ -147,7 +147,7 @@ Yes, transparent data encryption is supported. You can restore the database from
 
 If your subscription is suspended, we retain the existing databases and backups. New backups are not copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault becomes accessible to the restore operations by using the backups that were copied there before the subscription was suspended. 
 
-**Can I get access to the SQL database backup files so I can download or restore them to the SQL server instance?**
+**Can I get access to the SQL database backup files so I can download or restore them to the SQL server?**
 
 No, not currently.
 
