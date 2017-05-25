@@ -35,7 +35,7 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 
 For more information about the differences between the IoT Hub and Event Hubs services, see [Comparison of Azure IoT Hub and Azure Event Hubs][lnk-comparison].
 
-## Non-telemetry traffic
+## Send non-telemetry traffic
 
 Often, in addition to telemetry data points, devices send messages and requests that require separate execution and handling in the solution back end. For example, critical alerts that must trigger a specific action in the back end. You can easily write a routing rule to send these types of messages to an endpoint dedicated to their processing.
 

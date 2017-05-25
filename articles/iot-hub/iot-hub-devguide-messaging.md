@@ -28,7 +28,7 @@ Core properties of IoT Hub messaging functionality are the reliability and durab
 
 For an introduction to the capabilities of IoT Hub, see the articles [Azure and Internet of Things][lnk-azure-iot] and [Overview of the Azure IoT Hub service][lnk-iot-hub-overview].
 
-## When to use
+## When to use IoT Hub messaging
 
 Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to your device app.
 
