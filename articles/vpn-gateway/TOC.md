@@ -55,11 +55,11 @@
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Reference
-## [PowerShell](/powershell/module/azurerm.network)
-## [PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
+## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST](/rest/api/network/virtualnetworkgateways)
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
+## [Azure CLI](/cli/azure/network/vnet-gateway)
 
 # Related
 ## [Virtual Network](/azure/virtual-network/)
