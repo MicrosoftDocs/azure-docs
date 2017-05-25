@@ -1,6 +1,6 @@
 ---
-title: Availability, Performance, and Application FAQ | Microsoft Docs
-description: This article lists the frequently asked questions about availability, performance, and application issues in Web Apps.
+title: Availability, Performance, and Application issues for Azure Web Apps FAQ | Microsoft Docs
+description: This article lists the frequently asked questions about availability, performance, and application issues in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
 author: simonxjx
@@ -24,7 +24,7 @@ This article includes frequently asked questions about availability, performance
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## My App is performing slow
-There can be various reasons that could contribute to slow performance. Please find detailed troubleshooting steps at this [link](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-troubleshoot-performance-degradation).
+There can be various reasons that could contribute to slow performance. Please find detailed troubleshooting steps at this [link](https://docs.microsoft.com/azure/app-service-web/app-service-web-troubleshoot-performance-degradation).
 
 ## How do I troubleshoot a High CPU consumption scenario
 Sometimes you can run into high CPU condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when High CPU is due to a bad loop or a coding practice that you would like to gain better insight about.  Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis. Click [here](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/) for step by step instructions to perform these action.
@@ -36,7 +36,7 @@ The Crash Diagnoser from Site Extension Gallery can perform both these steps in 
 
 ## How do I automate Azure App Service WebApps using Powershell?
 We have a detailed blog ([Automating WebApps hosted in Azure App Service through PowerShell – ARM Way](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)) where we share how to use the ARM based PowerShell CmdLets to automate common tasks for managing or maintaining Azure App Service Web Apps. In this blog you can also find sample code for various web apps management tasks.
-Also, Reference to descriptions and syntax for all Azure App service web apps cmdlets can be found via [AzureRM.Websites](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+Also, Reference to descriptions and syntax for all Azure App service web apps cmdlets can be found via [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
 
 ## How can I view my web app's event logs?
 
@@ -78,7 +78,7 @@ You can follow the steps in [Azure Web Apps: "Error 403 – This web app is stop
 
 ## Where can I learn more about Quotas and Limits for various App Service plans?
 
-Please review [App Service limits](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#app-service-limits) on quotas and limits. 
+Please review [App Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits/#app-service-limits) on quotas and limits. 
 
 ## How can I decrease the response time of the first request after idle time?
 
@@ -154,13 +154,13 @@ NOTE: This will trigger a Web App restart so please schedule accordingly.
 
 Also note that 64-bit environment requires Basic or Standard mode.Free and Shared modes always run in a 32-bit environment.
 
-See [Configure web apps in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure) for more information.
+See [Configure web apps in Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-configure) for more information.
 
 ## Why does my request timeout after 240 seconds?
 
 Azure Load Balancer has an ‘idle timeout’ setting of 4 minutes by default, which is generally a very reasonable response time limit for a web request. If you have a requirement for background processing within your web application, then the recommended solution is to use Azure WebJobs. The Azure Web app can call the Azure Webjob and be notified once the background processing is done. There are many ways that Azure provides such as queues triggers etc. and you can choose the method that suits you the best.
 
-Azure Webjobs are designed for background processing and you can do as much background processing as you want within them. For more information on Azure WebJobs, please see [Run Background tasks with WebJobs](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-create-web-jobs).
+Azure Webjobs are designed for background processing and you can do as much background processing as you want within them. For more information on Azure WebJobs, please see [Run Background tasks with WebJobs](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs).
 
 ## ASP.NET Core applications may experience intermittent hangs when hosted in Azure App Service.
 
@@ -173,7 +173,7 @@ This issue is fixed in 1.0.2 version of Kestrel that is included in .NET Core 1.
 
 If you are using Local Cache, the behavior of your App Service changes, which includes the folder structure of the LogFiles and Data folders. When local cache is used, subfolders are created in the storage LogFiles and Data folders which follow the naming pattern of "unique identifier" + time stamp. Each of the subfolders corresponds to a VM instance where the web app is running or has run.
 
-You can check if you are using Local Cache by looking at the Application settings of the App Service. If Local cache is being used, you would see an App setting 'WEBSITE_LOCAL_CACHE_OPTION' set to 'Always'. More information about Local Cache can be found at this [link](https://docs.microsoft.com/en-us/azure/app-service/app-service-local-cache).
+You can check if you are using Local Cache by looking at the Application settings of the App Service. If Local cache is being used, you would see an App setting 'WEBSITE_LOCAL_CACHE_OPTION' set to 'Always'. More information about Local Cache can be found at this [link](https://docs.microsoft.com/azure/app-service/app-service-local-cache).
 
 If this is not your scenario, please proceed to create a support ticket.
 
