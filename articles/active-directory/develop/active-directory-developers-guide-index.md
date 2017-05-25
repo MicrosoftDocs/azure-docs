@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
+ms.custom: aaddev
 ---
 
 # Articles in the Azure AD developer guide

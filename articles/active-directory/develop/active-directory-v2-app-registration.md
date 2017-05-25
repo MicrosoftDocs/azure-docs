@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # How to register an app with the v2.0 endpoint
