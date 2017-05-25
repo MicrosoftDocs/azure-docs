@@ -89,7 +89,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 
 ## Next Steps
 * [Connect and Mount File Share - Windows](storage-file-how-to-use-files-windows.md)
-* [Connect and Mount File Share - Linux](storage-file-how-to-use-files-linux.md)
+* [Connect and Mount File Share - Linux](storage-how-to-use-files-linux.md)
 * [Connect and Mount File Share - macOS](storage-file-how-to-use-files-mac.md)
 
 See these links for more information about Azure File storage.
