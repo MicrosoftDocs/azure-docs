@@ -57,20 +57,18 @@ Your account will be ready in about 60 seconds.
 
     ![Azure Data Lake Analytics portal sample script](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
 3. Click **Sample Data Missing** to copy the sample data files. When it is done, the portal shows **Sample data updated successfully**.
-4. From the Data Lake analytics account blade, click **Data Explorer** on the top.
-
-    ![Azure Data Lake Analytics data explorer button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
-
-    It opens two blades. One is **Data Explorer**, and the other is the default Data Lake Store account.
+4. From the Data Lake analytics account blade, click **Data Explorer** on the top. It opens two blades. One is **Data Explorer**, and the other is the default Data Lake Store account.
 5. In the default Data Lake Store account blade, click **Samples** to expand the folder, and the click **Data** to expand the folder. You shall see the following files and folders:
 
-   * AmbulanceData/
-   * AdsLog.tsv
-   * SearchLog.tsv
-   * version.txt
-   * WebLog.log
+``
+AmbulanceData/
+AdsLog.tsv
+SearchLog.tsv
+version.txt
+WebLog.log
+``
 
-     In this tutorial, you use SearchLog.tsv.
+In this tutorial, you use SearchLog.tsv.
 
 In practice, you either program your applications to write data into a linked storage accounts or upload data. For uploading files, see
 [Upload data to Data Lake Store](data-lake-analytics-manage-use-portal.md) or [Upload data to Blob storage](data-lake-analytics-manage-use-portal.md).
@@ -81,9 +79,6 @@ After you have prepared the source data, you can start developing a U-SQL script
 **To submit a job**
 
 1. From the Data Lake analytics account blade on the portal, click **New Job**.
-
-    ![Azure Data Lake Analytics new job button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
-
     If you don't see the blade, see [Open a Data Lake Analytics account from portal](data-lake-analytics-manage-use-portal.md).
 2. Enter **Job Name**, and the following U-SQL script:
 
