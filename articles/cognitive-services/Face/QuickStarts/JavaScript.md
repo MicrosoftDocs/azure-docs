@@ -8,7 +8,7 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 5/23/2017
 ms.author: anroth
 ---
 
@@ -20,7 +20,7 @@ This article provides information and code samples to help you quickly get start
 Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in Images With Face API Using JavaScript <a name="Detect"> </a>
-Use the [Face - Detect method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
+Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
 to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in a number of Face API scenarios. 
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
@@ -28,6 +28,8 @@ to detect faces in an image and return face attributes including:
 * Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
 
 #### Face Detect JavaScript Example Request
+
+Copy the following and save it to a file such as `test.html`. Change the `url` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and change the request body to the location of an image you want to use. To run the sample, drag-and-drop the file into your browser.
 
 ```html 
 <!DOCTYPE html>
@@ -44,19 +46,24 @@ to detect faces in an image and return face attributes including:
             // Request parameters
             "returnFaceId": "true",
             "returnFaceLandmarks": "false",
-            "returnFaceAttributes": "{string}",
+            "returnFaceAttributes": "age,gender",
         };
       
         $.ajax({
-            url: "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?" + $.param(params),
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?" + $.param(params),
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{subscription key}");
+
+                // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","13hc77781f7e4b19b5fcdd72a8df7156");
             },
             type: "POST",
             // Request body
-            data: "{body}",
+            data: '{"url": "http://www.example.com/images/image.jpg"}',
         })
         .done(function(data) {
             alert("success");
@@ -212,7 +219,10 @@ A successful response will be returned in JSON. Following is an example of a suc
 ]
 ```
 ## Identify Faces in Images With Face API Using JavaScript <a name="Identify"> </a>
-Use the [Face - Identify method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
+
+Copy the following and save it to a file such as `test.html`. Change the `url` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and add the request body. To run the sample, drag-and-drop the file into your browser.
+
+Use the [Face - Identify method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
 identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time
 
 #### Face - Identify JavaScript Example Request
@@ -232,11 +242,16 @@ identify people based on a detected face and people database (defined as a perso
         };
       
         $.ajax({
-            url: "https://westus.api.cognitive.microsoft.com/face/v1.0/identify?" + $.param(params),
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify?" + $.param(params),
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{subscription key}");
+
+                // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","13hc77781f7e4b19b5fcdd72a8df7156");
             },
             type: "POST",
             // Request body

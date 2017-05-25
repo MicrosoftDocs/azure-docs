@@ -5,7 +5,7 @@
   - name: About Azure Cosmos DB
     href: introduction.md
   - name: Welcome DocumentDB customers
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Quickstarts
   expanded: true
   items:
@@ -262,6 +262,8 @@
     items:
     - name: Connect to Spark
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Connect to Spark GraphX
+      href: spark-connector-graph.md      
     - name: Deploy a website with Azure App Service
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Application logging with Logic Apps

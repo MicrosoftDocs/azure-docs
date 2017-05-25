@@ -51,21 +51,21 @@ The Azure AD B2C directory typically includes a Web API App named `b2c-extension
 ## Creating a new application to store the extension properties
 
 1. Open a browsing session and navigate to the [Azure porta](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
-1. Click `Azure Active Directory` on the left navigation menu. You may need to find it by selecting More services>.
-1. Select `App registrations` and click `New application registration`
+1. Click **Azure Active Directory** on the left navigation menu. You may need to find it by selecting More services>.
+1. Select **App registrations** and click **New application registration**
 1. Provide the following recommended entries:
-  * Specify a name for the web application: `WebApp-GraphAPI-DirectoryExtensions`
+  * Specify a name for the web application: **WebApp-GraphAPI-DirectoryExtensions**
   * Application type: Web app/API
   * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. Select `Create` . Successful completion appears in the `notifications`
-1. Select the newly created web application: `WebApp-GraphAPI-DirectoryExtensions`
-1. Select Settings: `Required permissions`
-1. Select API `Windows Active Directory`
-1. Place a checkmark in Application Permissions: `Read and write directory data`, and `Save`
-1. Choose `Grant permissions` and confirm `Yes`.
+1. Select **Create** . Successful completion appears in the **notifications**
+1. Select the newly created web application: **WebApp-GraphAPI-DirectoryExtensions**
+1. Select Settings: **Required permissions**
+1. Select API **Windows Active Directory**
+1. Place a checkmark in Application Permissions: **Read and write directory data**, and **Save**
+1. Choose **Grant permissions** and confirm **Yes**.
 1. Copy to your clipboard and save the following identifiers from WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
-*  `Application ID` . Example: `103ee0e6-f92d-4183-b576-8c3739027780`
-* `Object ID`. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **Application ID** . Example: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **Object ID**. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 ## Modifying your custom policy to add the `ApplicationObjectId`
 
