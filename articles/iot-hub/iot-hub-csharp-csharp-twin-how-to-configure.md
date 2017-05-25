@@ -1,29 +1,29 @@
 ---
-title: Use Azure IoT Hub device twin properties (.NET/Node) | Microsoft Docs
-description: How to use Azure IoT Hub device twins to configure devices. You use the Azure IoT device SDK for Node.js to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that modifies a device configuration using a device twin.
+title: Use Azure IoT Hub device twin properties (.NET/.NET) | Microsoft Docs
+description: How to use Azure IoT Hub device twins to configure devices. You use the Azure IoT device SDK for .NET to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that modifies a device configuration using a device twin.
 services: iot-hub
 documentationcenter: .net
-author: fsautomata
+author: dsk-2015
 manager: timlt
 editor: ''
 
 ms.assetid: 3c627476-f982-43c9-bd17-e0698c5d236d
 ms.service: iot-hub
-ms.devlang: node
+ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: elioda
+ms.date: 05/25/2017
+ms.author: dkshir
 
 ---
 # Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-At the end of this tutorial, you will have two console apps:
+At the end of this tutorial, you will have two .NET console apps:
 
-* **SimulateDeviceConfiguration.js**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
-* **SetDesiredConfigurationAndQuery**, a .NET back-end app, which sets the desired configuration on a device and queries the configuration update process.
+* **SimulateDeviceConfiguration**, a simulated device app that waits for a desired configuration update and reports the status of a simulated configuration update process.
+* **SetDesiredConfigurationAndQuery**, a back-end app, which sets the desired configuration on a device and queries the configuration update process.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -33,18 +33,17 @@ At the end of this tutorial, you will have two console apps:
 To complete this tutorial you need the following:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* Node.js version 0.10.x or later.
 * An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 
 If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have an IoT hub and a device identity called **myDeviceId**. In that case, you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 <a id="#create-the-simulated-device-app"></a>
 ## Create the simulated device app
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
+In this section, you create a .NET console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
 
 1. Create a new empty folder called **simulatedeviceconfiguration**. In the **simulatedeviceconfiguration** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults.
    
@@ -254,7 +253,7 @@ Use the following resources to learn how to:
 [lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: iot-hub-device-management-overview.md
-[lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-tutorial]: iot-hub-csharp-csharp-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -264,4 +263,4 @@ Use the following resources to learn how to:
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app
+[lnk-how-to-configure-createapp]: iot-hub-csharp-csharp-twin-how-to-configure.md#create-the-simulated-device-app
