@@ -11,7 +11,7 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 05/25/2017
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
