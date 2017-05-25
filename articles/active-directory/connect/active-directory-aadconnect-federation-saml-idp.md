@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/25/2017
 ms.author: billmath
 ---
 
@@ -170,10 +170,10 @@ Each Azure Active Directory domain that you want to federate using your SAML 2.0
 
 The following procedure walks you through converting an existing standard domain to a federated domain using SAML 2.0 SP-Lite. Note that your domain may experience an outage that impacts users up to 2 hours after you take this step.
 
-## Configuring a domain in your Office 365 tenant for federation\
+## Configuring a domain in your Azure AD Directory for federation\
 
 
-1. Connect to your Office 365 tenant as a tenant administrator: Connect-MsolService .
+1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService .
 2.	Configure your desired Office 365 domain to use federation with SAML 2.0:
 	`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
@@ -189,16 +189,16 @@ For more information about “Set-MsolDomainAuthentication”, see: [http://tech
 Once federation has been configured you can switch back to “non-federated” (or “managed”), however this change takes up to two hours to complete and it requires assigning new random passwords for cloud based sign-in to each user. Switching back to “managed” may be required in some scenarios to reset an error in your settings. For more information on Domain conversion see: [http://msdn.microsoft.com/en-us/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/dn194122.aspx).
 
 ## Provision User Principals to Azure AD / Office 365
-Before you can authenticate your users to Office 365 you must provision Azure AD with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Azure AD in advance then they cannot be used for federated sign-in. Either DirSync or Windows PowerShell can be used to provision user principals.
+Before you can authenticate your users to Office 365 you must provision Azure AD with user principals that correspond to the assertion in the SAML 2.0 claim. If these user principals are not known to Azure AD in advance then they cannot be used for federated sign-in. Either Azure AD Connect or Windows PowerShell can be used to provision user principals.
 
-Azure AD Connect can be used to provision principals to your domains in your Office 365 tenant from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Azure Active Directory](active-directory-aadconnect.md).
+Azure AD Connect can be used to provision principals to your domains in your Azure AD Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Azure Active Directory](active-directory-aadconnect.md).
 
 Windows PowerShell can also be used to automate adding new users to Azure AD and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets you must download the [Azure Active Directory Modules](https://docs.microsoft.com/en-us/powershell/azure/install-adv2?view=azureadps-2.0).
 
 This procedure shows how to add a single user to Azure AD.
 
 
-1. Connect to your Office 365 tenant as a tenant administrator: Connect-MsolService.
+1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService.
 2.	Create a new user principal:
 	` New-MsolUser
 		-UserPrincipalName elwoodf1@contoso.com
