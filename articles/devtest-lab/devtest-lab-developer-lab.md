@@ -30,7 +30,7 @@ Azure DevTest Labs can be used to implement many key scenarios, but one of the p
 
 In this article, you learn about various Azure DevTest Labs features that can be used to meet developer requirements and the detailed steps that you can follow to set up a lab.
 
-## Implementing dev environments with Azure DevTest Labs
+## Implementing developer environments with Azure DevTest Labs
 1. **Create the lab** 
    
     Labs are the starting point in Azure DevTest Labs. Once you create a lab, you can perform tasks such as adding users (developers) to the lab, setting policies to control costs, defining VM images that can create quickly, and more.  
