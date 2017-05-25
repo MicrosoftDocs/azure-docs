@@ -1,5 +1,5 @@
 ---
-title: Configuration and Management issues for Azure Web Apps FAQ| Microsoft Docs
+title: Configuration and management issues for Azure Web Apps FAQ| Microsoft Docs
 description: This article lists the frequently asked questions about configuration and management in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
@@ -52,11 +52,11 @@ See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-grou
 
 ## How do I set the server Timezone for my web app?
 
-* In the Azure Portal, open the Application settings menu of your Azure App Service.
-* In the 'Application Settings' menu, scroll down to find 'App settings' and add a setting as shown below:
+1. In the Azure Portal, open the Application settings menu of your Azure App Service.
+2. In the 'Application Settings' menu, scroll down to find 'App settings' and add a setting as shown below:
     * Key = WEBSITE_TIME_ZONE
     * Value = *Desired Time Zone*
-* Save Changes.
+3. Save Changes.
 
 ## Why do my continuous WebJobs fail sometimes?
 
