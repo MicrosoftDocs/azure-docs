@@ -83,10 +83,10 @@ Like on-premises machine, Azure does not push Windows Updates to Windows Azure V
 There are other cases where Azure might actively suspend the use of a VM. Users receive email notifications before this action being taken and have a chance to mitigate the underlying issues. Examples are security violations, and payment method having expired.
         
 ### Other Incidents
-In rare circumstances a wide spread issue can impact multiple servers in an Azure data center.  If this event occurs, Azure team sends email notification to affected subscriptions. [Azure Service Health Dashboard](https://azure.microsoft.com/en-us/status/) and Azure portal are great places to visit and check on the status of on-going outages and as well past incidents.
+In rare circumstances, a wide spread issue can impact multiple servers in an Azure data center.  If this event occurs, Azure team sends email notification to affected subscriptions. [Azure Service Health Dashboard](https://azure.microsoft.com/en-us/status/) and Azure portal are great places to visit and check on the status of on-going outages and as well past incidents.
 
 ### Host Server Faults 
-The VM is hosted on a physical server running inside an Azure datacenter. The physical server runs an agent called the Host Agent in addition to few other Azure-specific components. When these Azure-specific software components running on the physical server become unresponsive, the monitoring system triggers a reboot of the host server to attempt recovery. This behavior causes the VM to be restarted. The VM continues to live on the same host as before. The VM typically are available again within five minutes.
+The VM is hosted on a physical server running inside an Azure datacenter. The physical server runs an agent called the Host Agent in addition to few other Azure-specific components. When these Azure-specific software components running on the physical server become unresponsive, the monitoring system triggers a reboot of the host server to attempt recovery. This behavior causes the VM to be restarted. The VM continues to live on the same host as before. The VM typically is available again within five minutes.
 
 Server faults are typically caused by hardware failure such as a failure in a hard drive or solid-state drive. Azure continuously monitors these occurrences, identifies the underlying bugs, and rolls out updates after the mitigation has been implemented and tested.
 
@@ -94,10 +94,10 @@ Since some host server faults can be specific to that server, your VMs repeated 
 
 ### Auto-recovery
 In case the host server cannot reboot for any reason, the Azure platform initiates an auto-recovery action to take the faulty host server out of rotation for further investigation. 
-All VMs on that host are automatically relocated to a different, healthy host server. This process  typically are complete within 15 minutes. The following blog on [Auto-recovery of VMs](https://azure.microsoft.com/blog/service-healing-auto-recovery-of-virtual-machines) describes the auto-recovery process.
+All VMs on that host are automatically relocated to a different, healthy host server. This process typically is complete within 15 minutes. The following blog on [Auto-recovery of VMs](https://azure.microsoft.com/blog/service-healing-auto-recovery-of-virtual-machines) describes the auto-recovery process.
 
 ### Unplanned maintenance
-On rare occasions, Azure operations team may need to perform maintenance activities to ensure the overall health of the Azure Platform. This behavior may affect VM availability and typically results in the same auto-recovery action as described above.  
+On rare occasions, Azure operations team may need to perform maintenance activities to ensure the overall health of the Azure Platform. This behavior may affect VM availability and typically results in the same auto-recovery action as described before.  
 
 These activities include the following:
 
