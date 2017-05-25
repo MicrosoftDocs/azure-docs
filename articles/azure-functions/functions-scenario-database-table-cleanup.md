@@ -106,6 +106,8 @@ Now, you can add the C# function code that connects to your SQL Database.
 
 5. Click **Save**, watch the **Logs** windows for the next function execution, then note the number of rows updated in the **SalesOrderHeader** table.
 
+    ![View the function logs.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
+
 ## Next steps
 
 Next, learn how to use Functions with Logic Apps to integrate with other services.
