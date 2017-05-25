@@ -142,7 +142,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. Sign on to your ServiceNow application as an administrator.
 
-9. Activate the *Integration - Multiple Provider Single Sign-On Installer plugin by following the next steps:
+9. Activate the *Integration - Multiple Provider Single Sign-On Installer* plugin by following the next steps:
    
     a. In the navigation pane on the left side, go to **System Definition** section and then click **Plugins**.
    
@@ -184,19 +184,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
      ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
     
-     a. Click **New**.
+     a. In the **Name** textbox, type a name for your configuration (for example: **TestSAML2.0**).
     
-     b. In the **Name** textbox, type a name for your configuration (for example: **TestSAML2.0**).
+     b. Select **Active**.
     
-     c. Select **Active**.
+     c. As **Format**, select **PEM**.
     
-     d. As **Format**, select **PEM**.
+     d. As **Type**, select **Trust Store Cert**.
     
-     e. As **Type**, select **Trust Store Cert**.
+     e. Open your Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **PEM Certificate** textbox.
     
-     f. Open your Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **PEM Certificate** textbox.
-    
-     g. Click **Update**.
+     f. Click **Update**.
 
 15. In the navigation pane on the left side, click **Identity Providers**.
     
@@ -206,7 +204,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
      ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configure single sign-on")
 
-17. On the **Identity Providers** dialog, click **SAML2 Update1?
+17. On the **Identity Providers** dialog, click **SAML2 Update1?**
     
      ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configure single sign-on")
 
@@ -242,7 +240,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     k. Deselect **Create an AuthnContextClass**.
 
-    l. In the **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. This is only needed if you are cloud only organization. If you are using on-premise ADFS or MFA for authentication, then you should not configure this value. 
+    l. In the **AuthnContextClassRef Method**, type **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**. This is only needed if you are cloud only organization. If you are using on-premise ADFS or MFA for authentication, then you should not configure this value. 
 
     m. In **Clock Skew** textbox, type **60**.
 
