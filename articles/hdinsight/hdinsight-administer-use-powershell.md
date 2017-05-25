@@ -151,16 +151,28 @@ This can also be done via the Portal. See [Administer HDInsight by using the Azu
 It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
 
 ## Find the default storage account
-The following Powershell script demonstrates how to get the default storage account name and the default storage account key for a cluster.
+The following Powershell script demonstrates how to get the default storage account name and the related information:
 
+    #Login-AzureRmAccount
     $clusterName = "<HDInsight Cluster Name>"
-
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
-    $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
-    $defaultBlobContainerName = $cluster.DefaultStorageContainer
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+    
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+    $defaultStoreageType = $storageInfo[1]
+    $defaultStorageName = $storageInfo[0]
+    
+    echo "Default Storage account name: $defaultStorageName"
+    echo "Default Storage account type: $defaultStoreageType"
+    
+    if ($defaultStoreageType -eq "blob")
+    {
+        $defaultBlobContainerName = $cluster.DefaultStorageContainer
+        $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
+        $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+    
+        echo "Default Blob container name: $defaultBlobContainerName"
+        echo "Default Storage account key: $defaultStorageAccountKey"
+    }
 
 ## Find the resource group
 In the Resource Manager mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:

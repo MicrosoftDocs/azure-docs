@@ -16,34 +16,38 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/23/2017
 ms.author: jgao
 
 ---
 # Upload data for Hadoop jobs in HDInsight
-Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Blob storage. It is designed as an HDFS extension to provide a seamless experience to customers. It enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Blob storage, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
+
+Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight(hdinsight-hadoop-use-data-lake-store.md).
 
 **Prerequisites**
 
 Note the following requirement before you begin:
 
-* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
+* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Create HDInsight clusters][hdinsight-hadoop-provision-linux-clusters.md].
 
-## Why blob storage?
-Azure HDInsight clusters are typically deployed to run MapReduce jobs, and the clusters are dropped after these jobs complete. Keeping the data in the HDFS clusters after computations are complete would be an expensive way to store this data. Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a blob enables the HDInsight clusters that are used for computation to be safely released without losing data.
 
 ### Directories
-Azure Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. HDInsight sees these as if they are actual directories.
+Azure Storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. HDInsight sees these as if they are actual directories.
 
 For example, a blob's key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path.
 
 Because of this, if you use Azure Explorer tools you may notice some 0 byte files. These files serve two purposes:
 
-* If there are empty folders, they mark of the existence of the folder. Azure Blob storage is clever enough to know that if a blob called foo/bar exists, there is a folder called **foo**. But the only way to signify an empty folder called **foo** is by having this special 0 byte file in place.
+* If there are empty folders, they mark of the existence of the folder. Azure Storage is clever enough to know that if a blob called foo/bar exists, there is a folder called **foo**. But the only way to signify an empty folder called **foo** is by having this special 0 byte file in place.
 * They hold special metadata that is needed by the Hadoop file system, notably the permissions and owners for the folders.
 
+## Find the default storage accounts for your cluster
+
+In the most cases, you upload your data to either Azure Storage or Data Lake Store before you create a cluster to run jobs. In the cases where you want to upload data for an existing cluster to 
+
+
 ## Command-line utilities
-Microsoft provides the following utilities to work with Azure Blob storage:
+Microsoft provides the following utilities to work with Azure Storage:
 
 | Tool | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
@@ -53,12 +57,12 @@ Microsoft provides the following utilities to work with Azure Blob storage:
 | [Hadoop command](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster and only allows loading data from the local file system into Azure Blob storage.
+> While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster and only allows loading data from the local file system into Azure Storage.
 >
 >
 
 ### <a id="xplatcli"></a>Azure CLI
-The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
+The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Storage:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -101,7 +105,7 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
-**To upload a local file to Azure Blob storage**
+**To upload a local file to Azure Storage**
 
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](/powershell/azure/overview).
 2. Set the values of the first five variables in the following script:
@@ -147,7 +151,7 @@ Once connected, you can use the following syntax to upload a file to storage.
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Because the default file system for HDInsight is in Azure Blob storage, /example/data.txt is actually in Azure Blob storage. You can also refer to the file as:
+Because the default file system for HDInsight is in Azure Storage, /example/data.txt is actually in Azure Storage. You can also refer to the file as:
 
     wasbs:///example/data/data.txt
 
@@ -197,14 +201,14 @@ Before using the tool, you must know your Azure storage account name and account
 
     Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
-## Mount Azure Blob Storage as Local Drive
-See [Mount Azure Blob Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+## Mount Azure Storage as Local Drive
+See [Mount Azure Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ## Services
 ### Azure Data Factory
 The Azure Data Factory service is a fully managed service for composing data storage, data processing, and data movement services into streamlined, scalable, and reliable data production pipelines.
 
-Azure Data Factory can be used to move data into Azure Blob storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.
+Azure Data Factory can be used to move data into Azure Storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.
 
 For more information, see the [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/).
 
@@ -214,7 +218,7 @@ Sqoop is a tool designed to transfer data between Hadoop and relational database
 For more information, see [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 
 ## Development SDKs
-Azure Blob storage can also be accessed using an Azure SDK from the following programming languages:
+Azure Storage can also be accessed using an Azure SDK from the following programming languages:
 
 * .NET
 * Java
@@ -292,7 +296,6 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

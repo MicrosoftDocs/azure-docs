@@ -83,6 +83,7 @@ If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Dashboard**: Opens the cluster dashboard, which is Ambari Web for Linux-based clusters.
    * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
+   * **Move**: Move the cluster to another resource group or another Azure subscription.
    * **Delete**: Deletes the cluster.
 
     **Left menu:**
@@ -105,7 +106,7 @@ If you recieve the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
    * **Properties**: View the cluster properties.
    * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
-   * **Cluster AAD Identity**:
+   * **Data Lake Store access**: View the service principal, and confiugre Azure Data Lake Store access.
    * **New support request**: Allows you to create a support ticket with Microsoft support.
 
 6. Click **Properties**:
@@ -205,6 +206,10 @@ There are many ways you can program the process:
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
+## Move cluster
+
+You can move an HDInsight cluster to another Azure resource group or another subscription.  See [List and show clusters](#list-and-show-clusters).
+
 ## Change passwords
 An HDInsight cluster can have two user accounts. The HDInsight cluster user account (A.K.A. HTTP user account) and the SSH user account are created during the creation process. You can the Ambari web UI to change the cluster user account username and password, and script actions to change the SSH user account
 
@@ -280,8 +285,15 @@ In the Azure Resource Manager mode, each HDInsight cluster is created with an Az
 
 See [List and show clusters](#list-and-show-clusters).
 
-## Find the default storage account
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster appears under **Storage Accounts**. See [List and show clusters](#list-and-show-clusters).
+## Find the storage accounts
+
+HDInsight clusters use either Azure Storage account or Azure Data Lake Store to store data. Each HDInsight cluster can have one default storage account and a number of linked storage accounts. To list the storage accounts, you first open the cluster from the portal, and then click Storage accounts:
+
+    ![HDInsight cluster storage accounts](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+
+On the previous screenshot, there is a __Default__ column indicating whether the account is the default storage account.
+
+To list the Data Lake Store accounts, click Data Lake Store access in the previous screenshot.
 
 ## Run Hive queries
 You cannot run Hive job directly from the Azure portal, but you can use the Hive View on Ambari Web UI.
