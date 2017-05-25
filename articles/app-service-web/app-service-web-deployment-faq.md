@@ -38,7 +38,7 @@ You can resolve this error by upgrading to the latest SDK, which can be download
 
 ## How can I deploy an Asp.Net application from Visual Studio to Azure App Service
 <a id="deployasp"></a>
-This [tutorial](https://docs.microsoft.com/azure/web-sites-dotnet-get-started/) shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015.
+This [tutorial](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015.
 
 ## What are the different types of deployment credentials
 
@@ -54,7 +54,7 @@ You are likely running into disk quota on the pricing Tier your web app is using
 
 ## How can I set up continuous deployment for my Azure App Service?
 
-You can set up continuous deployment from several resources including Visual Studio Team Services, Microsoft OneDrive, GitHub, Bitbucket, Dropbox and other Git repositories. These options are available in the portal and the following tutorial explains how to set it up: [Continuous Deployment to Azure App Service](https://docs.microsoft.com/azure/app-service-continuous-deployment/).
+You can set up continuous deployment from several resources including Visual Studio Team Services, Microsoft OneDrive, GitHub, Bitbucket, Dropbox and other Git repositories. These options are available in the portal and the following tutorial explains how to set it up: [Continuous Deployment to Azure App Service](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment/).
 
 ## How can I troubleshoot issues with continuous deployment from Github and BitBucket?
 
