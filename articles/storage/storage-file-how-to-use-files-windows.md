@@ -55,7 +55,7 @@ In order to mount an Azure File share outside of the Azure region it is hosted i
     
     ![A screenshot of the "Map network drive" drop down menu](media/storage-file-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copy the UNC path from the "Connect" pane in the Azure Portal**: A detailed description of how to find this information can be found [here](storage-file-how-to-use-files-portal.md#connect).
+3. **Copy the UNC path from the "Connect" pane in the Azure Portal**: A detailed description of how to find this information can be found [here](storage-file-how-to-use-files-portal.md#connect-to-file-share).
 
     ![The UNC path from the Azure File Storage Connect pane](media/storage-file-how-to-use-files-windows/portal_netuse_connect.png)
 

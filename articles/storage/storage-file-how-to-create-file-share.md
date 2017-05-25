@@ -69,7 +69,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 
 ## Create file share through Command Line Interface (CLI)
 1. **To prepare to use a Command Line Interface (CLI), download and install the Azure CLI.**  
-    See [Install the Azure Command-Line Interface](/cli/azure/install-azure-cli.md) and [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md).
+    See [Install Azure CLI 2.0](/cli/azure/install-az-cli2.md) and [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md).
 
 2. **Create a connection string to the storage account where you want to create the share.**  
     Replace ```<storage-account>``` and ```<resource_group>``` with your storage account name and resource group in the following example.
@@ -88,7 +88,9 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
     ```
 
 ## Next Steps
-* [Connect and Mount File Share](storage-file-how-to-connect-and-mount.md)
+* [Connect and Mount File Share - Windows](storage-file-how-to-use-files-windows.md)
+* [Connect and Mount File Share - Linux](storage-file-how-to-use-files-linux.md)
+* [Connect and Mount File Share - macOS](storage-file-how-to-use-files-mac.md)
 
 See these links for more information about Azure File storage.
 

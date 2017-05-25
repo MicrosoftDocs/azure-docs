@@ -71,7 +71,6 @@ Managing Azure File shares is a lot simpler than managing file shares on-premise
     ```
 ## Next Steps
 * [Create Azure File Share](storage-file-how-to-create-file-share.md)
-* [Connect and Mount](storage-file-how-to-connect-and-mount.md)
 * [Connect and Mount on Windows](storage-file-how-to-use-files-windows.md)
 * [Connect and Mount on Linux](storage-how-to-use-files-linux.md)
 * [Connect and Mount on macOS](storage-file-how-to-use-files-mac.md)
