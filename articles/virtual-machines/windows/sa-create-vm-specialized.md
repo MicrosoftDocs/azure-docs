@@ -39,8 +39,8 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
 
 You can upload the VHD from a specialized VM created with an on-premises virtualization tool, like Hyper-V, or a VM exported from another cloud.
 
-## Prepare the VM
-You can upload a specialized VHD that was created using on on-premises VM or a VHD exported from another cloud. A specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
+### Prepare the VM
+You can upload a specialized VHD that was created using an on-premises VM or a VHD exported from another cloud. A specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
   
   * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
@@ -104,7 +104,7 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Depending on your network connection and the size of your VHD file, this command may take a while to complete
+Depending on your network connection and the size of your VHD file, this command may take a while to complete.
 
 
 ## Option 2: Copy the VHD from an existing Azure VM

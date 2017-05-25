@@ -133,7 +133,16 @@ If successful, you get a response that looks similar to this:
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
 MD5 hash calculation is completed.
-Elapse# Create a VM from a generalized VHD image in a storage account 
+Elapsed time for the operation: 00:03:35
+Creating new page blob of size 53687091712...
+Elapsed time for upload: 01:12:49
+
+LocalFilePath           DestinationUri
+-------------           --------------
+C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
+```
+
+Depending on your network connection and the size of your VHD file, this command may take a while to complete.
 
 
 ## Create a new VM 
@@ -279,10 +288,5 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 
 ## Next steps
 To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
 
-Depending on your network connection and the size of your VHD file, this command may take a while to complete
 
