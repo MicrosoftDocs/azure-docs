@@ -70,4 +70,4 @@ To learn how to create and read IoT Hub messages in various programming language
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-antispoofing]: [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
+[lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties

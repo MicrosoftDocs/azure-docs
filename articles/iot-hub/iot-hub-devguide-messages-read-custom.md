@@ -39,7 +39,11 @@ For more information about reading from custom endpoints, see:
 * Reading from [Service Bus queues][lnk-getstarted-queue].
 * Reading from [Service Bus topics][lnk-getstarted-topic].
 
-## Next steps
+### Next steps
+
+For more information about IoT Hub endpoints, see [IoT Hub endpoints][lnk-devguide-endpoints].
+
+For more information about the query language you use to define routing rules, see [IoT Hub query language for device twins and jobs][lnk-devguide-query-language].
 
 The [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial shows you how to use routing rules and custom endpoints.
 
