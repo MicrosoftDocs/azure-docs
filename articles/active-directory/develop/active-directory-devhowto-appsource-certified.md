@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
 ms.author: skwan;bryanla
+ms.custom: aaddev
 
 ---
 # How to get AppSource Certified for Azure Active Directory (AD)
