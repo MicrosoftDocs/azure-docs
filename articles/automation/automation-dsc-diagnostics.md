@@ -1,5 +1,5 @@
 ---
-title: Forward Azure Automation DSC data to OMS Log Analytics | Microsoft Docs
+title: Forward Azure Automation DSC reports data to OMS Log Analytics | Microsoft Docs
 description: This article demonstrates how to send Desired State Configuration (DSC) reporting data to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 05/24/2017
 ms.author: eslesar
 
 ---
-# Forward Azure Automation DSC data to OMS Log Analytics
+# Forward Azure Automation DSC reports data to OMS Log Analytics
 Automation can send DSC node status data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  
 Complicance status are visible in the Azure portal, or with PowerShell, for nodes and for individual DSC resources in node configurations. 
 With Log Analytics you can:
@@ -120,15 +120,15 @@ Diagnostics from Azure Automation creates two categories of records in Log Analy
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
-| OperationName |The name of the operation.|
+| OperationName |DscNodeStatusData |
 | ResultType |Whether the node is compliant. |
 | NodeName_s |The name of the managed node. |
 | NodeComplianceStatus_s |Whether the node is compliant. |
 | DscReportStatus |Whether the compliance check ran successfully. |
 | ConfigurationMode | How the configuration is applied to the node. Possible values are __"ApplyOnly"__,__"ApplyandMonitior"__, and __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a server. After initial application of a new configuration, DSC does not check for drift from a previously configured state. Note that DSC will attempt to apply the configuration until it is successful before __ApplyOnly__ takes effect. </li><li> __ApplyAndMonitor__: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. Note that DSC will attempt to apply the configuration until it is successful before __ApplyAndMonitor__ takes effect.</li><li>__ApplyAndAutoCorrect__: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then re-applies the current configuration.</li></ul> |
 | HostName_s | The name of the managed node. |
-| IPADress | The IPv4 address of the managed node. |
-| Category | The log category. |
+| IPAddress | The IPv4 address of the managed node. |
+| Category | DscNodeStatus |
 | Resource | The name of the Azure Automation account. |
 | Tenant_g | GUID that identifies the tenant for the Caller. |
 | NodeId_g |GUID that identifies the managed node. |
@@ -150,10 +150,10 @@ Diagnostics from Azure Automation creates two categories of records in Log Analy
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
-| OperationName |The name of the operation.|
-| ResultType |Whether the node is compliant. |
+| OperationName |DscResourceStatusData|
+| ResultType |Whether the resource is compliant. |
 | NodeName_s |The name of the managed node. |
-| Category | The log category. |
+| Category | DscNodeStatus |
 | Resource | The name of the Azure Automation account. |
 | Tenant_g | GUID that identifies the tenant for the Caller. |
 | NodeId_g |GUID that identifies the managed node. |
