@@ -24,7 +24,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 You also need:
 - [python](https://www.python.org/downloads/) installed
-- [pip](https://pip.pypa.io/en/stable/installing/) package installed (pip is already installed if you're using Python 2 >=2.7.9 or Python 3 >=3.4 binaries downloaded from [python.org](python.org), but you'll need to upgrade pip.)
+- [pip](https://pip.pypa.io/en/stable/installing/) package installed (pip is already installed if you're using Python 2 >=2.7.9 or Python 3 >=3.4 binaries downloaded from [python.org](https://python.org), but you'll need to upgrade pip.)
 
  
 ## Install the Python connection libraries for PostgreSQL
