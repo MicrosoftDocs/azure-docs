@@ -1,6 +1,6 @@
 ---
-title: View Azure Network Watcher topology - Azure CLI | Microsoft Docs
-description: This article will describe how to use Azure CLI to query your network topology.
+title: View Azure Network Watcher topology - Azure CLI 1.0 | Microsoft Docs
+description: This article will describe how to use Azure CLI 1.0 to query your network topology.
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -17,7 +17,7 @@ ms.date: 02/22/2017
 ms.author: gwallace
 ---
 
-# View Network Watcher topology with Azure CLI
+# View Network Watcher topology with Azure CLI 1.0
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-topology-powershell.md)
@@ -28,7 +28,7 @@ ms.author: gwallace
 The Topology feature of Network Watcher provides a visual representation of the network resources in a subscription. In the portal, this visualization is presented to you automatically. The information behind the topology view in the portal can be retrieved through PowerShell.
 This capability makes the topology information more versatile as the data can be consumed by other tools to build out the visualization.
 
-This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
+This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. 
 
 The interconnection is modeled under two relationships.
 
