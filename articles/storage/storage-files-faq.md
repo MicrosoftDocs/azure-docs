@@ -63,7 +63,7 @@ ms.author: renash
 
 * **Q. How can I enable Server Side encryption for Azure File Storage?**
 
-    [Server Side Encryption](storage-service-encryption.md) for Azure File Storage service is generally available in all regions and public and national clouds. You can enable SSE for File Storage Service using [Azure Portal](https://ms.portal.azure.com/),[Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) or [Azure CLI](storage-azure-cli.md/).
+    [Server Side Encryption](storage-service-encryption.md) for Azure File Storage service is generally available in all regions and public and national clouds. You can enable SSE for File Storage Service using [Azure Portal](https://ms.portal.azure.com/),[Microsoft Azure Storage Resource Provider API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) or [Azure CLI](storage-azure-cli.md).
     
     After enabling SSE on Azure File Storage, any new data written to the file storage in that storage account will be automatically encrypted. This feature is available for all new data written to existing or new shares in an existing or new storage account. There is no additional charge for enabling this feature. Learn more on [how to enable SSE on Azure File Storage service](storage-service-encryption.md).
 
@@ -81,7 +81,7 @@ ms.author: renash
 
 * **Q. How can I mount an Azure File share on my local machine?** 
     
-    You can mount the file share via the SMB protocol as long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (for example, you're using Windows 10 or Windows Server 2012). Please work with your local ISP provider to unblock the port. In the interim, you can view your files using [Storage Explorer](vs-azure-tools-storage-explorer-files#view-a-file-shares-contents).
+    You can mount the file share via the SMB protocol as long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (for example, you're using Windows 10 or Windows Server 2012). Please work with your local ISP provider to unblock the port. In the interim, you can view your files using [Storage Explorer](../vs-azure-tools-storage-explorer-files#view-a-file-shares-contents).
 
 
 ## Billing and Pricing
