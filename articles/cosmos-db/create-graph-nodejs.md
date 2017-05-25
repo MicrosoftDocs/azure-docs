@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/13/2017
+ms.date: 05/21/2017
 ms.author: arramac
 
 ---
@@ -22,7 +22,11 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Node.js](https://aka.ms/gremlin-node) driver.  
+This quick start demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) driver.  
+
+> [!NOTE]
+> The NPM module `gremlin-secure` is a modified version of `gremlin` module, with support for SSL and SASL required for connecting with Azure Cosmos DB. Source code is available on [Github](https://github.com/CosmosDB/gremlin-javascript).
+>
 
 ## Prerequisites
 
@@ -121,11 +125,9 @@ module.exports = config;
 
 1. Open a terminal window and `cd` to a the installation directory for the package.json file included in the project.  
 
-2. Run `npm install gremlin` to install required npm modules.
+2. Run `npm install` to install required npm modules. This includes `gremlin-secure`.
 
-3. Replace the contents of the `node_modules\gremlin` folder with the source code from [the Cosmos DB Gremlin fork](https://github.com/CosmosDB/gremlin-javascript), which has support for SSL and SASL, which are required for Azure Cosmos DB, but not currently supported by the driver (temporarily until the changes are accepted in the driver).
-
-4. Run `node app.js` in a terminal to start your node application.
+3. Run `node app.js` in a terminal to start your node application.
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 

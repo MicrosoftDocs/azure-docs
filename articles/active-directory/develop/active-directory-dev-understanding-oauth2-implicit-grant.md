@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
 ms.author: vittorib;bryanla
+ms.custom: aaddev
 
 ---
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)

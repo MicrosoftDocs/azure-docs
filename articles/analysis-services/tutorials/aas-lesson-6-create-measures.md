@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/22/2017
 ms.author: owend
 ---
 # Lesson 6: Create measures
@@ -49,7 +49,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
-    Unlike calculated columns, with measure formulas you can type the measure name, followed by a comma, followed by the formula expression.
+    Unlike calculated columns, with measure formulas you can type the measure name, followed by a colon, followed by the formula expression.
 
   
 #### To create a DaysInCurrentQuarter measure in the DimDate table  

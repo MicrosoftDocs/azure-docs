@@ -26,11 +26,9 @@ Learn how to create a function triggered when messages are submitted to an Azure
 
 ## Prerequisites
 
-Before running this sample, you must have performed the following:
-
 - Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- You need an Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 

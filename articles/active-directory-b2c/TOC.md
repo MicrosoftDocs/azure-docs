@@ -47,7 +47,7 @@
 ## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
 ### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
-## [Use the reporting API](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
 
 # Identity Experience Framework
@@ -59,8 +59,8 @@
 ### Configure SAML providers
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrate RESTful APIs
-#### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
 #### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
+#### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
 ### Customize login
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Customize UI](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)
 ## [Threat management](active-directory-b2c-reference-threat-management.md)
-## [Limitations & restrictions](active-directory-b2c-limitations.md)
 ## [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
 
 # Related
