@@ -141,9 +141,9 @@
     href: web-sites-deploy.md
     items:
     - name: Deploy via FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Deploy via cloud sync
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Deploy continuously
       href: app-service-continuous-deployment.md
     - name: Deploy to staging

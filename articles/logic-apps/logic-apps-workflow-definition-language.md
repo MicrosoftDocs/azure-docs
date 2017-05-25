@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ---
 
 # Workflow Definition Language schema for Azure Logic Apps

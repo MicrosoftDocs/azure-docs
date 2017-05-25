@@ -48,7 +48,7 @@ When doing so, make sure to check the following items:
 * MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back-end app needs to receive a response from the device app, consider using [direct methods][lnk-methods].
 
 ## Using the MQTT protocol directly
-If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
+If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883. In the **CONNECT** packet the device should use the following values:
 
 * For the **ClientId** field, use the **deviceId**.
 * For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2016-11-14`, where {iothubhostname} is the full CName of the IoT hub.

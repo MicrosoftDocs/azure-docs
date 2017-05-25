@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 05/23/2017
 ms.author: cfreeman
 
 ---
@@ -57,7 +57,21 @@ Snapshot collection is available for ASP.NET web apps running on .NET Framework 
   </TelemetryProcessors>
 ```
 
-Snapshots are only collected on exceptions that are visible to the Application Insights SDK. In some cases, you may need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with Snapshots appearing in the portal.
+### Collect exceptions
+
+Snapshots are only collected on exceptions that are visible to the Application Insights SDK. In some cases (for example, older versions of the .NET platform), you may need to [configure exception collection](app-insights-asp-net-exceptions.md#exceptions) to see exceptions with Snapshots appearing in the portal.
+
+### Grant permissions
+
+Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
+
+To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can only be assigned by subscription owners to individual users. 
+
+Be aware that snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+
+1. In the Azure navigation menu, open **More services > Subscriptions**, then **Access Control**.
+2. Click **Roles** and then **Application Insights Snapshot Debugger**.
+3. Click **Add** and then select a user.
 
 ## Debugging Snapshots in the Application Insights Portal
 
@@ -69,7 +83,7 @@ In the Debug Snapshot view, you see a call stack and a variables pane. Selecting
 
 ![View Debug Snapshot in the portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Snapshots may contain sensitive information, and by default are not viewable. To view Snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you in the portal for the subscription or resource. Currently this role can only be assigned by subscription owners on a per-user basis. Assigning the role to Azure Active Directory groups is currently not supported.
+Snapshots may contain sensitive information, and by default are not viewable. To view Snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
 
 ## Debugging Snapshots with Visual Studio 2017 Enterprise
 You can click the *Download Snapshot* button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise. Opening the `.diagsession` file currently requires that you first [download and install the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
@@ -100,5 +114,6 @@ In some cases, local variables are not viewable in Release builds because of opt
 
 ## Next Steps
 
+* [Set snappoints in your code](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) - get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
 * [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.
