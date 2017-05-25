@@ -32,23 +32,23 @@ In addition, our documentation also provides a detailed walkthrough on [mapping 
 
 
 ## How can I purchase a custom domain for my Web App
-The article  ([Buy and Configure a custom domain name in Azure App Service](https://docs.microsoft.com/azure/custom-dns-web-site-buydomains-web-app/)) explains how to buy and configure a custom domain with App Service Web Apps.
+The article  ([Buy and Configure a custom domain name in Azure App Service](https://docs.microsoft.com/azure/app-service-web/custom-dns-web-site-buydomains-web-app/)) explains how to buy and configure a custom domain with App Service Web Apps.
 
 ## How can I upload and configure an SSL certificate
-The steps to upload and configure a custom SSL certificate can be found [here](https://docs.microsoft.com/azure/web-sites-configure-ssl-certificate/#step-2-upload-and-bind-the-custom-ssl-certificate).
+The steps to upload and configure a custom SSL certificate can be found [here](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate/#step-2-upload-and-bind-the-custom-ssl-certificate).
 
 
 ## How to buy and configure an SSL certificate in Azure for my Azure App Service
-[This article](https://docs.microsoft.com/azure/web-sites-purchase-ssl-web-site/) explains how to buy and configure an SSL certificate in Azure for your Azure App Service in simple steps.
+[This article](https://docs.microsoft.com/azure/app-service-web/web-sites-purchase-ssl-web-site/) explains how to buy and configure an SSL certificate in Azure for your Azure App Service in simple steps.
 
 
 ## I am trying to move Application Insights resources
 Application Insights does not currently enable the move operation. So if your original resource group also includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when moving App Service apps, the entire move operation fails. However, the Application Insights and App Service plan do not need to reside in the same resource group as the app for the app to function correctly.
-To understand how you can approach this scenario, please review the guidance via [App Service limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
+To understand how you can approach this scenario, please review the guidance via [App Service limitations](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations).
 
 ## Guidance checklist and other considerations for Resource Move operations
 The documentation in the link below shows you how to move resources to either a new subscription or a new resource group in the same subscription. You can find information about the resource move checklist, which services enable move and which services don't, App Service limitations and several other useful topics in good detail.
-See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations](https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations) for more information.
+See [https://docs.microsoft.com/en-gb/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations) for more information.
 
 ## How do I set the server Timezone for my web app?
 
@@ -69,7 +69,7 @@ Follow these steps to get the list of outbound IP addresses for your web app.
 2. Search for OUTBOUND IP ADDRESSES.
 You will see the list of Outbound IP addresses listed here.
 
-If your site is hosted on **Application Service Environment**, see [Outbound Network Addresses](https://docs.microsoft.com/azure/app-service-app-service-environment-network-architecture-overview/#outbound-network-addresses) for instructions to get Outbound IP Address.
+If your site is hosted on **Application Service Environment**, see [Outbound Network Addresses](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview/#outbound-network-addresses) for instructions to get Outbound IP Address.
 
 ## How can I get reserved or dedicated Inbound IP Address for my Azure App Service?
 
@@ -109,7 +109,7 @@ For more information, see [Microsoft Web App Azure App Service Compliance with P
 
 When you deploy your web app to App Service, you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot.
 
-Please review this detailed document ([Set up staging environments in Azure App Service](https://docs.microsoft.com/azure/web-sites-staged-publishing/)) on creating, configuring, using and managing deployment slots.
+Please review this detailed document ([Set up staging environments in Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-staged-publishing/)) on creating, configuring, using and managing deployment slots.
 
 ## How can I access and review WebJob Logs?
 
@@ -179,19 +179,19 @@ When trying to connect an Azure App Service Web App to a VNET that's connected t
 
 "Gateway is not a VPN gateway"
 
-This scenario is currently not supported. You cannot enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-site VPN and ExpressRoute cannot coexist for the same VNet. For more information please click [here](https://docs.microsoft.com/azure/expressroute-howto-coexist-classic/#limits-and-limitations).
+This scenario is currently not supported. You cannot enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-site VPN and ExpressRoute cannot coexist for the same VNet. For more information please click [here](https://docs.microsoft.com/azure/app-service-web/expressroute-howto-coexist-classic/#limits-and-limitations).
 
 ## How can I connect an Azure App Service Web App to a VNET with a static routing (policy based) gateway?
 
 Currently connecting an Azure App Service Web App to a VNET that has an Static routing (policy based) gateway is not supported.If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app. You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing. 
-For more information, please click [here](https://docs.microsoft.com/azure/web-sites-integrate-with-vnet/#getting-started).
+For more information, please click [here](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet/#getting-started).
 
 ## In an App Service Environment (ASE) why can I only create one App Service Plan (ASP) even though I have 2 workers available?
 
 In order to provide fault tolerance, an App Service Environment (ASE) requires that for each worker pool you have at least one additional compute resource allocated.
 
 Each worker pool needs at least one additional compute resource which cannot be assigned workload.
-For more information, see [How to Create an App Service Environment](https://docs.microsoft.com/azure/app-service-web-how-to-create-an-app-service-environment/#compute-resource-pools).
+For more information, see [How to Create an App Service Environment](https://docs.microsoft.com/azure/app-service-web/app-service-web-how-to-create-an-app-service-environment/#compute-resource-pools).
 
 ## Why am I seeing timeouts when trying to create an App Service Environment?
 
@@ -225,7 +225,7 @@ You can create a scheduled Webjob using CRON expressions:
 {minute} {hour} {day}
 {month} {day of the week}" }
 ```
-For more information on scheduled WebJobs, please see [Create a scheduled WebJob using a CRON expression](https://docs.microsoft.com/azure/web-sites-create-web-jobs/#CreateScheduledCRON).
+For more information on scheduled WebJobs, please see [Create a scheduled WebJob using a CRON expression](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs/#CreateScheduledCRON).
 
 ## How can I perform penetration testing for my Azure App Service?
 
@@ -233,7 +233,7 @@ To perform penetration testing, you will need to submit a request. Click [here](
 
 ## How do I configure a custom domain name for a web app in Azure App Service that uses Traffic Manager?
 
-The article ([Configuring a custom domain name for a web app in Azure App Service using Traffic Manager](https://docs.microsoft.com/azure/web-sites-traffic-manager-custom-domain-name/)) provides instructions for using a custom domain name with Azure App Service that use Traffic Manager for load balancing.
+The article ([Configuring a custom domain name for a web app in Azure App Service using Traffic Manager](https://docs.microsoft.com/azure/app-service-web/web-sites-traffic-manager-custom-domain-name/)) provides instructions for using a custom domain name with Azure App Service that use Traffic Manager for load balancing.
 
 
 ## My App Service Certificate is flagged for fraud. How can I take care of this?
@@ -273,7 +273,7 @@ http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/
 The quickest way to find this is through the Kudu console. for your Azure App Service.  You can access the kudu console  from the portal or by using the URL of your Azure App Service. Step-by-Step instructions can be found [here](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
 
 ## Why is Autoscale not working as expected?
-If you have noticed that Autoscale has not scaled-in or scaled-out the web app instances as you expected, you may be running into a scenario where we intentionally choose not to scale to avoid an infinite loop due to flapping. This usually happens when there isn't adequate margin between the scale-out and scale-in thresholds. How to avoid flapping and other Autoscale best practices are explained in good detail at this [link](https://docs.microsoft.com/azure/insights-autoscale-best-practices/#autoscale-best-practices).
+If you have noticed that Autoscale has not scaled-in or scaled-out the web app instances as you expected, you may be running into a scenario where we intentionally choose not to scale to avoid an infinite loop due to flapping. This usually happens when there isn't adequate margin between the scale-out and scale-in thresholds. How to avoid flapping and other Autoscale best practices are explained in good detail at this [link](https://docs.microsoft.com/azure/app-service-web/insights-autoscale-best-practices/#autoscale-best-practices).
 
 ## How can I enable HTTP compression for my content?
 You can turn on compression for both static and dynamic content types with the following configuration in application-level web.config:
