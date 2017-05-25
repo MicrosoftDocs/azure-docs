@@ -34,9 +34,9 @@ This article provides an overview of both experiences. First, lets understand ho
 
 A managed application is similar to a marketplace solution template with one key difference. In a managed application, the resources are provisioned to a resource group that is managed by the ISV/vendor. The resource group is present in the customer's subscription, but a user, user group, or application in the ISV's tenant has access to the resource group. To manage and service the application, the vendor's identity is added to an Active Directory Owner, Contributor, Reader, or any other built-in role. 
 
-For more details about the vendor experience, see [Create and publish an Azure Managed Application](managed-application-publishing.md).
+For more information about the vendor experience, see [Create and publish an Azure Managed Application](managed-application-publishing.md).
 
-For more details about the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
+For more information about the consumer experience, see [Consume an Azure Managed Application](managed-application-consumption.md).
 
 ## Key concepts
 
