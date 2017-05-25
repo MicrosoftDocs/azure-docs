@@ -1,5 +1,5 @@
 ---
-title: Availability, Performance, and Application issues for Azure Web Apps FAQ | Microsoft Docs
+title: Availability, performance, and application issues for Azure Web Apps FAQ | Microsoft Docs
 description: This article lists the frequently asked questions about availability, performance, and application issues in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
@@ -34,8 +34,8 @@ Sometimes you can run into high CPU condition as your app may truly require more
 Sometimes you experience high memory condition as your app may truly require more computing resources.  For that scenario, you can consider scaling to a higher tier so the application gets all the resources needed. There are also times when there is a bug in the code causing memory leak or just some coding practice that is driving memory consumption.   Getting to the bottom of it is a two part process. (1) Process Dump creation (2) Process Dump Analysis.
 The Crash Diagnoser from Site Extension Gallery can perform both these steps in a few easy steps. Please find the step-by-step guidance via [here](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
-## How do I automate Azure App Service WebApps using Powershell?
-We have a detailed blog ([Automating WebApps hosted in Azure App Service through PowerShell – ARM Way](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)) where we share how to use the ARM based PowerShell CmdLets to automate common tasks for managing or maintaining Azure App Service Web Apps. In this blog you can also find sample code for various web apps management tasks.
+## How do I automate Azure App Service WebApps using PowerShell?
+We have a detailed blog ([Automating WebApps hosted in Azure App Service through PowerShell – Azure Resource Manager Way](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)) where we share how to use the ARM based PowerShell CmdLets to automate common tasks for managing or maintaining Azure App Service Web Apps. In this blog you can also find sample code for various web apps management tasks.
 Also, Reference to descriptions and syntax for all Azure App service web apps cmdlets can be found via [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
 
 ## How can I view my web app's event logs?
@@ -148,9 +148,7 @@ Here are the steps to enable Failed Request tracing:
 The maximum available amount of memory for a 32-bit process (even on a 64-bit OS) is 2 GB.
 By default the worker process is set to 32-bit in Azure App Service (for compatibility with legacy web applications).
 
-You can consider switching to 64-bit processes to be able to take advantage of the extra memory available in your Web Worker.
-
-NOTE: This will trigger a Web App restart so please schedule accordingly.
+You can consider switching to 64-bit processes to be able to take advantage of the extra memory available in your Web Worker. This will trigger a Web App restart so please schedule accordingly.
 
 Also note that 64-bit environment requires Basic or Standard mode.Free and Shared modes always run in a 32-bit environment.
 
