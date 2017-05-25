@@ -22,36 +22,35 @@ You may receive a specific error message when protecting your VMware virtual mac
 
 
 ## Initial replication is stuck at 0%
-Most of the initial replication failures that we encounter at support are due to connectivity issues between Source Server-to-Process Server or Process Server-to-Azure.
+Most of the initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure.
 For most cases you can self troubleshoot these issues by following the steps listed below.
 
-1. **Check connectivity between Source Server-to-Process Server**
-
-* From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
-
-	 telnet <PS IP address> <port>
+####Check the following on SOURCE MACHINE
+	* From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
+	 
+			`telnet <PS IP address> <port>`
 > [!NOTE]
 	> Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/en-us/library/cc771275(v=WS.10).aspx)
 
-If unable to connect, allow inbound port 9443 on the Process Server and check if the problem still exits. There has been some cases where process server was behind DMZ which was causing this problem
+If unable to connect, allow inbound port 9443 on the Process Server and check if the problem still exits. There has been some cases where process server was behind DMZ which was causing this problem.
 
-* Check the status of following Service.
-     InMage Scout VX Agent – Sentinel/OutpostStart if it is not running and check if the problem still exists.   
+* Check the status of service `InMage Scout VX Agent – Sentinel/OutpostStart` if it is not running and check if the problem still exists.   
  
- **Check the following on PROCESS SERVER**
+####Check the following on PROCESS SERVER
 
-1.	Check if process server is actively pushing data to Azure 
+* **Check if process server is actively pushing data to Azure** 
 
 From Process Server machine, open the Task Manager (press Ctrl-Shift-Esc ). Go to the Performance tab and click ‘Open Resource Monitor’ link. From Resource Manager, go to Network tab.  
 Check if cbengine.exe in ‘Processes with Network Activity’ is actively sending large volume (in Mbs) of data.
 
 ![Enable replication](./media/site-recovery-protection-common-errors/cbengine.png)
 
-If not follow the steps listed below.
+If not follow the steps listed below:
 
-* *Check if Process server is able to connect Azure Blob*: Select and check cbengine.exe to view the ‘TCP Connections’ to see if there is connectivity from Process server to Azure Storage blob URL.
+* **Check if Process server is able to connect Azure Blob**: Select and check cbengine.exe to view the ‘TCP Connections’ to see if there is connectivity from Process server to Azure Storage blob URL.
 
 ![Enable replication](./media/site-recovery-protection-common-errors/rmonitor.png)
+
 If not follow the steps listed below.
 
 From Control Panel > Services, check if the following services are up and running:
@@ -93,5 +92,5 @@ If you are unable to connect, then check if the access issue is due to firewall 
 * .ugi.hypervrecoverymanager.windowsazure.us
 * .ugi.backup.windowsazure.us 
 
-•	**Check if Proxy Setting on Process server are not blocking access**.  If you are using a Proxy Server, ensure the steps outlines in 'Configure Outgoing Network' listed in this article are followed.  Also ensure, the proxy server name is resolving by the DNS server.
-•	Check if Throttle bandwidth is not constrained on Process server.  Increase the bandwidth (ex. greater than 20Mbs) and check if the problem still exists.
+* **Check if Proxy Setting on Process server are not blocking access**.  If you are using a Proxy Server, ensure the steps outlines in 'Configure Outgoing Network' listed in this article are followed.  Also ensure, the proxy server name is resolving by the DNS server.
+* **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth (ex. greater than 20Mbs) and check if the problem still exists.

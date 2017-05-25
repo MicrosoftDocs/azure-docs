@@ -65,7 +65,7 @@
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
+### [Troubleshoot Common errors and Log collection](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
