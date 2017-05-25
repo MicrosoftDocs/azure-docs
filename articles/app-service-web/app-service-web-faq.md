@@ -1,6 +1,6 @@
 ---
-title: Web Apps FAQ | Microsoft Docs
-description: This article lists the frequently asked questions about using Web Apps.
+title: Azure Web Apps FAQ | Microsoft Docs
+description: This article lists the frequently asked questions about using Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
 author: simonxjx
@@ -16,7 +16,7 @@ ms.workload: web
 ms.date: 05/17/2017
 ms.author: v-six
 ---
-# Frequently asked questions for Web Apps
+# Frequently asked questions for Azure Web Apps
 This article includes some of the most common questions about [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/), it also provides the links of the answers.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
