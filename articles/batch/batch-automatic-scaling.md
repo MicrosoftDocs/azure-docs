@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 05/05/2017
+ms.date: 05/25/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
