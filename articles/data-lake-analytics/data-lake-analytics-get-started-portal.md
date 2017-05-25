@@ -27,19 +27,12 @@ In this tutorial, you will develop a job that reads a tab separated values (TSV)
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section. Once your first job succeeds, you can start to write more complex data transformations with U-SQL.
 
 ## Prerequisites
-Before you begin this tutorial, you must have the following items:
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+Before you begin this tutorial, you must have an **Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create Data Lake Analytics account
-You must have a Data Lake Analytics account before you can run any jobs.
 
-Each Data Lake Analytics account has an Azure Data Lake Store account dependency.  This account is referred
-as the default Data Lake Store account.  You can create the Data Lake Store account beforehand or when you create
-your Data Lake Analytics account. In this tutorial, you will create the Data Lake Store account with the Data Lake Analytics
-account.
-
-**Create a Data Lake Analytics account**
+Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes aobut 60 to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
