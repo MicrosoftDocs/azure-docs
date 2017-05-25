@@ -17,7 +17,7 @@ ms.date: 05/26/2017
 ms.author: asgang
 
 ---
-# Troubleshoot on-premises VMware replication  issues
+# Troubleshoot on-premises VMware/Physical servers replication  issues
 You may receive a specific error message when protecting your VMware virtual machines or physical servers using Azure Site Recovery. This article details some of the more common error messages encountered, along with troubleshooting steps to resolve them.
 
 
@@ -26,7 +26,7 @@ Most of the initial replication failures that we encounter at support are due to
 For most cases you can self troubleshoot these issues by following the steps listed below.
 
 ####Check the following on SOURCE MACHINE
-	* From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
+* From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
 	 
 			`telnet <PS IP address> <port>`
 > [!NOTE]
@@ -40,8 +40,7 @@ If unable to connect, allow inbound port 9443 on the Process Server and check if
 
 * **Check if process server is actively pushing data to Azure** 
 
-From Process Server machine, open the Task Manager (press Ctrl-Shift-Esc ). Go to the Performance tab and click ‘Open Resource Monitor’ link. From Resource Manager, go to Network tab.  
-Check if cbengine.exe in ‘Processes with Network Activity’ is actively sending large volume (in Mbs) of data.
+From Process Server machine, open the Task Manager (press Ctrl-Shift-Esc ). Go to the Performance tab and click ‘Open Resource Monitor’ link. From Resource Manager, go to Network tab. Check if cbengine.exe in ‘Processes with Network Activity’ is actively sending large volume (in Mbs) of data.
 
 ![Enable replication](./media/site-recovery-protection-common-errors/cbengine.png)
 
@@ -51,9 +50,7 @@ If not follow the steps listed below:
 
 ![Enable replication](./media/site-recovery-protection-common-errors/rmonitor.png)
 
-If not follow the steps listed below.
-
-From Control Panel > Services, check if the following services are up and running:
+If not then go to Control Panel > Services, check if the following services are up and running:
 
      * cxprocessserver
      * InMage Scout VX Agent – Sentinel/Outpost
@@ -66,9 +63,10 @@ From Control Panel > Services, check if the following services are up and runnin
 * **Check if Process server is able to connect to Azure Public IP address using port 443**
 
 Open the latest CBEngineCurr.errlog from `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` and search for :443  and connection attempt failed.
-![Enable replication](./media/site-recovery-protection-common-errors/rmonitor.png)
 
-If there are issues, then from Process Server command line use telnet to ping your Azure Public IP address (masked in above image) found in the CBEngineCurr.currLog using port 443.
+![Enable replication](./media/site-recovery-protection-common-errors/logdetails1.png)
+
+If there are issues, then from Process Server command line, use telnet to ping your Azure Public IP address (masked in above image) found in the CBEngineCurr.currLog using port 443.
 
       telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
 If you are unable to connect, then check if the access issue is due to firewall or Proxy as described in next step.
@@ -92,5 +90,17 @@ If you are unable to connect, then check if the access issue is due to firewall 
 * .ugi.hypervrecoverymanager.windowsazure.us
 * .ugi.backup.windowsazure.us 
 
-* **Check if Proxy Setting on Process server are not blocking access**.  If you are using a Proxy Server, ensure the steps outlines in 'Configure Outgoing Network' listed in this article are followed.  Also ensure, the proxy server name is resolving by the DNS server.
+* **Check if Proxy Setting on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
+To check what you have provided at the time of Configuration Server setup. Go to registry key
+
+	`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
+
+Now ensure that the same settings is being used by Azure Site Recovery agent to send data.
+Search Microsoft Azure  Backup 
+![Enable replication](./media/site-recovery-protection-common-errors/mab.png)
+
+Open it and click on Action > Change Properties. Under Proxy Configuration tab, you should see the proxy address which should be same as shown by the registry settings. If not, please change it to the same address.
+
+![Enable replication](./media/site-recovery-protection-common-errors/mab_proxy.png)
+
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth (ex. greater than 20Mbs) and check if the problem still exists.
