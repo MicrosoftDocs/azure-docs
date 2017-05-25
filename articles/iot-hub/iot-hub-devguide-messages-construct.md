@@ -56,7 +56,7 @@ IoT Hub measures message size in a protocol-agnostic way, considering only the a
 * The size in bytes of all the values of the message system properties.
 * The size in bytes of all user property names and values.
 
-Note that property names and values are limited to ASCII characters, so the length of the strings equals the size in bytes.
+Property names and values are limited to ASCII characters, so the length of the strings equals the size in bytes.
 
 ## Next steps
 

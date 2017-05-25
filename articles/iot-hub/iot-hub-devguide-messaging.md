@@ -22,7 +22,7 @@ ms.author: dobett
 Use IoT Hub messaging to communicate with your devices by:
 
 * Sending [device-to-cloud][lnk-d2c] messages from your devices to your solution back end.
-* Sending [cloud-to-device][lnk-c2d] messages from the solution back end to your your devices.
+* Sending [cloud-to-device][lnk-c2d] messages from the solution back end to your devices.
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. These properties enable resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 

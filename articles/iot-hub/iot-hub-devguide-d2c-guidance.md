@@ -28,16 +28,16 @@ Here is a detailed comparison of the various device-to-cloud communication optio
 
 |  | Device-to-cloud messages | Reported properties | File uploads |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Telemetry time series and alerts. For example, 256KB sensor data batches sent every 5 minutes. | Available capabilities and conditions. For example, the current device connectivity mode such as cellular or WiFi. Synchronizing long-running workflows, such as configuration and software updates. | Media files. Large (typically compressed) telemetry batches. |
+| Scenario | Telemetry time series and alerts. For example, 256 KB sensor data batches sent every 5 minutes. | Available capabilities and conditions. For example, the current device connectivity mode such as cellular or WiFi. Synchronizing long-running workflows, such as configuration and software updates. | Media files. Large (typically compressed) telemetry batches. |
 | Storage and retrieval | Temporarily stored by IoT Hub, up to 7 days. Only sequential reading. | Stored by IoT Hub in the device twin. Retrievable using the [IoT Hub query language][lnk-query]. | Stored in user-provided Azure Storage account. |
-| Size | Up to 256KB messages. | Maximum reported properties size is 8KB. | Maximum file size supported by Azure Blob Storage. |
+| Size | Up to 256 KB messages. | Maximum reported properties size is 8 KB. | Maximum file size supported by Azure Blob Storage. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
 | Protocol | Available on all protocols. | Currently available only when using MQTT. | Available when using any protocol, but requires HTTP on the device. |
 
 It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In this scenario, you can chose one of the following options:
 
-* Either, the device app sends a device-to-cloud message and reports a property change. 
-* Or, the solution back end can store the information in the device twin's tags when it receives the message. 
+* The device app sends a device-to-cloud message and reports a property change.
+* The solution back end can store the information in the device twin's tags when it receives the message.
 
 Since device-to-cloud messages enable a much higher throughput than device twin updates, it is sometimes desirable to avoid updating the device twin for every device-to-cloud message.
 

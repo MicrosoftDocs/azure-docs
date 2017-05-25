@@ -44,7 +44,7 @@ The following table contains links to code samples for each supported language a
 
 ### Migrating a device app from AMQP to MQTT
 
-If you are using the [device SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated above.
+If you are using the [device SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated previously.
 
 When doing so, make sure to check the following items:
 
@@ -102,18 +102,18 @@ For more information, see [Messaging developer's guide][lnk-messaging].
 
 To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard **#** in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the **#** or **?** wildcards for filtering of sub-topics. Since IoT Hub is not a general purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-Note, that the device will not receive any messages from IoT Hub, before it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After successful subscription has been established, the device will start receiving only cloud-to-device messages that have been sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription will be persisted across different sessions. In this case, the next time it connects with **CleanSession 0** the device will receive outstanding messages that have been sent to it while it was disconnected. If the device uses **CleanSession** flag set to **1** though, it will not receive any messages from IoT Hub until it subscribes to its device-endpoint.
+The device does not receive any messages from IoT Hub, until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After successful subscription has been established, the device starts receiving only cloud-to-device messages that have been sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time it connects with **CleanSession 0** the device receives outstanding messages that have been sent to it while it was disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
 IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` if there are any message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
 
-When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet. After that, IoT Hub will deliver messages to the device using QoS 1.
+When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet. After that, IoT Hub delivers messages to the device using QoS 1.
 
 ### Retrieving a device twin's properties
 
-First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
+First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request id**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 
 Request id can be any valid value for a message property value, as per [IoT Hub messaging developer's guide][lnk-messaging], and status is validated as an integer.
-The response body will contain the properties section of the device twin:
+The response body contains the properties section of the device twin:
 
 The body of the identity registry entry limited to the “properties” member, for example:
 
@@ -191,7 +191,7 @@ For more information, see [Device twins developer's guide][lnk-devguide-twin].
 
 First, a device has to subscribe to `$iothub/methods/POST/#`. IoT Hub sends method requests to the topic `$iothub/methods/POST/{method name}/?$rid={request id}`, with either a valid JSON or an empty body.
 
-To respond, the device will send a message with a valid JSON or empty body to the topic `$iothub/methods/res/{status}/?$rid={request id}`, where **request id** has to match the one in the request message, and **status** has to be an integer.
+To respond, the device sends a message with a valid JSON or empty body to the topic `$iothub/methods/res/{status}/?$rid={request id}`, where **request id** has to match the one in the request message, and **status** has to be an integer.
 
 For more information, see [Direct method developer's guide][lnk-methods].
 
