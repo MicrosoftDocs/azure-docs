@@ -61,7 +61,7 @@ Blob input and output bindings are defined using `blob` as the binding type:
 },
 ```
 
-* The `path` property supports binding expressions and filter parameters. See [Name patterns](#pattern) 
+* The `path` property supports binding expressions and filter parameters. See [Name patterns](#pattern).
 * The `connection` property must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you select a storage account.
 
 > [!NOTE]
@@ -72,47 +72,36 @@ Blob input and output bindings are defined using `blob` as the binding type:
 <a name="pattern"></a>
 
 ### Name patterns
-You can specify a blob name pattern in the `path` property, which can be filters or binding expressions. See [Binding expressions and patterns](functions-triggers-bindings.md#binding-expressions-and-patterns).
+You can specify a blob name pattern in the `path` property, which can be a filter or binding expression. See [Binding expressions and patterns](functions-triggers-bindings.md#binding-expressions-and-patterns).
 
-For example, to filter to blobs that start with the string "original", use the following definition:
+For example, to filter to blobs that start with the string "original," use the following definition. This path finds a blob named *original-Blob1.txt* in the *input* container, and the value of the `name` variable in function code is `Blob1`.
 
 ```json
 "path": "input/original-{name}",
 ```
 
-This path would find a blob named *original-Blob1.txt* in the *input* container, and the value of the `name` variable in function code would be `Blob1`.
-
-To bind to the blob file name and extension separately, use two patterns:
+To bind to the blob file name and extension separately, use two patterns. This path also finds a blob named *original-Blob1.txt*, and the value of the `blobname` and `blobextension` variables in function code 
+are *original-Blob1* and *txt*.
 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
 
-This path would also find a blob named *original-Blob1.txt*, and the value of the `blobname` and `blobextension` variables in function code 
-would be *original-Blob1* and *txt*.
-
-You can restrict the file type of blobs by using a fixed value for the file extension. For example:
+You can restrict the file type of blobs by using a fixed value for the file extension. For instance, to trigger only on .png files, use the following pattern:
 
 ```json
 "path": "samples/{name}.png",
 ```
 
-In this case, only *.png* blobs in the *samples* container trigger the function.
-
-Curly braces are special characters in name patterns. To specify blob names that have curly braces in the name, you can escape the braces using two braces. 
-
-For example:
+Curly braces are special characters in name patterns. To specify blob names that have curly braces in the name, you can escape the braces using two braces. The following example finds a blob named *{20140101}-soundfile.mp3* in the *images* container, and the `name` variable value in the function code is *soundfile.mp3*. 
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-This path would find a blob named *{20140101}-soundfile.mp3* in the *images* container, and the `name` variable value in the function code 
-would be *soundfile.mp3*. 
-
 ### Trigger metadata
 
-The blob trigger provides several metadata properties. These properties can be used as part of bindings expressions in other bindings in your code. These values have the same semantics as [Cloud​Blob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+The blob trigger provides several metadata properties. These properties can be used as part of bindings expressions in other bindings or as parameters in your code. These values have the same semantics as [Cloud​Blob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
 - **BlobTrigger**. Type `string`. The triggering blob path
 - **Uri**. Type `System.Uri`. The blob's URI for the primary location.
@@ -138,7 +127,7 @@ To force reprocessing of a blob, delete the blob receipt for that blob from the 
 <a name="poison"></a>
 
 ### Handling poison blobs
-When a blob trigger function fails, by default Azure Functions retries that function a total of 5 times for a given blob. 
+When a blob trigger function fails for a given blob, Azure Functions retries that function a total of 5 times by default. 
 
 If all 5 tries fail, Azure Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The queue message for poison blobs is a JSON object that contains the following properties:
 
@@ -149,9 +138,9 @@ If all 5 tries fail, Azure Functions adds a message to a Storage queue named *we
 * ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
 ### Blob polling for large containers
-If the blob container watched by the binding contains more than 10,000 blobs, the Functions runtime scans log files to watch 
+If the blob container being monitored contains more than 10,000 blobs, the Functions runtime scans log files to watch 
 for new or changed blobs. This process is not real time. A function might not get triggered until several minutes or longer 
-after the blob is created. In addition, [storage logs are created on a "best effort"](https://msdn.microsoft.com/library/azure/hh343262.aspx) 
+after the blob is created. In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) 
 basis. There is no guarantee that all events are captured. Under some conditions, logs may be missed. If you require faster or more reliable blob processing, consider creating a [queue message](../storage/storage-dotnet-how-to-use-queues.md) 
  when you create the blob. Then, use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
 
@@ -229,10 +218,23 @@ module.exports = function(context) {
     context.done();
 };
 ```
+<a name="outputusage"></a>
 
-<a name="inputsample"></a>
+## Using a blob output binding
 
-## Blob input sample
+In .NET functions, you should either use a `out string` parameter in your function signature or use one of the types in the following list. In Node.js functions, you access the output blob using `context.bindings.<name>`.
+
+In .NET functions you can output to any of the following types:
+
+* `out string`
+* `TextWriter`
+* `Stream`
+* `CloudBlobStream`
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
+
+## Queue trigger with blob input and output sample
 Suppose you have the following function.json, that defines a [Queue Storage trigger](functions-bindings-storage-queue.md), 
 a blob storage input, and a blob storage output. Notice the use of the `queueTrigger` metadata property. in the blob input and output `path` properties:
 
@@ -295,22 +297,6 @@ module.exports = function(context) {
     context.done();
 };
 ```
-
-<a name="outputusage"></a>
-
-## Using a blob output binding
-
-In .NET functions, you should either use a `out string` parameter in your function signature or use one of the types in the following list. In Node.js functions, you access the output blob using `context.bindings.<name>`.
-
-In .NET functions you can output to any of the following types:
-
-* `out string`
-* `TextWriter`
-* `Stream`
-* `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
