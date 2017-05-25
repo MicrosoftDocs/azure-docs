@@ -554,7 +554,7 @@ private static async Task<bool> MonitorTasks(
 
     // All tasks have reached the "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // ExecutionInfo property to ensure that it did not encounter a failure
     // or return a non-zero exit code.
 
     // Update the detail level to populate only the task id and executionInfo

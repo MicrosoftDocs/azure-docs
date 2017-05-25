@@ -410,16 +410,22 @@ You might find it necessary to handle both task and application failures within 
 ### Task failure handling
 Task failures fall into these categories:
 
-* **Scheduling failures**
+* **Pre-processing failures**
 
-    If the transfer of files that are specified for a task fails for any reason, a *scheduling error* is set for the task.
+    If a task fails to start, a pre-processing error is set for the task.  
 
-    Scheduling errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+* **File upload failures**
+
+    If the transfer of files that are specified for a task fails for any reason, a file upload error is set for the task.
+
+    File upload errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+
 * **Application failures**
 
     The process that is specified by the task's command line can also fail. The process is deemed to have failed when a nonzero exit code is returned by the process that is executed by the task (see *Task exit codes* in the next section).
 
     For application failures, you can configure Batch to automatically retry the task up to a specified number of times.
+
 * **Constraint failures**
 
     You can set a constraint that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating tasks that fail to progress.
@@ -430,6 +436,7 @@ Task failures fall into these categories:
 * `stderr` and `stdout`
 
     During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As mentioned in the earlier section [Files and directories](#files-and-directories), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node. You can use the Azure portal or one of the Batch SDKs to download these files. For example, you can retrieve these and other files for troubleshooting purposes by using [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET library.
+
 * **Task exit codes**
 
     As mentioned earlier, a task is marked as failed by the Batch service if the process that is executed by the task returns a nonzero exit code. When a task executes a process, Batch populates the task's exit code property with the *return code of the process*. It is important to note that a task's exit code is **not** determined by the Batch service. A task's exit code is determined by the process itself or the operating system on which the process executed.
