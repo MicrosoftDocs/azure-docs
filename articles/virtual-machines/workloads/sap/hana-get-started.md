@@ -43,7 +43,7 @@ This guide also assumes that you are familiar with:
 
 At this time, Azure VMs are certified by SAP for SAP HANA scale-up configurations only. Scale-out configurations with SAP HANA workloads are not yet supported. For SAP HANA high availability in cases of scale-up configurations, see [High availability of SAP HANA on Azure Virtual Machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
-## Additional Resources
+## Additional resources
 ### SAP HANA backup
 For information on backing up SAP HANA databases on Azure VMs, see:
 * [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
@@ -269,7 +269,7 @@ This section covers the following topics:
 * Installing the GNOME desktop and xrdp on SLES 12/SLES for SAP Applications 12
 * Running Java-based SAP MC by using Firefox on SLES 12/SLES for SAP Applications 12
 
-You can also use alternatives such as Xterminal or VNC but, as of September 2016, the guide describes only xrdp.
+You can also use alternatives such as Xterminal or VNC (not described in this guide).
 
 ### Installing the GNOME desktop and xrdp on SLES 12/SLES for SAP Applications 12
 If you have a Windows background, you can easily use a graphical desktop directly within the SAP Linux VMs to run Firefox, SAPinst, SAP GUI, SAP MC, or HANA Studio, and connect to the VM through the Remote Desktop Protocol (RDP) from a Windows computer. Although the procedure might not be appropriate for a production database server, it is appropriate for a pure prototype/demo environment. To install the GNOME desktop on an Azure SLES 12/SLES for SAP Applications 12 VM:
