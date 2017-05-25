@@ -33,9 +33,7 @@ In this tutorial, you learn how to:
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-portal.md)]
-
-
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 
 ## Availability set overview
@@ -53,7 +51,7 @@ You can create an availability set using [az vm availability-set create](/cli/az
 
 Create a resource group.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
 ```
 

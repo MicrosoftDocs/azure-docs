@@ -26,7 +26,7 @@ You can protect your data by taking backups at regular intervals. Azure Backup c
 > * Schedule a daily backup
 > * Restore a file from a backup
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-portal.md)]
+
 
 ## Backup overview
 

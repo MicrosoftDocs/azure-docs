@@ -33,7 +33,7 @@ Azure virtual machines use disks to store the VMs operating system, applications
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-portal.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Default Azure disks
 
@@ -99,7 +99,7 @@ Data disks can be created and attached at VM creation time or to an existing VM.
 
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
 ```
 
