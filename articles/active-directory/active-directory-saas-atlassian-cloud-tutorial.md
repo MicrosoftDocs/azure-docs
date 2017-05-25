@@ -248,7 +248,7 @@ Please login to your Atlassian Cloud instance with administrator rights and perf
  
 4. Click on **Create user** button, this will send the email invitation to the user and after accepting the invitation the user will be active in the system. 
 
-### Assig the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure SSO by granting her access to Atlassian Cloud.
 
