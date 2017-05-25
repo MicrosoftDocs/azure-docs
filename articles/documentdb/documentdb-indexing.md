@@ -1,5 +1,5 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
 
 
@@ -14,7 +14,7 @@ After reading this, you will be answer the following questions:
 * How does Azure Cosmos DB perform automatic indexing at scale?
 
 ## <a id="HowDocumentDBIndexingWorks"></a> How DocumentDB indexing works
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a true schema-free database purpose built for JSON. It does not expect or require any schema or secondary index definitions to index data at scale. This allows you to quickly define and iterate on application data models using Azure Cosmos DB. As you add documents to a collection, Azure Cosmos DB automatically indexes all document properties so they are available for you to query. Automatic indexing allows you to store documents belonging to completely arbitrary schemas without worrying about schemas or secondary indexes.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a true schema-free database purpose built for JSON. It does not expect or require any schema or secondary index definitions to index data at scale. This allows you to quickly define and iterate on application data models using Azure Cosmos DB. As you add documents to a collection, Azure Cosmos DB automatically indexes all document properties so they are available for you to query. Automatic indexing allows you to store documents belonging to completely arbitrary schemas without worrying about schemas or secondary indexes.
 
 With a goal to eliminate the impedance mismatch between the database and the application programming models, Azure Cosmos DB exploits the simplicity of JSON and its lack of a schema specification. It makes no assumptions about the documents and allows documents within an Azure Cosmos DB collection to vary in schema, in addition to the instance specific values. In contrast to other document databases, Azure Cosmos DB’s database engine operates directly at the level of JSON grammar, remaining agnostic to the concept of a document schema and blurring the boundary between the structure and instance values of documents. This, in-turn, enables it to automatically index documents without requiring schema or secondary indexes.
 

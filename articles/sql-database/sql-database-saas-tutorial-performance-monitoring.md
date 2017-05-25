@@ -1,6 +1,6 @@
 ---
-title: Monitor performance of a SQL Database SaaS app  | Microsoft Docs 
-description: "Monitor and manage performance for the Azure SQL Database sample Wingtip Tickets (WTP) app"
+title: Monitor performance of many Azure SQL databases in a multi-tenant SaaS app  | Microsoft Docs 
+description: "Monitor and manage performance for the Azure SQL Database sample Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,11 +19,11 @@ ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
-# Monitor performance of the WTP sample SaaS application
+# Monitor performance of the Wingtip SaaS application
 
 In this tutorial, built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated, and then several key performance management scenarios used in SaaS applications are explored.
 
-The Wingtip Tickets app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic database pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-what-is-a-dtu.md) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
+The Wingtip SaaS app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic database pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-what-is-a-dtu.md) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
@@ -37,10 +37,10 @@ In this tutorial you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## Introduction to SaaS Performance Management Patterns
+## Introduction to SaaS performance management patterns
 
 Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic database pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool. Not only does a pool share the cost of resources, it can also eliminate the need to constantly monitor and track individual databases.
 
@@ -61,7 +61,7 @@ For high-volume scenarios, Log Analytics (also known as OMS) can be used. This i
 
 ## Get the Wingtip application scripts
 
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## Provision additional tenants
 
@@ -75,7 +75,7 @@ If you already provisioned a batch of tenants in a prior tutorial, you can skip 
 
 The script will deploy 17 tenants in less than five minutes.
 
-The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **baseTenantDb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the WTP app provisions a new tenant. Any changes made to *baseTenantDB* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](sql-database-saas-tutorial-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *golden* database).
+The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **baseTenantDb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. Any changes made to *baseTenantDB* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](sql-database-saas-tutorial-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *golden* database).
 
 ## Simulate different usage patterns by generating different load types
 
@@ -218,7 +218,7 @@ Once the higher than normal load on the contosoconcerthall database subsides you
 ## Other Performance Management Patterns
 
 **Pre-emptive scaling**
-In exercise 6 where you explored how to scale an isolated database you knew which database to look for. If the management of Contoso Concert Hall had informed WTP of the impending ticket sale, the database could have been moved out of the pool pre-emptively. Otherwise, it would likely have required an alert on the pool or the database to spot what was happening. You wouldn’t want to learn about this from the other tenants in the pool complaining of degraded performance. And if the tenant can predict how long they will need additional resources you can set up an Azure Automation runbook to move the database out of the pool and then back in again on a defined schedule.
+In exercise 6 where you explored how to scale an isolated database you knew which database to look for. If the management of Contoso Concert Hall had informed Wingtips of the impending ticket sale, the database could have been moved out of the pool pre-emptively. Otherwise, it would likely have required an alert on the pool or the database to spot what was happening. You wouldn’t want to learn about this from the other tenants in the pool complaining of degraded performance. And if the tenant can predict how long they will need additional resources you can set up an Azure Automation runbook to move the database out of the pool and then back in again on a defined schedule.
 
 **Tenant self-service scaling**
 Because scaling is a task easily called via the management API, you can easily build the ability to scale tenant databases into your tenant-facing application, and offer it as a feature of your SaaS service. For example, let tenants self-administer scaling up and down, perhaps linked directly to their billing!
@@ -244,7 +244,7 @@ In this tutorial you learn how to:
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Additional [tutorials that build upon the Wingtip SaaS application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [SQL Elastic pools](sql-database-elastic-pool.md)
 * [Azure automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Setting up and using Log Analytics tutorial
