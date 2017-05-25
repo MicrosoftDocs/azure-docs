@@ -22,23 +22,27 @@ ms.custom: end-user
 
 If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
 
-## Reset or unlock my password for a work or school account
-
-To get into your work or school account, follow the steps below to access Azure AD self-service password reset, or SSPR as we like to call it.
-
-1. From any work or school sign-in page, click the **Can't access your account?** link then click **Work or school account** or go directly to the [password reset page](https://passwordreset.microsoftonline.com/).
-
    > [!NOTE]
    > If you are trying to get back into a Personal account like hotmail.com or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
    >
 
+## Reset or unlock my password for a work or school account
+
+If you unable to access your account because of one of the following:
+    a. Your password is not working and you would like to reset it.
+    b. You know your password but your account is locked out and you would like to unlock your account.
+Follow the steps below to access Azure AD self-service password reset, or SSPR as we like to call it, and get back into your account.
+
+1. From any work or school sign-in page, click the **Can't access your account?** link then click **Work or school account** or go directly to the [password reset page](https://passwordreset.microsoftonline.com/).
     ![Can't access your account?][Login]
 
 2. Enter your work or school **User ID**, prove you aren't a robot by entering the characters you see on the screen, then click **Next**.
 
    > [!NOTE]
    > If your IT staff has not enabled this functionality, a "contact your administrator" link appears so your IT staff can help, via email or a web portal of their own.
-   >
+   > 
+   > If you need to unlock your account, at this point choose the option "I know my password, but still can't sign in".
+   > 
 
 3. Depending on how your IT staff has configured SSPR you see one or more of the following. Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
@@ -54,11 +58,6 @@ To get into your work or school account, follow the steps below to access Azure 
 
 4. Your IT staff may need more verification and you may have to repeat step 3 again with a different choice.
 5. On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**. We suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.
-
-   > [!NOTE]
-   > If you needed to unlock your account, at this point choose the option to unlock only, or change your password and unlock.
-   >
-
 6. When you see, **Your password has been reset**, you can sign in with your new password.
 
     ![Your password has been reset][Complete]
