@@ -80,7 +80,7 @@ The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/vir
 
 ![Basic network connectivity](media/azure-network-security/azure-network-security-fig-2.png)
 
-With the understanding that you use VMs to host servers in Azure,the question is how those VMs connect to a network. The answer is that VMs connect to an [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+With the understanding that you use VMs to host servers in Azure, the question is how those VMs connect to a network. The answer is that VMs connect to an [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 Azure Virtual Networks are like the virtual networks you use on-premises with your own virtualization platform solutions, such as Microsoft Hyper-V or VMware.
 
@@ -151,7 +151,7 @@ You can connect several Azure resources to a VNet, such as Virtual Machines (VM)
 
 You can connect VNets to each other, enabling resources connected to either VNet to communicate with each other across VNets. You can use either or both of the following options to connect VNets to each other:
 
-- **Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNets is the same as if the resources were connected to the same VNet.To learn more about peering, read the [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) .
+- **Peering:** Enables resources connected to different Azure VNets within the same Azure location to communicate with each other. The bandwidth and latency across the VNets is the same as if the resources were connected to the same VNet.To learn more about peering, read the [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 - **VNet-to-VNet connection:** Enables resources connected to different Azure VNet within the same, or different Azure locations. Unlike peering, bandwidth is limited between VNets because traffic must flow through an Azure VPN Gateway. To learn more about connecting VNets with a VNet-to-VNet connection. To learn more, read the [Configure a VNet-to-VNet connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
@@ -165,7 +165,7 @@ You can connect your on-premises network to a VNet using any combination of the 
 
 - **Site-to-site VPN:** Established between your VPN device and an Azure VPN Gateway. This connection type enables any on-premises resource you authorize to access a VNet. The connection is an IPsec/IKE VPN that provides encrypted communication over the Internet between your on-premises device and the Azure VPN gateway. The latency for a site-to-site connection is unpredictable since the traffic traverses the Internet.
 
-- **Azure ExpressRoute:** Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic does not traverse the Internet. The latency for an ExpressRoute connection is predictable since traffic doesn't traverse the Internet.To learn more about all the previous connection options, read the [Connection topology diagrams](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Established between your network and Azure, through an ExpressRoute partner. This connection is private. Traffic does not traverse the Internet. The latency for an ExpressRoute connection is predictable since traffic doesn't traverse the Internet. To learn more about all the previous connection options, read the [Connection topology diagrams](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Traffic filtering**
 
@@ -173,7 +173,7 @@ VM and Cloud Services role instances [network traffic](https://docs.microsoft.co
 
 You can filter network traffic between subnets using either or both of the following options:
 
-- **Network security groups (NSG):** Each NSG can contain multiple inbound and outbound security rules that enable you to filter traffic by source and destination IP address, port, and protocol. You can apply an NSG to each NIC in a VM. You can also apply an NSG to the subnet a NIC, or other Azure resource, is connected to.To learn more about NSGs, read the [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **Network security groups (NSG):** Each NSG can contain multiple inbound and outbound security rules that enable you to filter traffic by source and destination IP address, port, and protocol. You can apply an NSG to each NIC in a VM. You can also apply an NSG to the subnet a NIC, or other Azure resource, is connected to. To learn more about NSGs, read the [Network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
 - **Virtual Network Appliances:** A virtual network appliance is a VM running software that performs a network function, such as a firewall. View a list of available NVAs in the Azure Marketplace. NVAs are also available that provide WAN optimization and other network traffic functions. NVAs are typically used with user-defined or BGP routes. You can also use an NVA to filter traffic between VNets.
 
@@ -205,7 +205,7 @@ As its name suggests, Internet connectivity makes your workloads accessible from
 In this scenario, you could expose an application that needs to be public to the Internet and be able to connect to it from anywhere, or from specific locations depending on the configuration of your workloads.
 
 #### Point-to-Site VPN or Site-to-Site VPN
-These two falls into the same category. They both need your VNet to have an VPN Gateway and you can connect to it using either a VPN Client for your workstation as part of the [Point-to-Site configuration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) or you can configure your on-premises [VPN device](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) to be able to terminate a site-to-site VPN. This way, on-premises devices can connect to resources within the VNet.
+These two falls into the same category. They both need your VNet to have a VPN Gateway and you can connect to it using either a VPN Client for your workstation as part of the [Point-to-Site configuration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) or you can configure your on-premises [VPN device](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) to be able to terminate a site-to-site VPN. This way, on-premises devices can connect to resources within the VNet.
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol).
 
@@ -261,7 +261,7 @@ The following are security controls you can use on your Azure Virtual Networks:
 -	Network Availability Control
 
 #### Network access controls
-While the Azure Virtual Network (VNet) is the cornerstone of Azure networking model and provides isolation and protection, the [Network Security Group (NSG)](https://blogs.msdn.microsoft.com/igorpag/2016/05/14/azure-network-security-groups-nsg-best-practices-and-lessons-learned/) are the main tool you use to enforce and control network traffic rules at the network level.
+While the Azure Virtual Network (VNet) is the cornerstone of Azure networking model and provides isolation and protection, the [Network Security Groups (NSG)](https://blogs.msdn.microsoft.com/igorpag/2016/05/14/azure-network-security-groups-nsg-best-practices-and-lessons-learned/) are the main tool you use to enforce and control network traffic rules at the network level.
 
 ![ Network Access Controls](media/azure-network-security/azure-network-security-fig-8.png)
 
@@ -324,7 +324,7 @@ The following section lists the current limitation of the routing table and rout
 
  - **On premises routes:** To the Azure VPN gateway
 
- -	**Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes will be dropped.
+ -	**Default route:** Directly to the Internet. Packets destined to the private IP addresses not covered by the previous two routes are dropped.
 
 -	With the release of user-defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet to enable forced tunneling on those subnets.
 
@@ -394,7 +394,7 @@ In addition, Application Gateway WAF helps you monitor web applications against 
 
 The JSON formatted log goes directly to the customer’s storage account. You have full control over these logs and can apply your own retention policies.
 
-You can also ingest these logs in to your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) so you can use OMS log analytics to execute sophisticated fine-grained queries.
+You can also ingest these logs into your own analytics system using [Azure Log Integration](https://aka.ms/AzLog). WAF logs are also integrated with [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) so you can use OMS log analytics to execute sophisticated fine-grained queries.
 
 #### Azure web application firewall (WAF)
 
@@ -477,7 +477,7 @@ Azure Operational Security refers to the services, controls, and features availa
 
 The people and processes that operate Microsoft Azure are perhaps the most important security feature of the platform. This section describes features of Microsoft’s global datacenter infrastructure that help enhance and maintain security, continuity, and privacy.
 
-The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and third party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group.
+The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and third-party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group.
 
 You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
@@ -524,7 +524,7 @@ Network Watcher currently has the following capabilities:
 
 #### Topology
 
-[Topology](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) returns a graph of network resources in a virtual network. The graph depicts the interconnection between the resources to represent the end to end network connectivity. In the portal, Topology returns the resource objects on a per virtual network basis. The relationships are depicted by lines between the resources outside of the Network Watcher region, even if in the resource group will not be displayed. The resources returned in the portal view are a subset of the networking components that are graphed. To see the full list of networking resources, you can use [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) or [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest).
+[Topology](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) returns a graph of network resources in a virtual network. The graph depicts the interconnection between the resources to represent the end to end network connectivity. In the portal, Topology returns the resource objects on as per virtual network basis. The relationships are depicted by lines between the resources outside of the Network Watcher region, even if in the resource group will not be displayed. The resources returned in the portal view are a subset of the networking components that are graphed. To see the full list of networking resources, you can use [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) or [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest).
 
 As resources are returned the connection between they are modeled under two relationships.
 
