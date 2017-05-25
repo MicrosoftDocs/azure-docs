@@ -29,13 +29,13 @@ This topic shows you how to use Azure Functions to create a scheduled job that c
 
 ## Get connection information
 
-Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
+You need to get the connection string for the database you created when you completed [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md).
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
  
-3. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page.
+3. Select **SQL Databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
-4. Click **Show database connection strings** and copy the complete **ADO.NET** connection string.
+4. Select **Show database connection strings** and copy the complete **ADO.NET** connection string.
 
     ![Copy the ADO.NET connection string.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -43,7 +43,9 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
 A function app hosts the execution of your functions in Azure. It is a best practice to store connection strings and other secrets in your function app settings. Using application settings prevents accidental disclosure of the connection string with your code. 
 
-1. Navigate to your function app, then select **Platform features** > **Application settings**.
+1. Navigate to your function app you created [Create a function in Azure that is triggered by a timer](functions-create-scheduled-function.md).
+
+2. Select **Platform features** > **Application settings**.
    
     ![Application settings for the function app.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
 
@@ -111,7 +113,7 @@ Next, learn how to use Functions with Logic Apps to integrate with other service
 > [!div class="nextstepaction"] 
 > [Create a function that integrates with Logic Apps](functions-twitter-email.md)
 
-See these topics for more information about Azure Functions.
+For more information about Functions, see the following topics:
 
 * [Azure Functions developer reference](functions-reference.md)  
   Programmer reference for coding functions and defining triggers and bindings.
