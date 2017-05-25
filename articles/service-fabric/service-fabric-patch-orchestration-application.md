@@ -66,7 +66,7 @@ You can use the [Azure Resource Manager template](https://docs.microsoft.com/azu
 
 To enable the repair manager service:
 
-1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource as shown in the following snippet. If it is different then you need to update the `apiVersion` to the value `2017-07-01-preview`:
+1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource as shown in the following snippet. If it is different, then you need to update the `apiVersion` to the value `2017-07-01-preview`:
 
     ```json
     {
@@ -175,8 +175,8 @@ The behavior of the patch orchestration app can be configured to meet your needs
 | AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, application accepts EULA for Windows Update on behalf of the owner of the machine.              |
 
 > [!TIP]
-> If you want first windows update to happen immediately, set a UTC time that is about 30-60 mins from the time when you're deploying the app.
-for example: If you've a five node test cluster, and planning to deploy the app at around 5:00 pm UTC, set the WUFrequency as "Daily, 17:30:00"
+> If you want first Windows Update to happen immediately, set `WUFrequency` relative to application deployment time.
+> for example: If you've a five node test cluster, and planning to deploy the app at around 5:00 pm UTC. Assuming the application upgrade/deployment would take 30 minutes at max, set the WUFrequency as "Daily, 17:30:00"
 
 ## Deploy the app
 
@@ -210,7 +210,8 @@ For your convenience, we have provided script Undeploy.ps1 along with our applic
 ## View the Windows Update results
 
 The patch orchestration app exposes REST APIs to display the historical results to the user.
-Result would be in the form of a [json file.](media/service-fabric-patch-orchestration-application/GetWindowsUpdateResults.json)
+Result would be in the form of a [json file.](./media/service-fabric-patch-orchestration-application/GetWindowsUpdateResults.json)
+If no update has been scheduled, the json file would be empty.
 
 Windows Update results can be queried by logging in to the cluster, and then finding out the replica address for the primary of coordinator service, and hitting the url from the browser.
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults
