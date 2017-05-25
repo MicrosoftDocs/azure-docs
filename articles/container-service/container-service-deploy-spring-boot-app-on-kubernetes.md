@@ -281,12 +281,12 @@ In order to deploy your Docker container to your Kubernetes Cluster, you can use
 
 1. Open a command prompt.
 
-> [!NOTE]
->
-> In order to use the secret which you created earlier from a command line, you will need to configure the imagePullSecrets for Kubernetes. Instructions for configuring this are available in the following article:
->
-> <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/>
->
+   > [!NOTE]
+   >
+   > In order to use the secret which you created earlier from a command line, you will need to configure the imagePullSecrets for Kubernetes. Instructions for configuring this are available in the following article:
+   >
+   > <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/>
+   >
 
 1. Run your container in the Kubernetes cluster by using the `kubectl run` command; at a minimum you will need to specify your container name, along with your login server and image name. For example:
    ```
