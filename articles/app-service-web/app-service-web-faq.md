@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps FAQ | Microsoft Docs
+title: Frequently asked questions for Azure Web Apps | Microsoft Docs
 description: This article lists the frequently asked questions about using Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
@@ -21,14 +21,14 @@ This article includes some of the most common questions about [Azure Web Apps](h
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Availability, Performance and Application Issues**
+**Availability, performance and application issues**
 
 * [How do I troubleshoot a High memory consumption scenario?](app-service-web-availability-performance-application-issues-faq.md#how-do-i-troubleshoot-a-high-memory-consumption-scenario)
 * [How do I troubleshoot a High CPU consumption scenario?](app-service-web-availability-performance-application-issues-faq.md#how-do-i-troubleshoot-a-high-cpu-consumption-scenario)
 * [My App is performing slow.](app-service-web-availability-performance-application-issues-faq.md#my-app-is-performing-slow)
 * [More questions](app-service-web-availability-performance-application-issues-faq.md)
 
-**Configuration and Management**
+**Configuration and management**
 * [What are some resource move limitations I should be aware of when moving Azure App Services?](app-service-web-configuration-and-management-faq.md#what-are-some-resource-move-limitations-i-should-be-aware-of-when-moving-azure-app-services)
 * [Guidance, checklist and other considerations for Resource Move operations.](app-service-web-configuration-and-management-faq.md#guidance-checklist-and-other-considerations-for-resource-move-operations)
 * [I am trying to move Application Insights resources.](app-service-web-configuration-and-management-faq.md#i-am-trying-to-move-application-insights-resources)
@@ -46,7 +46,7 @@ This article includes some of the most common questions about [Azure Web Apps](h
 * [What is the directory structure of my files?](app-service-web-deployment-faq.md#what-is-the-file-or-directory-structure-of-my-azure-app-service-web-app)
 * [More questions](app-service-web-deployment-faq.md)
 
-**Open Source Technologies**
+**Open source technologies**
 
 * [Why is my ClearDB database not visible in the portal?](app-service-web-open-source-technologies-faq.md#why-is-my-cleardb-database-not-visible-in-the-portal)
 * [Why was my ClearDB database not migrated during subscription migration?](app-service-web-open-source-technologies-faq.md#why-was-my-cleardb-database-not-migrated-during-subscription-migration)
@@ -54,7 +54,7 @@ This article includes some of the most common questions about [Azure Web Apps](h
 * [My ClearDB database is down?](app-service-web-open-source-technologies-faq.md#my-cleardb-database-is-down)
 * [More questions](app-service-web-open-source-technologies-faq.md)
 
-**Function App**
+**Function app**
 
 * [Functions Preview Versions Deprecation](app-service-web-others-faq.md#functions-preview-versions-deprecation)
 * [More questions](app-service-web-others-faq.md)
