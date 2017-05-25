@@ -185,7 +185,8 @@ kubectl get svc
 Initially the IP address appears as `pending`. After a few minutes, the external IP address of the `iis` pod is set:
   
 ```bash
-NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       kubernetes   10.0.0.1       <none>          443/TCP        21h       iis          10.0.111.25    13.64.158.233   80/TCP         22m
+NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       kubernetes   10.0.0.1       <none>          443/TCP        21h       
+iis          10.0.111.25    13.64.158.233   80/TCP         22m
 ```
 
 You can use a web browser of your choice to see the default IIS welcome page at the external IP address:
