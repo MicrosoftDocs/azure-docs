@@ -107,7 +107,7 @@ Once the VM has been created, the Azure CLI shows information similar to the fol
 }
 ```
 
-Create myVM2 (replicant)
+Create myVM2 (replicate)
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -258,7 +258,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 $ sudo su - oracle
 $ lsnrctl start
 ```
-### Create Database on myVM2 (Replicant)
+### Create Database on myVM2 (replicate)
 
 ``bash
 sudo su - oracle
@@ -482,7 +482,7 @@ pdb1=
 
 2. Create Golden Gate owner and user accounts
 
-1.1 Create Golden Gate owner account
+2.1 Create Golden Gate owner account
 
 Note: owner account must have c## prefix
 
@@ -496,7 +496,7 @@ SQL> ALTER SESSION SET CONTAINER=PDB1;
 SQL> EXIT;
 ```
 
-1.2 Create Golden Gate test user account
+2.2 Create Golden Gate test user account
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -512,7 +512,7 @@ SQL> EXIT;
 
 3. Configuring the Extract Parameter File
 
- Start the Golden gate Command Line interface (ggsci)
+ Start the Golden gate Command Line Interface (ggsci)
 
 ```bash
 $ sudo su - oracle
@@ -607,7 +607,7 @@ TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887';
 GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
 ```
 
-### Service setup on myVM2 (replicant)
+### Service setup on myVM2 (replicate)
 
 
 1. Create or update tnsnames.ora file
@@ -709,7 +709,7 @@ GGSCI> ADD REPLICAT INITREP, SPECIALRUN
 ```
 ### Setting up the replication (myVM1 and myVM2)
 
-1. On myVM2 (replicant)
+1. On myVM2 (replicate)
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -740,7 +740,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-3. On myVM2 (replicant)
+3. On myVM2 (replicate)
 
 Change the SCN number with the number you obtained before
 
