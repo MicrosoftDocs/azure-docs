@@ -1,6 +1,6 @@
 ---
-title: Understand Azure IoT Hub messaging | Microsoft Docs
-description: Developer guide - device-to-cloud and cloud-to-device messaging with IoT Hub. Includes information about message formats and supported communications protocols.
+title: Azure IoT Hub communication protocols and ports | Microsoft Docs
+description: Developer guide - describes the supported communication protocols for device-to-cloud and cloud-to-device communications and the port numbers that must be open.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 05/25/2017
 ms.author: dobett
 
 ---
-# Choose a communication protocol
+# Reference - choose a communication protocol
 
 IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
 

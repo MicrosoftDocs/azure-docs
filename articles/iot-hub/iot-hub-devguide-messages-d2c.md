@@ -1,6 +1,6 @@
 ---
-title: Understand Azure IoT Hub messaging | Microsoft Docs
-description: Developer guide - device-to-cloud and cloud-to-device messaging with IoT Hub. Includes information about message formats and supported communications protocols.
+title: Understand Azure IoT Hub device-to-cloud messaging | Microsoft Docs
+description: Developer guide - how to use device-to-cloud messaging with IoT Hub. Includes information about sending both telemetry and non-telemtry data, and using routing to deliver messages.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 05/25/2017
 ms.author: dobett
 
 ---
