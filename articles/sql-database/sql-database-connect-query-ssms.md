@@ -46,7 +46,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
 4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
-## Connect to your database in the SQL Database logical server
+## Connect to your database
 
 Use SQL Server Management Studio to establish a connection to your Azure SQL Database server. 
 
