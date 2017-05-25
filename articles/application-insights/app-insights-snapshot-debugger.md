@@ -114,23 +114,23 @@ In some cases, local variables are not viewable in Release builds because of opt
 
 ## Troubleshooting
 
-These tips will help you troubleshoot problems with the Snapshot Debugger.
+These tips help you troubleshoot problems with the Snapshot Debugger.
 
 ### 1. Verify the instrumentation key
 
-Make sure you're using the correct instrumentation key in your published application. In most cases, Application Insights will read the instrumentation key from the ApplicationInsights.config file. Verify that the value is the same as the instrumentation key for the Application Insights resource you are viewing in the portal.
+Make sure you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify that the value is the same as the instrumentation key for the Application Insights resource you are viewing in the portal.
 
 ### 2. Check the uploader logs
 
-After a snapshot is created, a minidump file (.dmp) will be created on disk. A separate uploader process takes that minidump file and uploads it, along with any assocated PDBs, to Application Insights Snapshot Debugger storage. Once the minidump has been uploaded successfully, it is deleted from disk. The log files for the minidump uploader are retained on disk. In an Azure App Service environment, you will find these logs in `D:\Home\LogFiles\Uploader_*.log` Use the Kudu management site for your App Service to find these log files.
+After a snapshot is created, a minidump file (.dmp) will be created on disk. A separate uploader process takes that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. Once the minidump has been uploaded successfully, it is deleted from disk. The log files for the minidump uploader are retained on disk. In an Azure App Service environment, you can find these logs in `D:\Home\LogFiles\Uploader_*.log`. Use the Kudu management site for your App Service to find these log files.
 1. Open your App Service application in the Azure portal.
 2. Select the "Advanced Tools" blade (or search for "Kudu")
 3. Click "Go"
-4. Select "CMD" from the "Debug console" drop down.
-5. Click on "LogFiles"
+4. Select `CMD` from the `Debug console` drop-down.
+5. Click on `LogFiles`
 
-You should see at least one file with a name beginning with `Uploader_` and a `.log` extension. You can download the log file(s) or open them in the browser by clicking on the associated pencil icon.
-Note that the filename includes the machine name so, if your App Service is hosted on more than one machine, there will be a separate log file for each machine. When the uploader detects a new minidump file, it will be reported in the log file. Here is an example of a successful upload:
+You should see at least one file with a name beginning with `Uploader_` and a `.log` extension. You can download any log files or open them in the browser by clicking the appropriate icon.
+The filename includes the machine name. Therefore, if your App Service is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here is an example of a successful upload:
 ```
 MinidumpUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
     DateTime=2017-05-25T14:25:08.0349846Z
@@ -148,10 +148,10 @@ MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
     DateTime=2017-05-25T14:25:44.6095821Z
 ```
 
-In the example above, the instrumentation key is `c12a605e73c44346a984e00000000000`. This should match the instrumentation key for your application.
+In the example above, the instrumentation key is `c12a605e73c44346a984e00000000000`. This value should match the instrumentation key for your application.
 The minidump is associated with a snapshot with the ID of `139e411a23934dc0b9ea08a626db16c5`. You can use this ID later to locate the associated exception telemetry in Application Insights Analytics.
 
-Note that the uploader will re-scan for new PDBs, roughly once every fifteen minutes. Here is an example of that:
+Note that the uploader scans for new PDBs, roughly once every 15 minutes. Here is an example of that:
 ```
 MinidumpUploader.exe Information: 0 : PDB rescan requested.
     DateTime=2017-05-25T15:11:38.8003886Z
@@ -165,7 +165,7 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
     DateTime=2017-05-25T15:11:38.8316450Z
 ```
 
-For applications _not_ hosted in Azure App Service, the uploader logs are in the same folder as the dumps, which is `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
+For applications _not_ hosted in Azure App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
 
 ### 3. Check Application Insights Analytics for exceptions with snapshots
 
@@ -185,9 +185,9 @@ If you want to search for a specific snapshot ID that you found in the Uploader 
 
 If this query returns no results for a snapshot that you know has been uploaded, then
 1. Double-check you're looking at the right Application Insights resource by verifying the instrumentation key.
-2. Extend the time range of the query if necessary to include the time when the snapshot was created. You can use the timestamp in the Uploader log to help with this.
+2. Extend the time range of the query if necessary to include the time when the snapshot was created. You can use the timestamp in the Uploader log to help.
 
-If you still don't see an exception with that snapshot id, then the exception telemetry wasn't reported to Application Insights. This can happen if your application crashed after taking the snapshot, but before reporting the exception telemetry. If this seems to be the case, then check the logs for your App Service to see if there were unexpected restarts or unhandled exceptions.
+If you still don't see an exception with that snapshot id, then the exception telemetry wasn't reported to Application Insights. This can happen if your application crashed after taking the snapshot, but before reporting the exception telemetry. In this case, check the App Service logs under `Diagnose and solve problems` to see if there were unexpected restarts or unhandled exceptions.
 
 ## Next Steps
 
