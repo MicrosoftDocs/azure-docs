@@ -34,7 +34,7 @@ To manage Azure resources with Ansible, you need the following:
 
 
 ## Create supporting Azure resources
-In this example, we create a runbook that deploys a VM into an existing infrastructure. First, create resource group with [az group create](/cli/azure/vm#create). The following example creates a VM named *myResourceGroup* in the *eastus* location:
+In this example, we create a runbook that deploys a VM into an existing infrastructure. First, create resource group with [az group create](/cli/azure/vm#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -82,6 +82,22 @@ To create the VM with Ansible, run the playbook as follows:
 ```bash
 ansible-playbook azure_create_vm.yml
 ```
+
+The output looks similar to the following example that shows the VM has been successfully created:
+
+```bash
+PLAY [Create Azure VM] ****************************************************
+
+TASK [Gathering Facts] ****************************************************
+ok: [localhost]
+
+TASK [Create VM] **********************************************************
+changed: [localhost]
+
+PLAY RECAP ****************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+```
+
 
 ## Next steps
 This example creates a VM in an existing resource group and with a virtual network already deployed. For a more detailed example on how to use Ansible to create supporting resources such as a virtual network and Network Security Group rules, see [Create a complete VM environment with Ansible](ansible-create-complete-vm.md).

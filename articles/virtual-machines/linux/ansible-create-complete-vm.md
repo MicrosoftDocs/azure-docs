@@ -73,7 +73,7 @@ Network Security Groups control the flow of network traffic in and out of your V
 
 ```yaml
 - name: Create Network Security Group that allows SSH
-    azure_rm_securitygroup:
+  azure_rm_securitygroup:
     resource_group: myResourceGroup
     name: myNetworkSecurityGroup
     rules:
@@ -123,7 +123,7 @@ The final step is to create a VM and use all the resources created. The followin
       version: latest
 ```
 
-## Complete Ansible runbook
+## Complete Ansible playbook
 To bring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste the following contents:
 
 ```yaml
@@ -135,7 +135,7 @@ To bring all these sections together, create an Ansible playbook named *azure_cr
     azure_rm_virtualnetwork:
       resource_group: myResourceGroup
       name: myVnet
-      address_prefixes: "10.10.0.0/16"
+      address_prefixes: "10.0.0.0/16"
   - name: Add subnet
     azure_rm_subnet:
       resource_group: myResourceGroup
@@ -148,12 +148,12 @@ To bring all these sections together, create an Ansible playbook named *azure_cr
       allocation_method: Static
       name: myPublicIP
   - name: Create Network Security Group that allows SSH
-      azure_rm_securitygroup:
+    azure_rm_securitygroup:
       resource_group: myResourceGroup
       name: myNetworkSecurityGroup
       rules:
         - name: SSH
-          protocol: TCP
+          protocol: Tcp
           destination_port_range: 22
           access: Allow
           priority: 1001
@@ -184,11 +184,46 @@ To bring all these sections together, create an Ansible playbook named *azure_cr
         version: latest
 ```
 
+Ansible needs a resource group to deploy all your resources into. Create a resource group with [az group create](/cli/azure/vm#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+```
 
 To create the complete VM environment with Ansible, run the playbook as follows:
 
 ```bash
 ansible-playbook azure_create_complete_vm.yml
+```
+
+The output looks similar to the following example that shows the VM has been successfully created:
+
+```bash
+PLAY [Create Azure VM] ****************************************************
+
+TASK [Gathering Facts] ****************************************************
+ok: [localhost]
+
+TASK [Create virtual network] *********************************************
+ok: [localhost]
+
+TASK [Add subnet] *********************************************************
+ok: [localhost]
+
+TASK [Create public IP address] *******************************************
+ok: [localhost]
+
+TASK [Create Network Security Group that allows SSH] **********************
+changed: [localhost]
+
+TASK [Create virtual network inteface card] *******************************
+ok: [localhost]
+
+TASK [Create VM] **********************************************************
+ok: [localhost]
+
+PLAY RECAP ****************************************************************
+localhost                  : ok=7    changed=1    unreachable=0    failed=0
 ```
 
 ## Next steps

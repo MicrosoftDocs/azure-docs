@@ -28,7 +28,7 @@ For more installation options and steps for additional platforms, see the [Ansib
 First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAnsible* in the *eastus* location:
 
 ```azurecli
-az group create --name myResorceGroupAnsible --location eastus
+az group create --name myResourceGroupAnsible --location eastus
 ```
 
 Now create a VM and install Ansible for one of the following distros:
@@ -49,7 +49,13 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Install the required packages for the Azure Python SDK modules and Ansible as follows:
+SSH to your VM using the `publicIpAddress` noted in the output from the VM create operation:
+
+```bash
+ssh azureuser@<publicIpAddress>
+```
+
+On your VM, install the required packages for the Azure Python SDK modules and Ansible as follows:
 
 ```bash
 ## Install pre-requisite packages
@@ -79,7 +85,13 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Install the required packages for the Azure Python SDK modules and Ansible as follows:
+SSH to your VM using the `publicIpAddress` noted in the output from the VM create operation:
+
+```bash
+ssh azureuser@<publicIpAddress>
+```
+
+On your VM, install the required packages for the Azure Python SDK modules and Ansible as follows:
 
 ```bash
 ## Install pre-requisite packages
@@ -108,7 +120,13 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Install the required packages for the Azure Python SDK modules and Ansible as follows:
+SSH to your VM using the `publicIpAddress` noted in the output from the VM create operation:
+
+```bash
+ssh azureuser@<publicIpAddress>
+```
+
+On your VM, install the required packages for the Azure Python SDK modules and Ansible as follows:
 
 ```bash
 ## Install pre-requisite packages
@@ -153,7 +171,7 @@ You use the output from these two commands in the next step.
 ## Create Ansible credentials file
 To provide credentials to Ansible, you define environment variables or create a local credentials file. For more information about how to define Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules). 
 
-For a development environment, create a *credentials* file for Ansible as follows:
+For a development environment, create a *credentials* file for Ansible on your host VM as follows:
 
 ```bash
 mkdir ~/.azure
