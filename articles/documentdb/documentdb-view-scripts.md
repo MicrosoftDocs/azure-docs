@@ -1,25 +1,10 @@
 ---
-title: 'Azure Cosmos DB portal tool: Script Explorer | Microsoft Docs'
-description: Learn about the Azure Cosmos DB Script Explorer, an Azure Portal tool to manage Azure Cosmos DB server-side programming artifacts including JavaScript stored procedures, triggers, and user-defined functions.
-keywords: javascript editor
-services: cosmosdb
-author: kirillg
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: 9d0620da-2449-4c17-82a4-24aaa46e9b3e
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2017
-ms.author: kirillg
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Create and run stored procedures, triggers, and user-defined functions using the Azure Cosmos DB Script Explorer
-This article provides an overview of the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute Cosmos DB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about Cosmos DB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
+This article provides an overview of the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Script Explorer, which is a JavaScript editor in the Azure portal that enables you to view and execute Cosmos DB server-side programming artifacts including stored procedures, triggers, and user-defined functions. Read more about Cosmos DB server-side programming in the [Stored procedures, database triggers, and UDFs](documentdb-programming.md) article.
 
 ## Launch Script Explorer
 1. In the [Azure portal](https://portal.azure.com), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 

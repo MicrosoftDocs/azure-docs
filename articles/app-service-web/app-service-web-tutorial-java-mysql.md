@@ -1,5 +1,5 @@
-﻿---
-title: Build a Java and MySQL web app in Azure | Microsoft Docs 
+---
+title: Build a Java and MySQL web app in Azure
 description: Learn how to get a Java app that connects to the Azure MySQL database service working in Azure appservice .
 services: app-service\web
 documentationcenter: Java
@@ -12,19 +12,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 05/22/2017
 ms.author: bbenz
 ---
 # Build a Java and MySQL web app in Azure
-This tutorial shows you how to create a Java web app in Azure tea connects to a MySQL database. 
-The first step is to clone an application to your local machine, and get it working with a local MySQL instance.
+This tutorial shows you how to create a Java web app in Azure that connects to a MySQL database. 
+The first step is to clone an application to your local machine, and have it work with a local MySQL instance.
 The next step is to set up Azure services for the Java app and MySQL, then deploy the application to an Azure appservice.
 When you are finished, you will have a to-do list application running on Azure and connecting to the Azure MySQL database service.
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
 ## Before you begin
-
 Before running this sample, install the following prerequisites locally:
 
 1. [Download and install git](https://git-scm.com/)
@@ -107,10 +106,8 @@ Update the User and Password values with your local MySQL instance's user ID and
 
 ```
 
-&gt; [!NOTE]
-&gt; For information on how Jetty uses the `jetty-env.xml` file, see the [Jetty XML Reference](http://www.eclipse.org/jetty/documentation/9.4.x/jetty-env-xml.html).
-&gt;
-&gt;
+> [!NOTE]
+> For information on how Jetty uses the `jetty-env.xml` file, see the [Jetty XML Reference](http://www.eclipse.org/jetty/documentation/9.4.x/jetty-env-xml.html).
 
 ### Run the sample
 
@@ -124,12 +121,10 @@ Next, navigate to `http://localhost:8080` in a browser. Add a few tasks in the p
 
 To stop the application at any time, type `Ctrl`+`C` at the command prompt. 
 
-## Create a MySQL database in Azure
-
-In this step, you create a MySQL database in [Azure Database for MySQL (Preview)](/azure/mysql). Later, you will configure your Java application to connect to this database.
+## Create an Azure Database for MySQL
+In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md). Later, you will configure your Java application to connect to this database.
 
 ### Log in to Azure
-
 Use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Java application in Azure appservice. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
 ```azurecli 
@@ -137,7 +132,6 @@ az login
 ``` 
 
 ### Create a resource group
-
 Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the North Europe region:
@@ -148,26 +142,26 @@ az group create --name myResourceGroup  --location "North Europe"
 
 To available value for `--location`, use the [az appservice list-locations](/cli/azure/appservice#list-locations) command.
 
-### Create a MySQL server
+### Create the server
 
 Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.
 
-Substitute your own unique MySQL server name where you see the `&lt;mysql_server_name&gt;` placeholder. This name is part of your MySQL server's hostname, `&lt;mysql_server_name&gt;.database.windows.net`, so it needs to be globally unique. Also substitute `&lt;admin_user&gt;` and `&lt;admin_password&gt;` with your own values.
+Substitute your own unique MySQL server name where you see the `<mysql_server_name>` placeholder. This name is part of your MySQL server's hostname, `<mysql_server_name>.mysql.database.azure.com`, so it needs to be globally unique. Also substitute `<admin_user>` and `<admin_password>` with your own values.
 
 ```azurecli
-az mysql server create --name &lt;mysql_server_name&gt; --resource-group myResourceGroup --location "North Europe" --user &lt;admin_user&gt; --password &lt;admin_password&gt;
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --user <admin_user> --password <admin_password>
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
-  "administratorLogin": "&lt;admin_user&gt;",
+  "administratorLogin": "admin_user",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "&lt;mysql_server_name&gt;.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql_server_name&gt;",
+  "fullyQualifiedDomainName": "mysql_server_name.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysql_server_name",
   "location": "northeurope",
-  "name": "&lt;mysql_server_name&gt;",
+  "name": "mysql_server_name",
   "resourceGroup": "myResourceGroup",
   ...
 }
@@ -178,20 +172,18 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command. 
 
 ```azurecli
-az mysql server firewall-rule create --name allIPs --server &lt;mysql_server_name&gt; --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allIPs --server mysql_server_name --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
-&gt; [!NOTE]
-&gt; Azure Database for MySQL (Preview) doesn't yet enable connections only from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses for now. As the service is in preview, better methods for securing your database will be enabled soon.
-&gt;
-&gt;
+> [!NOTE]
+> Azure Database for MySQL (Preview) does not presently enable connections from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses for now. As the service is in preview, better methods for securing your database will be enabled soon.
 
 ### Connect to the MySQL server
 
-In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for `&lt;admin_user&gt;` and `&lt;mysql_server_name&gt;`.
+In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for `<admin_user>` and `<mysql_server_name>`.
 
 ```bash
-mysql -u &lt;admin_user&gt;@&lt;mysql_server_name&gt; -h &lt;mysql_server_name&gt;.database.windows.net -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
 
 ### Create a database and table in the Azure MySQL Service
@@ -206,11 +198,11 @@ CREATE TABLE ITEMS ( id varchar(255), name varchar(255), category varchar(255), 
 
 ### Create a user with permissions
 
-Create a database user and give it all privileges in the `todoItemDb` database. Replace the placeholders `&lt;Javaapp_user&gt;` and `&lt;Javaapp_password&gt;` with your own unique app name.
+Create a database user and give it all privileges in the `todoItemDb` database. Replace the placeholders `<Javaapp_user>` and `<Javaapp_password>` with your own unique app name.
 
 ```sql
-CREATE USER '&lt;Javaapp_user&gt;' IDENTIFIED BY '&lt;Javaapp_password&gt;'; 
-GRANT ALL PRIVILEGES ON todoItemDb.* TO '&lt;Javaapp_user&gt;';
+CREATE USER '<Javaapp_user>' IDENTIFIED BY '<Javaapp_password>'; 
+GRANT ALL PRIVILEGES ON todoItemDb.* TO '<Javaapp_user>';
 ```
 
 Exit your server connection by typing `quit`.
@@ -219,9 +211,8 @@ Exit your server connection by typing `quit`.
 quit
 ```
 
-### Configure the local MySQL connection with the new Azure MySQL service
-
-In this step, you connect your Java application to the MySQL database you created in Azure Database for MySQL (Preview). 
+### Configure the local MySQL connection with the new Azure Database for MySQL service
+In this step, you connect your Java application to the MySQL database you created in Azure Database for MySQL. 
 
 To enable access from the local application to the Azure MySQL service, Set your new MySQL endpoint, user ID, and password in WebContent/WEB-INF/jetty-env.xml:
 
@@ -232,21 +223,20 @@ To enable access from the local application to the Azure MySQL service, Set your
      <Arg>jdbc/todoItemDb</Arg>
      <Arg>
         <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-           <Set name="Url">jdbc:mysql:<paste the endpoint for the Azure MySQL Service>/itemdb</Set>
-           <Set name="User">Azure MySQL userID</Set>
+           <Set name="Url">jdbc:mysql:<mysql_server_name>.mysql.database.azure.com/itemdb</Set>
+           <Set name="User">Javaapp_user@mysql_server_name</Set>
            <Set name="Password">Azure MySQL Password</Set>
         </New>
      </Arg>
     </New>
 </Configure>
-
 ```
 
 Save your changes.
 
 ## Test the application
 
-Use the same maven command as before to run the sample locally again, but this time connecting to the Azure MySQL service.: 
+Use the same maven command as before to run the sample locally again, but this time connecting to the Azure Database for MySQL service: 
 
 ```bash
 mvn package jetty:run
@@ -278,16 +268,16 @@ Next we deploy the Java application to an Azure appservice.
 
 Create an appservice plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
 
-&gt; [!NOTE] 
-&gt; An appservice plan represents the collection of physical resources used to host your apps. All applications assigned to an appservice plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-&gt; 
-&gt; appservice plans define: 
-&gt; 
-&gt; * Region (North Europe, East US, Southeast Asia) 
-&gt; * Instance Size (Small, Medium, Large) 
-&gt; * Scale Count (one, two, or three instances, etc.) 
-&gt; * SKU (Free, Shared, Basic, Standard, Premium) 
-&gt; 
+> [!NOTE] 
+> An appservice plan represents the collection of physical resources used to host your apps. All applications assigned to an appservice plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
+> 
+> appservice plans define: 
+>
+> * Region (North Europe, East US, Southeast Asia) 
+> * Instance Size (Small, Medium, Large) 
+> * Scale Count (one, two, or three instances, etc.) 
+> * SKU (Free, Shared, Basic, Standard, Premium) 
+
 
 The following example creates an appservice plan named `myAppServicePlan` using the **FREE** pricing tier:
 
@@ -308,7 +298,7 @@ When the appservice plan is created, the Azure CLI shows information similar to 
   "location": "North Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  &lt; JSON data removed for brevity. &gt;
+  <JSON data removed for brevity.>
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
@@ -316,13 +306,12 @@ When the appservice plan is created, the Azure CLI shows information similar to 
 ``` 
 
 ### Create an Azure Web app
-
 Now that an appservice plan has been created, create an Azure Web app within the `myAppServicePlan` appservice plan. The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use the [az appservice web create](/cli/azure/appservice/web#create) command to create the web app. 
 
-In the following command, substitute the `&lt;app_name&gt;` placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
+In the following command, substitute the `<app_name>` placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
 ```azurecli
-az appservice web create --name &lt;app_name&gt; --resource-group myResourceGroup --plan myAppServicePlan
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
 When the web app has been created, the Azure CLI shows information similar to the following example: 
@@ -335,47 +324,45 @@ When the web app has been created, the Azure CLI shows information similar to th
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
+  "defaultHostName": "<app_name>.azurewebsites.net",
   "enabled": true,
   "enabledHostNames": [
-    "&lt;app_name&gt;.azurewebsites.net",
-    "&lt;app_name&gt;.scm.azurewebsites.net"
+    "<app_name>.azurewebsites.net",
+    "<app_name>.scm.azurewebsites.net"
   ],
   "gatewaySiteName": null,
   "hostNameSslStates": [
     {
       "hostType": "Standard",
-      "name": "&lt;app_name&gt;.azurewebsites.net",
+      "name": "<app_name>.azurewebsites.net",
       "sslState": "Disabled",
       "thumbprint": null,
       "toUpdate": null,
       "virtualIp": null
     }
-    &lt; JSON data removed for brevity. &gt;
+    <JSON data removed for brevity.>
 }
 ```
 
-### Set the Java version, the Java Application Server type and the Application Server version
-
+### Set the Java version, the Java Application Server type, and the Application Server version
 Set the Java version, Java App Server (container), and container version by using the [az appservice web config update](/cli/azure/appservice/web/config#update) command.
 
 The following command sets the Java version to 8, the Java App Server to Jetty, and the Jetty version to Newest Jetty 9.3.
 
 ```azurecli
-az appservice web config update --name &lt;app_name&gt; --resource-group myResourceGroup --java-version 1.8 --java-container Jetty --java-container-version 9.3
+az appservice web config update --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Jetty --java-container-version 9.3
 ```
 
 
 ### Get credentials for deployment to the Web App using FTP 
-
 You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
 For this example, we use Maven to compile a .WAR file and FTP to deploy the .WAR file to the Web App
 
-To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command, like this: 
+To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command: 
 
 ```azurecli
 
-az appservice web deployment list-publishing-profiles --name &lt;app_name&gt; --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --o table
+az appservice web deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --o table
 
 ```
 ### Compile the local application to deply to the Web App 
@@ -385,7 +372,7 @@ To prepare the local Java application to run on the Azure Web App, recompile all
 ```bash 
 mvn clean package
 ``` 
-Toward the end of the Maven package process, you'll see the location of the .WAR file.  The output should look something like this:
+Toward the end of the Maven package process, notice the location of the .WAR file.  The output should look like this:
 
 ```bash
 
@@ -399,20 +386,18 @@ Toward the end of the Maven package process, you'll see the location of the .WAR
 
 ```
 
-Note the location of the .War file, and use your favorite FTP method to deploy the .WAR file to the Jetty WebApps folder.  Note that the Jetty WebApps folder is located at /site/wwwroot/webapps in an Azure Web App. 
+Note the location of the .War file, and use your favorite FTP method to deploy the .WAR file to the Jetty WebApps folder.  In this example, the Jetty WebApps folder is located at /site/wwwroot/webapps in an Azure Web App. 
 
 ### Browse to the Azure web app
 
-Browse to `http://&lt;app_name&gt;.azurewebsites.net/&lt;app_name&gt;` and add a few tasks to the list. 
+Browse to `http://<app_name>.azurewebsites.net/<app_name>` and add a few tasks to the list. 
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
-
 
 **Congratulations!** You're running a data-driven Java app in Azure appservice.
 To update the app, repeat the maven clean package command and redeploy the app via FTP.
 
 ## Manage your Azure web app
-
 Go to the Azure portal to see the web app you created by signing in to [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, click **appservice**, then click the name of your Azure web app.
@@ -425,10 +410,7 @@ In the **Application Settings** page,
 
 ![Azure appservice Web App Application Settings](./media/app-service-web-tutorial-java-mysql/appservice-web-app-application-settings.png)
 
-
-
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
-
 * Map a custom DNS name
 * Bind a custom SSL certificate
 * Configure continuous deployment
@@ -436,7 +418,6 @@ These tabs in the blade show the many great features you can add to your web app
 * Add user authentication
 
 ## More resources
-
 - [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
 - [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
-- [Web apps CLI scripts](app-service-cli-samples.md)</PRE>
+- [Web apps CLI scripts](app-service-cli-samples.md)
