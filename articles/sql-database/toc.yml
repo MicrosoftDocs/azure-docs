@@ -13,12 +13,14 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Connect & query
+  - name: Manage
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
+  - name: Connect
+    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
