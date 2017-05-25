@@ -1,5 +1,5 @@
 ---
-title: Open Source Technologies issues for Azure Web Apps FAQ| Microsoft Docs
+title: Open source technologies issues for Azure Web Apps FAQ| Microsoft Docs
 description: This article lists the frequently asked questions about open Source technologies in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
@@ -68,7 +68,7 @@ FAQ for ClearDB MySql databases with Azure App Service can be found [here](https
 
 For more details, see [Enable WordPress Error Logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
-## How can I log python application errors in apps hosted in Azure App Service?
+## How can I log Python application errors in apps hosted in Azure App Service?
 
 The following are the steps to capture Python application errors:
 1. Navigate to your new azure portal and click on settings in your Web App.
@@ -123,7 +123,7 @@ If you see this error in your debug.log or php_errors.log, then your application
 * Browse your Application Logs folder available @ D:\home\LogFiles\Application.
 * Check for content in logging_errors.txt file.
 
-## Installing Native python modules on Azure App service Web Apps or API Apps
+## Installing Native Python modules on Azure App service Web Apps or API Apps
 
 Some packages may not install using pip when run on Azure. It may simply be that the package is not available on the Python Package Index. Or it could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service). This [blog article](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/) provides guidance on installing native modules on Azure App Service Web Apps and API Apps.
 
