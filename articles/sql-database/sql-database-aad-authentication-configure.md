@@ -74,7 +74,7 @@ The following two procedures show you how to provision an Azure Active Directory
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)
    
     ![choose-ad][8]
-2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, click **Azure Active directory**.
+2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, click **Active Directory admin**.
 3. In the **Active Directory admin** blade, click **Set admin**.
 
     ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
@@ -83,9 +83,9 @@ The following two procedures show you how to provision an Azure Active Directory
     ![select admin](./media/sql-database-aad-authentication/select-admin.png)  
 5. At the top of the **Active Directory admin** blade, click **SAVE**.
 
-
     ![save admin](./media/sql-database-aad-authentication/save-admin.png)   
-    The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
+
+The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
    > [!NOTE]
    > When setting up the Azure AD admin, the new admin name (user or group) cannot already be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication fails.
