@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 05/25/2017
 ms.author: jeedes
 
 ---
@@ -240,7 +240,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     k. Deselect **Create an AuthnContextClass**.
 
-    l. In the **AuthnContextClassRef Method**, type **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**. This is only needed if you are cloud only organization. If you are using on-premise ADFS or MFA for authentication, then you should not configure this value. 
+    l. In the **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. This is only needed if you are cloud only organization. If you are using on-premise ADFS or MFA for authentication, then you should not configure this value. 
 
     m. In **Clock Skew** textbox, type **60**.
 
@@ -353,7 +353,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. In the **NameID Policy** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.    
    
-    c. In the **AuthnContextClassRef Method**, type **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+    c. In the **AuthnContextClassRef Method**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
    
     d. Deselect **Create an AuthnContextClass**.
 
