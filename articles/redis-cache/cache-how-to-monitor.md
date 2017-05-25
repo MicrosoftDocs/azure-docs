@@ -131,43 +131,7 @@ For more information about Activity logs, see [Overview of the Azure Activity Lo
 
 
 
-<!-- IMAGES -->
 
-[redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png
-
-[redis-cache-diagnostic-settings]: ./media/cache-how-to-monitor/redis-cache-diagnostic-settings.png
-
-[redis-cache-configure-diagnostics]: ./media/cache-how-to-monitor/redis-cache-configure-diagnostics.png
-
-[redis-cache-monitoring-part]: ./media/cache-how-to-monitor/redis-cache-monitoring-part.png
-
-[redis-cache-usage-part]: ./media/cache-how-to-monitor/redis-cache-usage-part.png
-
-[redis-cache-metric-blade]: ./media/cache-how-to-monitor/redis-cache-metric-blade.png
-
-[redis-cache-edit-chart]: ./media/cache-how-to-monitor/redis-cache-edit-chart.png
-
-[redis-cache-view-chart-details]: ./media/cache-how-to-monitor/redis-cache-view-chart-details.png
-
-[redis-cache-operations-events]: ./media/cache-how-to-monitor/redis-cache-operations-events.png
-
-[redis-cache-alert-rules]: ./media/cache-how-to-monitor/redis-cache-alert-rules.png
-
-[redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
-
-[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
-
-[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
-
-[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
-
-[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
-
-[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
-
-[redis-cache-redis-metrics]: ./media/cache-how-to-monitor/redis-cache-redis-metrics.png
-
-[redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
 
 
