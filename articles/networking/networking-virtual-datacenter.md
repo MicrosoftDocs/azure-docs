@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure Virtual Data Center | Microsoft Docs
 description: Learn how to build your virtual data center in Azure
-services: virtual-network
+services: networking
 author: tracsman
 manager: rossort
 
@@ -348,17 +348,17 @@ The following features were discussed in this document. Click the links to learn
  - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and polices of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, etc.
 
 <!--Image References-->
-[0]: ./media/virtual-network-vdc/redundant-equipment.png "Examples of component overlap" 
-[1]: ./media/virtual-network-vdc/vdc-high-level.png "High-level example of hub and spoke vDC"
-[2]: ./media/virtual-network-vdc/hub-spokes-cluster.png "Cluster of hubs and spokes"
-[3]: ./media/virtual-network-vdc/spoke-to-spoke.png "Spoke-to-spoke"
-[4]: ./media/virtual-network-vdc/vdc-block-level-diagram.png "Block level diagram of the vDC"
-[5]: ./media/virtual-network-vdc/users-groups-subsciptions.png "Users, groups, subscriptions, and projects"
-[6]: ./media/virtual-network-vdc/infrastructure-high-level.png "High-level infrastructure diagram"
-[7]: ./media/virtual-network-vdc/highlevel-perimeter-networks.png "High-level infrastructure diagram"
-[8]: ./media/virtual-network-vdc/vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
-[9]: ./media/virtual-network-vdc/high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
-[10]: ./media/virtual-network-vdc/high-level-workloads.png "High-level diagram for Workload"
+[0]: ./media/networking-virtual-datacenter/redundant-equipment.png "Examples of component overlap" 
+[1]: ./media/networking-virtual-datacenter/vdc-high-level.png "High-level example of hub and spoke vDC"
+[2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "Cluster of hubs and spokes"
+[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Spoke-to-spoke"
+[4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "Block level diagram of the vDC"
+[5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "Users, groups, subscriptions, and projects"
+[6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "High-level infrastructure diagram"
+[7]: ./media/networking-virtual-datacenter/highlevel-perimeter-networks.png "High-level infrastructure diagram"
+[8]: ./media/networking-virtual-datacenter/vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
+[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
+[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "High-level diagram for Workload"
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
