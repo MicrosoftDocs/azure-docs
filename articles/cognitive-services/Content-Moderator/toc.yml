@@ -37,8 +37,6 @@
     items:
   - name: Review APIs
     href: review-api.md
-  - name: Review Authentication
-    href: Review-API-Authentication.md
   - name: Image moderation
     href: image-moderation-api.md
   - name: Text moderation

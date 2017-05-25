@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Help protect a web API by using bearer tokens from Azure AD

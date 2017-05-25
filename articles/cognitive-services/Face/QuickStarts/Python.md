@@ -8,7 +8,7 @@ manager: yutkuo
 ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 05/23/2017
 ms.author: anroth
 ---
 
@@ -20,7 +20,7 @@ This article provides information and code samples to help you quickly get start
 Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)
 
 ## Detect Faces in Images With Face API Using Python <a name="Detect"> </a>
-Use the [Face - Detect method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
+Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
 to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in a number of Face API scenarios. 
 * Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
@@ -29,6 +29,8 @@ to detect faces in an image and return face attributes including:
 
 #### Face Detect Python Example Request
 
+Copy the appropriate section for your version of Python and save it to a file such as `test.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to a photograph of a face to the `body` variable, and change the REST URL to use the region where you obtained your subscription keys.
+
 ```python
 ########### Python 2.7 #############
 import httplib, urllib, base64
@@ -36,19 +38,24 @@ import httplib, urllib, base64
 headers = {
     # Request headers
     'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '{subscription key}',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
 params = urllib.urlencode({
     # Request parameters
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': '{string}',
+    'returnFaceAttributes': 'age,gender',
 })
 
 try:
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
-    conn.request("POST", "/face/v1.0/detect?%s" % params, "{body}", headers)
+    # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+    conn.request("POST", "/face/v1.0/detect?%s" % params, "{\"url\":\"http://example.com/1.jpg\"}", headers)
     response = conn.getresponse()
     data = response.read()
     print(data)
@@ -64,18 +71,23 @@ import http.client, urllib.request, urllib.parse, urllib.error, base64
 headers = {
     # Request headers
     'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '{subscription key}',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key': '6726adbabb494773a28a7a5a21d5974a',
 }
 
 params = urllib.parse.urlencode({
     # Request parameters
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': '{string}',
+    'returnFaceAttributes': 'age,gender',
 })
 
 try:
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/face/v1.0/detect?%s" % params, "{body}", headers)
     response = conn.getresponse()
     data = response.read()
@@ -230,17 +242,22 @@ A successful response will be returned in JSON. Following is an example of a suc
 ]
 ```
 ## Create a Person Group With Face API Using Python <a name="Create"> </a>
-Use the [Person Group - Create a Person Group method](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 
+Use the [Person Group - Create a Person Group method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) 
 to create a new person group with specified personGroupId, name, and user-provided userData. A person group is one of the most important parameters for the Face - Identify API. The Identify API searches for persons' faces in a specified person group. 
 
 #### Person Group - Create a Person Group Example
+
+Copy the appropriate section for your version of Python and save it to a file such as `test.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and change the REST URL to use the region where you obtained your subscription keys.
+
 ```python
 ########### Python 2.7 #############
 import httplib, urllib, base64
 
 headers = {
-    # Request headers. Replace the placeholder key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -253,7 +270,10 @@ personGroupId = 'examplegroupid'
 body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
 
 try:
-    conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("POST", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
     response = conn.getresponse()
 
@@ -271,8 +291,10 @@ except Exception as e:
 import http.client, urllib.request, urllib.parse, urllib.error, base64, sys
 
 headers = {
-    # Request headers. Replace the placeholder key below with your subscription key.
+    # Request headers.
     'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
     'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
 }
 
@@ -285,7 +307,10 @@ personGroupId = 'examplegroupid'
 body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
 
 try:
-    conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
     conn.request("PUT", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
     response = conn.getresponse()
 
