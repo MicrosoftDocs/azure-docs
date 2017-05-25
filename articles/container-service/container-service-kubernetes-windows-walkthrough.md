@@ -110,9 +110,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ```
 
-
-
-## Deploy a Windows container
+## Deploy a Windows IIS container
 
 After creating the cluster and connecting with `kubectl`, try starting a containerized Windows app in a Kubernetes pod on the cluster. (A pod contains one or more containers.) This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using `kubctl apply`. 
 
