@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/25/2017
 ms.author: joflore
 ms.custom: end-user
 
@@ -23,7 +23,7 @@ ms.custom: end-user
 If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
 
    > [!NOTE]
-   > If you are trying to get back into a Personal account like hotmail.com or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+   > If you are trying to get back into your personal account like Xbox, hotmail.com, or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
    >
 
 ## Reset or unlock my password for a work or school account
@@ -31,7 +31,7 @@ If you forgot your password, never received one from your IT staff, been locked 
 If you unable to access your account because of one of the following:
     a. Your password is not working and you would like to reset it.
     b. You know your password but your account is locked out and you would like to unlock your account.
-Follow the steps below to access Azure AD self-service password reset, or SSPR as we like to call it, and get back into your account.
+Follow the steps that follow to access Azure AD self-service password reset, SSPR as we like to call it, and get back into your account.
 
 1. From any work or school sign-in page, click the **Can't access your account?** link then click **Work or school account** or go directly to the [password reset page](https://passwordreset.microsoftonline.com/).
     ![Can't access your account?][Login]
