@@ -35,8 +35,8 @@ A vDC is not just the application workloads in the cloud, but also the network, 
 
 A Virtual Data Center is essentially a collection of separate but related entities with common supporting functions, features, and infrastructure. By viewing your workloads as an integrated vDC, you can realize reduced cost due to economies of scale, optimized security through component and data flow centralization, along with easier operations, management, and compliance audits.
 
->   [AZURE.NOTE]
->   It's important to understand that the vDC is **NOT** a discrete Azure product, but the combination of various features and capabilities to  meet your exact requirements. vDC is a way of thinking about your workloads and Azure usage to maximize your resources and abilities in the cloud. The virtual DC is therefore a modular approach on how to build up IT services in the Azure, respecting organizational roles and responsibilities.
+> [!NOTE]
+> It's important to understand that the vDC is **NOT** a discrete Azure product, but the combination of various features and capabilities to  meet your exact requirements. vDC is a way of thinking about your workloads and Azure usage to maximize your resources and abilities in the cloud. The virtual DC is therefore a modular approach on how to build up IT services in the Azure, respecting organizational roles and responsibilities.
 
 The vDC can help enterprises get workloads and applications into Azure for the following scenarios:
 
