@@ -16,7 +16,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/24/2017
 ms.author: carlrab
 
 ---
@@ -24,10 +24,13 @@ ms.author: carlrab
 
 [Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quick start demonstrates how to use Visual Studio Code to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.
 
+## Prerequisites
+
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 Before you start, make sure you have installed the newest version of [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For installation guidance for the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and see [mssql for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
@@ -92,17 +95,15 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 4. Follow the prompts to specify the connection properties for the new connection profile. After specifying each value, press **ENTER** to continue. 
 
-   The following table describes the Connection Profile properties.
-
-   | Setting | Description |
-   |-----|-----|
-   | **Server name** | Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net** |
-   | **Database name** | Enter your database name, such as **mySampleDatabase** |
-   | **Authentication** | Select SQL Login |
-   | **User name** | Enter your server admin account |
-   | **Password (SQL Login)** | Enter the password for your server admin account | 
-   | **Save Password?** | Select **Yes** or **No** |
-   | **[Optional] Enter a name for this profile** | Enter a connection profile name, such as **mySampleDatabase**. 
+   | Setting       | Suggested value | Description |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | **Database name** | mySampleDatabase | The name of the database to which to connect. |
+   | **Authentication** | SQL Login| SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | **User name** | The server admin account | This is the account that you specified when you created the server. |
+   | **Password (SQL Login)** | The password for your server admin account | This is the password that you specified when you created the server. |
+   | **Save Password?** | Yes or No | Select Yes if you do not want to enter the password each time. |
+   | **Enter a name for this profile** | A profile name, such as **mySampleDatabase** | A saved profile name speeds your connection on subsequent logins. | 
 
 5. Press the **ESC** key to close the info message that informs you that the profile is created and connected.
 
