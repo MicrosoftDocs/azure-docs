@@ -77,7 +77,7 @@ az vm extension show -resource-group resourceGroupName --vm-name virtualMachineN
 
 The following sample is an example of the response from running `az vm extension show`
 
-```
+```json
 {
   "autoUpgradeMinorVersion": true,
   "forceUpdateTag": null,
