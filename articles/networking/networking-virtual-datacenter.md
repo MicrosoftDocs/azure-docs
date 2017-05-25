@@ -4,8 +4,9 @@ description: Learn how to build your virtual data center in Azure
 services: networking
 author: tracsman
 manager: rossort
+tags: azure-resource-manager
 
-ms.service: virtual-network
+ms.service: networking
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
