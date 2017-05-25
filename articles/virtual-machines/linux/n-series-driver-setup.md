@@ -181,20 +181,58 @@ sudo yum update
 sudo reboot
 ```
 
-## RDMA network for NC24r VMs
-
-
-
 ## Install GRID drivers for NV VMs
 
-Here are steps to install NVIDIA GRID drivers on NV VMs running supported a supported Linux distribution. 
+To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and follow the steps for your  Linux distribution. 
 
 ### Ubuntu 16.04 LTS
+
+1. Run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
+
+2. Install updates
+
+  ```bash
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get dist-upgrade -y
+  sudo apt-get install build-essential ubuntu-desktop -y
+  ```
+3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+
+  ```
+  blacklist nouveau
+  blacklist lbm-nouveau
+  ```
+
+
+4. Reboot the VM and reconnect. Exit X server:
+
+  ```bash
+
+  ```
+
+5. Download and install the GRID driver:
+
+  ```bash
+  wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+
+  chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
+
+  sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
+  ``` 
+
+6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, click **Yes**.
+
+7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
+ 
+  ```
+  IgnoreSP=TRUE
+  ```
+Proceed to verify the installation.
 
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
-Make an SSH connection to each NV VM and run the following commands:
 
 1. Update the kernel and DKMS.
  
@@ -215,7 +253,7 @@ Make an SSH connection to each NV VM and run the following commands:
   blacklist lbm-nouveau
   ```
  
-2. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
+3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
  
   ```bash
   wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.0.tar.gz
@@ -229,9 +267,9 @@ Make an SSH connection to each NV VM and run the following commands:
   sudo reboot
   ```
  
-3. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
+4. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
  
-4. Download and install the GRID driver:
+5. Download and install the GRID driver:
 
   ```bash
   wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
@@ -240,9 +278,9 @@ Make an SSH connection to each NV VM and run the following commands:
 
   sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
   ``` 
-5. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, click **Yes**.
+6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, click **Yes**.
 
-6. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
+7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
  
   ```
   IgnoreSP=TRUE
@@ -259,7 +297,37 @@ Output similar to the following appears:
 ![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
  
 
+### X11 server
+If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the xconfig file (`etc/X11/xorg.conf` on Ubuntu 16.04 LTS, `/etc/X11/XF86config` on CentOS 7.3 or Red Hat Enterprise Server). Add a `"Device"` section similar to the following:
+ 
+```
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+    BoardName      "Tesla M60"
+    BusID          "your-BusID"
+EndSection
+```
+ 
+Additionally, update your `"Screen"` section to use this device.
+ 
+The BusID can be found by running
 
+```bash
+/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+```
+ 
+The BusID can change when a VM gets reallocated or rebooted. Therefore, you may want to use a script to update the BusID in the X11 configuration when a VM is rebooted. For example:
+
+```bash 
+#!/bin/bash
+BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+
+if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
+```
+
+This file can be invoked as root on boot by creating an entry for it in `/etc/rc.d/rc3.d`.
 
 
 ## Troubleshooting
