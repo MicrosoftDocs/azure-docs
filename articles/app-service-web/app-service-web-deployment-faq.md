@@ -56,7 +56,7 @@ You are likely running into disk quota on the pricing Tier your web app is using
 
 You can set up continuous deployment from several resources including Visual Studio Team Services, Microsoft OneDrive, GitHub, Bitbucket, Dropbox and other Git repositories. These options are available in the portal and the following tutorial explains how to set it up: [Continuous Deployment to Azure App Service](https://docs.microsoft.com/azure/app-service-continuous-deployment/).
 
-## How can I troubleshoot issues with continuous deployment from Github and Bit Bucket?
+## How can I troubleshoot issues with continuous deployment from Github and BitBucket?
 
 The information via [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment) provides guidance for investigating issues with continuous deployment from GitHub or Bitbucket.
 
