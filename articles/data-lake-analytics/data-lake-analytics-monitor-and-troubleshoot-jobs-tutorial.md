@@ -38,7 +38,7 @@ Now you will create a U-SQL job with a bad source file name.
 1. From the Azure Portal, click **Microsoft Azure** in the upper left corner.
 2. Click the tile with your Data Lake Analytics account name.  It was pinned here when the account was created.
    If the account is not pinned there, see
-   [Open an Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
+   [Open an Analytics account from portal](data-lake-analytics-manage-use-portal.md#manage-data-sources).
 3. Click **New Job** from the top menu.
 4. Enter a Job name, and the following U-SQL script:
 
