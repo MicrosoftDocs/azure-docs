@@ -302,6 +302,19 @@ Azure Functions provides a convenience syntax for generating GUIDs in your bindi
 }
 ```
 
+### Current time
+
+You can use the binding expression `DateTime`, which resolves to `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
 ## Bind to custom input properties in a binding expression
 
 Binding expressions can also reference properties that are defined in the trigger payload itself. For example, you may want to dynamically bind to a blob storage file from a filename provided in a webhook.
