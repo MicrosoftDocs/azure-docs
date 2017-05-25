@@ -1,5 +1,5 @@
 ---
-title: More frequently asked questions in Azure Web Apps | Microsoft Docs
+title: Other frequently asked questions in Azure Web Apps | Microsoft Docs
 description: This article lists the more frequently asked questions in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
@@ -18,19 +18,12 @@ ms.date: 5/16/2017
 ms.author: v-six
 
 ---
-# More frequently asked questions in Azure Web Apps
+# Other frequently asked questions in Azure Web Apps
 This article includes answers to more frequently asked questions in [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-**Function App**
-
-* [Functions Preview Versions Deprecation](#functions-preview-versions-deprecation)
-
-**Web Apps FAQ Overview**
-
-* [Visit all Web Apps frequently asked questions](app-service-web-faq.md)
-
-## Functions Preview Versions Deprecation
+**Function App (Functions Preview Versions Deprecation)**
 
 As discussed at https://blogs.msdn.microsoft.com/appserviceteam/2017/01/03/azure-functions-preview-versioning-update/ we recommend that you upgrade your Functions version to ~1 in the App Settings. The ~1 syntax means that you will use the latest version of the host with a major version of 1.
+
