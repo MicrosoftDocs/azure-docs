@@ -57,7 +57,16 @@ For more information on working with metrics using Azure Monitor, see [Overview 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## Export cache metrics
-By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. If you do not want to apply any retention policy and retain data forever, set **Retention (days)** to **0**.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and specify a **Retention (days)** policy for your cache metrics. 
+
+To configure a storage account for your cache metrics:
+
+1. Click **Diagnostics** from the **Resource menu** in the **Redis Cache** blade.
+2. Click **On**.
+3. Check **Archive to a storage account**.
+4. Select the storage account in which to store the cache metrics.
+5. Check the **1 minute** checkbox and specify a **Retention (days)** policy. If you do not want to apply any retention policy and retain data forever, set **Retention (days)** to **0**.
+6. Click **Save**.
 
 ![Redis diagnostics](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
