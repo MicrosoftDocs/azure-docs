@@ -18,16 +18,16 @@ ms.date: 05/25/2017
 ms.author: iainfou
 ---
 
-# Create a virtual machine in Azure with Ansible
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article shows you how to create a basic VM with Ansible.
+# Create a basic virtual machine in Azure with Ansible
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article shows you how to create a basic VM with Ansible. You can also learn how to [Create a complete VM environment with Ansible](ansible-create-complete-vm.md).
 
 
 ## Pre-requisites
 To manage Azure resources with Ansible, you need the following:
 
-- Ansible and the Azure Python SDK modules installed.
+- Ansible and the Azure Python SDK modules installed on your host system.
     - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)
-- Credentials in Azure and Ansible configured to use them.
+- Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
     - If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.

@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Install and configure Ansible to manage virtual machines in Azure
-This article details how to install Ansible and the required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use.
+This article details how to install Ansible and required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use.
 
 
 ## Install Ansible
@@ -121,7 +121,7 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 
 
 ## Create Azure credentials
-Ansible can communicate with Azure using either a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Ansible. You control and define the permissions as to what operations the service principal can perform in Azure. To improve security over just providing a username and password, this example creates a basic service principal.
+Ansible communicates with Azure using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Ansible. You control and define the permissions as to what operations the service principal can perform in Azure. To improve security over just providing a username and password, this example creates a basic service principal.
 
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Ansible needs:
 
@@ -145,18 +145,20 @@ To authenticate to Azure, you also need to obtain your Azure subscription ID wit
 az account show --query [id] --output tsv
 ```
 
+You use the output from these two commands in the next step.
+
 
 ## Create Ansible credentials file
-To provide credentials to Ansible, you define environment variables or create a local credentials file. If you use tools such as Ansible Tower or Jenkins, defining environment variables is more secure and flexible. For more information about how to define Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules). 
+To provide credentials to Ansible, you define environment variables or create a local credentials file. For more information about how to define Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules). 
 
-To simplify usage in a development environment, create a *credentials* file for Ansible as follows:
+For a development environment, create a *credentials* file for Ansible as follows:
 
 ```bash
 mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-The *credentials* file itself combines the subscription ID with the output from creating a service principal. Output from the previous [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) command is the same order as needed for *client_id*, *secret*, and *tenant*. The following example *credentials* file shows these values matching the previous output. Enter your own values as follows:
+The *credentials* file itself combines the subscription ID with the output of creating a service principal. Output from the previous [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) command is the same order as needed for *client_id*, *secret*, and *tenant*. The following example *credentials* file shows these values matching the previous output. Enter your own values as follows:
 
 ```bash
 [default]
@@ -168,7 +170,7 @@ tenant=72f988bf-86f1-41af-91ab-2d7cd011db47
 
 
 ## Use Ansible environment variables
-If you are going to use tools such as Ansible Tower or Jenkins, define environment variables as follows. These variables combine the subscription ID with the output from creating a service principal. Output from the previous [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) command is the same order as needed for *AZURE_CLIENT_ID*, *AZURE_SECRET*, and *AZURE_TENANT*. 
+If you are going to use tools such as Ansible Tower or Jenkins, you can define environment variables as follows. These variables combine the subscription ID with the output from creating a service principal. Output from the previous [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) command is the same order as needed for *AZURE_CLIENT_ID*, *AZURE_SECRET*, and *AZURE_TENANT*. 
 
 ```bash
 export AZURE_SUBSCRIPTION_ID=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

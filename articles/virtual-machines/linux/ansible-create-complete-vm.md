@@ -19,15 +19,15 @@ ms.author: iainfou
 ---
 
 # Create a complete Linux virtual machine environment in Azure with Ansible
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article shows you how to create a complete Linux environment and supporting resources with Ansible.
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article shows you how to create a complete Linux environment and supporting resources with Ansible. You can also learn how to [Create a basic VM with Ansible](ansible-create-vm.md).
 
 
 ## Pre-requisites
 To manage Azure resources with Ansible, you need the following:
 
-- Ansible and the Azure Python SDK modules installed.
+- Ansible and the Azure Python SDK modules installed on your host system.
     - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)
-- Credentials in Azure and Ansible configured to use them.
+- Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
     - If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
@@ -44,7 +44,7 @@ The following section in an Ansible playbook creates a virtual network named *my
     address_prefixes: "10.10.0.0/16"
 ```
 
-To add a subnet, the following section creates subnet named *mySubnet* to the *myVnet* virtual network:
+To add a subnet, the following section creates a subnet named *mySubnet* in the *myVnet* virtual network:
 
 ```yaml
 - name: Add subnet
@@ -124,7 +124,7 @@ The final step is to create a VM and use all the resources created. The followin
 ```
 
 ## Complete Ansible runbook
-To bring all these sections together, create an Ansible playbook named *azure_create_complete*vm.yml* and paste the following contents:
+To bring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste the following contents:
 
 ```yaml
 - name: Create Azure VM
