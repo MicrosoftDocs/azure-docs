@@ -174,6 +174,9 @@ The behavior of the patch orchestration app can be configured to meet your needs
 | WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and Possible Values are as below <br>-   Monthly,DD,HH:MM:SS Ex: Monthly,5,12:22:32 <br> -   Weekly,DAY,HH:MM:SS Ex: Weekly, Tuesday, 12:22:32  <br> -   Daily, HH:MM:SS Ex: Daily, 12:22:32  <br> -  None - Indicates that Windows Update shouldn't be done  <br><br> NOTE: All the times are in UTC|
 | AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, application accepts EULA for Windows Update on behalf of the owner of the machine.              |
 
+> [!TIP]
+> If you want first update to happen immediately, set a UTC time which is about 30-60 mins from the time when you're deploying the app.
+Eg: If you've a 5 node test cluster, and planning to deploy the app at around 5:00 pm UTC, set the WUFrequency as "Daily, 17:30:00".
 
 ## Deploy the app
 
@@ -207,6 +210,7 @@ For your convenience, we have provided script Undeploy.ps1 along with our applic
 ## View the Windows Update results
 
 The patch orchestration app exposes REST APIs to display the historical results to the user.
+A result file would looks like [this.](media/service-fabric-patch-orchestration-application/GetWindowsUpdateResults.json)
 
 Windows Update results can be queried by logging in to the cluster, and then finding out the replica address for the primary of coordinator service, and hitting the url from the browser.
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults
