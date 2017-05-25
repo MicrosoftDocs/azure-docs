@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
 ms.custom: sample
-ms.date: 05/17/2017
+ms.date: 05/25/2017
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
