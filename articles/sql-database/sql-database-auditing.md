@@ -51,7 +51,6 @@ An auditing policy can be defined for a specific database or as a default server
 
     > [!NOTE]
     > You should avoid enabling both server Blob auditing and database Blob auditing together, unless:
-    > * You want to audit only specific database(s) on this server.
     > * You want to use a different *storage account* or *retention period* for a specific database.
     > * You want to audit different event types or categories for a specific database than are being audited for the rest of the databases on this server (e.g. if table inserts need to be audited only for a specific database).
     > <br><br>
