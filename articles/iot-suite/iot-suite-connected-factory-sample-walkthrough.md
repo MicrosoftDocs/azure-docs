@@ -22,7 +22,7 @@ ms.author: dobett
 
 The IoT Suite connected factory [preconfigured solution][lnk-preconfigured-solutions] is an implementation of an end-to-end industrial solution that:
 
-* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices.
+* Connects to both simulated industrial devices running OPC UA servers in simulated factory production lines, and real OPC UA server devices. For more information about OPC UA, see the [FAQ][lnk-faq].
 * Shows operational KPIs and OEE of those devices and production lines.
 * Demonstrates how a cloud-based application could be used to interact with OPC UA server systems.
 * Enables you to connect your own OPC UA server devices.
@@ -127,3 +127,4 @@ You can continue getting started with IoT Suite by reading the following article
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

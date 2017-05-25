@@ -90,6 +90,14 @@ Currently, you cannot create a preconfigured solution with a Cloud Solution Prov
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
+### What is OPC UA?
+
+OPC Unified Architecture (UA), released in 2008, is a platform-independent, service-oriented interoperability standard used by various industrial systems and devices such as industry PCs, PLCs, and sensors. OPC UA integrates all the functionality of the individual OPC Classic specifications into one extensible framework with built-in security. It is a standard that is driven by the OPC Foundation. The [OPC Foundation][lnk-opc-foundation] is a not-for-profit organization whose more than 440 members share the common goal of providing the infrastructure, specifications, technology, and processes to facilitate multi-vendor, multi-platform, secure and reliable interoperability using OPC specifications.
+
+### Why did Microsoft choose OPC UA for the connected factory preconfigured solution?
+
+Microsoft chose OPC UA because it is an open, non-proprietary, platform independent, industry-recognized, and proven standard. It is a requirement for Industrie 4.0 (RAMI4.0) reference architecture solutions ensuring interoperability between a broad set of manufacturing processes and equipment. Microsoft sees demand from our customers to build Industrie 4.0 solutions. Support for OPC UA helps lower the barrier for customers to achieve their goals and provides immediate business value to them.
+
 ### Next steps
 
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
@@ -97,6 +105,7 @@ You can also explore some of the other features and capabilities of the IoT Suit
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
 * [IoT security from the ground up][lnk-security-groundup]
 
+[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

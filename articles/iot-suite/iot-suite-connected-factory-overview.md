@@ -79,7 +79,7 @@ The solution dashboard enables you to manage the deployed solution. It is a hier
 
 The dashboard displays the following information:
 
-* A **Factory list** panel that shows the status, location, and current production configuration in the solution. When you first run the solution, there are a number of simulated devices. The production line simulation is composed of three real OPC UA servers per production line that perform simulated tasks and share data. 
+* A **Factory list** panel that shows the status, location, and current production configuration in the solution. When you first run the solution, there are a number of simulated devices. The production line simulation is composed of three real OPC UA servers per production line that perform simulated tasks and share data. For more information about OPC UA, see the [FAQ][lnk-faq].
 * A **map** that displays the location of each device connected to the solution. The solution can use the Bing Maps API to plot information on the map. If your subscription is enabled for Bing Maps Enterprise API, then this feature is used automatically. If not, see the [FAQ][lnk-faq] to learn how to make the map dynamic.
 * An **Alerts** panel that displays alerts generated when a telemetry or OEE/KPI value exceeds a specific threshold.
 * An **Overall Equipment Efficiency** panel that shows the OEE values for the whole enterprise, or the factory/production line/station you are viewing. This value is aggregated from the station view to the enterprise level. The OEE figure and its constituent elements can be further analyzed.
