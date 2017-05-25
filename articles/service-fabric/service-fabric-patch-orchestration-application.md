@@ -66,7 +66,7 @@ You can use the [Azure Resource Manager template](https://docs.microsoft.com/azu
 
 To enable the repair manager service:
 
-1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource as shown in the following snippet. If it is different then you need to update the `apiVersion` to the value `2017-07-01-preview`:
+1. First check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource as shown in the following snippet. If it is different, then you need to update the `apiVersion` to the value `2017-07-01-preview`:
 
     ```json
     {
@@ -174,6 +174,9 @@ The behavior of the patch orchestration app can be configured to meet your needs
 | WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and Possible Values are as below <br>-   Monthly,DD,HH:MM:SS Ex: Monthly,5,12:22:32 <br> -   Weekly,DAY,HH:MM:SS Ex: Weekly, Tuesday, 12:22:32  <br> -   Daily, HH:MM:SS Ex: Daily, 12:22:32  <br> -  None - Indicates that Windows Update shouldn't be done  <br><br> NOTE: All the times are in UTC|
 | AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, application accepts EULA for Windows Update on behalf of the owner of the machine.              |
 
+> [!TIP]
+> If you want first Windows Update to happen immediately, set `WUFrequency` relative to application deployment time.
+<br>For example: If you've a five node test cluster, and planning to deploy the app at around 5:00 pm UTC. Assuming the application upgrade/deployment would take 30 minutes at max, set the WUFrequency as "Daily, 17:30:00"
 
 ## Deploy the app
 
@@ -207,6 +210,35 @@ For your convenience, we have provided script Undeploy.ps1 along with our applic
 ## View the Windows Update results
 
 The patch orchestration app exposes REST APIs to display the historical results to the user.
+Example of result json:
+```json
+[
+  {
+    "NodeName": "_stg1vm_1",
+    "WindowsUpdateOperationResults": [
+      {
+        "OperationResult": 0,
+        "NodeName": "_stg1vm_1",
+        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "UpdateDetails": [
+          {
+            "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
+            "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
+            "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
+            "ResultCode": 0
+          }
+        ],
+        "OperationType": 1,
+        "WindowsUpdateQuery": "IsInstalled=0",
+        "WindowsUpdateFrequency": "Daily,10:00:00",
+        "RebootRequired": false
+      }
+    ]
+  },
+  ...
+]
+```
+If no update has been scheduled yet, the result json would be empty.
 
 Windows Update results can be queried by logging in to the cluster, and then finding out the replica address for the primary of coordinator service, and hitting the url from the browser.
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults
