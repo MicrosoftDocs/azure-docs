@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint

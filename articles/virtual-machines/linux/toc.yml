@@ -296,6 +296,8 @@
       href: extensions-customscript.md
     - name: OMS Agent Extension
       href: extensions-oms.md
+    - name: Linux Diagnostic Extension
+      href: diagnostic-extension.md
   - name: Run applications
     items:
     - name: Cloud Foundry

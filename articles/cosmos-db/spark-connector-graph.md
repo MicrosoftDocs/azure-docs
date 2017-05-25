@@ -20,9 +20,9 @@ ms.author: khdang
 ---
 # Azure Cosmos DB: Perform graph analytics using Spark and Apache TinkerPop Gremlin
 
-[Azure Cosmos DB](introduction.md) is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. Azure Cosmos DB supports OLTP graph workloads using [Apache TinkerPop's Gremlin](graph-introduction.md)
+[Azure Cosmos DB](introduction.md) is Microsoft’s globally distributed multi-model database service. You can create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. Azure Cosmos DB supports OLTP graph workloads using [Apache TinkerPop's Gremlin](graph-introduction.md)
 
-[Spark](http://spark.apache.org/) is an Apache Software Foundation project focused on general-purpose OLAP data processing. Spark provides a hybrid in-memory/disk-based distributed computing model that is similar to Hadoop’s MapReduce model. You can deploy Apache Spark in the cloud for mission critical deployments using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/). Spark includes the [GraphX library](http://spark.apache.org/graphx/) for graphs and graph-parallel computation, which also uses Apache TinkerPop Gremlin.
+[Spark](http://spark.apache.org/) is an Apache Software Foundation project focused on general-purpose OLAP data processing. Spark provides a hybrid in-memory/disk-based distributed computing model that is similar to Hadoop’s MapReduce model. You can deploy Apache Spark in the cloud using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/). Spark includes the [GraphX library](http://spark.apache.org/graphx/) for graphs and graph-parallel computation, which also uses Apache TinkerPop Gremlin.
 
 With Azure Cosmos DB and Spark together, you can perform both OLTP and OLAP workloads using Gremlin. This quick start demonstrates how to run Gremlin queries against Azure Cosmos DB on an Azure HDInsight Spark cluster.
 
@@ -117,63 +117,63 @@ First, we create a database account with the Graph API.
 
 ## Prepare TinkerPop3 dependencies
 
-* Azure HDInsight Spark cluster is well-tuned with all the necessary jar dependencies for Spark and Hadoop. When we build TinnkerPop3 in the previous step, it also pulls all depedencies in the target directory. We will be using the jars that come with HDI cluster and only bring in the neccessary bits.
+When we built TinkerPop3 in the previous step, it also pulled all jar dependencies for Spark and Hadoop in the target directory. We will be using the jars are pre-installed with HDI, and pull in only additional dependencies as needed.
 
-* Go to Gremlin-Console target directory at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`. 
+    1. Go to Gremlin Console target directory at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`. 
 
-    * From here, move all jars under `ext/` to `lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`
+    2. From here, move all jars under `ext/` to `lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`
 
-    * Remove all jar libraries under `lib/` that are not in the below list.
+    3. Remove all jar libraries under `lib/` that are not in the below list.
 
-    ```bash
-    # TinkerPop3
-    gremlin-core-3.3.0-SNAPSHOT.jar       
-    gremlin-groovy-3.3.0-SNAPSHOT.jar     
-    gremlin-shaded-3.3.0-SNAPSHOT.jar     
-    hadoop-gremlin-3.3.0-SNAPSHOT.jar     
-    spark-gremlin-3.3.0-SNAPSHOT.jar      
-    tinkergraph-gremlin-3.3.0-SNAPSHOT.jar
+        ```bash
+        # TinkerPop3
+        gremlin-core-3.3.0-SNAPSHOT.jar       
+        gremlin-groovy-3.3.0-SNAPSHOT.jar     
+        gremlin-shaded-3.3.0-SNAPSHOT.jar     
+        hadoop-gremlin-3.3.0-SNAPSHOT.jar     
+        spark-gremlin-3.3.0-SNAPSHOT.jar      
+        tinkergraph-gremlin-3.3.0-SNAPSHOT.jar
 
-    # Gremlin depedencies
-    asm-3.2.jar                                
-    avro-1.7.4.jar                             
-    caffeine-2.3.1.jar                         
-    cglib-2.2.1-v20090111.jar                  
-    gbench-0.4.3-groovy-2.4.jar                
-    gprof-0.3.1-groovy-2.4.jar                 
-    groovy-2.4.9-indy.jar                      
-    groovy-2.4.9.jar                           
-    groovy-console-2.4.9.jar                   
-    groovy-groovysh-2.4.9-indy.jar             
-    groovy-json-2.4.9-indy.jar                 
-    groovy-jsr223-2.4.9-indy.jar               
-    groovy-sql-2.4.9-indy.jar                  
-    groovy-swing-2.4.9.jar                     
-    groovy-templates-2.4.9.jar                 
-    groovy-xml-2.4.9.jar                       
-    hadoop-yarn-server-nodemanager-2.7.2.jar   
-    hppc-0.7.1.jar                             
-    javatuples-1.2.jar                         
-    jaxb-impl-2.2.3-1.jar                      
-    jbcrypt-0.4.jar                            
-    jcabi-log-0.14.jar                         
-    jcabi-manifests-1.1.jar                    
-    jersey-core-1.9.jar                        
-    jersey-guice-1.9.jar                       
-    jersey-json-1.9.jar                        
-    jettison-1.1.jar                           
-    scalatest_2.11-2.2.6.jar                   
-    servlet-api-2.5.jar                        
-    snakeyaml-1.15.jar                         
-    unused-1.0.0.jar                           
-    xml-apis-1.3.04.jar                        
-    ```
+        # Gremlin depedencies
+        asm-3.2.jar                                
+        avro-1.7.4.jar                             
+        caffeine-2.3.1.jar                         
+        cglib-2.2.1-v20090111.jar                  
+        gbench-0.4.3-groovy-2.4.jar                
+        gprof-0.3.1-groovy-2.4.jar                 
+        groovy-2.4.9-indy.jar                      
+        groovy-2.4.9.jar                           
+        groovy-console-2.4.9.jar                   
+        groovy-groovysh-2.4.9-indy.jar             
+        groovy-json-2.4.9-indy.jar                 
+        groovy-jsr223-2.4.9-indy.jar               
+        groovy-sql-2.4.9-indy.jar                  
+        groovy-swing-2.4.9.jar                     
+        groovy-templates-2.4.9.jar                 
+        groovy-xml-2.4.9.jar                       
+        hadoop-yarn-server-nodemanager-2.7.2.jar   
+        hppc-0.7.1.jar                             
+        javatuples-1.2.jar                         
+        jaxb-impl-2.2.3-1.jar                      
+        jbcrypt-0.4.jar                            
+        jcabi-log-0.14.jar                         
+        jcabi-manifests-1.1.jar                    
+        jersey-core-1.9.jar                        
+        jersey-guice-1.9.jar                       
+        jersey-json-1.9.jar                        
+        jettison-1.1.jar                           
+        scalatest_2.11-2.2.6.jar                   
+        servlet-api-2.5.jar                        
+        snakeyaml-1.15.jar                         
+        unused-1.0.0.jar                           
+        xml-apis-1.3.04.jar                        
+        ```
 
 ## Get the Cosmos DB Spark Connector
 
-* Get the Cosmos DB Spark Connector `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` at https://github.com/Azure/azure-documentdb-spark/tree/master/releases/azure-documentdb-spark-0.0.3_2.0.2_2.11
+1. Get the Cosmos DB Spark Connector `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` from [Azure Cosmos DB Spark Connector on Github](https://github.com/Azure/azure-documentdb-spark/tree/master/releases/azure-documentdb-spark-0.0.3_2.0.2_2.11)
 
-* Alternatively you can build it locally. Because the latest verion of Spark-Gremlin  was built with Spark 1.6.1 and not compatible with Spark 2.0.2 currently used in the Cosmos DB Spark Connector, you can build the latest TinkerPop3 code and install the jars manually.
+2. Alternatively, you can build it locally. Because the latest verion of Spark-Gremlin  was built with Spark 1.6.1 and not compatible with Spark 2.0.2 currently used in the Cosmos DB Spark Connector, you can build the latest TinkerPop3 code and install the jars manually.
 
     1. Clone Cosmos DB Spark Connector
 
@@ -198,7 +198,7 @@ First, we create a database account with the Graph API.
     mvn clean package
     ```
 
-* Copy the above mentioned jars to a local directory at ~/azure-documentdb-spark
+3. Copy the above mentioned jars to a local directory at ~/azure-documentdb-spark
 
     ```bash
     $ azure-documentdb-spark:
@@ -209,9 +209,9 @@ First, we create a database account with the Graph API.
 
 ## Distribute the dependencies to the Spark worker nodes 
 
-* Since the transformation of graph data depends on TinkerPop3, we need to distribute the related dependencies to all Spark worker nodes.
+1. Since the transformation of graph data depends on TinkerPop3, we need to distribute the related dependencies to all Spark worker nodes.
 
-* Copy the Gremlin dependencies in listed previously, and the CosmosDB Spark Connector jar and CosmosDB Java SDK to the worker nodes as following
+2. Copy the Gremlin dependencies in listed previously, and the CosmosDB Spark Connector jar and CosmosDB Java SDK to the worker nodes as following
 
     1. Copy all the jars into `~/azure-documentdb-spark`
 
@@ -232,11 +232,11 @@ First, we create a database account with the Graph API.
     
 ## Set up the environment variables
 
-* Find the HDP version of the Spark cluster, it is the directory name under `/usr/hdp/`, for example "2.5.4.2-7."
+1. Find the HDP version of the Spark cluster, it is the directory name under `/usr/hdp/`, for example "2.5.4.2-7."
 
-* Set the hdp.version for all nodes: in Ambari Dashboard, go to `YARN section -> Configs -> Advanced`. In the `Custom yarn-site`, add a new property `hdp.version` with the value of the HDP version on the master node. Save the configurations - there are warnings but that could be ignored. After this, restart YARN and Oozie services as the notification icons indicate.
+2. Set the hdp.version for all nodes: in Ambari Dashboard, go to `YARN section -> Configs -> Advanced`. In the `Custom yarn-site`, add a new property `hdp.version` with the value of the HDP version on the master node. Save the configurations - there are warnings but that could be ignored. After this, restart YARN and Oozie services as the notification icons indicate.
 
-* Set the following environment variables on the master node (replace the values as appropriate):
+3. Set the following environment variables on the master node (replace the values as appropriate):
 
     ```bash
     export HADOOP_GREMLIN_LIBS=/home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/ext/spark-gremlin/lib
@@ -247,7 +247,7 @@ First, we create a database account with the Graph API.
 
 ## Prepare the graph configuration
 
-* Create a configuration file with the Cosmos DB connection parameters and Spark settings and put it at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`
+1. Create a configuration file with the Cosmos DB connection parameters and Spark settings and put it at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`
 
     ```
     gremlin.graph=org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph
@@ -283,9 +283,9 @@ First, we create a database account with the Graph API.
     spark.documentdb.preferredRegions=FILLIN
     ```
 
-* Update the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` to include the directory of the jars we have distributed in the previous step, in this case `/home/sshuser/azure-documentdb-spark/*`
+2. Update the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` to include the directory of the jars we have distributed in the previous step, in this case `/home/sshuser/azure-documentdb-spark/*`
 
-* Fill in the following details for Cosmos DB:
+3. Fill in the following details for Cosmos DB:
 
     ```
     spark.documentdb.Endpoint=https://FILLIN.documents.azure.com:443/
@@ -297,10 +297,9 @@ First, we create a database account with the Graph API.
     ```
    
 ## Load TinkerPop's graph and save to Cosmos DB
+To demonstrate how we can persist a graph into Cosmos DB, we are going to use the TinkerPop predefined TinkerPop modern graph as an example. The graph was stored in Kryo format and was provided in the tinkerpop repository.
 
-* To demonstrate how we can persist a graph into Cosmos DB, we are going to use the TinkerPop predefined TinkerPop modern graph as an example. The graph was stored in Kryo format and was provided in the tinkerpop repository.
-
-* Since we run Gremlin in YARN mode, we need to make the graph data available in the Hadoop file system. The below commands make a directory and copy the local graph file into it. 
+1. Since we run Gremlin in YARN mode, we need to make the graph data available in the Hadoop file system. The below commands make a directory and copy the local graph file into it. 
 
     ```bash
     $ tinkerpop:
@@ -308,14 +307,14 @@ First, we create a database account with the Graph API.
     hadoop fs -copyFromLocal ~/tinkerpop/data/tinkerpop-modern.kryo /graphData/tinkerpop-modern.kryo
     ```
 
-* We wil temporary update the `gremlin-spark.properties` file to use `GryoInputFormat` for reading the graph. We also indicate `inputLocation` as the directory we created like the following:
+2. Temporarily update the `gremlin-spark.properties` file to use `GryoInputFormat` for reading the graph. We also indicate `inputLocation` as the directory we created like the following:
 
     ```
     gremlin.hadoop.graphReader=org.apache.tinkerpop.gremlin.hadoop.structure.io.gryo.GryoInputFormat
     gremlin.hadoop.inputLocation=/graphData/tinkerpop-modern.kryo
     ```
 
-* Launch Gremlin Console and create these computation steps to persist data to the configured Cosmos DB collection:  
+2. Launch Gremlin Console and create these computation steps to persist data to the configured Cosmos DB collection:  
 
     1. Create the graph `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`
 
@@ -336,17 +335,17 @@ First, we create a database account with the Graph API.
     ==>result[hadoopgraph[documentdbinputrdd->documentdboutputrdd],memory[size:1]]
     ```
 
-* From Data Explorer or DocumentDBStudio we can verify the data has been ingested to Cosmos DB.
+3. From the Data Explorer, we can verify the data has been ingested to Cosmos DB.
 
 ## Load the graph from Cosmos DB and run Gremlin queries
 
-* For loading the graph, we edit `gremlin-spark.properties` to set `graphReader` to `DocumentDBInputRDD`:
+1. For loading the graph, edit `gremlin-spark.properties` to set `graphReader` to `DocumentDBInputRDD`:
 
     ```
     gremlin.hadoop.graphReader=com.microsoft.azure.documentdb.spark.gremlin.DocumentDBInputRDD
     ```
 
-* Follow the below steps to load the graph, traverse the data and run Gremlin queries with it:
+2. Follow the below steps to load the graph, traverse the data and run Gremlin queries with it:
 
     1. Launch Gremlin-Console `bin/gremlin.sh`
 
@@ -386,9 +385,9 @@ First, we create a database account with the Graph API.
         ==>29
         ```
 
-* Notes:
-    
-    * To see more details of the underlying activities, we can set the log level in `conf/log4j-console.properties` to a more verbose level.
+> [!NOTE]
+> To see more detailed logging, set the log level in `conf/log4j-console.properties` to a more verbose level.
+>
 
 ## Next steps
 
