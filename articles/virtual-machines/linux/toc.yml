@@ -145,7 +145,7 @@
         href: ansible-install-configure.md
       - name: Create basic VM
         href: ansible-create-vm.md
-      - name: Create complete VM environment
+      - name: Create complete VM
         href: ansible-create-complete-vm.md
     - name: Deploy an app with VM template
       items:

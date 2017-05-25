@@ -205,25 +205,25 @@ TASK [Gathering Facts] ****************************************************
 ok: [localhost]
 
 TASK [Create virtual network] *********************************************
-ok: [localhost]
+changed: [localhost]
 
 TASK [Add subnet] *********************************************************
-ok: [localhost]
+changed: [localhost]
 
 TASK [Create public IP address] *******************************************
-ok: [localhost]
+changed: [localhost]
 
 TASK [Create Network Security Group that allows SSH] **********************
 changed: [localhost]
 
 TASK [Create virtual network inteface card] *******************************
-ok: [localhost]
+changed: [localhost]
 
 TASK [Create VM] **********************************************************
-ok: [localhost]
+changed: [localhost]
 
 PLAY RECAP ****************************************************************
-localhost                  : ok=7    changed=1    unreachable=0    failed=0
+localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
 ## Next steps
