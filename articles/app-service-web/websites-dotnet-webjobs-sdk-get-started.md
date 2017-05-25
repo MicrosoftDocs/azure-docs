@@ -131,7 +131,7 @@ In a real-world application, you typically create separate accounts for applicat
     ![Click Storage Account Properties](./media/websites-dotnet-webjobs-sdk-get-started/storppty.png)
 3. In the **Properties** window, click **Storage Account Keys**, and then click the ellipsis.
 
-    ![New storage account](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
+    ![Storage account keys](./media/websites-dotnet-webjobs-sdk-get-started/stor-account-keys.png)
 4. Copy the **Connection String**.
 
     ![Storage Account Keys dialog](./media/websites-dotnet-webjobs-sdk-get-started/cpak.png)
