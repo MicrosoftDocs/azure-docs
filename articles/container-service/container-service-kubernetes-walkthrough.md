@@ -121,7 +121,7 @@ kubectl get pods
 ```
 
 ## View the NGINX welcome page
-To expose the NGINX server to the world with a public IP address, type the following command::
+To expose the NGINX server to the world with a public IP address, type the following command:
 
 ```bash
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
