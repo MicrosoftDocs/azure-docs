@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 05/25/2017
 ms.author: donnam
 
 ---
@@ -184,6 +184,23 @@ let Run(input: WorkItem, log: TraceWriter) =
     log.Info(sprintf "F# script processed queue message '%s'" json)
     json
 ```
+
+## Binding dataType property
+
+In .NET, use the types to define the data type for input data. For instance, use `string` to bind to the text of a queue trigger and a byte array to read as binary.
+
+For languages that are dynamically typed such as JavaScript, use the `dataType` property in the binding definition. For example, to read the content of an HTTP request in binary format, use the type `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Other options for `dataType` are `stream` and `string`.
 
 ## Resolving app settings
 As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store *function.json* in a public source control repository.
