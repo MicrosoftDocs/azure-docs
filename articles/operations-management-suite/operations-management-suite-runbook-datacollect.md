@@ -1,6 +1,6 @@
 ---
-title: Collecting Log Analytics data with a runbook | Microsoft Docs
-description: 
+title: Collecting Log Analytics data with a runbook in Azure Automation | Microsoft Docs
+description: Step by step tutorial that walks through creating a runbook in Azure Automation to collect data into the OMS repository for analysis by Log Analytics.  
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -18,16 +18,16 @@ ms.author: bwren
 
 ---
 # Collect data in Log Analytics with an Azure Automation runbook
-You can collect a significant amount of data in Log Analytics from a variety of sources including [data sources](../log-analytics/log-analytics-data-sources.md) on agents and also [data collected from Azure](../log-analytics/log-analytics-azure-storage.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.  In these cases, you can use the [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.  The runbook collects data from some source which can be any service or application accessible from a runbook.  It then uses the Data Collector API to write this data to Log Analaytics using a data type custom to your solution.  
+You can collect a significant amount of data in Log Analytics from a variety of sources including [data sources](../log-analytics/log-analytics-data-sources.md) on agents and also [data collected from Azure](../log-analytics/log-analytics-azure-storage.md).  There are a scenarios though where you need to collect data that isn't accessible through these standard sources.  In these cases, you can use the [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) to write data to Log Analytics from any REST API client.  A common method to perform this data collection is using a runbook in Azure Automation.   
 
-This article walks through the process for creating and scheduling a runbook to write data to Log Analytics.
+This tutorial walks through the process for creating and scheduling a runbook in Azure Automation to write data to Log Analytics.
 
 
 ## Prerequisites
-This scenario requires the following resources configured in your Azure subscription.  
+This scenario requires the following resources configured in your Azure subscription.  Both can be a free account.
 
-- [Log Analytics workspace](../log-analytics/log-analytics-get-started.md).  Can be a free account.
-- [Azure automation account](../automation/automation-offering-get-started.md).  Can be a free account.
+- [Log Analytics workspace](../log-analytics/log-analytics-get-started.md).
+- [Azure automation account](../automation/automation-offering-get-started.md).
 
 ## Overview of scenario
 For this tutorial, you'll write a runbook that collects information about Automation jobs.  You could use this same process with a script that collects different data.
@@ -35,11 +35,8 @@ For this tutorial, you'll write a runbook that collects information about Automa
 Runbooks in Azure Automation are implemented with PowerShell, so you'll start by writing and testing a script in the Azure Automation editor.  Once you verify that you're collecting the required information, you'll write that data to Log Analytics and verify the custom data type.  Finally, you'll create a schedule to start the runbook at regular intervals.
 
 
-
-## Process
-
-### 1. Install Data Collector API module
-Every [request from the HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md#create-a-request) must be formatted appropriately and include an authorization header.  You can do this in your runbook, but you can reduce the amount of code required by using a module that provides these functions.  One module that you can use is [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI) in the PowerShell Gallery.
+## 1. Install Data Collector API module
+Every [request from the HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md#create-a-request) must be formatted appropriately and include an authorization header.  You can do this in your runbook, but you can reduce the amount of code required by using a module that simplifies this process.  One module that you can use is [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI) in the PowerShell Gallery.
 
 To use a [module](../automation/automation-integration-modules.md) in a runbook, it must be installed in your Automation account.  Any runbook in the same account can then use the functions in the module.  You can install a new module by selecting **Assets** > **Modules** > **Add a module** in your Automation account.  
 
@@ -52,7 +49,7 @@ The PowerShell Gallery though gives you a quick option to deploy a module direct
 
 ![OMSIngestionAPI module](media/operations-management-suite-runbook-datacollect/OMSIngestionAPI.png)
 
-### 2. Create Automation variables
+## 2. Create Automation variables
 [Automation variables](..\automation\automation-variables.md) hold values that can be used by all runbooks in your Automation account.  They make runbooks more flexible by allowing you to change these values without editing the actual runbook. Every request from the HTTP Data Collector API requires the ID and key of the OMS workspace, and variable assets are ideal to store this information.  
 
 ![Variables](media/operations-management-suite-runbook-datacollect/variables.png)
@@ -70,9 +67,9 @@ The PowerShell Gallery though gives you a quick option to deploy a module direct
 
 
 
-### 3. Create runbook
+## 3. Create runbook
 
-Azure Automation has an editor in the portal where you can edit and test your runbook.  You have the option to use the script editor to work with PowerShell directly or create a graphical runbook.  For this tutorial, you will work with a PowerShell script. 
+Azure Automation has an editor in the portal where you can edit and test your runbook.  You have the option to use the script editor to work with [PowerShell directly](../automation/automation-edit-textual-runbook.md) or [create a graphical runbook](../automation/automation-graphical-authoring-intro.md).  For this tutorial, you will work with a PowerShell script. 
 
 ![Edit runbook](media/operations-management-suite-runbook-datacollect/edit-runbook.png)
 
@@ -80,7 +77,7 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 2. Click **Runbooks** > **Add a runbook** > **Create a new runbook**.
 3. For the runbook name, type **Collect-Automation-jobs**.  For the runbook type, select **PowerShell**.
 4. Click **Create** to create the runbook and start the editor.
-5. Paste the following code into the runbook.  Refer to the comments in the script for explanation of the code.
+5. Copy and paste the following code into the runbook.  Refer to the comments in the script for explanation of the code.
 
 	
 	# Get information required for the automation account from parameter values when the runbook is started.
@@ -92,7 +89,8 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 	    [string]$automationAccountName
 	)
 	
-	# Use the Azure connection created when the Automation account is created.  This is coped from the runbook AzureAutomationTutorial.
+	# Authenticate to the Automation account using the Azure connection created when the Automation account was created.
+	# Code copied from the runbook AzureAutomationTutorial.
 	$connectionName = "AzureRunAsConnection"
 	$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 	Add-AzureRmAccount `
@@ -104,11 +102,11 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 	# Set the $VerbosePreference variable so that we get verbose output in test environment.
 	$VerbosePreference = "Continue"
 	
-	# Get information required for workspace from Automation variables.
+	# Get information required for Log Analytics workspace from Automation variables.
 	$customerId = Get-AutomationVariable -Name 'WorkspaceID'
 	$sharedKey = Get-AutomationVariable -Name 'WorkspaceKey'
 	
-	# Set the name of the new record type.
+	# Set the name of the record type.
 	$logType = "AutomationJob"
 	
 	# Get the jobs from the past hour.
@@ -118,31 +116,31 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 	    # Convert the job data to json
 	    $body = $jobs | ConvertTo-Json
 	
-	    # Write the body to verbose output so we can inspect it if verbose logging is on for the runbook
+	    # Write the body to verbose output so we can inspect it if verbose logging is on for the runbook.
 	    Write-Verbose $body
 	
-	    # Send the data to Log Analytics
+	    # Send the data to Log Analytics.
 	    Send-OMSAPIIngestionFile -customerId $customerId -sharedKey $sharedKey -body $body -logType $logType -TimeStampField CreationTime
 	}
 
 
-### 4. Test the runbook
-Azure Automation includes an environment to test your runbook before you publish it.  You can inspect the data collected by the runbook and verify that it writes to Log Analytics as expected. 
+## 4. Test the runbook
+Azure Automation includes an environment to [test your runbook](../automation/automation-testing-runbook.md) before you publish it.  You can inspect the data collected by the runbook and verify that it writes to Log Analytics as expected before publishing it to production. 
  
 ![Test runbook](media/operations-management-suite-runbook-datacollect/test-runbook.png)
 
 6. Click **Save** to save the runbook.
-1. Click **Test pane** to open the runbook in the test pane.
+1. Click **Test pane** to open the runbook in the test environment.
 3. Since your runbook has parameters, you're prompted to enter values for them.  Enter the name of the resource group and the automation account that your going to collect job information from.
 4. Click **Start** to the start the runbook.
 3. The runbook will start with a status of **Queued** before it goes to **Running**.  
-3. The runbook should display output with the jobs collected in json format.  If no jobs are listed, then there may have been no jobs created in the automation account in the last hour.  Try starting any runbook in the automation account and then perform the test again.
+3. The runbook should display verbose output with the jobs collected in json format.  If no jobs are listed, then there may have been no jobs created in the automation account in the last hour.  Try starting any runbook in the automation account and then perform the test again.
 4. Ensure that the output doesn't show any errors in the post command to Log Analytics.  You should have a message similar to the following.
 
 ![Post output](media/operations-management-suite-runbook-datacollect/post-output.png)
 
-### 5. Verify records created in Log Analytics
-Once we've run the runbook and verified that the output was successfully received, we can verify that the records have been created in Log Analytics.
+## 5. Verify records created in Log Analytics
+Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
 ![Log output](media/operations-management-suite-runbook-datacollect/log-output.png)
 
@@ -152,7 +150,7 @@ Once we've run the runbook and verified that the output was successfully receive
 4. You should see one or more records returned indicating that the runbook is working as expected.
 
 
-### 5. Publish the runbook
+## 5. Publish the runbook
 Once you've verified that the runbook is working correctly, you need to publish it so you can run it in production.  You can continue to edit and test the runbook without modifying the published version.  
 
 ![Publish runbook](media/operations-management-suite-runbook-datacollect/publish-runbook.png)
@@ -162,8 +160,16 @@ Once you've verified that the runbook is working correctly, you need to publish 
 3. Click **Edit** and then **Publish**.
 4. Click **Yes** when asked to verify that you want to overwrite the previously published version.
 
+## 6. Set logging options 
+For test, you were able to view [verbose output](../automation/automation-runbook-output-and-messages.md#message-streams) because you set the $VerbosePreference variable in the script.  For production, you need to set the logging properties for the runbook if you want to view verbose output.  For the runbook used in this tutorial, this will display the json data being sent to Log Analytics.
 
-### 6. Schedule the runbook
+![Logging and tracing](media/operations-management-suite-runbook-datacollect/logging.png)
+
+1. In the properties for your runbook select **Logging and tracing** under **Runbook Settings**.
+2. Change the setting for **Log verbose records** to **On**.
+3. Click **Save**.
+
+## 7. Schedule the runbook
 The most common way to start a runbook that collects monitoring data is to schedule it to run automatically.  You do this by creating a [schedule in Azure Automation](../automation/automation-schedules.md) and attaching it to your runbook.
 
 ![Schedule runbook](media/operations-management-suite-runbook-datacollect/schedule-runbook.png)
@@ -186,22 +192,12 @@ Once the schedule is created, you need to set the parameter values that will be 
 7. Fill in values for your **ResourceGroupName** and **AutomationAccountName**.
 8. Click **OK**. 
 
-### 7. Set logging options 
-For test, you were able to view verbose output because you set the $VerbosePreference variable in the script.  For production, you need to set the logging properties for the runbook if you want to view verbose output.  For the runbook used in this tutorial, this will display the json data being sent to Log Analytics.
-
-![Logging and tracing](media/operations-management-suite-runbook-datacollect/logging.png)
-
-1. In the properties for your runbook select **Logging and tracing** under **Runbook Settings**.
-2. Change the setting for **Log verbose records** to **On**.
-3. Click **Save**.
-
-
-### 8. Verify that the runbook starts on schedule
-Everytime a runbook is started, a job is created and any output logged.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
+## 8. Verify that the runbook starts on schedule
+Everytime a runbook is started, [a job is created](../automation/automation-runbook-execution) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
 
 ![Jobs](media/operations-management-suite-runbook-datacollect/jobs.png)
 
-1. In the properties for your runbook select **Jobs** under **Resources**.
+1. In the properties for your runbook, select **Jobs** under **Resources**.
 2. You should see a listing of jobs for each time the runbook was started.
 3. Click on one of the jobs to view its details.
 4. Click on **All logs** to view the logs and output from the runbook.
@@ -211,5 +207,8 @@ Everytime a runbook is started, a job is created and any output logged.  You can
 
 
 ## Next steps
-- Use the [Log Search API](../log-analytics/log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
-
+- Use [View Designer](../log-analytics/log-analytics-view-designer.md) to create a view displaying the data that you've collected to the Log Analytics repository.
+- Package your runbook in a [management solution](operations-management-suite-solutions-creating.md) to distribute to customers.
+- Learn more about [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
+- Learn more about [Azure Automation](https://docs.microsoft.com/azure/automation/).
+- Learn more about the [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md).
