@@ -101,8 +101,7 @@ spring.datasource.password=mysqlpass
 Build the sample using the Maven wrapper included in the repo, then run the executable jar from the command line to start the sample:
 
 ```
-mvnw package 
-java -jar target/TodoDemo-0.0.1-SNAPSHOT.jar
+mvnw package spring-boot:run
 ```
 
 Open your browser to [http://localhost:8080](http://localhost:8080) the sample app. Add a few tasks in the page. You can view the updates in the MySQL database as you work in the sample using the folloowing commands:
@@ -221,8 +220,7 @@ spring.datasource.password=Javaapp_password
 Use the same commands as before to run the sample. This time the app will store the todo items in the Azure Database for MySQL service: 
 
 ```bash
-mvnw package 
-java -jar target/TodoDemo-0.0.1-SNAPSHOT.jar
+mvnw clean package spring-boot:run
 ```
 
 Open your browser to [http://localhost:8080](http://localhost:8080) to load the sample app. Add a few tasks in the page. 
@@ -328,17 +326,17 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 ### Set the Java version, the Java Application Server type, and the Application Server version
 
-Set the Java version, Java App Server (container), and container version by using the [az appservice web config update](/cli/azure/appservice/web/config#update) command.
+Set the Java version, Java App Server (container) type, and container version by using the [az appservice web config update](/cli/azure/appservice/web/config#update) command.
 
-The following command sets the Java version to 8, the Java App Server to Jetty, and the Jetty version to Newest Jetty 9.3.
+The following command sets the Java version to 8, the Java App Server to Tomcat, and the Tomcat version to 8.
 
 ```azurecli
-az appservice web config update --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Jetty --java-container-version 9.3
+az appservice web config update --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
 ```
 
 ### Get credentials for deployment to the Web App using FTP 
 You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
-For this example, we use Maven to compile a .WAR file and FTP to deploy the .WAR file to the Web App
+For this example, FTP to deploy the .WAR file built with Maven to the Web App:
 
 To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command: 
 
@@ -361,18 +359,24 @@ Toward the end of the Maven package process, notice the location of the .WAR fil
 [INFO] Processing war project
 [INFO] Copying webapp resources [local-location\GitHub\mysql-java-todo-app\WebContent]
 [INFO] Webapp assembled in [1519 msecs]
-[INFO] Building war: C:\Users\your\localGitHub\mysql-java-todo-app\target\azure-appservice-mysql-java-sample-0.0.1-SNAPSHOT.war
+[INFO] Building war: /Users/raisa/mysql-java-todo-app/target/TodoDemo-0.0.1-SNAPSHOT.war
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 
 ```
 
-Note the location of the .War file, and use your favorite FTP method to deploy the .WAR file to the Jetty WebApps folder.  In this example, the Jetty WebApps folder is located at /site/wwwroot/webapps in an Azure Web App. 
+Note the location of the .War file, and use your favorite FTP method to deploy the .WAR file to the /site/wwwroot/webapps , removing the existing default (ROOT) application and replacing it with the sample.
+
+```
+cd /site/wwwroot/webapps
+rmdir ROOT/
+put target\TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
+```
 
 ### Browse to the Azure web app
 
-Browse to `http://<app_name>.azurewebsites.net/<app_name>` and add a few tasks to the list. 
+Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list. 
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
