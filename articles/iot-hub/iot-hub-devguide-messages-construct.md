@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # Create and read IoT Hub messages
 
-To support seamless interoperability across protocols, IoT Hub defines a common message format that all device-facing protocols support. An IoT Hub message consists of:
+To support seamless interoperability across protocols, IoT Hub defines a common message format for all device-facing protocols. This message format is used for both [device-to-cloud][lnk-d2c] and [cloud-to-device][lnk-c2d] messages. An [IoT Hub message][lnk-messaging] consists of:
 
 * A set of *system properties*. Properties that IoT Hub interprets or sets. This set is predetermined.
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
@@ -64,10 +64,12 @@ For information about message size limits in IoT Hub, see [IoT Hub quotas and th
 
 To learn how to create and read IoT Hub messages in various programming languages, see the [Get started][lnk-get-started] tutorials.
 
+[lnk-messaging]: iot-hub-devguide-messaging.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-get-started]: iot-hub-get-started.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
-[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
+[[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties

@@ -16,11 +16,9 @@ ms.date: 05/25/2017
 ms.author: dobett
 
 ---
-# Use custom endpoints and routing rules for device-to-cloud messages
+# Use routing rules and custom endpoints for device-to-cloud messages
 
-You can create custom endpoints by linking other services in your subscription to the hub. IoT Hub currently supports Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
-
-IoT Hub enables you to route messages to IoT Hub service-facing endpoints based on message properties. Routing rules give you the flexibility to send messages where they need to go without the need for additional services to process messages or to write additional code. Each routing rule you configure has the following properties:
+IoT Hub enables you to route [device-to-cloud messages][lnk-device-to-cloud] to IoT Hub service-facing endpoints based on message properties. Routing rules give you the flexibility to send messages where they need to go without the need for additional services to process messages or to write additional code. Each routing rule you configure has the following properties:
 
 | Property      | Description |
 | ------------- | ----------- |
@@ -30,6 +28,8 @@ IoT Hub enables you to route messages to IoT Hub service-facing endpoints based 
 | **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the condition. Endpoints should be in the same region as the IoT hub, otherwise you may be charged for cross-region writes. |
 
 A single message may match the condition on multiple routing rules, in which case IoT Hub delivers the message to the endpoint associated with each matched rule. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple rules that all have the same destination, it is only written to that destination once.
+
+An IoT hub has a default [built-in endpoint][lnk-built-in]. You can create custom endpoints to route messages to by linking other services in your subscription to the hub. IoT Hub currently supports Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints.
 
 For more information about creating custom endpoints in IoT Hub, see [IoT Hub endpoints][lnk-devguide-endpoints].
 
@@ -47,7 +47,8 @@ For more information about the query language you use to define routing rules, s
 
 The [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial shows you how to use routing rules and custom endpoints.
 
-
+[lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
+[lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-query-language]: iot-hub-devguide-query-language.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

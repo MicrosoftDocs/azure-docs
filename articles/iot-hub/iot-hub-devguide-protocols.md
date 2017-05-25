@@ -19,7 +19,9 @@ ms.author: dobett
 ---
 # Reference - choose a communication protocol
 
-IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
+IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. For information about how these protocols support specific IoT Hub features, see [Device-to-cloud communications guidance][lnk-d2c-guidance] and [Cloud-to-device communications guidance][lnk-c2d-guidance].
+
+The following table provides the high-level recommendations for your choice of protocol:
 
 | Protocol | When you should choose this protocol |
 | --- | --- |
@@ -57,6 +59,8 @@ Once you have created an IoT hub in an Azure region, the IoT hub keeps the same 
 
 To learn more about how IoT Hub implements the MQTT protocol, see [Communicate with your IoT hub using the MQTT protocol][lnk-mqtt-support].
 
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-amqp]: http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf
 [lnk-mqtt]: http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf
