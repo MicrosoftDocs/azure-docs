@@ -34,7 +34,7 @@ To start sending your Automation DSC reports to Log Analytics, you need:
 1. The November 2016 or later release of [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 1. An Azure Automation account. For more information, see [Getting Started with Azure Automation](automation-offering-get-started.md)
 2. A Log Analytics workspace with an **Automation & Control** service offering. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).
-3. At least one Azure Automation DSC node. For more information, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding) 
+3. At least one Azure Automation DSC node. For more information, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md) 
 
 ## Set up integration with Log Analytics
 
