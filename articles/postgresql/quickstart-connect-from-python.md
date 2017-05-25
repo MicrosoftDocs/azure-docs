@@ -45,7 +45,7 @@ Get the connection information needed to connect to the Azure Database for Postg
  ![Azure Database for PostgreSQL - Server Admin Login](./media/quickstart-connect-from-python/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
    
-## Connect and Insert data
+## Connect, Create table and Insert data
 Use the following code to connect and load the data using [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function with **INSERT** SQL statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function is used to execute the SQL query against PostgreSQL database. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
 ```Python
