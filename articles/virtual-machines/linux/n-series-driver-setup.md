@@ -183,13 +183,13 @@ sudo reboot
 
 ## Install GRID drivers for NV VMs
 
-To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and follow the steps for your  Linux distribution. 
+To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
 
 ### Ubuntu 16.04 LTS
 
 1. Run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
 
-2. Install updates
+2. Install updates.
 
   ```bash
   sudo apt-get update
@@ -208,7 +208,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 4. Reboot the VM and reconnect. Exit X server:
 
   ```bash
-
+  sudo systemctl stop lightdm.service
   ```
 
 5. Download and install the GRID driver:
@@ -221,14 +221,14 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
   sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
   ``` 
 
-6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, click **Yes**.
+6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
 7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
  
   ```
   IgnoreSP=TRUE
   ```
-Proceed to verify the installation.
+8. Reboot, and proceed to verify the installation.
 
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
@@ -278,14 +278,14 @@ Proceed to verify the installation.
 
   sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
   ``` 
-6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, click **Yes**.
+6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
 7. After installation completes, add the following to `/etc/nvidia/gridd.conf.template`:
  
   ```
   IgnoreSP=TRUE
   ```
-Proceed to verify the installation.
+8. Reboot, and proceed to verify the installation.
 
 ### Verify driver installation
 
@@ -298,7 +298,7 @@ Output similar to the following appears:
  
 
 ### X11 server
-If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the xconfig file (`etc/X11/xorg.conf` on Ubuntu 16.04 LTS, `/etc/X11/XF86config` on CentOS 7.3 or Red Hat Enterprise Server). Add a `"Device"` section similar to the following:
+If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the xconfig file (`etc/X11/xorg.conf` on Ubuntu 16.04 LTS, `/etc/X11/XF86config` on CentOS 7.3 or Red Hat Enterprise Server 7.3). Add a `"Device"` section similar to the following:
  
 ```
 Section "Device"
@@ -306,7 +306,7 @@ Section "Device"
     Driver         "nvidia"
     VendorName     "NVIDIA Corporation"
     BoardName      "Tesla M60"
-    BusID          "your-BusID"
+    BusID          "your-BusID:0:0:0"
 EndSection
 ```
  
