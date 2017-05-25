@@ -1,6 +1,6 @@
 ---
-title: Open Source Technologies FAQ| Microsoft Docs
-description: This article lists the frequently asked questions about open Source technologies in Web Apps.
+title: Open Source Technologies issues for Azure Web Apps FAQ| Microsoft Docs
+description: This article lists the frequently asked questions about open Source technologies in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
 author: simonxjx
@@ -27,7 +27,7 @@ This article includes frequently asked questions about open source technologies 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## My ClearDB database is down
-Please contact [ClearDB Support](https://www.cleardb.com/developers/help/support) for any database related issues. Also please refer to the [ClearDB FAQ](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/) which answers several questions.
+Please contact [ClearDB Support](https://www.cleardb.com/developers/help/support) for any database related issues. Also please refer to the [ClearDB FAQ](https://docs.microsoft.com/azure/store-cleardb-faq/) which answers several questions.
 
 ## Why is my ClearDB database not visible in the portal
 
@@ -35,7 +35,7 @@ If you create ClearDB database using the new [Azure portal](http://portal.azure.
 
 To workaround this, link your database manually to the web app.
 
-Similarly if you create ClearDB database in the [classic Azure portal](http://manage.windowsazure.com/)  you will not be able to see your database in the new [Azure portal](http://portal.azure.com/). There is no workaround for this scenario. For more details, see [FAQ for ClearDB MySql databases with Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/).
+Similarly if you create ClearDB database in the [classic Azure portal](http://manage.windowsazure.com/)  you will not be able to see your database in the new [Azure portal](http://portal.azure.com/). There is no workaround for this scenario. For more details, see [FAQ for ClearDB MySql databases with Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## Why was my ClearDB database not migrated during subscription migration
 
@@ -45,7 +45,7 @@ ClearDB MySQL database is a third party service and hence does not get migrated 
 
 If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. To avoid this, you need to manually migrate your databases first and then perform Azure subscription migration for your web app.
 
-FAQ for ClearDB MySql databases with Azure App Service can be found [here](https://azure.microsoft.com/en-us/documentation/articles/store-cleardb-faq/).
+FAQ for ClearDB MySql databases with Azure App Service can be found [here](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## How can I enable PHP logging to troubleshoot PHP issues
 
@@ -123,11 +123,11 @@ If you see this error in your debug.log or php_errors.log, then your application
 * Browse your Application Logs folder available @ D:\home\LogFiles\Application.
 * Check for content in logging_errors.txt file.
 
-## Installing Native python modules on Azure App service Web Apps or API Apps.
+## Installing Native python modules on Azure App service Web Apps or API Apps
 
 Some packages may not install using pip when run on Azure. It may simply be that the package is not available on the Python Package Index. Or it could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service). This [blog article](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/) provides guidance on installing native modules on Azure App Service Web Apps and API Apps.
 
-## Deploying Django App to Azure App Services using Git and new version of Python.
+## Deploying Django App to Azure App Services using Git and new version of Python
 
 For guidance on installing Django, see [Deploying Django App to Azure App Services using Git and new version of Python](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
 
