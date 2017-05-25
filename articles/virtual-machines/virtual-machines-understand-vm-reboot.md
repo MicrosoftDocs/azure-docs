@@ -20,16 +20,13 @@ ms.author: genli
 
 # Understand a system reboot for Azure VM
 
-Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, and with no evidence of a user initiating the reboot operation. 
-
-This article lists the events that can cause the VM to reboot and provides some insight into how to avoid the reboot issues or reduct the impact.
+Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, and with no evidence of a user initiating the reboot operation. This article lists the events that can cause the VM to reboot and provides some insight into how to avoid the reboot issues or reduct the impact.
 
 ## Azure VM SLAs
-Azure offers various service levels for Azure products 
+Azure offers various service levels for Azure products:
 
-- Azure Service Level Agreements
-Details for VM SLAs can be found here:
-- SLA for VMs
+- [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
+- [SLA for VMs](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5//)
 
 ## Configure the VMs for High Availability
 The best way to protect your application running on Azure against any type of VM reboots and downtime is to configure the VMs for high availability.
@@ -38,15 +35,11 @@ To provide this level of redundancy to your application, we recommend that you g
 
 Details on how to configure and manage the availability of VMs can be found here:
 
-- Manage the availability of VMs 
-- Configure availability of VMs
+- [Manage the availability of VMs](windows/manage-availability.md)
+- [Configure availability of VMs](windows/classic/configure-availability.md)
 
 ## Resource Health Information 
-Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting. In particular, reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform.
-
-More details on Azure Resource health can be found here
-
-- Understand and use Resource Health to troubleshoot this scenario in the future
+Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting. In particular, reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform. For more information,  see [Understand and use Resource Health to troubleshoot this scenario in the future](../resource-health/resource-health-overview)
 
 ## Events that can cause the VM to reboot
 
@@ -70,7 +63,7 @@ Not all updates can be deployed by using this mechanism, but given the short pau
 Multi-instance updates (for VMs in an availability set) are applied one update domain at a time.
 
 > [!Note]
-> Linux machines with old kernel versions are affected by a kernel panic during this update method. To avoid this issue, update to kernel version 3.10.0-327.10.1 or a later version. For more information, see [An Azure Linux VM on a 3.10-based kernel panics after a host node upgrade](https://support.microsoft.com/help/3212236/an-azure-linux-vm-on-a-3.10-based-kernel-panics-after-a-host-node-upgrade).     
+> Linux machines with old kernel versions are affected by a kernel panic during this update method. To avoid this issue, update to kernel version 3.10.0-327.10.1 or a later version. For more information, see [An Azure Linux VM on a 3.10-based kernel panics after a host node upgrade](https://support.microsoft.com/help/3212236).     
     
 ### User initiated reboot/shutdown actions
  
@@ -82,7 +75,7 @@ Other actions that implicitly cause the VM to reboot include multiple configurat
 Examples include any VM resize operations, changing the password of the administrative account and setting a static IP address.
 
 ### Azure Security center and Windows Updates
-Azure Security Center monitors daily Windows and Linux VMs (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center recommends that you apply system updates. Applying these system updates is controlled via the Security Center section in Azure portal. After applying some updates, it is required that the VM reboots. For more information, see [Apply system updates in Azure Security Center](../security-center/security-center-apply-system-updates).
+Azure Security Center monitors daily Windows and Linux VMs (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center recommends that you apply system updates. Applying these system updates is controlled via the Security Center section in Azure portal. After applying some updates, it is required that the VM reboots. For more information, see [Apply system updates in Azure Security Center](../security-center/security-center-apply-system-updates.md).
 
 Like on-premises machine, Azure does not push Windows Updates to Windows Azure VMs since these machines are intended to be managed by the user.  Customers are, however encouraged to leave the automatic Windows Update setting enabled. Automatic installation of Windows Updates might also cause reboots to occur after the update has been applied. For more information, see [Windows Update FAQ](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -124,4 +117,3 @@ The duration of the shutdown can be as short as five minutes but can be signific
 VM might be temporarily shut down when I/O requests are consistently throttled due to excessive IOPS, exceeding the I/O limits for disks. Standard disk storage is limited to 500 input/output operations per second (IOPS). Depending on the workload, a striped disk or configuring Storage Spaces inside the Guest VM may help mitigate the issue.  Details are available in this support article: Configuring Azure VMs for Optimal Storage Performance
 
 Higher IOPS limits are available via Azure Premium Storage with up to 80,000 IOPs. For more information, See [High-Performance Premium Storage](../storage/storage-premium-storage.md).
-
