@@ -9,7 +9,7 @@ ms.date: 05/24/2017
 ---
 # Azure Key Vault Storage Account Keys
 
-Before Azure Key Vault Storage Account Keys, developers had to manage thier own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Azure Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) and are for authenticating with an Azure storage account. 
+Before Azure Key Vault Storage Account Keys, developers had to manage their own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Azure Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) and are for authenticating with an Azure storage account. 
 
 The Key Vault ASA key feature adds value through managing secret rotation for you. It also removes the need for your direct contact with an Azure Storage Account key by offering shared access signatures (SAS) as a method. 
 
@@ -57,7 +57,7 @@ var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSett
 ### After Azure Key Vault Storage Keys 
 
 ```
-//Get sastoken from Key Vault //.... 
+//Get SAS token from Key Vault //.... 
  
 // Create new storage credentials using the SAS token. 
 
@@ -98,11 +98,11 @@ Additionally, it is also required that Key Vault verifies that identity has rege
 [VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
 - Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
 
-If the identity (via OBO token) does not have regenerate permissions or if Key Vault first party identity doesn’t have list or regenerate permission then the onboaring request fails as a bad request with appropriate the error code and message. 
+If the identity (via OBO token) does not have regenerate permissions or if Key Vault first party identity doesn’t have list or regenerate permission then the onboarding request fails as a bad request with appropriate the error code and message. 
 
 Note that the OBO token will only work when you use first-party, native client applications of PowerShell and CLI.  
 
-### Role based access control permissions
+### Role-based access control permissions
 
 Key Vault needs permissions to list and regenerate keys for a storage account. Follow these steps to set this up. 
 
