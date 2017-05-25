@@ -102,9 +102,9 @@ If the identity (via OBO token) does not have regenerate permissions or if Key V
 
 Note that the OBO token will only work when you use first-party, native client applications of PowerShell and CLI.  
 
-### RBAC permissions
+### Role based access control permissions
 
-Key Vault needs permissions to list and regenerate keys on a storage account. Follow these steps to set this up. 
+Key Vault needs permissions to list and regenerate keys for a storage account. Follow these steps to set this up. 
 
 1. Get ObjectId of KV through this command: 
 `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`  
