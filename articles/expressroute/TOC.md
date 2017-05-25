@@ -48,7 +48,7 @@
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
-## [CLI](/cli/azure/network/express-route)
+## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
