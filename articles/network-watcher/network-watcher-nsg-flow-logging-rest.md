@@ -21,6 +21,7 @@ ms.author: gwallace
 
 # Configuring Network Security Group flow logs using REST API
 
+> [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
