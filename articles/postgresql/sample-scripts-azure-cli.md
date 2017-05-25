@@ -12,7 +12,7 @@ ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic:  article
 ms.custom: sample
-ms.date: 05/10/2017
+ms.date: 05/25/2017
 ---
 # Azure CLI samples for Azure Database for PostgreSQL 
 The following table includes links to sample Azure CLI scripts for Azure Database for PostgreSQL.
