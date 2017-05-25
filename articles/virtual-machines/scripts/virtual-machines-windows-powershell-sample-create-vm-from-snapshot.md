@@ -21,9 +21,8 @@ ms.author: ramankum
 # Create a virtual machine from a snapshot with PowerShell
 
 This script creates a virtual machine from a snapshot of an OS disk. 
-* 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -200,6 +200,16 @@ US : VA-Ashburn
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API docs |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 
+## Application Insights Analytics
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Analytics Portal | analytics.applicationinsights.io | dynamic | 80,443 |
+| CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
+| Media CDN | applicationanalyticsmedia.azureedge.net | dynamic | 80,443 |
+
+Note: *.applicationinsights.io domain is owned by Application Insights team.
+
 ## Profiler
 
 | Purpose | URI | IP | Ports |

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Extensible policy framework | Microsoft Docs'
+title: 'Azure Active Directory B2C: Built-in Policies | Microsoft Docs'
 description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
 services: active-directory-b2c
 documentationcenter: ''
@@ -17,8 +17,10 @@ ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
-# Azure Active Directory B2C: Extensible policy framework
+# Azure Active Directory B2C: Built-in Policies
+
 ## The basics
+
 The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
 * Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.

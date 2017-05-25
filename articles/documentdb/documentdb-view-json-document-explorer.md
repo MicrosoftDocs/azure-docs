@@ -1,21 +1,6 @@
 ---
-title: 'Azure Cosmos DB portal tool: Document Explorer | Microsoft Docs'
-description: Learn about the Azure Cosmos DB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload documents.
-keywords: view json
-services: cosmosdb
-author: kirillg
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: 029d81b3-6382-4799-a1bd-0dcbccd9968d
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/18/2017
-ms.author: kirillg
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # View, edit, create, and upload JSON documents 

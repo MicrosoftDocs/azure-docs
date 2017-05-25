@@ -28,11 +28,9 @@ Learn how to use Azure PowerShell to configure Azure HDInsight clusters with Azu
 
 Here are some important considerations for using HDInsight with Data Lake Store:
 
-* The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
+* The option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5 and 3.6.
 
 * The option to create HDInsight clusters with access to Data Lake Store as default storage is *not available* for HDInsight Premium clusters.
-
-* For HBase clusters (Windows and Linux), Data Lake Store is *not supported* as a storage option for either default and additional storage.
 
 To configure HDInsight to work with Data Lake Store by using PowerShell, follow the instructions in the next five sections.
 
@@ -200,7 +198,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
                -DefaultStorageAccountType AzureDataLakeStore `
                -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
                -DefaultStorageRootPath $storageRootPath `
-               -Version "3.5" `
+               -Version "3.6" `
                -SshCredential $sshCredentials `
                -AadTenantId $tenantId `
                -ObjectId $objectId `
