@@ -19,7 +19,7 @@ ms.author: bbenz
 # Build a Java and MySQL web app in Azure
 
 This tutorial shows you how to create a Java web app in Azure and connect it to a MySQL database. 
-When you are finished, you will have a Spring Boot to-do list application storing data in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) running on [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
+When you are finished, you will have a Spring Boot framework to-do list application storing data in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) running on [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -34,18 +34,17 @@ In this tutorial, you learn how to:
 > * Monitor the app in the Azure portal
 
 
-## Before you begin
+## Prerequisites
 Before running this sample, install the following prerequisites locally:
 
 1. [Git](https://git-scm.com/)
-1. [Java 7 or above](http://Java.net/downloads.Java)
-1. [Maven](https://maven.apache.org/download.cgi)
+1. [Java 7 JDK or above](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 1. [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prepare local MySQL database
+## Prepare local MySQL 
 
 In this step, you create a database in a local MySQL server for use in testing the app locally on your machine.
 
@@ -60,7 +59,6 @@ mysql -u root -p
 If your command runs successfully, then your MySQL server is already running. If not, make sure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
 If you're prompted for a password, enter the password for the `root` account. If you don't remember your root account password, see [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
-
 
 ### Create a database and table
 
@@ -78,7 +76,7 @@ quit
 
 ## Create and run the sample app 
 
-In this step, you clone a GitHub repo, configure the MySQL database connection, and run the app locally. 
+In this step, you clone a GitHub repo, configure the MySQL database connection, and run the app on your computer. 
 
 ### Clone the sample
 
@@ -98,7 +96,7 @@ spring.datasource.password=mysqlpass
 
 ### Build and run the sample
 
-Build the sample using the Maven wrapper included in the repo, then run the executable jar from the command line to start the sample:
+Build and run the sample using the Maven wrapper included in the repo:
 
 ```
 mvnw package spring-boot:run
