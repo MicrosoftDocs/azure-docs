@@ -1,6 +1,6 @@
 ---
-title: Deployment FAQ| Microsoft Docs
-description: This article lists the frequently asked questions about deployment in Web Apps.
+title: Deployment issue for Azure Web Apps FAQ| Microsoft Docs
+description: This article lists the frequently asked questions about deployment in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
 author: simonxjx
@@ -29,16 +29,16 @@ Here are some basic steps to publish your web app code.
 1. If you have the Visual Studio Solution,  right click on the web application project and click on Publish.
 2. Another option is to deploy using FTP client. Download the publish profile for the web app that you want to deploy your code to in the Azure portal. Then upload the files to \site\wwwroot location using these publish prodile FTP credentials.
 
-For further detail, please refer to a product documentation [Deploy your app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+For further detail, please refer to a product documentation [Deploy your app to Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 
 ## I am running into errors while trying to deploy from Visual Studio
 If you are running into an error with a message “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Please re-register for this provider in order to have access to this location”, you may be using an older version of SDK.
-You can resolve this error by upgrading to the latest SDK, which can be downloaded from [here](https://azure.microsoft.com/en-us/downloads/). If you continue to run into the issue even after upgrading to the latest SDK, please proceed to create a support incident.
+You can resolve this error by upgrading to the latest SDK, which can be downloaded from [here](https://azure.microsoft.com/downloads/). If you continue to run into the issue even after upgrading to the latest SDK, please proceed to create a support incident.
 
 ## How can I deploy an Asp.Net application from Visual Studio to Azure App Service
 <a id="deployasp"></a>
-This [tutorial](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015.
+This [tutorial](https://docs.microsoft.com/azure/web-sites-dotnet-get-started/) shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015.
 
 ## What are the different types of deployment credentials
 
@@ -49,12 +49,12 @@ Azure App Service supports two types of credentials for local Git deployment and
 The File Structure for your Azure App Service is documented [here](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
 
 ## How can I resolve FTP Error 550 There is not enough space on the disk when I try to FTP files?
-You are likely running into disk quota on the pricing Tier your web app is using. You may need to scale up to a higher pricing tier based on your disk space needs. Please refer to [App Service Pricing ](https://azure.microsoft.com/en-us/pricing/details/app-service/) for info on Pricing tiers and resource limits.
+You are likely running into disk quota on the pricing Tier your web app is using. You may need to scale up to a higher pricing tier based on your disk space needs. Please refer to [App Service Pricing ](https://azure.microsoft.com/pricing/details/app-service/) for info on Pricing tiers and resource limits.
 
 
 ## How can I set up continuous deployment for my Azure App Service?
 
-You can set up continuous deployment from several resources including Visual Studio Team Services, Microsoft OneDrive, GitHub, Bitbucket, Dropbox and other Git repositories. These options are available in the portal and the following tutorial explains how to set it up: [Continuous Deployment to Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-continuous-deployment/).
+You can set up continuous deployment from several resources including Visual Studio Team Services, Microsoft OneDrive, GitHub, Bitbucket, Dropbox and other Git repositories. These options are available in the portal and the following tutorial explains how to set it up: [Continuous Deployment to Azure App Service](https://docs.microsoft.com/azure/app-service-continuous-deployment/).
 
 ## How can I troubleshoot issues with continuous deployment from Github and Bit Bucket?
 
