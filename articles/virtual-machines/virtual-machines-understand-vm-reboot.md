@@ -20,7 +20,7 @@ ms.author: genli
 
 # Understand a system reboot for Azure VM
 
-Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, and with no evidence of a user initiating the reboot operation. This article lists the events that can cause the VM to reboot and provides some insight into how to avoid the reboot issues or reduct the impact.
+Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, and with no evidence of a user initiating the reboot operation. This article lists the events that can cause the VM to reboot and provides some insight into how to avoid the unexpected reboot issues or reduct the impact of the issue.
 
 ## Azure VM SLAs
 Azure offers various service levels for Azure products:
@@ -39,7 +39,7 @@ Details on how to configure and manage the availability of VMs can be found here
 - [Configure availability of VMs](windows/classic/configure-availability.md)
 
 ## Resource Health Information 
-Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting. In particular, reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform. For more information,  see [Understand and use Resource Health to troubleshoot this scenario in the future](../resource-health/resource-health-overview)
+Azure Resource health is a service that exposes the health of individual Azure resources and provides actionable guidance to troubleshoot problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource health is to reduce the time customers spend on troubleshooting. In particular, reducing the time spent determining if the root of the problem lays inside the application or if it is caused by an event inside the Azure platform. For more information,  see [Understand and use Resource Health to troubleshoot this scenario in the future](../resource-health/resource-health-overview.md)
 
 ## Events that can cause the VM to reboot
 
