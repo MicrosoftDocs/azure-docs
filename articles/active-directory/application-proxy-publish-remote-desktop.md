@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/21/2017
 ms.author: kgremban
 
 ---
@@ -40,13 +40,16 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 
 ## Requirements
 
-Both the RD Web and RD Gateway endpoints must be located on the same machine, and with a common root. RD Web and RD Gateway will be published as a single application so you can have a single sign-on experience between the two applications. 
+- Both the RD Web and RD Gateway endpoints must be located on the same machine, and with a common root. RD Web and RD Gateway will be published as a single application so you can have a single sign-on experience between the two applications. 
 
-You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](active-directory-application-proxy-enable.md). 
+- You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](active-directory-application-proxy-enable.md). 
 
-Your end users can only access this scenario through Windows 7 and Windows 10 desktops that connect through the RD Web page. This scenario is unsupported on other operating systems, even those with the Microsoft Remote Desktop applications.
+- This scenario assumes that your end users go through Internet Explorer on Windows 7 or Windows 10 desktops that connect through the RD Web page. If you need to support other operating systems, see [Support for other client configurations](#support-for-other-client-configurations).
 
-Your end users need to use Internet Explorer and enable the RDS ActiveX add-on when connecting to their resources. 
+  >[!NOTE]
+  >Windows 10 Creator's Update is not currently supported.
+
+- On Internet Explorer, enable the RDS ActiveX add-on. 
 
 ## Deploy the joint RDS and Application Proxy scenario
 
@@ -94,6 +97,19 @@ Test the scenario with Internet Explorer on a Windows 7 or 10 computer.
 2. You are asked to authenticate to Azure Active Directory. Use an account that you assigned to the application.
 3. You are asked to authenticate to RD Web. 
 4. Once your RDS authentication succeeds, you can select the desktop or application you want, and start working. 
+
+## Support for other client configuration
+
+The configuration outlined in this article is for users on Windows 7 or 10, with Internet Explorer plus the RDS ActiveX add-on. The benefit to using this configuration is that your users will get single sign-on to Remote Desktop, instead of having to authenticate again. If you need to, however, you can support other operating systems or browsers. The difference is in the authentication method that you use. 
+
+| Authentication method | Supported client configuration |
+| --------------------- | ------------------------------ |
+| Pre-authentication    | Windows 7/10 using Internet Explorer + RDS ActiveX add-on |
+| Passthrough | Any other operating system that supports the Microsoft Remote Desktop application |
+
+To use passthrough authentication, there are just two modifications to the steps listed in this article:
+1. In [Publish the RD host endpoint](#publish-the-rd-host-endpoint) step 1, set the Preauthentication method to **Passthrough**.
+2. In [Direct RDS traffic to Application Proxy](#direct-rds-traffic-to-application-proxy), skip step 8 entirely. 
 
 ## Next steps
 
