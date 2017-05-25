@@ -84,27 +84,27 @@ A SAS definition name must be 1-102 characters in length containing only 0-9, a-
 
 ### Developer best practices 
 
-1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management will interfere with Key Vault's processes. 
+1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management interferes with Key Vault's processes. 
 2. Do not allow ASA keys to be managed by more than one key vault object. 
 3. If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
 
 ### Storage account onboarding 
 
-A key vault object owner adds a storage account object on AzKV to onboard a storage account. During onboarding Key Vault needs to verify that identity onboarding the account has access to list and regenerate the storage keys. Key Vault will get OBO token from EvoSTS with audience as ARM and make a list key call to Storage RP. If list fails, then the Key Vault object creation will fail with Forbidden http status code. The keys listed in this fashion will be cached with key vault entity storage. 
+A key vault object owner adds a storage account object on AzKV to onboard a storage account. During onboarding Key Vault needs to verify that identity onboarding the account has access to list and regenerate the storage keys. Key Vault gets OBO token from EvoSTS with audience as ARM and make a list key call to Storage RP. If list fails, then the Key Vault object creation fails with Forbidden http status code. The keys listed in this fashion is cached with key vault entity storage. 
 
-Additionally, it is also required that Key Vault verifies that identity has regenerate permissions before key vault take ownership of regenerating keys. To verify that identity (via OBO token) and as well as key vault first party identity has permission to rotate and list keys, key vault will list RBAC permissions on the storage account resource and validate the response via regular expression matching of actions and not actions. Some resources on how to achieve this as follows: 
+Additionally, it is also required that Key Vault verifies that identity has regenerate permissions before key vault take ownership of regenerating keys. To verify that identity (via OBO token) and as well as key vault first party identity has permission to rotate and list keys, key vault lists RBAC permissions on the storage account resource and validate the response via regular expression matching of actions and not actions. Some resources on how to achieve this as follows: 
 
 - Example 
 [VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
 - Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
 
-If the identity (via OBO token) does not have regenerate permissions or if Key Vault first party identity doesn’t have list or regenerate permission then the onboarding request fails as a bad request with appropriate the error code and message. 
+If the identity, via OBO token, does not have regenerate permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails as a bad request with an appropriate error code and message. 
 
-Note that the OBO token will only work when you use first-party, native client applications of PowerShell and CLI.  
+The OBO token will only work when you use first-party, native client applications of PowerShell and CLI.
 
 ### Role-based access control permissions
 
-Key Vault needs permissions to list and regenerate keys for a storage account. Follow these steps to set this up. 
+Key Vault needs permissions to list and regenerate keys for a storage account. Set this up using the followign stesp:
 
 1. Get ObjectId of KV through this command: 
 `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`  
@@ -114,6 +114,7 @@ Key Vault needs permissions to list and regenerate keys for a storage account. F
 
 For a classic account set the role parameter to 'Classic Storage Account Key Operator Service Role'. 
 
-Note: The Key Vault’s identity might be invisible in tenants which had vaults created prior to <date>*(BRP - what's the date?)*. As a workaround, you can create a new vault and delete it to make Key Vault’s identity visible in these tenants.
+>[!NOTE]
+>The Key Vault identity might be invisible in tenants which had vaults created before <date>*(BRP - what's the date?)*. As a workaround, you can create a new vault and delete it to make Key Vault’s identity visible in these tenants.
 
 
