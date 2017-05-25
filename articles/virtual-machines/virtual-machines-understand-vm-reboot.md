@@ -22,7 +22,7 @@ ms.author: genli
 
 Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, and with no evidence of a user initiating the reboot operation. 
 
-This article lists the events that can cause the VM to reboot and provides some insight into how to avoid the reboot issues or reduct the its impact.
+This article lists the events that can cause the VM to reboot and provides some insight into how to avoid the reboot issues or reduct the impact.
 
 ## Azure VM SLAs
 Azure offers various service levels for Azure products 
@@ -74,7 +74,7 @@ Multi-instance updates (for VMs in an availability set) are applied one update d
     
 ### User initiated reboot/shutdown actions
  
-If the reboot is performed from the Azure portal, Azure PowerShell, Command Line interface or Reset API, the event can be found in the [Azure Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md.
+If the reboot is performed from the Azure portal, Azure PowerShell, Command-Line interface or Reset API, the event can be found in the [Azure Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md.
 
 If the action is performed from VM's operation system, the event can be found in system logs.
 
@@ -82,7 +82,7 @@ Other actions that implicitly cause the VM to reboot include multiple configurat
 Examples include any VM resize operations, changing the password of the administrative account and setting a static IP address.
 
 ### Azure Security center and Windows Updates
-Azure Security Center monitors daily Windows and Linux VMs (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates. Applying these system update is controlled via the Security Center section in Azure portal. After applying some updates it is required that the VM reboots. For more information, see [Apply system updates in Azure Security Center](../../security-center/security-center-apply-system-updates).
+Azure Security Center monitors daily Windows and Linux VMs (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates. Applying these system updates is controlled via the Security Center section in Azure portal. After applying some updates it is required that the VM reboots. For more information, see [Apply system updates in Azure Security Center](../../security-center/security-center-apply-system-updates).
 
 Azure does not push Windows Updates to Windows Azure VMs since these machines are intended to be managed by the user. This is just like any on-premises machine. Customers are, however encouraged to leave the automatic Windows Update setting enabled. Automatic installation of Windows Updates might also cause reboots to occur after the update has been applied. For more information, see [Windows Update FAQ](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -93,9 +93,9 @@ There are other cases where Azure might actively suspend the use of a VM. Users 
 In very rare circumstances a wide spread issue can impact multiple servers in an Azure data center.  If this event occurs, Azure team will send email notification to affected subscriptions. [Azure Service Health Dashboard](https://azure.microsoft.com/en-us/status/) and Azure portal are great places to visit and check on the status of on-going outages and as well past incidents.
 
 ### Host Server Faults 
-The VM is hosted on a physical server running inside an Azure datacenter. The physical server runs an agent called the Host Agent in addition to few other Azure specific components.  When these Azure specific software components running on the physical server become unresponsive, the monitoring system will trigger a reboot of the host server to attempt recovery, which will cause the VM to be restarted. The VM will continue to live on the same host as prior to the reboot. The VM will typically be available again within 5 minutes.
+The VM is hosted on a physical server running inside an Azure datacenter. The physical server runs an agent called the Host Agent in addition to few other Azure-specific components.  When these Azure-specific software components running on the physical server become unresponsive, the monitoring system will trigger a reboot of the host server to attempt recovery, which will cause the VM to be restarted. The VM will continue to live on the same host as prior to the reboot. The VM will typically be available again within 5 minutes.
 
-Server faults are typically caused by hardware failure such as a failure in a hard drive or solid state drive. Azure continuously monitors these occurrences, identifies the underlying bugs and rolls out updates after the mitigation has been implemented and tested.
+Server faults are typically caused by hardware failure such as a failure in a hard drive or solid-state drive. Azure continuously monitors these occurrences, identifies the underlying bugs and rolls out updates after the mitigation has been implemented and tested.
 
 Since some host server faults can be very specific to that server, your VMs repeated reboot situation might be improved by manually redeploying it to another host server. This can be triggered via the “redeploy” option on the details page of the VM, or by stopping and restarting the VM in the Azure portal.
 
@@ -113,7 +113,7 @@ These activities include the following:
 ### VM Crash 
 VMs may restart due to issues within the VM itself. The work load or role running on the VM may trigger a bug check within the guest OS. For Windows VMs, reviewing system and application logs, and serial logs for Linux, may be helpful in determining the reason behind the crash.   
 
-### Storage related forced shutdowns
+### Storage-related forced shutdowns
 VMs in Azure rely on virtual disks for operating system as well as data storage that are hosted on the Azure Storage infrastructure. Whenever the availability or connectivity between the VM and the associated virtual disks is impacted for more than 120 seconds, the Azure platform preforms a forced shutdown of the VMs to avoid data corruption. The VM is automatically powered back on after the storage connectivity has been restored. 
 
 The duration of the shutdown can be as short as 5 minutes but can be significantly longer at times. Below is a specific case that is associated with storage related forced shutdowns: 
