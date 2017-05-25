@@ -447,7 +447,7 @@ Tasks might occasionally fail or be interrupted. The task application itself mig
 It is also possible for an intermittent issue to cause a task to hang or take too long to execute. You can set the maximum execution interval for a task. If the maximum execution interval is exceeded, the Batch service interrupts the task application.
 
 ### Connecting to compute nodes
-You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
+You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > To connect to a node via RDP or SSH, you must first create a user on the node. To do this, you can use the Azure portal, [add a user account to a node][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or call the [add_user][py_add_user] method in the Batch Python module.
