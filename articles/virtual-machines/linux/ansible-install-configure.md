@@ -19,7 +19,9 @@ ms.author: iainfou
 ---
 
 # Install and configure Ansible to manage virtual machines in Azure
-This article details how to install Ansible and required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use.
+This article details how to install Ansible and required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use. 
+
+For more installation options and steps for additional platforms, see the [Ansible install guide](https://docs.ansible.com/ansible/intro_installation.html).
 
 
 ## Install Ansible
