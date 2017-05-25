@@ -85,9 +85,9 @@ sudo az acs kubernetes install-cli --install-location full-path-to-kubectl
 
 After `kubectl` is installed, add it to your system path. 
 
-## Configure kubectl and connect
+## Connect with kubectl
 
-To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](cli/azure/acs/kubernetes#get-credentials) command. The following example
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
 downloads the cluster configuration for your Kubernetes cluster.
 
 ```azurecli
@@ -112,9 +112,9 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 
 
-## Deploy your first Windows container
+## Deploy a Windows container
 
-After creating the cluster and connecting with `kubectl`, try starting a containerized Windows app in a Kubernetes pod on the cluster. (A pod can contain one or more containers.) This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using `kubctl apply`. 
+After creating the cluster and connecting with `kubectl`, try starting a containerized Windows app in a Kubernetes pod on the cluster. (A pod contains one or more containers.) This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using `kubctl apply`. 
 
 Create a local file named `iis.json` and copy the following text. This file tells Kubernetes to run IIS on Windows Server 2016 Server Core, using a public container image from [Docker Hub](https://hub.docker.com/r/microsoft/iis/). The container uses port 80, but initially is only accessible within the cluster network.
 
@@ -161,7 +161,7 @@ kubectl get pods
 
 While the pod is deploying, the status is `ContainerCreating`. Because of the size of the IIS image, it can take several minutes for the container to enter the `Running` state.
 
-```output
+```bash
 NAME     READY        STATUS        RESTARTS    AGE
 iis      1/1          Running       0           32s
 ```
@@ -184,7 +184,7 @@ kubectl get svc
 
 Initially the IP address appears as `pending`. After a few minutes, the external IP address of the `iis` pod is set:
   
-```output
+```bash
 NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       kubernetes   10.0.0.1       <none>          443/TCP        21h       iis          10.0.111.25    13.64.158.233   80/TCP         22m
 ```
 
