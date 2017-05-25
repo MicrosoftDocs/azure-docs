@@ -215,7 +215,7 @@ previously described in this topic. The Logic Apps engine periodically calls and
 Based on your App Service plan, this interval is 15 seconds for Premium plans, 
 1 minute for Standard plans, and 1 hour for Free plans. Each polling request counts as an action execution, even when no logic app instance is created.
 
-![Polling trigger pattern](./media/logic-apps-create-api-app/asyn-pattern-custom-api-triggers.png)
+![Polling trigger pattern](./media/logic-apps-create-api-app/async-pattern-custom-api-triggers.png)
 
 | Found new data or event? | API response | 
 | ------------------------ | ------------ |
