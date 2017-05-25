@@ -37,7 +37,7 @@ This guide also assumes that you are familiar with:
 * The following concepts and procedures:
    * Planning for SAP deployment on Azure, including Azure Virtual Network  planning and Azure Storage usage. See [SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and implementation guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
    * Deployment principles and ways to deploy VMs in Azure. See [Azure Virtual Machines deployment for SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide).
-   * High availability for SAP NetWeaver ASCS (ABAP SAP Central Services), SCS (SAP Central Services) and ERS (Evaluated Receipt Settlement) on Azure. See [High availability for SAP NetWeaver on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
+   * High availability for SAP NetWeaver ASCS (ABAP SAP Central Services), SCS (SAP Central Services), and ERS (Evaluated Receipt Settlement) on Azure. See [High availability for SAP NetWeaver on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
    * Details on how to improve efficiency in leveraging a multi-SID installation of ASCS/SCS on Azure. See [Create a SAP NetWeaver multi-SID configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
    * Principles of running SAP NetWeaver based on Linux-driven VMs in Azure. See [Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). This guide provides specific settings for Linux in Azure VMs and details on how to properly attach Azure storage disks to Linux VMs.
 
@@ -87,12 +87,12 @@ Azure VM types that are certified by SAP for SAP NetWeaver or the S/4HANA applic
 ## Manual Installation of SAP HANA
 This guide describes how to manually install SAP HANA on Azure VMs in two different ways:
 
-* By using SAP Software Provisioning Manager (SWPM) as part of a distributed NetWeaver installation in the "install database instance" step.
-* By using the SAP HANA database lifecycle manager tool, HDBLCM, and then installing NetWeaver.
+* By using SAP Software Provisioning Manager (SWPM) as part of a distributed NetWeaver installation in the "install database instance" step
+* By using the SAP HANA database lifecycle manager tool, HDBLCM, and then installing NetWeaver
 
-You can also use SWPM and install all components (SAP HANA, the SAP application server, and the ASCS instance) in one single VM, as described in this [SAP HANA blog announcement](https://blogs.saphana.com/2013/12/31/announcement-sap-hana-and-sap-netweaver-as-abap-deployed-on-one-server-is-generally-available/). This option isn't described in this Quickstart guide, but the issues that you must take into consideration are the same.
+You can also use SWPM to install all components (SAP HANA, the SAP application server, and the ASCS instance) in one single VM, as described in this [SAP HANA blog announcement](https://blogs.saphana.com/2013/12/31/announcement-sap-hana-and-sap-netweaver-as-abap-deployed-on-one-server-is-generally-available/). This option isn't described in this Quickstart guide, but the issues that you must take into consideration are the same.
 
-Before you start an installation, be sure to read the "Prepare Azure VMs for manual installation of SAP HANA," section, which comes immediately after the two "Key steps for SAP HANA installation" sections. Doing so can help prevent several basic mistakes that might occur when you use only a default Azure VM configuration.
+Before you start an installation, we recommend that you read the "Preparing Azure VMs for manual installation of SAP HANA," section, later in this guide. Doing so can help prevent several basic mistakes that might occur when you use only a default Azure VM configuration.
 
 ## Key steps for SAP HANA installation when you use SAP SWPM
 This section lists the key steps for a manual, single-instance SAP HANA installation when you use SAP SWPM to perform a distributed SAP NetWeaver 7.5 installation. The individual steps are explained in more detail in screenshots later in this guide.
@@ -101,7 +101,7 @@ This section lists the key steps for a manual, single-instance SAP HANA installa
 2. Deploy the two Azure VMs with operating systems (in our example, SUSE Linux Enterprise Server (SLES) and SLES for SAP Applications 12 SP1), according to the Azure Resource Manager model.
 3. Attach two Azure standard or premium storage disks (for example, 75-GB or 500-GB disks) to the application server VM.
 4. Attach premium storage disks to the HANA DB server VM. For details, see the "Disk setup" section later in this guide.
-5. Depending on size or throughput requirements, attach multiple disks, and then create striped volumes by using either logical volume management or a multiple-devices administration utility (MDADM) at the OS level inside the VM.
+5. Depending on size or throughput requirements, attach multiple disks, and then create striped volumes by using either logical volume management or a multiple-devices administration tool (MDADM) at the OS level inside the VM.
 6. Create XFS file systems on the attached disks or logical volumes.
 7. Mount the new XFS file systems at the OS level. Use one file system for all the SAP software. Use the other file system for the /sapmnt directory and backups, for example. On the SAP HANA DB server, mount the XFS file systems on the premium storage disks as /hana and /usr/sap. This process is necessary to prevent the root file system, which isn't large on Linux Azure VMs, from filling up.
 8. Enter the local IP addresses of the test VMs in the /etc/hosts file.
@@ -123,7 +123,7 @@ This section lists the key steps for a manual, single-instance SAP HANA installa
 2. Deploy two Azure VMs with operating systems (in our example, SLES and SLES for SAP Applications 12 SP1) according to the Azure Resource Manager model.
 3. Attach two Azure standard or premium storage disks (for example, 75-GB or 500-GB disks) to the app server VM.
 4. Attach premium storage disks to the HANA DB server VM. For details, see the "Disk setup" section later in this guide.
-5. Depending on size or throughput requirements, attach multiple disks and create striped volumes by using either logical volume management or a multiple-devices administration utility (MDADM) at the OS level inside the VM.
+5. Depending on size or throughput requirements, attach multiple disks and create striped volumes by using either logical volume management or a multiple-devices administration tool (MDADM) at the OS level inside the VM.
 6. Create XFS file systems on the attached disks or logical volumes.
 7. Mount the new XFS file systems at the OS level. Use one file system for all the SAP software, and use the other one for the /sapmnt directory and backups, for example. On the SAP HANA DB server, mount the XFS file systems on the premium storage disks as /hana and /usr/sap. This process is necessary to help prevent the root file system, which isn't large on Linux Azure VMs, from filling up.
 8. Enter the local IP addresses of the test VMs in the /etc/hosts file.
@@ -182,7 +182,7 @@ Based on the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-In the suggested disk configuration, the HANA data volume and log volume are placed on the same set of Azure Premium Storage disks that are striped with LVM or MDADM. It is not necessary to define any RAID redundancy level because Azure Premium Storage keeps three images of the disks for redundancy reasons. Consult the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) and [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm) to make sure that you configure enough storage. Also consider the different virtual hard disk (VHD) throughput volumes of the different Azure premium storage disks as documented in [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+In the suggested disk configuration, the HANA data volume and log volume are placed on the same set of Azure Premium Storage disks that are striped with LVM or MDADM. It is not necessary to define any RAID redundancy level because Azure Premium Storage keeps three images of the disks for redundancy. To make sure that you configure enough storage, consult the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) and [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Also consider the different virtual hard disk (VHD) throughput volumes of the different Azure premium storage disks as documented in [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
 
 You can add additional premium storage disks to the HANA DBMS VMs for storing database or transaction log backups.
 
@@ -407,7 +407,7 @@ When you start HDBLCM the first time, a simple start menu is displayed. Select i
 The following screenshot displays all the key options that you selected previously.
 
 > [!IMPORTANT]
-> Directories that are named for HANA log and data volumes, as well as the installation path (/hana/shared in this sample) and /usr/sap, should not be part of the root file system. These directories belong to the Azure data disks that were attached to the VM (described in the "Disk setup" section). This approach will help prevent the root file system from running out of space. In the following screenshot, you can see that the HANA system administrator has user ID `1005` and is part of the `sapsys` group (ID `1001`) that was defined before the installation.
+> Directories that are named for HANA log and data volumes, as well as the installation path (/hana/shared in this sample) and /usr/sap, should not be part of the root file system. These directories belong to the Azure data disks that were attached to the VM (described in the "Disk setup" section). This approach helps prevent the root file system from running out of space. In the following screenshot, you can see that the HANA system administrator has user ID `1005` and is part of the `sapsys` group (ID `1001`) that was defined before the installation.
 
 ![List of all key SAP HANA components selected previously](./media/hana-get-started/image032.jpg)
 
