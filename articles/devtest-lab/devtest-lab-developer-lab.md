@@ -18,9 +18,13 @@ ms.author: tarcher
 
 ---
 # Use Azure DevTest Labs for developers
-Azure DevTest Labs can be used to implement many key scenarios, but one of the primary scenarios involves using DevTest Labs as a developer.
+Azure DevTest Labs can be used to implement many key scenarios, but one of the primary scenarios involves using DevTest Labs to host development machines for developers. In this scenario, DevTest Labs provides these benefits:
 
-With DevTest Labs, developers can quickly provision their development machines on demand. They can also easily customize their development machines whenever needed. And administrators can control costs by ensuring that developers cannot get more VMs than they need for development and that VMs are shut down when not in use. 
+- Developers can quickly provision their development machines on demand.
+- Developers can easily customize their development machines whenever needed.
+- Administrators can control costs by ensuring that:
+  - Developers cannot get more VMs than they need for development.
+  - VMs are shut down when not in use. 
 
 ![Use DevTest Labs for training](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
 
@@ -94,7 +98,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 1. **Add a virtual network to a VM** 
    
-    When you create a VM in a lab, you can specify a configured virtual network. First, configure a virtual network using ExpressRoute or site-to-site VPN. Then, add this virtual network to your lab's virtual network settings so that it is available when creating VMs.
+    DevTest Labs creates a new virtual network (VNET) whenever a lab is created. If you have configured your own VNET – for example, by using ExpressRoute or site-to-site VPN – you can add this VNET to your lab's virtual network settings so that it is available when creating VMs.
 
     In addition, there is an Azure Active Directory domain join artifact available that will join a VM to a domain when the VM is being created. 
    
