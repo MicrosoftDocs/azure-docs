@@ -20,7 +20,8 @@ This article provides information and code samples to help you quickly get start
 
 ## Recognize Emotions cURL Example Request
 
-NOTE: You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westcentralus, replace "westus" in the URL below with "westcentralus".
+> [!NOTE]
+> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westcentralus, replace "westus" in the URL below with "westcentralus".
 
 ```json
 @ECHO OFF

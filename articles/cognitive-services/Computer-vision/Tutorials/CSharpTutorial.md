@@ -26,7 +26,8 @@ The below example has been developed for the .NET Framework using [Visual Studio
 
 Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services (formerly Project Oxford). For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. 
 
-NOTE: The tutorial is designed to use subscription keys in the **westcentralus** region. The subscription keys generated in the Computer Vision free trail use the **westcentralus** region, so they work correctly. If you generated your subscription keys using your Azure account through [https://azure.microsoft.com/](https://azure.microsoft.com/en-us/), you must specify the **westcentralus** region. Keys generated outside the **westcentralus** region will not work.
+> [!NOTE]
+> The tutorial is designed to use subscription keys in the **westcentralus** region. The subscription keys generated in the Computer Vision free trail use the **westcentralus** region, so they work correctly. If you generated your subscription keys using your Azure account through [https://azure.microsoft.com/](https://azure.microsoft.com/en-us/), you must specify the **westcentralus** region. Keys generated outside the **westcentralus** region will not work.
 
 #### Get the client library and example
 

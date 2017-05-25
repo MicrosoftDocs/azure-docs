@@ -29,7 +29,8 @@ to detect faces in an image and return face attributes including:
 
 #### Face Detect cURL Example Request
 
-NOTE: You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+> [!NOTE]
+> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
 ```javascript  
 @ECHO OFF
@@ -190,7 +191,8 @@ identify people based on a detected face and people database (defined as a perso
 
 #### Face - Identify cURL Example Request
 
-NOTE: You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+> [!NOTE]
+> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
 ```javascript
 @ECHO OFF
