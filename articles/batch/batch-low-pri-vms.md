@@ -118,6 +118,10 @@ benefit from low-priority VMs:
 -   In the case of tasks being interrupted, Batch will detect and automatically
     requeue tasks to be run again.
 
+-   Low-priority VMs have a core quota that differs from that of dedicated VMs. 
+    The quote for low-priority VMs is higher than that of dedicated VMs, because 
+    low-priority VMs cost less. See [Batch service quotas and limits](batch-quota-limit.md#resource-quotas) for more information.    
+
 > [!NOTE]
 > Low-priority VMs are not currently supported for Batch accounts where the pool
 allocation mode is set to [User
