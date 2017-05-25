@@ -116,7 +116,7 @@ Here's the general pattern:
 2. Let the engine know when your API finishes the task.
 3. Return relevant data to the engine so that the logic app workflow can continue.
 
-![Asynchronous action pattern](./media/logic-apps-create-api-app/async-pattern-custom-api-actions.png)
+![Asynchronous action pattern](./media/logic-apps-create-api-app/custom-api-async-action-pattern.png)
 
 Here are the specific steps for your API to follow, 
 described from the API's perspective:
@@ -179,7 +179,7 @@ Any returned content and headers are passed as input for your logic app.
 the Logic Apps engine calls the `unsubscribe` endpoint. 
 Your API can then unregister the callback URL and stop any processes as necessary.
 
-![Webhook action pattern](./media/logic-apps-create-api-app/webhook-pattern-custom-api-actions.png)
+![Webhook action pattern](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!IMPORTANT]
 > Currently, the Logic App Designer doesn't support 
@@ -215,7 +215,7 @@ previously described in this topic. The Logic Apps engine periodically calls and
 Based on your App Service plan, this interval is 15 seconds for Premium plans, 
 1 minute for Standard plans, and 1 hour for Free plans. Each polling request counts as an action execution, even when no logic app instance is created.
 
-![Polling trigger pattern](./media/logic-apps-create-api-app/async-pattern-custom-api-triggers.png)
+![Polling trigger pattern](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
 
 | Found new data or event? | API response | 
 | ------------------------ | ------------ |
@@ -263,7 +263,7 @@ The content payload and headers are passed to the logic app for use in the workf
 the Logic Apps engine calls the `unsubscribe` endpoint. 
 Your API can then unregister the callback URL and stop any processes as necessary.
 
-![Webhook trigger pattern](./media/logic-apps-create-api-app/webhook-pattern-custom-api-triggers.png)
+![Webhook trigger pattern](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
 > [!IMPORTANT]
 > Currently, the Logic App Designer doesn't support 
