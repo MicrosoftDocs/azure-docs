@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps more FAQ | Microsoft Docs
+title: More frequently asked questions in Azure Web Apps | Microsoft Docs
 description: This article lists the more frequently asked questions in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
