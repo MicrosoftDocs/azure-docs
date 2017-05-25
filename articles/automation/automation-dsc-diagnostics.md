@@ -17,6 +17,7 @@ ms.author: eslesar
 
 ---
 # Forward Azure Automation DSC reporting data to OMS Log Analytics
+
 Automation can send DSC node status data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  
 Compliance status is visible in the Azure portal, or with PowerShell, for nodes and for individual DSC resources in node configurations. 
 With Log Analytics you can:
@@ -25,16 +26,16 @@ With Log Analytics you can:
 * Trigger an email or alert based on compliance status
 * Write advanced queries across your managed nodes
 * Correlate compliance status across Automation accounts
-* Visualize your node compliance history over time     
+* Visualize your node compliance history over time
 
 ## Prerequisites
 
 To start sending your Automation DSC reports to Log Analytics, you need:
 
-1. The November 2016 or later release of [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
-1. An Azure Automation account. For more information, see [Getting Started with Azure Automation](automation-offering-get-started.md)
-2. A Log Analytics workspace with an **Automation & Control** service offering. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).
-3. At least one Azure Automation DSC node. For more information, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md) 
+* The November 2016 or later release of [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
+* An Azure Automation account. For more information, see [Getting Started with Azure Automation](automation-offering-get-started.md)
+* A Log Analytics workspace with an **Automation & Control** service offering. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).
+* At least one Azure Automation DSC node. For more information, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md) 
 
 ## Set up integration with Log Analytics
 
@@ -75,7 +76,7 @@ the **DSC Nodes** blade of your automation account. Click the **Log Search** but
 ![Log search button](media/automation-dsc-diagnostics/log-search-button.png)
 
 The **Log Search** blade opens, and you see a **DscNodeStatusData** operation for each DSC node,
-and a **DscResourceStatusData** operation for each [DSC resource](https://msdn.microsoft.com/en-us/powershell/dsc/resources)
+and a **DscResourceStatusData** operation for each [DSC resource](https://msdn.microsoft.com/powershell/dsc/resources)
 called in the Node configuration applied to that node.
 
 The **DscResourceStatusData** operation contains error information for any DSC resources that failed.
@@ -90,17 +91,18 @@ Type the following query to find your DSC logs:
 You can also narrow the query by the operation name. For example:
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus" OperationName = "DscNodeStatusData"
 
-### Send an email when a DSC compliance check fails.
+### Send an email when a DSC compliance check fails
+
 One of our top customer requests is for the ability to send an email or a text when something goes wrong with a DSC configuration.   
 
 To create an alert rule, you start by creating a log search for the DSC report records that should invoke the alert.  Click the **Alert** button to create and configure the alert rule.
 
 1. From the Log Analytics Overview page, click **Log Search**.
-2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
+1. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
   Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
-3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For more information on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For more information on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### Find failed DSC resources across all nodes
 
@@ -108,9 +110,10 @@ One advantage of using Log Analytics is that you can search for failed checks ac
 To find all instances of DSC resources that failed.
 
 1. From the Log Analytics Overview page, click **Log Search**.
-2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
+1. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category=DscNodeStatus OperationName=DscResourceStatusData ResultType=Failed`
 
 ### View historical DSC node status
+
 Finally, you may want to visualize your DSC node status history over time.  
 You can use this query to search for the status of your DSC node status over time.
 
@@ -119,9 +122,11 @@ You can use this query to search for the status of your DSC node status over tim
 This will display a chart of the node status over time.
 
 ## Log Analytics records
+
 Diagnostics from Azure Automation creates two categories of records in Log Analytics.
 
 ### DscNodeStatusData
+
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
@@ -152,6 +157,7 @@ Diagnostics from Azure Automation creates two categories of records in Log Analy
 | CorrelationId |GUID that is the Correlation Id of the compliance report. |
 
 ### DscResourceStatusData
+
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the compliance check ran. |
@@ -182,13 +188,16 @@ Diagnostics from Azure Automation creates two categories of records in Log Analy
 | CorrelationId |GUID that is the Correlation Id of the compliance report. |
 
 ## Summary
+
 By sending your Automation DSC data to Log Analytics, you can get better insight into the status of your Automation DSC nodes by:
-+ Setting up alerts to notify you when there is an issue
-+ Using custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.  
+
+* Setting up alerts to notify you when there is an issue
+* Using custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.  
 
 Log Analytics provides greater operational visibility to your Automation DSC data and can help address incidents more quickly.  
 
 ## Next steps
+
 * To learn more about how to construct different search queries and review the Automation DSC logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
 * To learn more about using Azure Automation DSC, see [Getting started with Azure Automation DSC](automation-dsc-getting-started.md)
 * To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
