@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.15five.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.15five.com/saml2/metadata/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.15five.com/saml2/metadata/`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [15Five Client support team](https://www.15five.com/contact/) to get these values. 
@@ -217,7 +217,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the 15Five tile in the Access Panel, you should get login page of 15Five application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
