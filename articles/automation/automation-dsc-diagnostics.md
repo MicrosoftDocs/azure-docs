@@ -18,7 +18,7 @@ ms.author: eslesar
 ---
 # Forward Azure Automation DSC reports data to OMS Log Analytics
 Automation can send DSC node status data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  
-Complicance status are visible in the Azure portal, or with PowerShell, for nodes and for individual DSC resources in node configurations. 
+Compliance status is visible in the Azure portal, or with PowerShell, for nodes and for individual DSC resources in node configurations. 
 With Log Analytics you can:
 
 * Get compliance information for managed nodes and individual resources
@@ -38,22 +38,22 @@ To start sending your Automation DSC reports to Log Analytics, you need:
 
 ## Set up integration with Log Analytics
 
-To begin importing data from Azure Automation DSC into Log Analytics, complete the following steps.
+To begin importing data from Azure Automation DSC into Log Analytics, complete the following steps:
 
 1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
-1. Get the _ResourceId_ of your automation account by running the following PowerShell command
+1. Get the _ResourceId_ of your automation account by running the following PowerShell command:
     (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
     ```powershell
     # Find the ResourceId for the Automation Account
     Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
     ```
-1. Get the _ResourceId_ of your Log Analytics workspace by running the following PowerShell command
+1. Get the _ResourceId_ of your Log Analytics workspace by running the following PowerShell command:
     (if you have more than one workspace, choose the _ResourceID_ for the workspace you want to configure).
     ```powershell
     # Find the ResourceId for the Log Analytics workspace
     Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
     ```
-1. Run the following PowerShell command, replacing `<AutomationResourceId>` and `<WorkspaceResourceId>` with the _ResourceId_ values from each of the previous steps.
+1. Run the following PowerShell command, replacing `<AutomationResourceId>` and `<WorkspaceResourceId>` with the _ResourceId_ values from each of the previous steps:
     ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories "DscNodeStatus"
     ```
@@ -67,15 +67,15 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 After you set up integration with Log Analytics for your Automation DSC data, a **Log search** button will appear on 
 the **DSC Nodes** blade of your automation account. Click the **Log Search** button to view the logs for DSC node data.
 
-![Log search botton](media/automation-dsc-diagnostics/log-search-button.png)
+![Log search button](media/automation-dsc-diagnostics/log-search-button.png)
 
-The **Log Search** blade will open, and you will see a **DscNodeStatusData** operation for each DSC node,
+The **Log Search** blade opens, and you see a **DscNodeStatusData** operation for each DSC node,
 and a **DscResourceStatusData** operation for each [DSC resource](https://msdn.microsoft.com/en-us/powershell/dsc/resources)
 called in the Node configuration applied to that node.
 
 The **DscResourceStatusData** operation contains error information for any DSC resources that failed.
 
-Click on each opereration in the list to see the data for that operation.
+Click each operation in the list to see the data for that operation.
 
 You can also view the logs by [searching in Log Analytics. 
 See [Find data using log searches](../log-analytics/log-analytics-log-searches.md).
@@ -86,7 +86,7 @@ You can also narrow the query by the operation name. For example:
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category = "DscNodeStatus" OperationName = "DscNodeStatusData"
 
 ### Send an email when a DSC compliance check fails.
-One of our top customer asks is for the ability to send an email or a text when something goes wrong with a DSC configuration.   
+One of our top customer requests is for the ability to send an email or a text when something goes wrong with a DSC configuration.   
 
 To create an alert rule, you start by creating a log search for the DSC report records that should invoke the alert.  Click the **Alert** button to create and configure the alert rule.
 
@@ -95,11 +95,11 @@ To create an alert rule, you start by creating a log search for the DSC report r
 
    If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
    Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
-3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For further details on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For more information on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
 
-### Find failed DSC resources accross all nodes
+### Find failed DSC resources across all nodes
 
-One advantage of using Log Analytics is that you can search for failed checks accross nodes.
+One advantage of using Log Analytics is that you can search for failed checks across nodes.
 To find all instances of DSC resources that failed.
 
 1. From the Log Analytics Overview page, click **Log Search**.
@@ -125,7 +125,7 @@ Diagnostics from Azure Automation creates two categories of records in Log Analy
 | NodeName_s |The name of the managed node. |
 | NodeComplianceStatus_s |Whether the node is compliant. |
 | DscReportStatus |Whether the compliance check ran successfully. |
-| ConfigurationMode | How the configuration is applied to the node. Possible values are __"ApplyOnly"__,__"ApplyandMonitior"__, and __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a server. After initial application of a new configuration, DSC does not check for drift from a previously configured state. Note that DSC will attempt to apply the configuration until it is successful before __ApplyOnly__ takes effect. </li><li> __ApplyAndMonitor__: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. Note that DSC will attempt to apply the configuration until it is successful before __ApplyAndMonitor__ takes effect.</li><li>__ApplyAndAutoCorrect__: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then re-applies the current configuration.</li></ul> |
+| ConfigurationMode | How the configuration is applied to the node. Possible values are __"ApplyOnly"__,__"ApplyandMonitior"__, and __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a server. After initial application of a new configuration, DSC does not check for drift from a previously configured state. DSC attempts to apply the configuration until it is successful before __ApplyOnly__ takes effect. </li><li> __ApplyAndMonitor__: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. DSC attempts to apply the configuration until it is successful before __ApplyAndMonitor__ takes effect.</li><li>__ApplyAndAutoCorrect__: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then reapplies the current configuration.</li></ul> |
 | HostName_s | The name of the managed node. |
 | IPAddress | The IPv4 address of the managed node. |
 | Category | DscNodeStatus |
