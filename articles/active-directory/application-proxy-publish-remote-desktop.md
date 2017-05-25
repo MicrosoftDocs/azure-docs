@@ -98,7 +98,7 @@ Test the scenario with Internet Explorer on a Windows 7 or 10 computer.
 3. You are asked to authenticate to RD Web. 
 4. Once your RDS authentication succeeds, you can select the desktop or application you want, and start working. 
 
-## Support for other client configuration
+## Support for other client configurations
 
 The configuration outlined in this article is for users on Windows 7 or 10, with Internet Explorer plus the RDS ActiveX add-on. The benefit to using this configuration is that your users will get single sign-on to Remote Desktop, instead of having to authenticate again. If you need to, however, you can support other operating systems or browsers. The difference is in the authentication method that you use. 
 
