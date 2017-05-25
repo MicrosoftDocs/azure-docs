@@ -103,7 +103,8 @@ You can **get** the value of these service-defined variables to make adjustments
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
-| $CurrentDedicated |The current number of dedicated compute nodes. |
+| $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
+| $CurrentLowPriorityNodes |The current number of low-priority compute nodes. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!TIP]
@@ -268,7 +269,7 @@ You can use both **resource** and **task** metrics when you're defining a formul
         <p> These service-defined variables are useful for making adjustments based on node count:</p>
     <p><ul>
       <li>$TargetDedicatedNodes</li>
-            <li>$CurrentDedicated</li>
+            <li>$CurrentDedicatedNodes</li>
             <li>$SampleNodeCount</li>
     </ul></p>
     <p>These service-defined variables are useful for making adjustments based on node resource usage:</p>
@@ -311,7 +312,7 @@ To *increase* the number of nodes during high CPU usage, we define the statement
 ```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
-    ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
 To *decrease* the number of nodes during low CPU usage, the next statement in our formula sets the same `$totalNodes` variable to 90 percent of the current target number of nodes if the average CPU usage in the past 60 minutes was under 20 percent. Otherwise, use the current value of `$totalNodes` that we populated in the statement above.
@@ -319,7 +320,7 @@ To *decrease* the number of nodes during low CPU usage, the next statement in ou
 ```
 $totalNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
-    ($CurrentDedicated * 0.9) : $totalNodes;
+    ($CurrentDedicatedNodes * 0.9) : $totalNodes;
 ```
 
 Now limit the target number of dedicated compute nodes to a **maximum** of 400:
@@ -333,10 +334,10 @@ Here's the complete formula:
 ```
 $totalNodes =
     (min($CPUPercent.GetSample(TimeInterval_Minute * 10)) > 0.7) ?
-    ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 $totalNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
-    ($CurrentDedicated * 0.9) : $totalNodes;
+    ($CurrentDedicatedNodes * 0.9) : $totalNodes;
 $TargetDedicatedNodes = min(400, $totalNodes)
 ```
 
