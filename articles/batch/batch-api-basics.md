@@ -414,11 +414,13 @@ Task failures fall into these categories:
 
     If a task fails to start, a pre-processing error is set for the task.  
 
+    Pre-processing errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+
 * **File upload failures**
 
-    If the transfer of files that are specified for a task fails for any reason, a file upload error is set for the task.
+    If uploading files that are specified for a task fails for any reason, a file upload error is set for the task.
 
-    File upload errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+    File upload errors can occur if the SAS supplied for accessing Azure Storage is invalid or does not provide write permissions, if the storage account is no longer available, or if another issue was encountered that prevented the successful copying of files from the node.    
 
 * **Application failures**
 

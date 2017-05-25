@@ -187,7 +187,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: nodeCount);
 
 // Commit the pool to the Batch service
-pool.CommitAsync();
+await pool.CommitAsync();
 ```
 
 Although the previous snippet uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to dynamically list and select from supported image and node agent SKU combinations (recommended), you can also configure an [ImageReference][net_imagereference] explicitly:
