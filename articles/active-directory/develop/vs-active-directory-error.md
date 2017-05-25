@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
 ms.author: tarcher
+ms.custom: aaddev
 
 ---
 # Diagnosing errors with the Azure Active Directory Connection Wizard

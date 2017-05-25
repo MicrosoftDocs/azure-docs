@@ -15,6 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
+ms.custom: aaddev
 
 ---
 # Integrate Azure AD with an Apache Cordova app

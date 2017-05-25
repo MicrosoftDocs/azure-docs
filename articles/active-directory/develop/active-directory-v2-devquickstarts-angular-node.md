@@ -15,6 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Add sign-in to an AngularJS single page app - NodeJS
