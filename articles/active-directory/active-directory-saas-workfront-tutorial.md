@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Tenant name>.attask-ondemand.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.attask-ondemand.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.attasksandbox.com/SAML2`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.attasksandbox.com/SAML2`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Workfront Client support team](https://www.workfront.com/contact-us/) to get these values. 
