@@ -67,10 +67,7 @@ version.txt
 WebLog.log
 ``
 
-In this tutorial, you use SearchLog.tsv.
-
-In practice, you either program your applications to write data into a linked storage accounts or upload data. For uploading files, see
-[Upload data to Data Lake Store](data-lake-analytics-manage-use-portal.md) or [Upload data to Blob storage](data-lake-analytics-manage-use-portal.md).
+This tutorial uses `SearchLog.tsv`.
 
 ## Create and submit Data Lake Analytics jobs
 After you have prepared the source data, you can start developing a U-SQL script.  
