@@ -55,7 +55,7 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
-- name: How-to Guides
+- name: How-to guides
   items:
   - name: Firewall rules
     items:
