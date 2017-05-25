@@ -42,22 +42,27 @@ To begin importing data from Azure Automation DSC into Log Analytics, complete t
 
 1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Get the _ResourceId_ of your automation account by running the following PowerShell command:
-    (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
-    ```powershell
-    # Find the ResourceId for the Automation Account
-    Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
-    ```
+  (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
+
+  ```powershell
+  # Find the ResourceId for the Automation Account
+  Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+  ```
 1. Get the _ResourceId_ of your Log Analytics workspace by running the following PowerShell command:
-    (if you have more than one workspace, choose the _ResourceID_ for the workspace you want to configure).
-    ```powershell
-    # Find the ResourceId for the Log Analytics workspace
-    Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
-    ```
+  (if you have more than one workspace, choose the _ResourceID_ for the workspace you want to configure).
+
+  ```powershell
+  # Find the ResourceId for the Log Analytics workspace
+  Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+  ```
 1. Run the following PowerShell command, replacing `<AutomationResourceId>` and `<WorkspaceResourceId>` with the _ResourceId_ values from each of the previous steps:
-    ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories "DscNodeStatus"
-    ```
+
+  ```powershell
+  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories "DscNodeStatus"
+  ```
+
 If you want to stop importing data from Azure Automation DSC into Log Analytics, run the following PowerShell command.
+
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories "DscNodeStatus"
 ```
@@ -93,8 +98,8 @@ To create an alert rule, you start by creating a log search for the DSC report r
 1. From the Log Analytics Overview page, click **Log Search**.
 2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
-   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
-   Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
+  If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
+  Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
 3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For more information on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### Find failed DSC resources across all nodes
