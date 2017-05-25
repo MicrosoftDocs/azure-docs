@@ -167,4 +167,4 @@ az postgres server delete --resource-group myresourcegroup --name mypgserver-201
 
 ## Next steps
 > [!div class="nextstepaction"]
-> Migrate your database using [Export and Import](./howto-migrate-using-export-and-import.md)
+> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
