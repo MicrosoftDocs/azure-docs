@@ -1,11 +1,11 @@
 ---
-title: Manage Network Security Group Flow logs with Azure Network Watcher - PowerShell | Microsoft Docs
-description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with PowerShell
+title: Manage Network Security Group Flow logs with Azure Network Watcher - Azure CLI 1.0 | Microsoft Docs
+description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure CLI 1.0
 services: network-watcher
 documentationcenter: na
 author: georgewallace
 manager: timlt
-editor: 
+editor:
 
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
@@ -19,7 +19,7 @@ ms.author: gwallace
 ---
 
 
-# Configuring Network Security Group Flow logs with PowerShell
+# Configuring Network Security Group Flow logs with Azure CLI 1.0
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
@@ -30,32 +30,30 @@ ms.author: gwallace
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
+This article uses cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux. Network Watcher currently uses Azure CLI 1.0 for CLI support.
+
 ## Register Insights provider
 
 In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
 
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+```azurecli
+azure provider register --namespace Microsoft.Insights --subscription <subscriptionid>
 ```
 
 ## Enable Network Security Group Flow logs
 
 The command to enable flow logs is shown in the following example:
 
-```powershell
-$NW = Get-AzurermNetworkWatcher -ResourceGroupName NetworkWatcherRg -Name NetworkWatcher_westcentralus
-$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName nsgRG-Name nsgName
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName StorageRG -Name contosostorage123
-Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
+```azurecli
+azure network watcher configure-flow-log -g resourceGroupName -n networkWatcherName -t nsgId -i storageAccountId -e true
 ```
 
 ## Disable Network Security Group Flow logs
 
 Use the following example to disable flow logs:
 
-```powershell
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $false
+```azurecli
+azure network watcher configure-flow-log -g resourceGroupName -n networkWatcherName -t nsgId -i storageAccountId -e false
 ```
 
 ## Download a Flow log
