@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/07/2017
+ms.date: 05/24/2017
 ms.author: janeng
 
 ---
@@ -49,31 +49,43 @@ Follow these steps to create a blank SQL database.
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page. 
 
-    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
+   ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
+3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
 
-   - Database name: **mySampleDatabase**
-   - Resource group: **myResourceGroup**
-   - Source: **Blank database**
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
+   | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Select source** | Blank database | Specifies that a blank database should be created. |
 
-4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** specifying a globally unique server name, provide a name for the Server admin login, and then specify the password of your choice. 
+4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
-    ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
+   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
+   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
+
+   ![create database-server](./media//sql-database-design-first-database/create-database-server.png)
+
 5. Click **Select**.
 
 6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this tutorial, select **20 DTUs** and **250** GB of storage.
 
-    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 7. Click **Apply**.  
 
-8. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
+8. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-9. On the toolbar, click **Notifications** to monitor the deployment process.
+9. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
 
-    ![notification](./media/sql-database-get-started-portal/notification.png)
+10. On the toolbar, click **Notifications** to monitor the deployment process.
 
+   ![notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Create a server-level firewall rule
 
@@ -81,13 +93,13 @@ Azure SQL Databases are protected by a firewall. By default, all connections to 
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and click your new database, **mySampleDatabase**, on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170313.database.windows.net**) and provides options for further configuration.
 
-      ![server firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png) 
+   ![server firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
 3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-      ![set server firewall rule](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
+   ![set server firewall rule](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
 
 4. Click **OK** and then click the **X** to close the **Firewall settings** page.
 
@@ -105,23 +117,25 @@ Get the fully qualified server name for your Azure SQL Database server in the Az
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-    ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## Connect to your database using SQL Server Management Studio
+## Connect using Management Studio
 
 Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) to establish a connection to your Azure SQL Database server.
 
 1. Open SQL Server Management Studio.
 
 2. In the **Connect to Server** dialog box, enter the following information:
-   - **Server type**: Specify Database engine
-   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
-   - **Authentication**: Specify SQL Server Authentication
-   - **Login**: Enter your server admin account
-   - **Password**: Enter the password for your server admin account
 
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Server type | Database engine | This value is required |
+   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | Login | The server admin account | This is the account that you specified when you created the server. |
+   | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
-   <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)
 
 3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
 
@@ -156,49 +170,49 @@ The following diagram shows how these tables are related to each other. Some of 
    ```sql 
    -- Create Person table
 
-    CREATE TABLE Person
-    (
-      PersonId      INT IDENTITY PRIMARY KEY,
-      FirstName     NVARCHAR(128) NOT NULL,
-      MiddelInitial NVARCHAR(10),
-      LastName      NVARCHAR(128) NOT NULL,
-      DateOfBirth   DATE NOT NULL
-    )
+   CREATE TABLE Person
+   (
+   PersonId   INT IDENTITY PRIMARY KEY,
+   FirstName   NVARCHAR(128) NOT NULL,
+   MiddelInitial NVARCHAR(10),
+   LastName   NVARCHAR(128) NOT NULL,
+   DateOfBirth   DATE NOT NULL
+   )
    
    -- Create Student table
  
-    CREATE TABLE Student
-    (
-      StudentId INT IDENTITY PRIMARY KEY,
-      PersonId  INT REFERENCES Person (PersonId),
-      Email     NVARCHAR(256)
-    )
-    
+   CREATE TABLE Student
+   (
+   StudentId INT IDENTITY PRIMARY KEY,
+   PersonId  INT REFERENCES Person (PersonId),
+   Email   NVARCHAR(256)
+   )
+   
    -- Create Course table
  
-    CREATE TABLE Course
-    (
-      CourseId  INT IDENTITY PRIMARY KEY,
-      Name      NVARCHAR(50) NOT NULL,
-      Teacher   NVARCHAR(256) NOT NULL
-    ) 
+   CREATE TABLE Course
+   (
+   CourseId  INT IDENTITY PRIMARY KEY,
+   Name   NVARCHAR(50) NOT NULL,
+   Teacher   NVARCHAR(256) NOT NULL
+   ) 
 
    -- Create Credit table
  
-    CREATE TABLE Credit
-    (
-      StudentId   INT REFERENCES Student (StudentId),
-      CourseId    INT REFERENCES Course (CourseId),
-      Grade       DECIMAL(5,2) CHECK (Grade <= 100.00),
-      Attempt     TINYINT,
-      CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
-      (
-        StudentId, CourseId, Grade, Attempt
-      )
-    )
+   CREATE TABLE Credit
+   (
+   StudentId   INT REFERENCES Student (StudentId),
+   CourseId   INT REFERENCES Course (CourseId),
+   Grade   DECIMAL(5,2) CHECK (Grade <= 100.00),
+   Attempt   TINYINT,
+   CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
+   (
+   StudentId, CourseId, Grade, Attempt
+   )
+   )
    ```
 
-![Create tables](./media/sql-database-design-first-database/create-tables.png)
+   ![Create tables](./media/sql-database-design-first-database/create-tables.png)
 
 3. Expand the 'tables' node in the SQL Server Management Studio Object explorer to see the tables you created.
 
@@ -237,16 +251,16 @@ Execute the following queries to retrieve information from the database tables. 
    ```sql 
    -- Find the students taught by Dominick Pope who have a grade higher than 75%
 
-    SELECT  person.FirstName,
-        person.LastName,
-        course.Name,
-        credit.Grade
-    FROM  Person AS person
-        INNER JOIN Student AS student ON person.PersonId = student.PersonId
-        INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
-        INNER JOIN Course AS course ON credit.CourseId = course.courseId
-    WHERE course.Teacher = 'Dominick Pope' 
-        AND Grade > 75
+   SELECT  person.FirstName,
+   person.LastName,
+   course.Name,
+   credit.Grade
+   FROM  Person AS person
+   INNER JOIN Student AS student ON person.PersonId = student.PersonId
+   INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
+   INNER JOIN Course AS course ON credit.CourseId = course.courseId
+   WHERE course.Teacher = 'Dominick Pope' 
+   AND Grade > 75
    ```
 
 2. In a SQL Server Management Studio query window, execute following query:
@@ -254,15 +268,15 @@ Execute the following queries to retrieve information from the database tables. 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
 
-    SELECT  course.Name,
-        course.Teacher,
-        credit.Grade
-    FROM  Course AS course
-        INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
-        INNER JOIN Student AS student ON student.StudentId = credit.StudentId
-        INNER JOIN Person AS person ON person.PersonId = student.PersonId
-    WHERE person.FirstName = 'Noe'
-        AND person.LastName = 'Coleman'
+   SELECT  course.Name,
+   course.Teacher,
+   credit.Grade
+   FROM  Course AS course
+   INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
+   INNER JOIN Student AS student ON student.StudentId = credit.StudentId
+   INNER JOIN Person AS person ON person.PersonId = student.PersonId
+   WHERE person.FirstName = 'Noe'
+   AND person.LastName = 'Coleman'
    ```
 
 ## Restore a database to a previous point in time 
