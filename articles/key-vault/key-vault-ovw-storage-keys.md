@@ -17,10 +17,13 @@ Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perfor
 
 For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
-## Further security through access limits
-SAS tokens, constructed using Key Vault storage account keys, provide even more controlled access to an Azure storage account. For more information, see [Using shared access signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
+## Supporting interfaces
 
-## What Key Vault manages
+The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. Refere to the references for these for more details, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+
+## Feature behavior
+
+### What Key Vault manages
 
 Key Vault performs several internal management functions on your behalf when you use Storage Account Keys.
 
@@ -34,18 +37,20 @@ Key Vault performs several internal management functions on your behalf when you
 
     *BRP - Is "/secrets route" referring to a general CS method or is this a REST term. Would pathway be a better general term?*
 
-## Supporting interfaces
+### Naming guidance
 
-The Azure Storage Account keys feature is initially available through the follwing interfaces.
+Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.  
+ 
+A SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z.
 
-- REST 
-- .NET / C# 
-- PowerShell
 
-## Developer experience 
+## Developer experience
+
+*BRP - This section was in spec but I'm not sure it adds much value here given the realestate it takes up. I think our well commented examples would do this best.* 
 
 ### Before Azure Key Vault Storage Keys 
-Developers used the following practices with a storage account key to get access to Azure storage. 
+
+Developers used to need to do the following practices with a storage account key to get access to Azure storage. 
  
  ```
 //create storage account using connection string containing account name 
@@ -74,13 +79,7 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
  
 // and update the accountSasCredential accountSasCredential.UpdateSASToken(sasToken); 
  ```
-## Using Key Vault storage account keys
-
-### Naming
-
-Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.  
  
-A SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z. 
 
 ### Developer best practices 
 
@@ -88,21 +87,9 @@ A SAS definition name must be 1-102 characters in length containing only 0-9, a-
 2. Do not allow ASA keys to be managed by more than one key vault object. 
 3. If you need to manually regenerate ASA keys, we recommend you regenerate them via Key Vault. 
 
-### Storage account onboarding 
+## Getting started
 
-A key vault object owner adds a storage account object on AzKV to onboard a storage account. During onboarding Key Vault needs to verify that identity onboarding the account has access to list and regenerate the storage keys. Key Vault gets OBO token from EvoSTS with audience as ARM and make a list key call to Storage RP. If list fails, then the Key Vault object creation fails with Forbidden http status code. The keys listed in this fashion is cached with key vault entity storage. 
-
-Additionally, it is also required that Key Vault verifies that identity has regenerate permissions before key vault take ownership of regenerating keys. To verify that identity (via OBO token) and as well as key vault first party identity has permission to rotate and list keys, key vault lists RBAC permissions on the storage account resource and validate the response via regular expression matching of actions and not actions. Some resources on how to achieve this as follows: 
-
-- Example 
-[VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
-- Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
-
-If the identity, via OBO token, does not have regenerate permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails as a bad request with an appropriate error code and message. 
-
-The OBO token will only work when you use first-party, native client applications of PowerShell and CLI.
-
-### Role-based access control permissions
+### Setup for role-based access control permissions
 
 Key Vault needs permissions to list and regenerate keys for a storage account. Set this up using the followign stesp:
 
@@ -116,5 +103,29 @@ For a classic account set the role parameter to 'Classic Storage Account Key Ope
 
 >[!NOTE]
 >The Key Vault identity might be invisible in tenants which had vaults created before <date>*(BRP - what's the date?)*. As a workaround, you can create a new vault and delete it to make Key Vault’s identity visible in these tenants.
+
+### Storage account onboarding 
+
+An example onboarding: A key vault object owner adds a storage account object on AzKV to onboard a storage account.
+
+During onboarding, Key Vault needs to verify that the identity of the onboarding the account has access to list and regenerate the storage keys. Key Vault gets an OBO token from EvoSTS with audience as Azure Resource Manager and makes a list key call to Storage RP. If the list call fails, then the Key Vault object creation fails with *Forbidden* http status code. The keys listed in this fashion are cached with your key vault entity storage. 
+
+Additionally, Key Vault must verify that the identity has regenerate permissions before key vault take ownership of regenerating your keys. To verify that identity (via OBO token) as well as key vault first party identity has permission to rotate and list keys, key vault lists RBAC permissions on the storage account resource and validates the response via regular expression matching of actions and not-actions. 
+
+Some supporting examples: 
+
+- Example 
+[VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
+- Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
+
+If the identity, via OBO token, does not have regenerate permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails as a bad request with an appropriate error code and message. 
+
+The OBO token will only work when you use first-party, native client applications of either PowerShell or CLI.
+
+
+
+## Other information
+
+- SAS tokens, constructed using Key Vault storage account keys, provide even more controlled access to an Azure storage account. For more information, see [Using shared access signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 
