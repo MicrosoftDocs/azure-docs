@@ -3,7 +3,7 @@ title: Manage compute power in Azure SQL Data Warehouse (PowerShell) | Microsoft
 description: PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokb
+author: hirokib
 manager: jhubbard
 editor: ''
 

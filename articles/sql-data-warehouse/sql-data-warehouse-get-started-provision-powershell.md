@@ -3,7 +3,7 @@ title: Create SQL Data Warehouse by using PowerShell | Microsoft Docs
 description: Create SQL Data Warehouse by using PowerShell
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokb
+author: hirokib
 manager: jhubbard
 editor: ''
 

@@ -3,7 +3,7 @@ title: Migrate your existing Azure data warehouse to premium storage | Microsoft
 description: Instructions for migrating an existing data warehouse to premium storage
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokb
+author: hirokib
 manager: barbkess
 editor: ''
 
