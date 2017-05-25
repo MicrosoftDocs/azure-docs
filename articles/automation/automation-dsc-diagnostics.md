@@ -1,5 +1,5 @@
 ---
-title: Forward Azure Automation DSC reports data to OMS Log Analytics | Microsoft Docs
+title: Forward Azure Automation DSC reporting data to OMS Log Analytics | Microsoft Docs
 description: This article demonstrates how to send Desired State Configuration (DSC) reporting data to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 05/24/2017
 ms.author: eslesar
 
 ---
-# Forward Azure Automation DSC reports data to OMS Log Analytics
+# Forward Azure Automation DSC reporting data to OMS Log Analytics
 Automation can send DSC node status data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  
 Compliance status is visible in the Azure portal, or with PowerShell, for nodes and for individual DSC resources in node configurations. 
 With Log Analytics you can:
