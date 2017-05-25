@@ -1,6 +1,6 @@
 ---
 title: Other frequently asked questions in Azure Web Apps | Microsoft Docs
-description: This article lists the more frequently asked questions in Azure Web Apps.
+description: This article lists other frequently asked questions in Azure Web Apps.
 services: app-service\web
 documentationcenter: ''
 author: simonxjx
