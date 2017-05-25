@@ -1,9 +1,10 @@
 # Overview
 ## [What is Azure Active Directory?](active-directory-whatis.md)
 ## [Choose edition](active-directory-editions.md)
-## [About Azure identity management](fundamentals-identity.md)
+## [About Azure identity management](identity-fundamentals.md)
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Preview the Azure portal experience](active-directory-preview-explainer.md)
+
 
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
@@ -14,7 +15,8 @@
 ### [Classic portal](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
-## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
+## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 
 # How to
 ## Plan and design

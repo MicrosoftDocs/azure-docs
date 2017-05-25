@@ -15,6 +15,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # Integrate Azure AD into an iOS app
