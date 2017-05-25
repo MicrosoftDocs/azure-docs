@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 05/25/2017
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
