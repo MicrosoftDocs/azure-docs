@@ -21,7 +21,7 @@ ms.author: diegomrtnzg
 # Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Visual Studio Team Services
 
 *Based on 
-[Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Visual Studio Team Services](https://github.com/Microsoft/azure-docs/blob/master/articles/container-service/container-service-docker-swarm-setup-ci-cd.md) documentation*
+[Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Visual Studio Team Services](https://github.com/Microsoft/azure-docs/blob/master/articles/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/.md) documentation*
 
 One of the biggest challenges when developing modern applications for the cloud is being able to deliver these applications continuously. In this article, you learn how to implement a full continuous integration and deployment (CI/CD) pipeline using: 
 * Azure Container Service Engine with Docker Swarm Mode
@@ -30,11 +30,11 @@ One of the biggest challenges when developing modern applications for the cloud 
 
 This article is based on a simple application, available on [GitHub](https://github.com/diegomrtnzg/MyShop/tree/docker-linux), developed with ASP.NET Core. The application is composed of four different services: three web APIs and one web front end:
 
-![MyShop sample application](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
+![MyShop sample application](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//myshop-application.png)
 
 The objective is to deliver this application continuously in a Docker Swarm Mode cluster, using Visual Studio Team Services. The following figure details this continuous delivery pipeline:
 
-![MyShop sample application](./media/container-service-docker-swarm-setup-ci-cd/full-ci-cd-pipeline.png)
+![MyShop sample application](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//full-ci-cd-pipeline.png)
 
 Here is a brief explanation of the steps:
 
@@ -57,7 +57,9 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Have a Visual Studio Team Services account and team project created](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Fork the GitHub repository to your GitHub account](https://github.com/diegomrtnzg/MyShop/tree/docker-linux)
 
-> Note: the Docker Swarm orchestrator in Azure Container Service uses legacy standalone Swarm. Currently, the integrated [Swarm mode](https://docs.docker.com/engine/swarm/) (in Docker 1.12 and higher) is not a supported orchestrator in Azure Container Service. For this reason, we are using [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), a community-contributed [quickstart template](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), or a Docker solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
+> [!NOTE]
+> The Docker Swarm orchestrator in Azure Container Service uses legacy standalone Swarm. Currently, the integrated [Swarm mode](https://docs.docker.com/engine/swarm/) (in Docker 1.12 and higher) is not a supported orchestrator in Azure Container Service. For this reason, we are using [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), a community-contributed [quickstart template](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), or a Docker solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
+>
 
 ## Step 1: Configure your Visual Studio Team Services account 
 
@@ -67,7 +69,7 @@ In this section, you configure your Visual Studio Team Services account.
 
 Microsoft provides a VSTS extension to work with Docker in build and release processes. This extension is available in the [VSTS Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.docker). Click **Install** to add this extension to your VSTS account:
 
-![Install the Docker Integration](./media/container-service-docker-swarm-setup-ci-cd/install-docker-vsts.png)
+![Install the Docker Integration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//install-docker-vsts.png)
 
 You are asked to connect to your VSTS account using your credentials. 
 
@@ -77,15 +79,15 @@ Set up a connection between your VSTS project and your GitHub account.
 
 1. In your Visual Studio Team Services project, click the **Settings** icon in the toolbar, and select **Services**.
 
-    ![Visual Studio Team Services - External Connection](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
+    ![Visual Studio Team Services - External Connection](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//vsts-services-menu.png)
 
 2. On the left, click **New Service Endpoint** > **GitHub**.
 
-    ![Visual Studio Team Services - GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
+    ![Visual Studio Team Services - GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//vsts-github.png)
 
 3. To authorize VSTS to work with your GitHub account, click **Authorize** and follow the procedure in the window that opens.
 
-    ![Visual Studio Team Services - Authorize GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-authorize.png)
+    ![Visual Studio Team Services - Authorize GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//vsts-github-authorize.png)
 
 ### Connect VSTS to your Azure container registry and Azure Container Service cluster
 
@@ -95,11 +97,11 @@ The last steps before getting into the CI/CD pipeline are to configure external 
 
 2. In the popup that opens, enter the URL and the credentials of your Azure container registry.
 
-    ![Visual Studio Team Services - Docker Registry](./media/container-service-docker-swarm-setup-ci-cd/vsts-registry.png)
+    ![Visual Studio Team Services - Docker Registry](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//vsts-registry.png)
 
 3. For the Docker Swarm cluster, add an endpoint of type **SSH**. Then enter the SSH connection information of your Swarm cluster.
 
-    ![Visual Studio Team Services - SSH](./media/container-service-docker-swarm-setup-ci-cd/vsts-ssh.png)
+    ![Visual Studio Team Services - SSH](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine//vsts-ssh.png)
 
 All the configuration is done now. In the next steps, you create the CI/CD pipeline that builds and deploys the application to the Docker Swarm cluster. 
 
@@ -234,7 +236,7 @@ The release workflow is composed of two tasks that you add.
 
 Now that you are done with the configuration, it's time to test this new CI/CD pipeline. The easiest way to test it is to update the source code and commit the changes into your GitHub repository. A few seconds after you push the code, you will see a new build running in Visual Studio Team Services. Once completed successfully, a new release is triggered and deployed the new version of the application on the Azure Container Service cluster.
 
-## Next Steps
+## Next steps
 
 * For more information about CI/CD with Visual Studio Team Services, see the [VSTS Build overview](https://www.visualstudio.com/docs/build/overview).
 * For more information about ACS Engine, see the [ACS Engine GitHub repo](https://github.com/Azure/acs-engine).
