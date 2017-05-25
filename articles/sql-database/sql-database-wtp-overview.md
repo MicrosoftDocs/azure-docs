@@ -12,7 +12,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/24/2017
 ms.author: sstein
 
 ---
@@ -50,8 +50,6 @@ The Wingtip SaaS app uses the database-per-tenant model, and uses SQL elastic po
 While the application is somewhat complete and compelling as a sample application, it is important to focus on the core SaaS patterns as they relate to the data tier. In other words, focus on the data tier, and don't over analyze the app itself. Understanding the implementation of these core SaaS patterns is key to implementing these patterns in your applications, while considering any necessary modifications for your specific business requirements.
 
 ## Download the Wingtip SaaS scripts
-
- 
 
 1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
 1. Click **Clone or download**.
