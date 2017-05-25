@@ -423,7 +423,7 @@ To create the load balancer:
 
 Set the cluster probe port parameter in PowerShell.
 
-To set the cluster probe port parameter, update variables in the following script from your environment.
+To set the cluster probe port parameter, update variables in the following script from your environment, and run the script on each node in the cluster.
 
   ```PowerShell
    $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
