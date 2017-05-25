@@ -36,7 +36,8 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 
 Change the URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
-NOTE: You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+>[!NOTE]
+>You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
 ```json
 @ECHO OFF
@@ -160,7 +161,8 @@ Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com
 
 Change the URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
-NOTE: You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+>[!NOTE]
+>You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
 ```json
 @ECHO OFF
@@ -184,7 +186,8 @@ Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.c
 
 Change the URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
 
-NOTE: You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+>[!NOTE]
+>You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
 ```json
 @ECHO OFF
