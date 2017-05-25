@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD B2C integrate REST API claims exchanges as validation in Custom Policies | Microsoft Docs'
+title: 'Azure Active Directory B2C: REST API Claims Exchange Validation | Microsoft Docs'
 description: A topic on Azure Active Directory B2C Custom Policies
 services: active-directory-b2c
 documentationcenter: ''
