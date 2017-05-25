@@ -28,7 +28,7 @@ Before you begin this tutorial, you must have the following:
 
 * **Basic knowledge of Data Lake Analytics job process**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
 * **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Copy the sample data to the default Data Lake Store account**.  See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data)
+* **Copy the sample data to the default Data Lake Store account**.  See [Prepare source data](data-lake-analytics-get-started-portal.md)
 
 ## Submit a Data Lake Analytics job
 Now you will create a U-SQL job with a bad source file name.  
