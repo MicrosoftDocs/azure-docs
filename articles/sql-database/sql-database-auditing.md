@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 25/5/2017
+ms.date: 5/25/2017
 ms.author: giladm
 
 ---
@@ -214,10 +214,10 @@ You can also configure Auditing in Azure SQL Database using the following automa
 [11]: ./media/sql-database-auditing-get-started/11_auditing_get_started_blob_audit_records.png
 [12]: ./media/sql-database-auditing-get-started/12_auditing_get_started_table_audit_records.png
 
-[101]: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[101]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
+[102]: https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[103]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
+[104]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
+[105]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
+[106]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
+[107]: https://docs.microsoft.com/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
