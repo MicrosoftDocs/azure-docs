@@ -1,5 +1,5 @@
 ---
-title: "Pricing Tiers in Azure Database for PostgreSQL | Microsoft Docs"
+title: "Pricing Tiers in Azure Database for PostgreSQL"
 description: "Pricing Tiers in Azure Database for PostgreSQL"
 services: postgresql
 author: kamathsun

@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: nacanuma
+ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 and OAuth 2.0 On-Behalf-Of flow
