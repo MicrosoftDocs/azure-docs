@@ -1,6 +1,6 @@
 ---
-title: Use Azure File Storage with Windows | Microsoft Docs
-description: Learn how to mount an Azure File share over SMB on Windows.
+title: Mount an Azure File share and access the share in Windows | Microsoft Docs
+description: Mount an Azure File share and access the share in Windows.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -17,7 +17,7 @@ ms.date: 03/21/2017
 ms.author: renash
 ---
 
-# Use Azure File Storage with Windows
+# Mount an Azure File share and access the share in Windows
 [Azure File Storage](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Windows and Windows Server. This article shows three different ways to mount an Azure File share on Windows: with the File Explorer UI, via PowerShell, and via the Command Prompt. 
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. The following table shows the SMB version of recent Windows releases:
@@ -38,14 +38,14 @@ In order to mount an Azure File share outside of the Azure region it is hosted i
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows. The minimum recommended KB is meant to provide the most recent package that has SMB fixes for update-averse IT administrators.
 
-## <a id="prereq"/></a>Prerequisites for Mounting Azure File Share with Windows 
+## </a>Prerequisites for Mounting Azure File Share with Windows 
 * **Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.
 
 * **Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
 * **Ensure port 445 is open**: Azure File Storage uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
 
-## <a id="explorer"></a>Mount the Azure File share with File Explorer
+## Mount the Azure File share with File Explorer
 > [!Note]  
 > Note that the following instructions are shown on Windows 10 and may differ slightly on older releases. 
 
@@ -73,7 +73,7 @@ In order to mount an Azure File share outside of the Azure region it is hosted i
 
 7. **When you are ready to dismount (or disconnect) the Azure File share, you can do so by right clicking on the entry for the share under the "Network locations" in File Explorer and selecting "Disconnect"**.
 
-## <a id="powershell"></a>Mount the Azure File share with PowerShell
+## Mount the Azure File share with PowerShell
 1. **Use the following command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
 
     ```PowerShell
@@ -93,7 +93,7 @@ In order to mount an Azure File share outside of the Azure region it is hosted i
 > [!Note]  
 > You may use the `-Persist` parameter on `New-PSDrive` to make the Azure File share visible to the rest of the OS while mounted.
 
-## <a id="netuse"></a>Mount the Azure File share with Command Prompt
+## Mount the Azure File share with Command Prompt
 1. **Use the following command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` with the proper information.
 
     ```

@@ -110,5 +110,4 @@ Now that you've learned how to manipulate Azure File Storage with Python, follow
 
 * [Python Developer Center](/develop/python/)
 * [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
-* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

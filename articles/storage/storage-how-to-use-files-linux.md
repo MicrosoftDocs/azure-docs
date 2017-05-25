@@ -22,7 +22,7 @@ ms.author: renash
 > [!NOTE]  
 > In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.x. As of the time of publishing, Samba support for SMB 3.x is incomplete as it does not yet support encryption. Status on SMB 3.x compatibility can be viewed on the [Samba wiki](https://wiki.samba.org/index.php/SMB3_kernel_status#Security_Features).
 
-## <a id="preq"></a>Prerequisities for mounting an Azure File share with Linux and the cifs-utils package
+## Prerequisities for mounting an Azure File share with Linux and the cifs-utils package
 * **Pick a Linux distribution that can have the cifs-utils package installed**: Microsoft recommends the following Linux distributions in the Azure image gallery:
 
     * Ubuntu Server 14.04+
@@ -110,21 +110,9 @@ The Azure File storage for Linux users' group provides a forum for you to share 
 
 ## Next Steps
 See these links for more information about Azure File storage.
-
-### Conceptual articles and videos
-* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
-
-### Tooling support for File storage
-* [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
-* [Create and manage file shares](storage-azure-cli.md#create-and-manage-file-shares) using the Azure CLI
-
-### Reference
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [Azure File Storage Troubleshooting Article](storage-troubleshoot-file-connection-problems.md)
-
-### Blog posts
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure File Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Using Azure PowerShell with Azure storage](storage-powershell-guide-full.md)
+* [How to use AzCopy with Microsoft Azure storage](storage-use-azcopy.md)
+* [Using the Azure CLI with Azure storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [FAQ](storage-files-faq.md)
+* [Troubleshooting](storage-troubleshoot-file-connection-problems.md)

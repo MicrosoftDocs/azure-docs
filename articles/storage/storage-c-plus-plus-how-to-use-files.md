@@ -179,7 +179,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## Upload a file
-At the very least, an Azure Azure File Storage Share contains a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
+At the very least, an Azure File share contains a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
 
 The first step in uploading a file is to obtain a reference to the directory where it should reside. You do this by calling the **get_root_directory_reference** method of the share object.
 
@@ -350,3 +350,10 @@ if (share.exists())
 
 }
 ```
+## Next Steps
+To learn more about Azure Storage, explore these resources:
+
+* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
+* [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

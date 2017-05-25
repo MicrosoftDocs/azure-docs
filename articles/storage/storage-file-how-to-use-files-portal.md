@@ -1,6 +1,6 @@
 ---
-title: How to use Azure File from the Azure Portal | Microsoft Docs
-description: Learn how to use the Azure Portal to manage Azure File, Microsoft's easy to use cloud file system.
+title: How to manage Azure File storage from the Azure portal | Microsoft Docs
+description: Learn to use the Azure portal to manage Azure File storage.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
@@ -44,12 +44,12 @@ The [Azure Portal](https://portal.azure.com) provides a user interface for manag
 
     ![Screenshot that shows how to create file share in the portal](media/storage-file-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate the storage costing of using Azure File Storage.
+6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate the storage cost of using Azure File Storage.
 
     ![Screenshot that shows how to create file share in the portal](media/storage-file-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
 ## Upload and download files
-1. Choose one file share your already created.
+1. Choose one file share your have already created.
 
     ![Screenshot that shows how to upload and download files from the portal](media/storage-file-how-to-use-files-portal/use-files-portal-upload-file1.png)
 
@@ -57,11 +57,11 @@ The [Azure Portal](https://portal.azure.com) provides a user interface for manag
 
     ![Screenshot that shows how to upload files from the portal](media/storage-file-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
-<a id="connect"/></a>
 ## Connect to file share
--  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you could also refer to [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distros.
+-  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you can also refer to [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distros.
 
     ![Screenshot that shows how to mount the file share](media/storage-file-how-to-use-files-portal/use-files-portal-connect.png)
+-  You can copy the commands for mounting file share on Windows or Linux and run it from you Azure VM or on-premises machine.
 
     ![Screenshot that shows the mount commands for Windows and Linux](media/storage-file-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 
@@ -73,23 +73,3 @@ See these links for more information about Azure File storage.
 
 * [FAQ](storage-files-faq.md)
 * [Troubleshooting](storage-troubleshoot-file-connection-problems.md)
-
-### Conceptual articles and videos
-* [Azure File Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
-
-### Tooling support for File storage
-* [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
-* [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
-* [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
-* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
-
-### Blog posts
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Migrating data to Azure File ](https://azure.microsoft.com/en-us/blog/migrating-data-to-microsoft-azure-files/)
-
-### Reference
-* [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)

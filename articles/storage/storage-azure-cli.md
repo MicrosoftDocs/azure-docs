@@ -34,7 +34,6 @@ This guide assumes that you understand the basic concepts of Azure Storage. It a
 * **Azure account**: If you don't already have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/).
 * **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-<a id="install"/></a>
 ### Install the Azure CLI 2.0
 
 Download and install the Azure CLI 2.0 by following the instructions outlined in [Install Azure CLI 2.0](/cli/azure/install-az-cli2).
