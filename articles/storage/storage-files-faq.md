@@ -81,7 +81,7 @@ ms.author: renash
 
 * **Q. How can I mount an Azure File share on my local machine?** 
     
-    You can mount the file share via the SMB protocol as long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (for example, you're using Windows 10 or Windows Server 2012). Please work with your local ISP provider to unblock the port. In the interim, you can view your files using [Storage Explorer](../vs-azure-tools-storage-explorer-files#view-a-file-shares-contents).
+    You can mount the file share via the SMB protocol as long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (for example, you're using Windows 10 or Windows Server 2012). Please work with your local ISP provider to unblock the port. In the interim, you can view your files using [Storage Explorer](vs-azure-tools-storage-explorer-files#view-a-file-shares-contents).
 
 
 ## Billing and Pricing
