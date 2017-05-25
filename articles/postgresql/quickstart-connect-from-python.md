@@ -12,7 +12,7 @@ ms.custom: quick start connect
 ms.tgt_pltfrm: connect
 ms.devlang: na
 ms.topic: article
-ms.date: 05/2410/2017
+ms.date: 05/24/2017
 ---
 # Use Python to connect and query data
 This quick start demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL; then use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
@@ -28,7 +28,7 @@ You also need:
 
  
 ## Install the Python connection libraries for PostgreSQL
-Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package that will allow you to connect and query the database created. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platform (Linux, OSX, Windows) - this should make you able to install a binary version of the module including all the dependencies simply using:
+Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package that allows you to connect and query the database created. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platform (Linux, OSX, Windows) - this should make you able to install a binary version of the module including all the dependencies simply using:
 
 ```cmd
 pip install psycopg2
@@ -36,7 +36,7 @@ pip install psycopg2
 Make sure to use an up-to-date version of pip (you can upgrade it using something like `pip install -U pip`)
 
 ## Get connection information
-Get the connection information needed to connect to the Azure Database for PostgreSQL. You will need the fully qualified server name, database name, and login credentials.
+Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
