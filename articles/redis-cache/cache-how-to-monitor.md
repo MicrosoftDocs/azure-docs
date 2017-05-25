@@ -26,7 +26,7 @@ Metrics for Azure Redis Cache instances are collected using the Redis [INFO](htt
 
 To view cache metrics, [browse](cache-configure.md#configure-redis-cache-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Redis Cache provides some built-in charts on the **Overview** blade and the **Redis metrics** blade. Each chart can be customized by adding or removing metrics and changing the reporting interval.
 
-![Redis metrics][redis-cache-redis-metrics-blade]
+![Redis metrics](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## View pre-configured metrics charts
 
@@ -38,12 +38,12 @@ The **Overview** blade has the following pre-configured monitoring charts.
 ### Monitoring charts
 The **Monitoring** section in the **Overview** blade has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
 
-![Monitoring charts][redis-cache-monitoring-part]
+![Monitoring charts](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### Usage charts
 The **Usage** section in the **Overview** blade has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
 
-![Usage charts][redis-cache-usage-part]
+![Usage charts](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
 The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
 
@@ -100,31 +100,6 @@ Each metric includes two versions. One metric measures performance for the entir
 | CPU |The CPU utilization of the Azure Redis Cache server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter. |
 | Cache Read |The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.** |
 | Cache Write |The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client. |
-
-## How to monitor a premium cache with clustering
-Premium caches that have [clustering](cache-how-to-premium-clustering.md) enabled can have up to 10 shards. Each shard has its own metrics, and these metrics are aggregated to provide metrics for the cache as a whole. Each metric includes two versions. One metric measures performance for the entire cache and a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has 3 shards, `Cache Hits` is the total amount of hits for the entire cache, and `Cache Hits (Shard 2)` is just the hits for that shard of the cache.
-
-Each pre-configured monitoring chart displays the top level metrics for the cache along with the metrics for each cache shard.
-
-![Monitor][redis-cache-premium-monitor]
-
-Hovering the mouse over the data points displays the details for that point in time. 
-
-![Monitor][redis-cache-premium-point-summary]
-
-The larger values are typically the aggregate values for the cache while the smaller values are the individual metrics for the shard. Note that in this example there are three shards and the cache hits are distributed evenly across the shards.
-
-![Monitor][redis-cache-premium-point-shard]
-
-To see more detail click the chart to view an expanded view on the **Metric** blade.
-
-![Monitor][redis-cache-premium-chart-detail]
-
-By default each chart includes the top-level cache performance counter as well as the performance counters for the individual shards. You can customize these on the **Edit Chart** blade.
-
-![Monitor][redis-cache-premium-edit]
-
-For more information on the available performance counters, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
 <a name="operations-and-alerts"></a>
 ## Alerts
