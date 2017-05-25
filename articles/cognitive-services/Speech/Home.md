@@ -76,7 +76,8 @@ The languages and locales supported by *Text to Speech* API include:
 | de-DE    |   fr-CA  |   nl-NL  |   zh-CN  
 | el-GR    |   fr-CH  |   pl-PL  |   zh-HK  
 | en-AU    |   fr-FR  |   pt-BR  |   zh-TW    
- 
-The maximum amount of audio returned for any single request must not exceed 15 seconds. 
+
+### Text to Speech API 
+The maximum amount of audio returned for any single request is 15 seconds. 
 
 
