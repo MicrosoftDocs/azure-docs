@@ -54,7 +54,6 @@ This article includes some of the most common questions about [Azure Web Apps](h
 * [My ClearDB database is down?](app-service-web-open-source-technologies-faq.md#my-cleardb-database-is-down)
 * [More questions](app-service-web-open-source-technologies-faq.md)
 
-**Function app**
+**Other frequently asked questions in Azure Web Apps**
 
-* [Functions Preview Versions Deprecation](app-service-web-others-faq.md#functions-preview-versions-deprecation)
-* [More questions](app-service-web-others-faq.md)
+* [Function app (Functions Preview Versions Deprecation)](app-service-web-others-faq.md)
