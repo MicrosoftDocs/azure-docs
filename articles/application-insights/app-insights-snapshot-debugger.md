@@ -127,7 +127,7 @@ After a snapshot is created, a minidump file (.dmp) will be created on disk. A s
 2. Select the "Advanced Tools" blade (or search for "Kudu")
 3. Click "Go"
 4. Select `CMD` from the `Debug console` drop-down.
-5. Click on `LogFiles`
+5. Click `LogFiles`
 
 You should see at least one file with a name beginning with `Uploader_` and a `.log` extension. You can download any log files or open them in the browser by clicking the appropriate icon.
 The filename includes the machine name. Therefore, if your App Service is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here is an example of a successful upload:
@@ -151,7 +151,7 @@ MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 In the example above, the instrumentation key is `c12a605e73c44346a984e00000000000`. This value should match the instrumentation key for your application.
 The minidump is associated with a snapshot with the ID of `139e411a23934dc0b9ea08a626db16c5`. You can use this ID later to locate the associated exception telemetry in Application Insights Analytics.
 
-Note that the uploader scans for new PDBs, roughly once every 15 minutes. Here is an example of that:
+The uploader scans for new PDBs, roughly once every 15 minutes. Here is an example of that:
 ```
 MinidumpUploader.exe Information: 0 : PDB rescan requested.
     DateTime=2017-05-25T15:11:38.8003886Z
