@@ -15,6 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
+ms.custom: aaddev
 
 ---
 # Integrate Azure AD into an Android app

@@ -166,5 +166,5 @@ az postgres server delete --resource-group myresourcegroup --name mypgserver-201
 ```
 
 ## Next steps
-- Migrate your database using [Export and Import](./howto-migrate-using-export-and-import.md) or [Dump and Restore](./howto-migrate-using-dump-and-restore.md).
-- For a technical overview of this service, see [What is Azure Database for PostgreSQL?](overview.md)
+> [!div class="nextstepaction"]
+> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
