@@ -130,7 +130,8 @@ On your VM, install the required packages for the Azure Python SDK modules and A
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel libopenssl-devel python-pip python-setuptools python-azure-sdk
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
+    libopenssl-devel python-pip python-setuptools python-azure-sdk
 
 ## Install Ansible via zypper
 sudo zypper addrepo http://download.opensuse.org/repositories/systemsmanagement/SLE_12_SP2/systemsmanagement.repo
