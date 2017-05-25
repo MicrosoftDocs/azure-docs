@@ -57,8 +57,8 @@ However, some updates do require a reboot to your VMs to apply the required upda
 
 Understand what Azure planned maintenance is and how it can affect the availability of your Linux VMs. These articles provide background about the Azure planned maintenance process and how to schedule planned maintenance to further reduce the impact.
 
-- [Planned maintenance for VMs in Azure](planned-maintenance.md)
-- [How to Schedule Planned Maintenance on Azure VMs](planned-maintenance-schedule.md)
+- [Planned maintenance for VMs in Azure](windows/planned-maintenance.md)
+- [How to Schedule Planned Maintenance on Azure VMs](windows/planned-maintenance-schedule.md)
 
 ### Memory-preserving updates   
 For a class of updates in Microsoft Azure, customers do not see any impact to their running VMs. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a reboot of the VMs.
@@ -82,7 +82,7 @@ Other actions that implicitly cause the VM to reboot include multiple configurat
 Examples include any VM resize operations, changing the password of the administrative account and setting a static IP address.
 
 ### Azure Security center and Windows Updates
-Azure Security Center monitors daily Windows and Linux VMs (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates. Applying these system updates is controlled via the Security Center section in Azure portal. After applying some updates it is required that the VM reboots. For more information, see [Apply system updates in Azure Security Center](../../security-center/security-center-apply-system-updates).
+Azure Security Center monitors daily Windows and Linux VMs (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates. Applying these system updates is controlled via the Security Center section in Azure portal. After applying some updates it is required that the VM reboots. For more information, see [Apply system updates in Azure Security Center](../security-center/security-center-apply-system-updates).
 
 Azure does not push Windows Updates to Windows Azure VMs since these machines are intended to be managed by the user. This is just like any on-premises machine. Customers are, however encouraged to leave the automatic Windows Update setting enabled. Automatic installation of Windows Updates might also cause reboots to occur after the update has been applied. For more information, see [Windows Update FAQ](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -122,5 +122,5 @@ The duration of the shutdown can be as short as 5 minutes but can be significant
 
 VM might be temporarily shutdown when I/O requests are consistently throttled due to excessive IOPS, exceeding the I/O limits for disks. Standard disk storage is limited to 500 input/output operations per second (IOPS). Depending on the workload, a striped disk or configuring Storage Spaces inside the Guest VM may help mitigate the issue.  Details are available in this support article: Configuring Azure VMs for Optimal Storage Performance
 
-Higher IOPS limits are available via Azure Premium Storage with up to 80,000 IOPs. For more information, See [High-Performance Premium Storage](../../storage/storage-premium-storage.md).
+Higher IOPS limits are available via Azure Premium Storage with up to 80,000 IOPs. For more information, See [High-Performance Premium Storage](../storage/storage-premium-storage.md).
 
