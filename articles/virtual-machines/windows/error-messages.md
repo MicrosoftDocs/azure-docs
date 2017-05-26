@@ -3,7 +3,7 @@ title: Common Windows virtual machine error codes in Azure | Microsoft Docs
 description: Understand some of the common error codes encountered when you provision and manage Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: genlin
+author: xujing-ms
 manager: timlt
 editor: ''
 tags: azure-resource-manager
