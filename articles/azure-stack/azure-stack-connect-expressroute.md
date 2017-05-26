@@ -20,14 +20,14 @@ ms.author: victorh
 # Connect Azure Stack to Azure using ExpressRoute
 ## Overview
 There are two supported methods to connect virtual networks in Azure Stack to virtual networks in Azure:
-   * Site-to-Site
+   * **Site-to-Site**
 
      A VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS. For more information about VPN gateways in Azure, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-   * ExpressRoute
+   * **ExpressRoute**
 
      A direct connection to Azure from your Azure Stack deployment. ExpressRoute is **not** a VPN connection over the public Internet. For more information about Azure ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).
 
-This topic shows an example using ExpressRoute to connect Azure Stack to Azure.
+This article shows an example using ExpressRoute to connect Azure Stack to Azure.
 ## Requirements
 The following are specific requirements to connect Azure Stack and Azure using ExpressRoute:
 * An Azure subscription to create an ExpressRoute circuit and VNets in Azure.
@@ -180,7 +180,7 @@ need virtual machines to send and receive data in the Azure Stack Vnet. Create a
 Repeat the previous steps from **Create the virtual network and VM subnet** through **Create a virtual machine** sections for each tenant VNet you want to connect to their respective VNets in Azure using their dedicated ExpressRoute circuit.
 
 ### Configure the NAT virtual machine for gateway traversal
-> [!WARNING]
+> [!IMPORTANT]
 > This section is for Azure Stack POC deployments only
 
 Because the POC is designed to be self-contained and isolated from the
