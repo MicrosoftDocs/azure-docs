@@ -1,4 +1,10 @@
 ---
+<<<<<<< HEAD
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-node
+ROBOTS: NOINDEX, NOFOLLOW
+
+---
+=======
 title: Azure DocumentDB Node.js API, SDK & Resources | Microsoft Docs
 description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
 services: cosmosdb
@@ -198,3 +204,4 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
 
+>>>>>>> 498d2d8c03c9f7cf95a75733b78454ab6f595fd1

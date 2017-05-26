@@ -104,7 +104,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
-You can now use [Robomongo](../documentdb/documentdb-mongodb-robomongo.md) / [Studio 3T](../documentdb/documentdb-mongodb-mongochef.md) to query, modify, and work with this new data.
+You can now use [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) to query, modify, and work with this new data.
 
 ## Review SLAs in the Azure portal
 
@@ -122,6 +122,6 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a console app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](../documentdb/documentdb-mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 
 

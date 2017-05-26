@@ -41,7 +41,7 @@ For more details on how to provision an Azure HDInsight Spark cluster, see [Prov
 
 First, we create a database account with the Graph API.
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a collection
 

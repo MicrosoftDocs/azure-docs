@@ -1,25 +1,9 @@
 ---
-title: NoSQL vs SQL and Azure Cosmos DB | Microsoft Docs
-description: Compare the benefits of using NoSQL non-relational solutions versus SQL solutions and Azure Cosmos DB. Learn how Azure Cosmos DB provides the benefits of NoSQL and SQL.
-keywords: nosql vs sql, when to use NoSQL, sql vs nosql
-services: cosmosdb
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-
-ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
-ms.service: cosmosdb
-ms.custom: overview
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 03/14/2017
-ms.author: mimig
 redirect_url: https://aka.ms/cosmosdb
 ROBOTS: NOINDEX, NOFOLLOW
 ---
+<<<<<<< HEAD
+=======
 # NoSQL vs SQL and Azure Cosmos DB
 SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes, velocities, and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. For most developers, relational databases are the default or go-to option because a table structure is easy to understand and is familiar, but there are many reasons to explore beyond relational databases.
 
@@ -128,3 +112,4 @@ We invite you to learn more about our SQL and NoSQL products by trying them out 
   * [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
   * [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
 
+>>>>>>> 498d2d8c03c9f7cf95a75733b78454ab6f595fd1

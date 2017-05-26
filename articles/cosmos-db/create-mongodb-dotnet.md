@@ -31,7 +31,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
 
 ## Clone the sample application
 
@@ -131,5 +131,5 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account and run a web app using the API for MongoDB. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the MongoDB API](../documentdb/documentdb-mongodb-migrate.md)
+> [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
 

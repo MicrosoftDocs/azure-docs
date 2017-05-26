@@ -1,23 +1,10 @@
 ---
-title: Azure Cosmos DB Python API, SDK & Resources | Microsoft Docs
-description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK.
-services: cosmosdb
-documentationcenter: python
-author: rnagpal
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: python
-ms.topic: article
-ms.date: 05/10/2017
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-python
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
+<<<<<<< HEAD
+=======
 # DocumentDB Python SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
@@ -151,3 +138,4 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
 
+>>>>>>> 498d2d8c03c9f7cf95a75733b78454ab6f595fd1
