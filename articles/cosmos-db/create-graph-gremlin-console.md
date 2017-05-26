@@ -60,6 +60,18 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
 Great! Now that we finished the setup, let's start running some console commands.
 
+Let's try a simple count() command
+```
+:> g.V().count()
+```
+
+[!TIP]
+Notice the ***:>*** that precedes the g.V().count() command? 
+This is important when using the Gremlin console with Azure Cosmos DB.  
+Omitting this :> prefix instructs the console to execute the command locally, often against an in-memory graph.
+Using this ***:>*** tells the console to execute a remote command, in this case against Cosmos DB (either the localhost emulator, or an Azure instance).
+
+
 ## Create vertices and edges
 
 Let's begin by adding four person vertices for *Thomas*, *Mary Kay*, *Robin*, and *Ben*.
