@@ -42,20 +42,20 @@ To complete this tutorial, make sure you have:
    - [Create DB - CLI](sql-database-get-started-cli.md)
    - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
-In addition, to execute SQL scripts against your database, you can use one of the following:
+In addition, to execute SQL scripts against your database, you can use one of the following query tools:
    - The query editor in the [Azure portal](https://portal.azure.com). For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
    - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.
    - The newest version of [Visual Studio Code](https://code.visualstudio.com/docs), which is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. For more information on using this tool with Azure SQL Database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md). 
 
 ## Create database users and grant permissions
 
-Connect to your database and create user accounts using one of the following query tool:
+Connect to your database and create user accounts using one of the following query tools:
 
 - The Query editor in the Azure portal
 - SQL Server Management Studio
 - Visual Studio Code
 
-These user accounts will replicate automatically to your secondary server (and be kept in sync). To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+These user accounts replicate automatically to your secondary server (and be kept in sync). To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
 
 - In a query window, execute the following query to create two user accounts in your database. This script grants **db_owner** permissions to the **app_admin** account and grants **SELECT** and **UPDATE** permissions to the **app_user** account. 
 
@@ -72,7 +72,7 @@ These user accounts will replicate automatically to your secondary server (and b
 
 ## Create database-level firewall
 
-Create a [database-level firewall rule](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. This database-level firewall rule will replicate automatically to the secondary server that you create in this tutorial. For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+Create a [database-level firewall rule](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. This database-level firewall rule replicates automatically to the secondary server that you create in this tutorial. For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
 
 - In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment.  
 
@@ -162,14 +162,14 @@ Open your terminal and navigate to a directory where you plan on creating your J
 sudo apt-get install maven
 ```
 
-For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), select **Java**, select **Ubunto**, and then follow the detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.
+For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), select **Java**, select **Ubuntu**, and then follow the detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.
 
 ### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), select **Java**, select Windows, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test, and run your Java project. For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), select **Java**, select Windows, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
 
 ## Create SqlDbSample project
 
-1. In the command console (such as Bash), create a new Maven project. 
+1. In the command console (such as Bash), create a Maven project. 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
@@ -192,7 +192,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    </dependency>
    ```
 
-6. Specify the version of Java to compile the project against by adding the “properties” section below into the pom.xml file after the "dependencies" section. 
+6. Specify the version of Java to compile the project against by adding the following “properties” section into the pom.xml file after the "dependencies" section. 
 
    ```xml
    <properties>
@@ -200,7 +200,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. Add the "build" section below into the pom.xml file after the "properties" section to support manifest files in jars.       
+7. Add the following "build" section into the pom.xml file after the "properties" section to support manifest files in jars.       
 
    ```xml
    <build>
@@ -237,7 +237,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
    public class App {
 
-      private static final String FAILOVER_GROUP_NAME = "myfailovergroup";
+      private static final String FAILOVER_GROUP_NAME = "myfailovergroupname";
   
       private static final String DB_NAME = "mySampleDatabase";
       private static final String USER = "app_user";
@@ -256,7 +256,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
          try {
             for(int i = 1; i < 1000; i++) {
-                //  loop will run for about 1h
+                //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " + (insertData((highWaterMark + i))?"successful":"failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " + (selectData((highWaterMark + i))?"successful":"failed") + "\n");
@@ -327,7 +327,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    ```bash
    mvn package
    ```
-2. When finished, execute the following command to run the application (it will run for about 1h unless it is stop manually):
+2. When finished, execute the following command to run the application (it runs for about 1 hour unless you stop it manually):
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -352,7 +352,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. Observe the application results during failover. You will see some insert to fail until the DNS cache refreshes. 	 
+2. Observe the application results during failover. Some inserts fail while the DNS cache refreshes. 	 
 
 3. Find out which role your disaster recovery server is performing.
 
@@ -369,7 +369,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. Observe the application results during failover. You will see some insert to fail until the DNS cache refreshes. 	 
+5. Observe the application results during failback. Some inserts fail while the DNS cache refreshes. 	 
 
 6. Find out which role your disaster recovery server is performing.
 
