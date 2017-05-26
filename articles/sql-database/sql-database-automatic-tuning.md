@@ -40,7 +40,7 @@ tuning feature.
 Azure SQL Database has a continuous performance monitoring and analysis process that constantly **learns** about the characteristic of your
 workload and identify potential issues and improvements.
 
-![Automatic tuning process](media\sq-database-automatic-tuning\tuning-process.png "Automatic tuning process")
+![Automatic tuning process](media/sq-database-automatic-tuning/tuning-process.png "Automatic tuning process")
 
 This process enables Azure SQL Database to dynamically **adapt** to your workload by finding what indexes might be useful to improve
 performance of your workloads, what indexes affect your workloads, how to find optimal plans, etc. Based on these findings, **Automatic
@@ -110,7 +110,7 @@ created by Azure SQL Database will be immediately dropped when related table or 
 
 Automatic plan correction is a new automatic tuning feature added in SQL Server 2017 CTP2.0 that identifies SQL plans that misbehaves.
 This automatic tuning option is coming soon on Azure SQL Database. 
-Find more information at Automatic Tuning in SQL Server 2017.
+Find more information at [Automatic Tuning in SQL Server 2017](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## Next steps
 
