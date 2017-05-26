@@ -250,7 +250,7 @@
 #### [View health reports](service-fabric-view-entities-aggregated-health.md)
 ### Aggregate events
 #### [Aggregate events with EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### [Aggregate events with Azure Diagnostics]
+#### Aggregate events with Azure Diagnostics
 ##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 ##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 ### Analyze events
