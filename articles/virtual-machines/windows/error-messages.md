@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 5/22/2017
+ms.date: 5/26/2017
 ms.author: xujing;genli
 
 ---

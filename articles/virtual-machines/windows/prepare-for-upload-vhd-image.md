@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 5/25/2017
+ms.date: 5/26/2017
 ms.author: glimoli;genli
 
 ---
