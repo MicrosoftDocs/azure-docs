@@ -65,6 +65,9 @@
 ### [Log searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Views](operations-management-suite-solutions-resources-views.md)
 
+## Management scenarios
+### [Collect monitoring data from runbook](operations-management-suite-runbook-datacollect.md)
+
 ## [Integrate with OMS](operations-management-suite-integration.md)
 
 # Reference

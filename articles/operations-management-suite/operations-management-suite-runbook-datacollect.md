@@ -30,9 +30,7 @@ This scenario requires the following resources configured in your Azure subscrip
 - [Azure automation account](../automation/automation-offering-get-started.md).
 
 ## Overview of scenario
-For this tutorial, you'll write a runbook that collects information about Automation jobs.  You could use this same process with a script that collects different data.
-
-Runbooks in Azure Automation are implemented with PowerShell, so you'll start by writing and testing a script in the Azure Automation editor.  Once you verify that you're collecting the required information, you'll write that data to Log Analytics and verify the custom data type.  Finally, you'll create a schedule to start the runbook at regular intervals.
+For this tutorial, you'll write a runbook that collects information about Automation jobs.  Runbooks in Azure Automation are implemented with PowerShell, so you'll start by writing and testing a script in the Azure Automation editor.  Once you verify that you're collecting the required information, you'll write that data to Log Analytics and verify the custom data type.  Finally, you'll create a schedule to start the runbook at regular intervals.
 
 
 ## 1. Install Data Collector API module
@@ -124,7 +122,7 @@ Azure Automation has an editor in the portal where you can edit and test your ru
 	}
 
 
-## 4. Test the runbook
+## 4. Test runbook
 Azure Automation includes an environment to [test your runbook](../automation/automation-testing-runbook.md) before you publish it.  You can inspect the data collected by the runbook and verify that it writes to Log Analytics as expected before publishing it to production. 
  
 ![Test runbook](media/operations-management-suite-runbook-datacollect/test-runbook.png)
@@ -139,7 +137,7 @@ Azure Automation includes an environment to [test your runbook](../automation/au
 
 ![Post output](media/operations-management-suite-runbook-datacollect/post-output.png)
 
-## 5. Verify records created in Log Analytics
+## 5. Verify records in Log Analytics
 Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
 ![Log output](media/operations-management-suite-runbook-datacollect/log-output.png)
@@ -169,7 +167,7 @@ For test, you were able to view [verbose output](../automation/automation-runboo
 2. Change the setting for **Log verbose records** to **On**.
 3. Click **Save**.
 
-## 7. Schedule the runbook
+## 7. Schedule runbook
 The most common way to start a runbook that collects monitoring data is to schedule it to run automatically.  You do this by creating a [schedule in Azure Automation](../automation/automation-schedules.md) and attaching it to your runbook.
 
 ![Schedule runbook](media/operations-management-suite-runbook-datacollect/schedule-runbook.png)
@@ -192,7 +190,7 @@ Once the schedule is created, you need to set the parameter values that will be 
 7. Fill in values for your **ResourceGroupName** and **AutomationAccountName**.
 8. Click **OK**. 
 
-## 8. Verify that the runbook starts on schedule
+## 8. Verify runbook starts on schedule
 Everytime a runbook is started, [a job is created](../automation/automation-runbook-execution.md) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
 
 ![Jobs](media/operations-management-suite-runbook-datacollect/jobs.png)
