@@ -7,7 +7,7 @@
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
 ## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)
 ## [About VPN devices](vpn-gateway-about-vpn-devices.md)
-## [About Cryptographic requirements](vpn-gateway-about-compliance-crypto.md)
+## [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md)
 ## [About BGP and VPN Gateway](vpn-gateway-bgp-overview.md)
 ## [About highly available connections](vpn-gateway-highlyavailable.md)
 
