@@ -215,7 +215,7 @@ Suppose you want to update your OS image while keeping the virtual machine scale
 * [Create a scale set template.](virtual-machine-scale-sets-mvss-start.md)
 
 
-[linux-vm-create]: ..virtual-machines/linux/tutorial-manage-vm.md
+[linux-vm-create]: ../virtual-machines/linux/tutorial-manage-vm.md
 [windows-vm-create]: ../virtual-machines/windows/tutorial-manage-vm.md
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
