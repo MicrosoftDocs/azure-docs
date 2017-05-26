@@ -162,8 +162,6 @@
       items:
       - name: Buy domain
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Map 3rd-party domain
-        href: web-sites-custom-domain-name.md
       - name: Map domains with Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Map GoDaddy domains
@@ -204,10 +202,6 @@
         href: web-sites-authentication-authorization.md
       - name: App with a multi-tenant database
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Assign custom SSL
-      items:
-      - name: Configure 3rd-party SSL cert
-        href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configure TLS mutual authentication
