@@ -30,9 +30,9 @@ The ACR headers follow the format:
 Source-client: <cloud>/<service>/<optionalservicename>
 ```
 
-* Cloud: Azure, Azure Stack, or other government or country-specific Azure clouds. Although Azure Stack and government clouds are not currently supported, this enables future support.
+* Cloud: Azure, Azure Stack, or other government or country-specific Azure clouds. Although Azure Stack and government clouds are not currently supported, this parameter enables future support.
 * Service: name of the service.
-* Optionalservicename: optional parameter for services with subservices, or to specify a SKU (ex: web apps will be Azure/app-service/web-apps).
+* Optionalservicename: optional parameter for services with subservices, or to specify a SKU (ex: web apps correspond with Azure/app-service/web-apps).
 
 Partner services and orchestrators are encouraged to use specific header values to help with our telemetry. Users can also modify the value passed to the header if they so desire.
 
