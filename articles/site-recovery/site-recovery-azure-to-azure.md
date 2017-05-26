@@ -17,12 +17,11 @@ ms.date: 05/22/2017
 ms.author: raynew
 
 ---
->[AZURE.NOTE]
+>[NOTE]
 >
 > Site Recovery replication for Azure virtual machines is currently in preview.
 
 # Replicate Azure VMs between regions with Azure Site Recovery
-
 
 This article describes how to replicate Azure virtual machines (VMs) between Azure regions, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
