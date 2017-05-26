@@ -251,26 +251,6 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
         -ItemType Database `
         -Path "master"
 
-### Create catalog secret
-    New-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-### Modify catalog secret
-    Set-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-
-
-### Delete catalog secret
-    Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master"
-
-
 ## Use Azure Resource Manager groups
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
