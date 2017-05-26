@@ -44,9 +44,10 @@ In the Azure portal, navigate to **More services** > **Networking** > **DNS zone
 
 ![listing DNS zones](./media/dns-operations-dnszones-portal/listzones.png)
 
-## Manage a DNS zone
-
-### 
 ## Delete a DNS zone
 
 Navigate to a DNS zone in the portal. On the **DNS zone** blade, click **Delete zone**. You are prompted to confirm you are wanting to delete the DNS zone. Deleting a DNS zone also deletes all the records that are contained in the zone. 
+
+## Next Steps
+
+Learn how to work with your DNS Zone and records by visiting [Get started with Azure DNS using the Azure portal](../dns-getstarted-portal.md).
