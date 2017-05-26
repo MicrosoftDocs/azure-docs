@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.author: joeyong;barbkess
 
 ---
 # Migrate your solution to SQL Data Warehouse
