@@ -63,8 +63,23 @@ Speech recognition API supports many spoken languages in multiple dialects. Refe
 ## Text to Speech (Speech Synthesis)
 The speech synthesis REST API provides real-time text to speech conversion in a variety of different voices and languages. The maximum amount of audio returned for any single request must not exceed 15 seconds. 
 
+### Supported languages  
+Locales supported by the text to speech API include:  
+
+language-Country |language-Country | language-Country | language-Country  
+---------|----------|------------|------------  
+ar-EG    |   en-GB  |   hi-IN  |   pt-PT  
+ar-SA    |   en-IE  |   hu-HU  |   ro-RO  
+ca-ES    |   en-IN  |   id-ID  |   ru-RU  
+cs-CZ    |   en-US  |   it-IT  |   sk-SK  
+da-DK    |   es-ES  |   ja-JP  |   sv-SE  
+de-AT    |   es-MX  |   ko-KR  |   th-TH  
+de-CH    |   fi-FI  |   nb-NO  |   tr-TR  
+de-DE    |   fr-CA  |   nl-NL  |   zh-CN  
+el-GR    |   fr-CH  |   pl-PL  |   zh-HK  
+en-AU    |   fr-FR  |   pt-BR  |   zh-TW    
+ 
+=======
 ### Supported Languages  
 Text to speech API supports many voices in many languages in multiple dialects. Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts) for full list of supported languages and voices.
-
-
 
