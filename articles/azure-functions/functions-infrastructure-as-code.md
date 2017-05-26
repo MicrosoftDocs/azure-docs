@@ -40,7 +40,7 @@ A function app requires these resources:
 
 ### Storage account
 
-An Azure storage account is required for an Azure Function App. A general purpose account that supports blobs, tables, queues, and files is required. For more information on this requirement, see [functions-create-function-app-portal.md#storage-account-requirements]
+An Azure storage account is required for an Azure Function App. A general purpose account that supports blobs, tables, queues, and files is required. For more information on this requirement, see [Azure Functions storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).
 
 ```json
 {
@@ -79,7 +79,7 @@ The definition of the hosting plan varies depending on whether a Consumption or 
 
 The function app resource is defined using a resource of type **Microsoft.Web/Site** and kind **functionapp**:
 
-```
+```json
 {
     "apiVersion": "2015-08-01",
     "type": "Microsoft.Web/sites",
@@ -96,7 +96,7 @@ The function app resource is defined using a resource of type **Microsoft.Web/Si
 
 ## Deploy Function App on Consumption Plan
 
-You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs and don't have to reserve capacity in advance. To learn more about hosting plans, see [Scaling Azure Functions](functions-scale.md).
+You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs and don't have to reserve capacity in advance. To learn more about hosting plans, see [Azure Functions Consumption and App Service plans](functions-scale.md).
 
 For a sample Azure Resource Manager template, see [Function App on Consumption plan].
 
@@ -168,6 +168,8 @@ In addition, a Consumption plan requires two additional settings in the site con
 ## Deploy Function App on App Service Plan
 
 In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, and Premium SKUs, similar to Web Apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+For a sample Azure Resource Manager template, see [Function App on App Service Plan].
 
 ### Create an App Service plan
 
