@@ -3,7 +3,7 @@ title: Load data from SQL Server into Azure SQL Data Warehouse (bcp) | Microsoft
 description: For a small data size, uses bcp to export data from SQL Server to flat files and import the data directly into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: cakarst;barbkess
 
 
 ---

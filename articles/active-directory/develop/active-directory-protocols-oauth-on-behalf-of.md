@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
+ms.custom: aaddev
 
 ---
 # Service to service calls using delegated user identity in the On-Behalf-Of flow
