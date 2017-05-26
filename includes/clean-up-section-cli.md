@@ -1,6 +1,6 @@
 ## Clean up resources
 
-In the preceding steps you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
  
 1. Run the following command to make sure the resource group doesn’t contain any resources that you want to save:
 
