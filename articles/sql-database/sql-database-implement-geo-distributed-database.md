@@ -343,7 +343,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 ## Perform disaster recovery drill
 
-1. Call manual failover of failover group using forced failover. If data loss during the drill is unacceptable you should remove -AllowDataLoss
+1. Call manual failover of failover group. 
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -354,14 +354,28 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 2. Observe the application results during failover. You will see some insert to fail until the DNS cache refreshes. 	 
 
-## Troubleshoot failover 
-
-Find out which role your disaster recovery server is performing.
+3. Find out which role your disaster recovery server is performing.
 
    ```powershell
    $mydrserver.ReplicationRole
    ```
 
+4. Failback.
+
+   ```powershell
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+   -ResourceGroupName $myresourcegroupname  `
+   -ServerName $myservername `
+   -FailoverGroupName $myfailovergroupname
+   ```
+
+5. Observe the application results during failover. You will see some insert to fail until the DNS cache refreshes. 	 
+
+6. Find out which role your disaster recovery server is performing.
+
+   ```powershell
+   $mydrserver.ReplicationRole
+   ```
 ## Next steps 
 
 - For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).
