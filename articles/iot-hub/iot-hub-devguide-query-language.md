@@ -162,7 +162,7 @@ Note that the query object exposes multiple **Next\***, depending on the deseria
 The query functionality is exposed by the [Azure IoT service SDK for Node.js][lnk-hub-sdks] in the **Registry** object.
 Here is an example of a simple query:
 
-```csharp
+```nodejs
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
