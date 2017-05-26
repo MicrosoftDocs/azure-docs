@@ -415,7 +415,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a ServiceNow test user
 
-In this section, you create a user called Britta Simon in ServiceNow. In this section, you create a user called Britta Simon in ServiceNow. If you don't know how to add a user in your ServiceNow or ServiceNow Express account, contact [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html)
+In this section, you create a user called Britta Simon in ServiceNow. If you don't know how to add a user in your ServiceNow or ServiceNow Express account, contact [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html)
 
 ### Assigning the Azure AD test user
 
