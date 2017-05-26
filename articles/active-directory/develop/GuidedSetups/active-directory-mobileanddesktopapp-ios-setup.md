@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows Desktop Getting Started - Setup | Microsoft Docs
-description: How Windows Desktop .NET (XAML) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+title: Azure AD v2 iOS Getting Started - Setup | Microsoft Docs
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -18,74 +18,133 @@ ms.author: andret
 
 ---
 
-## Setting up your Windows Desktop application
+## Setting up your iOS application
 
 This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate a iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that requires a token.
 
-The application created by this guide exposes a button to graph and show results on screen and a sign-out button.
-
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express "Configuration Step") step to configure the code sample before executing.
+> Prefer to download this sample's XCode project instead? [Download a project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) and skip to the [Configuration](#create-an-application-express "Configuration Step") step to configure the code sample before executing.
 
 
-### Creating your application
-1. In Visual Studio: `File` > `New` > `Project`<br/>
-2. Under *Templates*, select `Visual C#`
-3. Select `WPF App` (or *WPF Application* depending on the version of your Visual Studio)
+## Install Carthage to download and build MSAL
+Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft make changes to the library. Follow the instructions below to install Carthage:
 
-## Adding Microsoft Authentication Library (MSAL) library to your project
-1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Copy/paste the following in the Package Manager Console window:
+1.	Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases "Carthage download URL")
 
-```powershell
-Install-Package Microsoft.Identity.Client -Pre
-```
+## Creating your application
 
-> The package above installs the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user toskens used to access APIs protected by Azure Active Directory v2.
+1.	Open Xcode and select `Create a new Xcode project`
+2.	Select `iOS` > `Single view Application` and click *Next*
+3.	Give a product name and click *Next*
+4.	Select a folder to create your app and click *Create*
 
-## Add the code to initialize MSAL
-This step will help you create a class to handle interaction with MSAL Library, such as handling of tokens.
+## Build MSAL Framework
 
-1. Open the `App.xaml.cs` file and add the reference for MSAL library to the class:
+Follow the instructions below to pull and then build the latest version of MSAL libraries using Carthage:
 
-```csharp
-using Microsoft.Identity.Client;
+1.	Open bash terminal and go to the App’s root folder
+2.	Copy the below and paste in the bash terminal to create a ‘Cartfile’ file by:
+
+```bash
+echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
 ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="2">
+<ol start="3">
 <li>
-Update the App class to the following:
+Copy and paste the below. This command fetches dependencies into a Carthage/Checkouts folder, then build the MSAL library:
 </li>
 </ol>
 
-```csharp
-public partial class App : Application
-{
-    //Below is the clientId of your app registration. 
-    //You have to replace the below with the Application Id for your app registration
-    private static string ClientId = "your_client_id_here";
+```bash
+carthage update
+```
 
-    public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+> The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user toskens used to access APIs protected by Azure Active Directory v2.
 
-}
+## Add MSAL framework to your application
+1.	In Xcode, open the `General` tab.
+2.	Go to `Linked Frameworks and Libraries` section and click `+`
+3.	Select `Add other…`
+4.	Select: `Carthage` > `Build` > `iOS` > `MSAL.framework` and click *Open*. You should see `MSAL.framework` added to the list.
+5.	Go to `Build Phases` tab, and click `+` icon, choose `New Run Script Phase`
+6.	Add the following contents to the *script area*:
+```powershell
+/usr/local/bin/carthage copy-frameworks
+```
+7.	Add the following to `Input Files` by clicking `+`:
+```powershell
+$(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
 ## Creating your application’s UI
-The section below shows how an application can query a protected backend server like Microsoft Graph. 
-A MainWindow.xaml file should automatically be created as a part of your project template. Open this file this file and then follow the instructions below:
+A Main.storyboard file should automatically be created as a part of your project template. Follow the instructions below to create the app UI:
 
-1.	Replace your application’s `<Grid>` with be the following:
+1.	Control+click `Main.storyboard` to bring the contextual menu, and then click: `Open As` > `Source Code`
+2.	Replace the `<scenes>` node with the code below:
 
 ```xml
-<Grid>
-    <StackPanel Background="Azure">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
-            <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
-        </StackPanel>
-        <Label Content="API Call Results" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
-        <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
-        <Label Content="Token Info" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
-        <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
-    </StackPanel>
-</Grid>
+ <scenes>
+    <scene sceneID="tne-QT-ifu">
+        <objects>
+            <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MSALiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <layoutGuides>
+                    <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                    <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                </layoutGuides>
+                <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Microsoft Authentication Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifd-fu-zjm">
+                            <rect key="frame" x="64" y="28" width="246" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logging" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98g-dc-BPL">
+                            <rect key="frame" x="16" y="277" width="62" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rX-Vv-T1i">
+                            <rect key="frame" x="87" y="100" width="200" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Call Microsoft Graph API"/>
+                            <connections>
+                                <action selector="callGraphButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kx0-JL-Bv9"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXW-2z-J7K">
+                            <rect key="frame" x="16" y="324" width="343" height="291"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" updatesFrequently="YES"/>
+                            </accessibility>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9u4-b8-vmX">
+                            <rect key="frame" x="137" y="138" width="100" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Sign-Out"/>
+                            <connections>
+                                <action selector="signoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZT-P8-0Zy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <connections>
+                    <outlet property="loggingText" destination="qXW-2z-J7K" id="uqO-Yw-AsK"/>
+                    <outlet property="signoutButton" destination="9u4-b8-vmX" id="OCh-qk-ldv"/>
+                </connections>
+            </viewController>
+            <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+        </objects>
+        <point key="canvasLocation" x="140" y="137.18140929535232"/>
+    </scene>
+</scenes>
 ```

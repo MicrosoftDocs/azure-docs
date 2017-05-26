@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows Desktop Getting Started - Test | Microsoft Docs
-description: How Windows Desktop .NET (XAML) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+title: Azure AD v2 iOS Getting Started - Test | Microsoft Docs
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms

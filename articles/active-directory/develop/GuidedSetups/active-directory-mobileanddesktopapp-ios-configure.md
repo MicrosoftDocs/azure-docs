@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows Desktop Getting Started - Config | Microsoft Docs
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint. | Microsoft Azure | Microsoft Azure
+title: Azure AD v2 iOS Getting Started - Configure | Microsoft Docs
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -20,19 +20,51 @@ ms.author: andret
 
 ## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
-1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)
+1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
 2.	Enter a name for your application and your email
 3.	Make sure the option for Guided Setup is checked
 4.	Follow the instructions to obtain the application ID and paste it into your code
 
 ### Add your application registration information to your solution (Advanced)
-Now you need to register your application in the *Microsoft Application Registration Portal*:
-1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application
-2. Enter a name for your application and your email 
-3. Make sure the option for Guided Setup is unchecked
-4. Click `Add Platforms`, then select `Native Application` and hit Save
-5. Copy the GUID in Application ID, go back to Visual Studio, open `App.xaml.cs` and replace `your_client_id_here` with the Application ID you just registered:
 
-```csharp
-private static string ClientId = "your_application_id_here";
+1.	Go to Microsoft Application Registration Portal
+2.	Enter Application Name and your email
+3.	Make sure the option to Guided Setup is unchecked
+4.	Click `Add Platforms`, then select `Native Application` and click `Save`
+5.	Go back to Xcode, and, on `ViewController.swift`, replace the line starting with '`let kClientID`' with the application ID you just registered:
+
+```swift
+let kClientID = "Your_Application_Id_Here"
 ```
+
+<!-- Workaround for Docs conversion bug -->
+<ol start="6">
+<li>
+Control+click <code>Info.plist</code> to bring the contextual menu, and then click: <code>Open As</code> > <code>Source Code</code>
+</li>
+<li>
+Under `dict` root node, add the following:
+</li>
+</ol>
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>msal[Enter the application Id here]</string>
+            <string>auth</string>
+        </array>
+    </dict>
+</array>
+```
+<ol start="8">
+<li>
+Replace <code>[Enter the application Id here]</code> with the application ID
+</li>
+</ol>

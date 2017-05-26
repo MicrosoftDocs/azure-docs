@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows Desktop Getting Started - Config | Microsoft Docs
-description: How a Windows Desktop .NET (XAML) application can get an access token and call an API protected by Azure Active Directory v2 endpoint.
+title: Azure AD v2 iOS Getting Started - Configure (ARP) | Microsoft Docs
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -17,19 +17,37 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Configure your Windows Desktop App with the application's registration information
-
-This step shows how to configure your Visual Studio project with the application's registration information.
-
 ## Add the application’s registration information to your App
+
 In this step, you need to add the Application Id to your project.
 
-1.	Open `App.xaml.cs` and replace the line containing the `ClientId` with:
-
-```csharp
-private static string ClientId = "[Enter the application Id here]";
+1.	On `ViewController.swift`, replace the line starting with '`let kClientID`' with:
+```swift
+let kClientID = "[Enter the application Id here]"
 ```
+<!-- Workaround for Docs conversion bug -->
+<ol start="2">
+<li>
+Control+click <code>Info.plist</code> to bring the contextual menu, and then click: <code>Open As</code> > <code>Source Code</code>
+</li>
+<li>
+Under <code>dict</code> root node, add the following:
+</li>
+</ol>
 
-### What is Next
-
-[Test and Validate](active-directory-mobileanddesktopapp-windowsdesktop-test.md)
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>msal[Enter the application Id here]</string>
+            <string>auth</string>
+        </array>
+    </dict>
+</array>
+```
