@@ -27,7 +27,7 @@ This sample PowerShell script creates an Azure SQL database and configures a ser
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/create-and-configure-database/create-and-configure-database.ps1?highlight=12-13 "Create SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/create-and-configure-database/create-and-configure-database.ps1?highlight=13-14 "Create SQL Database")]
 
 ## Clean up deployment
 
