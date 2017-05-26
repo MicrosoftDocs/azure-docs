@@ -23,7 +23,7 @@ This article details the networking guidance for Azure Site Recovery when replic
 
 ## Site Recovery architecture
 
-Site Recovery provides a simple and easy way to replicate applications running on Azure virtual machines to another Azure region so that they can be recovered in the even of a disruption in primary region. You can refer to more details about the [scenario and its architecture in this document](site-recovery-azure-to-azure-architecture).
+Site Recovery provides a simple and easy way to replicate applications running on Azure virtual machines to another Azure region so that they can be recovered in the even of a disruption in primary region. You can refer to more details about the [scenario and its architecture in this document](site-recovery-azure-to-azure-architecture.md).
 
 ## Prepare your network infrastructure
 
@@ -168,4 +168,4 @@ a.	A common customer configuration is to define a default route (0.0.0.0/0) whic
  > If the primary region is completely down, then the disconnect operation can fail. That will prevent target VNet from getting the ExpressRoute connectivity.
 
 ## Next steps
-[Replicate Azure virtual machines](site-recovery-azure-vm-enable-rep.md)
+- Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md)

@@ -21,24 +21,24 @@ ms.author: ponatara
 
 ## Overview
 
-This article details the guidance to prepare machines for setting up Disaster Recovery between two Azure regions after these machines have been migrated from on-premises environment to Azure using Azure Site Recovery. 
+This article details the guidance to prepare machines for setting up Disaster Recovery between two Azure regions after these machines have been migrated from on-premises environment to Azure using Azure Site Recovery.
 
 ## Why setup Disaster Recovery in Azure after migration?
-Today, more and more enterprises are moving their workloads to Azure. With enterprises moving mission-critial on-premises production workloads to Azure, setting up disaster recovery for these workloads is mandatory for compliance reasons and to safeguard against any outages in an Azure region. 
+Today, more and more enterprises are moving their workloads to Azure. With enterprises moving mission-critial on-premises production workloads to Azure, setting up disaster recovery for these workloads is mandatory for compliance reasons and to safeguard against any outages in an Azure region.
 
 ##Preparatory steps
 Below are the steps to prepare migrated machines for DR.
 
 a) Complete migration.
 
-b) Install the Azure agent if needed. 
+b) Install the Azure agent if needed.
 
 c) Remove the mobility service  
 
 
 ### Migrate workloads running on on-premises Hyper-V VMs, VMware VMs, and physical servers, to run on Azure VMs:
 
-Follow the steps detailed in this [article](../site-recovery-migrate-to-azure.md) to setup replication and migrate your on-premises Hyper-V, VMware and physical workloads to Azure. 
+Follow the steps detailed in this [article](site-recovery-migrate-to-azure.md) to setup replication and migrate your on-premises Hyper-V, VMware and physical workloads to Azure.
 
 After migration, you don't need to commit a failover, or delete it. Instead, you select the **Complete Migration** option for each machine you want to migrate.
      - In **Replicated Items**, right-click the VM, and click **Complete Migration**. Click **OK** to complete. You can track progress in the VM properties, in by monitoring the Complete Migration job in **Site Recovery jobs**.
@@ -50,7 +50,7 @@ After migration, you don't need to commit a failover, or delete it. Instead, you
 The Azure VM Agent must be installed on the virtual machine for the Site Recovery extension to work and to protect the machine. The Azure VM agent needs to be manually installed if the mobility service installed on the migrated machine is of version 9.6 and below.
 
 >[!IMPORTANT]
->Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer > also installs the latest available Azure VM agent. On migration, the virtual machine meets the 
+>Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer > also installs the latest available Azure VM agent. On migration, the virtual machine meets the
 > agent installation prerequisite for using any VM extension, including the Site Recovery extension
 
  Learn about the [VM Agent](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
@@ -95,8 +95,9 @@ uninstall.sh -Y
 
 ###Set up Disaster Recovery between Azure regions:
 
-After the agent is removed, setup DR replication for the machine using the steps mentioned in
-. 
-Fill with links
+After the agent is removed, setup DR replication for the machine using the steps mentioned  in [this document](site-recovery-azure-to-azure.md)
 
 
+## Next steps
+- Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md)
+* Lear more about [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md)
