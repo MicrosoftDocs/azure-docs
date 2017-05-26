@@ -146,11 +146,11 @@ You need two Docker steps for each image, one to build the image, and one to pus
     For the build operation, select your Azure Container Registry, the **Build an image** action, and the Dockerfile that defines each image. Set the **Working Directory** as the Dockerfile root directory, define the **Image Name**, and select **Include Latest Tag**.
     
     The Image Name has to be in this format: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Replace **[NAME]** with the image name:
-    - proxy
-    - products-api
-    - ratings-api
-    - recommendations-api
-    - shopfront
+    - ```proxy```
+    - ```products-api```
+    - ```ratings-api```
+    - ```recommendations-api```
+    - ```shopfront```
 
 3. For each image, configure a second step that uses the `docker push` command.
 
