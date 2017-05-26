@@ -74,9 +74,6 @@ Like on-premises servers, Azure does not push Windows Updates to Windows Azure V
 
 ### Other situations affecting the availability of your VM
 There are other cases in which Azure might actively suspend the use of a VM. Users receive email notifications before this action is taken, so they have a chance to resolve the underlying issues. Examples include security violations, and expired payment method having expired.
-        
-### Other incidents
-In rare circumstances, a wide spread issue can impact multiple servers in an Azure data center.  If this occurs, the Azure team sends email notifications to affected subscriptions. You can check the [Azure Service Health Dashboard](https://azure.microsoft.com/en-us/status/) and Azure portal for the status of on going outages and past incidents.
 
 ### Host Server Faults 
 The VM is hosted on a physical server that is running inside an Azure datacenter. The physical server runs an agent called the Host Agent in addition to a few other Azure components. When these Azure software components on the physical server become unresponsive, the monitoring system triggers a reboot of the host server to attempt recovery. The VM is typically available again within five minutes and continues to live on the same host as previously.
@@ -110,3 +107,6 @@ The duration of the shutdown can be as short as five minutes but can be signific
 VMs might be temporarily shut down when I/O requests are consistently throttled due to a volume of input/output operations per second (IOPS) that exceeds the I/O limits for disk (Standard disk storage is limited to 500 IOPS). To mitigate this issue, use disk striping or configure storage space inside the guest VM, depending on the workload. For details, see [Configuring Azure VMs for Optimal Storage Performance](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 Higher IOPS limits are available via Azure Premium Storage with up to 80,000 IOPs. For more information, See [High-Performance Premium Storage](../storage/storage-premium-storage.md).
+
+### Other incidents
+In rare circumstances, a wide spread issue can impact multiple servers in an Azure data center.  If this occurs, the Azure team sends email notifications to affected subscriptions. You can check the [Azure Service Health Dashboard](https://azure.microsoft.com/en-us/status/) and Azure portal for the status of on going outages and past incidents.
