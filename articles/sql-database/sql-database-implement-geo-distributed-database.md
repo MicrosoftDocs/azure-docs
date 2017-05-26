@@ -22,48 +22,42 @@ ms.author: carlrab
 
 # Implement a geo-distributed database
 
-In this tutorial, you configure an Azure SQL database and application for failover to a remote region, and then test your failover plan. 
+In this tutorial, you configure an Azure SQL database and application for failover to a remote region, and then test your failover plan. You learn how to: 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+> [!div class="checklist"]
+> * Create database users and grant them permissions
+> * Set up a database-level firewall rule
+> * Create a [geo-replication failover group](sql-database-geo-replication-overview.md)
+> * Create and compile a Java application to query an Azure SQL database
+> * Perform a disaster recovery drill
+
+## Prerequisites
 
 To complete this tutorial, make sure you have:
 
-- The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the newest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks. 
-- The latest [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs) 
+- The latest [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs). 
 - An Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
 
    - [Create DB - Portal](sql-database-get-started-portal.md)
    - [Create DB - CLI](sql-database-get-started-cli.md)
    - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
-## Create users with permissions for your database
+In addition, to execute SQL scripts against your database, you can use one of the following:
+   - The query editor in the [Azure portal](https://portal.azure.com). For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
+   - The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.
+   - The newest version of [Visual Studio Code](https://code.visualstudio.com/docs), which is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. For more information on using this tool with Azure SQL Database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md). 
 
-Use SQL Server Management Studio to connect to your database and create user accounts. These user accounts will replicate automatically to your secondary server. You may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For steps, see [Create SQL DB using the Azure portal](sql-database-get-started-portal.md).
+## Create database users and grant permissions
 
-1. Open SQL Server Management Studio.
-2. In the **Connect to Server** dialog box, enter the following information:
+Connect to your database and create user accounts using one of the following query tool:
 
-   | Setting       | Suggested value | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Server type** | Database engine | This value is required. |
-   | **Server name** | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
-   | **Authentication** | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
-   | **Login** | The server admin account | This is the account that you specified when you created the server. |
-   | **Password** | The password for your server admin account | This is the password that you specified when you created the server. |
+- The Query editor in the Azure portal
+- SQL Server Management Studio
+- Visual Studio Code
 
-   ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
+These user accounts will replicate automatically to your secondary server (and be kept in sync). To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall. For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
 
-3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
-
-   ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
-
-4. Click **Connect**. The Object Explorer window opens in SSMS. 
-
-   ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
-
-5. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
-
-6. In the query window, execute the following query to create two user accounts in your database, granting **db_owner** permissions to the **app_admin** account and **UPDATE** permissions to the **app_user** account. 
+- In a query window, execute the following query to create two user accounts in your database. This script grants **db_owner** permissions to the **app_admin** account and grants **SELECT** and **UPDATE** permissions to the **app_user** account. 
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
@@ -78,25 +72,24 @@ Use SQL Server Management Studio to connect to your database and create user acc
 
 ## Create database-level firewall
 
-Use SQL Server Management Studio to create a database-level firewall rule for your SQL database. This database-level firewall rule will replicate automatically to your secondary server. For testing purposes, you can create a firewall rule for all IP addresses (0.0.0.0 and 255.255.255.255), can create a firewall rule for the single IP address with which you created the server-firewall rule, or you can configure one or more firewall rules for the IP addresses of the computers that you wish to use for testing of this tutorial.  
+Create a [database-level firewall rule](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database. This database-level firewall rule will replicate automatically to the secondary server that you create in this tutorial. For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
 
-- In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment. To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+- In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment.  
 
    ```sql
    -- Create database-level firewall setting for your public IP address
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
-   ```  
+   ```
 
-## Create a failover group 
+## Create an active geo-replication auto failover group 
 
-Choose a failover region and then, using Azure PowerShell:
-- Create an empty server in that region
-- Create a failover group between your existing server and the new empty server
-- Add your database to the failover group
+Using Azure PowerShell, create an [active geo-replication auto failover group](sql-database-geo-replication-overview.md) between your existing Azure SQL server and the new empty Azure SQL server in an Azure region, and then add your sample database to the failover group.
 
-1. To start, run **Login-AzureRmAccount** to create a connection with Azure..
+> [!IMPORTANT]
+> These cmdlets require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+>
 
-2. Populate variables for your PowerShell scripts.
+1. Populate variables for your PowerShell scripts.
 
    ```powershell
    $secpasswd = ConvertTo-SecureString "MyStrongPassword1" -AsPlainText -Force
@@ -110,7 +103,7 @@ Choose a failover region and then, using Azure PowerShell:
    $myfailovergroupname = "<your failover group name>"
    ```
 
-3. Create an empty backup server in your failover region.
+2. Create an empty backup server in your failover region.
 
    ```powershell
    $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
@@ -120,7 +113,7 @@ Choose a failover region and then, using Azure PowerShell:
       -SqlAdministratorCredentials $mycreds
    ```
 
-4. Create a failover group.
+3. Create a failover group.
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
@@ -132,7 +125,7 @@ Choose a failover region and then, using Azure PowerShell:
       -GracePeriodWithDataLossHours 2
    ```
 
-5. Add your database to the failover group.
+4. Add your database to the failover group.
 
    ```powershell
    $failovergroup = Get-AzureRmSqlDatabase `
