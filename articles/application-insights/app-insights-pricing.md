@@ -44,6 +44,7 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 ### Enterprise plan
 
 * In the Enterprise plan, your app can use all the features of Application Insights. [Continuous Export](app-insights-export-telemetry.md) and 
+
 [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) are available without any extra charge in the Enterprise plan.
 * You pay per node that is sending telemetry for any apps in the Enterprise plan. 
  * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
@@ -76,9 +77,18 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 There's an additional charge for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). This refers to web tests that perform a sequence of actions. 
 
 There is no separate charge for 'ping tests' of a single page. Telemetry from both ping tests and multi-step tests is charged along with other telemetry from your app.
+ 
+## Operations Management Suite subscription entitlement
 
-## Review pricing plan and estimate costs for your Application Insights resource
-Open the Features + Pricing blade in the Application Insights resource for your application.
+As [recently announced](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), customers who purchase Microsoft Operations Management Suite E1 and E2 are able to get Application Insights Enterprise as an additional component at no additional cost. Specifically, each unit of Operations Management Suite E1 and E2 includes an entitlement to 1 node of the Enterprise plan of Application Insights. As noted above, each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no additional cost. 
+
+> [!NOTE]
+> To ensure that you get this entitlement, you must have your Application Insights resources in the Enterprise pricing plan. This entitlement applies only as nodes, so Application Insights resources in the Basic plan will not realize any benefit. Note that this entitlement will not be visible on the estimated costs shown on the Features + pricing blade. 
+>
+ 
+## Review pricing plans and estimate costs
+
+Applicaition Insights makes it easy to understand the pricing plans available and what the costs are likely be be based on recent usage patterns. Start by opening the **Features + Pricing** blade in the Application Insights resource in the Azure portal:
 
 ![Choose Pricing.](./media/app-insights-pricing/01-pricing.png)
 

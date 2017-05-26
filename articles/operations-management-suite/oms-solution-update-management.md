@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2017
+ms.date: 05/23/2017
 ms.author: magoedte
 
 ---
@@ -46,7 +46,11 @@ You can deploy and install software updates on computers that require the update
 At the date and time specified in the update deployment, the target computers executes the deployment in parallel.  A scan is first performed to verify the updates are still required and installs them.  It is important to note for WSUS client computers, if the updates are not approved in WSUS, the update deployment will fail.  The results of the applied updates are forwarded to OMS to be processed and summarized in the dashboards or by the searching the events.     
 
 ## Prerequisites
-* The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2012 and higher.  Server Core and Nano Server installation options are not supported.
+* The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2008 R2 and higher.  Server Core and Nano Server installation options are not supported.
+
+    > [!NOTE]
+    > Support for deploying updates to Windows Server 2008 R2 requires .NET Framework 4.5 and WMF 5.0 or later.
+    >  
 * Windows client operating systems are not supported.  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
   

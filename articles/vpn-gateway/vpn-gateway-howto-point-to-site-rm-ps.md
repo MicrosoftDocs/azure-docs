@@ -253,7 +253,7 @@ If you are having trouble connecting, check the following things:
 
 You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root won't be able to authenticate, and thus will not be able to connect. If you want a client to authenticate and connect, you need to install a new client certificate generated from a root certificate that is trusted (uploaded) to Azure.
 
-### To add a root certificate
+### To add a trusted root certificate
 
 You can add up to 20 root certificate .cer files to Azure. The following steps help you add a root certificate:
 
