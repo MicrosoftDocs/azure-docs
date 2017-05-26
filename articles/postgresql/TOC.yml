@@ -11,10 +11,6 @@
     href: quickstart-create-server-database-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-server-database-azure-cli.md
-- name: Sample Scripts
-  items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
@@ -55,7 +51,11 @@
     items:
     - name: Connection libraries
       href: concepts-connection-libraries.md
-- name: How-to Guides
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
+- name: How-to guides
   items:
   - name: Firewall rules
     items:
