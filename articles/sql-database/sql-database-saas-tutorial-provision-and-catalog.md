@@ -1,6 +1,6 @@
 ---
 title: Provision new tenants in a multi-tenant app using Azure SQL Database | Microsoft Docs 
-description: "Provision and catalog new tenants in the Wingtip Tickets (WTP) sample SQL Database SaaS app"
+description: "Provision and catalog new tenants in the Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.date: 05/24/2017
+ms.author: sstein
 
 ---
 # Provision new tenants and register them in the catalog
 
-In this tutorial, you provision new tenants in the Wingtip Tickets Platform (WTP) SaaS application. You create tenants, tenant databases, and register tenants in the catalog. The *catalog* is a database that maintains the mapping between the SaaS applications many tenants and their data. Use these scripts to explore the provision and catalog patterns used, and how registering new tenants in the catalog is implemented. The catalog plays an important role directing application requests to the correct databases.
+In this tutorial, you provision new tenants in the Wingtip SaaS application. You create tenants, tenant databases, and register tenants in the catalog. The *catalog* is a database that maintains the mapping between the SaaS applications many tenants and their data. Use these scripts to explore the provision and catalog patterns used, and how registering new tenants in the catalog is implemented. The catalog plays an important role directing application requests to the correct databases.
 
 In this tutorial, you learn how to:
 
@@ -34,16 +34,16 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The WTP app is deployed. To deploy in less than five minutes, see [Deploy and explore the WTP SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to the SaaS Catalog pattern
 
-In a database-backed multi-tenant SaaS application, it’s important to know where information for each tenant is stored. In the SaaS catalog pattern, a catalog database is used to hold the mapping between tenants and where their data is stored. The WTP app uses a single-tenant database architecture, but the basic pattern of storing tenant-to-database mapping in a catalog applies whether a multi-tenant or single-tenant database is used.
+In a database-backed multi-tenant SaaS application, it's important to know where information for each tenant is stored. In the SaaS catalog pattern, a catalog database is used to hold the mapping between tenants and where their data is stored. The Wingtip SaaS app uses a single-tenant database architecture, but the basic pattern of storing tenant-to-database mapping in a catalog applies whether a multi-tenant or single-tenant database is used.
 
-Each tenant is assigned a key that distinguishes their data in the catalog. In the WTP application, the key is formed from a hash of the tenant’s name. This pattern allows the tenant name portion of the application URL to be used to construct the key and retrieve a specific tenant's connection. Other id schemes could be used without impacting the overall pattern.
+Each tenant is assigned a key that distinguishes their data in the catalog. In the Wingtip SaaS application, the key is formed from a hash of the tenant’s name. This pattern allows the tenant name portion of the application URL to be used to construct the key and retrieve a specific tenant's connection. Other id schemes could be used without impacting the overall pattern.
 
-The catalog in the WTP app is implemented using Shard Management technology in the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). EDCL is responsible for creating and managing a database-backed _catalog_ where a _shard map_ is maintained. The catalog contains the mapping between keys (tenants) and their databases (shards).
+The catalog in the app is implemented using Shard Management technology in the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). EDCL is responsible for creating and managing a database-backed _catalog_ where a _shard map_ is maintained. The catalog contains the mapping between keys (tenants) and their databases (shards).
 
 > [!IMPORTANT]
 > The mapping data is accessible in the catalog database, but *don't edit it*! Edit mapping data using Elastic Database Client Library APIs only. Directly manipulating the mapping data risks corrupting the catalog and is not supported.
@@ -52,16 +52,16 @@ The Wingtip SaaS app provisions new tenants by copying a *golden* database.
 
 ## Get the Wingtip application scripts
 
-The Wingtip Tickets scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. Script files are located in the [Learning Modules folder](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Download the **Learning Modules** folder to your local computer, maintaining its folder structure.
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## Provision a new tenant
 
-If you already created a tenant in the first WTP tutorial feel free to skip to the next section: [provision a batch of tenants](#provision-a-batch-of-tenants).
+If you already created a tenant in the [first Wingtip SaaS tutorial](sql-database-saas-tutorial.md) feel free to skip to the next section: [provision a batch of tenants](#provision-a-batch-of-tenants).
 
 Run the *Demo-ProvisionAndCatalog* script to quickly create a tenant and register it in the catalog:
 
 1. Open **Demo-ProvisionAndCatalog.ps1** in the PowerShell ISE and set the following values:
-   * **$TenantName** = the name of the new venue (for example, *Bushwillow Blues*). 
+   * **$TenantName** = the name of the new venue (for example, *Bushwillow Blues*).
    * **$VenueType** = one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
    * **$DemoScenario** = 1, Leave this set to _1_ to **Provision a single tenant**.
 
@@ -74,7 +74,7 @@ After the script completes, the new tenant is provisioned, and their *Events* ap
 
 ## Provision a batch of Tenants
 
-This exercise provisions a batch of additional tenants. It’s recommended you do this before completing other WTP tutorials.
+This exercise provisions a batch of additional tenants. It’s recommended you do this before completing other Wingtip SaaS tutorials.
 
 1. Open ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE* and set the following value:
    * **$DemoScenario** = **3**, Set to **3** to **Provision a batch of tenants**.
@@ -151,9 +151,9 @@ Other provisioning patterns not included in this tutorial include:
 
 ## Stopping Wingtip SaaS application-related billing
 
-If you don’t plan to continue with another tutorial, it’s recommended you delete all the resources to suspend billing. Delete the resource group the WTP application was deployed to, and all its resources are deleted.
+If you don’t plan to continue with another tutorial, it’s recommended you delete all the resources to suspend billing. Delete the resource group the Wingtip application was deployed to, and all its resources are deleted.
 
-* Browse to the application's resource group in the portal and delete it to stop all billing related to this WTP deployment.
+* Browse to the application's resource group in the portal and delete it to stop all billing related to this Wingtip deployment.
 
 ## Tips
 
@@ -175,6 +175,6 @@ In this tutorial you learned how to:
 
 ## Additional Resources
 
-* [Additional tutorials that build upon the initial Wingtip Tickets Platform (WTP) application deployment](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Additional [tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic database client library](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [How to Debug Scripts in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)

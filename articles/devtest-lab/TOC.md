@@ -2,6 +2,7 @@
 ## [About Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
 ## Scenarios
+### [Use labs for developers](devtest-lab-developer-lab.md)
 ### [Use labs for training](devtest-lab-training-lab.md)
 
 # Get started
@@ -13,6 +14,7 @@
 ## Use VMs in a lab
 ### [Create VMs](devtest-lab-add-vm.md)
 ### [Create claimable VM](devtest-lab-add-claimable-vm.md)
+### [Create and manage VMs with Azure CLI](devtest-lab-vmcli.md)
 
 ## Use environments in a lab
 ### [Create an environment](devtest-lab-create-environment-from-arm.md)

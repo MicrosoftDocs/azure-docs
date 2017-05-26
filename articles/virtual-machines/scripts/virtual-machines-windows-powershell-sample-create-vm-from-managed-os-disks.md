@@ -25,7 +25,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 * Create a VM from an existing managed disk that was created from a specialized VHD file 
 * Create a VM from an existing managed OS disk that was created from a snapshot 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

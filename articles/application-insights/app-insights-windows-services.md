@@ -3,7 +3,7 @@ title: Azure Application Insights for Windows server and worker roles | Microsof
 description: Manually add the Application Insights SDK to your ASP.NET application to analyze usage, availability and performance.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190

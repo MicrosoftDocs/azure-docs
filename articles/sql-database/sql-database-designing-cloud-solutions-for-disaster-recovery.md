@@ -53,7 +53,7 @@ After the failover of both the application’s endpoints and the database comple
 If an outage happens in the secondary region, the replication link between the primary and the secondary database is suspended but the failover is not triggered because the primary database is not impacted. The application's availability is not changed in this case, but the application operates exposed and therefore at higher risk in case both regions fail in succession.
 
 > [!NOTE]
-> We only recommend deployment configurations with a single DR region. This is because most of the Azure geographies have two regions. These configurations will not protect your application from a catastrophic failure of both regions. In an unlikely event of such a failure, you can recover your databases in a third region using [geo-restore operation](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> For disaster recovery we recommend the configuration with application deployment limited to two regions. This is because most of the Azure geographies have only two regions. This configuration will not protect your application from a simultaneous catastrophic failure of both regions.  In an unlikely event of such a failure, you can recover your databases in a third region using [geo-restore operation](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Once the outage is mitigated, the secondary database will automatically re-synchronize with the primary. During synchronization, performance of the primary could be slightly impacted depending on the amount of data that needs to be synchronized. The following diagram illustrates an outage in the secondary region.

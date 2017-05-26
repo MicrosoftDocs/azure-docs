@@ -31,7 +31,7 @@ Management access policies grant permissions related to the configuration of the
 *	Creation and deletion of the environment, event sources, reference data sets, and
 *	Management of the data access policies.
 
-Data access policies grant permissions to issue data queries, manipulate reference data in the environment, and saved shared queries and perspectives associated with the environment.
+Data access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment.
 
 The two kinds of policies allow clear separation between access to the management of the environment and access to the data inside the environment. For example, it is possible to setup an environment such that the owner/creator of the environment is removed from the data access. As well as users and services that are allowed to read data from the environment may be granted no access to the configuration of the environment.
 

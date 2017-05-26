@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
@@ -32,7 +32,7 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 * A Hadoop on HDInsight cluster. Either Linux-based or Windows-based clusters work.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
@@ -44,7 +44,7 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 
 JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following is an example connection string:
 
-    jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 Replace `CLUSTERNAME` with the name of your HDInsight cluster.
 
@@ -112,7 +112,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 4. In the Add Driver dialog, add the following information:
 
     * **Name**: Hive
-    * **Example URL**: `jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`
+    * **Example URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Extra Class Path**: Use the Add button to add the jar files downloaded earlier
     * **Class Name**: org.apache.hive.jdbc.HiveDriver
 
@@ -130,7 +130,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * **Driver**: Use the dropdown to select the **Hive** driver
 
-    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
         Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 

@@ -18,12 +18,13 @@
 
 # How To
 ## Plan
-### [Deployment prerequisites](site-recovery-prereq.md)
+### [Prerequisites for Azure replication](site-recovery-prereq.md)
 ### [Plan network infrastructure](site-recovery-network-design.md)
+### [Plan network mapping](site-recovery-network-mapping.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
-### [Role-Based Access Control](site-recovery-role-based-linked-access-control.md)
+### [Control VM replication with role-based access](site-recovery-role-based-linked-access-control.md)
 
 ## Configure
 ### [Set up the source environment](site-recovery-set-up-vmware-to-azure.md)
@@ -53,6 +54,8 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [IIS based web applications](site-recovery-iis.md)
+### [Citrix XenApp and XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Other workloads](site-recovery-workload.md#workload-summary)
 ## Automate replication
 ### [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)

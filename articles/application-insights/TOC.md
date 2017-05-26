@@ -35,7 +35,7 @@
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
 ### [Separate development, test, and production](app-insights-separate-resources.md)
-### [Monitor apps with multiple roles](app-insights-monitor-multi-role-apps.md)
+### [Monitor apps with multiple components](app-insights-monitor-multi-role-apps.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
 
@@ -139,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [Data access API](https://dev.applicationinsights.io/)
 ## [Data model](application-insights-data-model.md)
 ### [Request](application-insights-data-model-request-telemetry.md)
 ### [Dependency](application-insights-data-model-dependency-telemetry.md)
