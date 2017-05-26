@@ -83,8 +83,8 @@ For logic apps to perform tasks, your custom API should provide
 [*actions*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). 
 Each operation in your API maps to an action. A basic action is a 
 controller that accepts HTTP requests and returns HTTP responses. 
-So for example, a logic app workflow sends an HTTP request to your web app or API app, 
-which then returns an HTTP response, along with content that the workflow can process.
+So for example, a logic app sends an HTTP request to your web app or API app. 
+Your app then returns an HTTP response, along with content that the logic app can process.
 
 For a standard action, you can write an HTTP request method in your API, 
 expose that method through your Swagger file, and call your API directly with an 
@@ -218,12 +218,12 @@ previously described in this topic. The Logic Apps engine periodically calls and
 ![Polling trigger pattern](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
 
 Based on the [Azure App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
-that you use for hosting your API and your plan's SKU, 
-the Logic Apps engine uses these default intervals to call your trigger endpoint:
+that you use for API hosting and the plan's SKU, 
+the Logic Apps engine uses these intervals to call your trigger:
 
 * 15 seconds for Premium plans
-* 1 minute for Standard plans
-* 1 hour for Free plans
+* One minute for Standard plans
+* One hour for Free plans
 
 > [!NOTE]
 > Each polling request counts as an action execution, even when no logic app instance is created. 
