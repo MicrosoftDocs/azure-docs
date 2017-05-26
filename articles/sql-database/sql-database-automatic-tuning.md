@@ -27,7 +27,7 @@ of the most important features that you can enable on Azure SQL Database to opti
 ## Why automatic tuning?
 
 One of the main tasks in classic database administration is monitoring workload, identifying critical SQL queries and plans, indexes that
-should be added to improve performance of the queries, rarely used indexes that should be removed, heavily fragmented indexes, etc.
+should be added to improve performance of the queries, rarely used indexes that should be removed, and heavily fragmented indexes.
 Azure SQL Database provides detailed insight into the queries and indexes that you need to monitor. However, constantly monitoring
 database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible
 to do efficiently even with all available tools and reports that Azure SQL Database and Azure portal provide. 
@@ -46,7 +46,7 @@ performance of your workloads, what indexes affect your workloads, how to find o
 tuning applies tuning actions that improve performance** of your workload.
 In addition, Azure SQL Database will continuously monitor performance after any change made by automatic tuning to ensure that it improves
 performance of your workload. Any action that didn’t improve performance is automatically reverted. This verification
-process is a key feature that ensures that any change made by automatic tuning feature will not have a negative impact on the performance
+process is a key feature that ensures that any change made by automatic tuning feature don't have a negative impact on the performance
 of your workload.
 
 There are two automatic tuning features that are available in Azure SQL Database:
@@ -67,43 +67,42 @@ on the existing database schema.
 
 Indexes speed up some of your queries that read data from the tables; however, they can slow down the queries that update data. You need
 to carefully analyze when to create an index and what columns you need to include in the index. Some indexes might not be needed after
-some time; therefore, you would need to periodically identify and drop them if they bring no benefits. If you ignore the unused indexes,
+some time. Therefore, you would need to periodically identify and drop the indexes that do not bring any benefits. If you ignore the unused indexes,
 performance of the queries that update data would be decreased without any benefit on the queries that read data. Unused indexes also
 affect overall performance of the system because additional updates require unnecessary logging.
 
-Finding the optimal set of indexes that improve performance of the queries that read data from your tables that at the same time
-minimally impact updates, might require continuous and complex analysis.
+Finding the optimal set of indexes that improve performance of the queries that read data from your tables and have minimal impact on updates
+might require continuous and complex analysis.
 
-Azure SQL Database uses built-in intelligence and advanced rules that analyze your queries, identify what kind of indexes would be
-optimal for your current workloads, and what indexes might be removed. This way, Azure SQL Database ensures that you have a minimal
-necessary set of indexes that optimize most of your queries that read data, with the minimized impact on the queries that updates.
+Azure SQL Database uses built-in intelligence and advanced rules that analyze your queries, identify indexes that would be
+optimal for your current workloads, and the indexes might be removed. Azure SQL Database ensures that you have a minimal
+necessary set of indexes that optimize the queries that read data, with the minimized impact on the other queries.
 
 ### How to identify indexes that need to be changed in your database?
 
 Azure SQL Database makes index management process easy. Instead of the tedious process of manual workload analysis and index monitoring,
-Azure SQL Database analyzes your workload, identifies the queries that could be executed faster if you create an index, identifies
-indexes that are not used in a longer period, and identifies duplicated indexes in the database.
+Azure SQL Database analyzes your workload, identifies the queries that could be executed faster with a new index, and identifies unused
+or duplicated indexes in the database.
 Find more information about identification of indexes that should be changed at
-[HOW TO: Identify missing indexes in Azure portal](sql-database-advisor-portal.md).
+[HOW TO: Find index recommendations in Azure portal](sql-database-advisor-portal.md).
 
 ### Automatic index management
 
 If you find that the built-in rules improve the performance of your database or if you have many recommendations that you need to review
-and execute – you might let Azure SQL database automatically manage your indexes, decide when to create necessary indexes and remove
-unused indexes.
+and execute – you might let Azure SQL database automatically manage your indexes.
 
 Find more information about Enabling automatic index management at HOW TO: enable Automatic tuning.
 Actions required to create necessary indexes in Azure SQL Databases might consume resources and temporally affect workload performance.
 To minimize the impact of index creation on workload performance, Azure SQL Database finds the appropriate time window for any index
-management operation. **Tuning action is postponed if Azure SQL Database needs resources** to execute your standard
-workload, and they are started when the database has enough unused resources that can be used for the maintenance task. 
+management operation. **Tuning action is postponed if the database needs resources** to execute your workload, and started when the database
+has enough unused resources that can be used for the maintenance task. 
 One important feature in Automatic index management is a verification of the actions. When Azure SQL Database executes create index or
 drop index action, a monitoring process analyzes performance of your workload, and analyzes if the action improved the performance.
 **If it didn’t bring significant improvement – the action is immediately reverted**. This way, Azure SQL Database ensures that automatic
 actions will not negatively affect performance of your workload.
 **Indexes created by Automatic tuning are transparent** for the maintenance operation on the underlying schema. Schema changes such as
 dropping or renaming columns will not be blocked by the presence of automatically created indexes. Indexes that are automatically
-created by Azure SQL Database will be immediately dropped when related table or columns is dropped.
+created by Azure SQL Database are immediately dropped when related table or columns is dropped.
 
 ## Automatic plan choice correction
 
