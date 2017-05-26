@@ -64,7 +64,6 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
-### [Security considerations](best-practices-resource-manager-security.md)
 
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)

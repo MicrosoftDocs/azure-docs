@@ -14,8 +14,8 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/24/2017
+ms.author: andrela
 
 ---
 
@@ -23,10 +23,13 @@ ms.author: andrela;sstein;carlrab
 
 This quick start demonstrates how to use [Ruby](https://Ruby.org) to connect to an Azure SQL database; then use Transact-SQL statements to  query, insert, update, and delete data in the database from Mac OS and Ubuntu Linux platforms.
 
+## Prerequisites
+
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## Install Ruby and database communication libraries
 
