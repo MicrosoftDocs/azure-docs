@@ -32,7 +32,7 @@ Azure Functions supports trigger, input, and output bindings for Azure Blob stor
 > 
 
 <a name="trigger"></a>
-
+<a name="storage-blob-trigger"></a>
 ## Blob storage triggers and bindings
 
 Using the Azure Blob storage trigger, your function code is called when a new or updated blob is detected. The blob contents are provided as input to the function.
@@ -210,7 +210,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 <a name="triggernodejs"></a>
 
-### Trigger usage in Node.js
+### Trigger example in Node.js
 
 ```javascript
 module.exports = function(context) {
@@ -219,6 +219,7 @@ module.exports = function(context) {
 };
 ```
 <a name="outputusage"></a>
+<a name=storage-blob-output-binding"></a>
 
 ## Using a blob output binding
 
@@ -233,6 +234,8 @@ In .NET functions you can output to any of the following types:
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
+
+<a name="input-sample"></a>
 
 ## Queue trigger with blob input and output sample
 Suppose you have the following function.json, that defines a [Queue Storage trigger](functions-bindings-storage-queue.md), 
@@ -274,7 +277,7 @@ See the language-specific sample that copies the input blob to the output blob.
 
 <a name="incsharp"></a>
 
-### Input usage in C# #
+### Blob binding example in C# #
 
 ```cs
 // Copy blob from input to output, based on a queue trigger
@@ -287,7 +290,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 <a name="innodejs"></a>
 
-### Input usage in Node.js
+### Blob binding example in Node.js
 
 ```javascript
 // Copy blob from input to output, based on a queue trigger
