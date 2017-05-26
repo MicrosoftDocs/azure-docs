@@ -29,7 +29,7 @@ This article details Azure Site Recovery architecture and various components inv
 
 # Customer scenario
 
-The below picture illustrates the high level view of your virtual machine environment in Azure (for example: East US location). You can have applications running on virtual machines with disks spread across storage accounts. The virtual machines can be part of one or more subnet within a virtual network.
+The below picture illustrates the high-level view of your virtual machine environment in Azure (for example: East US location). You can have applications running on virtual machines with disks spread across storage accounts. The virtual machines can be part of one or more subnets within a virtual network.
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 

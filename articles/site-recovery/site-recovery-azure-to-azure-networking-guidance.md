@@ -45,15 +45,15 @@ The below network outbound connectivity changes are required from Azure virtual 
 
 ## Outbound connectivity for Azure Site Recovery URLs
 
-If you are using any URL based firewall proxy to control outbound connectivity, ensure you whitelist all the required Azure Site recovery service URLs mentioned below.
+If you are using any URL based firewall proxy to control outbound connectivity, ensure you whitelist all the required Azure Site Recovery service URLs mentioned below.
 
 
 **URL** | **Purpose**  
 --- | ---
 *.blob.core.windows.net | Required so that data can be written to the cache storage account in source region form the VM.
-login.microsoftonline.com | Required for authorization and authentication to the Site recovery service URLs.
+login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site recovery service communication can happen from the VM.
-*.servicebus.windows.net | Required so that the Site recovery monitoring and diagnostics data  can be written from the VM.
+*.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data  can be written from the VM.
 
 
 ##Outbound connectivity for Azure Site Recovery IP ranges
@@ -70,10 +70,8 @@ If you are using any IP based firewall proxy or Network Security Group (NSG) rul
 
 - Ensure that you whitelist Site recovery service endpoint IPs depending on your target location. You can get the IPs in an [XML file here](https://aka.ms/site-recovery-public-ips).
 
-  <details>
-    <summary>Site Recovery IPs</summary>
 
-  **Target Location** | **Site recovery service IPs** |  **Site recovery monitoring IP**
+  **Target Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
    --- | --- | ---
   East Asia | 52.175.17.132</br>40.83.121.61 | 13.94.47.61
   Southeast Asia | 52.187.58.193</br>52.187.169.104 | 13.76.179.223
@@ -98,10 +96,9 @@ If you are using any IP based firewall proxy or Network Security Group (NSG) rul
   West US 2 | 52.183.45.166</br>52.175.207.234 | 13.66.228.204
   UK West | 51.141.3.203</br>51.140.226.176 | 51.141.14.113
   UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
-  </details>
 
 ## Sample Network Security Group (NSG) configuration
-This section explains in detail steps to be followed to configure NSG rules so that Site recovery replication can work on the virtual machine. If you are using Network Security Group (NSG) rules to control outbound connectivity, you need to ensure the "Allow HTTPS outbound" rules for all the required IP ranges.
+This section explains in detail steps to be followed to configure NSG rules so that Site Recovery replication can work on the virtual machine. If you are using Network Security Group (NSG) rules to control outbound connectivity, you need to ensure the "Allow HTTPS outbound" rules for all the required IP ranges.
 
 >[!Note]
 >
@@ -117,7 +114,7 @@ For example, if your VM's source location is 'East US' and your replication is t
 
 3. Create rules corresponding to target location.
 
-**Location** | **Site recovery service IPs** |  **Site recovery monitoring IP**
+**Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
  --- | --- | ---
 Central US | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
 
@@ -131,7 +128,7 @@ These rules are required so that replication can be enabled from target region t
 
 3. Create rules corresponding to source location.
 
-**Location** | **Site recovery service IPs** |  **Site recovery monitoring IP**
+**Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
  --- | --- | ---
 East US | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
 
