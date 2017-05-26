@@ -97,6 +97,9 @@ Then, run this Azure CLI command.
 az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomScriptExtension --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
 ```
 
+>[!IMPORTANT]
+>Use the `--protected-settings` switch for any settings that may contain sensitive information.
+
 ### PowerShell DSC
 
 You can use PowerShell DSC to customize the scale set vm instances The **DSC** extension published by **Microsoft.Powershell** deploys and runs the provided DSC configuration on each virtual machine instance. A config file or variable tells the extension where *.zip* package is, and then, which _script-function_ combination to run.
