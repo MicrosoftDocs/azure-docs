@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/24/2017
+ms.date: 05/26/2017
 ms.author: asmalser
 
 ---
@@ -88,15 +88,15 @@ Azure Active Directory supports pre-integrated provisioning connectors for Workd
 
 A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be setup by simply adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
 
-| Source | Target | Notes |
-| ---------- | ---------- | ---------- |
-| Azure AD tenant | ServiceNow tenant | |
+| Source System | Target System |
+| ---------- | ---------- | 
+| Azure AD tenant | SaaS application |
 
 There is a one-to-one relationship between provisioning connector instances and app instances in Azure AD.
 
 However, when working with Workday and Active Directory, there are multiple source and target systems to be considered:
 
-| Source | Target | Notes |
+| Source System | Target System | Notes |
 | ---------- | ---------- | ---------- |
 | Workday | Active Directory Forest | Each forest is treated as a distinct target system |
 | Workday | Azure AD tenant | As required for cloud-only users |
@@ -119,7 +119,8 @@ How to set up and configure these special provisioning connector apps is the sub
 ## Configure a system integration user in Workday
 A common requirement of all the Workday provisioning connectors is they require credentials for a Workday system integration account to connect to the Workday Human Resources API. This section describes how to create a system integrator account in Workday.
 
-Note: It is possible to bypass this procedure and instead use a Workday global administrator account as the system integration account. This may work fine for demos, but is not recommended for production deployments.
+[!NOTE]
+It is possible to bypass this procedure and instead use a Workday global administrator account as the system integration account. This may work fine for demos, but is not recommended for production deployments.
 
 ### Create an integration system user
 
@@ -371,8 +372,6 @@ Active Directory.
 **Below are some example attribute mappings between Workday and Active
 Directory, with some common expressions **
 
-**Notes:**
-
 -   The expression that maps to the parentDistinguishedName AD attribute
     can be used to provision a user to a specific OU based on one or
     more Workday source attributes. This example places users in
@@ -385,7 +384,7 @@ Directory, with some common expressions **
 -   [There is documentation on writing expressions here](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 
   
-| **WORKDAY ATTRIBUTE** | **ACTIVE DIRECTORY ATTRIBUTE ** |  **MATCHING ID? ** | **Create / Update** |
+| WORKDAY ATTRIBUTE | ACTIVE DIRECTORY ATTRIBUTE |  MATCHING ID? | CREATE / UPDATE |
 | ---------- | ---------- | ---------- | ---------- |
 |  **WorkerID**  |  EmployeeID | **Yes** | Written on create only | 
 |  **Municipality**   |   l   |     | Create + update |
@@ -743,6 +742,10 @@ Once parts 1-2 have been completed, you can start the provisioning service.
     **Provisioning** tab, as shown below.
 
 ## Additional Resources
+* [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
+## Next Steps
+
+* [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)
