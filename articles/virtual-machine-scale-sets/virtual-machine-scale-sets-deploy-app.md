@@ -74,7 +74,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsof
 Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachineScaleSet $vmssConfig
 ```
 
->![IMPORTANT]
+>[!IMPORTANT]
 >Use the `-ProtectedSetting` switch for any settings that may contain sensitive information.
 
 ---------
@@ -121,7 +121,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsof
 Update-AzureRmVmss -ResourceGroupName $rg -Name "myscaleset1"  -VirtualMachineScaleSet $vmssConfig
 ```
 
->![IMPORTANT]
+>[!IMPORTANT]
 >Use the `-ProtectedSetting` switch for any settings that may contain sensitive information.
 
 -----------
@@ -145,7 +145,7 @@ Then, run this Azure CLI command.
 az vmss extension set --publisher Microsoft.Powershell --version 2.24 --name DSC --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
 ```
 
->![IMPORTANT]
+>[!IMPORTANT]
 >Use the `--protected-settings` switch for any settings that may contain sensitive information.
 
 ### Linux
@@ -174,7 +174,7 @@ Use the Azure CLI to add this extension to an existing virtual machine scale set
 az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
 ```
 
->![IMPORTANT]
+>[!IMPORTANT]
 >Use the `--protected-settings` switch for any settings that may contain sensitive information.
 
 #### Cloud-Init
