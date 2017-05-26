@@ -46,7 +46,7 @@ performance of your workloads and what indexes affect your workloads. Based on t
 tuning applies tuning actions that improve performance** of your workload.
 In addition, Azure SQL Database will continuously monitor performance after any change made by automatic tuning to ensure that it improves
 performance of your workload. Any action that didn’t improve performance is automatically reverted. This verification
-process is a key feature that ensures that any change made by Automatic tuning feature will not affect the performance
+process is a key feature that ensures that any change made by Automatic tuning do not decrease the performance
 of your workload.
 
 There are two automatic tuning features that are available in Azure SQL Database:
@@ -82,7 +82,7 @@ necessary set of indexes that optimize the queries that read data, with the mini
 
 Azure SQL Database makes index management process easy. Instead of the tedious process of manual workload analysis and index monitoring,
 Azure SQL Database analyzes your workload, identifies the queries that could be executed faster with a new index, and identifies unused
-or duplicated indexes in the database.
+or duplicated indexes.
 Find more information about identification of indexes that should be changed at
 [HOW TO: Find index recommendations in Azure portal](sql-database-advisor-portal.md).
 
@@ -95,8 +95,8 @@ Actions required to create necessary indexes in Azure SQL Databases might consum
 To minimize the impact of index creation on workload performance, Azure SQL Database finds the appropriate time window for any index
 management operation. **Tuning action is postponed if the database needs resources** to execute your workload, and started when the database
 has enough unused resources that can be used for the maintenance task. 
-One important feature in Automatic index management is a verification of the actions. When Azure SQL Database executes create index or
-drop index action, a monitoring process analyzes performance of your workload, and analyzes if the action improved the performance.
+One important feature in Automatic index management is a verification of the actions. When Azure SQL Database creates or
+drops index, a monitoring process analyzes performance of your workload to verify that the action improved the performance.
 **If it didn’t bring significant improvement – the action is immediately reverted**. This way, Azure SQL Database ensures that automatic
 actions will not negatively affect performance of your workload.
 **Indexes created by Automatic tuning are transparent** for the maintenance operation on the underlying schema. Schema changes such as
