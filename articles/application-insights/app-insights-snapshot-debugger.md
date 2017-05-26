@@ -114,5 +114,6 @@ In some cases, local variables are not viewable in Release builds because of opt
 
 ## Next Steps
 
+* [Set snappoints in your code](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) - get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
 * [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.

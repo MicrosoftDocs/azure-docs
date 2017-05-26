@@ -26,7 +26,7 @@ For information on restoring an app from backup, see [Restore an app in Azure](w
 <a name="whatsbackedup"></a>
 
 ## What gets backed up
-App Service can backup the followin information to an Azure storage account and container that you have configured your app to use. 
+App Service can backup the following information to an Azure storage account and container that you have configured your app to use. 
 
 * App configuration
 * File content
