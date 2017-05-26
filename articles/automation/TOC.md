@@ -41,6 +41,7 @@
 ### [Onboarding machines for management](automation-dsc-onboarding.md)
 ### [Compiling DSC configurations](automation-dsc-compile.md)
 ### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Manage automation assets
 ### [Certificates](automation-certificates.md)
 ### [Connections](automation-connections.md)

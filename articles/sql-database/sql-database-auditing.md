@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure SQL database auditing | Microsoft Docs
-description: Get started with SQL database auditing
+description: Get started with Azure SQL database auditing
 services: sql-database
 documentationcenter: ''
 author: giladm
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/3/2017
+ms.date: 5/25/2017
 ms.author: giladm
 
 ---
@@ -51,8 +51,7 @@ An auditing policy can be defined for a specific database or as a default server
 
     > [!NOTE]
     > You should avoid enabling both server Blob auditing and database Blob auditing together, unless:
-    > * You want to audit only specific database(s) on this server.
-    > * You need to use a different *storage account* or *retention period* for a specific database.
+    > * You want to use a different *storage account* or *retention period* for a specific database.
     > * You want to audit different event types or categories for a specific database than are being audited for the rest of the databases on this server (e.g. if table inserts need to be audited only for a specific database).
     > <br><br>
     > Otherwise, it is **recommended to only enable server-level Blob Auditing** and leave the database-level auditing disabled for all databases.
@@ -122,11 +121,11 @@ There are several methods to view Blob Auditing logs:
     Once you have downloaded the log file locally, you can double-click the file to open, view and analyze the logs in SSMS.
 
     You can also **download multiple files simultaneously** via Azure Storage Explorer - right-click on a specific subfolder (e.g. a         subfolder that includes all log files for a specific date) and choose "Save as" to save in a local folder.
-    
+
     Additional methods:
 
    * After downloading several files (or an entire day, as described above), you can merge them locally as described in the SSMS **Merge Audit Files** instructions above.
-   
+
    * Programmatically:
 
      * Extended Events Reader **C# library** ([more info here](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
@@ -214,10 +213,10 @@ You can also configure Auditing in Azure SQL Database using the following automa
 [11]: ./media/sql-database-auditing-get-started/11_auditing_get_started_blob_audit_records.png
 [12]: ./media/sql-database-auditing-get-started/12_auditing_get_started_table_audit_records.png
 
-[101]: https://msdn.microsoft.com/library/azure/mt603731.aspx
-[102]: https://msdn.microsoft.com/library/azure/mt619329.aspx
-[103]: https://msdn.microsoft.com/library/azure/mt603796.aspx
-[104]: https://msdn.microsoft.com/library/azure/mt603574.aspx
-[105]: https://msdn.microsoft.com/library/azure/mt603531.aspx
-[106]: https://msdn.microsoft.com/library/azure/mt603794.aspx
-[107]: https://msdn.microsoft.com/library/azure/mt619353.aspx
+[101]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
+[102]: https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[103]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
+[104]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
+[105]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
+[106]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
+[107]: https://docs.microsoft.com/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
