@@ -4,7 +4,7 @@ description: This document helps to troubleshoot issues in Azure Security Center
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/26/2017
 ms.author: yurid
 
 ---
@@ -31,47 +31,12 @@ This guide explains how to troubleshoot Security Center related issues. Most of 
 
 The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
 
-## Troubleshooting monitoring agent installation in Windows
-The Security Center monitoring agent is used to perform data collection. After data collection is enabled and the agent is correctly installed in the target machine, these processes should be in execution:
+## Troubleshooting monitoring agent installation
+Azure Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
 
-* ASMAgentLauncher.exe - Azure Monitoring Agent 
-* ASMMonitoringAgent.exe - Azure Security Monitoring extension
-* ASMSoftwareScanner.exe – Azure Scan Manager
+* HealthService.exe
 
-The Azure Security Monitoring extension scans for various security relevant configurations and collects security logs from the virtual machine. The scan manager will be used as a patch scanner.
-
-If the installation is successfully performed you should see an entry similar to the one below in the Audit Logs for the target VM:
-
-![Audit Logs](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
-
-You can also obtain more information about the installation process by reading the agent logs, located at *%systemdrive%\windowsazure\logs* (example: C:\WindowsAzure\Logs).
-
-> [!NOTE]
-> If the Azure Security Center Agent is misbehaving, you will need to restart the target VM since there is no command to stop and start the agent.
-
-
-If you are still having problems with data collection, you can uninstall the agent by following the steps below:
-
-1. From the **Azure Portal**, select the virtual machine that is experience data collection issues and click **Extensions**.
-2. Right click in **Microsoft.Azure.Security.Monitoring** and select click **Uninstall**.
-
-![Removing agent](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
-
-The Azure Security Monitoring extension should automatically reinstall itself within several minutes.
-
-## Troubleshooting monitoring agent installation in Linux
-When troubleshooting VM Agent installation in a Linux system you should ensure that the extension was downloaded to /var/lib/waagent/. You can run the command below to verify if it was installed:
-
-`cat /var/log/waagent.log` 
-
-The other log files that you can review for troubleshooting purpose are: 
-
-* /var/log/mdsd.err
-* /var/log/azure/
-
-In a working system you should see a connection to the mdsd process on TCP 29130. This is the syslog communicating with the mdsd process. You can validate this behavior by running the command below:
-
-`netstat -plantu | grep 29130`
+If you are facing onboarding issues with the agent, make sure to read the article [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 ## Troubleshooting endpoint protection not working properly
 
