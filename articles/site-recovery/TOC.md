@@ -19,12 +19,13 @@
 
 # How To
 ## Plan
-### [Prerequisites for on-premises machines](site-recovery-prereq.md)
+### [Prerequisites for Azure replication](site-recovery-prereq.md)
 ### [Plan network infrastructure](site-recovery-network-design.md)
+### [Plan network mapping](site-recovery-network-mapping.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
-### [Role-Based Access Control](site-recovery-role-based-linked-access-control.md)
+### [Control VM replication with role-based access](site-recovery-role-based-linked-access-control.md)
 
 ## Configure
 ### [Set up the source environment](site-recovery-set-up-vmware-to-azure.md)
