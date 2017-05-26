@@ -17,32 +17,21 @@ ms.date: 05/09/2017
 ms.author: andret
 
 ---
-## Test querying Microsoft Graph API from your Windows Desktop application
+## Test querying Microsoft Graph API from your iOS application
 
-In order to test your application, press `F5` to run your project in Visual Studio. Your Main Window should appear:
+Press Command + `R` to run the code in the simulator.
 
-![Sample screen shot](media/active-directory-mobileanddesktopapp-windowsdesktop-test/samplescreenshot.png)
+![Sample screen shot](media/active-directory-mobileanddesktopapp-ios-test/iostestscreenshot.png)
 
-When you're ready to test, click *Call Microsoft Graph API* and use a Microsoft Azure Active Directory (organizational account) or a Microsoft Account (live.com, outlook.com) account to sign in. It it is the first time, you will see a window asking user to sign in:
-
-![Sign-in](media/active-directory-mobileanddesktopapp-windowsdesktop-test/signinscreenshot.png)
+When you're ready to test, select ‘Call Graph API’ and you will be prompted to type your username and password.
 
 ### Consent
 The first time you sign in to your application, you will be presented with a consent screen similar to the below, where you need to explicitly accept:
 
-![Consent Screen](media/active-directory-mobileanddesktopapp-windowsdesktop-test/consentscreen.png)
+![Consent Screen](media/active-directory-mobileanddesktopapp-ios-test/iosconsentscreen.png)
 
 ### Expected Results
-You should see user profile information returned by the Microsoft Graph API call on the API Call Results screen.
-
-You  should also see basic information about the token acquired via `AcquireTokenAsync` or `AcquireTokenSilentAsync` in the Token Info box:
-
-|Property  |Format  |Description |
-|---------|---------|---------|
-|Name | {User Full name} |The user’s first and last name|
-|Username |<span>user@domain.com</span> |The username used to identify the user|
-|Token Expires |{DateTime}         |The time on which the token expires. MSAL will extend the expiration date for you by renewing the token when necessary|
-|Access token |{String}         |The token string sent that will be sent to HTTP requests that require an authorization header|
+You should see user profile information returned by the Microsoft Graph API call on the *Logging* section.
 
 <!--start-collapse-->
 ## More information about scopes and delegated permissions
