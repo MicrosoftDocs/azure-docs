@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 05/24/2017
 ms.author: tomfitz
 
 ---
@@ -28,7 +28,7 @@ You create a link between two templates by adding a deployment resource within t
 ```json
 "resources": [ 
   { 
-      "apiVersion": "2015-01-01", 
+      "apiVersion": "2017-05-10", 
       "name": "linkedTemplate", 
       "type": "Microsoft.Resources/deployments", 
       "properties": { 
@@ -70,7 +70,7 @@ The following example shows a parent template that links to another template. Th
 },
 "resources": [
     {
-        "apiVersion": "2015-01-01",
+        "apiVersion": "2017-05-10",
         "name": "linkedTemplate",
         "type": "Microsoft.Resources/deployments",
         "properties": {
@@ -96,7 +96,7 @@ The next example uses the **parametersLink** property to link to a parameter fil
 ```json
 "resources": [ 
   { 
-     "apiVersion": "2015-01-01", 
+     "apiVersion": "2017-05-10", 
      "name": "linkedTemplate", 
      "type": "Microsoft.Resources/deployments", 
      "properties": { 
@@ -137,116 +137,6 @@ You can also use [deployment()](resource-group-template-functions-deployment.md#
 }
 ```
 
-## Conditionally linking to templates
-You can link to different templates by passing in a parameter value that is used to construct the URI of the linked template. This approach works well when you need to specify during deployment the linked template to use. For example, you can specify one template to use for an existing storage account, and another template to use for a new storage account.
-
-The following example shows a parameter for a storage account name, and a parameter to specify whether the storage account is new or existing.
-
-```json
-"parameters": {
-    "storageAccountName": {
-        "type": "String"
-    },
-    "newOrExisting": {
-        "type": "String",
-        "allowedValues": [
-            "new",
-            "existing"
-        ]
-    }
-},
-```
-
-You create a variable for the template URI that includes the value of the new or existing parameter.
-
-```json
-"variables": {
-    "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
-},
-```
-
-You provide that variable value for the deployment resource.
-
-```json
-"resources": [
-    {
-        "apiVersion": "2015-01-01",
-        "name": "linkedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-            "mode": "incremental",
-            "templateLink": {
-                "uri": "[variables('templatelink')]",
-                "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-                "StorageAccountName": {
-                    "value": "[parameters('storageAccountName')]"
-                }
-            }
-        }
-    }
-],
-```
-
-The URI resolves to a template named either **existingStorageAccount.json** or **newStorageAccount.json**. Create templates for those URIs.
-
-The following example shows the **existingStorageAccount.json** template.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
-The next example shows the **newStorageAccount.json** template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either linked template.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('StorageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
 ## Complete example
 The following example templates show a simplified arrangement of linked templates to illustrate several of the concepts in this article. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
 
@@ -261,7 +151,7 @@ The **parent.json** file consists of:
   },
   "resources": [
     {
-      "apiVersion": "2015-01-01",
+      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
