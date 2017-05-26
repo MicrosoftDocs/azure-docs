@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Machine Learning REST API error codes | Microsoft Docs
 description: These error codes could be returned by an operation on an Azure Machine Learning web service.
 keywords: 
@@ -13,7 +13,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 11/16/2016
 ms.author: garye
 

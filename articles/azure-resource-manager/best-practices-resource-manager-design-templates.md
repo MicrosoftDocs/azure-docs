@@ -1,6 +1,6 @@
 ---
-title: Patterns for Resource Manager templates | Microsoft Docs
-description: Show design patterns for Azure Resource Manager templates
+title: Design Azure templates for complex solutions | Microsoft Docs
+description: Shows best practices for designing Azure Resource Manager templates for complex scenarios
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 
 ---
-# Patterns for designing Azure Resource Manager templates
-In our work with enterprises, system integrator (SIs), cloud service vendor (CSVs), and open source software (OSS) project teams, it's often necessary to quickly deploy environments, workloads, or scale units. These deployments need to be supported, follow proven practices, and adhere to identified policies. Using a flexible approach based on Azure Resource Manager templates, you can deploy complex topologies quickly and consistently. You can adapt these deployments easily as core offerings evolve or to accommodate variants for outlier scenarios or customers.
+# Design patterns for Azure Resource Manager templates when deploying complex solutions
+Using a flexible approach based on Azure Resource Manager templates, you can deploy complex topologies quickly and consistently. You can adapt these deployments easily as core offerings evolve or to accommodate variants for outlier scenarios or customers.
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
@@ -29,7 +29,7 @@ Templates combine the benefits of the underlying Azure Resource Manager with the
 * Apply role-based access control (RBAC) to grant appropriate access to users, groups, and services.
 * Use tagging associations to streamline tasks such as billing rollups.
 
-This article provides details on consumption scenarios, architecture, and implementation patterns identified during our design sessions and real-world template implementations with Azure Customer Advisory Team (AzureCAT) customers. Far from academic, these approaches are proven practices informed by the development of templates for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis, and Nagios. Most these templates were developed with a well-known vendor of a given distribution and influenced by the requirements of Microsoft’s enterprise and SI customers during recent projects.
+This article provides details on consumption scenarios, architecture, and implementation patterns identified during our design sessions and real-world template implementations with Azure Customer Advisory Team (AzureCAT) customers. Far from academic, these approaches are proven practices informed by the development of templates for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis, and Nagios. 
 
 This article shares these proven practices to help you architect world class Azure Resource Manager templates.  
 
@@ -43,7 +43,7 @@ If your team develops software to support your business, templates provide an ea
 
 You can use templates as-is or extend or compose them to accommodate your needs. Using tagging within templates, you can provide a billing summary with various views such as team, project, individual, and education.
 
-Businesses often want software development teams to create a template for consistent deployment of a solution while also offering constraints so certain items within that environment remain fixed and can’t be overridden. For example, a bank might require a template to include RBAC so a programmer can’t revise a banking solution to send data to a personal storage account.
+Businesses often want software development teams to create a template for consistent deployment of a solution. The template facilitates constraints so certain items within that environment remain fixed and can't be overridden. For example, a bank might require a template to include RBAC so a programmer can’t revise a banking solution to send data to a personal storage account.
 
 ### Corporate IT
 Corporate IT organizations typically use templates for delivering cloud capacity and cloud-hosted capabilities.
@@ -56,7 +56,7 @@ For example, you may need to provide development, test, or production environmen
 #### Cloud-hosted capabilities
 You can use templates to support cloud-hosted capabilities, including individual software packages or composite offerings that are offered to internal lines of business. An example of a composite offering would be analytics-as-a-service—analytics, visualization, and other technologies—delivered in an optimized, connected configuration on a predefined network topology.
 
-Cloud-hosted capabilities are affected by the security and role considerations established by the cloud capacity offering on which they’re built as described above. These capabilities are offered as is or as a managed service. For the latter, access-constrained roles are required to enable access into the environment for management purposes.
+Cloud-hosted capabilities are affected by the security and role considerations established by the cloud capacity offering on which they’re built. These capabilities are offered as is or as a managed service. For the latter, access-constrained roles are required to enable access into the environment for management purposes.
 
 ## Cloud service vendors
 After talking to many CSVs, we identified multiple approaches you can take to deploy services for your customers and associated requirements.
@@ -80,7 +80,7 @@ Within open source projects, Resource Manager templates enable a community to de
 
 The following sections identify the things you need to consider before designing your solution.
 
-## Identifying what is outside and inside of a VM
+## Identifying what is outside and inside a VM
 As you design your template, it’s helpful to look at the requirements in terms of what's outside and inside the virtual machines (VMs):
 
 * Outside means the VMs and other resources of your deployment, such as the network topology, tagging, references to the certs/secrets, and role-based access control. All these resources are part of your template.
@@ -101,7 +101,7 @@ Common examples of activities you would do “inside the box” include -
 * Run native scripts (Windows PowerShell, bash, etc.)
 
 ### Desired state configuration (DSC)
-Thinking about the internal state of your VMs beyond deployment, you want to make sure this deployment doesn’t "drift" from the configuration that you have defined and checked into source control. This approach ensures your developers or operations staff don’t make ad-hoc changes to an environment that are not vetted, tested, or recorded in source control. This control is important, because the manual changes are not in source control, they are also not part of the standard deployment and will impact future automated deployments of the software.
+Thinking about the internal state of your VMs beyond deployment, you want to make sure this deployment doesn’t "drift" from the configuration that you have defined and checked into source control. This approach ensures your developers or operations staff don’t make ad-hoc changes to an environment that are not vetted, tested, or recorded in source control. This control is important, because the manual changes are not in source control. They are also not part of the standard deployment and will impact future automated deployments of the software.
 
 Beyond your internal employees, desired state configuration is also important from a security perspective. Hackers are regularly trying to compromise and exploit software systems. When successful, it's common to install files and otherwise change the state of a compromised system. Using desired state configuration, you can identify deltas between the desired and actual state and restore a known configuration.
 
@@ -119,7 +119,7 @@ A capability scope is focused on deploying and configuring a topology for a give
 ### End-to-end solution scope
 An End-to-End Solution Scope is targeted beyond a single capability, and instead focused on delivering an end to end solution comprised of multiple capabilities.  
 
-A solution-scoped template scope manifests itself as a set of one or more capability-scoped templates with solution-specific resources, logic, and desired state. An example of a solution-scoped template is an end to end data pipeline solution template. The template might mix solution-specific topology and state with multiple capability scoped solution templates such as Kafka, Storm, and Hadoop.
+A solution-scoped template scope manifests itself as a set of one or more capability-scoped templates with solution-specific resources, logic, and desired state. An example of a solution-scoped template is an end to end data pipeline solution template. The template might mix solution-specific topology and state with multiple capability-scoped solution templates such as Kafka, Storm, and Hadoop.
 
 ## Choosing free-form vs. known configurations
 You might initially think a template should give consumers the utmost flexibility, but many considerations affect the choice of whether to use free-form configurations vs. known configurations. This section identifies the key customer requirements and technical considerations that shaped the approach shared in this document.
@@ -127,17 +127,17 @@ You might initially think a template should give consumers the utmost flexibilit
 ### Free-form configurations
 On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes — and do so as parameters to a template. However, this approach is not ideal for some scenarios.
 
-In [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
+In [Sizes for virtual machines](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
 
-A free-form configuration enables the selection of a number of VM instances, a number of different VM types and sizes for those instances, a number of disks that can vary based on the VM type, and one or more scripts to configure the VM contents.
+A free-form configuration enables the selection several VM instances, various VM types and sizes for those instances, various disks for the VM type, and one or more scripts to configure the VM contents.
 
 It is common that a deployment may have multiple types of nodes, such as master and data nodes, so this flexibility is often provided for every node type.
 
-As you start to deploy clusters of any significance, you begin to work with multiples of all of these. If you were deploying a Hadoop cluster, for example, with 8 master nodes and 200 data nodes, and pooled 4 attached disks on each master node and pooled 16 attached disks per data node, you would have 208 VMs and 3,232 disks to manage.
+As you start to deploy clusters of any significance, you begin to work with these complex scenarios. If you were deploying a Hadoop cluster, for example, with 8 master nodes and 200 data nodes, and pooled 4 attached disks on each master node and pooled 16 attached disks per data node, you would have 208 VMs and 3,232 disks to manage.
 
 A storage account will throttle requests above its identified 20,000 transactions/second limit, so you should look at storage account partitioning and use calculations to determine the appropriate number of storage accounts to accommodate this topology. Given the multitude of combinations supported by the free-form approach, dynamic calculations are required to determine the appropriate partitioning. The Azure Resource Manager Template Language does not presently provide mathematical functions, so you must perform these calculations in code, generating a unique, hard-coded template with the appropriate details.
 
-In enterprise IT and SI scenarios, someone must maintain the templates and provide support for the deployed topologies for one or more organizations. This additional overhead — different configurations and templates for each customer — is far from desirable.
+In enterprise IT and SI scenarios, someone must maintain the templates and support the deployed topologies for one or more organizations. This additional overhead — different configurations and templates for each customer — is far from desirable.
 
 You can use these templates to deploy environments in your customer’s Azure subscription, but both corporate IT teams and CSVs typically deploy them into their own subscriptions, using a chargeback function to bill their customers. In these scenarios, the goal is to deploy capacity for multiple customers across a pool of subscriptions and keep deployments densely populated into the subscriptions to minimize subscription sprawl—that is, more subscriptions to manage. With truly dynamic deployment sizes, achieving this type of density requires careful planning and additional development for scaffolding work on behalf of the organization.
 
@@ -161,7 +161,7 @@ T-shirt sizes based on product offerings, such as community or Enterprise, may h
 
 You can also accommodate customers with unique variants using the JSON-based templates. When dealing with outliers, you can incorporate the appropriate planning and considerations for development, support, and costing.
 
-Based on the customer template consumption scenarios, requirements identified at the start of this document, and our hands-on experience creating numerous templates, we identified a pattern for template decomposition.
+Based on the customer template consumption scenarios, and requirements identified at the start of this document, we identified a pattern for template decomposition.
 
 ## Capacity and capability-scoped solution templates
 Decomposition provides a modular approach to template development that supports reuse, extensibility, testing, and tooling. This section provides detail on how a decomposition approach can be applied to templates with a Capacity or Capability scope.
@@ -307,7 +307,7 @@ For the nodes in the cluster, there are two steps to configuring the state, both
 Inside variables, the t-shirt size template specifies the number of nodes of each type to deploy for the specified size (*large*). It then deploys that number of VM instances using resource loops, providing unique names to resources by appending a node name with a numeric sequence number from *copyIndex()*. It does these steps for both hot and warm zone VMs, as defined in the t-shirt name template
 
 ## Decomposition and end-to-end solution scoped templates
-A solution template with an end-to-end solution scope is focused on delivering an end-to-end solution.  This approach is typically a composition of multiple capability scoped templates with additional resources, logic, and state.
+A solution template with an end-to-end solution scope is focused on delivering an end-to-end solution.  This approach is typically a composition of multiple capability-scoped templates with additional resources, logic, and state.
 
 As highlighted in the image below, the same model used for capability scoped templates is extended for templates with an End-to-End Solution Scope.
 
@@ -317,7 +317,7 @@ As end to end solution scoped templates also can typically have t-shirt sizes, t
 
 The Known Configuration Resources Template links to one or more capability scoped solution templates that are relevant to the end to end solution as well as the Member Resource Templates that are required for the end to end solution.
 
-As the t-shirt size of the solution may be different than that of individual capability scoped template, variables within the Known Configuration Resources Template are used to provide the appropriate values for downstream capability scoped solution templates to deploy the appropriate t-shirt size.
+As the t-shirt size of the solution may be different than the individual capability-scoped template, variables within the Known Configuration Resources Template are used to provide the appropriate values for downstream capability scoped solution templates to deploy the appropriate t-shirt size.
 
 ![End-to-end](./media/best-practices-resource-manager-design-templates/end-to-end.png)
 
@@ -336,14 +336,13 @@ The parameters to the main template are first modified to remove the inbound par
 
 While the distinct deployment types map to the Known Configuration Resources Template, they also need the common resources and configuration found in the Shared Resources Template and potentially those in Optional Resource Templates.
 
-If you want to publish your template to the marketplace, you simply establish distinct copies of your Main template that replaces the previously available inbound parameter of tshirtSize to a variable embedded within the template.
+If you want to publish your template to the marketplace, you establish distinct copies of your Main template that replaces the previously available inbound parameter of tshirtSize to a variable embedded within the template.
 
 ![Marketplace](./media/best-practices-resource-manager-design-templates/marketplace.png)
 
 **Adapting a solution scoped template for the marketplace**
 
 ## Next steps
-* For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
 * To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

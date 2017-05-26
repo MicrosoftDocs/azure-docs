@@ -3,7 +3,7 @@ title: How to use Hudson with Blob storage | Microsoft Docs
 description: Describes how to use Hudson with Azure Blob storage as a repository for build artifacts.
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dinesh
+ms.date: 02/28/2017
+ms.author: seguler
 
 ---
 # Using Azure Storage with a Hudson Continuous Integration solution
@@ -47,6 +47,7 @@ You will need the following to use the Blob service with your Hudson CI solution
   2. At a command prompt that is opened to the folder that contains the Hudson WAR, run the Hudson WAR. For example, if you have downloaded version 3.1.2:
      
       `java -jar hudson-3.1.2.war`
+
   3. In your browser, open `http://localhost:8080/`. This will open the Hudson dashboard.
   4. Upon first use of Hudson, complete the initial setup at `http://localhost:8080/`.
   5. After you complete the initial setup, cancel the running instance of the Hudson WAR, start the Hudson WAR again, and  re-open the Hudson dashboard, `http://localhost:8080/`, which you will use to install and configure the Azure Storage plugin.
@@ -92,12 +93,15 @@ For instruction purposes, first we'll need to create a job that will create seve
 2. Name the job **MyJob**, click **Build a free-style software job**, and then click **OK**.
 3. In the **Build** section of the job configuration, click **Add build step** and choose **Execute Windows batch command**.
 4. In **Command**, use the following commands:
-   
-        md text
-        cd text
-        echo Hello Azure Storage from Hudson > hello.txt
-        date /t > date.txt
-        time /t >> date.txt
+
+	```   
+	    md text
+	    cd text
+	    echo Hello Azure Storage from Hudson > hello.txt
+	    date /t > date.txt
+	    time /t >> date.txt
+	```
+
 5. In the **Post-build Actions** section of the job configuration, click **Upload artifacts to Microsoft Azure Blob storage**.
 6. For **Storage Account Name**, select the storage account to use.
 7. For **Container Name**, specify the container name. (The container will be created if it does not already exist when the build artifacts are uploaded.) You can use environment variables, so for this example enter **${JOB_NAME}** as the container name.
@@ -162,4 +166,3 @@ The following provides an overview of the Blob service components.
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
 For more information, also see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
-

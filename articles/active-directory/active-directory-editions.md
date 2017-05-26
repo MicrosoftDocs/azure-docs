@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory editions | Microsoft Docs
 description: This article explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 05/04/2017
 ms.author: curtand
 
 ---
@@ -100,7 +100,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 |:---:|:---:|:---:|:---:|
 | Up to 500,000 objects |No object limit |No object limit |No object limit for Office 365 user accounts |
 
-#### User/Group Management (add/update/delete)/ User-based provisioning, Device  registration
+#### User/Group Management (add/update/delete), User-based provisioning, Device registration
 **Type:** Common Features
 
 **Availability:**
@@ -141,7 +141,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 **More details:**
 
-* [How to update your own password](active-directory-passwords-update-your-own-password.md)
+* [How to update your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account)
 
 #### Connect  (Sync engine that extends on-premises directories to Azure Active Directory)
 **Type:** Common Features
@@ -177,7 +177,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| |![Check][12] | ![Check][12] | |
+| &nbsp; |![Check][12] | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -190,7 +190,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] |![Check][12] | ![Check][12] |
+| &nbsp; |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
@@ -203,7 +203,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |![Check][12] |![Check][12] | ![Check][12] |
+| &nbsp; |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
@@ -216,7 +216,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| |![Check][12] | ![Check][12] | |
+| &nbsp; |![Check][12] | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -229,7 +229,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| |![Check][12] |![Check][12] | ![Check][12] |
+| &nbsp; |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
@@ -245,7 +245,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  | | ![Check][12]|  |
+| &nbsp; | &nbsp; | ![Check][12]| &nbsp; |
 
 #### Self-Service Password Reset/Change/Unlock with on-premises write-back
 **Type:** Premium Features
@@ -254,7 +254,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  | | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Multi-Factor Authentication (Cloud and On-premises (MFA Server))
 **Type:** Premium Features
@@ -263,7 +263,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| | |![Check][12] |Limited to cloud only for Office 365 Apps |
+| &nbsp; | &nbsp; |![Check][12] |Limited to cloud only for Office 365 Apps |
 
 **More details:**
 
@@ -279,7 +279,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| | |![Check][12] | |
+| &nbsp; | &nbsp; |![Check][12] | &nbsp; |
 
 #### Cloud App Discovery
 **Type:** Premium Features
@@ -288,7 +288,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  | | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -301,7 +301,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 **More details:**
 
@@ -314,21 +314,21 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  | | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Identity Protection
 **Type:** Premium Features
 
 | Free Edition | Basic Edition | Premium P2 Edition | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  | | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Privileged Identity Management
 **Type:** Premium Features
 
 | Free Edition | Basic Edition | Premium P2 Edition | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 ## Azure Active Directory Join – Windows 10 only  related features
 #### Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery
@@ -348,7 +348,7 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 #### Enterprise State Roaming
 **Type:** Azure Active Directory Join – Windows 10 only  related features
@@ -357,26 +357,15 @@ Microsoft Identity Manager Server software rights are granted with Windows Serve
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-|  | | ![Check][12] | |
+| &nbsp; | &nbsp; | ![Check][12] | &nbsp; |
 
 **More details:**
 
 * [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
-## Azure AD preview features
-In addition to the generally available features of the Free, Basic, and Premium (P1 and P2) editions, Azure AD also provides you with a collection of preview features. You can use the preview features to get an impression of what is coming in the near future and to determine whether these features can help improving your environment.
-
-**Available preview features:**
-
-* [B2B collaboration](active-directory-b2b-collaboration-overview.md)
-* [Administrative Units](active-directory-administrative-units-management.md)
-* [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
-* [Certificate-based authentication on iOS](active-directory-certificate-based-authentication-ios.md)
-* [Certificate-based authentication on Android](active-directory-certificate-based-authentication-android.md)
-
-## What's next
+## Next steps
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+* [Add company branding to your sign-in and Access Panel pages](active-directory-add-company-branding.md)
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->

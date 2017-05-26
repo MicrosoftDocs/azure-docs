@@ -13,7 +13,7 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 02/10/2017
 ms.author: sdanie
 
 ---

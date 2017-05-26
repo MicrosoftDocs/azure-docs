@@ -3,8 +3,8 @@ title: How to use Azure table storage with the WebJobs SDK
 description: Learn how to use Azure table storage with the WebJobs SDK. Create tables, add entities to tables, and read existing tables.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # How to use Azure table storage with the WebJobs SDK

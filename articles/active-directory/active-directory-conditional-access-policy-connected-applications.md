@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set device-based conditional access policy for Azure Active Directory-connected applications | Microsoft Docs
 description: Set device-based conditional access policies for Azure AD-connected applications.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 05/16/2017
 ms.author: markvi
 
 ---
@@ -93,7 +93,7 @@ Azure AD-joined devices are compliant if they are marked as **compliant** in the
 A domain-joined device is compliant if:
 
 * It is registered with Azure AD. Many organizations treat domain-joined devices as trusted devices.
-* It is marked as **compliant** in Azure AD by System Center Configuration Manager 2016.
+* It is marked as **compliant** in Azure AD by System Center Configuration Manager.
   
   ![Domain-joined devices that are compliant](./media/active-directory-conditional-access-policy-connected-applications/06.png "Device Rules")
 

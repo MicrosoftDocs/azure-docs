@@ -1,4 +1,4 @@
-﻿---
+---
 title: Advanced Configuration for Windows Universal Apps Engagement SDK
 description: Advanced Configuration options for Azure Mobile Engagement with Windows Universal Apps
 services: mobile-engagement

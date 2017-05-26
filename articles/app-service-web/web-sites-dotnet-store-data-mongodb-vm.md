@@ -5,7 +5,7 @@ tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: adf7a472-ae00-45a8-aec4-06247e21318b
@@ -22,7 +22,7 @@ ms.author: cephalin
 Using Git, you can deploy an ASP.NET application to Azure App Service Web Apps. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running on a virtual machine in Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to App Service Web Apps using Git.
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 
@@ -455,7 +455,7 @@ For more information on developing C# applications against MongoDB, see [CSharp 
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnWindowsVM]: ../virtual-machines/virtual-machines-windows-classic-install-mongodb.md
+[InstallMongoOnWindowsVM]:../virtual-machines/windows/classic/install-mongodb.md
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 

@@ -1,65 +1,72 @@
 ---
-title: DocumentDB community & news | Microsoft Docs
-description: Join the Azure DocumentDB community to build relationships, showcase your work, and sharpen your skills.
-services: documentdb
+title: Azure Cosmos DB community, news, & events | Microsoft Docs
+description: Join the Azure Cosmos DB community to build relationships, showcase your work, and sharpen your skills.
+services: cosmosdb
 documentationcenter: ''
 author: aliuy
-manager: johnmac
+manager: jhubbard
 editor: mimig
 
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/21/2016
+ms.date: 03/07/2017
 ms.author: andrl
 
 ---
 # Community portal
 ## Community spotlight
-Let us promote your project! Show us the awesome project you're working on with DocumentDB, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+Let us promote your project! Show us the awesome project you're working on with Azure Cosmos DB, the next generation of the DocumentDB stack, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 ### documentdb-lumenize
 *by Larry Maccherone*
 
-Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
+Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in Azure Cosmos DB DocumentDB API.
 
-Check it out on [Github](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
+Check it out on [GitHub](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
 
 ### DocumentDB Studio
 *by Ming Liu*
 
-A client management viewer/explorer for Microsoft Azure DocumentDB service.
+A client management viewer/explorer for the Azure Cosmos DB DocumentDB API service.
 
-Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
+Check it out on [GitHub](https://github.com/mingaliu/DocumentDBStudio).
 
 ### DoQmentDB
 *by Ariel Mashraki*
 
-DoQmentDB is a Node.js promise-based client, that provides a MongoDB-like layer on top of DocumentDB.
+DoQmentDB is a Node.js promise-based client, that provides a MongoDB-like layer on top of Azure Cosmos DB.
 
-Check it out on [Github](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
+Check it out on [GitHub](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
+
+### TypeScript API
+*by Jelmer Cormont*
+
+A wrapper around the Node.js client written in TypeScript (works in plain JavaScript too). Supports `async/await` and a simplified API.
+
+Check it out on [GitHub](https://github.com/jcormont/documentdb-typescript) and [npm](https://www.npmjs.com/package/documentdb-typescript).
 
 ### Swagger REST API for DocumentDB
 *by Howard Edidin*
 
-A DocumentDB REST API Swagger file that can be easily deployed as an API App.
+An Azure Cosmos DB DocumentDB REST API Swagger file that can be easily deployed as an API App.
 
-Check it out on [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
+Check it out on [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
 ### fluent-plugin-documentdb
 *by Yoichi Kawasaki*
 
-fluent-plugin-documentdb is a Fluentd plugin for outputting to Azure DocumentDB.
+fluent-plugin-documentdb is a Fluentd plugin for outputting to Azure Cosmos DB DocumentDB API.
 
-Check it out on [Github](https://github.com/yokawasa/fluent-plugin-documentdb) and [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
+Check it out on [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) and [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
-*Find more open source DocumentDB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
+*Find more open source Azure Cosmos DB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
 ## News, blogs, and articles
-You can stay up-to-date with the latest DocumentDB news and features by following [our blog](https://azure.microsoft.com/blog/tag/documentdb/).
+You can stay up-to-date with the latest Azure Cosmos DB news and features by following [our blog](https://azure.microsoft.com/blog/tag/documentdb/).
 
 **Community posts:**
 
@@ -93,15 +100,21 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 ### Recent and upcoming events
 | Event Name | Speaker | Location | Date | Hashtag |
 | --- | --- | --- | --- | --- |
-| [Wintellect webinar: An Introduction to Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|Online|December 15, 2016 1pm EST|n/a|
+|[South Florida Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|March 11, 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
+|[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|April 8, 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
+|[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|April 22, 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
+|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Norway|June 14, 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
 ### Previous events and recordings
 | Event Name | Speaker | Location | Date | Recording |
 | --- | --- | --- | --- | --- |
-| [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |New York, NY |November 16-18, 2016 |[Channel 9 Connect(); videos](https://channel9.msdn.com/Events/Connect) |
-| [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) |Santosh Hari |Tallahassee, FL |November 3, 2016 |n/a |
+|[Ignite Australia: Hello DocumentDB: Azure’s blazing fast, planet-scale NoSQL database](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australia|Wednesday February 15, 2017|Forthcoming|
+|[Ignite Australia: A Deep-Dive with Azure DocumentDB: Partitioning, Data Modelling, and Geo Replication](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australia|February 16, 2017|Forthcoming|
+| Wintellect webinar: An Introduction to Azure DocumentDB| [Josh Lane](https://twitter.com/jplane)|Online|January 12, 2017 1pm EST|[Azure DocumentDB: Your Cloud-powered, Geo-scaled, NoSQL Superweapon... Hiding in Plain Sight](https://www.youtube.com/watch?v=uVcWgIYtBoc)|
+| [Connect(); // 2016](https://connectevent.microsoft.com/) |[Kirill Gavrylyuk](https://twitter.com/kirillg_msft) |New York, NY |November 16-18, 2016 |[Channel 9 Connect(); videos](https://channel9.msdn.com/Events/Connect) |
+| [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) |[Santosh Hari](https://twitter.com/_s_hari)|Tallahassee, FL |November 3, 2016 |n/a |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) |DocumentDB team |Atlanta, GA |September 26-30, 2016 |[Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) |
 | [DevTeach](http://devteach.com/) |Ken Cenerelli |Montreal, Canada |July 4-8, 2016 |[NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT ](http://www.btug.be/events) |Eldert Grootenboer |Kontich, Belgium |June 30, 2016 |n/a |
@@ -128,7 +141,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 | [SQL Saturday #444 - Kansas City 2015](http://www.sqlsaturday.com/444/Sessions/Details.aspx?sid=38576) |Jeff Renz |Kansas City, MO |October 3, 2015 |n/a |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/Sessions/Details.aspx?sid=36089) |Leonard Lobel |Oporto, Portugal |October 3, 2015 |n/a |
 | [AzureCon](https://azure.microsoft.com/azurecon/) |David Makogon, Ryan Crawcour, John Macintyre |Virtual Event |September 29, 2015 |[Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207) [Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Leonard Lobel |Utrecht, Netherlands |September 26, 2015 |[Introduction to Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
+| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) |Leonard Lobel |Utrecht, Netherlands |September 26, 2015 |[Introduction to Azure DocumentDB](https://channel9.msdn.com/Blogs/Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [SQL Saturday #441 - Denver 2015](http://www.sqlsaturday.com/441/Sessions/Details.aspx?sid=39191) |Jeff Renz |Denver, CO |September 19, 2015 |n/a |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) |Andrew Liu |San Francisco, CA |September 15, 2015 |n/a |
 | [Belarus Azure User Group Meet-Up](https://www.facebook.com/events/786540124800276/) |Alex Zyl |Minsk, Belarus |September 9, 2015 |[Introduction to DocumentDB concept overview, consistency levels, sharding strategies](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
@@ -181,7 +194,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 ### Online classes
 | Learning partner | Description |
 | --- | --- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) offers you training from the people who help build Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) |[**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) offers you training from the people who help build Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) |[**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) is a key Microsoft partner offering Azure training. If you are an MSDN subscriber, use your benefits to access Microsoft Azure training. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) |[**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) provides deep technical training on Microsoft Azure. Get instructor-led training on-site or through a remote classroom by their industry-acknowledged trainers. |
 
@@ -193,32 +206,31 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 | Forum provider | Description |
 | --- | --- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) |A language-independent collaboratively edited question and answer site for programmers. Follow our tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
-| [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) |A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
 
 ## Contact the team
 ![Team](./media/documentdb-community/documentdb-team.png)
 
-Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/). You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB). 
+Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can schedule a 1:1 chat directly with the DocumentDB engineering team by sending us an [e-mail](mailto:askdocdb@microsoft.com) or tweeting us at [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Open source projects
 These projects are actively developed by the Azure DocumentDB team in collaboration with our open source community.
 
 ### SDKs
-| Platform | Github | Package |
+| Platform | GitHub | Package |
 | --- | --- | --- |
 | Node.js |[azure-documentdb-node](https://github.com/Azure/azure-documentdb-node) |[npm](https://www.npmjs.com/package/documentdb) |
 | Java |[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
 | Python |[azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) |[PyPI](https://pypi.python.org/pypi/pydocumentdb) |
 
 ### Other projects
-| Name | Github | Website |
+| Name | GitHub | Website |
 | --- | --- | --- |
 | Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop Connector |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+| Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/download/details.aspx?id=46436) |
 
-## DocumentDB Wizards
-DocumentDB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the DocumentDB team.
+## Azure Cosmos DB Wizards
+Azure Cosmos DB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure Cosmos DB, the next generation of Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the Azure Cosmos DB team.
 
 | Wizard | Picture |
 | --- | --- |
@@ -231,5 +243,5 @@ DocumentDB Wizards are community leaders who’ve demonstrated an exemplary comm
 |  [Santosh Hari](https://twitter.com/_s_hari) |[![Santosh Hari](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) |
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
-Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
+Want to become an Azure Cosmos DB Wizard? While there is no benchmark for becoming a Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
 

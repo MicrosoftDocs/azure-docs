@@ -1,4 +1,4 @@
-﻿---
+---
 title: Operations Management Suite Security and Audit Solution Data Security | Microsoft Docs
 description: This document explains how data is managed and safeguarded in Operations Management Suite Security and Audit Solution.
 services: operations-management-suite
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 9cdf7deb-2a30-4672-b89f-71179ee8326a
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 03/30/2017
 ms.author: yurid
 
 ---

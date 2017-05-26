@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add the recurrence trigger in logic apps | Microsoft Docs
 description: Overview of the recurrence trigger, and how to use it with an Azure logic app.
 services: ''
@@ -26,7 +26,7 @@ For example, you can:
 * Schedule a workflow to run a SQL stored procedure every day.
 * Email a summary of all tweets within the last week about a certain hashtag.
 
-To get started using the recurrence trigger in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started using the recurrence trigger in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Use a recurrence trigger
 A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
@@ -56,5 +56,5 @@ A * means that it is a required field.
 <br>
 
 ## Next steps
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 

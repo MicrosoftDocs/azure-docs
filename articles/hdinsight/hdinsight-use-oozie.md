@@ -10,12 +10,14 @@ editor: cgronlun
 
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Use Oozie with Hadoop to define and run a workflow in HDInsight
@@ -638,7 +640,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
@@ -660,7 +662,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of the Azure Activity Log | Microsoft Docs
 description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
 author: johnkemnetz
@@ -13,36 +13,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 03/02/2017
 ms.author: johnkem
 
 ---
 # Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
+The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
 
-The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource.
+![Activity Logs vs other types of logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+
+Figure 1: Activity Logs vs other types of logs
+
+The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside. Diagnostics Logs are emitted by a resource and provide information about the operation of that resource.
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
-View this [video introducing the Activity Log](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
+
+> [!WARNING]
+> The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type in the Classic portal or otherwise outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log is accessible only in the Classic portal.
+>
+>
+
+View the following video introducing the Activity Log.
+> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> 
+>
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
 
-* Query and view it in the **Azure portal**.
-* Query it via REST API, PowerShell Cmdlet, or CLI.
-* [Create an email or webhook alert that triggers off an Activity Log event.](insights-auditlog-to-webhook-email.md)
-* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+
+
+* [Create an alert that triggers off an Activity Log event.](monitoring-activity-log-alerts.md)
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
+* Query and view it in the **Azure portal**.
+* Query it via PowerShell Cmdlet, CLI, or REST API.
+
+
+You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
 ## Export the Activity Log with Log Profiles
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
 
 * Where the Activity Log should be sent (Storage Account or Event Hubs)
-* Which event categories (Write, Delete, Action) should be sent
+* Which event categories (Write, Delete, Action) should be sent. *The meaning of "category" in Log Profiles and Activity Log events is different. In the Log Profile, "Category" represents the operation type (Write, Delete, Action). In an Activity Log event, the "category" property represents the source or type of event (for example, Administration, ServiceHealth, Alert, and more).*
 * Which regions (locations) should be exported
-* How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
+* How long the Activity Log should be retained in a Storage Account.
+    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+    - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or OMS options are selected), the retention policies have no effect.
+    - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
@@ -50,18 +72,17 @@ These settings can be configured via the “Export” option in the Activity Log
 You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
 
 1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
-   
+
     ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Click the **Export** button at the top of the blade.
-   
+
     ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. In the blade that appears, you can select:  
-   
-   * regions for which you would like to export events
-   * the Storage Account to which you would like to save events
-   * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
-   * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
-     
+  * regions for which you would like to export events
+  * the Storage Account to which you would like to save events
+  * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
+  * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+
      ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
@@ -228,6 +249,5 @@ Each event in the Activity Log has a JSON blob similar to this example:
 | nextLink |Continuation token to fetch the next set of results when they are broken up into multiple responses. Typically needed when there are more than 200 records. |
 
 ## Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
+* [Learn more about the Activity Log (formerly Audit Logs)](../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-

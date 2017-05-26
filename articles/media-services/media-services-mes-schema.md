@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2016
+ms.date: 05/12/2017
 ms.author: juliako
 
 ---
 # Media Encoder Standard schema
-This topic describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](https://msdn.microsoft.com/library/azure/mt269960.aspx) are based. The topic gives explanation of elements and their valid values. The full schema will be published at a later date.  
+This topic describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](media-services-mes-presets-overview.md) are based. The topic gives explanation of elements and their valid values. The full schema will be published at a later date.  
 
 ## <a name="Preset"></a> Preset (root element)
 Defines an encoding preset.  
@@ -82,7 +82,7 @@ Contains a sequence of the following elements.
 | **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Number of B frames between reference frames. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Number of reference frames in a GOP. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |Could be one of the following values: **Cabac** and **Cavlc**. |
-| **FrameRate**<br/><br/> minOccurs="0" |rational number |Determines the frame rate of the output video. Use default of "0/1" to let the encoder use the same frame rate as the input video. Allowed values are expected to be common video frame rates, as shown below. However, any valid rational is allowed. For example 1/1 would be 1 fps and is valid.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) |
+| **FrameRate**<br/><br/> minOccurs="0" |rational number |Determines the frame rate of the output video. Use default of "0/1" to let the encoder use the same frame rate as the input video. Allowed values are expected to be common video frame rates, as shown below. However, any valid rational is allowed. For example 1/1 would be 1 fps and is valid.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) <br/> <br/>**NOTE** If you are creating a custom preset for multiple-bitrate encoding, then all layers of the preset **must** use the same value of FrameRate.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Copy from Azure media encoder |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determines how many slices a frame is divided into. Recommend using default. |
 
@@ -117,7 +117,7 @@ For details about what values are valid for each profile, see the “Audio codec
 | **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |The bitrate used when encoding the audio, specified in kbps. |
 
 ### Audio codec details
-Audio Codec|---  
+Audio Codec|Details  
 -----------------|---  
 **AACLC**|1:<br/><br/> - 11025 : 8 &lt;= bitrate &lt; 16<br/><br/> - 12000 : 8 &lt;= bitrate &lt; 16<br/><br/> - 16000 : 8 &lt;= bitrate &lt;32<br/><br/>- 22050 : 24 &lt;= bitrate &lt; 32<br/><br/> - 24000 : 24 &lt;= bitrate &lt; 32<br/><br/> - 32000 : 32 &lt;= bitrate &lt;= 192<br/><br/> - 44100 : 56 &lt;= bitrate &lt;= 288<br/><br/> - 48000 : 56 &lt;= bitrate &lt;= 288<br/><br/> - 88200 : 128 &lt;= bitrate &lt;= 288<br/><br/> - 96000 : 128 &lt;= bitrate &lt;= 288<br/><br/> 2:<br/><br/> - 11025 : 16 &lt;= bitrate &lt; 24<br/><br/> - 12000 : 16 &lt;= bitrate &lt; 24<br/><br/> - 16000 : 16 &lt;= bitrate &lt; 40<br/><br/> - 22050 : 32 &lt;= bitrate &lt; 40<br/><br/> - 24000 : 32 &lt;= bitrate &lt; 40<br/><br/> - 32000 :  40 &lt;= bitrate &lt;= 384<br/><br/> - 44100 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 576<br/><br/> - 96000 : 256 &lt;= bitrate &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000 : 160 &lt;= bitrate &lt;= 896<br/><br/> - 44100 : 240 &lt;= bitrate &lt;= 1024<br/><br/> - 48000 : 240 &lt;= bitrate &lt;= 1024<br/><br/> - 88200 : 640 &lt;= bitrate &lt;= 1024<br/><br/> - 96000 : 640 &lt;= bitrate &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= bitrate &lt;= 1024<br/><br/> - 44100 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 48000 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 88200 : 896 &lt;= bitrate &lt;= 1024<br/><br/> - 96000 : 896 &lt;= bitrate &lt;= 1024  
 **HEAACV1**|1:<br/><br/> - 22050 : bitrate = 8<br/><br/> - 24000 : 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000 : 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200 : bitrate = 64<br/><br/> 2:<br/><br/> - 32000 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 44100 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 48000 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 88200 : 96 &lt;= bitrate &lt;= 128<br/><br/> - 96000 : 96 &lt;= bitrate &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 44100 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 48000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 320<br/><br/> - 96000 : 256 &lt;= bitrate &lt;= 320<br/><br/> 8:<br/><br/> - 32000 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 44100 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 88200 : 384 &lt;= bitrate &lt;= 448<br/><br/> - 96000 : 384 &lt;= bitrate &lt;= 448  
@@ -255,7 +255,7 @@ If the above is not the desired behavior, then you can make use of the PreserveR
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## Examples
-See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](https://msdn.microsoft.com/library/azure/mt269960.aspx).
+See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
 
 ## Next steps
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

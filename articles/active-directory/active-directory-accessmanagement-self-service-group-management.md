@@ -1,4 +1,4 @@
-﻿---
+---
 title: Setting up Azure Active Directory for self service application access management| Microsoft Docs
 description: Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory and offers users the possibility to request security group or Office 365 group memberships
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 05/08/2017
 ms.author: curtand
 
 ---
@@ -38,7 +38,7 @@ You can also use **Users who can use self-service for security groups** to achie
 
 You can also use the **Group that can use self-service for security groups** box to specify a custom name for a group whose members can use self-service.
 
-## Additional information
+## Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
@@ -46,4 +46,3 @@ These articles provide additional information on Azure Active Directory.
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-

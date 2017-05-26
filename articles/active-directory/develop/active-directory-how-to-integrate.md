@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
+ms.custom: aaddev
 
 ---
 # Integrating with Azure Active Directory
@@ -26,14 +27,14 @@ Azure Active Directory provides organizations with enterprise-grade identity man
 There are several ways for your application to integrate with Azure AD.  Take advantage of as many or as few of these scenarios as is appropriate for your application.
 
 ### Support Azure AD as a Way to Sign In to Your Application
-**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember.  As a developer, you'll have one less password to store and protect.  Not having to handle forgotten password resets may be a significant savings alone.  Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure.  With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD.  Learn more about [adding support for Azure AD sign in](../active-directory-authentication-scenarios.md).
+**Reduce sign in friction and reduce support costs.** By using Azure AD to sign in to your application, your users won't have one more name and password to remember.  As a developer, you'll have one less password to store and protect.  Not having to handle forgotten password resets may be a significant savings alone.  Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure.  With hundreds of millions users from millions of organizations, chances are your user is already signed in to Azure AD.  Learn more about [adding support for Azure AD sign in](active-directory-authentication-scenarios.md).
 
 **Simplify sign up for your application.**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely.  Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications.  Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement.  Learn more about [signing-up your application for Azure AD Account login](../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 ### Browse for Users, Manage User Provisioning, and Control Access to Your Application
-**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses.  Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy.  Learn more about the [Graph API](../active-directory-graph-api.md).
+**Browse for users in the directory.**  Use the Graph API to help users search and browse for other people in their organization when inviting others or granting access, instead of requiring them to type email addresses.  Users can browse using a familiar address book style interface, including viewing the details of the organizational hierarchy.  Learn more about the [Graph API](active-directory-graph-api.md).
 
-**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access.  Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application.  Group information can also be sent to your application in sign in tokens.  Learn more about the [Graph API](../active-directory-graph-api.md).
+**Re-use Active Directory groups and distribution lists your customer is already managing.**  Azure AD contains the groups that your customer is already using for email distribution and managing access.  Using the Graph API, re-use these groups instead of requiring your customer to create and manage a separate set of groups in your application.  Group information can also be sent to your application in sign in tokens.  Learn more about the [Graph API](active-directory-graph-api.md).
 
 **Use Azure AD to control who has access to your application.**  Administrators and application owners in Azure AD can assign access to applications to specific users and groups.  Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.
 
@@ -66,15 +67,15 @@ Integration with Azure AD comes with benefits that do not require you to write a
 **Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application.  Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access.  Learn more about [Azure Active Directory conditional access](../active-directory-conditional-access.md).
 
 ### Easy Development
-**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](../active-directory-authentication-protocols.md).
+**Industry standard protocols.**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](active-directory-authentication-protocols.md).
 
-**Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD authentication libraries](../active-directory-authentication-libraries.md).
+**Open source libraries.**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
 ### Worldwide Presence and High Availability
 **Azure AD is deployed in datacenters around the world and is managed and monitored around the clock.**  Azure AD is the identity management system for Microsoft Azure and Office 365 and is deployed in 28 datacenters around the world.  Directory data is guaranteed to be replicated to at least three datacenters.  Global load balancers ensure users access the closest copy of Azure AD containing their data, and automatically re-route requests to other datacenters if a problem is detected.
 
 ## Next Steps
-[Get started writing code](../active-directory-developers-guide.md#getting-started).
+[Get started writing code](active-directory-developers-guide.md#get-started).
 
-[Sign Users In Using Azure AD](../active-directory-authentication-scenarios.md)
+[Sign Users In Using Azure AD](active-directory-authentication-scenarios.md)
 

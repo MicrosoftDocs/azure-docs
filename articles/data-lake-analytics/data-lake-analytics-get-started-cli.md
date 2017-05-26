@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -31,7 +31,7 @@ separated values (CSV) file. To go through the same tutorial using other support
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
+* **Azure CLI**. See [Install and configure Azure CLI](../cli-install-nodejs.md).
   * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 * **Authentication**, using the following command:
   

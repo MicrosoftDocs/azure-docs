@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Data Catalog frequently asked questions | Microsoft Docs
 description: Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management.
 services: data-catalog
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---
@@ -74,15 +74,15 @@ The specific properties will differ from data source to data source, but in gene
 
 > [!IMPORTANT]
 > Registering data assets with Azure Data Catalog does not move or copy your data to the cloud. Registering assets from a data source will copy the assets’ metadata to Azure, but the data remains in the existing data source location. The only exception to this rule is if a user chooses to upload preview records or a data profile when registering assets. When including a preview, up to 20 records will be copied from each asset, and are stored as a snapshot in Azure Data Catalog. When including a data profile, aggregate information (such as the size of tables, the percentage null values per column, and the minimum, maximum and average values for columns) will be calculated and included in the metadata stored in the catalog.
-> 
-> 
+>
+>
 
 <br/>
 
 > [!NOTE]
 > For data sources such as SQL Server Analysis Services that have a first-class **Description** property, the Azure Data Catalog publishing application will extract that property value. For SQL Server relational databases, which lack a first-class **Description** property, the Azure Data Catalog publishing application will extract the value from the ms_description extended property for objects and columns. For more information, see TechNet [Using Extended Properties on Database Objects](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
-> 
-> 
+>
+>
 
 ## Q: How long should it take for newly registered assets to appear in Azure Data Catalog?
 After you register assets with Azure Data Catalog there may be a period of 5-10 seconds before they appear in the Azure Data Catalog portal.
@@ -105,7 +105,7 @@ Please use the Azure Data Catalog forum to report problems, share information, a
 We’re actively working on adding more data sources to Azure Data Catalog. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: How is Azure Data Catalog related to the Data Catalog in Power BI for Office 365?
-You can think of Azure Data Catalog as an evolution of the Data Catalog. Azure Data Catalog delivers similar capabilities for data source publishing and discovery, but is focused on broader scenarios and not dependent on Office 365. Shortly after the Azure Data Catalog becomes generally available the two catalogs will merge into a single service.
+You can think of Azure Data Catalog as an evolution of the Data Catalog in Power BI. Starting in spring 2017, Azure Data Catalog is used to enable the sharing and discovery of queries in Excel 2016 and Power Query for Excel. Data Catalog capabilities in Excel are available to users with Power BI Pro licenses.
 
 ## Q: What permissions does a user need to register assets with Azure Data Catalog?
 The user running the Azure Data Catalog registration tool needs permissions on the data source that will allow him to read the metadata from the source. If the user also selects to include a preview, then the user must also have permissions that allow him to read in the data from the objects being registered.
@@ -124,4 +124,3 @@ A: To update the metadata for data assets that are already registered in the Cat
 
 ## Q: My question isn’t answered here – what should I do?
 Head on over to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
-

@@ -3,7 +3,7 @@ title: Data types for tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with data types for Azure SQL Data Warehouse tables.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.author: shigu;barbkess
 
 ---
 # Data types for tables in SQL Data Warehouse
@@ -46,7 +47,7 @@ SQL Data Warehouse supports the most commonly used data types.  Below is a list 
  When defining your column types, using the smallest data type which will support your data will improve query performance. This is especially important for CHAR and VARCHAR columns. If the longest value in a column is 25 characters, then define your column as VARCHAR(25). Avoid defining all character columns to a large default length. In addition, define columns as VARCHAR when that is all that is needed rather than use [NVARCHAR][NVARCHAR].  Use NVARCHAR(4000) or VARCHAR(8000) when possible instead of NVARCHAR(MAX) or VARCHAR(MAX).
 
 ## Polybase limitation
-If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  Polybase support for wide rows will be added soon.
+If you are using Polybase to load your tables, ensure that the length of the data does not exceed 1 MB.  While you can define a row with variable length data that can exceed this width and load rows with BCP, you will not be able to use Polybase to load this data.  
 
 ## Unsupported data types
 If you are migrating your database from another SQL platform like Azure SQL Database, as you migrate, you may encounter some data types that are not supported on SQL Data Warehouse.  Below are unsupported data types as well as some alternatives you can use in place of unsupported data types.

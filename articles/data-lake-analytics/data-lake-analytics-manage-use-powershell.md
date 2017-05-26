@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -27,47 +27,30 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure PowerShell**. See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-<!-- ################################ -->
-<!-- ################################ -->
+## Running the snippets
 
+The PowerShell snippets in this tutorial use these variables to store this information
 
-## Install Azure PowerShell 1.0 or greater
-See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+```
+$rg = "<ResourceGroupName>"
+$adls = "<DataLakeAccountName>"
+$adla = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
+```
 
-## Manage accounts
-Before running any Data Lake Analytics jobs, you must have a Data Lake Analytics account. Unlike Azure HDInsight, you don't pay for an Analytics account when it is not 
-running a job.  You only pay for the time when it is running a job.  For more information, see 
-[Azure Data Lake Analytics Overview](data-lake-analytics-overview.md).  
+## Manage Accounts
 
-### Create accounts
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeStoreName = "<DataLakeAccountName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    $location = "<Microsoft Data Center>"
+### Create a Data Lake Analytics account
 
-    Write-Host "Create a resource group ..." -ForegroundColor Green
-    New-AzureRmResourceGroup `
-        -Name  $resourceGroupName `
-        -Location $location
+```
+New-AzureRmResourceGroup -Name  $rg -Location $location
+New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
+New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
+```
 
-    Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeStoreAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeStoreName `
-        -Location $location 
-
-    Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeAnalyticsAccount `
-        -Name $dataLakeAnalyticsAccountName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -DefaultDataLake $dataLakeStoreName
-
-    Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
-    Get-AzureRmDataLakeAnalyticsAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeAnalyticsAccountName  
+### Create a Data Lake Analytics account using a template
 
 You can also use an Azure Resource Group template. A template for creating a Data Lake Analytics account and the dependent Data Lake Store account is in [Appendix A](#appendix-a). Save the template into a file with .json template, and then use the following PowerShell script to call it:
 
@@ -93,19 +76,11 @@ You can also use an Azure Resource Group template. A template for creating a Dat
     New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
-### List account
+### List accounts
+
 List Data Lake Analytics accounts within the current subscription
 
     Get-AzureRmDataLakeAnalyticsAccount
-
-The output:
-
-    Id         : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/learn1021rg/providers/Microsoft.DataLakeAnalytics/accounts/learn1021adla
-    Location   : eastus2
-    Name       : learn1021adla
-    Properties : Microsoft.Azure.Management.DataLake.Analytics.Models.DataLakeAnalyticsAccountProperties
-    Tags       : {}
-    Type       : Microsoft.DataLakeAnalytics/accounts
 
 List Data Lake Analytics accounts within a specific resource group
 
@@ -276,26 +251,6 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
         -ItemType Database `
         -Path "master"
 
-### Create catalog secret
-    New-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-### Modify catalog secret
-    Set-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-
-
-### Delete catalog secret
-    Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master"
-
-
 ## Use Azure Resource Manager groups
 Applications are typically made up of many components, for example a web app, database, database server, storage,
 and 3rd party services. Azure Resource Manager (ARM) enables you to work with the resources in your application 
@@ -327,7 +282,7 @@ The ARM group however can be located in a different data center.
 
 ## Appendix A - Data Lake Analytics ARM template
 The following ARM template can be used to deploy a Data Lake Analytics account and its dependent Data Lake Store account.  Save it as a json file, and then use PowerShell script to call the template. For more information, see
-[Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md#deploy-with-powershell) and [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+[Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) and [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

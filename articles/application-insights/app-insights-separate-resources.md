@@ -1,10 +1,10 @@
 ---
-title: Separate Application Insights resources for dev, test and production
-description: Monitor the performance and usage of your application at different stages of development
+title: Separating telemetry from development, test, and release in Azure Application Insights | Microsoft Docs
+description: Direct telemetry to different resources for development, test, and production stamps.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -12,54 +12,32 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2016
-ms.author: awills
+ms.date: 05/15/2017
+ms.author: cfreeman
 
 ---
-# Separating Application Insights resources
-Should the telemetry from different components and versions of your application be sent to different Application Insights resources, or combined into one? This article looks at best practices and the necessary techniques.
+# Separating telemetry from Development, Test, and Production
 
-First, let's understand the question. 
-The data received from your application is stored and processed by Application Insights in a Microsoft Azure *resource*. Each resource is identified by an *instrumentation key* (iKey). In your app, the key is provided to the Application Insights SDK so that it can send the data it collects to the right resource. The key can be provided either in code or in ApplicationInsights.config. By changing the key in the SDK, you can direct data to different resources. 
-
-In a simple case, when you create the code for a new application, you also create a new resource in Application Insights. In Visual Studio, the *new project* dialog does this for you.
-
-If it's a high-volume website, it might be deployed on more than one server instance.
-
-In more complex scenarios, you have a system that is made up of multiple components - for example, a web site and a back-end processor. 
-
-## When to use separate iKeys
-Here are some general guidelines:
-
-* Where you have an independently deployable application unit that runs on a set of server instances that can be scaled up/down independently of other components, then you would usually map that to a single resource - that is, it will have a single instrumentation key (iKey).
-* By contrast, reasons for using separate iKeys include:
-  * Easily read separate metrics from separate components.
-  * Keep lower-volume telemetry separate from high-volume, so that throttling, quotas, and sampling on one stream don't affect the other.
-  * Separate alerts, export, and work item configurations.
-  * Spread [limits](app-insights-pricing.md#limits-summary) such as telemetry quota, throttling, and web test count.
-  * Code under development and test should send to a separate iKey than the production stamp.  
-
-A lot of Application Insights portal experiences are designed with these guidelines in mind. For example, the servers view segments on server instance, making the assumption that telemetry about one logical component can come from several server instances.
-
-## Single iKey
-Where you send telemetry from multiple components to a single iKey:
-
-* Add a property to all the telemetry that allows you to segment and filter on the component identity. The role ID is added automatically to telemetry from server role instances, but in other cases you can use a [telemetry initializer](app-insights-api-filtering-sampling.md#add-properties) to add the property.
-* Update the Application Insights SDKs in the different components at the same time. Telemetry for one iKey should originate with the same version of the SDK.
-
-## Separate iKeys
-Where you have multiple iKeys for different application components:
-
-* Create a [dashboard](app-insights-dashboards.md) for a view of the key telemetry from your logical application, combined from the different application components. Dashboards can be shared, so a single logical system view can be used by different teams.
-* Organize [resource groups](app-insights-resources-roles-access-control.md) at team level. Access permissions are assigned by resource group, and these include permissions to set up alerts. 
-* Use [Azure Resource Manager templates and Powershell](app-insights-powershell.md) to help manage artifacts such as alert rules and web tests.
-
-## Separate iKeys for Dev/Test and Production
-To make it easier to change the key automatically when your app is released, set the iKey in code, instead of in ApplicationInsights.config.
+When you are developing the next version of a web application, you don't want to mix up the [Application Insights](app-insights-overview.md) telemetry from the new version and the already released version. To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys). To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to set the ikey in code instead of in the configuration file. 
 
 (If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](app-insights-cloudservices.md).)
 
-### <a name="dynamic-ikey"></a> Dynamic instrumentation key
+## About resources and instrumentation keys
+
+When you set up Application Insights monitoring for your web app, you create an Application Insights *resource* in Microsoft Azure. You open this resource in the Azure portal in order to see and analyze the telemetry collected from your app. The resource is identified by an *instrumentation key* (ikey). When you install the Application Insights package to monitor your app, you configure it with the instrumentation key, so that it knows where to send the telemetry.
+
+You typically choose to use separate resources or a single shared resource in different scenarios:
+
+* Different, independent applications - Use a separate resource and ikey for each app.
+* Multiple components or roles of one business application - Use a [single shared resource](app-insights-monitor-multi-role-apps.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
+* Development, Test, and Release - Use a separate resource and ikey for versions of the system in 'stamp' or stage of production.
+* A | B testing - Use a single resource. Create a TelemetryInitializer to add a property to the telemetry that identifies the variants.
+
+
+## <a name="dynamic-ikey"></a> Dynamic instrumentation key
+
+To make it easier to change the ikey as the code moves between stages of production, set it in code instead of in the configuration file.
+
 Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
 *C#*
@@ -90,8 +68,8 @@ The iKey is also used in your app's web pages, in the [script that you got from 
     }) // ...
 
 
-## Creating an additional Application Insights resource
-If you decide to separate telemetry for different application components, or for different stamps (dev/test/production) of the same component, then you'll have to create a new Application Insights resource.
+## Create additional Application Insights resources
+To separate telemetry for different application components, or for different stamps (dev/test/production) of the same component, then you'll have to create a new Application Insights resource.
 
 In the [portal.azure.com](https://portal.azure.com), add an Application Insights resource:
 
@@ -107,10 +85,75 @@ Creating the resource takes a few seconds. You'll see an alert when it's done.
 
 (You can write a [PowerShell script](app-insights-powershell-script-create-resource.md) to create a resource automatically.)
 
-## Getting the instrumentation key
+### Getting the instrumentation key
 The instrumentation key identifies the resource that you created. 
 
 ![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
 You need the instrumentation keys of all the resources to which your app will send data.
 
+## Filter on build number
+When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
+
+You can set the Application Version property so that you can filter [search](app-insights-diagnostic-search.md) and [metric explorer](app-insights-metrics-explorer.md) results.
+
+![Filtering on a property](./media/app-insights-separate-resources/050-filter.png)
+
+There are several different methods of setting the Application Version property.
+
+* Set directly:
+
+    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
+* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
+* [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
+
+    ```XML
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+      <ProjectName>AppVersionExpt</ProjectName>
+      <Build type="MSBuild">
+        <MSBuild>
+          <BuildLabel kind="label">1.0.0.2</BuildLabel>
+        </MSBuild>
+      </Build>
+    </DeploymentEvent>
+
+    ```
+* [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your `.csproj` file:
+
+    ```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+    ```
+
+    This generates a file called *yourProjectName*.BuildInfo.config. The Publish process renames it to BuildInfo.config.
+
+    The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it is populated with the correct version number.
+
+    To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
+
+## Version and release tracking
+To track the application version, make sure `buildinfo.config` is generated by your Microsoft Build Engine process. In your .csproj file, add:  
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+```
+
+When it has the build info, the Application Insights web module automatically adds **Application version** as a property to every item of telemetry. That allows you to filter by version when you perform [diagnostic searches](app-insights-diagnostic-search.md), or when you [explore metrics](app-insights-metrics-explorer.md).
+
+However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build in Visual Studio.
+
+### Release annotations
+If you use Visual Studio Team Services, you can [get an annotation marker](app-insights-annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
+
+![Screenshot of sample release annotation on a chart](./media/app-insights-asp-net/release-annotation.png)
+## Next steps
+
+* [Shared resources for multiple roles](app-insights-monitor-multi-role-apps.md)
+* [Create a Telemetry Initializer to distinguish A|B variants](app-insights-api-filtering-sampling.md#add-properties)

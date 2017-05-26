@@ -3,7 +3,7 @@ title: Azure RemoteApp FAQ | Microsoft Docs
 description: Learn answers to the most frequently asked questions about Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: ''
 
@@ -13,13 +13,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Azure RemoteApp FAQ
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -80,6 +80,7 @@ You can find good client information, including steps for installing the differe
   * Windows RT
   * Android tablets
   * iPads
+
     And the phones:
   * iPhone
   * Android Phone

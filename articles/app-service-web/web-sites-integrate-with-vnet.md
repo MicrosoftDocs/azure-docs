@@ -1,10 +1,10 @@
-﻿---
+---
 title: Integrate an app with an Azure Virtual Network
 description: Shows you how to connect an app in Azure App Service to a new or existing Azure virtual network
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: cephalin
 
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
@@ -91,7 +91,7 @@ If your VNET does not have a gateway nor has Point to Site then you have to set 
 ![][8]
 
 ##### Enabling Point to Site in a Resource Manager VNET
-To configure a Resource Manager VNET with a gateway and Point to Site you need to use PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S].  The UI to perform this capability is not yet available. 
+To configure a Resource Manager VNET with a gateway and Point to Site, you can use either PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S] or use the Azure Portal as documented here, [Configure a Point-to-Site connection to a VNet using the Azure Portal][V2VNETPortal].  The UI to perform this capability is not yet available. 
 
 ### Creating a pre-configured VNET
 If you want to create a new VNET that is configured with a gateway and Point-to-Site, then the App Service networking UI has the capability to do that but only for a Resource manager VNET.  If you wish to create a Classic VNET with a gateway and Point-to-Site then you need to do this manually through the Networking user interface. 
@@ -298,3 +298,4 @@ Beyond the functional differences there are also pricing differences.  The App S
 [IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
+[V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal

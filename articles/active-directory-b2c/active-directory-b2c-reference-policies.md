@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Extensible policy framework | Microsoft Docs'
+title: 'Azure Active Directory B2C: Built-in Policies | Microsoft Docs'
 description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
 services: active-directory-b2c
 documentationcenter: ''
@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
-# Azure Active Directory B2C: Extensible policy framework
+# Azure Active Directory B2C: Built-in Policies
+
 ## The basics
+
 The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
 * Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.
@@ -127,7 +129,7 @@ To enable profile editing on your application, you will need to create a profile
 2. Click **Profile editing policies**.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the profile editing policy name used by your application. For example, enter "SiPe".
-5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
+5. Click **Identity providers** and select "Local Account Signin". Optionally, you can also select social identity providers, if already configured. Click **OK**.
 6. Click **Profile attributes**. Here you choose attributes that the consumer can view and edit. For example, select "Country/Region", "Display Name", and "Postal Code". Click **OK**.
 7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful profile editing experience. For example, select "Display Name" and "Postal Code".
 8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiPe**" (the **B2C\_1\_** fragment is automatically added) in the **Profile editing policies** blade.
@@ -159,6 +161,10 @@ To enable fine-grained password reset on your application, you will need to crea
     > 
     > 
 
+## How to link a sign-up or sign-in policy with a password reset policy?
+When you create a sign-up or sign-in policy (with local accounts), the consumer will see a "Forgot password?" link on the first page of the experience. Clicking on this link doesn't automatically trigger a password reset policy. Instead a specific error code `AADB2C90118` is returned back to your app. Your app needs to handle this and invoke a specific password reset policy. A sample that demonstrates this approach of linking together policies is [here](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+
 ## Additional resources
 * [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+* [Disable email verification during consumer sign-up](active-directory-b2c-reference-disable-ev.md)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Integrating with Operations Management Suite (OMS) | Microsoft Docs
 description: In addition to using the standard features of OMS, you can integrate it with other management applications and services to provide a hybrid management environment, to provide custom management scenarios unique to your environment, or to provide a custom management experience for your customers.  This article provides an overview of your different options for integrating with OMS and links to articles providing detailed technical information.
 services: operations-management-suite
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 04/11/2017
 ms.author: bwren
 
 ---

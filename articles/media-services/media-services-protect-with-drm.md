@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using PlayReady and/or Widevine dynamic common encryption | Microsoft Docs
 description: Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. It also enables you to delivery DASH encrypted with Widevine DRM. This topic shows how to dynamically encrypt with PlayReady and Widevine DRM.
 services: media-services
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 03/16/2017
 ms.author: juliako
 
 ---
 # Using PlayReady and/or Widevine dynamic common encryption
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -37,15 +38,14 @@ To take advantage of dynamic encryption, you need to have an asset that contains
 
 This topic would be useful to developers that work on applications that deliver media protected with multiple DRMs, such as PlayReady and Widevine. The topic shows you how to configure the PlayReady license delivery service with authorization policies so that only authorized clients could receive PlayReady or Widevine licenses. It also shows how to use dynamic encryption encryption with PlayReady or Widevine DRM over DASH.
 
-> [!NOTE]
-> To start using dynamic encryption, you must first get at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
->
->
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 ## Download sample
 You can download the sample described in this article from [here](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## Configuring Dynamic Common Encryption and DRM License Delivery Services
+
 The following are general steps that you would need to perform when protecting your assets with PlayReady, using the Media Services license delivery service, and also using dynamic encryption.
 
 1. Create an asset and upload files into the asset.
@@ -53,13 +53,13 @@ The following are general steps that you would need to perform when protecting y
 3. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key.
 4. Configure the content key’s authorization policy. The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client.
 
-When creating the content key authorization policy, you need to specify the following: delivery method (PlayReady or Widevine), restrictions (open or token), and information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
+	When creating the content key authorization policy, you need to specify the following: delivery method (PlayReady or Widevine), restrictions (open or token), and information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
 
-1. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), the type of dynamic encryption (for example, Common Encryption), PlayReady or Widevine license acquisition URL.
+5. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all), the type of dynamic encryption (for example, Common Encryption), PlayReady or Widevine license acquisition URL.
 
-You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
+	You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
-1. Create an OnDemand locator in order to get a streaming URL.
+6. Create an OnDemand locator in order to get a streaming URL.
 
 You will find a complete .NET example at the end of the topic.
 
@@ -98,7 +98,7 @@ For detailed information, see [Configure Content Key Authorization Policy](media
 Configure the delivery policy for your asset. Some things that the asset delivery policy configuration includes:
 
 * The DRM license acquisition URL.
-* The asset delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all).
+* The asset delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all).
 * The type of dynamic encryption (in this case, Common Encryption).
 
 For detailed information, see [Configure asset delivery policy ](media-services-rest-configure-asset-delivery-policy.md).
@@ -155,8 +155,10 @@ The following sample demonstrates functionality that was introduced in Azure Med
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see: [configure streaming endpoints](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Overwrite the code in your Program.cs file with the code shown in this section.
+7. Overwrite the code in your Program.cs file with the code shown in this section.
+
+	>[!NOTE]
+	>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
     Make sure to update variables to point to folders where your input files are located.
 
@@ -273,27 +275,17 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
                     IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
                                             inputAsset.Name,
@@ -481,7 +473,6 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
                     return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
                 }
-
 
                 private static string ConfigureWidevineLicenseTemplate()
                 {

@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 
 ---
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
-This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
+This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer, and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
 
 The Azure virtual machine gallery includes several images that contain Microsoft SQL Server. Select an SQL Server VM image that is suitable for your data needs. Recommended images are:
 
@@ -31,10 +31,10 @@ The Azure virtual machine gallery includes several images that contain Microsoft
   > 
 
 ## <a name="Provision"></a>Connect to the Azure Classic Portal and provision an SQL Server virtual machine
-1. Log in to the [Azure Classic Portal](http://manage.windowsazure.com/) using your account.
+1. Log in to the [Azure Classic portal](http://manage.windowsazure.com/) using your account.
    If you do not have an Azure account, visit [Azure free
    trial](https://azure.microsoft.com/pricing/free-trial/).
-2. On the Azure Classic Portal, at the bottom left of the web page,
+2. On the Azure Classic portal, at the bottom left of the web page,
    click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and
    then click **FROM GALLERY**.
 3. On the **Create a Virtual Machine** page, select a virtual machine
@@ -135,23 +135,23 @@ To configure your new SQL Server VM to serve as an IPython Notebook server, and 
 supporting tools such AzCopy, Azure Storage Explorer, useful Data Science Python packages, and others,
 a special customization script is provided to you. To install:
 
-* Right-click the **Windows Start** icon and click **Command Prompt (Admin)**
-* Copy the following commands and paste at the command prompt.
+1. Right-click the **Windows Start** icon and click **Command Prompt (Admin)**
+2. Copy the following commands and paste at the command prompt.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-* When prompted, enter a password of your choice for the IPython Notebook server.
-* The customization script automates several post-install procedures, which include:
-  * Installation and setup of IPython Notebook server
-  * Opening TCP ports in the Windows firewall for the endpoints created earlier:
-  * For SQL Server remote connectivity
-  * For IPython Notebook server remote connectivity
-  * Fetching sample IPython notebooks and SQL scripts
-  * Downloading and installing useful Data Science Python packages
-  * Downloading and installing Azure tools such as AzCopy and Azure Storage Explorer  
+3. When prompted, enter a password of your choice for the IPython Notebook server.
+4. The customization script automates several post-install procedures, which include:
+    * Installation and setup of IPython Notebook server
+    * Opening TCP ports in the Windows firewall for the endpoints created earlier:
+    * For SQL Server remote connectivity
+    * For IPython Notebook server remote connectivity
+    * Fetching sample IPython notebooks and SQL scripts
+    * Downloading and installing useful Data Science Python packages
+    * Downloading and installing Azure tools such as AzCopy and Azure Storage Explorer  
     <br>
-* You may access and run IPython Notebook from any local or remote browser using a URL of the form `https://<virtual_machine_DNS_name>:<port>`, where port is the IPython public port you selected while provisioning the virtual machine.
-* IPython Notebook server is running as a background service and will be restarted automatically when you restart the virtual machine.
+5. You may access and run IPython Notebook from any local or remote browser using a URL of the form `https://<virtual_machine_DNS_name>:<port>`, where port is the IPython public port you selected while provisioning the virtual machine.
+6. IPython Notebook server is running as a background service and will be restarted automatically when you restart the virtual machine.
 
 ## <a name="Optional"></a>Attach data disk as needed
 If your VM image does not include data disks, i.e., disks other than C drive (OS disk) and D drive (temporary disk), you need to add one or more data disks to store your data. The VM image for SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads comes pre-configured with additional disks for SQL Server data and log files.
@@ -161,7 +161,7 @@ If your VM image does not include data disks, i.e., disks other than C drive (OS
 > 
 > 
 
-To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), which will guide you through:
+To attach additional data disks, follow the steps described in [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json), which will guide you through:
 
 1. Attaching empty disk(s) to the virtual machine provisioned in earlier steps
 2. Initialization of the new disk(s) in the virtual machine
@@ -326,7 +326,7 @@ In later stages of the Team Data Science Process, you will use the [Azure Machin
 3. Enter the SQL user name in the **Server user account name** text box.
 4. Enter the sql user's password in the **Server user account password** text box.
    
-   ![Azure ML Import Data][13]
+   ![Azure Machine Learning Import Data][13]
 
 ## <a name="shutdown"></a>Shutdown and deallocate virtual machine when not in use
 Azure Virtual Machines are priced as **pay only for what you use**. To ensure that you are not being billed when not using your virtual machine, it has to be in the **Stopped (Deallocated)** state.

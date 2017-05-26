@@ -1,10 +1,10 @@
-﻿---
+---
 title: Microsoft Azure portal overview
 description: Learn how to use the Microsoft Azure portal.
 services: ''
 documentationcenter: ''
 author: davidwrede
-manager: dwrede
+manager: erikre
 editor: jimbe
 
 ms.assetid: 53cb9df1-c96a-4f4e-b022-18336cd3d697
@@ -28,7 +28,7 @@ The Microsoft Azure portal is a central place where you can provision and manage
   ![Azure Portal UI Orientation][UIOrientation]
 
 ## Before you get started
-You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at [https://portal.azure.com].
+You will need a valid Azure subscription to go through this tutorial.  If you don’t have one, then [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/) today.  Once you have a subscription, you can access the portal at <https://portal.azure.com>.
 
 ## How to create a resource
 Azure has a marketplace with thousands of items that you can create from one place.  Let’s say you want to create a new Windows Server 2012 VM.  The +NEW hub is your entry point into a curated set of featured categories from the marketplace.  Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search. To create that new Windows Server 2012 VM, perform the following actions:  
@@ -56,16 +56,6 @@ From this blade you can connect to the virtual machine using remote desktop, mon
 5. Choose a user and a role.
 
 ![Managing a Resource][ManageResource]
-
-## How to customize a resource blade
-Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.  You can easily go into customize mode to add, remove, resize, or re-arrange the tiles. To customize a blade, perform the following actions:
-
-1. Browse to your resource.
-2. Click the ‘…’ at the top of the blade you want to customize.
-3. Click ‘Add parts’.
-4. Start dragging and dropping parts.  
-
-![Customizing Blades][CustomizeBlades]
 
 ## How to get help
 If you ever have a problem, we’re here for you.  The portal has a help and support page that can point you in the right direction.  Depending on your [support plan](https://azure.microsoft.com/support/plans/), you can also create support tickets directly in the portal.  After creating a support ticket, you can manage the lifecycle of the ticket from within the portal. You can get to the help and support page by navigating to Browse -> Help + support.  

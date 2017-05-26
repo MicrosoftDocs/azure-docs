@@ -1,103 +1,124 @@
 ---
-title: Common DocumentDB use cases | Microsoft Docs
-description: 'Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).'
-services: documentdb
-author: h0n
+title: Common use cases and scenarios for Azure Cosmos DB | Microsoft Docs
+description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
+services: cosmosdb
+author: mimig1
 manager: jhubbard
-editor: monicar
+editor: ''
 documentationcenter: ''
 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
-ms.author: hawong
+ms.date: 05/10/2017
+ms.author: mimig
 
 ---
-# Common DocumentDB use cases
-This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
+
+# Common Azure Cosmos DB use cases
+This article provides an overview of several common use cases for Cosmos DB.  The recommendations in this article serve as a starting point as you develop your application with Cosmos DB.   
 
 After reading this article, you'll be able to answer the following questions: 
 
-* What are the common use cases for DocumentDB?
-* What are the benefits of using DocumentDB for web and mobile applications?
-* What are the benefits of using DocumentDB for retail applications?
-* What are the benefits of using DocumentDB as a data store for Internet of Things (IoT) systems?
-* What are the benefits of using DocumentDB as a event log store?
+* What are the common use cases for Cosmos DB?
+* What are the benefits of using Cosmos DB for retail applications?
+* What are the benefits of using Cosmos DB as a data store for Internet of Things (IoT) systems?
+* What are the benefits of using Cosmos DB for web and mobile applications?
 
-## Common use cases for DocumentDB
-Azure DocumentDB is a general purpose NoSQL database that is used in a wide range of applications and use cases. It is a good choice for any application that needs low order-of-millisecond response times, and needs to scale rapidly. The following are some attributes of DocumentDB that make it well-suited for high-performance applications.
+## Introduction
+[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft’s globally distributed database service. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Cosmos DB is the first globally distributed database service in the market today to offer comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) encompassing throughput, latency, availability, and consistency. 
 
-* DocumentDB natively partitions your data for high availability and scalability.
-* DocumentDB's has SSD backed storage with low-latency order-of-millisecond response times.
-* DocumentDB's support for consistency levels like eventual, session and bounded-staleness allows for low cost-to performance-ratio. 
-* DocumentDB has a flexible data-friendly pricing model that meters storage and throughput independently.
-* DocumentDB's reserved throughput model allows you to think in terms of number of reads/writes instead of CPU/memory/IOPs of the underlying hardware.
-* DocumentDB's design lets you scale to massive request volumes in the order of billions of requests per day.
+The Cosmos DB project started in 2011 as "Project Florence" to address developer pain-points that are faced by large Internet-scale applications inside Microsoft. Observing that these problems are not unique to Microsoft’s applications, we decided to make Cosmos DB generally available to external developers in 2015 in the form of [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). The service is used ubiquitously internally within Microsoft, and is one of the fastest-growing services used by Azure developers externally. 
 
-These attributes are particularly beneficial when it comes to web, mobile, gaming and IoT applications that need low response times and need to handle massive amounts of reads and writes. 
+Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. It supports multiple data models (key-value, documents, graphs and columnar) and many APIs for data access including [MongoDB](documentdb-protocol-mongodb.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](../cosmos-db/graph-introduction.md), and [Azure Tables](../cosmos-db/table-introduction.md) natively, and in an extensible manner. 
 
-## Web and mobile applications
-DocumentDB is commonly used within web and mobile applications, and is particularly well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. 
+The following are some attributes of Cosmos DB that make it well-suited for high-performance applications with global ambition.
 
-### Social Applications
-A common use case for DocumentDB is to store and query user generated content (UGC) for web and mobile applications, particularly social media applications. Some examples of UGC are chat sessions, tweets, blog posts, ratings, and comments. Often, the UGC in social media applications is a blend of free form text, properties, tags and relationships that are not bounded by rigid structure. Content such as chats, comments, and posts can be stored in DocumentDB without requiring transformations or complex object to relational mapping layers.  Data properties can be added or modified easily to match requirements as developers iterate over the application code, thus promoting rapid development.  
+* Cosmos DB natively partitions your data for high availability and scalability. Cosmos DB offers 99.99% guarantees for availability, throughput, low latency, and consistency.
+* Cosmos DB has SSD backed storage with low-latency order-of-millisecond response times.
+* Cosmos DB's support for consistency levels like eventual, consistent prefix, session, and bounded-staleness allows for full flexibility and low cost-to performance-ratio. No database service offers as much flexibility as Cosmos DB in levels consistency. 
+* Cosmos DB has a flexible data-friendly pricing model that meters storage and throughput independently.
+* Cosmos DB's reserved throughput model allows you to think in terms of number of reads/writes instead of CPU/memory/IOPs of the underlying hardware.
+* Cosmos DB's design lets you scale to massive request volumes in the order of trillions of requests per day.
 
-Applications that integrate with third-party social networks must respond to changing schemas from these networks. As data is automatically indexed by default in DocumentDB, data is ready to be queried at any time. Hence, these applications have the flexibility to retrieve projections as per their respective needs.
+These attributes are beneficial in web, mobile, gaming, and IoT applications that need low response times and need to handle massive amounts of reads and writes.
 
-Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a DocumentDB account.  In addition, you can also create additional DocumentDB accounts across multiple regions. For DocumentDB service region availability, see [Azure Regions](https://azure.microsoft.com/regions/#services).
+## IoT and telematics
+IoT use cases commonly share some patterns in how they ingest, process, and store data.  First, these systems need to ingest bursts of data from device sensors of various locales. Next, these systems process and analyze streaming data to derive real-time insights. The data is then archived to cold storage for batch analytics. Microsoft Azure offers rich services that can be applied for IoT use cases including Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight, and PowerBI. 
 
-### Personalization
-Nowadays, modern applications come with complex views and experiences. These are typically dynamic, catering to user preferences or moods and branding needs. Hence, applications need to be able to retrieve personalized settings effectively in order to render UI elements and experiences quickly. 
+![Azure Cosmos DB IoT reference architecture](./media/documentdb-use-cases/iot.png)
 
-JSON is an effective format to represent UI layout data as it is not only lightweight, but also can be easily interpreted by JavaScript. DocumentDB offers tunable consistency levels that allow fast reads with low latency writes. Hence, storing UI layout data including personalized settings as JSON documents in DocumentDB is an effective means to get this data across the wire.
+Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real-time insight can be funneled to Azure Stream Analytics for real-time analytics. Data can be loaded into Cosmos DB for adhoc querying. Once the data is loaded into Cosmos DB, the data is ready to be queried.  The data in Cosmos DB can be used as reference data as part of real-time analytics. In addition, data can further be refined and processed by connecting Cosmos DB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to Cosmos DB for reporting.   
 
-## Retail applications
-DocumentDB is commonly used in the retail industry for storing catalog data. Catalog data usage scenarios involve storing and querying a set of attributes for entities such as people, places and products.  Some examples of catalog data are user accounts, product catalogs, device registries for IoT, and bill of materials systems.  Attributes for this data may vary and can change over time to fit application requirements.  
+For a sample IoT solution using Cosmos DB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Consider an example of a product catalog for an automotive parts supplier. Every part may have its own attributes in addition to the common attributes that all parts share.  Furthermore, attributes for a specific part can change the following year when a new model is released.  As a JSON document store, DocumentDB supports flexible schemas and allows you to represent data with nested properties, and thus it is well suited for storing product catalog data.       
+For more information on Azure offerings for IoT, see [Create the Internet of Your Things](http://www.microsoft.com/server-cloud/internet-of-things.aspx). 
 
-## IoT and Telematics
-IoT use cases commonly share some patterns in how they ingest, process and store data.  First, these systems allow for data intake that can ingest bursts of data from device sensors of various locales.  Next, these systems process and analyze streaming data to derive real time insights. And last but not least, most if not all data will eventually land in a data store for adhoc querying and offline analytics.    
+## Retail and marketing
+Cosmos DB is used extensively in Microsoft's own e-commerce platforms, that run the Windows Store and XBox Live. It is also used in the retail industry for storing catalog data. Catalog data usage scenarios involve storing and querying a set of attributes for entities such as people, places, and products.  Some examples of catalog data are user accounts, product catalogs, device registries for IoT, and bill of materials systems.  Attributes for this data may vary and can change over time to fit application requirements.  
 
-Microsoft Azure offers rich services that can be leveraged for IoT use cases.  Azure IoT services are a set of services including Azure Event Hubs, Azure DocumentDB, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight, and PowerBI. 
+Consider an example of a product catalog for an automotive parts supplier. Every part may have its own attributes in addition to the common attributes that all parts share.  Furthermore, attributes for a specific part can change the following year when a new model is released.  Cosmos DB supports flexible schemas and hierarchical data, and thus it is well suited for storing product catalog data.
 
-Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real time insight can be funneled to Azure Stream Analytics for real time analytics. Data can be loaded into DocumentDB for adhoc querying. Once the data is loaded into DocumentDB, the data is ready to be queried.  The data in DocumentDB can be used as reference data as part of real time analytics. In addition, data can further be refined and processed by connecting DocumentDB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to DocumentDB for reporting.   
+![Azure Cosmos DB retail catalog reference architecture](./media/documentdb-use-cases/product-catalog.png)
 
-For a sample IoT solution using DocumentDB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
-
-For more information on Azure offerings for IoT, see [Create the Internet of Your Things](http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx).
-
-## Logging and Time-series data
-Application logging is often emitted in large volumes and may have varying attributes based on the deployed application version or the component logging events.  Log data is not bounded by complex relationships or rigid structures. Increasingly, log data is persisted in JSON format since JSON is lightweight and easy for humans to read.
-
-There are typically two major use cases related to event log data.  The first use case is to perform ad-hoc queries over a subset of data for troubleshooting.  During troubleshooting, a subset of data is first retrieved from the logs, typically by time series.  Then, a drill-down is performed by filtering the dataset with error levels or error messages. This is where storing event logs in DocumentDB is an advantage. Log data stored in DocumentDB is automatically indexed by default, and thus it is ready to be queried at any time. In addition, log data can be persisted across data partitions as a time-series. Older logs can be rolled out to cold storage per your retention policy.          
-
-The second use case involves long running data analytics jobs performed offline over a large volume of log data.  Examples of this use case include server availability analysis, application error analysis, and clickstream data analysis.  Typically, Hadoop is used to perform these types of analyses.  With the Hadoop Connector for DocumentDB, DocumentDB databases function as data sources and sinks for Pig, Hive and Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).      
+ In addition, data stored in Cosmos DB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for Cosmos DB, see [Run a Hadoop job with Cosmos DB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).
 
 ## Gaming
-The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games require extremely low latencies for reads and writes to provide an engaging in-game experience, and the database tier needs to handle highs and lows in request rates during new game launches and feature updates.
+The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games often require single-millisecond latencies for reads and writes to provide an engaging in-game experience. A game database needs to be fast and be able to handle massive spikes in request rates during new game launches and feature updates.
 
-DocumentDB is used by massive-scale games like [The Walking Dead: No Man's Land](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) by [Next Games](http://www.nextgames.com/), and [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). In both use cases, the key advantages of DocumentDB were the following:
+Cosmos DB is used by games like [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) by [Next Games](http://www.nextgames.com/), and [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Cosmos DB provides the following benefits to game developers:
 
-* DocumentDB allows performance to be scaled up or down elastically. This allows games to handle updating profile and stats from dozens to millions of simultaneous gamers by making a single API call.
-* DocumentDB supports millisecond reads and writes to help avoid any lags during game play.
-* DocumentDB's automatic indexing allows for filtering against multiple different properties in real-time, e.g. locate players by their internal player IDs, or their GameCenter, Facebook, Google IDs, or query based on player membership in a guild. This is possible without building complex indexing or sharding infrastructure.
+* Cosmos DB allows performance to be scaled up or down elastically. This allows games to handle updating profile and stats from dozens to millions of simultaneous gamers by making a single API call.
+* Cosmos DB supports millisecond reads and writes to help avoid any lags during game play.
+* Cosmos DB's automatic indexing allows for filtering against multiple different properties in real-time, e.g. locate players by their internal player IDs, or their GameCenter, Facebook, Google IDs, or query based on player membership in a guild. This is possible without building complex indexing or sharding infrastructure.
 * Social features including in-game chat messages, player guild memberships, challenges completed, high-score leaderboards, and social graphs are easier to implement with a flexible schema.
-* DocumentDB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
+* Cosmos DB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
+
+![Azure Cosmos DB gaming reference architecture](./media/documentdb-use-cases/gaming.png)
+
+## Web and mobile applications
+Cosmos DB is commonly used within web and mobile applications, and is particularly well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. The Cosmos DB SDKs can be used build rich iOS and Android applications using the popular [Xamarin framework](documentdb-mobile-apps-with-xamarin.md).  
+
+### Social Applications
+A common use case for Cosmos DB is to store and query user generated content (UGC) for web and mobile applications, particularly social media applications. Some examples of UGC are chat sessions, tweets, blog posts, ratings, and comments. Often, the UGC in social media applications is a blend of free form text, properties, tags, and relationships that are not bounded by rigid structure. Content such as chats, comments, and posts can be stored in Cosmos DB without requiring transformations or complex object to relational mapping layers.  Data properties can be added or modified easily to match requirements as developers iterate over the application code, thus promoting rapid development.  
+
+Applications that integrate with third-party social networks must respond to changing schemas from these networks. As data is automatically indexed by default in Cosmos DB, data is ready to be queried at any time. Hence, these applications have the flexibility to retrieve projections as per their respective needs.
+
+Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a Cosmos DB account.  In addition, you can also create additional Cosmos DB accounts across multiple regions. For Cosmos DB service region availability, see [Azure Regions](https://azure.microsoft.com/regions/#services).
+
+![Azure Cosmos DB web app reference architecture](./media/documentdb-use-cases/apps-with-global-reach.png)
+
+### Personalization
+Nowadays, modern applications come with complex views and experiences. These are typically dynamic, catering to user preferences or moods and branding needs. Hence, applications need to be able to retrieve personalized settings effectively to render UI elements and experiences quickly. 
+
+JSON, a format supported by Cosmos DB, is an effective format to represent UI layout data as it is not only lightweight, but also can be easily interpreted by JavaScript. Cosmos DB offers tunable consistency levels that allow fast reads with low latency writes. Hence, storing UI layout data including personalized settings as JSON documents in Cosmos DB is an effective means to get this data across the wire.
+
+![Azure Cosmos DB web app reference architecture](./media/documentdb-use-cases/personalization.png)
 
 ## Next steps
-To get started with DocumentDB, you can create an [account](https://azure.microsoft.com/pricing/free-trial/) and then follow our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to learn about DocumentDB and find the information you need. 
+To get started with Azure Cosmos DB, follow our [quick starts](../cosmos-db/create-documentdb-dotnet.md) which will walk you through creating an account and getting started with Cosmos DB. 
 
-Or, if you'd like to read more about customers using DocumentDB, the following customer stories are available:
+Or, if you'd like to read more about customers using Cosmos DB, the following customer stories are available:
 
-* [Affinio](https://customers.microsoft.com/en-US/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio switches from AWS to Azure DocumentDB to harness social data at scale.
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land game soars to #1 supported by Azure DocumentDB.
-* [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). How Halo 5 implemented social gameplay using Azure DocumentDB.
-* [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Gallery - a scalable community site built on Azure DocumentDB.
+* [Jet.com](https://jet.com). E-commerce challenger eyes the top spot, runs on the Microsoft cloud, leverages Cosmos DB at a global scale.
+* [Asos.com](http://www.asos.com/). Asos.com is a British online fashion and beauty store. Primarily aimed at young adults, Asos sells over 850 brands as well as its own range of clothing and accessories.
+* [Toyota](https://www.toyota.com/). Toyota Motor Corporation is a Japanese automotive manufacturer. Toyota leveraged Cosmos DB for a global IoT app.
+* [Citrix](https://customers.microsoft.com/story/citrix). Citrix develops single-sign-on solution using Azure Service Fabric and Azure Cosmos DB
+* [TEXA](https://customers.microsoft.com/story/texaspa)
+TEXA’s revolutionary IoT solution for vehicle owners helps save time, money, gas—and possibly lives.
+* [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. is an American pizza restaurant chain.
+* [Johnson Controls](http://www.johnsoncontrols.com). Johnson Controls is a global diversified technology and multi industrial leader serving a wide range of customers in more than 150 countries.
+* [Microsoft Windows, Universal Store, Azure IoT Hub, Xbox Live, and other Internet-scale services](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). How Microsoft builds massively scalable services using Azure DocumentDB.
+* [Microsoft Data and Analytics team](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft’s Data and Analytics team achieves planet-scale big-data collection with Azure Cosmos DB
+* [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha uses Azure Cosmos DB to connect customers and businesses across India  .
+* [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit takes flight with Azure Cosmos DB.
+* [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio switches from AWS to Azure Cosmos DB to harness social data at scale.
+* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land game soars to #1 supported by Azure Cosmos DB.
+* [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). How Halo 5 implemented social gameplay using Azure Cosmos DB.
+* [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Gallery - a scalable community site built on Azure Cosmos DB.
 * [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Leading Integrator Gives Multinational Firms Global Insight in Minutes with Flexible Cloud Technologies.
 * [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adding intelligence to the news to provide information with purpose for engaged citizens. 
 * [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). For consistent color across the globe, major brands turn to SGS. And SGS turns to Azure.
@@ -105,6 +126,6 @@ Or, if you'd like to read more about customers using DocumentDB, the following c
 * [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). The store of the future runs on speedy search and the easy flow of data.
 * [Nucleo](https://customers.microsoft.com/story/azure-based-software-platform-breaks-down-barriers-bet). Azure-based software platform breaks down barriers between businesses and customers
 * [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases). Weka Smart Fridge improves vaccine management so more people can be protected against diseases
-* [Orange Tribes](https://customers.microsoft.com/en-US/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). There’s more to that food app than meets the eye, or the mouth.
-* [Real Madrid](https://customers.microsoft.com/en-US/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid brings the stadium closer to 450 million fans around the globe, with the Microsoft Cloud.
-* [Tuku](https://customers.microsoft.com/en-US/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU makes car buying fun with help from Azure services 
+* [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). There’s more to that food app than meets the eye, or the mouth.
+* [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid brings the stadium closer to 450 million fans around the globe, with the Microsoft Cloud.
+* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU makes car buying fun with help from Azure services

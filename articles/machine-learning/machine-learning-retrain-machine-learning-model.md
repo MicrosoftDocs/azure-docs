@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/19/2017
 ms.author: v-donglo
 
 ---
@@ -54,6 +54,9 @@ Retrain the Web service:
 * Use the Batch Execution Service code to retrain the model
 
 For a walkthrough of the preceding steps, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
+
+> [!NOTE] 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 If you deployed a Classic Web Service:
 

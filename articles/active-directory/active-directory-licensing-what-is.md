@@ -1,5 +1,5 @@
-﻿---
-title: What is Microsoft Azure Active Directory licensing? | Microsoft Docs
+---
+title: License Azure Active Directory users in the Azure classic portal | Microsoft Docs
 description: Description of Microsoft Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions
 services: active-directory
 keywords: Azure AD licensing
@@ -14,28 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 05/08/2017
 ms.author: curtand
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# What is Microsoft Azure Active Directory licensing?
-## Description
+# What is Microsoft Azure Active Directory licensing in the Azure classic portal?
+
+> [!div class="op_single_selector"]
+> * [Azure portal](active-directory-licensing-get-started-azure-portal.md)
+> * [Azure classic portal](active-directory-licensing-what-is.md)
+>
+>
+
+
 Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) solution and platform. Azure AD is offered in a number of functional and technical versions ranging from Azure AD Free, which is available with any Microsoft service such as Office 365, Dynamics, Microsoft Intune and Azure (Azure AD does not generate any consumption charges in this mode), to Azure AD paid versions such as Enterprise Mobility Suite (EMS), Azure AD Premium and Basic, as well as Azure Multi-Factor Authentication (MFA). Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented with one or more subscriptions, and each subscription includes a pre-purchase number of licenses in your tenant. Per-user entitlements are achieved through license assignment, creating a link between the user and the product, enabling the service components for the user, and consuming one of the prepaid licenses.
 
 [Try Azure AD premium now.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
 > [!NOTE]
 > Azure AD administration portal is a part of the Azure classic portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](https://azure.microsoft.com/pricing/free-trial/).
-> 
-> 
+>
+>
 
 For a broad overview of Azure AD service capabilities, see [What is Azure AD](active-directory-whatis.md).
 [Learn more about Azure AD service levels](https://azure.microsoft.com/support/legal/sla/)
 
 > [!NOTE]
 > Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure resources and map them to your payment method. In this case there are NO license counts associated with the subscription. Users' association with the subscription, the users' access to managing subscription resources, is achieved by granting them permissions to operate on Azure resources mapped to the subscription.
-> 
-> 
+>
+>
 
 ## How does Azure AD licensing work?
 License-based (Entitlement-based) Azure AD services work by activating a subscription in your Azure AD directory/service tenant. Once the subscription is active the service capabilities can be managed by directory/service administrators and used by licensed users.
@@ -48,10 +57,10 @@ In general, Azure AD subscription information is managed through the Azure class
 
 > [!IMPORTANT]
 > Azure AD Premium and Basic, as well as Enterprise Mobility Suite subscriptions, are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible but requires submitting a support ticket or cancellation and re-purchase in the case of direct purchases.
-> 
+>
 > When purchasing Azure AD or Enterprise Mobility Suite through Volume Licensing subscription activation will happen automatically when the agreement includes other Microsoft Online services, e.g. Office 365.
-> 
-> 
+>
+>
 
 Paid Azure AD features span the breadth of the directory. Examples include:
 
@@ -77,8 +86,8 @@ Here are a couple of best practices:
 
 > [!NOTE]
 > Azure AD supports “external users,” which are user accounts in an instance of Azure AD that were created using either a Microsoft Account (MSA) or an Azure AD identity from another directory. While we are busy extending this capability into all of Microsoft's organizational services, right now these accounts are not supported in some of the services' experiences; for example, the Office 365 administration portal does not currently support these users. As a result, external users with Microsoft accounts will not be able to access the Office 365 administration portal at all, while external users from other Azure AD directories will be ignored. In the latter case, only the user’s local account, the Azure AD or Office 365 directory where the user was originally created, would be accessible through these experiences.
-> 
-> 
+>
+>
 
 As indicated, Azure AD has different paid versions. These versions have some minor differences in their purchase availability:
 
@@ -148,4 +157,3 @@ Now you might be ready to configure and use some Azure AD Premium features.
 * [Group assignment to applications](active-directory-manage-groups.md)
 * [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 * [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)
-

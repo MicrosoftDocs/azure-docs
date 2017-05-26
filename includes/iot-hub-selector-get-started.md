@@ -2,6 +2,7 @@
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-getstarted.md)
 > 
 > 
 
@@ -16,5 +17,5 @@ This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT hub.
 * Create a device identity in your IoT hub.
-* Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
+* Create a simulated device app that sends telemetry to your solution back end.
 

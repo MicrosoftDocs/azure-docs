@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Data Lake Store comparison with Azure Storage Blob | Microsoft Docs
 description: Azure Data Lake Store comparison with Azure Storage Blob
 services: data-lake-store
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2016
+ms.date: 04/03/2017
 ms.author: nitinme
 
 ---
@@ -33,13 +33,13 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Data Operations - Authentication Protocol |OAuth 2.0. Calls must contain a valid JWT (JSON Web Token) issued by Azure Active Directory |Hash-based Message Authentication Code (HMAC) . Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
 | Data Operations - Authorization |POSIX Access Control Lists (ACLs).  ACLs based on Azure Active Directory Identities can be set file and folder level. |For account-level authorization – Use [Account Access Keys](../storage/storage-create-storage-account.md#manage-your-storage-account)<br>For account, container, or blob authorization -  Use [Shared Access Signature Keys](../storage/storage-dotnet-shared-access-signature-part-1.md) |
 | Data Operations - Auditing |Available. See [here](data-lake-store-diagnostic-logs.md) for information. |Available |
-| Encryption data at rest |Transparent, Server side (coming soon)<ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault</li></ul> |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault (coming soon)</li></ul><li>Client-side encryption</li></ul> |
+| Encryption data at rest |Transparent, Server side <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault</li></ul> |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault (coming soon)</li></ul><li>Client-side encryption</li></ul> |
 | Management operations (e.g. Account Create) |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |
-| Developer SDKs |.NET, Java, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
+| Developer SDKs |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Not optimized for analytics workloads |
 | Size limits |No limits on account sizes, file sizes or number of files |Specific limits documented [here](../azure-subscription-service-limits.md#storage-limits) |
 | Geo-redundancy |Locally-redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/storage-redundancy.md) for more information |
-| Service state |Public Preview |Generally Available |
+| Service state |Generally available |Generally available |
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |See [here](https://azure.microsoft.com/regions/#services) |
 | Price |See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/) |See [Pricing](https://azure.microsoft.com/pricing/details/storage/) |
 

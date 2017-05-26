@@ -6,7 +6,6 @@ keywords: azure active directory identity protection, cloud app discovery, manag
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 04/24/2017
 ms.author: markvi
 
 ---

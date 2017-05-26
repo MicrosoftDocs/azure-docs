@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scheduling a runbook in Azure Automation | Microsoft Docs
 description: Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule.
 services: automation
@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/05/2016
+ms.date: 12/09/2016
 ms.author: bwren
-
+ROBOTS: NOINDEX, NOFOLLOW
 ---
+
 # Scheduling a runbook in Azure Automation
 To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a reoccurring hourly or daily schedule for runbooks in the Azure classic portal and for runbooks in the Azure portal,  you can additionally schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month.  A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 

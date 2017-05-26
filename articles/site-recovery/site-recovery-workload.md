@@ -1,4 +1,4 @@
-﻿---
+---
 title: What workloads can you protect with Azure Site Recovery?
 description: Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site
 services: site-recovery
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 05/08/2017
 ms.author: raynew
 
 ---
@@ -57,6 +57,7 @@ Site Recovery can replicate any app running on a supported machine. In addition 
 | Dynamics CRM |Y |Coming soon |Y |Coming soon |
 | Oracle |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
 | Windows File Server |Y |Y |Y |Y |
+| Citrix XenApp and XenDesktop |N/A |Y |N/A |Y |
 
 ## Replicate Active Directory and DNS
 An Active Directory and DNS infrastructure are essential to most enterprise apps. During disaster recovery, you'll need to protect and recover these infrastructure components, before recovering your workloads and apps.
@@ -84,7 +85,7 @@ Azure Site Recovery helps protect SharePoint deployments, as follows:
 * Simplifies SharePoint application development and testing by creating a production-like copy on-demand replica environment for testing and debugging.
 * Simplifies transition to the cloud by using Site Recovery to migrate SharePoint deployments to Azure.
 
-[Learn more](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) about protecting SharePoint.
+[Learn more](site-recovery-sharepoint.md) about protecting SharePoint.
 
 ## Protect Dynamics AX
 Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
@@ -93,7 +94,7 @@ Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
 * Simplifying migration of Dynamics AX deployments to the cloud (Azure).
 * Simplifying Dynamics AX application development and testing by creating a production-like copy on-demand, for testing and debugging.
 
-[Learn more](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) about protecting Dynamic AX.
+[Learn more](site-recovery-dynamicsax.md) about protecting Dynamic AX.
 
 ## Protect RDS
 Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), session-based desktops, and applications, allowing users to work anywhere. With Azure Site Recovery you can:
@@ -127,6 +128,29 @@ Use Site Recovery to protect your SAP deployment, as follows:
 
 [Learn more](http://aka.ms/asr-sap) about protecting SAP.
 
-## Next steps
-[Prepare for Site Recovery deployment](site-recovery-best-practices.md) 
+## Protect IIS
+Use Site Recovery to protect your IIS deployment, as follows:
 
+Azure Site Recovery provides disaster recovery by replicating the critical components in your environment to a cold remote site or a public cloud like Microsoft Azure. Since the virtual machine with the web server and the database are being replicated to the recovery site, there is no requirement to backup configuration files or certificates separately. The application mappings and bindings dependent on environment variables that are changed post failover can be updated through scripts integrated into the disaster recovery plans. Virtual Machines are brought up on the recovery site only in the event of a failover. Not only this, Azure Site Recovery also helps you orchestrate the end to end failover by providing you the following capabilities:
+
+-	Sequencing the shutdown and startup of virtual machines in the various tiers.
+-	Adding scripts to allow update of application dependencies and bindings on the virtual machines after they have been started up. The scripts can also be used to update the DNS server to point to the recovery site.
+-	Allocate IP addresses to virtual machines pre-failover by mapping the primary and recovery networks and hence use scripts that do not need to be updated post failover.
+-	Ability for a one-click failover for multiple web applications on the web servers, thus eliminating the scope for confusion in the event of a disaster.
+-	Ability to test the recovery plans in an isolated environment for DR drills.
+
+[Learn more](https://aka.ms/asr-iis) about protecting IIS web farm.
+
+## Protect Citrix XenApp and XenDesktop
+Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as follows:
+
+* Enable protection of the Citrix XenApp and XenDesktop deployment, by replicating different deployment layers including (AD DNS server, SQL database server, Citrix Delivery Controller, StoreFront server, XenApp Master (VDA), Citrix XenApp License Server) to Azure.
+* Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
+* Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
+* This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure. 
+[Learn More](https://azure.microsoft.com/pricing/licensing-faq/) about licensing for client/server desktops in Azure.
+
+[Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) about protecting Citrix XenApp and XenDesktop deployments. Alternatively, you can refer the [whitepaper from Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) detailing the same. 
+
+## Next steps
+[Check prerequisites](site-recovery-prereq.md) 

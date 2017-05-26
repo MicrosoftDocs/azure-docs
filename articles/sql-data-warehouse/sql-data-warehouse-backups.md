@@ -1,9 +1,9 @@
 ---
-title: SQL Data Warehouse backups | Microsoft Docs
+title: Azure SQL Data Warehouse backups - snapshots, geo-redundant | Microsoft Docs
 description: Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region.
 services: sql-data-warehouse
 documentationcenter: ''
-author: lakshmi1812
+author: Lakshmi1812
 manager: jhubbard
 editor: ''
 
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
+ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 

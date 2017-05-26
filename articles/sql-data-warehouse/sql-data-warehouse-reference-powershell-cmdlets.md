@@ -1,9 +1,9 @@
-﻿---
+---
 title: PowerShell cmdlets for Azure SQL Data Warehouse
 description: Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
@@ -68,8 +69,8 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 > 
 > 
 
-## Frequently Used PowerShell cmdlets
-These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
+## Other supported PowerShell cmdlets
+These PowerShell cmdlets are supported with Azure SQL Data Warehouse.
 
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
 * [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
@@ -88,12 +89,12 @@ For more PowerShell examples, see:
 * [Create a SQL Data Warehouse using PowerShell][Create a SQL Data Warehouse using PowerShell]
 * [Database restore][Database restore]
 
-For a list of all tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][Azure SQL Database Cmdlets].  For a list of tasks which can be automated with REST, see [Operations for Azure SQL Databases][Operations for Azure SQL Databases].
+For other tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][Azure SQL Database Cmdlets]. Note that not all Azure SQL Database cmdlets are supported for Azure SQL Data Warehouse.  For a list of tasks which can be automated with REST, see [Operations for Azure SQL Databases][Operations for Azure SQL Databases].
 
 <!--Image references-->
 
 <!--Article references-->
-[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
 [Database restore]: ./sql-data-warehouse-restore-database-powershell.md
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md

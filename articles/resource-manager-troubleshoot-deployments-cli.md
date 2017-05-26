@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-troubleshoot-deployments-cli
+redirect_url: /azure/azure-resource-manager/resource-manager-deployment-operations
 ---

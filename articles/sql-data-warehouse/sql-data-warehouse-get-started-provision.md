@@ -3,7 +3,7 @@ title: Create a SQL Data Warehouse in the Azure portal | Microsoft Docs
 description: Learn how to create an Azure SQL Data Warehouse in the Azure portal
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: ''
 tags: azure-sql-data-warehouse
@@ -14,8 +14,9 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: elbutter;barbkess
 
 ---
 # Create an Azure SQL Data Warehouse
@@ -32,7 +33,7 @@ This tutorial uses the Azure portal to create a SQL Data Warehouse that contains
 To get started, you need:
 
 * **Azure account**: Visit [Azure Free Trial][Azure Free Trial] or [MSDN Azure Credits][MSDN Azure Credits] to create an account.
-* **Azure SQL server**:  See [Create an Azure SQL Database logical server with the Azure portal][Create an Azure SQL Database logical server with the Azure portal] for more details.
+* **Azure SQL server**:  See [Create an Azure SQL database with the Azure portal][Create an Azure SQL database in the Azure portal] for more details.
 
 > [!NOTE]
 > Creating a SQL Data Warehouse might result in a new billable service.  See [SQL Data Warehouse pricing][SQL Data Warehouse pricing] for more details.
@@ -41,7 +42,7 @@ To get started, you need:
 
 ## Create a SQL Data Warehouse
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **+ New** > **Data + Storage** > **SQL Data Warehouse**.
+2. Click **+ New** > **Databases** > **SQL Data Warehouse**.
 
     ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. In the **SQL Data Warehouse** blade, fill in the information needed, then press 'Create' to create.
@@ -55,10 +56,10 @@ To get started, you need:
    * **Resource group**: [Resource groups][Resource group] are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-resource-manager/resource-group-overview.md).
    * **Select source**: Click **Select source** > **Sample**. Azure automatically populates the **Select sample** option with AdventureWorksDW.
 
-> [!NOTE]
-> The default collation for a SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS. If a different collation is needed, [T-SQL][T-SQL] can be used to create the database with a different collation.
->
->
+   > [!NOTE]
+   > The default collation for a SQL Data Warehouse is SQL_Latin1_General_CP1_CI_AS. If a different collation is needed, [T-SQL][T-SQL] can be used to create the database with a different collation.
+   >
+   >
 
 1. Click **Create** to create your SQL Data Warehouse.
 2. Wait for a few minutes. When your data warehouse is ready, you should be returned to the [Azure portal](https://portal.azure.com). You can find your SQL Data Warehouse on your dashboard, listed under your SQL Databases, or in the resource group that you used to create it.
@@ -79,11 +80,11 @@ Firewall rules can also be configured using Transact-SQL. For more information, 
 It's also a great idea to look at the [Best practices][Best practices].
 
 <!--Article references-->
-[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resource groups]: ../resource-group-template-deploy-portal.md
+[Create an Azure SQL database in the Azure portal]: ../sql-database/sql-database-get-started.md
+[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
 [Best practices]: sql-data-warehouse-best-practices.md
-[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: sql-data-warehouse-overview-what-is.md
 [subscription]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md

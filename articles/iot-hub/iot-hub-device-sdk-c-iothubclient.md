@@ -1,6 +1,6 @@
-﻿---
+---
 title: Azure IoT device SDK for C - IoTHubClient | Microsoft Docs
-description: Learn more about using the IoTHubClient library in the Azure IoT device SDK for C
+description: How to use the IoTHubClient library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: olivierbloch
@@ -17,8 +17,8 @@ ms.date: 09/06/2016
 ms.author: obloch
 
 ---
-# Microsoft Azure IoT device SDK for C – more about IoTHubClient
-The [first article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Microsoft Azure IoT device SDK for C**. That article explained that there are two architectural layers in SDK. At the base is the **IoTHubClient** library which directly manages communication with IoT Hub. There's also the **serializer** library that builds on top of that to provide serialization services. In this article we'll provide additional detail on the **IoTHubClient** library.
+# Azure IoT device SDK for C – more about IoTHubClient
+The [first article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C**. That article explained that there are two architectural layers in SDK. At the base is the **IoTHubClient** library which directly manages communication with IoT Hub. There's also the **serializer** library that builds on top of that to provide serialization services. In this article we'll provide additional detail on the **IoTHubClient** library.
 
 The previous article described how to use the **IoTHubClient** library to send events to IoT Hub and receive messages. This article extends that discussion by explaining how to more precisely manage *when* you send and receive data, introducing you to the **lower-level APIs**. We'll also explain how to attach properties to events (and retrieve them from messages) using the property handling features in the **IoTHubClient** library. Finally, we'll provide additional explanation of different ways to handle messages received from IoT Hub.
 
@@ -26,7 +26,7 @@ The article concludes by covering a couple of miscellaneous topics, including mo
 
 We'll use the **IoTHubClient** SDK samples to explain these topics. If you want to follow along, see the **iothub\_client\_sample\_http** and **iothub\_client\_sample\_amqp** applications that are included in the Azure IoT device SDK for C. Everything described in the following sections is demonstrated in these samples.
 
-You can find the **Azure IoT device SDK for C** in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](https://azure.github.io/azure-iot-sdk-c/index.html).
 
 ## The lower-level APIs
 The previous article described the basic operation of the **IotHubClient** within the context of the **iothub\_client\_sample\_amqp** application. For example, it explained how to initialize the library using this code.
@@ -222,7 +222,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-The arguments to **IoTHubClient\_CreateFromConnectionString** are the connection string of our device and a parameter that indicates the protocol we use to communicate with IoT Hub. The connection string has a format that appears as follows:
+The arguments to **IoTHubClient\_CreateFromConnectionString** are the device connection string and a parameter that indicates the protocol we use to communicate with IoT Hub. The device connection string has a format that appears as follows:
 
 ```
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
@@ -230,7 +230,7 @@ HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSK
 
 There are four pieces of information in this string: IoT Hub name, IoT Hub suffix, device ID, and shared access key. You obtain the fully qualified domain name (FQDN) of an IoT hub when you create your IoT hub instance in the Azure portal — this gives you the IoT hub name (the first part of the FQDN) and the IoT hub suffix (the rest of the FQDN). You get the device ID and the shared access key when you register your device with IoT Hub (as described in the [previous article](iot-hub-device-sdk-c-intro.md)).
 
-**IoTHubClient\_CreateFromConnectionString** gives you one way to initialize the library. If you prefer, you can create a new **IOTHUB\_CLIENT\_HANDLE** by using these individual parameters rather than the connection string. This is achieved with the following code:
+**IoTHubClient\_CreateFromConnectionString** gives you one way to initialize the library. If you prefer, you can create a new **IOTHUB\_CLIENT\_HANDLE** by using these individual parameters rather than the device connection string. This is achieved with the following code:
 
 ```
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -244,7 +244,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 This accomplishes the same thing as **IoTHubClient\_CreateFromConnectionString**.
 
-It may seem obvious that you would want to use **IoTHubClient\_CreateFromConnectionString** rather than this more verbose method of initialization. Keep in mind, however, that when you register a device in IoT Hub what you get is a device ID and device key (not a connection string). The **Device Manager** SDK tool introduced in the [previous article](iot-hub-device-sdk-c-intro.md) uses libraries in the **Azure IoT service SDK** to create the connection string from the device ID, device key, and IoT Hub host name. So calling **IoTHubClient\_LL\_Create** may be preferable because it saves you the step of generating a connection string. Use whichever method is convenient.
+It may seem obvious that you would want to use **IoTHubClient\_CreateFromConnectionString** rather than this more verbose method of initialization. Keep in mind, however, that when you register a device in IoT Hub what you get is a device ID and device key (not a connection string). The *device explorer* SDK tool introduced in the [previous article](iot-hub-device-sdk-c-intro.md) uses libraries in the **Azure IoT service SDK** to create the device connection string from the device ID, device key, and IoT Hub host name. So calling **IoTHubClient\_LL\_Create** may be preferable because it saves you the step of generating a connection string. Use whichever method is convenient.
 
 ## Configuration options
 So far everything described about the way the **IoTHubClient** library works reflects its default behavior. However, there are a few options that you can set to change how the library works. This is accomplished by leveraging the **IoTHubClient\_LL\_SetOption** API. Consider this example:
@@ -264,12 +264,12 @@ The batching option is important. By default, the library ingresses events indiv
 ## Next steps
 This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. The [next article](iot-hub-device-sdk-c-serializer.md) provides similar detail on the **serializer** library.
 
-To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
+To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

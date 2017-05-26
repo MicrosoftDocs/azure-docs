@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/23/2016
 ms.author: terrylan
 
 ---
 # Install Endpoint Protection in Azure Security Center
-Azure Security Center will recommend that you provision an antimalware program to your Azure virtual machines (VMs) if antimalware is not already enabled. This recommendation applies to Windows VMs only.
+Azure Security Center will recommend that you provision an antimalware program to your Azure virtual machines (VMs) if antimalware is not already enabled. This recommendation applies to Windows VMs only. Presently, this recommendation checks for the presence of either Windows Defender or TrendMicro Deep Security. Additional endpoint protection solutions are planned to be added in the future.
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Install Endpoint Protection**.

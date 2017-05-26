@@ -3,8 +3,8 @@ title: How to use Azure queue storage with the WebJobs SDK
 description: Learn how to use Azure queue storage with the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # How to use Azure queue storage with the WebJobs SDK
@@ -130,7 +130,7 @@ If you have multiple functions listening on different queues, the SDK will call 
 
 The same is true when multiple messages are received for a single queue. By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel. [The batch size is configurable](#config). When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages. Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size. This limit applies separately to each function that has a `QueueTrigger` attribute.
 
-If you don't want parallel execution for messages received on one queue, you can set the batch size to 1. See also **More control over Queue processing** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
+If you don't want parallel execution for messages received on one queue, you can set the batch size to 1. See also **More control over Queue processing** in [Azure WebJobs SDK 1.1.0 RTM](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ### <a id="queuemetadata"></a>Get queue or queue message metadata
 You can get the following message properties by adding parameters to the method signature:

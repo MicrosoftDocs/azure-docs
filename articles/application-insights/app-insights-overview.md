@@ -1,85 +1,104 @@
 ---
-title: Application Performance Management with Application Insights | Microsoft Docs
-description: Track performance and usage of your live web application.  Detect, triage and diagnose problems.
+title:  What is Azure Application Insights? | Microsoft Docs
+description: Application Performance Management and usage tracking of your live web application.  Detect, triage and diagnose problems, understand how people use your app.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2016
-ms.author: awills
-
+ms.topic: get-started-article
+ms.date: 05/14/2017
+ms.author: cfreeman
 ---
-# Application Performance Management with Application Insights
-Application Insights is an extensible Application Performance Management (APM) service for web developers. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It also integrates with your devOps process, and has connection points to a wide variety of other tools.
+# What is Application Insights?
+Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It  integrates with your devOps process, and has connection points to a variety of development tools.
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
 [Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
-## How does it work?
-You install a small instrumentation package in your application, and set up an Application Insights resource in the Microsoft Azure portal. The instrumentation monitors your app and sends telemetry data to the portal. The portal shows you statistical charts and provides powerful search tools to help you diagnose any problems.
+## How does Application Insights work?
+You install a small instrumentation package in your application, and set up an Application Insights resource in the Microsoft Azure portal. The instrumentation monitors your app and sends telemetry data to the portal. (The application can run anywhere - it doesn't have to be hosted in Azure.)
 
-![The Application Insights instrumentation in your app sends telemetry to your Application Insights resource in the Azure portal.](./media/app-insights-overview/01-scheme.png)
+You can instrument not only the web service application, but also any background components, and the JavaScript in the web pages themselves. 
 
-Application Insights has several [standard instrumentation modules](app-insights-configuration-with-applicationinsights-config.md) that collect different types of telemetry such as request response times, exceptions, and dependency calls. You can also [write code to send custom telemetry](app-insights-api-custom-events-metrics.md) to the portal.
+![Application Insights instrumentation in your app sends telemetry to your Application Insights resource.](./media/app-insights-overview/01-scheme.png)
+
+
+In addition, you can pull in telemetry from the host environments such as performance counters, Azure diagnostics, or Docker logs. You can also set up web tests that periodically send synthetic requests to your web service.
+
+All these telemetry streams are integrated in the Azure portal, where you can apply powerful analytic and search tools to the raw data.
+
 
 ### What's the overhead?
 The impact on your app's performance is very small. Tracking calls are non-blocking, and are batched and sent in a separate thread.
 
-## What does it do?
-Application Insights is aimed at the development team, to help you understand how your app is performing and how it's being used. It provides:
+## What does Application Insights monitor?
 
-Telemetry types:
+Application Insights is aimed at the development team, to help you understand how your app is performing and how it's being used. It monitors:
 
-* HTTP request rates, response times, success rates.
-* Dependency (HTTP & SQL) call rates, response times, success rates.
-* Exception traces from both server and client.
-* Diagnostic log traces.
-* Page view counts, user and session counts, browser load times, exceptions.
-* AJAX call rates, response times and success rates.
-* Server performance counters.
-* Custom client and server telemetry.
-* Segmentation by client location, browser version, OS version, server instance, custom dimensions, and more.
-* Availability tests
+* **Request rates, response times, and failure rates** - Find out which pages are most popular, at what times of day, and where your users are. See which pages perform best. If your response times and failure rates go high when there are more requests, then perhaps you have a resourcing problem. 
+* **Dependency rates, response times, and failure rates** - Find out whether external services are slowing you down.
+* **Exceptions** - Analyse the aggregated statistics, or pick specific instances and drill into the stack trace and related requests. Both server and browser exceptions are reported.
+* **Page views and load performance** - reported by your users' browsers.
+* **AJAX calls** from web pages - rates, response times, and failure rates.
+* **User and session counts**.
+* **Performance counters** from your Windows or Linux server machines, such as CPU, memory, and network usage. 
+* **Host diagnostics** from Docker or Azure. 
+* **Diagnostic trace logs** from your app - so that you can correlate trace events with requests.
+* **Custom events and metrics** that you write yourself in the client or server code, to track business events such as items sold or games won.
 
-Diagnostic and analytic tools:
+## Where do I see my telemetry?
 
-* Smart and manual alerts on failure rates and other metrics, and on availability.
-* Charts over time of aggregated metrics.
-* Diagnostic search on instances of requests, exceptions, custom events, log traces, page views, dependency and AJAX calls.
-* Analytics - a powerful query language over your telemetry
-* Dashboards - compose the charts you need to monitor all your app components.
+There are plenty of ways to explore your data. Check out these articles:
 
-## How do I use it?
+|  |  |
+| --- | --- |
+| [**Smart detection and manual alerts**](app-insights-proactive-diagnostics.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](app-insights-alerts.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
+| [**Application map**](app-insights-app-map.md)<br/>The components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
+| [**Profiler**](app-insights-profiler.md)<br/>Inspect the execution profiles of sampled requests. |![Profiler](./media/app-insights-overview/profiler.png) |
+| [**Usage analysis**](app-insights-usage-overview.md)<br/>Analyze user segmentation and retention.|![Retention tool](./media/app-insights-overview/retention.png) |
+| [**Diagnostic search for instance data**](app-insights-diagnostic-search.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.  |![Search telemetry](./media/app-insights-overview/search-tn.png) |
+| [**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
+| [**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
+| [**Live Metrics Stream**](app-insights-live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
+| [**Analytics**](app-insights-analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
+| [**Visual Studio**](app-insights-visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Snapshot debugger**](app-insights-snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
+| [**Power BI**](app-insights-export-power-bi.md)<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
+| [**REST API**](https://dev.applicationinsights.io/)<br/>Write code to run queries over your metrics and raw data.| ![REST API](./media/app-insights-overview/rest-tn.png) |
+| [**Continuous export**](app-insights-export-telemetry.md)<br/>Bulk export of raw data to storage as soon as it arrives. |![Export](./media/app-insights-overview/export-tn.png) |
+
+## How do I use Application Insights?
+
 ### Monitor
-Install Application Insights in your web app, set up availability web tests, and:
+Install Application Insights in your app, set up [availability web tests](app-insights-monitor-web-app-availability.md), and:
 
-* Set up a dashboard for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
+* Set up a [dashboard](app-insights-dashboards.md) for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
 * Discover which are the slowest and most failing requests.
-* Watch Live Stream when you deploy a new release, to know immediately about any degradation.
+* Watch [Live Stream](app-insights-live-stream.md) when you deploy a new release, to know immediately about any degradation.
 
-### Diagnose
+### Detect, Diagnose
 When you receive an alert or discover a problem:
 
+* Assess how many users are affected.
 * Correlate failures with exceptions, dependency calls and traces.
-* Examine stack dumps and trace logs.
+* Examine profiler, snapshots, stack dumps, and trace logs.
 
-### Assess
-Measure the effectiveness of each new feature that you deploy.
+### Build, Measure, Learn
+[Measure the effectiveness](app-insights-usage-overview.md) of each new feature that you deploy.
 
 * Plan to measure how customers use new UX or business features.
-* Write custom telemetry into your code to log usage.
-* Base each development cycle on hard evidence from telemetry.
+* Write custom telemetry into your code.
+* Base the next development cycle on hard evidence from your telemetry.
 
 ## Get started
-Application Insights is one of the many services hosted within Microsoft Azure, and telemetry is sent there for analysis and presentation. So before you do anything else, you'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and you can choose the free [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights. If your organization already has a subscription, they could add your Microsoft account to it.
+Application Insights is one of the many services hosted within Microsoft Azure, and telemetry is sent there for analysis and presentation. So before you do anything else, you'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and if you choose the basic [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights, there's no charge until your application has grown to have substantial usage. If your organization already has a subscription, they could add your Microsoft account to it.
 
 There are several ways to get started. Begin with whichever works best for you. You can add the others later.
 
@@ -95,222 +114,6 @@ There are several ways to get started. Begin with whichever works best for you. 
 * **[Instrument your web pages](app-insights-javascript.md)** for page view, AJAX and other client-side telemetry.
 * **[Availability tests](app-insights-monitor-web-app-availability.md)** - ping your website regularly from our servers.
 
-> [!NOTE]
-> At this point, maybe you just want to get on and experiment. But if you'd like to see what Application Insights can do, read on....
->
->
-
-## Explore Metrics
-Run your app - either in debug mode on your development machine, or by deploying it to a server - and use it for a while. Then sign in to the [Azure portal](https://portal.azure.com).
-
-Navigate to your app's Application Insights overview blade:
-
-![The overview blade](./media/app-insights-overview/01-find.png)
-
-The overview allows you to see immediately how your app is performing. You can compare load (in terms of rate of requests) with the time your app too to respond to the requests. If there's a disproportionate rise in response time when the load goes up, you might want to allocate more resources to your app. If it shows more failed responses right after you deployed a new build, then you might want to roll back.
-
-#### Get more detail
-Click through any chart to get a more detailed set of charts. For example, the Server Response Time chart leads to charts that show request rates, response times, and response times of dependencies (that is, services that your app calls).  
-
-![Servers blade](./media/app-insights-overview/04.png)
-
-The dependencies chart is useful because it helps you see whether the databases and REST APIs that your app uses are responding well, or are causing delays.
-
-#### Customize a chart
-Try editing one of these charts. For example, if your web app runs on a collection of server instances, you can compare response times on the different server instances:
-
-![edit the chart](./media/app-insights-overview/05.png)
-
-1. Hover over the chart and click Edit.
-2. Choose a metric. Multiple metrics can be displayed on one chart, but only in certain combinations: you might have to deselect one metric before you select the one you want.
-3. Use Group-By to segment a metric by a property. In this example, we display separate lines for different response times.
-
-    Note that you have to select a valid property for the metric, or the chart will not show any data.
-4. Select a chart type. Area and bar charts show a stacked display suitable when the aggregation type is 'Sum'.
-
-[More about exploring metrics](app-insights-metrics-explorer.md).
-
-## Search instance data
-To investigate a problem, it's useful to inspect specific event instances.
-
-Click through a metric chart to search through instance data with relevant filters and time range. For example, click through server request counts to see individual request reports.
-
-Or you can get directly to instance data from Search on the overview page:
-
-![Search instances](./media/app-insights-overview/06.png)
-
-Use Filters to focus on particular types of event and on chosen property values:
-
-![Filter on properties](./media/app-insights-overview/07.png)
-
-Click "..." to see a full list of properties, or open other events associated with the same request. In this example, the failed request has an associated exception report:
-
-![Related items and property details](./media/app-insights-overview/08.png)
-
-Open an event - in this example, the related exception - and you can create a work item (if you use Visual Studio Team Services to track tasks).
-
-![Creating a work item](./media/app-insights-overview/09.png)
-
-## Analytics
-[Analytics](app-insights-analytics.md) is an even more powerful search and analysis feature, in which you can write SQL-like queries over your telemetry data, either to look for specific issues or to compile statistical information.
-
-![Analytics](./media/app-insights-overview/10.png)
-
-Open the tutorial window to see and run examples of queries over your data, or read the longer [tutorial walkthrough](app-insights-analytics-tour.md). Intellisense prompts you with the queries that you can use, and there's a [full language reference](app-insights-analytics-reference.md).
-
-Queries usually begin with the name of a telemetry stream such as requests, exceptions, or dependencies. Pop open the schema bar at the left to see a list of the available telemetry streams. The query is a pipeline of [query operations](app-insights-analytics-reference.md#queries-and-operators) such as `where` - a boolean filter - or `project` - which computes new properties. `summarize` aggregates instances, grouping them by functions you define, and then applying aggregation functions over the grouped data.
-
-Results can be [rendered in tables or various types of chart](app-insights-analytics-tour.md#charting-the-results).
-
-## Custom telemetry
-The built-in telemetry that you get just by installing Application Insights lets you analyze counts, success rates, and response times both for web requests to your app, and dependencies - that is, calls from your app to SQL, REST APIs. You also get exception traces, and (with Status Monitor on your server) system performance  counters. If you add the client snippet to your web pages, you get page view counts and load times, client exceptions, and AJAX call success and response rates.
-
-Analyzing all this telemetry can tell you a lot about your app's performance and usage. But sometimes that isn't enough. You might want to monitor the length of a queue so that you can tune performance; or count sales and segment them by location; or, on the client side, find out how often users click a particular button so that you can tune the user experience.
-
-The [Application Insights API](app-insights-api-custom-events-metrics.md) provides calls `TrackEvent(name)` and `TrackMetric(name, value)` so that you can send your own custom events and metrics. There are equivalent calls for the client side.
-
-For example, if your web page is a single-page game app, you might insert a lines in the appropriate places to log when the user wins or loses a game:
-
-    appInsights.trackEvent("WinGame");
-    ...
-    appInsights.trackEvent("LoseGame");
-
-Then we can chart custom event counts, segmenting them by event name:
-
-![Analytics](./media/app-insights-overview/11.png)
-
-### Log traces
-For diagnostic purposes, there's a custom event `TrackTrace(message)` that you can use for execution traces. In the Search and Analytics features, you can search on the contents of the message, which can be longer than an event name.
-
-If you already use a logging framework such as Log4Net, NLog, Log4J, or System.Diagnostic.Trace, then those trace calls can be captured by Application Insights, and will appear alongside the other telemetry. The Visual Studio tools automatically add the appropriate SDK module.
-
-## Profiling your live site
-
-No idea where the time goes? The Application Insights profiler will trace HTTP calls to your live site and show you which functions in your code took the longest time. The profiler is currently in limited preview - you can [sign up to try it](https://aka.ms/AIProfilerPreview).
-
-## Dashboards
-Many applications consist of several components such as a web service and one or more back end processors. Each component will be monitored by a separate Application Insights resource. If your system runs on Azure, you might be using - and monitoring - services such as event hubs and machine learning as well.
-
-To monitor your whole system, you can select the most interesting charts from different apps and pin them to an Azure [dashboard](app-insights-dashboards.md), allowing you to keep an eye on the whole system continuously.
-
-![Dashboards](./media/app-insights-overview/12.png)
-
-In fact, you can create multiple dashboards - for example, a team room dashboard for monitoring general system health; a design dashboard that focuses on the usage of different features; a separate dashboard for components under test; and so on.  
-
-Dashboards, like resources, can be shared between team members.
-
-## Development in Visual Studio
-If you're using Visual Studio to develop your app, you'll find several Application Insights tools built in.
-
-### Diagnostic search
-The Search window shows events that have been logged. (If you signed in to Azure when you set up Application Insights, you'll be able to search the same events in the portal.)
-
-![Right-click the project and choose Application Insights, Search](./media/app-insights-overview/34.png)
-
-The free text search works on any fields in the events. For example, search for part of the URL of a page; or the value of a property such as client city; or specific words in a trace log.
-
-Click any event to see its detailed properties.
-
-You can also open the Related Items tab to help diagnose failed requests or exceptions.
-
-![](./media/app-insights-overview/41.png)
-
-### Diagnostics hub
-The Diagnostics Hub (in Visual Studio 2015 or later) shows the Application Insights server telemetry as it's generated. This works even if you opted only to install the SDK, without connecting it to a resource in the Azure portal.
-
-![Open the Diagnostic Tools window and inspect the Application Insights events.](./media/app-insights-overview/31.png)
-
-### Exceptions
-If you have [set up exception monitoring](app-insights-asp-net-exceptions.md), exception reports will show in the Search window.
-
-Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
-
-![Exception stack trace](./media/app-insights-overview/17.png)
-
-In addition, in the Code Lens line above each method, you'll see a count of the exceptions logged by Application Insights in the past 24h.
-
-![Exception stack trace](./media/app-insights-overview/21.png)
-
-### Local monitoring
-(From Visual Studio 2015 Update 2) If you haven't configured the SDK to send telemetry to the Application Insights portal (so that there is no instrumentation key in ApplicationInsights.config) then the diagnostics window will display telemetry from your latest debugging session.
-
-This is desirable if you have already published a previous version of your app. You don't want the telemetry from your debugging sessions to be mixed up with the telemetry on the Application Insights portal from the published app.
-
-It's also useful if you have some [custom telemetry](app-insights-api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
-
-* *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
-
-  * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
-  * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
-
-### Trends
-Trends is a tool in Visual Studio for visualizing how your app behaves over time.
-
-Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties.
-
-To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
-
-![Trends](./media/app-insights-overview/51.png)
-
-## Releasing a new build
-### Live Metrics Stream
-Live Metrics Stream shows you your application metrics right at this very moment, with a near real time latency of 1 second. This is extremely useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
-
-![In the Overview blade, click Live Stream](./media/app-insights-overview/live-stream.png)
-
-Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
-
-### Annotations
-[Release annotations](app-insights-annotations.md) on metrics charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
-
-![Example of annotations with visible correlation with server response time](./media/app-insights-overview/00.png)
-
-Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services.
-
-
-
-## Alerts
-If something goes wrong with your app, you'll want to know about it immediately.
-
-Application Insights offers three types of alert, which are delivered by email.
-
-### Proactive diagnostics
-[Proactive diagnostics](app-insights-proactive-failure-diagnostics.md) is automatically set up - you don't have to configure it. Provided your site has enough traffic, you'll get an email if there's a rise in failed requests that is unusual for the time of day or request rate. The alert contains diagnostic information.
-
-Here's a sample alert.
-
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-overview/proactive-alert.png)
-
-A second type of proactive detection discovers correlations between failures and factors such as location, client OS, or browser type.
-
-### Metric alerts
-You can configure [metric alerts](app-insights-alerts.md) to tell you when any metric crosses a threshold value for some period - such as failure counts, memory, or page views.
-
-![In Metrics Explorer, choose Alert rules, Add Alert](./media/app-insights-overview/appinsights-413setMetricAlert.png)
-
-### Availability
-[Availability web tests](app-insights-monitor-web-app-availability.md) send requests to your site from our servers at various locations around the world. They tell you when your site is unavailable on the internet, or responding slowly.
-
-![Web test example](./media/app-insights-overview/appinsights-10webtestresult.png)
-
-## Export and API
-There are several ways you can get your telemetry data out of the Application Insights portal:
-
-* The [Data Access REST API](https://dev.applicationinsights.io/) can be used to search for and extract data, including running Analytics queries. 
-* Export [Analytics queries to Power BI](app-insights-export-power-bi.md) dashboards and view the results in Power BI visualizations, which can be automatically refreshed.
-* [Continuous Export](app-insights-export-telemetry.md) is ideal if you want to keep large parts of your telemetry for longer than the standard retention period.
-* [Metrics](app-insights-metrics-explorer.md#export-to-excel)  tables, search results, and [Analytics](app-insights-analytics.md) results can all be exported to an Excel spreadsheet.
-
-![Viewing data in Power BI](./media/app-insights-overview/210.png)
-
-## Data management
-There are limits on your usage of Application Insights, which depend to some extent on the pricing scheme that you choose. The main limits are on:
-
-* Telemetry rate per minute
-* Data point count per month
-* Retention period for data
-
-[Sampling](app-insights-sampling.md) is a mechanism for reducing cost and avoiding throttling. It discards a proportion of your telemetry, keeping a representative sample. Associated items (such as exceptions and the requests that caused them) are either retained or discarded together. For ASP.NET applications, sampling is automatic and is applied in the app; otherwise, you can set it to be applied on ingestion to the portal.
 
 ## Next steps
 Get started at runtime with:
@@ -329,24 +132,16 @@ Get started at development time with:
   * [Troubleshooting][qna]
   * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-  * [Get developer support](app-insights-get-dev-support.md)
 * Your suggestions:
   * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 
 ## Videos
+
 [![Animated introduction](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/218/player]
->
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
->
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
->
-> [Introductory animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
->
->
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 <!--Link references-->
 
@@ -358,7 +153,7 @@ Get started at development time with:
 [greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
-[knowUsers]: app-insights-overview-usage.md
+[knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md

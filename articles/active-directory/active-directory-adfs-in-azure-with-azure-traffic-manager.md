@@ -1,4 +1,4 @@
-﻿---
+---
 title: High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager | Microsoft Docs
 description: In this document you will learn how to deploy AD FS in Azure for high availablity.
 keywords: Ad fs with Azure traffic manager, adfs with Azure Traffic Manager,geographic, multi datacenter, geographic datacenters, multi geographic datacenters, deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
@@ -73,7 +73,7 @@ Follow the steps below to create a traffic manager profile. For more information
    
    **Target resource type:** Select Public IP address as the value to this property. 
    
-   **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label for to.
+   **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label corresponding to the endpoint you are configuring.
    
    Add endpoint for each geographical region you want the Azure Traffic Manager to route traffic to.
    For more information and detailed steps on how to add / configure endpoints in traffic manager, refer to [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md)

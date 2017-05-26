@@ -1,9 +1,9 @@
 ---
-title: Manage compute power in Azure SQL Data Warehouse (REST) | Microsoft Docs
+title: Pause, resume, scale with REST in Azure SQL Data Warehouse | Microsoft Docs
 description: PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: elbutter;barbkess
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (REST)
@@ -24,18 +25,8 @@ ms.author: barbkess
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
-
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
-
-This collection of tasks uses the Azure portal to:
-
-* Scale compute
-* Pause compute
-* Resume compute
-
-To learn about this, see [Manage compute overview][Manage compute overview].
+>
+>
 
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
@@ -75,7 +66,13 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 To start a database, use the [Resume Database][Resume Database] REST API. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
 
 ```
-POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+```
+
+## Check database state
+
+```json
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}?api-version=2014-04-01 HTTP/1.1
 ```
 
 <a name="next-steps-bk"></a>

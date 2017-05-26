@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -30,7 +30,7 @@ A screenshot of the completed application is below:
 ## Prerequisites
 Ensure that the following products and versions are installed to successfully complete the example in this article:
 
-* Install [Visual Studio 2013](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+* Install [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 * Install [Node.js](https://nodejs.org/download/)
 * Install [Python version 2.7.10](https://www.python.org/)
 

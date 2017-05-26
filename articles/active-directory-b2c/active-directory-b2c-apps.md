@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 
 ---
@@ -117,10 +117,7 @@ In this flow, the app executes [policies](active-directory-b2c-reference-policie
 ![Native App Swimlanes Image](./media/active-directory-b2c-apps/native.png)
 
 ## Current limitations
-Azure AD B2C does not currently support the following types of apps, but they are on the roadmapy. Additional limitations and restrictions related to Azure AD B2C are described in [Limitations and restrictions](active-directory-b2c-limitations.md).
-
-### Single page apps (JavaScript)
-Many modern apps have a single-page app front end written primarily in JavaScript. They often use a framework such as AngularJS, Ember.js, or Durandal. The generally available Azure AD service supports these apps by using the OAuth 2.0 implicit flow. However, this flow is not yet available in Azure AD B2C.
+Azure AD B2C does not currently support the following types of apps, but they are on the roadmap. 
 
 ### Daemons/server-side apps
 Apps that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These apps can authenticate and get tokens by using the app's identity (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow.

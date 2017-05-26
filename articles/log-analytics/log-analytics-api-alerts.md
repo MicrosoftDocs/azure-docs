@@ -1,6 +1,6 @@
-﻿---
-title: Log Analytics Alert REST API
-description: The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
+---
+title: Using OMS Log Analytics Alert REST API
+description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics which is part of Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 05/12/2017
 ms.author: bwren
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Log Analytics alert REST API
+# Create and manage alert rules in Log Analytics with REST API
 The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
 
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
@@ -48,24 +50,32 @@ Use the Get method with a schedule ID to retrieve a particular schedule for a sa
 
 Following is a sample response for a schedule.
 
-    {
-        "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
-        "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
-        "properties": {
-        "Interval": 15,
-        "QueryTimeSpan": 15
-    }
+```json
+{
+	"value": [{
+		"id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
+		"etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
+		"properties": {
+			"Interval": 15,
+			"QueryTimeSpan": 15
+		}
+	}]
+}
+```
 
 ### Creating a schedule
 Use the Put method with a unique schedule ID to create a new schedule.  Note that two schedules cannot have the same ID even if they are associated with different saved searches.  When you create a schedule in the OMS console, a GUID is created for the schedule ID.
 
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
+> [!NOTE]
+> The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
+
+    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### Editing a schedule
 Use the Put method with an existing schedule ID for the same saved search to modify that schedule.  The body of the request must include the etag of the schedule.
 
-      $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
+      $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 
@@ -97,6 +107,9 @@ Use the Get method with the action ID to retrieve a particular action for a sche
 
 ### Creating or editing actions
 Use the Put method with an action ID that is unique to the schedule to create a new action.  When you create an action in the OMS console, a GUID is for the action ID.
+
+> [!NOTE]
+> The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
 
 Use the Put method with an existing action ID for the same saved search to modify that schedule.  The body of the request must include the etag of the schedule.
 
@@ -184,12 +197,12 @@ Following is a sample response for an email notification action with a threshold
 Use the Put method with a unique action ID to create a new e-mail action for a schedule.  The following example creates an email notification with a threshold so the mail is sent when the results of the saved search exceed the threshold.
 
     $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $ emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 Use the Put method with an existing action ID to modify an e-mail action for a schedule.  The body of the request must include the etag of the action.
 
     $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $ emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### Remediation actions
 Remediations start a runbook in Azure Automation that attempts to correct the problem identified by the alert.  You must create a webhook for the runbook used in a remediation action and then specify the URI in the WebhookUri property.  When you create this action using the OMS console, a new webhook is automatically created for the runbook.
@@ -234,17 +247,18 @@ Use the Put method with an existing action ID to modify a remediation action for
 Following is a complete example to create a new email alert.  This creates a new schedule along with an action containing a threshold and email.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-    $workspaceId    = "MyWorkspace"
-    $searchId       = "51cf0bd9-5c74-6bcb-927e-d1e9080b934e"
+	$resourceGroup  = "MyResourceGroup"    
+	$workspaceName    = "MyWorkspace"
+    $searchId       = "MySearch"
+	$scheduleId     = "MySchedule"
+	$thresholdId    = "MyThreshold"
+	$actionId       = "MyEmailAction"
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule?api-version=2015-03-20 $scheduleJson
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/mythreshold?api-version=2015-03-20 $thresholdJson
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/$workspaceId/savedSearches/$searchId/schedules/myschedule/actions/myemailaction?api-version=2015-03-20 $emailJson
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 ### Webhook actions
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent.  They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks.  They also provide the additional option of providing a payload to be delivered to the remote process.

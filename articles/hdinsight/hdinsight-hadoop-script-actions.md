@@ -1,4 +1,4 @@
-﻿---
+---
 title: Script Action development with HDInsight | Microsoft Docs
 description: Learn how to customize Hadoop clusters with Script Action. Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster.
 services: hdinsight
@@ -14,17 +14,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Develop Script Action scripts for HDInsight Windows-based clusters
 Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-> [!NOTE]
-> The information in this document is specific to Windows-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Script action development with HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
+
+
+> [!IMPORTANT]
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For information on using script actions with Linux-based clusters, see [Script action development with HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
 >
 >
+
+
 
 Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.
 

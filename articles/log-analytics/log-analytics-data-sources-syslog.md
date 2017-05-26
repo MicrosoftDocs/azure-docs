@@ -1,10 +1,10 @@
 ---
-title: Syslog messages in Log Analytics | Microsoft Docs
+title: Collect and analyze Syslog messages in OMS Log Analytics | Microsoft Docs
 description: Syslog is an event logging protocol that is common to Linux.   This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create in the OMS repository.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 05/23/2017
 ms.author: bwren
 
 ---
@@ -74,7 +74,7 @@ You can remove a facility by removing its section of the configuration file.  Yo
 
 
 #### syslog-ng
-The configuration file for rsyslog is location at **/etc/syslog-ng/syslog-ng.conf**.  Its default contents are shown below.  This collects syslog messages sent from the local agent for all facilities and all severities.   
+The configuration file for syslog-ng is location at **/etc/syslog-ng/syslog-ng.conf**.  Its default contents are shown below.  This collects syslog messages sent from the local agent for all facilities and all severities.   
 
     #
     # Warnings (except iptables) in one file:

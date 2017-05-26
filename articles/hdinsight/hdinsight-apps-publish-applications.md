@@ -1,4 +1,4 @@
-﻿---
+---
 title: Publish HDInsight applications | Microsoft Docs
 description: Learn how to create and publish HDInsight applications.
 services: hdinsight
@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 02/06/2017
 ms.author: jgao
 
 ---
@@ -55,14 +56,10 @@ There are two steps involved for publishing applications to the Azure Marketplac
 | tiers |The cluster tiers that the application is compatible with. |Standard, Premium, (or both) |
 | versions |The HDInsight cluster types that the application is compatible with. |3.4 |
 
-## Package application
-Create a zip file that contains all required files for installing your HDInsight applications. You will need the zip file in [Publish application](#publish-application).
-
-* [createUiDefinition.json](#define-application).
-* mainTemplate.json. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
-  
+## Application install script
+Whenever an application is installed on a cluster (either an existing one or a new one), an edge node is created and the application install script is run on it.
   > [!IMPORTANT]
-  > The name of the application install script names must be unique for a particular cluster with the format below. Additionally any install and uninstall script actions should be idempotent, meaning the scripts can be called repeatly while producing the same result.
+  > The name of the application install script names must be unique for a particular cluster with the format below.
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -74,12 +71,22 @@ Create a zip file that contains all required files for installing your HDInsight
   > 
   > An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
-  > 
+The installation script must have the following characterestics:
+1. Ensure that the script is idempotent. Multiple calls to the script should produce the same result.
+2. The script should be properly versioned. Use a different location for the script when you are upgrading or testing out changes so that customers that are trying to install the application will not be affected. 
+3. Add addequate logging to the scripts at each point. Usually the script logs are the only way to debug application installation issues.
+4. Ensure that calls to external services or resources have adequate retries so that the installation is not affected by transient network issues.
+5. If your script is starting services on the nodes, ensure that the services are monitored and configured to start automatically in case of node reboots.
+
+## Package application
+Create a zip file that contains all required files for installing your HDInsight applications. You will need the zip file in [Publish application](#publish-application).
+
+* [createUiDefinition.json](#define-application).
+* mainTemplate.json. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 * All required scripts.
 
 > [!NOTE]
 > The application files (including web application files if there is any) can be located on any publicly accessible endpoint.
-> 
 > 
 
 ## Publish application

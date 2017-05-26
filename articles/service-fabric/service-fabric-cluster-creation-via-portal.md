@@ -1,6 +1,6 @@
 
 ---
-title: Create a secure Service Fabric cluster using the Azure portal | Microsoft Docs
+title: Create Service Fabric cluster in the Azure portal | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/21/2016
-ms.author: vturecek
+ms.date: 02/21/2017
+ms.author: chackdan
 
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal
@@ -296,14 +296,14 @@ The **Node Monitor** section on the cluster's dashboard blade indicates the numb
 Each of the NodeTypes you specify in your cluster results in a VM Scale Set getting set-up. See [Remote connect to a VM Scale Set instance][remote-connect-to-a-vm-scale-set] for details.
 
 ## Next steps
-At this point, you have a secure cluster using certificates for management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
+At this point, you have a secure cluster using certificates for management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).  Also, learn about [Service Fabric support options](service-fabric-support.md).
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/key-vault-get-started.md
-[create-cluster-arm]: https://manage.windowsazure.com
+[create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
 [service-fabric-cluster-capacity]: service-fabric-cluster-capacity.md

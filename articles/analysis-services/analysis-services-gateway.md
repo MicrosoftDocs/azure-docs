@@ -1,4 +1,4 @@
-﻿---
+---
 title: On-premises data gateway | Microsoft Docs
 description: An On-premises gateway is necessary if your Analysis Services server in Azure will connect to on-premises data sources.
 services: analysis-services
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/24/2016
+ms.date: 04/18/2017
 ms.author: owend
 
 ---
@@ -45,7 +45,7 @@ A gateway is installed on a computer in your network. One gateway must be instal
 * In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
 ## Supported on-premises data sources
-For preview, the gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
+The gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
 
 * SQL Server
 * SQL Data Warehouse
@@ -61,8 +61,8 @@ For preview, the gateway supports connections between your Azure Analysis Servic
 2. Choose an installation location and accept the license terms.
 3. Sign in to Azure.
 4. Specify your Azure Analysis Server name. You can only specify one server per gateway. Click **Configure** and you're good to go.
-   
-    ![sign in to azure](./media\\analysis-services-gateway\\aas-gateway-configure-server.png)
+
+    ![sign in to azure](./media/analysis-services-gateway/aas-gateway-configure-server.png)
 
 ## How it works
 The gateway runs as a Windows service, **On-premises data gateway**, on a computer in your organization's network. The gateway you install for use with Azure Analysis Services is based on the same gateway used for other services like Power BI, but with some differences in how it's configured.
@@ -90,8 +90,8 @@ It's recommended you whitelist the IP addresses for your data region in your fir
 
 > [!NOTE]
 > The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. For example, 10.0.0.0/24 does not mean 10.0.0.0 through 10.0.0.24. Learn more about the [CIDR notation](http://whatismyipaddress.com/cidr).
-> 
-> 
+>
+>
 
 The following are the fully qualified domain names used by the gateway.
 
@@ -126,7 +126,25 @@ If you’re having trouble when installing and configuring a gateway, be sure to
 
 If you think you're encountering proxy issues, with the gateway, see [Configuring proxy settings for the Power BI Gateways](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
 
+### Telemetry
+Telemetry can be used for monitoring and troubleshooting. 
+
+**To turn on telemetry**
+
+1.	Check the On-premises data gateway client directory on the computer. Typically, it's %systemdrive%\Program Files\On-premises data gateway. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
+2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.	Save your changes and restart the Windows service: On-premises data gateway service.
+
+
+
+
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)
 * [Get data from Azure Analysis Services](analysis-services-connect.md)
-

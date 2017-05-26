@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 
 ---
@@ -24,26 +24,33 @@ This is the first step of the walkthrough, [Develop a predictive analytics solut
 2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
 3. [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
 4. [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Access the web service](machine-learning-walkthrough-6-access-web-service.md)
+5. [Deploy the Web service](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Access the Web service](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
 To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
+<!--
 ## To create a workspace
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the  Azure services panel, click **MACHINE LEARNING**.  
    ![Create workspace][1]
 3. Click **CREATE AN ML WORKSPACE**.
 4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
+-->
 
-After your Machine Learning workspace is created, you will see it listed on the **machine learning** page in the Azure classic portal. 
-For more details on creating your workspace, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
+The administrator for your Azure subscription needs to create the workspace and then add you as an owner or contributor. For details, see [Create and share an Azure Machine Learning workspace](machine-learning-create-workspace.md).
+
+After your workspace is created, open Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
+
+![Select workspace in Studio][2]
 
 > [!TIP]
-> You can share the experiments you're working on by inviting others to your workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
+> If you were made an owner of the workspace, you can share the experiments you're working on by inviting others to the workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
+> 
+> On the **SETTINGS** page, click **USERS**, then click **INVITE MORE USERS** at the bottom of the window.
 > 
 > 
 
@@ -51,3 +58,4 @@ For more details on creating your workspace, see [Create an Azure Machine Learni
 **Next: [Upload existing data](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+[2]: ./media/machine-learning-walkthrough-1-create-ml-workspace/open-workspace.png

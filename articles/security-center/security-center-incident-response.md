@@ -1,5 +1,5 @@
-﻿---
-title: Using Azure Security Center for an incident response | Microsoft Docs
+---
+title: Respond to security incidents with Azure Security Center | Microsoft Docs
 description: This document explains how to use Azure Security Center for an incident response scenario.
 services: security-center
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 03/30/2017
 ms.author: yurid
 
 ---
@@ -75,14 +75,14 @@ Judy signed in to the Azure portal and is working in the Security Center console
 
 1. Click the **Security alerts** tile and access the **Security alerts** blade.
     ![Security alert blade](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > For the purpose of this scenario, Judy is going to perform an assessment on the Malicious SQL activity alert, as seen in the preceding figure.
-   > 
-   > 
+   >
+   >
 2. Click the **Malicious SQL activity** alert and review the attacked resources in the **Malicious SQL activity** blade:
     ![Incident details](./media/security-center-incident-response/security-center-incident-response-fig5.png)
-   
+
     In this blade, Judy can take notes regarding the attacked resources, how many times this attack happened, and when it was detected.
 3. Click the **attacked resource** to obtain more information about this attack.
 
@@ -98,4 +98,3 @@ The incident response team can also take advantage of the [Security Center Power
 
 ## Conclusion
 Assembling a team before an incident occurs is very important to your organization and will positively influence how incidents are handled. Having the right tools to monitor resources can help this team to take accurate steps to remediate a security incident. Security Center [detection capabilities](security-center-detection-capabilities.md) can assist IT to quickly respond to security incidents and remediate security issues.
-

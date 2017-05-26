@@ -4,7 +4,7 @@ description: Describes how to remove StorSimple device from service by  first de
 services: storsimple
 documentationcenter: ''
 author: SharS
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 155cda38-c5ae-45dc-b7e8-6444494afc9e
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
-ms.author: anoobbacker
+ms.date: 05/17/2017
+ms.author: anbacker
+ms.custom: H1Hack27Feb2017
 
 ---
-# Deactivate and delete a StorSimple device
+# Deactivate and delete a StorSimple 8000 series device via StorSimple Manager service
 ## Overview
 You may wish to take a StorSimple device out of service (for example, if you are replacing or upgrading your device or if you are no longer using StorSimple). If this is the case, you will need to deactivate the device before you can delete it. Deactivating severs the connection between the device and the corresponding StorSimple Manager service. This tutorial explains how to remove a StorSimple device from service by first deactivating it and then deleting it. 
 
 When you deactivate a device, any data that was stored locally on the device will no longer be accessible. Only the data associated with the device that was stored in the cloud can be recovered.  
 
 > [!WARNING]
-> Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service unless it is first reset by the factory. 
+> Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service unless it is first reset to the default factory settings. 
 > 
 > The factory reset process deletes all the data that was stored locally on your device. Therefore, it is essential that you take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
 > 

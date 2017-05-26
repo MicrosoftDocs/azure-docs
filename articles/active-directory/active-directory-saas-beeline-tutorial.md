@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Beeline
+# Tutorial: Azure Active Directory integration with BeeLine
 In this tutorial, you learn how to integrate Beeline with Azure Active Directory (Azure AD).
 
 Integrating Beeline with Azure AD provides you with the following benefits:
@@ -157,17 +157,18 @@ In this section, you create a test user in the classic portal called Britta Simo
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_07.png) 

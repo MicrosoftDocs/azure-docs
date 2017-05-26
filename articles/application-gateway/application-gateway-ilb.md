@@ -1,10 +1,10 @@
 ---
-title: Create and Configure an Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Docs
+title: Using Azure Application Gateway with Internal Load Balancer | Microsoft Docs
 description: This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: jdial
+manager: timlt
 editor: tysonn
 
 ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
@@ -22,8 +22,6 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Azure Classic PowerShell](application-gateway-ilb.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
-> 
-> 
 
 Application Gateway can be configured with an internet facing virtual IP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application, which sits in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article walks you through the steps to configure an application gateway with an ILB.
 
@@ -198,8 +196,6 @@ Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If 
 
 > [!NOTE]
 > The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.
-> 
-> 
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest 

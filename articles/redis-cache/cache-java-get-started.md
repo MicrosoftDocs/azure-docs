@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/24/2016
+ms.date: 04/13/2017
 ms.author: sdanie
 
 ---
@@ -42,27 +42,35 @@ This tutorial uses Jedis, but you can use any Java client listed at [http://redi
 ## Retrieve the host name and access keys
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## Enable the non-SSL endpoint
-Some Redis clients don't support SSL, and by default the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the [Jedis](https://github.com/xetorthio/jedis) client doesn't support SSL. 
+## Connect to the cache securely using SSL
+The latest builds of [jedis](https://github.com/xetorthio/jedis) provide support for connecting to Azure Redis Cache using SSL. The following example shows how to connect to Azure Redis Cache using the SSL endpoint of 6380. Replace `<name>` with the name of your cache and `<key>` with either your primary or secondary key as described in the previous [Retrieve the host name and access keys](#retrieve-the-host-name-and-access-keys) section.
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+    boolean useSsl = true;
+    /* In this line, replace <name> with your cache name: */
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
+    shardInfo.setPassword("<key>"); /* Use your access key. */
+
+> [!NOTE]
+> The non-SSL port is disabled for new Azure Redis Cache instances. If you are using a different client that doesn't support SSL, see [How to enable the non-SSL port](cache-configure.md#access-ports).
+> 
+> 
 
 ## Add something to the cache and retrieve it
     package com.mycompany.app;
     import redis.clients.jedis.Jedis;
     import redis.clients.jedis.JedisShardInfo;
 
-    /* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
     public class App
     {
       public static void main( String[] args )
       {
+        boolean useSsl = true;
         /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
+        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
-         jedis.set("foo", "bar");
-         String value = jedis.get("foo");
+        jedis.set("foo", "bar");
+        String value = jedis.get("foo");
       }
     }
 
@@ -70,4 +78,3 @@ Some Redis clients don't support SSL, and by default the [non-SSL port is disabl
 ## Next steps
 * [Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache.
 * Read the official [Redis documentation](http://redis.io/documentation).
-

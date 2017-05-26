@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: 'Azure Active Directory B2C: Authentication Protocols | Microsoft Docs'
 description: How to build apps directly by using the protocols supported by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
@@ -32,8 +32,8 @@ Every app that uses Azure AD B2C needs to be registered in your B2C directory in
 After you register your app, it communicates with Azure AD by sending requests to the v2.0 endpoint:
 
 ```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
 In nearly all OAuth and OpenID Connect flows, four parties are involved in the exchange:
@@ -62,4 +62,5 @@ When you're ready to review some example requests, you can start with one of the
 
 * [Build mobile and native applications by using OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Build web apps by using OpenID Connect](active-directory-b2c-reference-oidc.md)
+* [Build single-page apps using the OAuth 2.0 implicit flow](active-directory-b2c-reference-spa.md)
 

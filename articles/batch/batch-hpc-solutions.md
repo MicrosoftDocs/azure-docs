@@ -1,5 +1,5 @@
 ---
-title: Batch and HPC solutions in the cloud | Microsoft Docs
+title: Batch and HPC solutions in the cloud - Azure | Microsoft Docs
 description: Learn about batch and high-performance computing (HPC and Big Compute) scenarios and solution options in Azure
 services: batch, virtual-machines, cloud-services
 documentationcenter: ''
@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 11/17/2016
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 
 ---
-# Batch and HPC solutions in the Azure cloud
+# Batch and HPC solutions for large-scale computing workloads
+
 Azure offers efficient, scalable cloud solutions for batch and high-performance computing (HPC) - also called *Big Compute*. Learn here about Big Compute workloads and Azure’s services to support them, or jump directly to [solution scenarios](#scenarios) later in this article. This article is mainly for technical decision-makers, IT managers, and independent software vendors, but other IT professionals and developers can use it to familiarize themselves with these solutions.
 
 Organizations have large-scale computing problems: engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and others. Azure helps organizations solve these problems with the resources, scale, and schedule they need. With Azure, organizations can:
@@ -84,10 +86,10 @@ Here is more about the compute, data, networking, and related services you can c
 > 
 
 ### Compute services
-Azure compute services are the core of a Big Compute solution, and the different compute services offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. These instances can run standard and custom Linux and Windows operating systems and tools. Azure gives you a choice of [instance sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs, you can scale the instances to thousands of cores and then scale down when you need fewer resources.
+Azure compute services are the core of a Big Compute solution, and the different compute services offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. These instances can run standard and custom Linux and Windows operating systems and tools. Azure gives you a choice of [instance sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs, you can scale the instances to thousands of cores and then scale down when you need fewer resources.
 
 > [!NOTE]
-> Take advantage of the Azure [compute-intensive instances such as the H-series](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to improve the performance and scalability of HPC workloads. These instances also support parallel MPI applications that require a low-latency and high-throughput application network. Also available are [N-series](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VMs with NVIDIA GPUs to expand the range of computing and visualization scenarios in Azure.  
+> Take advantage of the Azure [compute-intensive instances such as the H-series](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to improve the performance and scalability of HPC workloads. These instances also support parallel MPI applications that require a low-latency and high-throughput application network. Also available are [N-series](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VMs with NVIDIA GPUs to expand the range of computing and visualization scenarios in Azure.  
 > 
 > 
 

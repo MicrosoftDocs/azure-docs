@@ -1,10 +1,10 @@
 ---
-title: Manage DNS record sets and records using the Azure portal | Microsoft Docs
-description: Managing DNS record sets and records when hosting your domain on Azure DNS.
+title: Manage DNS record sets and records with Azure DNS | Microsoft Docs
+description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Manage DNS records and record sets by using the Azure portal
@@ -106,7 +106,11 @@ You cannot add or remove records from the automatically created SOA record set a
 
 ### Modify NS records at the zone apex
 
-You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
+The NS record set at the zone apex is automatically created with each DNS zone. It contains the names of the Azure DNS name servers assigned to the zone.
+
+You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers.
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be modified without constraint.
 
 ### Delete SOA or NS record sets
 
