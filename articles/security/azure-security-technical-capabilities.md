@@ -54,7 +54,7 @@ This document does not provide detailed coverage of any of the related Microsoft
 
 Microsoft Azure provides services that can help customers meet the security, privacy, and compliance needs. The picture below helps explain various Azure services available for users to build a secure and compliant application infrastructure based on industry standards.
 
-<img src="AzSecTechCapFig1.png">
+![Available security technical capabilities to fulfil user (Customer) responsibility - Big picture](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
 ## Manage and control identity and user access (Protect)
 
@@ -76,7 +76,7 @@ Security benefits of Azure Active Directory (AD) include the ability to:
 
 [Azure active directory portal](http://aad.portal.azure.com/) is available a part of azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
 
-<img src="AzSecTechCapFig2.png">
+![Azure active directory](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
 Following are core Azure Identity management capabilities:
 
@@ -162,17 +162,17 @@ Azure AD Privileged Identity Management lets you:
 
 Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the [Azure Accounts Center](https://account.windowsazure.com/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure classic portal](https://manage.windowsazure.com/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
 
-<img src="AzSecTechCapFig3.png">
+![Secured resource access in Azure](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
 Subscriptions also have an association with a directory. The directory defines a set of users. These can be users from the work or school that created the directory, or they can be external users (that is, Microsoft Accounts). Subscriptions are accessible by a subset of those directory users who have been assigned as either Service Administrator (SA) or Co-Administrator (CA); the only exception is that, for legacy reasons, Microsoft Accounts (formerly Windows Live ID) can be assigned as SA or CA without being present in the directory.
 
 Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions can expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) helps address this problem by offering fine-grained access management for Azure.
 
-<img src="AzSecTechCapFig4.png">
+![Security-oriented companies](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions. For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL databases within the same subscription.
 
-<img src="AzSecTechCapFig5.png">
+![RBAC](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## Azure data security and encryption (protect)
 
@@ -348,7 +348,7 @@ Microsoft Azure includes a robust networking infrastructure to support your appl
 
 The [Azure network infrastructure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) enables you to securely connect Azure resources to each other with [virtual networks (VNets)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure cloud network dedicated to your subscription. You can connect VNets to your on-premises networks.
 
-<img src="AzSecTechCapFig6.png">
+![Secure your network (protect)](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
 If you need basic network level access control (based on IP address and the TCP or UDP protocols), then you can use [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg). A Network Security Group (NSG) is a basic stateful packet filtering firewall and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple).
 
@@ -394,7 +394,7 @@ In addition, the checklist:
 
 [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) refers to the services, controls and features available to users for protecting their data, applications and other assets in Microsoft Azure.
 
-<img src="AzSecTechCapFig7.png">
+![Azure infrastructure and application security validation (detect))](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
 Azure Operational Security is built on a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cybersecurity threat landscape.
 
@@ -402,7 +402,8 @@ Azure Operational Security is built on a framework that incorporates the knowled
 
 [Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
-<img src="AzSecTechCapFig8.png">
+![Microsoft operations management suite(OMS)](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+
 
 With OMS, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, OMS offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
 
@@ -410,7 +411,8 @@ With OMS, you can manage any instance in any cloud, including on-premises, Azure
 
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
-<img src="AzSecTechCapFig9.png">
+![Log analytics](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+
 
 This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on-premise environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
@@ -448,7 +450,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones.
 
-<img src="AzSecTechCapFig10.png">
+![Azure monitor](./media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png)
 
 In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
