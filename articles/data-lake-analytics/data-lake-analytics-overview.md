@@ -44,9 +44,7 @@ Azure Data Lake Analytics is an on-demand analytics job service to simplify big 
 ## See also
 * Get started
   
-  * [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
-  * [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-  * [Get started with Data Lake Analytics using Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+  * Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
   * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 
 * Management
