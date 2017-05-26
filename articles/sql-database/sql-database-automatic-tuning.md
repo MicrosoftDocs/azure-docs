@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
+ms.date: 26/05/2017
 ms.author: jovanpop
 
 ---
 # Automatic tuning
 
-Azure SQL Database is fully managed data service that monitors the queries that are executed on the database and automatically improve
+Azure SQL Database is **fully managed data service** that monitors the queries that are executed on the database and automatically improve
 performance of the workload. Azure SQL Database has a built-in intelligence mechanism that can automatically tune and improve
-performance of your queries by dynamically adapting the database to your workload. Automatic tuning in Azure SQL Database might be one
+performance of your queries by dynamically adapting the database to your workload. **Automatic tuning** in Azure SQL Database might be one
 of the most important features that you can enable on Azure SQL Database to optimize performance of your queries.
 
 ## Why automatic tuning?
@@ -37,20 +37,22 @@ tuning feature.
 
 ## How automatic tuning works?
 
-Azure SQL Database has a continuous performance monitoring and analysis process that constantly learns about the characteristic of your
+Azure SQL Database has a continuous performance monitoring and analysis process that constantly **learns** about the characteristic of your
 workload and identify potential issues and improvements.
 
-This process enables Azure SQL Database to dynamically adapt to your workload by finding what indexes might be useful to improve
-performance of your workloads, what indexes affect your workloads, how to find optimal plans, etc. Based on these findings, automatic
-tuning will apply tuning action that will improve performance of your workload.
+![Automatic tuning process](media\sq-database-automatic-tuning\tuning-process.png "Automatic tuning process")
+
+This process enables Azure SQL Database to dynamically **adapt** to your workload by finding what indexes might be useful to improve
+performance of your workloads, what indexes affect your workloads, how to find optimal plans, etc. Based on these findings, **Automatic
+tuning will apply tuning action that will improve performance** of your workload.
 In addition, Azure SQL Database will continuously monitor performance after any change made by automatic tuning to ensure that it will
 improve performance of your workload. Any action that didn’t improve performance will be automatically reverted. This verification
 process is a key feature that ensures that any change made by automatic tuning feature will not have a negative impact on the performance
 of your workload.
 
-There are two main automatic tuning features that are available in Azure SQL Database:
- -	Automatic index management that identifies indexes that should be added in your database, and indexes that should be removed.
- -	Automatic plan correction (coming soon, already available in SQL Server 2017) that identifies problematic plans and fixes SQL plan performance problems.
+There are two automatic tuning features that are available in Azure SQL Database:
+ -	*Automatic index management* that identifies indexes that should be added in your database, and indexes that should be removed.
+ -	*Automatic plan correction* (coming soon, already available in SQL Server 2017) that identifies problematic plans and fixes SQL plan performance problems.
 
 These features will be described in the following sections.
 
@@ -58,7 +60,7 @@ These features will be described in the following sections.
 
 In Azure SQL Database, index management is easy because Azure SQL Database learns about your workload and ensures that your data is
 always optimally indexed.
-Proper index design is crucial for optimal performance of your workload, and automatic index management can help you optimize you
+Proper index design is crucial for optimal performance of your workload, and automatic index management can help you optimize your
 indexes. Automatic index management can either fix performance issues in incorrectly indexed databases, or maintain and improve indexes
 on the existing database schema.
 
@@ -82,7 +84,8 @@ necessary set of indexes that optimize most of your queries that read data, with
 Azure SQL Database makes index management process easy. Instead of the tedious process of manual workload analysis and index monitoring,
 Azure SQL Database analyzes your workload, identifies the queries that could be executed faster if you create an index, identifies
 indexes that are not used in a longer period, and identifies duplicated indexes in the database.
-Find more information about identificaiton of indexes that should be changed at HOW TO: Identify missing indexes in Azure portal.
+Find more information about identificaiton of indexes that should be changed at
+[HOW TO: Identify missing indexes in Azure portal](sql-database-advisor-portal.md).
 
 ### Automatic index management
 
@@ -93,13 +96,13 @@ unused indexes.
 Find more information about Enabling automatic index management at HOW TO: enable Automatic tuning.
 Actions required to create necessary indexes in Azure SQL Databases might consume resources and temporally affect workload performance.
 To minimize the impact of index creation on workload performance, Azure SQL Database will find the appropriate time window for any index
-management operation. Tuning action will be postponed if Azure SQL Database consumes a lot of resources to execute your standard
+management operation. **Tuning action will be postponed if Azure SQL Database consumes a lot of resources** to execute your standard
 workload, and they will be started when the database has enough unused resources that can be used for the maintenance task. 
 One important feature in Automatic index management is a verification of the actions. When Azure SQL Database executes create index or
 drop index action, a monitoring process analyzes performance of your workload, and analyzes if the action improved the performance.
-If it didn’t bring significant improvement – the action will be immediately reverted. This way, Azure SQL Database ensures that automatic
+**If it didn’t bring significant improvement – the action will be immediately reverted**. This way, Azure SQL Database ensures that automatic
 actions will not negatively affect performance of your workload.
-Indexes created by Automatic tuning are transparent for the maintenance operation on the underlying schema. Schema changes such as
+**Indexes created by Automatic tuning are transparent** for the maintenance operation on the underlying schema. Schema changes such as
 dropping or renaming columns will not be blocked by the presence of automatically created indexes. Indexes that are automatically
 created by Azure SQL Database will be immediately dropped when related table or columns is dropped.
 
@@ -111,3 +114,5 @@ Find more information at Automatic Tuning in SQL Server 2017.
 
 ## Next steps
 
+Enable automatic tuning in Azure SQL Database and let Automatic tuning feature fully manage your workload. As an alternative, you can review
+[Tuning recommendations in Azure portal](sql-database-advisor-portal.md) and manually apply the ones that will improve performance of your queries.
