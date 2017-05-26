@@ -24,7 +24,9 @@ ms.author: sujayt
 > * [Replicate from on-premises to Azure](site-recovery-support-matrix-to-azure.md)
 > * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
-
+>[!NOTE]
+>
+> Site Recovery replication for Azure virtual machines is currently in preview.
 
 This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region.
 
@@ -96,14 +98,13 @@ The below support is applicable for any workload running on the mentioned OS.
 **Configuration** | **Supported/Not supported** | **Remarks**
 --- | --- | ---
 Size | Any Azure VM size with atleast 2 CPU cores and 1-GB RAM | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
-Availability sets | Supported | If you use the default option during 'enable replication' step in portal, the availability set is auto created based on source region configuration. You can change the target availability set in 'Replicated item > Settings > Compute and Network > Availability set' any time.
+Availability sets | Supported | If you use the default option during 'Enable replication' step in portal, the availability set is auto created based on source region configuration. You can change the target availability set in 'Replicated item > Settings > Compute and Network > Availability set' any time.
 Hybrid Use Benefit (HUB) VMs | Supported | If the source VM has HUB license enabled, the Test failover or Failover VM also uses the HUB license.
 Virtual machine scale sets | Not supported |
 Azure Gallery Images - Microsoft published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
-Azure Gallery images - Third party  published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
-Custom images - Third party  published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery
+Azure Gallery images - Third party  published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery.
+Custom images - Third party  published | Supported | Supported as long as the VM runs on a supported operating system by Site Recovery.
 VMs migrated using Site Recovery | Supported | If it is a VMware/Physical machine migrated to Azure using Site Recovery, you need to uninstall the older version of mobility service and restart the machine before replicating it to another Azure region.
-Standard VM extensions | |
 
 ## Support for Storage configuration
 
