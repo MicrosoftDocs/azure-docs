@@ -115,7 +115,7 @@ To respond to an incoming request using the `response` action type, here's an ex
 |------------------|--------------|-----------------|  
 |key1|Yes|Specifies the key identifier for the output. Replace **key1** with a name that you want to use to identify the output.|  
 |value|Yes|Specifies the value of the output.|  
-|type|Yes|Specifies the type for the value that was specified. Possible types of values are: <p>- `string`<br />- `securestring`<br />- `int`<br />- `bool`<br />- `array`<br />- `object`|
+|type|Yes|Specifies the type for the value that was specified. Possible types of values are: <ul><li>`string`</li><li>`securestring`</li><li>`int`</li><li>`bool`</li><li>`array`</li><li>`object`</li></ul>|
   
 ## Expressions  
 
