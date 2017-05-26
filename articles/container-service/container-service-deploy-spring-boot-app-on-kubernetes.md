@@ -69,15 +69,9 @@ The following steps will walk you through the steps that are required to create 
    cd complete
    ```
 
-1. Build the JAR file using Maven; for example:
+1. Use Maven to build and run the app on your computer; for example:
    ```
-   mvn package
-   ```
-
-1. Once the web app has been created, change directory to the JAR file and start the web app; for example:
-   ```
-   cd target
-   java -jar gs-spring-boot-docker-0.1.0.jar
+   mvn package spring-boot:run
    ```
 
 1. Test the web app by browsing to http://localhost:8080 using a web browser, or use the syntax like the following example if you have curl available:
@@ -85,35 +79,44 @@ The following steps will walk you through the steps that are required to create 
    curl http://localhost:8080
    ```
 
-1. You should see the following message displayed: **Hello Docker World!**
+1. You should see the following message displayed: **Hello Docker World**
 
    ![Browse Sample App Locally][SB01]
 
-## Create an Azure Container Registry to use as a Private Docker Registry
+## Create an Azure Container Registry using the Azure CLI
 
-1. Browse to the [Azure portal] and log in.
+1. Open a command prompt.
 
-   Once you have logged into your account on the Azure portal, you can follow the steps in the [Create a private Docker container registry using the Azure portal] article, which are paraphrased in the following steps for the sake of expediency.
+1. Log into your Azure account:
+   ```azurecli
+   az login
+   ```
 
-1. Click the menu icon for **+ New**, then click **Containers**, and then click **Azure Container Registry**.
-   
-   ![Azure portal][AR01]
+1. Create a new resource group for the Azure resources used in this tutorial.
+   ```azurecli
+   az group create --name=wingtiptoys-kubernetes --location=eastus
+   ```
 
-1. When the information page for the Azure Container Registry template is displayed, click **Create**. 
+1. Create a new container registry in the resource group. The tutorial pushes the sample as a Docker image to this registry in later steps. Replace `wingtiptoysregistry` with a unique name for your registry.
+   ```azurecli
+   az acr create --admin-enabled --resource-group wingtiptoys-kubernetes--location eastus --name wingtiptoysRegistry --sku Basic
+   ```
 
-   ![Azure portal][AR02]
+## Push your app to the container registry
 
-1. When the **Create container registry** blade is displayed, enter your **Registry name** and **Resource group**, choose **Enable** for the **Admin user**, and then click **Create**.
+1. Navigate to the configuration directory for your Maven installation (default ~/.m2/ or C:\Users\username\.m2) and open the *settings.xml* file with a text editor.
 
-   ![Azure portal][AR03]
+1. Retrieve the password for your container registry from the Azure CLI.
+   ```azurecli
+   az acr credential show --name wingtiptoysregistry --query passwords[0]
+   ```
 
-1. Once your container registry has been created, navigate to your container registry in the Azure portal, and then click **Access Keys**. Take note of the username and password for the next steps.
-
-   ![Azure portal][AR04]
-
-## Configure Maven to use your Azure Container Registry access keys
-
-1. Navigate to the configuration directory for your Maven installation and open the *settings.xml* file with a text editor.
+   ```json
+   {
+  "name": "password",
+  "value": "=wC56EFwrfH=k:ymJSp-+2V.hGNd>kd4"
+   }
+   ```
 
 1. Add your Azure Container Registry access settings from the previous section of this tutorial to the `<servers>` collection in the the *settings.xml* file; for example:
 
@@ -122,7 +125,7 @@ The following steps will walk you through the steps that are required to create 
       <server>
          <id>wingtiptoysregistry</id>
          <username>wingtiptoysregistry</username>
-         <password>AbCdEfGhIjKlMnOpQrStUvWxYz</password>
+         <password>=wC56EFwrfH=k:ymJSp-+2V.hGNd>kd4</password>
       </server>
    </servers>
    ```
@@ -133,7 +136,7 @@ The following steps will walk you through the steps that are required to create 
 
    ```xml
    <properties>
-      <docker.image.prefix>wingtiptoysregistry.azurecr.io</docker.image.prefix>
+      <docker.image.prefix>myRegistry.azurecr.io</docker.image.prefix>
       <java.version>1.8</java.version>
    </properties>
    ```
@@ -156,12 +159,12 @@ The following steps will walk you through the steps that are required to create 
             </resource>
          </resources>
          <serverId>wingtiptoysregistry</serverId>
-         <registryUrl>https://wingtiptoysregistry.azurecr.io</registryUrl>
+         <registryUrl>https://myRegistry.azurecr.io</registryUrl>
       </configuration>
    </plugin>
    ```
 
-1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application and push the container to your Azure Container Registry:
+1. Navigate to the completed project directory for your Spring Boot application and run the following command to rebuild the application as a Docker container and push the image to your Azure Container Registry:
 
    ```
    mvn package docker:build -DpushImage
@@ -177,25 +180,13 @@ The following steps will walk you through the steps that are required to create 
 >
 > If this happens, you may need to log into Azure from the Docker command line; for example:
 >
-> `docker login -u wingtiptoysregistry -p "AbCdEfGhIjKlMnOpQrStUvWxYz" wingtiptoysregistry.azurecr.io`
+> `docker login -u myRegistry -p "AbCdEfGhIjKlMnOpQrStUvWxYz" myRegistry.azurecr.io`
 >
 > You can then push your container from the command line; for example:
 >
-> `docker push wingtiptoysregistry.azurecr.io/gs-spring-boot-docker`
+> `docker push myRegistry.azurecr.io/gs-spring-boot-docker`
 
 ## Create a Kubernetes Cluster on ACS using the Azure CLI
-
-1. Open a command prompt.
-
-1. Log into your Azure account:
-   ```
-   az login
-   ```
-
-1. Create a new resource group for the Kubernetes cluster; for example - the following command will crate a new resource group *wingtiptoys-kubernetes* in the *southcentralus* region:
-   ```
-   az group create --name=wingtiptoys-kubernetes --location=southcentralus
-   ```
 
 1. Create a Kubernetes cluster in the resource group; for example - the following command will create a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-containerservice* as the cluster name, and *wingtiptoys-kubernetes* as the DNS prefix:
    ```
@@ -208,85 +199,13 @@ The following steps will walk you through the steps that are required to create 
    az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
    ```
 
-1. Create a secret for use with your Docker registry; for example - the following will create a new secret named *wingtiptoyssecret* using the access keys which you retrieved earlier, and you can use this secret when you push images to your cluster:
-   ```
-   kubectl create secret docker-registry wingtiptoyssecret --docker-server=wingtiptoysregistry.azurecr.io --docker-username=wingtiptoysregistry --docker-password="AbCdEfGhIjKlMnOpQrStUvWxYz" --docker-email=info@wingtiptoys.com
-   ```
-
-> [!NOTE]
->
-> You can verify that your secret was successfully created by using one of the following commands:
->
-> * `kubectl get secret wingtiptoyssecret`
->
-> * `kubectl get secret wingtiptoyssecret --output=yaml`
->
-> * `kubectl get secret wingtiptoyssecret --output=json`
->
-
-## Deploy your Docker container with your Spring Boot app to your Kubernetes Cluster
+## Deploy your Docker container with your Spring Boot app to your Kubernetes cluster
 
 In order to deploy your Docker container to your Kubernetes Cluster, you can use the Kubernetes configuration website, or you can use the Kubernetes command-line interface (kubectl).
 
 ### Deploying your Docker container by using the Kubernetes configuration website
 
 1. Open a command prompt.
-
-1. Open the configuration website for your Kubernetes cluster in your default browser:
-   ```
-   az acs kubernetes browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
-   ```
-
-1. When the Kubernetes configuration website opens in your browser, click the link to **deploy a containerized app**:
-
-   ![Kubernetes Configuration Website][KB01]
-
-1. When the **Deploy a containerized app** page is displayed, specify the following options:
-
-   a. Select **Specify app details below**.
-
-   b. Enter your Spring Boot application name for the **App name**; for example: "*gs-spring-boot-docker*".
-
-   c. Enter your login server and container image from earlier for the **Container image**; for example: "*wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*".
-
-   d. Choose **External** for the **Service**.
-
-   e. Specify your external and internal ports in the **Port** and **Target port** text boxes.
-
-   ![Kubernetes Configuration Website][KB02]
-
-   f. Click the link to **Show Advanced Options**.
-
-   ![Advanced Options][KB03]
-
-   g. Choose the secret which you created earlier in the **Image Pull Secret** drop-down menu:
-
-   ![Image Pull Secret][KB04]
-
-1. Click **Deploy** to deploy the container.
-
-   ![Deploy Container][KB05]
-
-1. Once your application has been deployed, you will see your Spring Boot application listed under **Services**.
-
-   ![Kubernetes Services][KB06]
-
-1. If you click on the link for **External endpoints**, you will see your Spring Boot application running on Azure.
-
-   ![Kubernetes Services][KB07]
-
-   ![Browse Sample App on Azure][SB02]
-
-### Deploying your Docker container by using the Kubernetes command-line interface (kubectl)
-
-1. Open a command prompt.
-
-   > [!NOTE]
-   >
-   > In order to use the secret which you created earlier from a command line, you will need to configure the imagePullSecrets for Kubernetes. Instructions for configuring this are available in the following article:
-   >
-   > <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/>
-   >
 
 1. Run your container in the Kubernetes cluster by using the `kubectl run` command; at a minimum you will need to specify your container name, along with your login server and image name. For example:
    ```
@@ -312,7 +231,23 @@ In order to deploy your Docker container to your Kubernetes Cluster, you can use
 
    * The `--target-port` parameter specifies the internal TCP port of 8080; external traffic from the load balancer will be redirected to this port on the containers
 
-## Next Steps
+1. Open the configuration website for your Kubernetes cluster in your default browser:
+   ```azurecli
+   az acs kubernetes browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
+   ```
+
+1. Once your application has been deployed, you will see your Spring Boot application listed under **Services**.
+
+   ![Kubernetes Services][KB06]
+
+1. If you click on the link for **External endpoints**, you will see your Spring Boot application running on Azure.
+
+   ![Kubernetes Services][KB07]
+
+   ![Browse Sample App on Azure][SB02]
+
+
+## Next steps
 
 For more information about using Spring Boot applications on Azure, see the following articles:
 
@@ -338,7 +273,7 @@ The following links provide additional information about using Kubernetes with A
 
 More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/user-guide/kubectl/>.
 
-The Kubernetes website provides sevearl articels which discussing using images in private registries and configuring secrets:
+The Kubernetes website provides several articels which discussing using images in private registries and configuring secrets:
 
 * [Configuring Service Accounts for Pods]
 * [Namespaces]
