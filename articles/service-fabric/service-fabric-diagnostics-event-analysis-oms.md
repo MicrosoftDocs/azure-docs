@@ -36,7 +36,7 @@ It is recommended that you include the Service Fabric Solution in your OMS works
 
 ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
-There are two ways to provision and configure an OMS workspace, either through a Resource Management template or directly from Azure Marketplace. Use the former when you are deploying a cluster, and the latter if you already have a cluster deployed with Diagnostics enabled.
+There are two ways to provision and configure an OMS workspace, either through a Resource Manager template or directly from Azure Marketplace. Use the former when you are deploying a cluster, and the latter if you already have a cluster deployed with Diagnostics enabled.
 
 ### Deploying OMS using a Resource Management template
 
