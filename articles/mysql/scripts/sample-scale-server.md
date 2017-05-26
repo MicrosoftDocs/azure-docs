@@ -12,13 +12,13 @@ ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
 ms.custom: sample
-ms.date: 05/17/2017
+ms.date: 05/25/2017
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
 This sample CLI script scales a single Azure Database for MySQL server to a different performance level after querying the metrics.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 ## Sample script
 In this sample script, change the highlighted lines to customize the admin username and password. Replace the subscription id used in the az monitor commands with your own subscription id.
