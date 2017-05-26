@@ -44,10 +44,7 @@
   - name: 5 - Implement multi-tenant app
     href: sql-database-multi-tenant-application.md
   - name: 6 - Implement a geo-distributed database
-    href: Switch-AzureRMSqlDatabaseFailoverGroup `
-   -ResourceGroupName $myresourcegroupname  `
-   -ServerName $myservername `
-   -FailoverGroupName $myfailovergroupname 
+    href: sql-database-implement-geo-distributed-database.md 
   - name: Wingtip SaaS tutorials
     items:
     - name: Wingtip SaaS introduction
