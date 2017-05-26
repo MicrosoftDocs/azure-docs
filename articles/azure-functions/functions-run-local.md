@@ -107,7 +107,7 @@ To create a new function, run `func new`. This command has the following optiona
 - `--template [-t]`. The template name.
 - `--name [-n]`. The function name.
 
-For instance, to create a JavaScript HTTP trigger, run:
+For example, to create a JavaScript HTTP trigger, run:
 
 ```
 func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
@@ -189,7 +189,7 @@ To publish a Functions project to a Functions app in Azure, use the `publish` co
 func azure functionapp publish <FunctionAppName>
 ```
 
-The `publish` command uploads the contents of the Functions project directory, but it does not delete files that have been deleted locally. To delete these files, in the Azure Functions portal, start Kudu. Select **Platform Features** > **Advanced Tools (Kudu)**. 
+The `publish` command uploads the contents of the Functions project directory, but it does not delete files that have been deleted locally. To delete these files, in the Azure Functions portal, start Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
 
 
 <!-- LINKS -->
