@@ -22,7 +22,7 @@ ms.author: iainfou
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article shows you how to create a complete Linux environment and supporting resources with Ansible. You can also learn how to [Create a basic VM with Ansible](ansible-create-vm.md).
 
 
-## Pre-requisites
+## Prerequisites
 To manage Azure resources with Ansible, you need the following:
 
 - Ansible and the Azure Python SDK modules installed on your host system.
