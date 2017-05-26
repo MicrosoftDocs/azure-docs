@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/17/2017
+ms.date: 05/26/2017
 ms.author: carlrab
 
 ---
@@ -34,6 +34,7 @@ To complete this tutorial, make sure you have:
 
    - [Create DB - Portal](sql-database-get-started-portal.md)
    - [Create DB - CLI](sql-database-get-started-cli.md)
+   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## Create users with permissions for your database
 
@@ -41,11 +42,14 @@ Use SQL Server Management Studio to connect to your database and create user acc
 
 1. Open SQL Server Management Studio.
 2. In the **Connect to Server** dialog box, enter the following information:
-   - **Server type**: Specify Database engine
-   - **Server name**: Enter your fully qualified server name, such as **mynewserver20170313.database.windows.net**
-   - **Authentication**: Specify SQL Server Authentication
-   - **Login**: Enter your server admin account
-   - **Password**: Enter the password for your server admin account
+
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server type** | Database engine | This value is required. |
+   | **Server name** | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
+   | **Authentication** | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | **Login** | The server admin account | This is the account that you specified when you created the server. |
+   | **Password** | The password for your server admin account | This is the password that you specified when you created the server. |
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
