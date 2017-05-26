@@ -248,9 +248,8 @@ For more information, learn how to
 #### Part 2: Create an Azure AD application identity for your web app or API app
 
 If your web app or API app is already deployed, you can turn on authentication 
-and create the application identity in the Azure portal. 
-Otherwise, you can [turn on authentication when you deploy your app](#authen-deploy) 
-with an Azure Resource Manager template. 
+and create the application identity in the Azure portal. Otherwise, you can 
+[turn on authentication when you deploy with an Azure Resource Manager template](#authen-deploy). 
 
 **Create the application identity and turn on authentication in the Azure portal for deployed apps**
 
@@ -330,21 +329,20 @@ For more information, see these topics:
 
 <a name="authen-deploy"></a>
 
-**Deploy your web app or API app with an Azure Resource Manager template**
+**Turn on authentication when you deploy with an Azure Resource Manager template**
 
-First, you must create an Azure AD application identity for your web app or API app 
-that differs from the app identity for your logic app. 
+You must still create an Azure AD application identity for your web app or API app 
+that differs from the app identity for your logic app. To create the application identity, 
+follow the previous steps in Part 2 for the Azure portal. 
+You can also follow the steps in Part 1, but make sure to use your web app or API app's 
+actual `https://{URL}` for **Sign-on URL** and **App ID URI**. From these steps, 
+you have to save both the client ID and tenant ID for use in your app's 
+deployment template and also for Part 3.
 
 > [!NOTE]
 > When you create the Azure AD application identity for your web app or API app, 
 > you must use the Azure portal or Azure classic portal, rather than PowerShell. 
 > The PowerShell commandlet doesn't set up the required permissions to sign users into a website.
-
-To create the application identity, follow the previous steps in Part 2 for the Azure portal. 
-You can also follow the steps in Part 1, but make sure to use your web app or API app's 
-actual `https://{URL}` for **Sign-on URL** and **App ID URI**. From these steps, 
-you have to save both the client ID and tenant ID for use in your app's 
-deployment template and also for Part 3.
 
 After you get the client ID and tenant ID, include these IDs 
 as a subresource of your web app or API app in your deployment template:
@@ -392,6 +390,7 @@ find the **Authorization** section, and include this line:
 | type |The authentication type. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`. |
 
 For example:
+
 ```
 {
    ...
@@ -459,8 +458,13 @@ In the **Authorization** section, include this line:
 
 #### Azure Active Directory authentication through code
 
-To restrict your API to your logic app, for example, 
-from your code, extract the header that has the JSON web token (JWT). 
+By default, the Azure AD authentication that you turn on 
+in the Azure portal doesn't provide fine-grained authorization. 
+For example, this authentication locks your API to just a specific tenant, 
+not to a specific user or app. 
+
+To restrict API access to your logic app through code, 
+extract the header that has the JSON web token (JWT). 
 Check the caller's identity, and reject requests that don't match.
 
 Going further, to implement this authentication entirely in your own code, 
