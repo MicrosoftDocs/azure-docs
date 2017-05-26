@@ -218,7 +218,7 @@ import MSAL
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-2.	Add the following method to your AppDelegate class to handle callbacks:
+Add the following method to your AppDelegate class to handle callbacks:
 </li>
 </ol>
 
