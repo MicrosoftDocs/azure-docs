@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 04/13/2017
 ms.author: sdanie
 
 ---
@@ -47,7 +47,7 @@ The latest builds of [jedis](https://github.com/xetorthio/jedis) provide support
 
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */
-    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
 > [!NOTE]
@@ -66,7 +66,7 @@ The latest builds of [jedis](https://github.com/xetorthio/jedis) provide support
       {
         boolean useSsl = true;
         /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
         jedis.set("foo", "bar");

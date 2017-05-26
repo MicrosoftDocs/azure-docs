@@ -1,14 +1,14 @@
 ---
-title: Azure DocumentDB community, news, & events | Microsoft Docs
-description: Join the Azure DocumentDB community to build relationships, showcase your work, and sharpen your skills.
-services: documentdb
+title: Azure Cosmos DB community, news, & events | Microsoft Docs
+description: Join the Azure Cosmos DB community to build relationships, showcase your work, and sharpen your skills.
+services: cosmosdb
 documentationcenter: ''
 author: aliuy
 manager: jhubbard
 editor: mimig
 
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -19,26 +19,26 @@ ms.author: andrl
 ---
 # Community portal
 ## Community spotlight
-Let us promote your project! Show us the awesome project you're working on with DocumentDB, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+Let us promote your project! Show us the awesome project you're working on with Azure Cosmos DB, the next generation of the DocumentDB stack, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 ### documentdb-lumenize
 *by Larry Maccherone*
 
-Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in DocumentDB.
+Aggregations (Group-by, Pivot-table, and N-dimensional Cube) and Time Series Transformations as Stored Procedures in Azure Cosmos DB DocumentDB API.
 
 Check it out on [GitHub](https://github.com/lmaccherone/documentdb-lumenize) and [npm](https://www.npmjs.com/package/lumenize).
 
 ### DocumentDB Studio
 *by Ming Liu*
 
-A client management viewer/explorer for Microsoft Azure DocumentDB service.
+A client management viewer/explorer for the Azure Cosmos DB DocumentDB API service.
 
 Check it out on [GitHub](https://github.com/mingaliu/DocumentDBStudio).
 
 ### DoQmentDB
 *by Ariel Mashraki*
 
-DoQmentDB is a Node.js promise-based client, that provides a MongoDB-like layer on top of DocumentDB.
+DoQmentDB is a Node.js promise-based client, that provides a MongoDB-like layer on top of Azure Cosmos DB.
 
 Check it out on [GitHub](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
 
@@ -52,21 +52,21 @@ Check it out on [GitHub](https://github.com/jcormont/documentdb-typescript) and 
 ### Swagger REST API for DocumentDB
 *by Howard Edidin*
 
-A DocumentDB REST API Swagger file that can be easily deployed as an API App.
+An Azure Cosmos DB DocumentDB REST API Swagger file that can be easily deployed as an API App.
 
 Check it out on [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
 ### fluent-plugin-documentdb
 *by Yoichi Kawasaki*
 
-fluent-plugin-documentdb is a Fluentd plugin for outputting to Azure DocumentDB.
+fluent-plugin-documentdb is a Fluentd plugin for outputting to Azure Cosmos DB DocumentDB API.
 
 Check it out on [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) and [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
-*Find more open source DocumentDB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
+*Find more open source Azure Cosmos DB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
 ## News, blogs, and articles
-You can stay up-to-date with the latest DocumentDB news and features by following [our blog](https://azure.microsoft.com/blog/tag/documentdb/).
+You can stay up-to-date with the latest Azure Cosmos DB news and features by following [our blog](https://azure.microsoft.com/blog/tag/documentdb/).
 
 **Community posts:**
 
@@ -227,10 +227,10 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 | --- | --- | --- |
 | Documentation |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop Connector |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+| Data migration tool |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Microsoft download center](http://www.microsoft.com/download/details.aspx?id=46436) |
 
-## DocumentDB Wizards
-DocumentDB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the DocumentDB team.
+## Azure Cosmos DB Wizards
+Azure Cosmos DB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure Cosmos DB, the next generation of Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the Azure Cosmos DB team.
 
 | Wizard | Picture |
 | --- | --- |
@@ -243,5 +243,5 @@ DocumentDB Wizards are community leaders who’ve demonstrated an exemplary comm
 |  [Santosh Hari](https://twitter.com/_s_hari) |[![Santosh Hari](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) |
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
-Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
+Want to become an Azure Cosmos DB Wizard? While there is no benchmark for becoming a Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
 

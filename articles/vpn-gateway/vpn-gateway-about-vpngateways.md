@@ -117,6 +117,10 @@ For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](vpn-
 ### Estimated aggregate throughput by SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
+## FAQ
+
+For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
+
 ## Next steps
 - Plan your VPN gateway configuration. See [VPN Gateway Planning and Design](vpn-gateway-plan-design.md).
 - View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.

@@ -19,7 +19,7 @@ ms.author: asteen
 
 # Problem configuring federated single sign-on for a non-gallery application
 
-If you encounter a problem when configuring an application. Verify you have followed all the steps in the article [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery.](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-custom-apps)
+If you encounter a problem when configuring an application. Verify you have followed all the steps in the article [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
 
 ## Can’t add another instance of the application
 
@@ -35,7 +35,7 @@ If the application doesn’t support any of the above. Then, you won’t be able
 
 You won’t be able to select the EntityID (User Identifier) format that Azure AD sends to the application in the response after user authentication.
 
-Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy,
+Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy,
 
 ## Where do I get the application metadata or certificate from Azure AD
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: 'Azure Active Directory B2C: Web sign-in with OpenID Connect | Microsoft Docs'
 description: Building web applications by using the Azure Active Directory implementation of the OpenID Connect authentication protocol.
 services: active-directory-b2c
 documentationcenter: ''

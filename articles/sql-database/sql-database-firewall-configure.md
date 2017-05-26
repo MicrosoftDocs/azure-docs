@@ -11,7 +11,7 @@ tags: ''
 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -63,7 +63,7 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 > 
 
 ## Creating and managing firewall rules
-The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using Azure PowerShell, Azure CLI, or the REST API. Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
+The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [Azure CLI](/cli/azure/sql/server/firewall-rule#create), or the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. 
 > [!IMPORTANT]
 > Database-level firewall rules can only be created and managed using Transact-SQL. 
 >
@@ -74,15 +74,19 @@ To improve performance, server-level firewall rules are temporarily cached at th
 
 To set a server-level firewall rule in the Azure portal, you can either go to the Overview page for your Azure SQL database or the Overview page for your Azure Database logical server.
 
+> [!TIP]
+> For a tutorial, see [Create a DB using the Azure portal](sql-database-get-started-portal.md).
+>
+
 **From database overview page**
 
 1. To set a server-level firewall rule from the database overview page, click **Set server firewall** on the toolbar as shown in the following image: The **Firewall settings** page for the SQL Database server opens.
 
-      ![server firewall rule](./media/sql-database-get-started/server-firewall-rule.png) 
+      ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 2. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-      ![set server firewall rule](./media/sql-database-get-started/server-firewall-rule-set.png) 
+      ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
 **From server overview page**
 
@@ -109,20 +113,20 @@ The overview page for your server opens, showing you the fully qualified server 
 
 The following examples review the existing rules, enable a range of IP addresses on the server Contoso, and deletes a firewall rule:
    
-```t-sql
+```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
 ```
   
 Next, add a firewall rule.
    
-```t-sql
+```sql
 EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
 To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule:
    
-```t-sql
+```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
@@ -143,8 +147,10 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.1"
 ```
 
-For PowerShell examples in the context of a quick start, see [Create DB - PowerShell](sql-database-get-started-powershell.md) and [Create a single database and configure a firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-  
+> [!TIP]
+> For PowerShell examples in the context of a quick start, see [Create DB - PowerShell](sql-database-get-started-powershell.md) and [Create a single database and configure a firewall rule using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+>
+
 ### Azure CLI
 | Cmdlet | Level | Description |
 | --- | --- | --- |
@@ -161,7 +167,9 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.1
 ```
 
-For an Azure CLI example in the context of a quick start, see [Create DDB - Azure CLI](sql-database-get-started-cli.md) and [Create a single database and configure a firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+> [!TIP]
+> For an Azure CLI example in the context of a quick start, see [Create DDB - Azure CLI](sql-database-get-started-cli.md) and [Create a single database and configure a firewall rule using the Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+>
 
 ### REST API
 | API | Level | Description |
@@ -204,7 +212,7 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 
 ## Next steps
 
-- For a quick start on creating a database and a server-level firewall rule, see [Create an Azure SQL database](sql-database-get-started.md).
+- For a quick start on creating a database and a server-level firewall rule, see [Create an Azure SQL database](sql-database-get-started-portal.md).
 - For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)

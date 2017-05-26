@@ -30,21 +30,21 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 ###Items to note when viewing the tables:
 
-* There has been a terminology change for Azure VPN gateways. There is no functionality change, only the names are changing.
+* There has been a terminology change for Azure VPN gateways. There is no functionality change. Only the names are changing.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
 * Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
 
 > [!NOTE]
-> When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
+> When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.
+>                
 
-
-## <a name="devicetable"></a>Validated VPN devices
+## <a name="devicetable"></a>Validated VPN devices and device configuration guides
 We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
 
-To help configure your VPN device, refer to the links that correspond to appropriate device family.  The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
+To help configure your VPN device, refer to the links that correspond to appropriate device family. The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
 
-|**Vendor**          |**Device family**     |**Minimum OS version** |**PolicyBased** |**RouteBased** |
+|**Vendor**          |**Device family**     |**Minimum OS version** |**PolicyBased configuration instructions** |**RouteBased configuration instructions** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Not Compatible  |[Configuration guide](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |AR Series VPN Routers |2.9.2                  |Coming soon     |Not compatible  |
@@ -64,7 +64,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Juniper |ISG |ScreenOS 6.3 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper |SSG |ScreenOS 6.2 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Routing and Remote Access Service |Windows Server 2012 |Not compatible |[Configuration samples](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
-| Open Systems AG |Mission Control Security Gateway |N/A |[Configuration guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Configuration guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
+| Open Systems AG |Mission Control Security Gateway |N/A |[Configuration guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Not compatible |
 | Openswan |Openswan |2.6.32 |(Coming soon) |Not compatible |
 | Palo Alto Networks |All devices running PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 or later<br>RouteBased: 7.1.4 |[Configuration guide](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuration guide](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
 | SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Configuration guide for SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Configuration guide for SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Configuration guide for SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Configuration guide for SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
@@ -78,7 +78,7 @@ If you don’t see your device listed in the Validated VPN devices table, your d
 ## <a name="editing"></a>Editing device configuration samples
 After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment.
 
-###To edit a sample:
+### To edit a sample:
 
 1. Open the sample using Notepad.
 2. Search and replace all <*text*> strings with the values that pertain to your environment. Be sure to include < and >. When a name is specified, the name you select should be unique. If a command does not work, consult your device manufacturer documentation.
@@ -103,7 +103,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 > 
 >
 
-In the tables below:
+In the following tables:
 
 * SA = Security Association
 * IKE Phase 1 is also called "Main Mode"
@@ -182,7 +182,7 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 >
 >
 
-###Feb. 16, 2017
+### Feb. 16, 2017
 
 **Palo Alto Networks devices with version prior to 7.1.4** for Azure route-based VPN: If you are using VPN devices from Palo Alto Networks with PAN-OS version prior to 7.1.4 and are experiencing connectivity issues to Azure route-based VPN gateways, perform the following steps:
 

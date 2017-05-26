@@ -27,7 +27,7 @@ To use the tutorial, you will need the following prerequisites:
 
 ## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services (formerly Project Oxford) portal. See [subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both primary and secondary key can be used in this tutorial.
+Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
 
 ## <a name="step2"></a>Step 2: Create the application framework
 
@@ -37,16 +37,16 @@ In this step you will create an Android application project to implement the bas
 2. From the File menu, click New Project…
 3. Name the application MyFirstApp, and then click Next. 
 
-![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
+    ![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
 
 4. Choose target platform as required, and then click Next. 
 
-![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
+    ![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
 
 5. Select "Basic Activity" and then click Next.
 6. Name the activity as follows, and then click Finish. 
 
-![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
+    ![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
 
 7. Open activity_main.xml, you should see the Layout Editor of this activity.
 8. View Text source file and then edit the activity layout as follows:			 
