@@ -26,8 +26,8 @@ of the most important features that you can enable on Azure SQL Database to opti
 
 ## Why automatic tuning?
 
-One of the main tasks in classic database administration is monitoring workload, identifying critical SQL queries and plans, indexes that
-should be added to improve performance of the queries, rarely used indexes that should be removed, and heavily fragmented indexes.
+One of the main tasks in classic database administration is monitoring workload, identifying critical SQL queries, indexes that
+should be added to improve performance, rarely used, and heavily fragmented indexes.
 Azure SQL Database provides detailed insight into the queries and indexes that you need to monitor. However, constantly monitoring
 database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible
 to do efficiently even with all available tools and reports that Azure SQL Database and Azure portal provide. 
@@ -41,12 +41,12 @@ workload and identify potential issues and improvements.
 
 ![Automatic tuning process](media/sq-database-automatic-tuning/tuning-process.png "Automatic tuning process")
 
-This process enables Azure SQL Database to dynamically **adapt** to your workload by finding what indexes might be useful to improve
-performance of your workloads, what indexes affect your workloads, how to find optimal plans, etc. Based on these findings, **Automatic
+This process enables Azure SQL Database to dynamically **adapt** to your workload by finding what indexes and plans might improve
+performance of your workloads and what indexes affect your workloads. Based on these findings, **Automatic
 tuning applies tuning actions that improve performance** of your workload.
 In addition, Azure SQL Database will continuously monitor performance after any change made by automatic tuning to ensure that it improves
 performance of your workload. Any action that didn’t improve performance is automatically reverted. This verification
-process is a key feature that ensures that any change made by automatic tuning feature don't have a negative impact on the performance
+process is a key feature that ensures that any change made by Automatic tuning feature will not affect the performance
 of your workload.
 
 There are two automatic tuning features that are available in Azure SQL Database:
@@ -88,8 +88,7 @@ Find more information about identification of indexes that should be changed at
 
 ### Automatic index management
 
-If you find that the built-in rules improve the performance of your database or if you have many recommendations that you need to review
-and execute – you might let Azure SQL database automatically manage your indexes.
+If you find that the built-in rules improve the performance of your database, you might let Azure SQL database automatically manage your indexes.
 
 Find more information about Enabling automatic index management at HOW TO: enable Automatic tuning.
 Actions required to create necessary indexes in Azure SQL Databases might consume resources and temporally affect workload performance.
