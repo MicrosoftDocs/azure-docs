@@ -1,6 +1,6 @@
 ---
 title: Add intents in LUIS applications | Microsoft Docs
-description: Use Language Understanding Intelligent Services (LUIS) to add intents to help apps understand user requests and react to them properly.
+description: Use Language Understanding Intelligent Service (LUIS) to add intents to help apps understand user requests and react to them properly.
 services: cognitive-services
 author: cahann
 manager: hsalama
@@ -13,17 +13,17 @@ ms.author: cahann
 ---
 
 # Add Intents 
-Intents are the intentions or desired actions conveyed through the utterances (sentences). Intents match user requests with the actions that should be taken by your app. So, you must add intents to help your app understand user requests and react to them properly. 
+An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, or utterances. Intents match user requests with the actions that should be taken by your app, so you must add intents to help your app understand user requests and respond to them. 
 
-All applications come with the predefined intent, **"None"**. You should teach it to recognize user statements that are irrelevant to the app, for example if a user says "Get me a great cookie recipe" in a TravelAgent app.
+All applications come with the predefined intent, **None**. You should teach it to recognize user statements that are irrelevant to the app. For example, if a user says "Get me a great cookie recipe" in a travel agent app, label that utterance with the **None** intent.
 
-You can add up to 80 intents in a single LUIS app. You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel. 
+You can add up to **80** intents in a single LUIS app. You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel. 
 
-In the following procedure, we'll start adding the "Bookflight" intent in the TravelAgent app as an example to explain the steps of adding an intent.
+The following procedure demonstrates how to add the "Bookflight" intent in the TravelAgent app.
 
-**To add intent:**
+**To add an intent:**
 
-1. Open your app (e.g. TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
+1. Open your app (for example, TravelAgent) by clicking its name on **My Apps** page, and then click **Intents** in the left panel. 
 2. On the **Intents** page, click **Add intent**.
 
     ![Intents List](./Images/IntentsList.JPG)
@@ -31,14 +31,14 @@ In the following procedure, we'll start adding the "Bookflight" intent in the Tr
 
     ![Add Intent](./Images/Addintent-dialogbox.JPG)
 
-This will take you directly to the intent details page of the newly added intent "Bookflight", like the screenshot below, in order to add utterances for this intent. For instructions on adding utterances, see [Add example utterances](Add-example-utterances.md).
+This takes you directly to the intent details page of the newly added intent "Bookflight", like the following screenshot, to add utterances for this intent. For instructions on adding utterances, see [Add example utterances](Add-example-utterances.md).
 
 ![Intent Details page](./Images/IntentDetails-UtterancesTab1.JPG)
 
 
 
 ## Manage your intents
-You can view a list of all your intents and manage them on the **Intents** page, where you can add new intents, rename and delete existing ones or access intent details for editing. 
+You can view a list of all your intents and manage them on the **Intents** page, where you can add new intents, rename and delete existing ones, or access intent details for editing. 
 
 ![Intents List](./Images/IntentsList-added.JPG)
 
@@ -60,5 +60,7 @@ You can view a list of all your intents and manage them on the **Intents** page,
 
 * On the **Intents** page, click the intent name which you want to access its details.
 
+
+## Next steps
 
 After adding intents to your app, now your next task is to start adding example utterances for the intents you've added. For instructions, see [Add example utterances](Add-example-utterances.md).

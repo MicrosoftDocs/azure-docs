@@ -1,14 +1,14 @@
 ---
-title: NoSQL C++ tutorial for DocumentDB | Microsoft Docs
-description: A NoSQL C++ tutorial that creates a C++ database and console application using a DocumentDB endorsed SDK for C++. DocumentDB is a planet-scale NoSQL database service.
-services: documentdb
+title: C++ tutorial for Azure Cosmos DB | Microsoft Docs
+description: A C++ tutorial that creates a C++ database and console application using an Azure Cosmos DB endorsed SDK for C++. Azure Cosmos DB is a planet-scale database service.
+services: cosmosdb
 documentationcenter: cpp
 author: asthana86
 manager: jhubbard
 editor: ''
 
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
@@ -17,7 +17,7 @@ ms.date: 12/25/2016
 ms.author: aasthan
 
 ---
-# NoSQL C++ tutorial: DocumentDB C++ console application
+# Azure Cosmos DB: C++ console application tutorial for the DocumentDB API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -29,19 +29,19 @@ ms.author: aasthan
 > 
  
 
-Welcome to the C++ tutorial for the Azure DocumentDB endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources, including a C++ database.
+Welcome to the C++ tutorial for the Azure Cosmos DB DocumentDB API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
 
 We'll cover:
 
-* Creating and connecting to a DocumentDB account
+* Creating and connecting to an Azure Cosmos DB account
 * Setting up your application
-* Creating a C++ DocumentDB database
+* Creating a C++ Azure Cosmos DB database
 * Creating a collection
 * Creating JSON documents
 * Querying the collection
 * Replacing a document
 * Deleting a document
-* Deleting the C++ DocumentDB database
+* Deleting the C++ Azure Cosmos DB database
 
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/stalker314314/DocumentDBCpp). See [Get the complete solution](#GetSolution) for quick instructions.
 
@@ -57,8 +57,8 @@ Please make sure you have the following:
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/), with the C++ language components installed.
 
-## Step 1: Create a DocumentDB account
-Let's create a DocumentDB account. If you already have an account you want to use, you can skip ahead to [Setup your C++ application](#SetupNode).
+## Step 1: Create an Azure Cosmos DB account
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your C++ application](#SetupNode).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -77,12 +77,12 @@ Let's create a DocumentDB account. If you already have an account you want to us
    
     Once the packages have been added to your project, we are all set to start writing some code.   
 
-## <a id="Config"></a>Step 3: Copy connection details from Azure portal for your DocumentDB database
-Bring up [Azure portal](https://portal.azure.com) and traverse to the NoSQL (DocumentDB) database account you created. We will need the URI and the primary key from Azure portal in the next step to establish a connection from our C++ code snippet. 
+## <a id="Config"></a>Step 3: Copy connection details from Azure portal for your Azure Cosmos DB database
+Bring up [Azure portal](https://portal.azure.com) and traverse to the Azure Cosmos DB database account you created. We will need the URI and the primary key from Azure portal in the next step to establish a connection from our C++ code snippet. 
 
-![DocumentDB URI and keys in the Azure portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
+![Azure Cosmos DB URI and keys in the Azure portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a id="Connect"></a>Step 4: Connect to a DocumentDB account
+## <a id="Connect"></a>Step 4: Connect to an Azure Cosmos DB account
 1. Add the following headers and namespaces to your source code, after `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
@@ -93,15 +93,15 @@ Bring up [Azure portal](https://portal.azure.com) and traverse to the NoSQL (Doc
         using namespace documentdb;
         using namespace std;
         using namespace web::json;
-2. Next add the following code to your main function and replace the account configuration and primary key to match your DocumentDB settings from step 3. 
+2. Next add the following code to your main function and replace the account configuration and primary key to match your Azure Cosmos DB settings from step 3. 
    
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Now that you have the code to initialize the documentdb client, let's take a look at working with DocumentDB resources.
+    Now that you have the code to initialize the documentdb client, let's take a look at working with Azure Cosmos DB resources.
 
 ## <a id="CreateDBColl"></a>Step 5: Create a C++ database and collection
-Before we perform this step, let's go over how a database, collection and documents interact for those of you who are new to DocumentDB. A [database](documentdb-resources.md#databases) is a logical container of document storage portioned across collections. A [collection](documentdb-resources.md#collections) is a container of JSON documents and the associated JavaScript application logic. You can learn more about the DocumentDB hierarchical resource model and concepts in [DocumentDB hierarchical resource model and concepts](documentdb-resources.md).
+Before we perform this step, let's go over how a database, collection and documents interact for those of you who are new to Azure Cosmos DB. A [database](documentdb-resources.md#databases) is a logical container of document storage portioned across collections. A [collection](documentdb-resources.md#collections) is a container of JSON documents and the associated JavaScript application logic. You can learn more about the Azure Cosmos DB hierarchical resource model and concepts in [Azure Cosmos DB hierarchical resource model and concepts](documentdb-resources.md).
 
 To create a database and a corresponding collection add the following code to the end of your main function. This creates a database called 'FamilyRegistry’ and a collection called ‘FamilyCollection’ using the client configuration you declared in the previous step.
 
@@ -114,7 +114,7 @@ To create a database and a corresponding collection add the following code to th
 
 
 ## <a id="CreateDoc"></a>Step 6: Create a document
-[Documents](documentdb-resources.md#documents) are user-defined (arbitrary) JSON content. You can now insert a document into DocumentDB. You can create a document by copying the following code into the end of the main function. 
+[Documents](documentdb-resources.md#documents) are user-defined (arbitrary) JSON content. You can now insert a document into Azure Cosmos DB. You can create a document by copying the following code into the end of the main function. 
 
     try {
       value document_family;
@@ -131,12 +131,12 @@ To create a database and a corresponding collection add the following code to th
       wcout << ex.message();
     }
 
-To summarize, this code creates a DocumentDB database, collection, and documents, which you can query in Document Explorer in Azure portal. 
+To summarize, this code creates an Azure Cosmos DB database, collection, and documents, which you can query in Document Explorer in Azure portal. 
 
 ![C++ tutorial - Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](media/documentdb-cpp-get-started/documentdbdocs.png)
 
-## <a id="QueryDB"></a>Step 7: Query DocumentDB resources
-DocumentDB supports [rich queries](documentdb-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query made using DocumentDB SQL syntax that you can run against the documents we created in the previous step.
+## <a id="QueryDB"></a>Step 7: Query Azure Cosmos DB resources
+Azure Cosmos DB supports [rich queries](documentdb-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query made using SQL syntax that you can run against the documents we created in the previous step.
 
 The function takes in as arguments the unique identifier or resource id for the database and the collection along with the document client. Add this code before main function.
 
@@ -167,7 +167,7 @@ The function takes in as arguments the unique identifier or resource id for the 
     }
 
 ## <a id="Replace"></a>Step 8: Replace a document
-DocumentDB supports replacing JSON documents, as demonstrated in the following code. Add this code after the executesimplequery function.
+Azure Cosmos DB supports replacing JSON documents, as demonstrated in the following code. Add this code after the executesimplequery function.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
                          const wstring collresourceid,
@@ -187,7 +187,7 @@ DocumentDB supports replacing JSON documents, as demonstrated in the following c
     }
 
 ## <a id="Delete"></a>Step 9: Delete a document
-DocumentDB supports deleting JSON documents, you can do so by copy and pasting the following code after the replacedocument function. 
+Azure Cosmos DB supports deleting JSON documents, you can do so by copy and pasting the following code after the replacedocument function. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
                         const wstring collresourceid, const wstring docresourceid) {
@@ -215,7 +215,7 @@ Copy and paste the following code snippet (function cleanup) after the deletedoc
     }
 
 ## <a id="Run"></a>Step 11: Run your C++ application all together!
-We have now added code to create, query, modify, and delete different DocumentDB resources.  Let us now wire this up by adding calls to these different functions from our main function in hellodocumentdb.cpp along with some diagnostic messages.
+We have now added code to create, query, modify, and delete different Azure Cosmos DB resources.  Let us now wire this up by adding calls to these different functions from our main function in hellodocumentdb.cpp along with some diagnostic messages.
 
 You can do so by replacing the main function of your application with the following code. This writes over the account_configuration_uri and primary_key you copied into the code in Step 3, so save that line or copy the values in again from the portal. 
 
@@ -270,20 +270,20 @@ You should now be able to build and run your code in Visual Studio by pressing F
 
 You should see the output of your get started app. The output should match the following screenshot.
 
-![DocumentDB C++ application output](media/documentdb-cpp-get-started/docdbconsole.png)
+![Azure Cosmos DB C++ application output](media/documentdb-cpp-get-started/docdbconsole.png)
 
-Congratulations! You've completed the C++ tutorial and have your first DocumentDB console application!
+Congratulations! You've completed the C++ tutorial and have your first Azure Cosmos DB console application!
 
 ## <a id="GetSolution"></a>Get the complete C++ tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you need the following:
 
-* [DocumentDB account][documentdb-create-account].
+* [Azure Cosmos DB account][documentdb-create-account].
 * The [GetStarted](https://github.com/stalker314314/DocumentDBCpp) solution available on GitHub.
 
 ## Next steps
-* Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
+* Learn how to [monitor an Azure Cosmos DB account](documentdb-monitor-accounts.md).
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-* Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
+* Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
 

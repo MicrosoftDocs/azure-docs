@@ -104,7 +104,7 @@ The following example shows a SQL server and SQL database. Notice that an explic
 ```
 
 ## reference function
-The [reference function](resource-group-template-functions.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. The general format is:
+The [reference function](resource-group-template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. Reference expressions implicitly declare that one resource depends on another. The general format is:
 
 ```json
 reference('resourceName').propertyPath
@@ -129,7 +129,7 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
 
 You can use either this element or the dependsOn element to specify dependencies, but you do not need to use both for the same dependent resource. Whenever possible, use an implicit reference to avoid adding an unnecessary dependency.
 
-To learn more, see [reference function](resource-group-template-functions.md#reference).
+To learn more, see [reference function](resource-group-template-functions-resource.md#reference).
 
 ## Recommendations for setting dependencies
 

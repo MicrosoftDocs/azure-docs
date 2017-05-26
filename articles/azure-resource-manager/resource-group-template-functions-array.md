@@ -464,7 +464,7 @@ The following example shows how to use the first function with an array and stri
 
 ### Return value
 
-The type (string, int, array, or object) of the first element in an array, or a string of the first character.
+The type (string, int, array, or object) of the first element in an array, or the first character of a string.
 
 <a id="intersection" />
 

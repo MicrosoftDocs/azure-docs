@@ -56,8 +56,12 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 	Param
 	(
 		[Parameter(Mandatory=$True)]
-        [ValidateSet("AzureCloud","AzureUSGovernment")]
-        [string]$Environment="AzureCloud"
+        	[ValidateSet("AzureCloud","AzureUSGovernment")]
+        	[string]$Environment="AzureCloud",
+		[Parameter(Mandatory=$True)]
+		[string]$nameOfYourLogAnalyticsWorkspace,
+		[Parameter(Mandatory=$True)]
+		[string]$nameOfYourAutomationAccount
 	)
 
 #Check to see which cloud environment to sign into.
@@ -67,10 +71,10 @@ Switch ($Environment)
        "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
    }
 
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
-$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+# Below both the ResourceId's are populated using the Parameters from this script as a searchstring based on the Name of the Automation Account and Name of Workspace
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO"
+$workspaceId=(Get-AzureRmOperationalInsightsWorkspace|where Name -like ('*'+$nameOfYourLogAnalyticsWorkspace+'*')).ResourceId
+$automationAccountId=(Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts" -ResourceNameContains $nameOfYourAutomationAccount).Resourceid
 
 Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 
@@ -89,8 +93,10 @@ To confirm that your Automation account is sending logs to your Log Analytics wo
 	Param
 	(
 		[Parameter(Mandatory=$True)]
-        [ValidateSet("AzureCloud","AzureUSGovernment")]
-        [string]$Environment="AzureCloud"
+        	[ValidateSet("AzureCloud","AzureUSGovernment")]
+        	[string]$Environment="AzureCloud",
+		[Parameter(Mandatory=$True)]
+		[string]$nameOfYourAutomationAccount
 	)
 
 #Check to see which cloud environment to sign into.
@@ -99,10 +105,10 @@ Switch ($Environment)
        "AzureCloud" {Login-AzureRmAccount}
        "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
    }
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
-$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO"
+# Below the ResourceId is populated using the Parameter from this script as a searchstring based on the Name of the Workspace
+
+$automationAccountId=(Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts" -ResourceNameContains $nameOfYourAutomationAccount).Resourceid
 
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```

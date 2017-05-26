@@ -14,24 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ---
 
 # Create and Manage Linux VMs with the Azure CLI
 
-This tutorial covers basic Azure Virtual Machine creation items such as selecting a VM size, selecting a VM image, and deploying a VM. This tutorial also covers basic management operations such as managing state, deleting, and resizing a VM.
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Create and connect to a VM
+> * Select and use VM images
+> * View and use specific VM sizes
+> * Resize a VM
+> * View and understand VM state
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create resource group
 
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named `myResourceGroupVM` is created in the `westus` region. 
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus* region. 
 
-```azurecli
-az group create --name myResourceGroupVM --location westus
+```azurecli-interactive
+az group create --name myResourceGroupVM --location eastus
 ```
 
 The resource group is specified when creating or modifying a VM, which can be seen throughout this tutorial.
@@ -40,7 +49,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. 
 
-When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of `myVM` running Ubuntu Server. 
+When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. 
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -52,7 +61,7 @@ Once the VM has been created, the Azure CLI outputs information about the VM. Ta
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -77,7 +86,7 @@ exit
 
 ## Understand VM images
 
-The Azure marketplace includes many images that can be used to create new VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
+The Azure marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
 
 To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image#list) command.
 
@@ -103,7 +112,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-A full list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–offer`. In this example, the list is filtered for all images with an offer that matches `CentOS`. 
+A full list can be seen by adding the `--all` argument. The image list can also be filtered by `--publisher` or `–-offer`. In this example, the list is filtered for all images with an offer that matches *CentOS*. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
@@ -122,7 +131,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-To deploy a VM using a specific image, take note of the value in the `Urn` column. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example, the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
+To deploy a VM using a specific image, take note of the value in the *Urn* column. When specifying the image, the image version number can be replaced with “latest”, which selects the latest version of the distribution. In this example, the `--image` argument is used to specify the latest version of a CentOS 6.5 image.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -151,7 +160,7 @@ The following table categorizes sizes into use cases.
 To see a list of VM sizes available in a particular region, use the [az vm list-sizes](/cli/azure/vm#list-sizes) command. 
 
 ```azurecli
-az vm list-sizes --location westus --output table
+az vm list-sizes --location eastus --output table
 ```
 
 Partial output:
@@ -182,7 +191,12 @@ Partial output:
 In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](/cli/azure/vm#create) and the `--size` argument. 
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM3 \
+    --image UbuntuLTS \
+    --size Standard_F4s \
+    --generate-ssh-keys
 ```
 
 ### Resize a VM
@@ -239,7 +253,10 @@ An Azure VM can have one of many power states. This state represents the current
 To retrieve the state of a particular VM, use the [az vm get instance-view](/cli/azure/vm#get-instance-view) command. Be sure to specify a valid name for a virtual machine and resource group. 
 
 ```azurecli
-az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query instanceView.statuses[1] --output table
+az vm get-instance-view \
+    --name myVM \
+    --resource-group myResourceGroupVM \
+    --query instanceView.statuses[1] --output table
 ```
 
 Output:
@@ -284,6 +301,16 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## Next steps
 
-In this tutorial, you have learned about basic VM creation and management. Advance to the next tutorial to learn about VM disks.  
+In this tutorial, you learned about basic VM creation and management such as how to:
 
-[Create and Manage VM disks](./tutorial-manage-disks.md)
+> [!div class="checklist"]
+> * Create and connect to a VM
+> * Select and use VM images
+> * View and use specific VM sizes
+> * Resize a VM
+> * View and understand VM state
+
+Advance to the next tutorial to learn about VM disks.  
+
+> [!div class="nextstepaction"]
+> [Create and Manage VM disks](./tutorial-manage-disks.md)

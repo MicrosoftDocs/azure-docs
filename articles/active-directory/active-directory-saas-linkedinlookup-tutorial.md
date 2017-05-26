@@ -141,13 +141,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| --- | --- |    
 	| department| user.department |
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-   	a. Click **Add attribute** to open the attribute details page add the department attribute as shown below-
+   a. Click **Add attribute** to open the attribute details page add the department attribute as shown below-
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
    
-   	b. Click **Ok** to save the attribute.
+   b. Click **Ok** to save the attribute.
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 

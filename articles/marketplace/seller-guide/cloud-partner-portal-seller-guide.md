@@ -222,7 +222,7 @@ Detailed reports show customer information, like company name and geographic loc
 - SubscriptionName
 - AzureSubscriptionId
 - CloudInstanceName
-- Order Count
+- OrderCount
 - CustomerCountryRegion
 - CustomerCity
 - CustomerCommunicationCulture

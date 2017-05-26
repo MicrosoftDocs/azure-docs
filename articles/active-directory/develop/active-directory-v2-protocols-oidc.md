@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 and the OpenID Connect protocol

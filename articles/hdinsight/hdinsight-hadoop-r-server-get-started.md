@@ -32,13 +32,9 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 > The steps in this document assume that you are using a password.
 
 
-### Access control requirements
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## Automated cluster creation
 
-You can automate the creation of HDInsight R Servers using ARM templates, the SDK, and also PowerShell.
+You can automate the creation of HDInsight R Servers using Azure Resource Manager templates, the SDK, and also PowerShell.
 
 * To create an R Server using an Azure Resource Management template, see [Deploy an R server HDInsight cluster.](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 * To create an R Server using the .NET SDK, see [create Linux-based clusters in HDInsight using the .NET SDK.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
@@ -585,7 +581,7 @@ remoteLogin(
 )
 ```
 
-## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes?
+## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes
 
 
 ### Decommission the worker node(s)
@@ -625,6 +621,10 @@ Once all decommissioned worker nodes have been configured to run compute node, c
 * Look for the "URIs" section, and add worker node's IP and port details.
 
 ![decommission worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## Troubleshoot
+
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## Next steps
 
