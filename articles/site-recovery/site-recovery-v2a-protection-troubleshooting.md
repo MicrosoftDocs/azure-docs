@@ -23,7 +23,7 @@ You may receive a specific error message when protecting your VMware virtual mac
 
 ## Initial replication is stuck at 0%
 Most of the initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure.
-For most cases you can self troubleshoot these issues by following the steps listed below.
+For most cases, you can self troubleshoot these issues by following the steps listed below.
 
 ###Check the following on SOURCE MACHINE
 * From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
@@ -32,7 +32,7 @@ For most cases you can self troubleshoot these issues by following the steps lis
 > [!NOTE]
 	> Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/en-us/library/cc771275(v=WS.10).aspx)
 
-If unable to connect, allow inbound port 9443 on the Process Server and check if the problem still exits. There has been some cases where process server was behind DMZ which was causing this problem.
+If unable to connect, allow inbound port 9443 on the Process Server and check if the problem still exits. There has been some cases where process server was behind DMZ, which was causing this problem.
 
 * Check the status of service `InMage Scout VX Agent – Sentinel/OutpostStart` if it is not running and check if the problem still exists.   
  
@@ -74,7 +74,7 @@ If you are unable to connect, then check if the access issue is due to firewall 
 
 * **Check if IP address-based firewall on Process server are not blocking access**: If you are using an IP address-based firewall rules on the server, then download the complete list of Microsoft Azure Datacenter IP Ranges from [here](https://www.microsoft.com/download/details.aspx?id=41653) and add them to your firewall configuration to ensure they allow communication to Azure (and the HTTPS (443) port).  Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
-* **Check if URL-based firewall on Process server are not blocking access**:  If you are using an URL based firewall rules on the server, ensure the following URLs are added to firewall configuration.      
+* **Check if URL-based firewall on Process server is not blocking access**:  If you are using a URL based firewall rules on the server, ensure the following URLs are added to firewall configuration.      
   `*.accesscontrol.windows.net:` Used for access control and identity management
 
   `*.backup.windowsazure.com:` Used for replication data transfer and orchestration
@@ -91,16 +91,16 @@ URLs for **Azure Government Cloud**:
 * .ugi.hypervrecoverymanager.windowsazure.us
 * .ugi.backup.windowsazure.us 
 
-* **Check if Proxy Setting on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
+* **Check if Proxy Settings on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
 To check what you have provided at the time of Configuration Server setup. Go to registry key
 
 	`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
 
-Now ensure that the same settings is being used by Azure Site Recovery agent to send data.
+Now ensure that the same settings are being used by Azure Site Recovery agent to send data.
 Search Microsoft Azure  Backup 
 ![Enable replication](./media/site-recovery-protection-common-errors/mab.png)
 
-Open it and click on Action > Change Properties. Under Proxy Configuration tab, you should see the proxy address which should be same as shown by the registry settings. If not, please change it to the same address.
+Open it and click on Action > Change Properties. Under Proxy Configuration tab, you should see the proxy address, which should be same as shown by the registry settings. If not, please change it to the same address.
 
 ![Enable replication](./media/site-recovery-protection-common-errors/mab_proxy.png)
 
