@@ -213,6 +213,8 @@ Your DNS records page should look like the following screenshot:
 
 ![DNS records page](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
+<a name="enable-a"></a>
+
 ### Enable the A record mapping in your app
 
 You are now ready to add your configured DNS name to your app.
