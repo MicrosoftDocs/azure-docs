@@ -25,10 +25,10 @@ You may receive a specific error message when protecting your VMware virtual mac
 Most of the initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure.
 For most cases you can self troubleshoot these issues by following the steps listed below.
 
-####Check the following on SOURCE MACHINE
+###Check the following on SOURCE MACHINE
 * From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
 	 
-			`telnet <PS IP address> <port>`
+	`telnet <PS IP address> <port>`
 > [!NOTE]
 	> Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/en-us/library/cc771275(v=WS.10).aspx)
 
@@ -36,7 +36,7 @@ If unable to connect, allow inbound port 9443 on the Process Server and check if
 
 * Check the status of service `InMage Scout VX Agent – Sentinel/OutpostStart` if it is not running and check if the problem still exists.   
  
-####Check the following on PROCESS SERVER
+###Check the following on PROCESS SERVER
 
 * **Check if process server is actively pushing data to Azure** 
 
@@ -83,7 +83,8 @@ If you are unable to connect, then check if the access issue is due to firewall 
 
   `*.hypervrecoverymanager.windowsazure.com:` Used for replication management operations and orchestration
 
-  `time.nist.gov` and `time.windows.com`: Used to check time synchronization between system and global timeURLs for **Azure Government Cloud**:
+  `time.nist.gov` and `time.windows.com`: Used to check time synchronization between system and global time.
+URLs for **Azure Government Cloud**:
 
 * .ugv.hypervrecoverymanager.windowsazure.us
 * .ugv.backup.windowsazure.us
@@ -103,4 +104,4 @@ Open it and click on Action > Change Properties. Under Proxy Configuration tab, 
 
 ![Enable replication](./media/site-recovery-protection-common-errors/mab_proxy.png)
 
-* **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth (ex. greater than 20Mbs) and check if the problem still exists.
+* **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
