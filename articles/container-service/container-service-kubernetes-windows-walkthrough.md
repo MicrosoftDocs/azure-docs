@@ -20,11 +20,11 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Create a Kubernetes cluster for Windows containers with the Azure CLI
+# Quick start: Kubernetes cluster for Windows containers
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.
 
-To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use the [Azure Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -55,7 +55,7 @@ az group create --name myResourceGroup --location eastus
 ## Create Kubernetes cluster
 Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
 
-The following example creates a cluster named *myK8sCluster* with one Linux master node and two Windows agent nodes. This example creates SSH keys and a [service principal](container-service-kubernetes-service-principal.md) if they don't already exist in the default locations. This example uses *azureuser* for an administrative user name and *myPassword12* as the password on the Windows nodes. Update these values to something appropriate to your environment. 
+The following example creates a cluster named *myK8sCluster* with one Linux master node and two Windows agent nodes. This example creates SSH keys needed to connect to the Linux master. This example uses *azureuser* for an administrative user name and *myPassword12* as the password on the Windows nodes. Update these values to something appropriate to your environment. 
 
 
 
@@ -75,15 +75,14 @@ After several minutes, the command completes, and shows you information about yo
 
 To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
 
-If you're using CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
-The following Azure CLI example installs `kubectl` to a full path you specify with the `--install-location` option. If you are running the Azure CLI on macOS or Linux, you might need to run the command with `sudo`.
+The following Azure CLI example installs `kubectl` to your system. On Windows, run this command as an administrator.
 
 ```azurecli
-sudo az acs kubernetes install-cli --install-location full-path-to-kubectl 
+az acs kubernetes install-cli
 ```
 
-After `kubectl` is installed, add it to your system path. 
 
 ## Connect with kubectl
 
@@ -94,13 +93,13 @@ downloads the cluster configuration for your Kubernetes cluster.
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Now you are ready to connect to your cluster from your machine. Try running:
+To verify the connection to your cluster from your machine, try running:
 
 ```bash
 kubectl get nodes
 ```
 
-`kubectl` shows output similar to the following.
+`kubectl` lists the master and agent nodes.
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -112,7 +111,9 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ## Deploy a Windows IIS container
 
-After creating the cluster and connecting with `kubectl`, try starting a containerized Windows app in a Kubernetes pod on the cluster. (A pod contains one or more containers.) This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using `kubctl apply`. 
+You can run a Docker container inside a Kubernetes *pod*, which contains one or more containers. 
+
+This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using the `kubctl apply` command. 
 
 Create a local file named `iis.json` and copy the following text. This file tells Kubernetes to run IIS on Windows Server 2016 Server Core, using a public container image from [Docker Hub](https://hub.docker.com/r/microsoft/iis/). The container uses port 80, but initially is only accessible within the cluster network.
 
@@ -172,7 +173,7 @@ To expose the pod to the world with a public IP address, type the following comm
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-With this command, Kubernetes creates an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address. 
+With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for the service. 
 
 Run the following command to see the status of the service.
 
@@ -203,4 +204,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container. To learn more about Azure Container Service, continue to [TODO: Link to tutorial?]
+In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container. To learn more about Azure Container Service, continue to the Kubernetes tutorial.
+
+> [!div class="nextstepaction"]
+> [ACS Tutorials](./container-service-create-cluster-cli.md)
