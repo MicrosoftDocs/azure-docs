@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2017
 ms.author: skwan;bryanla
+ms.custom: aaddev
 
 ---
 # How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern

@@ -1,5 +1,5 @@
 - name: SQL DB Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About SQL DB
@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Manage
+  - name: Connect and query
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-  - name: Connect
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -38,14 +36,39 @@
   - name: 1 - Create/design new SQL DB
     href: sql-database-design-first-database.md
   - name: 2 - Migrate existing SQL Server
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: 3 - Secure your SQL DB
+    href: sql-database-security-tutorial.md
+  - name: 4 - Improve SQL DB performance
+    href: sql-database-performance-tutorial.md
+  - name: 5 - Implement multi-tenant app
+    href: sql-database-multi-tenant-application.md
+  - name: Wingtip SaaS tutorials
+    items:
+    - name: Wingtip SaaS introduction
+      href: sql-database-wtp-overview.md
+    - name: Deploy the Wingtip SaaS sample
+      href: sql-database-saas-tutorial.md
+    - name: Provision/catalog new tenants
+      href: sql-database-saas-tutorial-provision-and-catalog.md
+    - name: Monitor performance
+      href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Restore a single tenant
+      href: sql-database-saas-tutorial-restore-single-tenant.md
+    - name: Manage tenant schemas
+      href: sql-database-saas-tutorial-schema-management.md
+    - name: Run ad-hoc analytics
+      href: sql-database-saas-tutorial-adhoc-analytics.md
+    - name: Monitor with Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
+    - name: Manage tenant analytics
+      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Samples
   items:
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
-    href: sql-database-powershell-samples.md
- 
+    href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
   - name: DBs and servers
@@ -140,7 +163,7 @@
       href: sql-database-long-term-retention.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
-    - name: Geo-replication
+    - name: Auto failover and geo-replication
       href: sql-database-geo-replication-overview.md
     - name: Logins
       href: sql-database-geo-replication-security-config.md

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK

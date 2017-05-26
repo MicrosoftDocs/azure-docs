@@ -1,4 +1,4 @@
-﻿# [Overview](cdn-overview.md)
+# [Overview](cdn-overview.md)
 ## [What is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 
 # Get Started
@@ -29,12 +29,14 @@
 ### [Monitor resources](cdn-resource-health.md)
 ### [Override behavior with rules](cdn-rules-engine.md)
 ### [Get real-time alerts](cdn-real-time-alerts.md)
+### [HTTP/2 support](cdn-http2.md)
 
 ## Analyze
 ### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
 ### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
 ### [View real-time statistics](cdn-real-time-stats.md)
 ### [Analyze edge node performance](cdn-edge-performance.md)
+### [Export metrics with Diagnostics Logs](cdn-log-analysis.md)
 
 ## Develop
 ### [.NET](cdn-app-dev-net.md)

@@ -142,6 +142,9 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
    	b. Click on **Ok** to save the attribute.
 
+	c. Change the name of the attribute **emailaddress** to **email**.
+
+
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedinElevate_certificate.png) 

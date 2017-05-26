@@ -1,15 +1,15 @@
 ---
-title: NoSQL Node.js examples for DocumentDB | Microsoft Docs
-description: Find NoSQL Node.js examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases.
+title: Node.js examples for Azure Cosmos DB | Microsoft Docs
+description: Find Node.js examples on github for common tasks in Azure Cosmos DB, including CRUD operations.
 keywords: node.js examples
-services: documentdb
+services: cosmosdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: nodejs
 
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,7 +18,7 @@ ms.date: 01/13/2017
 ms.author: moderakh
 
 ---
-# DocumentDB Node.js examples
+# Azure Cosmos DB Node.js examples
 > [!div class="op_single_selector"]
 > * [.NET Examples](documentdb-dotnet-samples.md)
 > * [Node.js Examples](documentdb-nodejs-samples.md)
@@ -27,7 +27,7 @@ ms.author: moderakh
 > 
 > 
 
-Sample solutions that perform CRUD operations and other common operations on Azure DocumentDB resources are included in the [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub repository. This article provides:
+Sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub repository. This article provides:
 
 * Links to the tasks in each of the Node.js example project files.
 * Links to the related API reference content.
@@ -97,7 +97,7 @@ The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/
 | [Create a range index on a string path](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L349-L425) |[IndexKind.Range](http://azure.github.io/azure-documentdb-node/global.html#IndexKind), [IndexingPolicy](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy), [DocumentClient.queryDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocument) |
 | [Create a collection with default indexPolicy, then update this online](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L519-L614) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)<br> [DocumentClient.replaceCollection#replaceCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) |
 
-For more information about indexing, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+For more information about indexing, see [Azure Cosmos DB indexing policies](documentdb-indexing-policies.md).
 
 ## Server-side programming examples
 The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) file of the [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) project shows how to perform the following tasks.
@@ -107,7 +107,7 @@ The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/
 | [Create a stored procedure](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L44-L71) |[DocumentClient.createStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createStoredProcedure) |
 | [Execute a stored procedure](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L73-L90) |[DocumentClient.executeStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#executeStoredProcedure) |
 
-For more information about server-side programming, see [DocumentDB server-side programming: Stored procedures, database triggers, and UDFs](documentdb-programming.md).
+For more information about server-side programming, see [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](documentdb-programming.md).
 
 ## Partitioning examples
 The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) file of the [Partitioning](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) project shows how to perform the following tasks.
@@ -116,5 +116,5 @@ The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/
 | --- | --- |
 | [Use a HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
-For more information about partitioning data in DocumentDB, see [Partition and scale data in DocumentDB](documentdb-partition-data.md).
+For more information about partitioning data in Azure Cosmos DB, see [Partition and scale data in Azure Cosmos DB](documentdb-partition-data.md).
 

@@ -104,11 +104,11 @@ DnsName       :
 
 You can configure the application gateway by using XML or a configuration object.
 
-## Configure the application gateway by using XML
+### Configure the application gateway by using XML
 
 In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
 
-### Step 1
+#### Step 1
 
 Copy the following text to Notepad.
 
@@ -209,7 +209,7 @@ The following example shows how to use a configuration file to set up the applic
 </ApplicationGatewayConfiguration>
 ```
 
-### Step 2
+#### Step 2
 
 Next, set the application gateway. Use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file.
 
@@ -217,14 +217,14 @@ Next, set the application gateway. Use the `Set-AzureApplicationGatewayConfig` c
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## Configure the application gateway by using a configuration object
+### Configure the application gateway by using a configuration object
 
 The following example shows how to configure the application gateway by using configuration objects. All configuration items must be configured individually and then added to an application gateway configuration object. After creating the configuration object, you use the `Set-AzureApplicationGateway` command to commit the configuration to the previously created application gateway resource.
 
 > [!NOTE]
 > Before assigning a value to each configuration object, you need to declare what kind of object PowerShell uses for storage. The first line to create the individual items defines what `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` are used.
 
-### Step 1
+#### Step 1
 
 Create all individual configuration items.
 
@@ -295,7 +295,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### Step 2
+#### Step 2
 
 Assign all individual configuration items to an application gateway configuration object ($appgwconfig).
 
@@ -383,9 +383,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## Delete an application gateway
+## Delete the application gateway
 
-To delete an application gateway:
+To delete the application gateway:
 
 1. Use the `Stop-AzureApplicationGateway` cmdlet to stop the gateway.
 2. Use the `Remove-AzureApplicationGateway` cmdlet to remove the gateway.
