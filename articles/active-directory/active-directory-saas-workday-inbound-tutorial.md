@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday for Inbound Synchronization | Microsoft Docs'
+title: 'Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory | Microsoft Docs'
 description: Learn how to use Workday as source of identity data for Active Directory and Azure Active Directory.
 services: active-directory
 author: asmalser-msft
@@ -16,7 +16,7 @@ ms.date: 05/26/2017
 ms.author: asmalser
 
 ---
-# Tutorial: Configure Workday for Inbound Synchronization
+# Tutorial: Configure Workday for automatic user provisioning with on-premises Active Directory and Azure Active Directory
 The objective of this tutorial is to show you the steps you need to perform to import people from Workday into both Active Directory and Azure Active Directory, with optional writeback of some attributes to Workday. 
 
 
@@ -41,17 +41,8 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 * **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
-* **Employee re­hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
+* **Employee re-hires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Active Directory, Azure Active Directory, and optionally Office 365 and [other SaaS applications supported by Azure AD](active-directory-saas-app-provisioning.md).
 
-### Getting started
-
-The scenario outlined in this tutorial consists of the following building blocks:
-
-1. [Planning your solution](#planning-your-solution)
-2. [Configure a system integration user in Workday](#configure-a-system-integration-user-in-workday)
-3. [Configuring user provisioning from Workday to Active Directory](#[configuring-user-provisioning-from-workday-to-active-directory) 
-4. [Configuring user provisioning to Azure Active Directory](#configuring-user-provisioning-to-azure-active-directory)
-5. [Configuring writeback to Workday](#configuring-writeback-of-email-addresses-to-workday) 
 
 ## Planning your solution
 
@@ -72,13 +63,13 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Azure AD provides a rich set of provisioning connectors to help you solve provisioning and identity lifecycle management from Workday to Active Directory, Azure AD, SaaS apps, and beyond. Which features you will use and how you set up the solution will vary depending on your organization's environment and requirements. As a first step, take stock of how many of the following are present and deployed in your organization:
 
-1. How many Active Directory Forests are in use?
-2. How many Active Directory Domains are in use?
-3. How many Active Directory Organizational Units (OUs) are in use?
-4. How many Azure Active Directory tenants are in use?
-5. Are there users who need to be provisioned to both Active Directory and Azure Active Directory (e.g. "hybrid" users)?
-6. Are there users who need to be provisioned to Azure Active Directory, but not Active Directory (e.g. "cloud-only" users)?
-7. Do user email addresses need to be written back to Workday?
+* How many Active Directory Forests are in use?
+* How many Active Directory Domains are in use?
+* How many Active Directory Organizational Units (OUs) are in use?
+* How many Azure Active Directory tenants are in use?
+* Are there users who need to be provisioned to both Active Directory and Azure Active Directory (e.g. "hybrid" users)?
+* Are there users who need to be provisioned to Azure Active Directory, but not Active Directory (e.g. "cloud-only" users)?
+* Do user email addresses need to be written back to Workday?
 
 Once you have answers to these questions, you can plan your Workday provisioning deployment by following the guidance below.
 
@@ -126,7 +117,7 @@ It is possible to bypass this procedure and instead use a Workday global adminis
 
 **To create an integration system user:**
 
-1. Sing into your Workday tenant using an administrator account. In the **Workday Workbench**, enter create user in the search box, and then click **Create Integration System User**. 
+1. Sign into your Workday tenant using an administrator account. In the **Workday Workbench**, enter create user in the search box, and then click **Create Integration System User**. 
    
     ![Create user](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "Create user")
 2. Complete the **Create Integration System User** task by supplying a user name and password for a new Integration System User.  
