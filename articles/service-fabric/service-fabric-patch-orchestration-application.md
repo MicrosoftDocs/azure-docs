@@ -40,7 +40,7 @@ The patch orchestration app is composed of the following subcomponents:
     - Monitoring the Node Agent NTService.
 - **Node Agent NTService**: This Windows NT service runs at higher privileges (SYSTEM). In contrast, Node Agent Service and the Coordinator Service run at a lower-level privilege (NETWORK SERVICE). The service is responsible for performing the following Windows Update jobs on all the cluster nodes:
     - Disabling automatic Windows Update on the node.
-    - Downloading and installing Windows updates according to the policy the user has provided.
+    - Downloading and installing Windows updates per the policy the user has provided.
     - Restarting the machine post Windows Update installation.
     - Uploading the results of Windows updates to the Coordinator Service.
     - Reporting health reports in case an operation has failed after exhausting all retries.
@@ -78,7 +78,7 @@ To enable the repair manager service:
     }
     ```
 
-2. Now enable the repair manager service by adding the following `addonFeaturres` section after the `fabricSettings` section, as shown:
+2. Now enable the repair manager service by adding the following `addonFeatures` section after the `fabricSettings` section, as shown:
 
     ```json
     "fabricSettings": [
@@ -149,7 +149,7 @@ Inside the `WadCfg` section in the Resource Manager template, add the following 
 ```
 
 > [!NOTE]
-> If your Service Fabric cluster has multiple node types, then the previous section has to be added for all the `WadCfg` sections.
+> If your Service Fabric cluster has multiple node types, then the previous section must be added for all the `WadCfg` sections.
 
 ## Download the app package
 
@@ -167,7 +167,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get Windows updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Bool <br> (default: True)                 | This flag allows Windows operating system updates to be installed.            |
 | WUOperationTimeOutInMinutes | Int <br>(Default: 90)                   | Specifies the timeout for any Windows Update operation (search or download or install). If the operation is not completed within the specified timeout, it is aborted.       |
-| WURescheduleCount     | Int <br> (Default: 5)                  | The maximum number of times the service  reschedules the Windows update in case an operation fails persistently.          |
+| WURescheduleCount     | Int <br> (Default: 5)                  | The maximum number of times the service reschedules the Windows update in case an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: 30) | The interval at which the service reschedules the Windows update in case failure persists. |
 | WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and possible values are: <br>-   Monthly, DD,HH:MM:SS, for example, Monthly, 5,12:22:32. <br> -   Weekly, DAY,HH:MM:SS, for example, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, for example, Daily, 12:22:32.  <br> -  None indicates that Windows Update shouldn't be done.  <br><br> Note that all the times are in UTC.|
 | AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, the application accepts the EULA for Windows Update on behalf of the owner of the machine.              |
@@ -312,7 +312,7 @@ A. No. Support for standalone clusters is coming later.
 
 Q. **Why is the patch orchestration app in a warning state?**
 
-A. Check to see if a health report posted against the application is the root cause. Usually, the warning  contains details of the problem. If the issue is transient, the application is expected to auto-recover from this state.
+A. Check to see if a health report posted against the application is the root cause. Usually, the warning contains details of the problem. If the issue is transient, the application is expected to auto-recover from this state.
 
 Q. **What can I do if my cluster is unhealthy and I need to do an urgent operating system update?**
 
@@ -356,7 +356,7 @@ A safety check is pending. To remedy this situation, ensure that enough nodes ar
 
 ### Updates were skipped on some nodes
 
-The patch orchestration app tries to install a Windows update according to the rescheduling policy. The service tries to recover the node and skip the update according to the application policy.
+The patch orchestration app tries to install a Windows update per the rescheduling policy. The service tries to recover the node and skip the update per the application policy.
 
 In such a case, a warning-level health report is generated against the Node Agent Service. The result for Windows Update also contains the possible reason for the failure.
 
@@ -364,4 +364,4 @@ In such a case, a warning-level health report is generated against the Node Agen
 
 A bad Windows update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent Windows Update operation until the cluster is healthy again.
 
-An administrator has to intervene and determine why the Windows update caused the health of the application or cluster to go bad.
+An administrator must intervene and determine why the Windows update caused the health of the application or cluster to go bad.
