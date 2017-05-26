@@ -72,7 +72,7 @@ Set up a connection between your VSTS project and your Azure account.
 1. On the left, click **New Service Endpoint** > **Azure Resource Manager**.
 2. To authorize VSTS to work with your Azure account, select your **Subscription** and click **OK**.
 
-    ![Visual Studio Team Services - Authorize GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
+    ![Visual Studio Team Services - Authorize Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
 
 ### Connect Visual Studio Team Services and GitHub
 
@@ -81,7 +81,7 @@ Set up a connection between your VSTS project and your GitHub account.
 1. On the left, click **New Service Endpoint** > **GitHub**.
 2. To authorize VSTS to work with your GitHub account, click **Authorize** and follow the procedure in the window that opens.
 
-    ![Visual Studio Team Services - Authorize GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.PNG)
+    ![Visual Studio Team Services - Authorize GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
 ### Connect VSTS to your Azure Container Service cluster
 
