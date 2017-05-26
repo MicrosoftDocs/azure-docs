@@ -1,5 +1,5 @@
 ---
-title: Backup and Recovery of Oracle 12c database on an Azure Linux virtual machine | Microsoft Docs
+title: Backup and recovery of Oracle 12c database on an Azure Linux virtual machine | Microsoft Docs
 description: A quick start guide for backup and recovery of Oracle Database 12c in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -44,7 +44,7 @@ ssh <publicIpAddress>
 
 This step assuming you have an Oracle instance (cdb1) running on a virtual machine called myVM.
 
-1.  Run the *oracle* superuser, and then initialize the listener:
+#### 1.  Run the *oracle* superuser, and then initialize the listener:
 
     ```bash
     sudo su - oracle
@@ -74,7 +74,7 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     The command completed successfully
     ```
 
-2.  Make sure the database is in archive log mode (Optional step)
+#### 2.  Make sure the database is in archive log mode (Optional step)
 
     ```bash
     $ sqlplus / as sysdba
@@ -90,7 +90,7 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
-3. Create a table for testing (Optional step)
+#### 3. Create a table for testing (Optional step)
 
     ```bash
     SQL> alter session set "_ORACLE_SCRIPT"=true ;
@@ -111,7 +111,7 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     SQL> commit;
     Commit complete.
     ```
-4. Verify or change backup file location and size
+#### 4. Verify or change backup file location and size
 
     ```bash
     SQL> show parameter db_recovery
@@ -120,7 +120,7 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
-5. Backup database using RMAN
+#### 5. Backup database using RMAN
 
     ```bash
     $ rman target /
@@ -129,19 +129,19 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
 
 ### Backup VM using Azure Recovery Service Vault
 
-1. Log on to Azure portal and search for Recovery Service Vaults.
+#### 1. Log on to Azure portal and search for Recovery Service Vaults.
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
 
-2. Click the Add button to add new vault.
+#### 2. Click the Add button to add new vault.
 ![Screenshot of the Recovery Service Vaults Add page](./media/oracle-backup-recovery/recovery_service_02.png)
 
-3. Click myVault to continue, and you should see a page similar to following
+#### 3. Click myVault to continue, and you should see a page similar to following
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_03.png)
 
-4. Click Backup button.
+#### 4. Click Backup button.
 ![Screenshot of the Recovery Service Vaults backup page](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5. Enter the Backup goal, policy, and items to back up.
+#### 5. Enter the Backup goal, policy, and items to back up.
 
 Use default Azure and Virtual Machine. Click OK button to continue.
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_05.png)
@@ -162,15 +162,17 @@ Click the three dots on the right-hand side and select Backup now.
 
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_09.png)
 
-Wait for the backup to complete before move to the next section.
+Click the backup button and Wait for the backup to complete before move to the next section.
 You can view the status of the backup job from the job screen.
 ![Screenshot of the Recovery Service Vaults job page](./media/oracle-backup-recovery/recovery_service_10.png)
 
+This screen show the status of the backup job
 
-### Remove database files (for testing recovey at later section)
+![Screenshot of the Recovery Service Vaults job page](./media/oracle-backup-recovery/recovery_service_11.png)
 
-1. Remove tablespace files and backup files
+### Remove database files (for testing recovery at later section)
 
+#### 1. Remove tablespace and backup files
 ```bash
 $ sudo su - oracle
 $ cd /u01/app/oracle/oradata/cdb1
@@ -178,7 +180,7 @@ $ rm -f *.dbf
 $ cd /u01/app/oracle/fast_recovery_area/CDB1/backupset
 $ rm -rf *
 ```
-2. Shutdown Oracle (optional step)
+#### 2. Shutdown Oracle (optional step)
 
 ```bash
 $ sqlplus / as sysdba
@@ -192,22 +194,19 @@ Additional information: 3
 
 ## Restore deleted files from Recovery Service Vaults
 
-1. Log on to Azure portal and search for Recovery Service Vaults 'myVault'. click the number under the Backup items.
-![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_11.png)
-
-2. Click the number under the Backup item count
+### 1. Log on to Azure portal and search for Recovery Service Vaults 'myVault'. click the number under the Backup items.
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_12.png)
 
-3. Click the 'File Recovery (Preview)'
+### 2. Click the number under the Backup item count
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_13.png)
 
-4. Click 'Download Script' button
+### 3. Click the 'File Recovery (Preview)'
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_14.png)
 
-5. Save the download file (.sh) to a folder on your client machine
-![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_14.png)
+### 4. Click 'Download Script' button, Save the download file (.sh) to a folder on your client machine
+![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_15.png)
 
-6. Copy the .sh file to the VM
+### 5. Copy the .sh file to the VM
 
 You can either scp the file to the VM or create a file on the VM by simply copy and paste the content to a new file.
 
@@ -216,8 +215,8 @@ Change the public IP address and folder name to the folder you like to copy to.
 ```bash
 $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
 ```
-7. The next step is changed the file to be own by root, change permission, and execute the script
-
+### 6. The next step is changed the file to be own by root, change permission, and
+execute the script
 ```bash 
 $ ssh <publicIpAddress>
 $ sudo su -
@@ -257,13 +256,13 @@ After recovery, to remove the disks and close the connection to the recovery poi
 Please enter 'q/Q' to exit...
 ```
 
-8. Access to the mounted volumes
+### 7. Access to the mounted volumes
 
 Enter q to exit, then find the mounted volumes. Run df -k command to list the added volumes
 
-![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_15.png)
+![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_16.png)
 
-9. Copy the missing files back to the folders
+### 8. Copy the missing files back to the folders
 
 ```bash
 # cd /root/myVM-2017XXXXXXX/Volume2/u01/app/oracle/fast_recovery_area/CDB1/backupset/2017_xx_xx
@@ -275,7 +274,7 @@ Enter q to exit, then find the mounted volumes. Run df -k command to list the ad
 # cd /u01/app/oracle/oradata/cdb1
 # chown oracle:oinstall *.dbf
 ```
-10. Recover database using RMAN
+### 9. Recover database using RMAN
 ```bash
 # sudo su - oracle
 $ rman target /
@@ -285,22 +284,22 @@ RMAN> recover database;
 RMAN> alter database open resetlogs;
 RMAN> SELECT * FROM scott.scott_table;
 ```
-11. Unmount disk
+### 10. Unmount disk
 
 Back to the Azure portal, click the Unmount Disks button
-![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_16.png)
+![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_17.png)
 
 ## Restore the entire VM
 
 Alternative, you can restore the entire VM instead of recovery the missing or corrupted files.
 
-1. Drop the myVM
+### 1. Drop the myVM
 
 Log in to Azure portal, locate myVM and select 'Delete' button
 
 ![Screenshot of the Recovery VM page](./media/oracle-backup-recovery/recover_vm_01.png)
 
-2. Recover VM
+### 2. Recover VM
 
 Locate the Recovery Services Vaults, select myVault
 ![Screenshot of the Recovery VM page](./media/oracle-backup-recovery/recover_vm_02.png)
@@ -329,12 +328,14 @@ A restore is 'In Progress' status
 
 ![Screenshot of the Recovery VM page](./media/oracle-backup-recovery/recover_vm_09.png)
 
-3. Set public IP address
+### 3. Set public IP address
 Once the VM is restored, the next step is setup the public IP address.
 
-Use this link to access the Create IP Address on the portal
+Search for 'Public IP addresses' in search menu.
 
-https://ms.portal.azure.com/#create/Microsoft.PublicIPAddress-ARM
+![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_00.png)
+
+Click Add button, enter the public ip name and select the exisiing resource group, click Create button.
 
 ![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_01.png)
 
@@ -351,11 +352,11 @@ Locate the myVM from Portal, you should now see there is an IP address associate
 
 ![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_04.png)
 
-4. Connect to VM
+### 4. Connect to VM
 ```bash 
 ssh <publicIpAddress>
 ```
-5. Test database is accessible
+### 5. Test database is accessible
 ```bash 
 $ sudo su - oracle
 $ sqlplus / as sysdba
@@ -363,7 +364,7 @@ SQL> startup
 ```
 If you get error message when trying to start the database. Follow the next step to recover the database.
 
-6. Reover database Recover database using RMAN (Optional step)
+### 6. Recover database using RMAN (Optional step)
 ```bash
 # sudo su - oracle
 $ rman target /
