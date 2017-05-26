@@ -167,7 +167,7 @@ In a real-world application, you typically create separate accounts for applicat
 
     ![Console application window showing that the backend is running](./media/websites-dotnet-webjobs-sdk-get-started/backendrunning.png)
 3. In your browser, click  **Create an Ad**.
-4. Enter some test data and select an image to upload, and then click **Create**.
+4. Enter some test data, select an image to upload, and then click **Create**.
 
     ![Create page](./media/websites-dotnet-webjobs-sdk-get-started/create.png)
 
@@ -195,7 +195,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 ### Deploy to Web Apps
 1. Close the browser and the console application window.
-2. In **Solution Explorer**, right-click the ContosoAdsWeb project, and then click **Publish**.
+2. In **Solution Explorer**, right-click the ContosoAdsWeb project and then click **Publish**.
 3. In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure web apps**.
 
     ![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
