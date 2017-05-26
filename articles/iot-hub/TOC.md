@@ -27,12 +27,12 @@
 #### [Sparkfun ESP8266 Thing Dev with Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
-
 #### Use the IoT Gateway Starter Kit
 ##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
