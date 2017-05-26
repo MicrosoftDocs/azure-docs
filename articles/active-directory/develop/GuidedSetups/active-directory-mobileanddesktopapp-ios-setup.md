@@ -67,11 +67,19 @@ carthage update
 4.	Select: `Carthage` > `Build` > `iOS` > `MSAL.framework` and click *Open*. You should see `MSAL.framework` added to the list.
 5.	Go to `Build Phases` tab, and click `+` icon, choose `New Run Script Phase`
 6.	Add the following contents to the *script area*:
-```powershell
+
+```
 /usr/local/bin/carthage copy-frameworks
 ```
-7.	Add the following to `Input Files` by clicking `+`:
-```powershell
+
+<!-- Workaround for Docs conversion bug -->
+<ol start="7">
+<li>
+Add the following to `Input Files` by clicking `+`:
+</li>
+</ol>
+
+```
 $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 

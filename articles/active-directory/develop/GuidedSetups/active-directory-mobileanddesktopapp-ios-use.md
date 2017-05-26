@@ -22,7 +22,7 @@ ms.author: andret
 
 This section shows how to use MSAL to get a token the Microsoft Graph API.
 
-1.	1.	Open `ViewController.swift` and replace the code with below:
+1.	Open `ViewController.swift` and replace the code with below:
 
 ```swift
 import UIKit
@@ -211,10 +211,16 @@ Although the application in this sample supports a single user, MSAL supports sc
 Once the user authenticates, the browser redirects the user back to the application. Follow the steps below to register this callback:
 
 1.	Open `AppDelegate.swift` and add MSAL import:
+
 ```swift
 import MSAL
 ```
+<!-- Workaround for Docs conversion bug -->
+<ol start="2">
+<li>
 2.	Add the following method to your AppDelegate class to handle callbacks:
+</li>
+</ol>
 
 ```swift
 // @brief Handles inbound URLs. Checks if the URL matches the redirect URI for a pending
