@@ -93,7 +93,7 @@ In order to provision user accounts to Cerner Central, you'll need to create a s
 
 8.	Set the **Provisioning Mode** to **Automatic**.
 
-![Cerner Central Provisioning](./media/active-directory-saas-cernercentral-provisioning-tutorial/Cerner.PNG)
+   ![Cerner Central Provisioning](./media/active-directory-saas-cernercentral-provisioning-tutorial/Cerner.PNG)
 
 9.  Fill in the following fields under **Admin Credentials** :
 
