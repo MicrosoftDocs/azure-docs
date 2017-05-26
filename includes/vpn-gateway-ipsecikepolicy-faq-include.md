@@ -44,7 +44,7 @@ The SA lifetimes are local specifications only, do not need to match. If you ena
 Yes, once a custom policy is specified on a connection, Azure VPN gateway will only use the policy on the connection, both as IKE initiator and IKE responder.
 
 ### If I remove a custom IPsec/IKE policy, does the connection become unprotected?
-No, the connection will still be protected by IPsec/IKE. Once you remove the custom policy from a connection, the Azure VPN gateway will revert back to the [default list of IPsec/IKE proposals](vpn-gateway-about-vpn-devices.md) and re-start the IKE handshake again with your on-premises VPN device.
+No, the connection will still be protected by IPsec/IKE. Once you remove the custom policy from a connection, the Azure VPN gateway will revert back to the [default list of IPsec/IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) and re-start the IKE handshake again with your on-premises VPN device.
 
 ### Would adding or updating an IPsec/IKE policy disrupt my VPN connection?
 Yes, it could cause a small disruption (a few seconds) as the Azure VPN gateway will tear down the existing connection and re-start the IKE handshake to re-establish the IPsec tunnel with the new cryptographic algorithms and parameters. Please ensure your on-premises VPN device is also configured with the matching algorithms and key strengths to minimize the disruption.
