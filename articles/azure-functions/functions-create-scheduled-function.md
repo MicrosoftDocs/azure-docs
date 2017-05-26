@@ -42,18 +42,20 @@ Next, you create a function in the new function app.
 
 ## Create a timer triggered function
 
-1. Expand your function app, click the **+** button next to **Functions** and click the **TimerTrigger** template for your desired language. Then use the settings as specified in the table, and click **Create**:
+1. Expand your function app, click the **+** button next to **Functions** and click the **TimerTrigger** template for your desired language. Then use the settings as specified in the table:
 
-| Setting | Suggested value | Description |
-|---|---|---|
-| **Name your function** | TimerTriggerCSharp1 | Defines the name of your timer triggered function. |
-| **[Schedule](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | A six field [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that schedules your function to run every minute. |
+    ![Create a timer triggered function in the Azure portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
-A function is created in your chosen language that runs every minute.
+    | Setting | Suggested value | Description |
+    |---|---|---|
+    | **Name your function** | TimerTriggerCSharp1 | Defines the name of your timer triggered function. |
+    | **[Schedule](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | A six field [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that schedules your function to run every minute. |
 
-1. Verify execution by viewing trace information written to the logs.
+2. Click **Create**. A function is created in your chosen language that runs every minute.
 
-![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+3. Verify execution by viewing trace information written to the logs.
+
+    ![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 Now, you can change the function's schedule so that it runs less often, such as once every hour. 
 

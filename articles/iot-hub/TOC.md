@@ -156,3 +156,4 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
+## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT)

@@ -24,90 +24,84 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Manage accounts
 
-**To create a Data Lake Analytics account**
+## Manage Data Lake Analytics accounts
+
+**To create an account**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Click **New**, click **Intelligence + analytics**, and then click **Data Lake Analytics**.
-3. Type or select the following values:   
-   * **Name**: Name the Data Lake Analytics account.
-   * **Subscription**: Choose the Azure subscription used for the Analytics account.
-   * **Resource Group**: Select an existing Azure Resource Group or create a new one. Azure Resource Manager enables you to work with the resources in your application as a group. 
-   * **Location**. Select an Azure data center for the Data Lake Analytics account. 
-   * **Data Lake Store**: Each Data Lake Analytics account has a dependent Data Lake Store account. The Data Lake Analytics account and the dependent Data Lake Store account must be located in the same Azure data center. 
+2. Click **New** > **Intelligence + analytics** > **Data Lake Analytics**.
+3. Choose values for the following items:   
+   * **Name**: The name the Data Lake Analytics account.
+   * **Subscription**: The Azure subscription used for the account.
+   * **Resource Group**: The Azure resource group in which to create the account. 
+   * **Location**: The Azure data center for the Data Lake Analytics account. 
+   * **Data Lake Store**: The default Data Lake Store to be used for the Analytics account. The Data Lake Store Account and the Data Lake Analytics account must be in the same Location.
 4. Click **Create**. 
 
 **To delete a Data Lake Analytics account**
 
 1. Open the Data Lake Analytics account in the Azure portal.
-2. Click **Delete** from the button menu on the top of the blade.
-3. Type the account name, and then click **Delete**.
+2. Click **Delete**.
+3. Type the account name.
+4. Click **Delete**.
 
 Before you delete the Data Lake Analytics account, delete its default Data Lake Store account.
 
 <!-- ################################ -->
 <!-- ################################ -->
 
-## Manage account data sources
+## Manage data sources
 
-Data Lake Analytics currently supports the following data sources:
+Data Lake Analytics supports the following data sources:
 
 * Azure Data Lake Store
 * Azure Storage
 
-**To add additional data sources**
+The **Data Explorer** allows you to browse the data sources and perform basic file management operations. 
 
-1. Open a Data Lake Analytics account
-2. Click **Settings** and then click **Data Sources**. You shall see the default Data Lake Store account listed there. 
+**To add a data source**
+
+1. Open the Data Lake Analytics account in the Azure portal.
+2. Click **Settings** > **Data Sources**.
 3. Click **Add Data Source**.
     
 * To add an Azure Data Lake Store account, you need the account name, and access to the account to be able query it.
 * To add an Azure Blob storage, you need the storage account and the account key, which can be found by navigating to the storage account in the portal.
 
-**To explore data sources**    
+## Setup Firewall Rules
 
-1. Open the Analytics account that you want to manage.
-2. Click **Settings** and then click **Data Explorer**. 
-3. Click a Data Lake Store account to open the account.
-   
-    For each Data Lake Store account, you can
-   
-   * **New Folder**: Add new folder.
-   * **Upload**: Upload files to the Storage account from your workstation.
-   * **Access**: Configure access permissions.
-   * **Rename Folder**: Rename a folder.
-   * **Folder properties**: Show properties such as path, last modified time, and so on.
-   * **Delete Folder**: Delete a folder.
+Azure Data Lake Analytics enables you to further lock down access to your Data Lake Analytics account at the network level. You can enable firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within defined range can connect to the store.
 
-**To upload files to Data Lake Store account**
+If other Azure Services like Data Factory, or VMs will be connecting to the Data Lake Analytics account, make sure that the "Allow Azure Services" switch is toggled to "On". 
 
-1. From the Portal, click **Browse** from the left menu, and then click **Data Lake Store**.
-2. Click the Data Lake Store account that you want to upload data to.
-3. Click **Data Explorer** from the top menu.
-4. Click **New Directory** to create a new folder, or click a folder name to change folder.
-5. Click **Upload** from the top menu to upload file.
+**To setup a firewall rule**
 
-**To upload files to Azure Blob storage account**
+1. Open the Data Lake Analytics account in the Azure portal.
+2. On the left hand side menu, under **Settings** > **Firewall**
 
-See [Upload data for Hadoop jobs in HDInsight](../hdinsight/hdinsight-upload-data.md).  The information applies to Data Lake Analytics.
+## Manage role-based access control
 
-## Manage users
-Data Lake Analytics uses role-based access control with Azure Active Directory. When you create a Data Lake Analytics 
-account, a "Subscription Admins" role is added to the account. You can add additional users and security groups with 
-the following roles:
+Like other Azure services, you can use Azure Role-Based Access Control (RBAC) to control how users interact with the service.
 
-* **Owner**: Let you manage everything, including access to resources.
-* **Contributor**: Access the portal; submit and monitor jobs. To be able to submit jobs, a contributor needs the read or write permission to the Data Lake Store accounts.
-* **Reader**: Lets you view everything, but not make any changes.
-* **Data Lake Analytics Developer**: Submit, monitor, and cancel jobs.  These users can only cancel their own jobs. They cannot manage their own account, for instance, add users, change permissions, or delete the account. To be able to run jobs, they need read or write access to the Data Lake Store accounts.
+The standard Azure RBAC roles have the folloing capabilities with respect to Data Lake Analytics:
+* **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.
+* **Contributor**: Can submit job, monitor jobs, and cancel jobs from any user, and configure the account.
+* **Reader**: Can monitor jobs.
+
+Use the **Data Lake Analytics Developer** to enable U-SQL developers to use the Data Lake Analytics service. The Data Lake Analytics Developer role allows a user to:
+* submit jobs
+* monitor jobs status and progress of jobs submitted by any user
+* see the U-SQL scripts from jobs submitted by any user 
+* cancel only their own jobs
 
 **To add users or security groups to a Data Lake Analytics account**
 
-1. Open the Analytics account that you want to manage.
-2. Click **Settings**, and then click **Users**.   
-3. From the **User** blade, click **Add**.
-4. Select a role and add a user, and then click **OK**.
+1. Open the Data Lake Analytics account in the Azure portal.
+2. Click **Settings** >  **Users** > **Add**.
+4. Select a role.
+5. Add a user.
+6. Click **OK**.
 
 >[!NOTE]
 >If this user or security group needs to submit jobs, they need to be given permission on the Data Lake Store as well. For more information, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md)
@@ -120,30 +114,26 @@ the following roles:
 
 **To submit a job**
 
-1. Open the Analytics account that you want to manage. For instructions, see [Access Data Lake Analytics accounts].
+1. Open the Data Lake Analytics account in the Azure portal.
 2. Click **New Job**.
    
-    For each job, you can configure
+    For each job, you can configure:
 
-    |Name|Description|
-    |----|-----------|
-    |Job Name|Enter the name of the job.|
-    |Priority|Lower number has higher priority. If two jobs are both queued, the one with lower priority runs first|
-    |Parallelism |Max number of compute processes to reserve for this job.|
-    |Script|Enter the U-SQL script for the job.|
+    * **Job Name**: The name of the job.
+    * **Priority**: Lower numbers have higher priority. If two jobs are both queued, the one with lower priority runs first
+    * **Parallelism**: The Max number of compute processes to reserve for this job.
 
-    Using the same interface, you can also explore the link data sources, and add additional files to the linked data sources. 
 3. Click **Submit Job**.
 
 **To monitor jobs**
 
-1. Click **Job Management** as shown in the previous screenshot.
-2. Click a job from the lists. 
+1. Open the Data Lake Analytics account in the Azure portal.
+2. Click **View All Jobs**. Now you can see a list of all the active and recently finished jobs in the account.
 3. Optionally click **Filter** to help you to find the jobs by **Time Range**, **Job Name**, and **Author**. 
 
 ## See also
+
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
 * [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
