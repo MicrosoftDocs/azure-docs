@@ -110,8 +110,8 @@ How to set up and configure these special provisioning connector apps is the sub
 ## Configure a system integration user in Workday
 A common requirement of all the Workday provisioning connectors is they require credentials for a Workday system integration account to connect to the Workday Human Resources API. This section describes how to create a system integrator account in Workday.
 
-[!NOTE]
-It is possible to bypass this procedure and instead use a Workday global administrator account as the system integration account. This may work fine for demos, but is not recommended for production deployments.
+> [!NOTE]
+> It is possible to bypass this procedure and instead use a Workday global administrator account as the system integration account. This may work fine for demos, but is not recommended for production deployments.
 
 ### Create an integration system user
 
@@ -353,7 +353,7 @@ Active Directory.
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
 
 **Below are some example attribute mappings between Workday and Active
-Directory, with some common expressions **
+Directory, with some common expressions**
 
 -   The expression that maps to the parentDistinguishedName AD attribute
     can be used to provision a user to a specific OU based on one or
@@ -493,7 +493,7 @@ For instructions on setting up Azure AD Connect, see the [Azure AD Connect docum
 
 The following sections describe setting up a connection between Workday and Azure AD to provision cloud-only users.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > Only follow the procedure below if you have cloud-only users that need to be provisioned to Azure AD and not on-premises Active Directory.
 
 ### Part 1: Adding the Azure AD provisioning connector app and creating the connection to Workday
