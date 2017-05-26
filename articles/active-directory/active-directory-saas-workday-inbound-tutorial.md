@@ -236,37 +236,33 @@ Follow these instructions to configure user account provisioning from Workday to
 
 8.  Complete the **Admin Credentials** section as follows:
 
-    a.  **Admin Username** – Enter the username of the Workday
+   * **Admin Username** – Enter the username of the Workday
         integration system account, with the tenant domain name
         appended. Should look something like: username@contoso4
 
-    b.  **Admin password –** Enter the password of the Workday
+   * **Admin password –** Enter the password of the Workday
         integration system account
 
-    c.  **Tenant URL –** Enter the URL to the Workday web services
+   * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string (if
         necessary).
 
-    d.  **Active Directory Forest -** The “Name” of your Active
+   * **Active Directory Forest -** The “Name” of your Active
         Directory forest, as returned by the Get-ADForest powershell
         commandlet. This is typically a string like: *contoso.com*
 
-    e.  **Active Directory Container -** Enter the container string that
+   * **Active Directory Container -** Enter the container string that
         contains all users in your AD forest. Example: *OU=Standard
         Users,OU=Users,DC=contoso,DC=test*
 
-    f.  **Notification Email –** Enter your email address, and check the
+   * **Notification Email –** Enter your email address, and check the
         “send email if failure occurs” checkbox.
 
-    g.  Click the **Test Connection** button.
-
-    h.  If the connection test succeeds, click the **Save** button at
-        the top.
-
-    i.  If it fails, double-check that the Workday credentials are valid
+   * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
+        the top. If it fails, double-check that the Workday credentials are valid
         in Workday. 
 
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
@@ -285,20 +281,20 @@ Active Directory.
     defining a set of attribute-based filters. The default scope is “all
     users in Workday”. Example filters:
 
-    a.  Example: Scope to users with Worker IDs between 1000000 and
+   * Example: Scope to users with Worker IDs between 1000000 and
         2000000
 
-       i.  Attribute: WorkerID
+      * Attribute: WorkerID
 
-       ii. Operator: REGEX Match
+      * Operator: REGEX Match
 
-       iii. Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-    b.  Example: Only employees and not contingent workers 
+   * Example: Only employees and not contingent workers 
 
-       i.  Attribute: EmployeeID
+      * Attribute: EmployeeID
 
-       ii. Operator: IS NOT NULL
+      * Operator: IS NOT NULL
 
 3.  In the **Target Object Actions** field, you can globally filter what
     actions are allowed to be performed on Active Directory. **Create**
@@ -307,55 +303,51 @@ Active Directory.
 4.  In the **Attribute mappings** section, you can define how individual
     Workday attributes map to Active Directory attributes.
 
-    a.  Click on an existing attribute mapping to update it
+5. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
+        mappings. An individual attribute mapping supports these properties:
 
-    b.  Click **Add new mapping** at the bottom of the screen to add new
-        mappings
+      * **Mapping Type**
 
-    c.  An individual attribute mapping supports these properties:
-
-       i.  **Mapping Type**
-
-       1.  **Direct** – Writes the value of the Workday attribute
+         * **Direct** – Writes the value of the Workday attribute
                 to the AD attribute, with no changes
 
-       2.  **Constant** - Write a static, constant string value to
+         * **Constant** - Write a static, constant string value to
                 the AD attribute
 
-       3.  **Expression** – Allows you to write a custom value to
+         * **Expression** – Allows you to write a custom value to
                 the AD attribute, based on one or more Workday
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-       ii. **Source attribute** - The user attribute from Workday.
+      * **Source attribute** - The user attribute from Workday.
 
-       iii. **Default value** – Optional. If the source attribute has
+      * **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
             Most common configuration is to leave this blank.
 
-       iv. **Target attribute** – The user attribute in Active
+      * **Target attribute** – The user attribute in Active
             Directory.
 
-       v.  **Match objects using this attribute** – Whether or not this
+      * **Match objects using this attribute** – Whether or not this
             mapping should be used to uniquely identify users between
             Workday and Active Directory. This is typically set on the
             Worker ID field for Workday, which is typically mapped to
             one of the Employee ID attributes in Active Directory.
 
-       vi. **Matching precedence** – Multiple matching attributes can
+      * **Matching precedence** – Multiple matching attributes can
             be set. When there are multiple, they are evaluated in the
             order defined by this field. As soon as a match is found, no
             further matching attributes are evaluated.
 
-       vii. **Apply this mapping**
+      * **Apply this mapping**
        
-       1.  **Always** – Apply this mapping on both user creation
+         * **Always** – Apply this mapping on both user creation
                 and update actions
 
-       2.  **Only during creation** - Apply this mapping only on
+         * **Only during creation** - Apply this mapping only on
                 user creation actions
 
-    d.  To save your mappings, click **Save** at the top of the
+6. To save your mappings, click **Save** at the top of the
         Attribute Mapping section.
 
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_2.PNG)
@@ -416,14 +408,14 @@ After installing agent, run the Powershell commands below to configure the agent
 
 **Command #1**
 
-cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization
+> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization
 Agent\\Modules\\AADSyncAgent
 
-import-module AADSyncAgent.psd1
+> import-module AADSyncAgent.psd1
 
 **Command #2**
 
-Add-ADSyncAgentActiveDirectoryConfiguration
+> Add-ADSyncAgentActiveDirectoryConfiguration
 
 **Inputs**
 * Directory Name: &lt;AD Forest name, as entered in part \#2&gt;
@@ -431,14 +423,14 @@ Add-ADSyncAgentActiveDirectoryConfiguration
 
 **Command #3**
 
-Add-ADSyncAgentAzureActiveDirectoryConfiguration
+> Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 **Inputs**
 * Global admin username and password for your Azure AD tenant
 
 **Command #4**
 
-Get-AdSyncAgentProvisioningTasks
+> Get-AdSyncAgentProvisioningTasks
 
 **Action**
 * Confirm data is returned. This command automatically discovers Workday provisioning apps in your Azure AD tenant. Example output:
@@ -455,35 +447,34 @@ Get-AdSyncAgentProvisioningTasks
 
 **Command #5**
 
-Start-AdSyncAgentSynchronization -Automatic
+> Start-AdSyncAgentSynchronization -Automatic
 
 **Command #6**
 
-net stop aadsyncagent
+> net stop aadsyncagent
 
 **Command #7**
 
-net start aadsyncagent
+> net start aadsyncagent
 
 ### Part 4: Start the service
 Once parts 1-3 have been completed, you can start the provisioning service back in the Azure Management Portal.
 
-i.  In the **Provisioning** tab, set the **Provisioning Status** to
+1.  In the **Provisioning** tab, set the **Provisioning Status** to
     **On**.
 
-ii. Click **Save**.
+2. Click **Save**.
 
-iii. This will start the initial sync, which can take a variable number
-    of hours depending on how many users are in Workday.
+3. This will start the initial sync, which can take a variable number of hours depending on how many users are in Workday.
 
-iv. Individual sync events such as what users are being read out of
+4. Individual sync events such as what users are being read out of
     Workday, and then subsequently added or updated to Active Directory,
     can be viewed in the **Audit Logs** tab. **[See the provisioning reporting guide for detailed instructions on how to read the audit logs](active-directory-saas-provisioning-reporting.md)**
 
-v.  The Windows Application log on the agent machine will show all
+5.  The Windows Application log on the agent machine will show all
     operations performed via the agent.
 
-vi. One completed, it will write an audit summary report in the
+6. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
@@ -525,26 +516,26 @@ The following sections describe setting up a connection between Workday and Azur
 
 8.  Complete the **Admin Credentials** section as follows:
 
-    a.  **Admin Username** – Enter the username of the Workday
+   * **Admin Username** – Enter the username of the Workday
         integration system account, with the tenant domain name
         appended. Should look something like: username@contoso4
 
-    b.  **Admin password –** Enter the password of the Workday
+   * **Admin password –** Enter the password of the Workday
         integration system account
 
-    c.  **Tenant URL –** Enter the URL to the Workday web services
+   * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string (if
         necessary).
 
-    d.  **Notification Email –** Enter your email address, and check the
+   * **Notification Email –** Enter your email address, and check the
         “send email if failure occurs” checkbox.
 
-    e.  Click the **Test Connection** button.
+   * Click the **Test Connection** button.
 
-    f.  If the connection test succeeds, click the **Save** button at
+   * If the connection test succeeds, click the **Save** button at
         the top. If it fails, double-check that the Workday URL and credentials are valid
         in Workday.
 
@@ -562,20 +553,20 @@ Azure Active Directory for cloud-only users.
     defining a set of attribute-based filters. The default scope is “all
     users in Workday”. Example filters:
 
-    a.  Example: Scope to users with Worker IDs between 1000000 and
+   * Example: Scope to users with Worker IDs between 1000000 and
         2000000
 
-       i.  Attribute: WorkerID
+      * Attribute: WorkerID
 
-       ii. Operator: REGEX Match
+      * Operator: REGEX Match
 
-       iii. Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-    b.  Example: Only contingent workers and not regular employees
+   * Example: Only contingent workers and not regular employees
 
-       i.  Attribute: ContingentID
+      * Attribute: ContingentID
 
-       ii. Operator: IS NOT NULL
+      * Operator: IS NOT NULL
 
 3.  In the **Target Object Actions** field, you can globally filter what
     actions are allowed to be performed on Azure AD. **Create**
@@ -584,54 +575,50 @@ Azure Active Directory for cloud-only users.
 4.  In the **Attribute mappings** section, you can define how individual
     Workday attributes map to Active Directory attributes.
 
-    a.  Click on an existing attribute mapping to update it
+5. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
+        mappings. An individual attribute mapping supports these properties:
 
-    b.  Click **Add new mapping** at the bottom of the screen to add new
-        mappings
+   * **Mapping Type**
 
-    c.  An individual attribute mapping supports these properties:
-
-       i.  **Mapping Type**
-
-       1.  **Direct** – Writes the value of the Workday attribute
+      * **Direct** – Writes the value of the Workday attribute
                 to the AD attribute, with no changes
 
-       2.  **Constant** - Write a static, constant string value to
+      * **Constant** - Write a static, constant string value to
                 the AD attribute
 
-       3.  **Expression** – Allows you to write a custom value to
+      * **Expression** – Allows you to write a custom value to
                 the AD attribute, based on one or more Workday
                 attributes. [For more info, see this article on
                 expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 
-       ii. **Source attribute** - The user attribute from Workday.
+   * **Source attribute** - The user attribute from Workday.
 
-       iii. **Default value** – Optional. If the source attribute has
+   * **Default value** – Optional. If the source attribute has
             an empty value, the mapping will write this value instead.
             Most common configuration is to leave this blank.
 
-       iv. **Target attribute** – The user attribute in Azure AD.
+   * **Target attribute** – The user attribute in Azure AD.
 
-       v.  **Match objects using this attribute** – Whether or not this
+   * **Match objects using this attribute** – Whether or not this
             mapping should be used to uniquely identify users between
             Workday and Azure AD. This is typically set on the
             Worker ID field for Workday, which is typically mapped to
             the Employee ID attribute (new) or an extension attribute in Azure AD.
 
-       vi. **Matching precedence** – Multiple matching attributes can
+   * **Matching precedence** – Multiple matching attributes can
             be set. When there are multiple, they are evaluated in the
             order defined by this field. As soon as a match is found, no
             further matching attributes are evaluated.
 
-       vii. **Apply this mapping**
+   * **Apply this mapping**
 
-       1.  **Always** – Apply this mapping on both user creation
+     * **Always** – Apply this mapping on both user creation
                 and update actions
 
-       2.  **Only during creation** - Apply this mapping only on
+     * **Only during creation** - Apply this mapping only on
                 user creation actions
 
-    d.  To save your mappings, click **Save** at the top of the
+6. To save your mappings, click **Save** at the top of the
         Attribute Mapping section.
 
 ### Part 3: Start the service
@@ -674,26 +661,24 @@ Follow these instructions to configure writeback of user email addresses from Az
 
 8.  Complete the **Admin Credentials** section as follows:
 
-    a.  **Admin Username** – Enter the username of the Workday
+   * **Admin Username** – Enter the username of the Workday
         integration system account, with the tenant domain name
         appended. Should look something like: username@contoso4
 
-    b.  **Admin password –** Enter the password of the Workday
+   * **Admin password –** Enter the password of the Workday
         integration system account
 
-    c.  **Tenant URL –** Enter the URL to the Workday web services
+   * **Tenant URL –** Enter the URL to the Workday web services
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
         wd3-impl is replaced with the correct environment string (if
         necessary).
 
-    d.  **Notification Email –** Enter your email address, and check the
+   * **Notification Email –** Enter your email address, and check the
         “send email if failure occurs” checkbox.
 
-    e.  Click the **Test Connection** button.
-
-    f.  If the connection test succeeds, click the **Save** button at
+   * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
         the top. If it fails, double-check that the Workday URL and credentials are valid
         in Workday.
 
