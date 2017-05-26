@@ -68,7 +68,18 @@ The **Data Explorer** allows you to browse the data sources and perform basic fi
     
 * To add an Azure Data Lake Store account, you need the account name, and access to the account to be able query it.
 * To add an Azure Blob storage, you need the storage account and the account key, which can be found by navigating to the storage account in the portal.
-   
+
+## Setup Firewall Rules
+
+Azure Data Lake Analytics enables you to further lock down access to your Data Lake Analytics account at the network level. You can enable firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within defined range can connect to the store.
+
+If other Azure Services like Data Factory, or VMs will be connecting to the Data Lake Analytics account, make sure that the "Allow Azure Services" switch is toggled to "On". 
+
+**To setup a firewall rule**
+
+1. Open the Data Lake Analytics account in the Azure portal.
+2. On the left hand side menu, under **Settings** > **Firewall**
+
 ## Manage role-based access control
 
 Like other Azure services, you can use Azure Role-Based Access Control (RBAC) to control how users interact with the service.
