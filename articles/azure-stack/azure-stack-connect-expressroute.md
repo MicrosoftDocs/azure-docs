@@ -61,10 +61,12 @@ Before you start the configuration, you need:
 * An Azure Stack deployment.
 
    For information about deploying Azure Stack, see [Azure Stack POC deployment quickstart](azure-stack-deploy-overview.md).
-* An offer on Azure Stack that you can suKvbscribe to.
+* An offer on Azure Stack that you can subscribe to.
 
   For instructions, see [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md).
+
 ### Create network resources in Azure Stack
+
 Use the following procedures to create the required network resources in Azure Stack for each tenant:
 
 #### Create the virtual network and VM subnet
