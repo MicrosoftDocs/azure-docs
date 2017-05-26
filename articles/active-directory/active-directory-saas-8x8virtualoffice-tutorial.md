@@ -108,9 +108,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://sso.8x8.com/<company-name>`
+    a. In the **Identifier** textbox, type a URL using the following pattern:
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.8x8.com/saml2`
+	| `https://sso.8x8.com/<companyname>` |
+	| `https://www.8x8.com/<companyname>` |
+	| `https://sso.8x8pilot.com/<companyname>` |
+
+	b. In the **Reply URL** textbox, type a URL using the following pattern:
+
+	| `https://<subdomain>.8x8.com/saml2` |
+	| `https://<subdomain>.8x8pilot.com/saml2`|
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [8x8 Virtual Office support team](https://www.8x8.com/about-us/contact-us) to get these values.
@@ -147,7 +154,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Configure On App Side](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-12. Select **Signle Sign On** under Authentication method and click **SAML**.
+12. Select **Single Sign On** under Authentication method and click **SAML**.
     
     ![Configure On App Side](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
@@ -196,10 +203,10 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in 8x8 Virtual Office. 8x8 Virtual Office supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user will be created during an attempt to access 8x8 Virtual Office if it doesn't exist yet. 
+There is no action item for you in this section. A new user is created during an attempt to access 8x8 Virtual Office if it doesn't exist yet. 
 
 >[!NOTE]
->If you need to create an user manually, you need to contact the [8x8 Virtual Office support team](https://www.8x8.com/about-us/contact-us). 
+>If you need to create a user manually, you need to contact the [8x8 Virtual Office support team](https://www.8x8.com/about-us/contact-us). 
 
 ### Assigning the Azure AD test user
 
