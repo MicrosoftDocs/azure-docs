@@ -40,7 +40,7 @@ There are two ways to provision and configure an OMS workspace, either through a
 
 ### Deploying OMS using a Resource Management template
 
-This happens at the cluster creation stage - when deploying a cluster using a Resource Mannager template, the template can also create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
+This happens at the cluster creation stage - when deploying a cluster using a Resource Manager template, the template can also create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
 
 >Note: For this to work, Diagnostics has to be enabled in order for the Azure storage tables to exist for OMS / Log Analytics to read information in from.
 
@@ -65,7 +65,7 @@ The advantages of this are the following:
 * Richer data on the performance counters and metrics side
 * Easy to configure data being collected from the cluster and make changes to it without redeploying your applications or the cluster, since changes to the settings of the agent can be done from the OMS workspace and will just reset the agent automatically. To configure the OMS agent to pick up specific performance counters, go to the workspace **Home > Settings > Data > Windows Performance Counters** and pick the data you would like to see collected
 * Data shows up faster than it having to be stored before being picked up by OMS / Log Analytics
-* Monitoring containers is much easiers, since it can pick up docker logs (stdout, stderror) and stats (performance metrics on container and node levels)
+* Monitoring containers is much easier, since it can pick up docker logs (stdout, stderror) and stats (performance metrics on container and node levels)
 
 The main consideration here is that since it is an agent, it will be deployed on your cluster alongside all your applications, so there will be some minimal impact to the performance of your applications on the cluster.
 
@@ -98,6 +98,6 @@ In the creation step, it requests an OMS workspace. Select the one that was crea
 
 Explore the following OMS tolls and options to customize the workspace to your needs:
 
-* For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet acess to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
+* For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
 * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics

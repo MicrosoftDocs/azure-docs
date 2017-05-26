@@ -42,7 +42,7 @@ These tools are used to perform some of the operations in this document:
 
 ### Service Fabric infrastructure events
 As discussed in [this article](service-fabric-diagnostics-event-generation-infrastructure-level.md), Service Fabric sets you up with a few out-of-the-box logging channels, of which the following channels are easily configured with WAD to send monitoring and diagnostics data to a storage table or elsewhere:
-  * Operational events: higher-level operations that the Service Fabric platform performs. Examples include creation of applications and services, node state changes, and upgrade information. These are emmitted as Event Tracing for Windows (ETW) logs
+  * Operational events: higher-level operations that the Service Fabric platform performs. Examples include creation of applications and services, node state changes, and upgrade information. These are emitted as Event Tracing for Windows (ETW) logs
   * [Reliable Actors programming model events](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services programming model events](service-fabric-reliable-services-diagnostics.md)
 
@@ -209,7 +209,7 @@ To collect performance counters or event logs, modify the Resource Manager templ
 
 ## Update Diagnostics to send logs to Application Insights
 
-Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD conifguration. If you decide to use AI for event analysis and visualization, read [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) to set up an AI Sink as part of your "WadCfg".
+Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD configuration. If you decide to use AI for event analysis and visualization, read [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) to set up an AI Sink as part of your "WadCfg".
 
 ## Next steps
 

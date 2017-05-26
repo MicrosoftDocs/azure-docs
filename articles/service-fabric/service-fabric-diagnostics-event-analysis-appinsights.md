@@ -38,7 +38,7 @@ You will need the AI Instrumentation Key to configure AI with your event aggrega
 
 There are two primary ways to send data from WAD to Azure AI, which is achieved by adding an AI sink to the WAD configuration, as detailed in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights).
 
-#### Add an AI Intrumentation Key when creating a cluster in Azure portal
+#### Add an AI Instrumentation Key when creating a cluster in Azure portal
 
 (./media/service-fabric-event-analysis-appinsights/azure-enable-diagnostics.png)
 
@@ -100,9 +100,9 @@ If you are developing in .NET and will likely be using some of Service Fabric's 
 
 ## Navigating the AI resource in Azure portal
 
-Once you have configured AI as an output for your events and logs, information should start to show up in your AI resource in a few minutes. Navigate to the AI resource, which will take you to the AI resource dashboard. Click **Search** in the AI taskbard to see the latest traces that it has received, and to be able to filter through them.
+Once you have configured AI as an output for your events and logs, information should start to show up in your AI resource in a few minutes. Navigate to the AI resource, which will take you to the AI resource dashboard. Click **Search** in the AI taskbar to see the latest traces that it has received, and to be able to filter through them.
 
-*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Appication Insights](h../application-insights/app-insights-metrics-explorer.md) to set up a few charts for yourself based on the data you are collecting.
+*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](h../application-insights/app-insights-metrics-explorer.md) to set up a few charts for yourself based on the data you are collecting.
 
 Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../application-insights/app-insights-analytics.md).
 
