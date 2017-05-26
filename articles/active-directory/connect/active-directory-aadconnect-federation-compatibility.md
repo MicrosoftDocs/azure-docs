@@ -42,6 +42,7 @@ For information on how you can get your third-party identity provider listed her
 * [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
 * [Centrify](#centrify) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
+* [DigitalPersona Composite Authentication](#digitalpersona-composite-authentication)
 * [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -169,6 +170,19 @@ The following is the scenario support matrix for this single sign-on experience:
 For more information about Dell One Identity Cloud Access Manager, see [Dell One Identity Cloud Access Manager.](http://software.dell.com/products/cloud-access-manager)
 
  For the instructions on how to configure this STS to provide the single sign-on experience to your Office 365 Users, see [Configure Office 365 Users.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
+
+## DigitalPersona Composite Authentication  
+
+The following is the scenario support matrix for this single sign-on experience:
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported|
+| Email-rich clients such as Outlook and ActiveSync |Supported |None |
+
+For more information see [DigitalPersona Composite Authentication](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf)
+
 
 ## IBM Tivoli Federated Identity Manager 6.2.2
 
