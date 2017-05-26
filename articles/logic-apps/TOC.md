@@ -128,7 +128,7 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [XML Validation](logic-apps-enterprise-integration-xml-validation.md)
-## Connectors: [Full details](https://docs.microsoft.com/connectors/)
+## [Connectors: Full details](https://docs.microsoft.com/connectors/)
 ## Schema History
 ### [GA](logic-apps-schema-2016-04-01.md)
 ### [Preview](logic-apps-schema-2015-08-01.md)
