@@ -158,4 +158,4 @@ az group delete --name myResourceGroup
 In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an NGINX container. To learn more about Azure Container Service, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
-> [ACS Tutorials](./container-service-cr`eate-cluster-cli.md)
+> [ACS Tutorials](./container-service-create-acs-cluster-cli.md)
