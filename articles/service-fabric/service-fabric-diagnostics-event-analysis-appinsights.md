@@ -36,7 +36,7 @@ You will need the AI Instrumentation Key to configure AI with your event aggrega
 
 ### Configuring AI with WAD
 
-There are two primary ways to send data from WAD to Azure AI, which is achieved by adding an AI sink to the WAD configuration, as detailed in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights).
+There are two primary ways to send data from WAD to Azure AI, which is achieved by adding an AI sink to the WAD configuration, as detailed in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 #### Add an AI Instrumentation Key when creating a cluster in Azure portal
 
@@ -70,7 +70,7 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement, and as long as the two match, you can set the name to any other string.
 
-Currently, logs from the cluster will show up as traces in AI's log viewer. Since most of the traces coming from the infrastructure level are of type "Information", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error". This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights).
+Currently, logs from the cluster will show up as traces in AI's log viewer. Since most of the traces coming from the infrastructure level are of type "Information", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error". This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 > Note: If you use an incorrect AI IKey either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it. 
 
@@ -96,13 +96,13 @@ It is generally recommended to use EventFlow and WAD as aggregation solutions, b
 
 [Application Insights support for Microservices and Containers](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) shows you some of the new features that are being worked on (currently still in beta), which allow you to have richer out-of-the-box monitoring options with AI. These include dependency tracking (used in building an AppMap of all your services and applications in a cluster and the communication between them), and better correlation of traces coming from your services (helps in better pinpointing an issue in the workflow of an app or service).
 
-If you are developing in .NET and will likely be using some of Service Fabric's programming models, and are willing to use AI as your platform for visualizing and analyzing event and log data, then we recommend that you go via the AI SDK route as your monitoring and diagnostics workflow. Read [this](application-insights/app-insights-asp-net-more.md) and [this](,,/application-insights/app-insights-asp-net-trace-logs.md) to get started with using AI to collect and display your logs.
+If you are developing in .NET and will likely be using some of Service Fabric's programming models, and are willing to use AI as your platform for visualizing and analyzing event and log data, then we recommend that you go via the AI SDK route as your monitoring and diagnostics workflow. Read [this](../application-insights/app-insights-asp-net-more.md) and [this](../application-insights/app-insights-asp-net-trace-logs.md) to get started with using AI to collect and display your logs.
 
 ## Navigating the AI resource in Azure portal
 
 Once you have configured AI as an output for your events and logs, information should start to show up in your AI resource in a few minutes. Navigate to the AI resource, which will take you to the AI resource dashboard. Click **Search** in the AI taskbar to see the latest traces that it has received, and to be able to filter through them.
 
-*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](h../application-insights/app-insights-metrics-explorer.md) to set up a few charts for yourself based on the data you are collecting.
+*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](../application-insights/app-insights-metrics-explorer.md) to set up a few charts for yourself based on the data you are collecting.
 
 Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../application-insights/app-insights-analytics.md).
 
