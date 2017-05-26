@@ -92,12 +92,12 @@ Using Azure PowerShell, create an [active geo-replication auto failover group](s
 1. Populate variables for your PowerShell scripts using the values for your existing server and sample database, and provide a globally unique value for failover group name.
 
    ```powershell
-   $secpasswd = ConvertTo-SecureString "MyStrongPassword1" -AsPlainText -Force
-   $mycreds = New-Object System.Management.Automation.PSCredential (“ServerAdmin”, $secpasswd)
+   $adminlogin = "ServerAdmin"
+   $password = "ChangeYourAdminPassword1"
    $myresourcegroupname = "<your resource group name>"
    $mylocation = "<your resource group location>"
    $myservername = "<your existing server name>"
-   $mydatabasename = "<your existing database name>"
+   $mydatabasename = "mySampleDatabase"
    $mydrlocation = "<your disaster recovery location>"
    $mydrservername = "<your disaster recovery server name>"
    $myfailovergroupname = "<your unique failover group name>"
@@ -107,13 +107,13 @@ Using Azure PowerShell, create an [active geo-replication auto failover group](s
 
    ```powershell
    $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
-      -Location $mydrlocation `
       -ServerName $mydrservername `
-      -ServerVersion "12.0" `
-      -SqlAdministratorCredentials $mycreds
+      -Location $mydrlocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   $mydrserver   
    ```
 
-3. Create a failover group.
+3. Create a failover group between the two servers.
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
@@ -123,12 +123,13 @@ Using Azure PowerShell, create an [active geo-replication auto failover group](s
       –FailoverGroupName $myfailovergroupname `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
+   $myfailovergroup   
    ```
 
 4. Add your database to the failover group.
 
    ```powershell
-   $failovergroup = Get-AzureRmSqlDatabase `
+   $myfailovergroup = Get-AzureRmSqlDatabase `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -DatabaseName $mydatabasename | `
@@ -136,11 +137,12 @@ Using Azure PowerShell, create an [active geo-replication auto failover group](s
       -ResourceGroupName $myresourcegroupname ` `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname
+   $myfailovergroup   
    ```
 
 ## Install Java software
 
-The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
+The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. 
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Install **brew** and **Maven** by entering the following commands: 
@@ -151,6 +153,8 @@ brew update
 brew install maven
 ```
 
+For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), select **Java**, select **MacOS**, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
+
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Install **Maven** by entering the following commands:
 
@@ -158,8 +162,10 @@ Open your terminal and navigate to a directory where you plan on creating your J
 sudo apt-get install maven
 ```
 
+For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), select **Java**, select **Ubunto**, and then follow the detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.
+
 ### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. 
+Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), select **Java**, select Windows, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.
 
 ## Create SqlDbSample project
 
@@ -169,6 +175,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    ```
 2. Type **Y** and click **Enter**.
 3. Change directories into your newly created project.
+
    ```bash
    cd SqlDbSamples
    ```
@@ -322,7 +329,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    ```
 2. When finished, execute the following command to run the application (it will run for about 1h unless it is stop manually):
 
-   ```Output
+   ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
    
    #######################################
@@ -339,7 +346,10 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 1. Call manual failover of failover group using forced failover. If data loss during the drill is unacceptable you should remove -AllowDataLoss
 
    ```powershell
-   $fg | Switch-AzureRMSqlDatabaseFailoverGroup -AllowDataLoss
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+   -ResourceGroupName $myresourcegroupname  `
+   -ServerName $mydrservername `
+   -FailoverGroupName $myfailovergroupname
    ```
 
 2. Observe the application results during failover. You will see some insert to fail until the DNS cache refreshes. 	 
@@ -349,8 +359,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 Find out which role your disaster recovery server is performing.
 
    ```powershell
-   $fg = Get-AzureRMSqlDatabaseFailoverGroup -ResourceGroupName "<your failover group>" -ServerName "<your disaster recovery server>" 
-   print $fg.role
+   $mydrserver.ReplicationRole
    ```
 
 ## Next steps 
