@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/05/2017
+ms.date: 05/25/2017
 ms.author: rickbyh
 
 ---
@@ -74,17 +74,18 @@ The following two procedures show you how to provision an Azure Active Directory
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)
    
     ![choose-ad][8]
-2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, at the top click **Settings**.
-   
-    ![ad settings][9]
-3. In the **Settings** blade, click **Active Directory admin**.
-4. In the **Active Directory admin** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
-5. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
-6. At the top of the **Active Directory admin** blade, click **SAVE**.
+2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, click **Active Directory admin**.
+3. In the **Active Directory admin** blade, click **Set admin**.
 
-    ![choose admin][10]
-   
-    The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
+    ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+4. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+
+    ![select admin](./media/sql-database-aad-authentication/select-admin.png)  
+5. At the top of the **Active Directory admin** blade, click **SAVE**.
+
+    ![save admin](./media/sql-database-aad-authentication/save-admin.png)   
+
+The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
 
    > [!NOTE]
    > When setting up the Azure AD admin, the new admin name (user or group) cannot already be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication fails.
@@ -331,7 +332,6 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [6]: ./media/sql-database-aad-authentication/6edit-directory-select.png
 [7]: ./media/sql-database-aad-authentication/7edit-directory-confirm.png
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
-[9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png

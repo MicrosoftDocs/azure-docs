@@ -33,7 +33,7 @@ Using the [latest Azure Command-Line Interface (CLI)](https://docs.microsoft.com
 
         azure webapp config set --name ContosoAppServicePlan --resource-group ContosoLinuxAzureResourceGroup --netframeworkversion v1.0 --appcommandline aspnetcore.dll
 
-Tthe **aspnetcore.dll** file is the dll of your app. You can use any name you like in your app.
+The **aspnetcore.dll** file is the dll of your app. You can use any name you like in your app.
 
 This loads the .Net Core image and starts your web app. You can check that the settings have been correctly set by using the **azure webapp config show**. Here is an example:
 
