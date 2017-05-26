@@ -56,7 +56,7 @@ Once the cluster is ready and you have confirmed that you can access it, deploy 
 
 ## 3. Add the Containers solution
 
-In the Azure portal, create a Containers resource (under the Monitoring + Management category) through Azure Marketplace. 
+In Azure portal, create a Containers resource (under the Monitoring + Management category) through Azure Marketplace. 
 
 ![Adding Containers solution](./media/service-fabric-diagnostics-containers-windowsserver/containers-solution.png)
 
