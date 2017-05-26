@@ -17,9 +17,14 @@ ms.date: 03/14/2017
 ms.author: raynew
 
 ---
+
+> [!div class="op_single_selector"]
+> * [Replicate Azure virtual machines](site-recovery-azure-to-azure-architecture.md)
+> * [Replicate on-premises machines](site-recovery-components.md)
+
 # How does Azure Site Recovery work for on-premises infrastructure?
 
-This article describes underlying architecture of the [Azure Site Recovery](site-recovery-overview.md) service, and the components that make it work.
+This article describes underlying architecture of the [Azure Site Recovery](site-recovery-overview.md) service, and the components that make it work for replicating workloads from on-premises to Azure.
 
 Post any comments at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

@@ -34,4 +34,4 @@ This article details the common issues in Azure Site Recovery when replicating a
 
 
 ## Next steps
-[Replicate Azure virtual machines](site-recovery-azure-vm-enable-rep.md)
+- [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

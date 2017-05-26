@@ -17,6 +17,10 @@ ms.date: 05/22/2017
 ms.author: raynew
 
 ---
+>[AZURE.NOTE]
+>
+> Site Recovery replication for Azure virtual machines is currently in preview.
+
 # Replicate Azure VMs between regions with Azure Site Recovery
 
 
@@ -130,5 +134,5 @@ In **Recovery Services vaults**, click the vault name. In the vault, click **+Re
 After you've tested the deployment:
 
 - [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
-- [Learn more](site-recovery-create-recovery-plan.md).
-- Learn about [reprotecting Azure VMs](site-recovery-how-to-reprotect-azure-to-azure.md) after failover.
+- [Learn more] about [using recovery plans](site-recovery-create-recovery-plans.md) to reduce RTO.
+- Learn about [reprotecting Azure  VMs](site-recovery-how-to-reprotect.md) after failover.

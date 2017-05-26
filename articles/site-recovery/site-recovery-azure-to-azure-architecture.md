@@ -17,6 +17,11 @@ ms.date: 05/13/2017
 ms.author: sujayt
 
 ---
+
+> [!div class="op_single_selector"]
+> * [Replicate Azure virtual machines](site-recovery-azure-to-azure-architecture.md)
+> * [Replicate on-premises machines](site-recovery-components.md)
+
 # Azure Site Recovery architecture for replicating Azure virtual machines
 
 

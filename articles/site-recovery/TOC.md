@@ -8,7 +8,7 @@
 ## [Watch an introduction](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Get Started
-## [Replicate Azure virtual machines](site-recovery-azure-to-azure.md)
+## [Replicate Azure virtual machines (preview)](site-recovery-azure-to-azure.md)
 ## [Replicate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
 ## [Replicate physical servers to Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
@@ -19,7 +19,7 @@
 
 # How To
 ## Plan
-### [Deployment prerequisites](site-recovery-prereq.md)
+### [Prerequisites for on-premises machines](site-recovery-prereq.md)
 ### [Plan network infrastructure](site-recovery-network-design.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
