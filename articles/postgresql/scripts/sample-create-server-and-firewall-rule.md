@@ -11,13 +11,13 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 05/25/2017
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
 This sample CLI script creates an Azure Database for PostgreSQL server and configures a server-level firewall rule. Once the script has been successfully run, the PostgreSQL server can be accessed from all Azure services and the configured IP address.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 ## Sample script
 In this sample script, edit the highlighted lines to customize the admin username and password.
