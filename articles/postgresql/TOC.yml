@@ -11,6 +11,10 @@
     href: quickstart-create-server-database-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-server-database-azure-cli.md
+  - name: Connect
+    items:
+    - name: Python
+      href: quickstart-connect-from-python.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
