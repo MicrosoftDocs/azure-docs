@@ -346,7 +346,7 @@ When you create a pool of compute nodes in Azure Batch, you can use the APIs to 
    * In the same Azure **region** as the Azure Batch account.
    * In the same **subscription** as the Azure Batch account.
 
-* The VNet should have enough free **IP addresses** to accommodate the `targetDedicatedComputeNodes` property of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
+* The VNet should have enough free **IP addresses** to accommodate the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
 
 * The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**.
 
