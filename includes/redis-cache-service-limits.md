@@ -1,6 +1,6 @@
 | Resource | Limit |
 | --- | --- |
-| Cache size |530 GB ([contact us](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) for more) |
+| Cache size |530 GB |
 | Databases |64 |
 | Max connected clients |40,000 |
 | Redis Cache replicas (for high availability) |1 |
