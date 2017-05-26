@@ -22,6 +22,7 @@ The table below lists the supported cryptographic algorithms and key strengths c
 | Traffic Selector | UsePolicyBasedTrafficSelectors** ($True/$False)                             |
 |                  |                                                                             |
 (*) IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
+(**) Please see the next FAQ item for "UsePolicyBasedTrafficSelectors"
 
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
