@@ -66,7 +66,7 @@
 ### [Views](operations-management-suite-solutions-resources-views.md)
 
 ## Management scenarios
-### [Collect monitoring data from runbook](operations-management-suite-runbook-datacollect.md)
+### [Collect analytics data from runbook](operations-management-suite-runbook-datacollect.md)
 
 ## [Integrate with OMS](operations-management-suite-integration.md)
 
