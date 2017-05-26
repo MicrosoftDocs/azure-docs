@@ -61,7 +61,7 @@ Before starting this tutorial, you need to complete the following tasks:
 
 ## Step 1: Configure your Visual Studio Team Services account 
 
-In this section, you configure your Visual Studio Team Services account. To configure VSTS Services Enpoints, in your Visual Studio Team Services project, click the **Settings** icon in the toolbar, and select **Services**.
+In this section, you configure your Visual Studio Team Services account. To configure VSTS Services Endpoints, in your Visual Studio Team Services project, click the **Settings** icon in the toolbar, and select **Services**.
 
 ![Open Services Endpoint](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
 
@@ -145,7 +145,7 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
     For the build operation, select your Azure Container Registry, the **Build an image** action, and the Dockerfile that defines each image. Set the **Working Directory** as the Dockerfile root directory, define the **Image Name**, and select **Include Latest Tag**.
     
-    The Image Name have to be in this format: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Replace **[NAME]** with the image name:
+    The Image Name has to be in this format: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Replace **[NAME]** with the image name:
     - proxy
     - products-api
     - ratings-api
@@ -160,19 +160,19 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
 4. After you configure the build and push steps for each of the five images, add three more steps in the build workflow.
 
-![Visual Studio Team Services - Add Command Line Task](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
+![Visual Studio Team Services - Add Command-Line Task](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-  a. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
+  1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
     
   ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose.yml"```
 
   ![Visual Studio Team Services - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-  b. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
+  2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
   
   ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose.yml"```
 
-  c. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
+  3. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
 
   ![Visual Studio Team Services - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
