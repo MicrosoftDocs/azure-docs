@@ -272,8 +272,8 @@ The last section will show you how to manage IPsec/IKE policy for an existing S2
 
 The same steps apply to both S2S and VNet-to-VNet connections.
 
-> [!IMPORTANT] IPsec/IKE policy is supported on *Standard* and *HighPerformance* route-based VPN
-> gateways only. It does not work on the Basic gateway SKU or the policy-based VPN gateway.
+> [!IMPORTANT]
+> IPsec/IKE policy is supported on *Standard* and *HighPerformance* route-based VPN gateways only. It does not work on the Basic gateway SKU or the policy-based VPN gateway.
 
 #### 1. Show the IPsec/IKE policy of a connection
 The following example shows how to get the IPsec/IKE policy configured on a connection. The scripts also continue from the exercises above.
