@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 05/04/2017
 ms.author: kgremban
 
 ---
@@ -26,9 +26,7 @@ ms.author: kgremban
 Azure AD Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. By this point, you should already have [enabled Application Proxy in the Azure classic portal](active-directory-application-proxy-enable.md). This article walks you through the steps to publish applications that are running on your local network and provide secure remote access from outside your network. After you complete this article, you'll be ready to configure the application with personalized information or security requirements.
 
 > [!NOTE]
-> Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-> 
-> 
+> Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md). If you want to use Application Proxy, you can [Publish applications in the Azure portal](application-proxy-publish-azure-portal.md).
 
 ## Publish an app using the wizard
 1. Sign in as an administrator in the [Azure classic portal](https://manage.windowsazure.com/).

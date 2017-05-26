@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: c655707e-1156-4893-b163-0b228ffd25d2
 ms.service: DNS
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

@@ -1,6 +1,6 @@
 ---
 title: Create identity for Azure app in portal | Microsoft Docs
-description: Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
+description: Describes how to create a new Azure Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,19 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 
 ---
-# Use portal to create Active Directory application and service principal that can access resources
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [Azure CLI](resource-group-authenticate-service-principal-cli.md)
-> * [Portal](resource-group-create-service-principal-portal.md)
->
->
+# Use portal to create an Azure Active Directory application and service principal that can access resources
 
-When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This approach is preferable to running the app under your own credentials because:
+When you have an application that needs to access or modify resources, you must set up an Azure Active Directory (AD) application and assign the required permissions to it. This approach is preferable to running the app under your own credentials because:
 
 * You can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 * You do not have to change the app's credentials if your responsibilities change. 
@@ -34,20 +28,20 @@ When you have an application that needs to access or modify resources, you must 
 This topic shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
  
 ## Required permissions
-To complete this topic, you must have sufficient permissions to register an application with your Active Directory, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
+To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
 
-### Check Active Directory permissions
+### Check Azure Active Directory permissions
 1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory**.
 
      ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
-3. In your Active Directory, select **User settings**.
+3. In Azure Active Directory, select **User settings**.
 
      ![select user settings](./media/resource-group-create-service-principal-portal/select-user-settings.png)
-4. Check the **App registrations** setting. If set to **Yes**, non-admin users can register AD apps. This setting means any user in the Active Directory can register an app. You can proceed to [Check Azure subscription permissions](#check-azure-subscription-permissions).
+4. Check the **App registrations** setting. If set to **Yes**, non-admin users can register AD apps. This setting means any user in the Azure AD tenant can register an app. You can proceed to [Check Azure subscription permissions](#check-azure-subscription-permissions).
 
      ![view app registrations](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. If the app registrations setting is set to **No**, only admin users can register apps. You need to check whether your account is an admin for the Active Directory. Select **Overview** and **Find a user** from Quick tasks.
+5. If the app registrations setting is set to **No**, only admin users can register apps. You need to check whether your account is an admin for the Azure AD tenant. Select **Overview** and **Find a user** from Quick tasks.
 
      ![find user](./media/resource-group-create-service-principal-portal/find-user.png)
 6. Search for your account, and select it when you find it.
@@ -56,7 +50,7 @@ To complete this topic, you must have sufficient permissions to register an appl
 7. For your account, select **Directory role**. 
 
      ![directory role](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-8. View your assigned role for the Active Directory. If your account is assigned to the User role, but the app registration setting (from the preceding steps) is limited to admin users, ask your administrator to either assign you to an administrator role, or to enable users to register apps.
+8. View your assigned directory role in Azure AD. If your account is assigned to the User role, but the app registration setting (from the preceding steps) is limited to admin users, ask your administrator to either assign you to an administrator role, or to enable users to register apps.
 
      ![view role](./media/resource-group-create-service-principal-portal/view-role.png)
 
@@ -65,9 +59,9 @@ In your Azure subscription, your account must have `Microsoft.Authorization/*/Wr
 
 To check your subscription permissions:
 
-1. If you are not already looking at your Active Directory account from the preceding steps, select **Azure Active Directory** from the left pane.
+1. If you are not already looking at your Azure AD account from the preceding steps, select **Azure Active Directory** from the left pane.
 
-2. Find your Active Directory account. Select **Overview** and **Find a user** from Quick tasks.
+2. Find your Azure AD account. Select **Overview** and **Find a user** from Quick tasks.
 
      ![find user](./media/resource-group-create-service-principal-portal/find-user.png)
 2. Search for your account, and select it when you find it.
@@ -81,7 +75,7 @@ To check your subscription permissions:
 
      ![show permissions](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
-## Create an Active Directory application
+## Create an Azure Active Directory application
 1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory**.
 
@@ -103,7 +97,7 @@ You have created your application.
 ## Get application ID and authentication key
 When programmatically logging in, you need the ID for your application and an authentication key. To get those values, use the following steps:
 
-1. From **App registrations** in Active Directory, select your application.
+1. From **App registrations** in Azure Active Directory, select your application.
 
      ![select application](./media/resource-group-create-service-principal-portal/select-app.png)
 2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client id.
@@ -123,9 +117,9 @@ When programmatically logging in, you need the ID for your application and an au
 ## Get tenant ID
 When programmatically logging in, you need to pass the tenant ID with your authentication request. 
 
-1. To get the tenant ID, select **Properties** for your Active Directory. 
+1. To get the tenant ID, select **Properties** for your Azure AD tenant. 
 
-     ![select active directory properties](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
+     ![select Azure AD properties](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
 2. Copy the **Directory ID**. This value is your tenant ID.
 
@@ -162,7 +156,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 ## Log in as the application
 
-Your application is now set up in Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. 
+Your application is now set up in Azure Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. 
 
 To log in through PowerShell, see [Provide credentials through PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
 
@@ -203,4 +197,4 @@ The following sample applications show how to log in as the AD application.
 ## Next Steps
 * To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 * To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).  
-
+* For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).

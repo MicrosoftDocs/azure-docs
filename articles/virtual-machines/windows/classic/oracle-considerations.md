@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 04/11/2017
 ms.author: rclaus
 
 ---
@@ -25,18 +25,13 @@ This article covers considerations for Oracle virtual machines in Azure, which a
 * Oracle JDK virtual machine images
 
 ## Oracle Database virtual machine images
-### Clustering (RAC) is not supported
-Azure does not currently support Oracle Real Application Clusters (RAC) of the Oracle Database. Only standalone instances of Oracle Database are possible. This is because Azure currently does not support virtual disk-sharing in a read/write manner among multiple virtual machine instances. Multicast UDP is also not supported.
 
 ### No static internal IP
 Azure assigns each virtual machine an internal IP address. Unless the virtual machine is part of a virtual network, the IP address of the virtual machine is dynamic and might change after the virtual machine restarts. This can cause issues because the Oracle Database expects the IP address to be static. To avoid the issue, consider adding the virtual machine to an Azure Virtual Network. See [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) and [Create a virtual network in Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) for more information.
 
 ### Attached disk configuration options
-You can place data files on either the operating system disk of the virtual machine or on attached disks, also known as data disks. Attached disks might offer better performance and size flexibility than the operating system disk. The operating system disk might be preferable only for databases under 10 gigabytes (GB).
 
-Attached disks rely on the Azure Blob storage service. Each disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). The performance of attached disks might not be optimal initially, and IOPS performance might improve considerably after a “burn-in” period of approximately 60-90 minutes of continuous operation. If a disk subsequently remains idle, IOPS performance might diminish until another burn-in period of continuous operation. In short, the more active a disk, the more likely it is to approach optimal IOPS performance.
-
-Although the simplest approach is to attach a single disk to the virtual machine and put database files on that disk, this approach is also the most limiting in terms of performance. Instead, you can often improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). See [Oracle Automatic Storage overview](http://www.oracle.com/technetwork/database/index-100339.html) for more information. Although it is possible to use striping of multiple disks at the operating system level, that approach is discouraged because it is not known to improve IOPS performance.
+Attached disks rely on the Azure Blob storage service. Each standard disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). Our premium disk offering is preferred for high performance database workloads and can achieve up to 5000 IOps per disk. While you can use a single disk if that meets your performance needs - you can improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). See [Oracle Automatic Storage overview](http://www.oracle.com/technetwork/database/index-100339.html) for more information. Although it is possible to use striping of multiple disks at the operating system level, there are trade offs you make using either of these routes. 
 
 Consider two different approaches for attaching multiple disks based on whether you want to prioritize the performance of read operations or write operations for your database:
 
@@ -44,14 +39,16 @@ Consider two different approaches for attaching multiple disks based on whether 
     ![](media/mysql-2008r2/image2.png)
 
 > [!IMPORTANT]
-> Evaluate the trade-off between write performance and read performance on a case-by-case basis. Your actual results can vary when you use this.
+> Evaluate the trade-off between write performance and read performance on a case-by-case basis. Your actual results can vary - do proper testing. ASM favors write operations, Operating System disk striping favors read operations.
 > 
-> 
+
+### Clustering (RAC) is not supported
+Oracle Real Application Clusters (RAC) is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration.  It relies on two on-premises technologies which do not work in hyper-scale public cloud environments like Microsoft Azure: network Multi-cast and shared disk. If you want to architect a geo-redundant multi-node configuration of Oracle DB, you will need to implement data replication with Oracle DataGuard.
 
 ### High availability and disaster recovery considerations
 When using Oracle Database in Azure virtual machines, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime. You are also responsible for backing up your own data and application.
 
-High availability and disaster recovery for Oracle Database Enterprise Edition (without RAC) on Azure can be achieved using [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), or [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), with two databases in two separate virtual machines. Both virtual machines should be in the same [cloud service](../../linux/classic/connect-vms.md) and the same [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same [availability set](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to allow Azure to place them into separate fault domains and upgrade domains. Only virtual machines in the same cloud service can participate in the same availability set. Each virtual machine must have at least 2 GB of memory and 5 GB of disk space.
+High availability and disaster recovery for Oracle Database Enterprise Edition (without RAC) on Azure can be achieved using [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), or [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), with two databases in two separate virtual machines. Both virtual machines should be in the same [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same [availability set](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to allow Azure to place them into separate fault domains and upgrade domains. Each virtual machine must have at least 2 GB of memory and 5 GB of disk space.
 
 With Oracle Data Guard, high availability can be achieved with a primary database in one virtual machine, a secondary (standby) database in another virtual machine, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) and [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentation at the Oracle website. If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 

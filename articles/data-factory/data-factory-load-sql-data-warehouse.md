@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 
 ---
@@ -175,9 +175,7 @@ This section shows you how to configure the destination: `lineitem` table in the
 
 	![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. Accept the default settings for column mapping and click **Next**.
-
-	![Copy Wizard - schema mapping page](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+4. In Schema mapping page, leave "Apply column mapping" option unchecked and click **Next**.
 
 ## Step 4: Performance settings
 

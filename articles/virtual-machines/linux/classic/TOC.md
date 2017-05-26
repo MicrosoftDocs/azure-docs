@@ -1,4 +1,4 @@
-# [Overview](../overview.md)
+﻿# [Overview](../overview.md)
 ## [Images](about-images.md)
 ## [VM extensions](agents-and-extensions.md)
 ## [Availability](configure-availability.md)
@@ -16,7 +16,8 @@
 ### [Use Remote Desktop with a Linux VM](remote-desktop.md)
 ### [Manage VM extensions](manage-extensions.md)
 ### [Manage VMs with Visual Studio](manage-visual-studio.md)
-### [Monitor VMs using the Diagnostic VM Extension](diagnostic-extension.md)
+### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
+### [Monitor VMs using v2.x of the Diagnostic VM Extension](diagnostic-extension-v2.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
@@ -66,7 +67,7 @@
 ### [Restart or resize a VM](restart-resize-error-troubleshooting.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

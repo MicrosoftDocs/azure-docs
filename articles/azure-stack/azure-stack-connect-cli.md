@@ -40,8 +40,8 @@ Use the following steps to connect to Azure Stack by using Azure CLI:
 
 1. Open a PowerShell session and get the Active Directory Resource Id by running the following PowerShell command:
 
-   ```PowerShell
-   (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01 -Method Get).authentication.audiences[0]
+   ```
+   PowerShell(Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01 -Method Get).authentication.audiences[0]
    ```
    
 2. Open a command prompt window and add the Azure Stack environment by using the following command, make sure to replace the `<Active directory resource ID>` with the value retrieved in the previous step:

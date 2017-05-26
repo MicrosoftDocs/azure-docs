@@ -4,7 +4,7 @@ description: How to collect log files for diagnostics in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: adshar
-manager: byronr
+manager:
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/14/2017
-ms.author: adshar;victorh
+ms.date: 5/11/2017
+ms.author: adshar
 
 ---
 # Azure Stack diagnostics tools
@@ -69,7 +69,7 @@ The following are important things to know about the Trace Collector:
   
 ## Log collection tool
  
-The PowerShell command `Get-AzureStackLogs` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
+The PowerShell command `Get-AzureStackLog` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
 
 > [!CAUTION]
 > These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
@@ -84,11 +84,11 @@ We currently collect the following log types:
 *	**Storage diagnostic logs**
 *	**ETW logs**
 
-    These are collected by the Trace Collector and stored in a share from where `Get-AzureStackLogs` retrieves them.
+    These are collected by the Trace Collector and stored in a share from where `Get-AzureStackLog` retrieves them.
  
 To identify all the logs that get collected from all the components, refer to the `<Logs>` tags in the customer configuration file located at `C:\EceStore\<Guid>\<GuidWithMaxFileSize>`.
  
-### To run Get-AzureStackLogs
+### To run Get-AzureStackLog
 1.	Log in as AzureStack\AzureStackAdmin on the host.
 2.	Open a PowerShell window as an administrator.
 3.	Run the following commands to import the PowerShell modules:
@@ -97,21 +97,21 @@ To identify all the logs that get collected from all the components, refer to th
 
     -	`Import-Module .\Microsoft.AzureStack.Diagnostics.DataCollection.psd1`
 
-4.	Run `Get-AzureStackLogs`.  
+4.	Run `Get-AzureStackLog`.  
 
     **Examples**
 
     - Collect all logs for all roles:
 
-        `Get-AzureStackLogs -OutputPath C:\AzureStackLogs`
+        `Get-AzureStackLog -OutputPath C:\AzureStackLogs`
 
     - Collect logs from VirtualMachines and BareMetal roles:
 
-        `Get-AzureStackLogs -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal`
+        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal`
 
     - Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
 
-        `Get-AzureStackLogs -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date)`
+        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date)`
 
 If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past 4 hours by default.
 
@@ -141,7 +141,7 @@ A few things to note:
 
 * This command takes some time for log collection based on which role logs are collected. Contributing factors include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
 * After log collection completes, check the new folder created in the `-OutputPath` parameter specified in the command.
-* A file called `Get-AzureStackLogs_Output.log` is created in the folder containing the zip files and includes the command output, which can be used for troubleshooting any failures in log collection.
+* A file called `Get-AzureStackLog_Output.log` is created in the folder containing the zip files and includes the command output, which can be used for troubleshooting any failures in log collection.
 * Each role has its logs inside an individual zip file. 
 * To investigate a specific failure, logs may be needed from more than one component.
     -	System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.

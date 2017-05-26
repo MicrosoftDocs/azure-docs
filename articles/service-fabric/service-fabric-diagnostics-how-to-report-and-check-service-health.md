@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 04/24/2017
 ms.author: dekapur
 
 ---
@@ -22,7 +22,7 @@ When your services encounter problems, your ability to respond to and fix incide
 
 There are three ways that you can report health from the service:
 
-* Use [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) or [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx) objects.  
+* Use [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) or [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) objects.  
   You can use the `Partition` and `CodePackageActivationContext` objects to report the health of elements that are part of the current context. For example, code that runs as part of a replica can report health only on that replica, the partition that it belongs to, and the application that it is a part of.
 * Use `FabricClient`.   
   You can use `FabricClient` to report health from the service code if the cluster is not [secure](service-fabric-cluster-security.md) or if the service is running with admin privileges. This won't be true in most real-world scenarios. With `FabricClient`, you can report health on any entity that is a part of the cluster. Ideally, however, service code should only send reports that are related to its own health.

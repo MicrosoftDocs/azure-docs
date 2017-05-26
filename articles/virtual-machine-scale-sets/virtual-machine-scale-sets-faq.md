@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 5/09/2017
 ms.author: negat
 ms.custom: na
 
@@ -407,7 +407,7 @@ To define an extension, use the JsonADDomainExtension property:
                                 "properties": {
                                     "publisher": "Microsoft.Compute",
                                     "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.0",
+                                    "typeHandlerVersion": "1.3",
                                     "settings": {
                                         "Name": "[parameters('domainName')]",
                                         "OUPath": "[variables('ouPath')]",
@@ -459,14 +459,49 @@ To execute a custom script that's hosted in a private storage account, set up pr
 
 ## Networking
  
+### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it will apply to all the VM NICs in the set?
+
+Yes. A Network Security Group can be applied directly to a scale set by referencing it in the networkInterfaceConfigurations section of the network profile. Example:
+
+```
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+            "name": "nic1",
+            "properties": {
+                "primary": "true",
+                "ipConfigurations": [
+                    {
+                        "name": "ip1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                            }
+                "loadBalancerInboundNatPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                                }
+                            ],
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                }
+            }
+        }
+    ]
+}
+```
+
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
 To do a VIP swap for virtual machine scale sets in the same subscription and same region, see [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
- 
-  
-### What is the resourceGuid property on a NIC used for?
-
-The resourceGuid property on a network interface card (NIC) is a unique ID. Lower layers will log this ID at some point in the future. 
  
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -535,6 +570,28 @@ In this example, an alert goes to Pagerduty.com when a threshold is reached.
 
 
 
+## Patching and operations
+
+### How do I create a scale set in an existing resource group?
+
+Creating scale sets in an existing resource group is not yet possible from the Azure portal, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
+
+### Can we move a scale set to another resource group?
+
+Yes, you can move scale set resources to a new subscription or resource group.
+
+### How to I update my virtual machine scale set to a new image? How do I manage patching?
+
+To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+
+### Can I use the reimage operation to reset a VM without changing the image? (That is, I want reset a VM to factory settings rather than to a new image.)
+
+Yes, you can use the reimage operation to reset a VM without changing the image. However, if your virtual machine scale set references a platform image with `version = latest`, your VM can update to a later OS image when you call `reimage`.
+
+For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
+
+
+
 ## Troubleshooting
 
 ### How do I turn on boot diagnostics?
@@ -558,21 +615,6 @@ When a new VM is created, the InstanceView property of the VM shows the details 
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
   }
 ```
-
- 
-
-## Updates
-
-### How to I update my virtual machine scale set to a new image? How do I manage patching?
-
-To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
-
-### Can I use the reimage operation to reset a VM without changing the image? (That is, I want reset a VM to factory settings rather than to a new image.)
-
-Yes, you can use the reimage operation to reset a VM without changing the image. However, if your virtual machine scale set references a platform image with `version = latest`, your VM can update to a later OS image when you call `reimage`.
-
-For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
-
 
 
 ## Virtual machine properties

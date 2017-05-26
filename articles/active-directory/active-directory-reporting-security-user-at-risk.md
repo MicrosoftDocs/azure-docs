@@ -1,6 +1,7 @@
 ---
-title: Users at risk security report in the Azure Active Directory portal - preview | Microsoft Docs
-description: Learn about the users at risk security report in the Azure Active Directory portal - preview
+
+title: Users at risk security report in the Azure Active Directory portal | Microsoft Docs
+description: Learn about the users at risk security report in the Azure Active Directory portal
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -11,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Users at risk security report in the Azure Active Directory portal - preview
+# Users at risk security report in the Azure Active Directory portal
 
-With the security reports in the Azure Active Directory [preview](active-directory-preview-explainer.md), you can gain insights into the probability of compromised user accounts in your environment. 
+With the security reports in the Azure Active Directory (Azure AD) you can gain insights into the probability of compromised user accounts in your environment. 
 
 Azure Active Directory detects suspicious actions that are related to your user accounts. For each detected action, a record called *risk event* is created. For more details, see [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md). 
 
