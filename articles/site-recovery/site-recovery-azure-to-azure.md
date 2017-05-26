@@ -17,13 +17,13 @@ ms.date: 05/22/2017
 ms.author: raynew
 
 ---
->[NOTE]
+>[!NOTE]
 >
 > Site Recovery replication for Azure virtual machines is currently in preview.
 
 # Replicate Azure VMs between regions with Azure Site Recovery
 
->[NOTE]
+>[!NOTE]
 >
 > Site Recovery replication for Azure virtual machines is currently in preview.
 
