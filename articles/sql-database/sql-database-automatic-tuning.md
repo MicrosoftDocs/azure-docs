@@ -31,7 +31,7 @@ should be added to improve performance of the queries, rarely used indexes that 
 Azure SQL Database provides detailed insight into the queries and indexes that you need to monitor. However, constantly monitoring
 database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible
 to do efficiently even with all available tools and reports that Azure SQL Database and Azure portal provide. 
-This is the reason why you might consider delegating some of the monitoring and tuning actions to Azure SQL Database using Automatic
+Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to Azure SQL Database using Automatic
 tuning feature. 
 
 ## How automatic tuning works?
@@ -43,7 +43,7 @@ workload and identify potential issues and improvements.
 
 This process enables Azure SQL Database to dynamically **adapt** to your workload by finding what indexes might be useful to improve
 performance of your workloads, what indexes affect your workloads, how to find optimal plans, etc. Based on these findings, **Automatic
-tuning will apply tuning actions that will improve performance** of your workload.
+tuning applies tuning actions that improve performance** of your workload.
 In addition, Azure SQL Database will continuously monitor performance after any change made by automatic tuning to ensure that it improves
 performance of your workload. Any action that didn’t improve performance is automatically reverted. This verification
 process is a key feature that ensures that any change made by automatic tuning feature will not have a negative impact on the performance
@@ -83,7 +83,7 @@ necessary set of indexes that optimize most of your queries that read data, with
 Azure SQL Database makes index management process easy. Instead of the tedious process of manual workload analysis and index monitoring,
 Azure SQL Database analyzes your workload, identifies the queries that could be executed faster if you create an index, identifies
 indexes that are not used in a longer period, and identifies duplicated indexes in the database.
-Find more information about identificaiton of indexes that should be changed at
+Find more information about identification of indexes that should be changed at
 [HOW TO: Identify missing indexes in Azure portal](sql-database-advisor-portal.md).
 
 ### Automatic index management
