@@ -25,14 +25,14 @@ You can use Azure CLI to create and manage Azure resources at a command prompt o
 Before you begin, make sure that Azure CLI is installed. For more information, see [the Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Prepare the environment
-### Assumptions
+### 1. Assumptions
 
 To perform the backup and recovery, you need to create a Linux VM with Oracle 12c installed. The Marketplace image you use to create the VMs is "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
 
 For instructions of how to create an Oracle database, see [Oracle database quick create guide](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
-### Connect to the VM
+### 2. Connect to the VM
 
 To create an SSH session with the VM, use the following command: Replace the IP address/hostname with the `publicIpAddress` value for your VM.
 
@@ -40,11 +40,11 @@ To create an SSH session with the VM, use the following command: Replace the IP 
 ssh <publicIpAddress>
 ```
 
-### Preparing database
+### 3. Preparing database
 
 This step assuming you have an Oracle instance (cdb1) running on a virtual machine called myVM.
 
-#### 1.  Run the *oracle* superuser, and then initialize the listener:
+Run the *oracle* superuser, and then initialize the listener:
 
     ```bash
     sudo su - oracle
@@ -74,7 +74,7 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     The command completed successfully
     ```
 
-#### 2.  Make sure the database is in archive log mode (Optional step)
+Make sure the database is in archive log mode (Optional step)
 
     ```bash
     $ sqlplus / as sysdba
@@ -90,7 +90,7 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
-#### 3. Create a table for testing (Optional step)
+Create a table for testing (Optional step)
 
     ```bash
     SQL> alter session set "_ORACLE_SCRIPT"=true ;
@@ -111,7 +111,7 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     SQL> commit;
     Commit complete.
     ```
-#### 4. Verify or change backup file location and size
+Verify or change backup file location and size
 
     ```bash
     SQL> show parameter db_recovery
@@ -120,28 +120,28 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
-#### 5. Backup database using RMAN
+Backup database using RMAN
 
     ```bash
     $ rman target /
     RMAN> backup database plus archivelog;
     ```
 
-### Backup VM using Azure Recovery Service Vault
+### 4. Backup VM using Azure Recovery Service Vault
 
-#### 1. Log on to Azure portal and search for Recovery Service Vaults.
+Log on to Azure portal and search for Recovery Service Vaults.
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
 
-#### 2. Click the Add button to add new vault.
+Click the Add button to add new vault.
 ![Screenshot of the Recovery Service Vaults Add page](./media/oracle-backup-recovery/recovery_service_02.png)
 
-#### 3. Click myVault to continue, and you should see a page similar to following
+Click myVault to continue, and you should see a page similar to following
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_03.png)
 
-#### 4. Click Backup button.
+Click Backup button.
 ![Screenshot of the Recovery Service Vaults backup page](./media/oracle-backup-recovery/recovery_service_04.png)
 
-#### 5. Enter the Backup goal, policy, and items to back up.
+Enter the Backup goal, policy, and items to back up.
 
 Use default Azure and Virtual Machine. Click OK button to continue.
 ![Screenshot of the Recovery Service Vaults Detail page](./media/oracle-backup-recovery/recovery_service_05.png)
@@ -170,9 +170,9 @@ This screen show the status of the backup job
 
 ![Screenshot of the Recovery Service Vaults job page](./media/oracle-backup-recovery/recovery_service_11.png)
 
-### Remove database files (for testing recovery at later section)
+### 5. Remove database files (for testing recovery at later section)
 
-#### 1. Remove tablespace and backup files
+Remove tablespace and backup files
 ```bash
 $ sudo su - oracle
 $ cd /u01/app/oracle/oradata/cdb1
@@ -180,7 +180,7 @@ $ rm -f *.dbf
 $ cd /u01/app/oracle/fast_recovery_area/CDB1/backupset
 $ rm -rf *
 ```
-#### 2. Shutdown Oracle (optional step)
+Shutdown Oracle (optional step)
 
 ```bash
 $ sqlplus / as sysdba
