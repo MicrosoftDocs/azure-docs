@@ -18,12 +18,15 @@ ms.author: swkrish
 
 ---
 # Create an Azure AD B2C tenant
+
 This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant in just a few minutes. When you're finished, you'll have a B2C tenant to use and start registering applications.
 
 ## Prerequisites
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an Azure AD B2C tenant
+
 > [!IMPORTANT]
 > B2C features can't be turned on in your existing tenants. You'll need to create a new Azure AD B2C tenant.
 
@@ -41,7 +44,10 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
     ![Screen shot of the form for creating a new tenant](./media/active-directory-b2c-get-started/create-new-b2c-tenant.png)
 7. Click the **Create** button to create your tenant. This may take a few minutes. You will be alerted in your notifications when it is complete.
 
-8. Congratulations, you have created a new Azure Active Directory B2C tenant. The tenant will be listed in the Active Directory extension. You are also made a Global Administrator of the tenant. You can add other Global Administrators as required.
+8. Congratulations, you have created a new Azure Active Directory B2C tenant. Click xxx in the blade to switch to your new tenant.
+ 
+   > [!NOTE]
+   > You are a Global Administrator of the tenant. You can add other Global Administrators as required.
    
    > [!IMPORTANT]
    > If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-type.md). Note that there are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You have to create a B2C tenant with a different domain name.
@@ -49,18 +55,24 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
    > 
 
 ## Navigate to the B2C features blade on the Azure portal
-1. Expand **More services** below the navigation bar on the left side.
-2. Search for **Azure AD B2C** and click on the result (You can favorite this for easy access in the future).
+
+1. Switch to your Azure AD B2C tenant using the Active Directory extension (on the top-right corner).
+
+   TODO screenshot
+
+2. Expand **More services** below the navigation bar on the left side.
+3. Search for **Azure AD B2C** and select **Azure AD B2C** in the result list.
 
     ![Screen shot of searching in the navigation pane for Azure AD B2C](./media/active-directory-b2c-get-started/navigate-to-azure-ad-b2c.png)
 
-3. The Azure portal with the B2C features blade showing will open in a new browser tab or window.
+3. The Azure AD B2C features blade for the tenant is displayed.
    
 4. Pin this blade to your Startboard for easy access. (The Pin tool is in the upper-right corner of the features blade.)
    
     ![Screen shot of the B2C features blade and pin button](./media/active-directory-b2c-get-started/b2c-pin-tenant.png)
 
 ## Link your Azure AD B2C tenant to your Azure subscription
+
 If you are planning to use your B2C tenant for production apps, you will need to link your Azure AD B2C tenant to your Azure subscription to pay for usage charges. Read [this article](active-directory-b2c-how-to-enable-billing.md) to learn how to do this.
 
    > [!IMPORTANT]
@@ -68,13 +80,16 @@ If you are planning to use your B2C tenant for production apps, you will need to
    > 
    > 
 
+
 ## Easy access to the B2C features blade on the Azure portal
+
 To improve discoverability, we've added a shortcut to the B2C features blade on the Azure portal.
 
-1. Sign into the Azure portal as the Global Administrator of your B2C tenant. If you are already signed into a different tenant, switch tenants (on the top-right corner).
-2. Click **Browse** on the left hand navigation.
-3. Click **Azure AD B2C** to access the B2C features blade.
-   
+1. Sign into the Azure portal as the Global Administrator of your Azure AD B2C tenant.
+2. Switch to your Azure AD B2C tenant using the Active Directory extension (on the top-right corner).
+3. In **Search resources** at the top of the portal, enter `Azure AD B2C`.
+4. In the results list, select **Azure AD B2C** to access the B2C features blade.
+    TODO - new screenshot
     ![Screen shot of Browse to B2C features blade](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 ## Next steps
