@@ -20,7 +20,7 @@ ms.author: TomSh
 ---
 
 
-# Azure Network Security
+# Azure network security
 
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of Azure’s wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the Azure platform.
 
