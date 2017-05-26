@@ -98,7 +98,7 @@ To enable the repair manager service:
 
 ### Disable automatic Windows Update on all nodes
 
-Automatic Windows updates may lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
+Automatic Windows updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
 
 ### Optional: Enable Windows Azure Diagnostics
 
@@ -197,8 +197,9 @@ To remove the application, follow the steps in [Deploy and remove applications u
 
 For your convenience, we've provided the script Undeploy.ps1 along with the application. To use the script:
 
-    - Connect to Service Fabric cluster using ```Connect-ServiceFabricCluster```
-    - Execute the powershell script Undeploy.ps1
+  - Connect to a Service Fabric cluster by using ```Connect-ServiceFabricCluster```.
+
+  - Execute the PowerShell script Undeploy.ps1.
 
 > [!NOTE]
 > Keep the script and the application folder PatchOrchestrationApplication in the same directory.
@@ -244,7 +245,7 @@ The REST endpoint for the Coordinator Service has a dynamic port. To check the e
 ![Image of REST endpoint](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 
-You can access the URL from outside of the cluster as well, if the reverse proxy is enabled on the cluster.
+If the reverse proxy is enabled on the cluster, you can access the URL from outside of the cluster as well.
 The endpoint that needs to be hit is
 http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults.
 
@@ -258,7 +259,7 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ### Collect patch orchestration app logs
 
-Patch orchestration app logs collect as part of Service Fabric logs. Until that time, logs can be collected by using one of the following ways:
+Patch orchestration app logs collect as part of Service Fabric logs. Until that time, logs can be collected by using one of the following methods:
 
 #### Locally on each node
 
@@ -269,7 +270,7 @@ For example, if Service Fabric is installed on drive D, the path is *D:\\PatchOr
 
 #### Central location
 
-If Windows Azure Diagnostics is configured as part of prerequisite steps, logs for the patch orchestration app are available in Azure storage.
+If Windows Azure Diagnostics is configured as part of prerequisite steps, logs for the patch orchestration app are available in Azure Storage.
 
 ### Health reports
 
@@ -355,7 +356,7 @@ A safety check is pending. To remedy this situation, ensure that enough nodes ar
 
 ### Updates were skipped on some nodes
 
-The patch orchestration app tries to install Windows Update according to the rescheduling policy. The service tries to recover the node and skip the update according to the application policy.
+The patch orchestration app tries to install a Windows update according to the rescheduling policy. The service tries to recover the node and skip the update according to the application policy.
 
 In such a case, a warning-level health report is generated against the Node Agent Service. The result for Windows Update also contains the possible reason for the failure.
 
