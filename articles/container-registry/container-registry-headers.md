@@ -19,24 +19,24 @@ ms.author: cristyg
 ---
 # Azure container registry repositories
 
-Azure Container Registries are compatible with a multitude of services and orchestrators. In order to make it easier to track the source services and agents from which ACR is used, we have started using the Docker header field in the Docker.config file.
+Azure Container Registries are compatible with a multitude of services and orchestrators. To make it easier to track the source services and agents from which ACR is used, we have started using the Docker header field in the Docker.config file.
 
 
 
 ## Viewing repositories in the Portal
 
-The ACR headers will follow the format:
+The ACR headers follow the format:
 ```
 Source-client: <cloud>/<service>/<optionalservicename>
 ```
 
-* Cloud: Public Azure, Azure Stack, or other government or country-specific Azure clouds (currently not supported for ACR).
+* Cloud: Azure, Azure Stack, or other government or country-specific Azure clouds. Although Azure Stack and government clouds are not currently supported, this enables future support.
 * Service: name of the service.
-* Optionalservicename: optional parameter for services with subservices, or to specify a SKU (ex: web apps would be Azure/app-service/web-apps).
+* Optionalservicename: optional parameter for services with subservices, or to specify a SKU (ex: web apps will be Azure/app-service/web-apps).
 
-Partner services and orchestrators will be encouraged to use specific header values to help with our telemetry. Users can also modify the value passed to the header if they so desire.
+Partner services and orchestrators are encouraged to use specific header values to help with our telemetry. Users can also modify the value passed to the header if they so desire.
 
-Below are the key-value pairs we are encouraging ACR partners to use:
+The key-value pairs we are encouraging ACR partners to use are below:
 
 | Service Name              | Header                                |
 | ------------------------- | ------------------------------------- |
@@ -47,6 +47,7 @@ Below are the key-value pairs we are encouraging ACR partners to use:
 | Cloud Console             | azure/cloud-console                   |
 | C-Series                  | azure/compute/c-series                |
 | Functions                 | azure/compute/functions               |
+| Internet of Things - Hub  | azure/iot/hub                         |
 | HDInsight                 | azure/data/hdinsight                  |
 | Jenkins                   | azure/jenkins                         |
 | Service Fabric            | azure/compute/service-fabric          |
