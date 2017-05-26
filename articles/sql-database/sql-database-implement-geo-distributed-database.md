@@ -86,7 +86,7 @@ Create a [database-level firewall rule](https://docs.microsoft.com/en-us/sql/rel
 Using Azure PowerShell, create an [active geo-replication auto failover group](sql-database-geo-replication-overview.md) between your existing Azure SQL server and the new empty Azure SQL server in an Azure region, and then add your sample database to the failover group.
 
 > [!IMPORTANT]
-> These cmdlets require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+> These cmdlets require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 >
 
 1. Populate variables for your PowerShell scripts.
