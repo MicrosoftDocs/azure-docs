@@ -282,8 +282,6 @@
       href: app-service-web-troubleshoot-performance-degradation.md
     - name: FAQ
       items:
-      - name: Web Apps FAQ
-        href: app-service-web-faq.md
       - name: Availability, performance, and application FAQ
         href: app-service-web-availability-performance-application-issues-faq.md
       - name: Deployment FAQ
