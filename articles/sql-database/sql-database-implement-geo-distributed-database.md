@@ -89,18 +89,18 @@ Using Azure PowerShell, create an [active geo-replication auto failover group](s
 > These cmdlets require Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 >
 
-1. Populate variables for your PowerShell scripts.
+1. Populate variables for your PowerShell scripts using the values for your existing server and sample database, and provide a globally unique value for failover group name.
 
    ```powershell
    $secpasswd = ConvertTo-SecureString "MyStrongPassword1" -AsPlainText -Force
    $mycreds = New-Object System.Management.Automation.PSCredential (“ServerAdmin”, $secpasswd)
    $myresourcegroupname = "<your resource group name>"
-   $mylocation = "<resource group location>"
+   $mylocation = "<your resource group location>"
    $myservername = "<your existing server name>"
    $mydatabasename = "<your existing database name>"
    $mydrlocation = "<your disaster recovery location>"
    $mydrservername = "<your disaster recovery server name>"
-   $myfailovergroupname = "<your failover group name>"
+   $myfailovergroupname = "<your unique failover group name>"
    ```
 
 2. Create an empty backup server in your failover region.
