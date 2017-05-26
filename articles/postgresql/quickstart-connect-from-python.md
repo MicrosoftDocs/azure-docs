@@ -26,9 +26,8 @@ You also need:
 - [python](https://www.python.org/downloads/) installed
 - [pip](https://pip.pypa.io/en/stable/installing/) package installed (pip is already installed if you're using Python 2 >=2.7.9 or Python 3 >=3.4 binaries downloaded from [python.org](https://python.org), but you need to upgrade pip.)
 
- 
 ## Install the Python connection libraries for PostgreSQL
-Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package in order to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows). This should enable you to install a binary version of the module including all the dependencies simply using:
+Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, which enabled you to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows), so you may use pip install to get the binary version of the module including all the dependencies:
 
 ```cmd
 pip install psycopg2
