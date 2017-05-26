@@ -66,7 +66,7 @@ For more information about IoT Hub endpoints, see [IoT Hub endpoints][lnk-endpoi
 
 The [Get Started][lnk-get-started] tutorials show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. For more detail, see the [Process IoT Hub device-to-cloud messages using routes][lnk-d2c-tutorial] tutorial.
 
-If you want to route your device-to-cloud messages to custom endpoints, see [Use routing rules and custom endpoints for device-to-cloud messages][lnk-custom].
+If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 
