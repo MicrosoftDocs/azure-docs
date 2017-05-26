@@ -3,7 +3,7 @@ title: Monitor user queries in Azure SQL Data Warehouse | Microsoft Docs
 description: Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: sqlmojo
 manager: jhubbard
 editor: ''
 
