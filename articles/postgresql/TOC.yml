@@ -13,6 +13,8 @@
     href: quickstart-create-server-database-azure-cli.md
   - name: Connect
     items:
+    - name: Node.js
+      href: quickstart-connect-from-nodejs.md
     - name: Python
       href: quickstart-connect-from-python.md
 - name: Tutorials

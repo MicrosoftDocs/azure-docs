@@ -9,8 +9,7 @@ editor: jasonwhowell
 ms.assetid: 
 ms.service: postgresql-database
 ms.custom: quick start connect
-ms.tgt_pltfrm: connect
-ms.devlang: na
+ms.devlang: python
 ms.topic: article
 ms.date: 05/26/2017
 ---
@@ -111,7 +110,7 @@ conn.commit()
 ```
 
 ## Update data
-Use the following code to update the invetory row that you previously inserted using [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function with **UPDATE** SQL statement. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
+Use the following code to update the inventory row that you previously inserted using [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function with **UPDATE** SQL statement. Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
 ```Python
 import psycopg2
