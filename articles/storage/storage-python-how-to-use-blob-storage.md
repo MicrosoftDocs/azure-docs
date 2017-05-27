@@ -102,6 +102,39 @@ The following example demonstrates using **get\_blob\_to\_path** to download the
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
 ```
 
+## Download a container
+To download a complete container with files and files under paths/sub-paths, check if the **blob.name** contains a path and create the desired directory structure to download files to relative path/sub-paths.
+
+The following example demonstrates the process of finding the blobs which are under paths/sub-paths, creates the desired directory/sub-directory structure and downloads the blobs to relative paths.
+
+```python
+#name of the container
+generator = block_blob_service.list_blobs('testcontainer')
+
+#code below lists all the blobs in the container and downloads them one after another
+for blob in generator:
+    print("{}".format(blob.name))
+    #check if the path contains a folder structure, create the folder structure
+    if "/" in "{}".format(blob.name):
+        print("there is a path in this")
+        #extract the folder path and check if that folder exists locally, and if not create it
+        head, tail = os.path.split("{}".format(blob.name))
+        print(head)
+        print(tail)
+        if (os.path.isdir(os.getcwd()+ "/" + head)):
+            #download the files to this directory
+            print("directory and sub directories exist")
+            block_blob_service.get_blob_to_path('testcontainer',blob.name,os.getcwd()+ "/" + head + "/" + tail)
+        else:
+            #create the diretcory and download the file to it
+            print("directory doesn't exist, creating it now")
+            os.makedirs(os.getcwd()+ "/" + head, exist_ok=True)
+            print("directory created, download initiated")
+            block_blob_service.get_blob_to_path('testcontainer',blob.name,os.getcwd()+ "/" + head + "/" + tail)
+    else:
+        block_blob_service.get_blob_to_path('testcontainer',blob.name,blob.name)
+```
+
 ## Delete a blob
 Finally, to delete a blob, call **delete_blob**.
 
