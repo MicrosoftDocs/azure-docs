@@ -46,9 +46,14 @@ With the custom IPsec/IKE policy, you can now configure Azure route-based VPN ga
 
 > [!IMPORTANT]
 > 1. To enable this connectivity, your on-premises policy-based VPN devices must support IKEv2 to connect to the Azure route-based VPN gateways. Please check with your VPN device specifications.
-> 2. The on-premises networks connecting through policy-based VPN devices with this mechanism can only connect to the Azure virtual network; cannot transit to other on-premises networks or virtual networks via the Azure VPN gateway.
+> 2. The on-premises networks connecting through policy-based VPN devices with this mechanism can only connect to the Azure virtual network; **cannot transit to other on-premises networks or virtual networks via the same Azure VPN gateway**.
+> 3. The configuration option is part of the custom IPsec/IKE connection policy. You must specify the complete policy (IPsec/IKE encryption and integrity algorithms, key strengths, and SA lifetimes) if you enable the policy-based traffic selector option.
 
-## Workflow
+The workflow to enable this conectivity:
+1. Create the virtual network, VPN gateway, and local network gateway for your cross-premises connection
+2. Create an IPsec/IKE policy
+3. You can apply the policy when you create a S2S or VNet-to-VNet connection, and enable the policy-based traffic selectors on the connection
+4. If the connection is already created, you can apply or update the policy to an existing connection
 
 ## Enable policy-based traffic selectors on a connection
 
