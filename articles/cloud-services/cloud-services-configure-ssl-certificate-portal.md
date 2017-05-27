@@ -128,8 +128,8 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
    completed; but, you still need to add the certificate information to
    the service configuration file.
 4. In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates**
-value with that of your certificate. - [ ] he following code sample provides
-   details of the **Certificates** section, except for the value of the thumbprint.
+value with that of your certificate. The following code sample provides
+   details of the **Certificates** section, except for the thumbprint value.
 
    ```xml
     <Role name="Deployment">
