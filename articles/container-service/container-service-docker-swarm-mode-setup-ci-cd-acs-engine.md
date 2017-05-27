@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/27/2017
 ms.author: diegomrtnzg
 
 ---
 
 # Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Visual Studio Team Services
 
-*Based on 
+*This article is based on 
 [Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Visual Studio Team Services](https://github.com/Microsoft/azure-docs/blob/master/articles/container-service/container-service-docker-swarm-setup-ci-cd.md) documentation*
 
 One of the biggest challenges when developing modern applications for the cloud is being able to deliver these applications continuously. In this article, you learn how to implement a full continuous integration and deployment (CI/CD) pipeline using: 
@@ -57,7 +57,9 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Have a Visual Studio Team Services account and team project created](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Fork the GitHub repository to your GitHub account](https://github.com/diegomrtnzg/MyShop/tree/docker-linux)
 
-> Note: the Docker Swarm orchestrator in Azure Container Service uses legacy standalone Swarm. Currently, the integrated [Swarm mode](https://docs.docker.com/engine/swarm/) (in Docker 1.12 and higher) is not a supported orchestrator in Azure Container Service. For this reason, we are using [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), a community-contributed [quickstart template](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), or a Docker solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
+>[!NOTE]
+> The Docker Swarm orchestrator in Azure Container Service uses legacy standalone Swarm. Currently, the integrated [Swarm mode](https://docs.docker.com/engine/swarm/) (in Docker 1.12 and higher) is not a supported orchestrator in Azure Container Service. For this reason, we are using [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), a community-contributed [quickstart template](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), or a Docker solution in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
+>
 
 ## Step 1: Configure your Visual Studio Team Services account 
 
@@ -160,29 +162,29 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
 4. After you configure the build and push steps for each of the five images, add three more steps in the build workflow.
 
-![Visual Studio Team Services - Add Command-Line Task](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
+   ![Visual Studio Team Services - Add Command-Line Task](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-  1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
+      1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
     
-  ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose.yml"```
+      ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose.yml"```
 
-  ![Visual Studio Team Services - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+      ![Visual Studio Team Services - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-  2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
+      2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
   
-  ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose.yml"```
+      ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose.yml"```
 
-  3. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
+     3. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
 
-  ![Visual Studio Team Services - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+     ![Visual Studio Team Services - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-  ![Visual Studio Team Services - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+     ![Visual Studio Team Services - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Click **Save & queue** to test your build definition.
 
-![Visual Studio Team Services - Save and queue](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
+   ![Visual Studio Team Services - Save and queue](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
 
-![Visual Studio Team Services - New Queue](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
+   ![Visual Studio Team Services - New Queue](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
 
 6. If the **Build** is correct, you have to see this screen:
 
@@ -240,11 +242,11 @@ The release workflow is composed of two tasks that you add.
     >
 3. Save this new release definition.
 
-## Step 4. Test the CI/CD pipeline
+## Step 4: Test the CI/CD pipeline
 
 Now that you are done with the configuration, it's time to test this new CI/CD pipeline. The easiest way to test it is to update the source code and commit the changes into your GitHub repository. A few seconds after you push the code, you will see a new build running in Visual Studio Team Services. Once completed successfully, a new release is triggered and deployed the new version of the application on the Azure Container Service cluster.
 
-## Next Steps
+## Next steps
 
 * For more information about CI/CD with Visual Studio Team Services, see the [VSTS Build overview](https://www.visualstudio.com/docs/build/overview).
 * For more information about ACS Engine, see the [ACS Engine GitHub repo](https://github.com/Azure/acs-engine).
