@@ -32,7 +32,6 @@ This tutorial walks you though combining these two popular, open-source technolo
 * The [Azure Command-Line Interface (CLI)].
 * An up-to-date [Java Developer Kit (JDK)].
 * Apache's [Maven] build tool (Version 3).
-* The [Kubernetes Command-Line Interface (kubectl)].
 * A [Git] client.
 * A [Docker] client.
 
@@ -188,13 +187,18 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 ## Create a Kubernetes Cluster on ACS using the Azure CLI
 
 1. Create a Kubernetes cluster in Azure Container Service. The following command creates a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-containerservice* as the cluster name, and *wingtiptoys-kubernetes* as the DNS prefix:
-   ```
+   ```azurecli
    az acs create --orchestrator-type=kubernetes --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice --dns-prefix=wingtiptoys-kubernetes
    ```
    This command may take a while to complete.
 
-1. Download the cluster configuration information so you can manage your cluster from the Kubernetes web interface and `kubectl`. 
+1. Install `kubectl` using the Azure CLI. Linux users may have to prefix this with `sudo` since it deploys the Kubernetes CLI to `/usr/local/bin`.
+   ```azurecli
+   az acs kubernetes install-cli
    ```
+
+1. Download the cluster configuration information so you can manage your cluster from the Kubernetes web interface and `kubectl`. 
+   ```azurecli
    az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
    ```
 
