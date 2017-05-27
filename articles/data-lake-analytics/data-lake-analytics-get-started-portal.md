@@ -91,6 +91,7 @@ OUTPUT @searchlog
     TO "/Output/SearchLog-from-Data-Lake.csv"
     USING Outputters.Csv();
 ```
+
 This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
 
 1. Click **Submit Job** from the top.   
