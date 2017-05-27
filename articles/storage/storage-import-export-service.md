@@ -77,7 +77,15 @@ Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for 
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
 
 > [!IMPORTANT]
-> External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs.
+> External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs. 
+
+Below is a list of external USB adaptors used to copy data to internal HDDs.
+Anker 68UPSATAA-02BU
+Anker 68UPSHHDS-BU
+Startech SATADOCK22UE
+Orico 6628SUS3-C-BK (6628 Series)
+Thermaltake BlacX Hot-Swap SATA External Hard Drive Docking Station (USB 2.0 & eSATA)
+
 > 
 > 
 
@@ -506,13 +514,13 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
-**What is the maximum numbers of HDD for in one shipment?
+**What is the maximum numbers of HDD for in one shipment?**
 
 Any number of HDDs can be in one shipment and if the disks belong to multiple jobs it is recommended to 
 a) Have the disks labeled with the corresponding job names. 
 b) Update the jobs with a tracking number suffixed with -1, -2 etc.
   
-**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?
+**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?**
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
 Max Page Blob size is 1TB.
