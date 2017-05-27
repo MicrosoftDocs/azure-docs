@@ -32,7 +32,7 @@ Azure Functions Core Tools is [open source and hosted on GitHub](https://github.
 
 ## Create a local Functions project
 
-When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This is the equivalent of a Functions app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 At a command prompt, run the following command:
 
@@ -82,7 +82,7 @@ The app setting **AzureWebJobsStorage** is a special setting that's required by 
 
 The following settings customize the local Functions host:
 - `LocalHttpPort`. The default port to use for `func host start` `func run`. The `--port` command-line option takes precedence over this value.
-- `CORS`. The CORS-allowed origins, as a comma-separated list with no spaces. Use "*" to allow all.
+- `CORS`. The CORS allowed origins, as a comma-separated list with no spaces. Use "*" to allow all.
 
 You can provide connection strings in the `ConnectionStrings` object. They are added to the environment with the provider name **System.Data.SqlClient**.
 
@@ -130,7 +130,7 @@ func host start
 You can use the following options with `func host start`:
 
 - `--port [-p]`. The local port to listen on. Default value: 7071.
-- `--debug <type>`. The options are Visual Studio Code and Visual Studio.
+- `--debug <type>`. The options are VSCode and VS.
 - `--cors`. A comma-separated list of CORS origins, with no spaces.
 - `--nodeDebugPort [-n]`. The port for the node debugger to use. Default: A value from launch.json or 5858.
 - `--debugLevel [-d]`. The console trace level (off, verbose, info, warning, or error). Default: Info.
@@ -189,7 +189,7 @@ To publish a Functions project to a Functions app in Azure, use the `publish` co
 func azure functionapp publish <FunctionAppName>
 ```
 
-The `publish` command uploads the contents of the Functions project directory, but it does not delete files that have been deleted locally. To delete these files, in the Azure Functions portal, start Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
+The `publish` command uploads the contents of the Functions project directory, but it does not delete files that have been deleted locally. To delete these files, in the Azure Functions portal, use Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
 
 
 <!-- LINKS -->
