@@ -98,8 +98,6 @@ Regardless of the amount of data or the number of regions, Cosmos DB guarantees 
 <a id="data-models"></a>
 ## Multi-model, multi-API support
  Azure Cosmos DB natively supports multiple data models including documents, key-value, graph, and column-family. The core content-model of Cosmos DB’s database engine is based on atom-record-sequence (ARS). Atoms consist of a small set of primitive types like string, bool, and number. Records are structs composed of these types. Sequences are arrays consisting of atoms, records, or sequences. 
-
-![Multi-model and multi-API Azure Cosmos DB](./media/introduction/azure-cosmos-db-multimodel.png) 
  
  The database engine can efficiently translate and project different data models onto the ARS-based data model. The core data model of Cosmos DB is natively accessible from dynamically typed programming languages and can be exposed as-is as JSON. 
  
