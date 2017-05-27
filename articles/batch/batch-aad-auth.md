@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/27/2017
+ms.date: 05/26/2017
 ms.author: tamram
 ---
 
