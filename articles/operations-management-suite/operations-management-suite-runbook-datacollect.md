@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 05/27/2017
 ms.author: bwren
 
 ---
@@ -40,12 +40,13 @@ To use a [module](../automation/automation-integration-modules.md) in a runbook,
 
 The PowerShell Gallery though gives you a quick option to deploy a module directly to your automation account so you can use that option for this tutorial.  
 
+![OMSIngestionAPI module](media/operations-management-suite-runbook-datacollect/OMSIngestionAPI.png)
+
 1. Go to [PowerShell Gallery](https://www.powershellgallery.com/).
 2. Search for **OMSIngestionAPI**.
 3. Click on the **Deploy to Azure Automation** button.
 4. Select your automation account and click **OK** to install the module.
 
-![OMSIngestionAPI module](media/operations-management-suite-runbook-datacollect/OMSIngestionAPI.png)
 
 ## 2. Create Automation variables
 [Automation variables](..\automation\automation-variables.md) hold values that can be used by all runbooks in your Automation account.  They make runbooks more flexible by allowing you to change these values without editing the actual runbook. Every request from the HTTP Data Collector API requires the ID and key of the OMS workspace, and variable assets are ideal to store this information.  
