@@ -4,7 +4,7 @@ description: Troubleshooting Azure File storage issues
 services: storage
 documentationcenter: ''
 author: genlin
-manager: felixwu
+manager: willchen
 editor: na
 tags: storage
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 05/27/2017
 ms.author: genli
 
 ---
@@ -150,18 +150,37 @@ The recommended policy setting is **Send NTLMv2 response only**. This correspond
 
 <a id="netuse"></a>
 
-## Net use was successful but don't see the Azure file share mounted in Windows Explorer
+## Net use was successful but users or applications don't see the Azure file share is not mounted in Windows Explorer
 ### Cause
-By default, Windows Explorer does not run as Administrator. If you run **net use** from an Administrator command prompt, you map the network drive "As Administrator." Because mapped drives are user-centric, the user account that is logged in does not display the drives if they are mounted under a different user account.
+Drives are mounted per user. If your application or service is running under a different user account than the current logged user, the logged user cannot see the drive.
 
 ### Solution
-Mount the share from a non-administrator command line. Alternatively, you can follow [this TechNet topic](https://technet.microsoft.com/library/ee844140.aspx) to configure the **EnableLinkedConnections** registry value.
+Users: Mount the share from a non-administrator command line. Alternatively, you can configure the EnableLinkedConnections registry value. For more information, see [Some Programs Cannot Access Network Locations When UAC Is Enabled](https://technet.microsoft.com/library/ee844140.aspx).
+
+Applications: If your application cannot see the file share, follow these steps:
+
+1. Disconnect any existing file share mapping by using Windows Explorer.
+2. Start command prompt (cmd.exe) by using the account that your application runs on.  To this, use [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx). In the following sample, NETWORK SERVICE is the account.
+      
+      `psexec -i -u "nt authority\network service" cmd.exe`
+
+3. In the opened command prompt, run the following command to double check if the  command prompt is running under the account:
+
+      `whoami`
+4. Add the storage account by running the following command:
+      
+      `credentials:cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+
+5. Add the file share mapping by running the following command:
+
+      `net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>`
+
 
 <a id="slashfails"></a>
 
 ## My storage account contains "/" and the net use command fails
 ### Cause
-When the **net use** command is run under Command Prompt (cmd.exe), it's parsed by adding "/" as a command-line option. This causes the drive mapping to fail.
+When the **net use** command is run under Command Prompt, it's parsed by adding "/" as a command-line option. This causes the drive mapping to fail.
 
 ### Solution
 You can use either of the following steps to work around the issue:
