@@ -137,7 +137,7 @@ Initially the IP address appears as `pending`. After a few minutes, the external
 ```bash
 NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
 kubernetes   10.0.0.1       <none>          443/TCP        21h       
-nginx        10.0.111.25    52.179.3.96    80/TCP         22m
+nginx        10.0.111.25    52.179.3.96     80/TCP         22m
 ```
 
 You can use a web browser of your choice to see the default NGINX welcome page at the external IP address:
