@@ -264,9 +264,9 @@ This problem in Linux kernel is now fixed as part of following change sets
 
 However this change may not be ported to all the Linux distributions yet. This is the list of known popular Linux kernels that have this and other reconnect fixes:
 
-- 4.4.40
-- 4.8.16
-- 4.9.1.
+- 4.4.40+
+- 4.8.16+
+- 4.9.1+.
 
 You can move to the recommended kernel versions to pick up the latest fix.
 
