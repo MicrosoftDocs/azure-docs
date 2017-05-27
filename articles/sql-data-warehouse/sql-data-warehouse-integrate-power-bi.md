@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: martinle;barbkess
 
 ---
 # Use Power BI with SQL Data Warehouse

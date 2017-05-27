@@ -27,7 +27,7 @@ This sample PowerShell script imports a database from a **bacpac** file.
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Create SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1?highlight=18-19 "Create SQL Database")]
 
 ## Clean up deployment
 
