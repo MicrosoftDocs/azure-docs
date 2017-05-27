@@ -103,13 +103,13 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
     ```powershell
     # Use this command to sign-in to the administrative portal.
     Login-AzureRmAccount `
-      -EnvironmentName "AzureStackAdmin" `
+      -Environment "AzureStackAdmin" `
       -TenantId $TenantID `
       -Credential $Credential
 
     # Use this command to sign-in to the user portal.
     Login-AzureRmAccount `
-      -EnvironmentName "AzureStackUser" `
+      -Environment "AzureStackUser" `
       -TenantId $TenantID `
       -Credential $Credential
     ```
