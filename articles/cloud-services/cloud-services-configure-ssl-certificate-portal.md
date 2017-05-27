@@ -29,7 +29,7 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 > The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
 >
 
-This task uses a production deployment; information on using a staging deployment is provided at the end of this topic.
+This task uses a production deployment. Information on using a staging deployment is provided at the end of this topic.
 
 Read [this](cloud-services-how-to-create-deploy-portal.md) first if you have not yet created a cloud service.
 
@@ -42,10 +42,10 @@ The certificate must meet the following requirements for SSL certificates in Azu
 
 * The certificate must contain a private key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
-* The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
+* The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
 * The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the task below uses a self-signed certificate in which the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
+For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the following task uses a self-signed certificate in which the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
@@ -85,7 +85,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 
    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
 
-   Permissions (`permisionLevel` attribute) can be set to one of the following:
+   Permissions (`permisionLevel` attribute) can be set to one of the following values:
 
    | Permission Value | Description |
    | --- | --- |
@@ -107,7 +107,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     ```
 
 3. In your service definition file, add a **Binding** element within
-   the **Sites** section. This adds an HTTPS binding to map the
+   the **Sites** section. This element adds an HTTPS binding to map the
    endpoint to your site:
 
    ```xml
@@ -124,12 +124,12 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     </WebRole>
     ```
 
-   All of the required changes to the service definition file have been
-   completed, but you still need to add the certificate information to
+   All the required changes to the service definition file have been
+   completed; but, you still need to add the certificate information to
    the service configuration file.
 4. In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates**
-   section within the **Role** section, replacing the sample thumbprint
-   value shown below with that of your certificate:
+   section within the **Role** section, as in the following sample. Replace the sample thumbprint
+   value with that of your certificate. :
 
    ```xml
     <Role name="Deployment">
@@ -146,7 +146,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     </Role>
     ```
 
-(The example above uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
+(This example uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
 
 Now that the service definition and service configuration files have
 been updated, package your deployment for uploading to Azure. If
@@ -155,7 +155,7 @@ you are using **cspack**, don't use the
 certificate information you just inserted.
 
 ## Step 3: Upload a certificate
-Connect to the Azure Portal and...
+Connect to the Azure portal and...
 
 1. In the **All resources** section of the Portal, select your cloud service.
 
@@ -165,11 +165,11 @@ Connect to the Azure Portal and...
 
     ![Click the certificates icon](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-3. Click **Upload** at the top of the cerfiticates area.
+3. Click **Upload** at the top of the certificates area.
 
     ![Click the Upload menu item](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. Provide the **File**, **Password**, then click **Upload**.
+4. Provide the **File**, **Password**, then click **Upload** at the bottom of the data entry area.
 
 ## Step 4: Connect to the role instance by using HTTPS
 Now that your deployment is up and running in Azure, you can
@@ -177,7 +177,7 @@ connect to it using HTTPS.
 
 1. Click the **Site URL** to open up the web browser.
 
-   ![Click on Site URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
+   ![Click the Site URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
 2. In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
 
