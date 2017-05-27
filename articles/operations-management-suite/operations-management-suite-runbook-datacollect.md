@@ -32,6 +32,9 @@ This scenario requires the following resources configured in your Azure subscrip
 ## Overview of scenario
 For this tutorial, you'll write a runbook that collects information about Automation jobs.  Runbooks in Azure Automation are implemented with PowerShell, so you'll start by writing and testing a script in the Azure Automation editor.  Once you verify that you're collecting the required information, you'll write that data to Log Analytics and verify the custom data type.  Finally, you'll create a schedule to start the runbook at regular intervals.
 
+> [!NOTE]
+> You can configure Azure Automation to send job information to Log Analytics without this runbook.  This scenario is primarily used to support the tutorial, and it's recommended that you send the data to a test workspace.  
+
 
 ## 1. Install Data Collector API module
 Every [request from the HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md#create-a-request) must be formatted appropriately and include an authorization header.  You can do this in your runbook, but you can reduce the amount of code required by using a module that simplifies this process.  One module that you can use is [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI) in the PowerShell Gallery.
