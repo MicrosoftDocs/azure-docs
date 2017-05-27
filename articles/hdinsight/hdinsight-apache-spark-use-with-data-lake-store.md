@@ -9,11 +9,12 @@ editor: cgronlun
 
 ms.assetid: 1f174323-c17b-428c-903d-04f0e272784c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 03/21/2017
 ms.author: nitinme
 
 ---
@@ -24,22 +25,19 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 ## Prerequisites
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
 * Azure Data Lake Store account. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
 
 * Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-	> [!IMPORTANT]
-   	> If you are using Data Lake Store as the primary storage for the cluster, make sure you create a Spark 1.6 cluster.
-  	>
-   	>
-
+	
 ## Prepare the data
 
-If you have created the HDInsight cluster with Data Lake Store as default storage, you do not need to perform this step because the cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster.
+> [!NOTE]
+> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Store as default storage. The cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster. Skip to the section [Use HDInsight Spark cluster with Data Lake Store](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+>
+>
 
-if you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
+If you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 
 1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 
@@ -79,7 +77,7 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
 
 3. Create a new notebook. Click **New**, and then click **PySpark**.
 
-    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Create a new Jupyter notebook")
 
 4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
@@ -87,7 +85,7 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
 
     Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, this will change to a hollow circle.
 
-     ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
+     ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status of a Jupyter notebook job")
 
 5. Load sample data into a temporary table using the **HVAC.csv** file you copied to the Data Lake Store account. You can access the data in the Data Lake Store account using the following URL pattern.
 
@@ -127,11 +125,11 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
 
 7. Once the job is completed successfully, the following tabular output is displayed by default.
 
-      ![Table output of query result](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Table output of query result")
+      ![Table output of query result](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Table output of query result")
 
      You can also see the results in other visualizations as well. For example, an area graph for the same output would look like the following.
 
-     ![Area graph of query result](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Area graph of query result")
+     ![Area graph of query result](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-area-output.png "Area graph of query result")
 
 8. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
 

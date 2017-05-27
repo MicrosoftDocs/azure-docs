@@ -1,5 +1,5 @@
 ---
-title: Creating alert rules in OMS Log Analytics | Microsoft Docs
+title: Creating alerts in OMS Log Analytics | Microsoft Docs
 description: Alerts in Log Analytics identify important information in your OMS repository and can proactively notify you of issues or invoke actions to attempt to correct them.  This article describes how to create an alert rule and details the different actions they can take.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 05/23/2017
 ms.author: bwren
 
-ms.custom: H1Hack27Feb2017
-
 ---
-# Create and manage alert rules in Log Analytics with the OMS portal
-[Alerts in Log Analytics](log-analytics-alerts.md) are created by alert rules that automatically run log searches at regular intervals.  They create an alert record if the results match particular criteria.  The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process.   
+# Working with alert rules in Log Analytics
+Alerts are created by alert rules that automatically run log searches at regular intervals.  They create an alert record if the results match particular criteria.  The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process.   
 
 This article describes the processes to create and edit alert rules using the OMS portal.  For details about the different settings and how to implement required logic, see [Understanding alerts in Log Analytics](log-analytics-alerts.md).
 
@@ -30,6 +28,9 @@ This article describes the processes to create and edit alert rules using the OM
 ## Create an alert rule
 
 To create an alert rule using the OMS portal, you start by creating a log search for the records that should invoke the alert.  The **Alert** button will then be available so you can create and configure the alert rule.
+
+>[!NOTE]
+> A maximum of 250 alert rules can currently be created in an OMS workspace. 
 
 1. From the OMS Overview page, click **Log Search**.
 2. Either create a new log search query or select a saved log search. 
@@ -76,23 +77,37 @@ The search query and time window that return the records that are evaluated to d
 
 When you provide the time window for the alert rule, the number of existing records that match the search criteria for that time window will be displayed.  This can help you determine the frequency that will give you the number of results that you expect.
 
-#### Threshold
-
-| Property | Description |
-|:--- |:---|
-| Number of results |An alert is created if the number of records returned by the query is either **greater than** or **less than** the value you provide.  |
-
-### Alert frequency
+### Schedule
 Defines how often the search query is run.
 
 | Property | Description |
 |:--- |:---|
 | Alert frequency | Specifies how often the query should be run. Can be any value between 5 minutes and 24 hours. Should be equal to or less than the time window.  If the value is greater than the time window, then you risk records being missed.<br><br>For example, consider a time window of 30 minutes and a frequency of 60 minutes.  If the query is run at 1:00, it returns records between 12:30 and 1:00 PM.  The next time the query would run is 2:00 when it would return records between 1:30 and 2:00.  Any records created between 1:00 and 1:30 would never be evaluated. |
+
+
+### Generate alert based on
+Defines the criteria that will be evaluated against the results of the search query to determine if an alert should be created.  These details will be different depending on the type of alert rule that you select.  You can get details for the different alert rule types from [Understanding alerts in Log Analytics](log-analytics-alerts.md).
+
+| Property | Description |
+|:--- |:---|
 | Suppress alerts | When you turn on suppression for the alert rule, actions for the rule are disabled for a defined length of time after creating a new alert. The rule is still running and will create alert records if the criteria is met. This is to allow you time to correct the problem without running duplicate actions. |
 
+#### Number of results alert rules
+
+| Property | Description |
+|:--- |:---|
+| Number of results |An alert is created if the number of records returned by the query is either **greater than** or **less than** the value you provide.  |
+
+#### Metric measurement alert rules
+
+| Property | Description |
+|:--- |:---|
+| Aggregate value | Threshold value that each aggregate value in the results must exceed to be considered a breach. |
+| Trigger alert based on | The number of breaches for an alert to be created.  You can specify **Total breaches** for any combination of breaches across the results set or **Consecutive breaches** to require that the breaches must occur in consecutive samples. |
 
 ### Actions
-Alert rules will always create an [alert record](#alert-records) when the threshold is met.  You can also define one or more actions to be run such as sending an email or starting a runbook.  See [Adding actions to alert rules in Log Analytics](log-analytics-alerts-actions.md) for details on configuring actions. 
+Alert rules will always create an [alert record](#alert-records) when the threshold is met.  You can also define one or more responses to be run such as sending an email or starting a runbook.
+
 
 
 #### Email actions
@@ -112,7 +127,7 @@ Webhook actions allow you to invoke an external process through a single HTTP PO
 | Webhook |Specify **Yes** if you want to call a webhook when the alert is triggered. |
 | Webhook URL |The URL of the webhook. |
 | Include custom JSON payload |Select this option if you want to replace the default payload with a custom payload. |
-| Enter your custom JSON payload |Custom payload to send to the webhook.  |
+| Enter your custom JSON payload |The custom payload for the webhook.  See previous section for details. |
 
 #### Runbook actions
 Runbook actions start a runbook in Azure Automation. 

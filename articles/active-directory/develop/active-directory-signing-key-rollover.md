@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
 ms.author: gsacavdm
+ms.custom: aaddev
 
 ---
 # Signing key rollover in Azure Active Directory
@@ -36,7 +37,7 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications / APIs protecting resources using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
 * [Web applications / APIs protecting resources using .NET Core OpenID Connect or  JwtBearerAuthentication middleware](#owincore)
 * [Web applications / APIs protecting resources using Node.js passport-azure-ad module](#passport)
-* [Web applications / APIs protecting resources and created with Visual Studio 2015](#vs2015)
+* [Web applications / APIs protecting resources and created with Visual Studio 2015 or Visual Studio 2017](#vs2015)
 * [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
 * [Web APIs protecting resources and created with Visual Studio 2013](#vs2013_webapi)
 * [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
@@ -121,8 +122,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Web applications / APIs protecting resources and created with Visual Studio 2015
-If your application was built using a web application template in Visual Studio 2015 and you selected **Work And School Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover automatically. This logic, embedded in the OWIN OpenID Connect middleware, retrieves and caches the keys from the OpenID Connect discovery document and periodically refreshes them.
+### <a name="vs2015"></a>Web applications / APIs protecting resources and created with Visual Studio 2015 or Visual Studio 2017
+If your application was built using a web application template in Visual Studio 2015 or Visual Studio 2017 and you selected **Work And School Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover automatically. This logic, embedded in the OWIN OpenID Connect middleware, retrieves and caches the keys from the OpenID Connect discovery document and periodically refreshes them.
 
 If you added authentication to your solution manually, your application might not have the necessary key rollover logic. You will need to write it yourself, or follow the steps in [Web applications / APIs using any other libraries or manually implementing any of the supported protocols.](#other).
 

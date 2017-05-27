@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: martinle;barbkess
 
 ---
 # Visualize data with Power BI

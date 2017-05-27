@@ -1,4 +1,4 @@
-# [Overview](media-services-overview.md)
+﻿# [Overview](media-services-overview.md)
 ## [Concepts ](media-services-concepts.md)
 
 # Get started
@@ -41,6 +41,7 @@
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Upload large files with Aspera](media-services-upload-files-with-aspera.md)
+### [Upload files with StorSimple](media-services-upload-files-from-storsimple.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
 ## [Encode content](media-services-encode-asset.md)
@@ -210,8 +211,8 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell (Service Management)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media)
 

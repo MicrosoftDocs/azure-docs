@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/28/2017
 ms.author: jroth
 
 ---
 # Connect to a SQL Server Virtual Machine on Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-connect.md)
-> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)
+> * [Classic](../classic/sql-connect.md)
 > 
 > 
 
@@ -29,7 +29,7 @@ This topic describes how to connect to your SQL Server instance running on an Az
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](../sqlclassic/virtual-machines-windows-classic-sql-connect.md).
+To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](../classic/sql-connect.md).
 
 If you would rather have a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 

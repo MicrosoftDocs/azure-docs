@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+ms.date: 03/20/2017
 ms.author: asaxton
 
 ---
@@ -26,7 +26,7 @@ With **Power BI Embedded**, you can integrate Power BI reports right into your w
 Power BI Embedded is an **Azure service** that enables ISVs and app developers to surface Power BI data experiences within their applications. As a developer, you've built applications, and those applications have their own users and distinct set of features. Those apps may also happen to have some built-in data elements like charts and reports that can now be powered by Microsoft Power BI Embedded. You don’t need a Power BI account to use your app. You can continue to sign in to your application just like before, and view and interact with the Power BI reporting experience without requiring any additional licensing.
 
 ## Licensing for Microsoft Power BI Embedded
-In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is not the responsibility of the end-user.  Instead, **sessions** are purchased by the developer of the app that is consuming the visuals, and are charged to the subscription that owns those resources. Additional information can be found on the pricing page (https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
+In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is not the responsibility of the end-user.  Instead, **sessions** are purchased by the developer of the app that is consuming the visuals, and are charged to the subscription that owns those resources. Additional information can be found on the [pricing page](https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## Microsoft Power BI Embedded conceptual model
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2017
+ms.date: 04/05/2017
 ms.author: cherylmc
 
 ---
@@ -112,13 +112,11 @@ For most configurations, you can configure forced tunneling. Forced tunneling le
 
 Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
+A forced tunneling connection can be configured in both deployment models and by using different tools. For more information, see [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md).
+
 **Forced tunneling diagram**
 
 ![Azure VPN Gateway forced tunneling diagram](./media/vpn-gateway-plan-design/forced-tunneling-diagram.png)
-
-A forced tunneling connection can be configured in both deployment models and by using different tools. See the following table for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
-
-[!INCLUDE [vpn-gateway-table-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
 ## Next steps
 See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) articles for more information to help you with your design.

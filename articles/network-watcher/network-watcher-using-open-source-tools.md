@@ -23,8 +23,6 @@ Packet captures contain network data that allow you to perform network forensics
 
 Azure’s Network Watcher provides you the ability to capture this valuable data by allowing you to perform packet captures on your network. In this article, we provide a walkthrough of how to visualize and gain insights from packet captures using CapAnalysis with Network Watcher.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Scenario
 
 You have a simple web application deployed on a VM in Azure want to use open source tools to visualize its network traffic to quickly identify flow patterns and any possible anomalies. With Network Watcher, you can obtain a packet capture of your network environment and directly store it on your storage account. CapAnalysis can then ingest the packet capture directly from the storage blob and visualize its contents.

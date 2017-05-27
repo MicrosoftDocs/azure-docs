@@ -18,7 +18,7 @@ ms.author: mbaldwin
 ---
 # How to migrate a hybrid collection from a RemoteApp VNET to an Azure VNET
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

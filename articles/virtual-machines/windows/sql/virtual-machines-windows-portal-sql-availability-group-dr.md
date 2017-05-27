@@ -1,5 +1,5 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Microsoft Docs 
+title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Microsoft Docs
 description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
 documentationCenter: na
@@ -15,16 +15,16 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "01/09/2017"
+ms.date: "05/02/2017"
 ms.author: mikeray
 
 ---
 
-# Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions
+# Configure an Always On availability group on Azure virtual machines in different regions
 
-This article explains how to configure a SQL Server Always On Availability Group replica on Azure Virtual Machines in a remote Azure location. Use this configuration to support disaster recovery.
+This article explains how to configure a SQL Server Always On availability group replica on Azure virtual machines in a remote Azure location. Use this configuration to support disaster recovery.
 
-This article applies to Azure Virtual Machines in Resource Manager mode. 
+This article applies to Azure Virtual Machines in Resource Manager mode.
 
 The following image shows a common deployment of an availability group on Azure virtual machines:
 
@@ -39,13 +39,13 @@ This architecture is vulnerable to downtime if the Azure region becomes inaccess
 The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a different Azure region. SQL-3 is added to the Windows Server Failover Cluster. SQL-3 can host an availability group replica. Finally, notice that the Azure region for SQL-3 has a new Azure load balancer.
 
 >[!NOTE]
-> An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. You can only place a virtual machine in an availability set at creation time. If the virtual machine is already in an availability set, you can add a virtual machine for an additional replica later. 
+> An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. You can only place a virtual machine in an availability set at creation time. If the virtual machine is already in an availability set, you can add a virtual machine for an additional replica later.
 
 In this architecture, the replica in the remote region is normally configured with asynchronous commit availability mode and manual failover mode.
 
 When availability group replicas are on Azure virtual machines in different Azure regions, each region requires:
 
-* A virtual network gateway 
+* A virtual network gateway
 * A virtual network gateway connection
 
 The following diagram shows how the networks communicate between data centers.
@@ -68,21 +68,21 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a domain controller in the new region](../../../active-directory/active-directory-new-forest-virtual-machine.md).
 
-   This domain controller provides authentication if the domain controller in the primary site is not available. 
+   This domain controller provides authentication if the domain controller in the primary site is not available.
 
 1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
 1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
    This load balancer must:
-   
+
    - Be in the same network and subnet as the new virtual machine.
-   - Have a static IP address for the Availability Group listener.
+   - Have a static IP address for the availability group listener.
    - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
 
-1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
+1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
 1. [Join the new SQL Server to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
@@ -90,20 +90,20 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Add the new SQL Server to the Windows Server Failover Cluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
-1. Create an IP address resource on the cluster. 
+1. Create an IP address resource on the cluster.
 
    You can create the IP address resource in Failover Cluster Manager. Right-click the availability group role, click **Add Resource**, **More Resources**, and click **IP Address**.
 
    ![Create IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
    Configure this IP address as follows:
-   
+
    - Use the network from the remote data center.
    - Assign the IP address from the new Azure load balancer. 
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
+1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 
@@ -111,7 +111,7 @@ To create a replica in a remote data center, do the following steps:
 
    For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
 
-1. Add the IP address resource as a dependency for the listener client access point (network name) cluster. 
+1. Add the IP address resource as a dependency for the listener client access point (network name) cluster.
 
    The following screenshot shows a properly configured IP address cluster resource:
 
@@ -129,9 +129,9 @@ Run the PowerShell script with the cluster network name, IP address, and probe p
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
    $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
-   
+
    Import-Module FailoverClusters
-   
+
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
@@ -143,26 +143,26 @@ Preferably, update the client connection strings to set `MultiSubnetFailover=Yes
 
 If you cannot modify the connection strings, you can configure name resolution caching. See [Connection Timeouts in Multi-subnet Availability Group](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
-## Fail over to remote region 
+## Fail over to remote region
 
 To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, failover is vulnerable to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
 1. Under **AlwaysOn Availability Groups**, **Availability Groups**, right-click your availability group and click **Properties**.
-1. On the **General** page, under **Availability Replicas**, set the secondary replica in the DR site to use **Synchronous Commit** availability mode and **Automatic** failover mode. 
+1. On the **General** page, under **Availability Replicas**, set the secondary replica in the DR site to use **Synchronous Commit** availability mode and **Automatic** failover mode.
 1. If you have a secondary replica in same site as your primary replica for high availability, set this replica to **Asynchronous Commit** and **Manual**.
 1. Click OK.
 1. In **Object Explorer**, right-click the availability group, and click **Show Dashboard**.
-1. On the dashboard, verify that the replica on the DR site is synchronized. 
+1. On the dashboard, verify that the replica on the DR site is synchronized.
 1. In **Object Explorer**, right-click the availability group, and click **Failover...**. SQL Server Management Studios opens a wizard to fail over SQL Server.  
 1. Click **Next**, and select the SQL Server instance in the DR site. Click **Next** again.
-1. Connect to the SQL Server instance in the DR site and click **Next**. 
+1. Connect to the SQL Server instance in the DR site and click **Next**.
 1. On the **Summary** page, verify the settings and click **Finish**.
 
 After testing connectivity, move the primary replica back to your primary data center and set the availability mode back to their normal operating settings. The following table shows the normal operational settings for the architecture described in this document:
 
 | Location | Server Instance | Role | Availability Mode | Failover Mode
-| ----- | ----- | ----- | ----- | ----- 
+| ----- | ----- | ----- | ----- | -----
 | Primary data center | SQL-1 | Primary | Synchronous | Automatic
 | Primary data center | SQL-2 | Secondary | Synchronous | Automatic
 | Secondary or remote data center | SQL-3 | Secondary | Asynchronous | Manual
@@ -180,4 +180,4 @@ For more information, see the following topics:
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
-* [Azure Availability Sets](../../virtual-machines-windows-manage-availability.md)
+* [Azure Availability Sets](../manage-availability.md)

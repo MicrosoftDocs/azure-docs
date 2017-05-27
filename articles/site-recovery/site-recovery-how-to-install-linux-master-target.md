@@ -1,6 +1,6 @@
 ---
-title: How to install Linux Master Target server for failover from Azure to on-premises| Microsoft Docs
-description: Before reprotecting a Linux VM, you need a linux Master target server. Learn how to install one.
+title: How to install a Linux master target server for failover from Azure to on-premises| Microsoft Docs
+description: Before reprotecting a Linux virtual machine, you need a Linux Master target server. Learn how to install one.
 services: site-recovery
 documentationcenter: ''
 author: ruturaj
@@ -12,36 +12,44 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 
 ---
-# How to install Linux Master Target server
-Once you have failed over your virtual machines, you can failback the VM's, back to on-premises. To failback, first you need to get the virtual machine into protected state, by reprotecting the virtual machine from Azure to on-premises. For this, you need a master target server to receive the traffic on-premises. If your protected virtual machine is a windows VM, then you need a Windows Master Target. For a Linux VM, you need a Linux Master Target to reprotect. Read the steps below on how to create and install a Linux Master Target.
+# How to install a Linux master target server
+After you fail over your virtual machines, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic. If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.
 
 ## Overview
-This article provides information and instructions to install a Linux Master Target.
+This article provides information and instructions to install a Linux master target.
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post comments or questions at the end of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Pre-requisites
+## Prerequisites
 
-* To correctly choose the host on which you need to deploy the MT, determine whether the failback is going to be to an existing VM on-premises or to a new VM (because the on-premises VM got deleted). 
-	* For an existing VM, the MT's host should have access to the VM's datastores.
-	* If the VM does not exist on-premises, the failback VM is created on the same host as the MT. You can choose any ESXi host to install the MT.
-* MT should be on a network that can communicate with the process server and the configuration server.
-* MT version should be lesser than or equal to the Process server and the configuration server. (example, if CS is on 9.4, the MT can be on 9.4 and 9.3 - not on 9.5)
-* MT can only be a VMware VM, and not a physical VM.
+* To correctly choose the host on which you need to deploy the master target, determine whether the failback is going to be to an existing on-premises virtual machine or to a new virtual machine because the on-premises virtual machine got deleted.
+	* For an existing virtual machine, the master target's host should have access to the virtual machine's datastores.
+	* If the on-premises virtual machine does not exist, the failback virtual machine is created on the same host as the master target. You can choose any ESXi host to install the master target.
+* The master target should be on a network that can communicate with the process server and the configuration server.
+* The version of the master target must be equal to or earlier than the versions of the process server and the configuration server. For example, if the version of the configuration server is 9.4, the version of the master target can be 9.4 or 9.3 but not 9.5.
+* The master target can only be a VMware virtual machine and not a physical server.
+
+## Master target sizing guideline
+
+The master target needs to be created with the following sizing guideline
+	* RAM - 6GB or more
+	* OS Disk size - 100GB or more (to install CentOS6.6)
+	* Additional disk size for retention drive - 1TB
+	* CPU cores - 4 Cores or more
 
 
-## Steps to deploy the Master Target server
+## Steps to deploy the master target server
 
-### Install CentOS 6.6 Minimal
+### Install CentOS 6.6 minimal
 
-Follow the steps as mentioned below to install CentOS 6.6 - 64bit Operating System.
+Use the following steps to install the 64-bit CentOS 6.6 operating system:
 
-1. From following links choose a nearest mirror to download a CentOS 6.6 minimal 64-bit ISO.
+1. From following links, choose the nearest mirror to download a CentOS 6.6 minimal 64-bit ISO.
 
 	<http://archive.kernel.org/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
@@ -51,157 +59,136 @@ Follow the steps as mentioned below to install CentOS 6.6 - 64bit Operating Syst
 
 	<http://mirror.nsc.liu.se/centos-store/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
 
-	Keep CentOS 6.6 minimal 64-bit ISO in DVD drive and boot the system.
+	Put CentOS 6.6 minimal 64-bit ISO in a DVD drive, and boot the system.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
+	![Welcome to CentoOS 6.6 dialog box](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
 
-2. Select **Skip** to ignore the media testing process.
+2. Click **Skip** to ignore the media testing process.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
+	![Select Skip to ignore the media testing process](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
 
-3. Now you can see the installation welcome screen. Here click
-**Next** button.
+3. On the installation welcome screen, click the **Next** button.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
+	![The Next button on the installation welcome screen](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
 
-4. Select **English** as your preferred Language and click
-**Next** to continue.
+4. Select **English** as your preferred language, and then click
+**Next**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
+	![Select a lanaguage](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
 
-5. Select **US English** as a Keyboard layout. Click **Next**
-to continue installation.
+5. Select **US English** as a keyboard layout, and then click **Next**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
+	![Select the English keyboard layout](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
 
-6. Select the type of devices where you will install. Select
-**Basic storage Devices**. Click **Next** to continue installation.
+6. Select
+**Basic storage Devices**, and then click **Next**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
+	![Select a storage device](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
 
-7. A warning message appears, that denotes the existing data in
-the hard drive will be deleted. Make sure the hard drive does not have
-any important data and click **Yes, discard any data**.
+7. The warning message that appears indicates that the existing data on the hard drive will be deleted. Make sure the hard drive does not have any important data, and then click **Yes, discard any data**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
+	![Warning about deletion of data if you proceed](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
 
-8. Enter the hostname for your server in **Hostname text box**. Click **Configure Network**, In **Network Connection** window select your network interface. Click **Edit** button to configure IPV4Settings.
+8. Enter the hostname for your server in the **Hostname** box, and then click **Configure Network**. In the **Network Connection** dialog box, select your network interface, and then click the **Edit** button to configure IPV4Settings.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
+	![Select a hostname and configure IPV4](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
 
-9. Following **Editing System eth0** window displays. Select **Connect automatically** checkbox. Under “IPv4 Settings” tab, choose
-method as **Manual** and then click **Add** button. Provide the Static IP, Netmask, Gateway, and DNS Server details. Click **Apply** to save the details.
+9. In the **Editing System eth0** dialog box, check the **Connect automatically** check box. On the **IPv4 Settings** tab, choose
+**Manual** for **Method**, and then click the **Add** button. Provide the **Static IP**, **Netmask**, **Gateway**, and **DNS Server** details. Click **Apply** to save the details.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
+	![Settings for the network configuration](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
 
-10. Select your Time Zone from the Combo box and click **Next**
-to continue.
+10. Select your time zone, and then click **Next**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
+	![Select a time zone](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
 
-11. Enter the **Root password** and confirm the password, click
-**Next** to continue.
+11. Enter the **Root Password**, confirm the password, and then click
+**Next**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
+	![Add a password](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
 
-12. Select **Create Custom Layout** as Mode of Partition and
-click **Next** to continue.
+12. Select **Create Custom Layout**, and then click **Next**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
+	![Select a type of installation](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
 
-13. Select **Free** partition and click on **Create** for creating **/**, **/var/crash** and **/home** partitions with **ext4** as
-File System Type. Create **Swap partition** with **swap** as file system type. To allocate partition size, follow the size allocation formula as mentioned in below table.
+13. Select **Free** partition, and then click **Create** to create **/**, **/var/crash**, and **/home** partitions with **ext4** as
+the file system type. Create a **Swap partition** with **swap** as the file system type. To allocate partition size, follow the size allocation formula in the following table.
 
 	> [!NOTE]
-	> Linux Master Target (MT) system should not use LVM for root or retention storage spaces. Linux MT configured to avoid LVM partitions/disks discovery by default.
+	> The Linux master target server should not use Logical Volume Manager (LVM) for root or retention storage spaces. The Linux master target is configured to avoid LVM partitions and disk discovery by default.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
+	![Table of partition names, partition sizes, and file system types](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
 
-14. After creation of partition click **Next** to continue.
+14. After you create the partition, click **Next**.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
+	![Dialog box that shows selected values for partitions](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
 
-15. If any pre-existing devices are found, warning message
-appears for formatting. Click **Format** to format the hard drive with latest partition table.
+15. If any pre-existing devices are found, a warning message
+appears for formatting. Click **Format** to format the hard drive with the latest partition table.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
+	![Click the Format button to format the disk](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
 
-16. Click **Write changes to disk** to apply the partition changes on disk.
+16. Click **Write changes to disk** to apply the partition changes to the disk.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
+	![Click "Write changes to disk"](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
 
-17. Check the **Install boot loader** option and click **Next** to install boot loader on root partition.
+17. Check the **Install boot loader** option, and then click **Next** to install the boot loader on the root partition.
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
-
-
-18. The Installation process starts. You can monitor the progress of installation.
-
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
-
-19. The following screen displays on successful completion of installation. Click **Reboot**
-
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
+	![Install the boot loader on the root partition](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
 
 
-### Post installation steps
-Next, we will prepare the machine to be configured as a Master Target server.
+18. The installation process starts. You can monitor progress.
 
-To get SCSI ID’s for each of SCSI hard disk in a Linux virtual machine,
-you should enable the parameter “disk.EnableUUID = TRUE”.
+	![Dialog box that shows progress of installation](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
 
-To enable this parameter, follow the steps as given below:
+19. The following screen displays on successful completion of installation. Click **Reboot**.
 
-a. Shut down your virtual machine.
-
-b. Right-click the VM’s entry in the left-hand panel and select **Edit Settings.**
-
-c. Click the **Options** tab.
-
-d. Select the **Advanced&gt;General item** on the left and click the
-**Configuration Parameters** that you see on the right.
-
-![](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
-
-“Configuration Parameters” option will be in de-active state when the
-machine is running”. To make this tab active, shutdown machine.
-
-e. See whether already a row with **disk.EnableUUID** exists?
-
-f. If the value exists and is set to False over write the value with True (True and False values are case in-sensitive).
-
-g. If the value exists and is set to true, click on Cancel.
-	
-h. If the value does not exist click **Add Row.**
-
-i. Add disk.EnableUUID in the Name column and Set its value as TRUE
-
-   * If exists and if the value is set to False over write the value with
-True (True and False values are case in-sensitive).
-
-   * If exists and is set to true, click on cancel and test the SCSI
-command inside guest operating system after it is boot-up.
-
-f. If does not exist click **Add Row.**
-
-  Add disk.EnableUUID in the Name column.
-
-  Set its value as TRUE
+	![Installation successful screen](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
 
 
+### Post-installation steps
+Next, prepare the machine to be configured as a master target server.
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+To get the ID for each SCSI hard disk in a Linux virtual machine,
+you should enable the **disk.EnableUUID = TRUE** parameter.
 
-#### Download and install the additional packages
+To enable this parameter, use the following steps:
+
+1. Shut down your virtual machine.
+
+2. Right-click the virtual machine’s entry in the left pane, and then select **Edit Settings.**
+
+3. Click the **Options** tab.
+
+4. Select **Advanced &gt; General** in the left pane, and then click the **Configuration Parameters** button on the right.
+
+	![Options tab](./media/site-recovery-how-to-install-linux-master-target/media/image20.png)
+
+	The **Configuration Parameters** option is not available when the
+machine is running. To make this tab active, shut down the virtual machine.
+
+5. See whether a row with **disk.EnableUUID** already exists.
+
+	- If the value exists and is set to **False**, change the value to **True** (The values are not case-sensitive).
+
+	- If the value exists and is set to **True**, click **Cancel**.
+
+	- If the value does not exist, click **Add Row.**
+
+	- Add **disk.EnableUUID** in the **Name** column and set its value as **TRUE**.
+
+	![Checking whether disk.EnableUUID already exists](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
+
+#### Download and install additional packages
 
 > [!NOTE]
-> Make sure system has Internet connectivity before download and installing additional packages or else you will need to manually find out these package RPM and install them.
+> Make sure that you have Internet connectivity to download and install additional packages. Without Internet connectivity, you will need to manually find these RPM packages and install them.
 
 ```
 yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 ```
 
-Above command will download below mentioned 15 packages from CentOS 6.6 repository and install. If you do not have internet access, you will need to download the following RPM.
+The previous command will download the following 15 packages from the CentOS 6.6 repository and install them. If you do not have Internet access, you will need to download the following RPM packages:
 
 
 bc-1.06.95-1.el6.x86\_64.rpm
@@ -238,10 +225,10 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 #### Install additional packages for specific operating systems
 
 > [!NOTE]
-> If source protected machines use Reiser or XFS filesystem for the root or boot device, then following additional packages should be download and installed on Linux Master Target prior to the protection.
- 
+> If source-protected machines use ReiserFS or XFS file systems for the root or boot device, you should download and install the following additional packages on the Linux master target prior to protection.
 
-***ReiserFS (If used in Suse11SP3. However, ReiserFS is not the default filesystem in Suse11SP3)***
+
+***ReiserFS (If used in Suse11SP3. ReiserFS is not the default filesystem in Suse11SP3)***
 
 ```
 cd /usr/local
@@ -256,7 +243,7 @@ rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
 reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 ```
 
-***XFS (RHEL, CentOS 7 onwards)***
+***XFS (RHEL, CentOS 7 onward)***
 
 ```
 cd /usr/local
@@ -266,171 +253,167 @@ wget
 
 rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-yum install device-mapper-multipath 
+yum install device-mapper-multipath
 ```
-This is required to enable
-Multipath packages on the MT server.
+This is required to enable multipath packages on the master target.
 
-### Get the Installer for setup
+### Get the installer for setup
 
-If you have internet access from your Master Target server, you can download the installer via below steps - else you can copy the installer from the Process server and install it.
+If your master target has Internet connectivity, you can use the following steps to download the installer. Otherwise, you can copy the installer from the process server and install it.
 
-#### Download the MT installation packages
+#### Download the master target installation packages
 
-Download the latest Linux Master Target installation bits from here - [https://aka.ms/latestlinuxmobsvc](https://aka.ms/latestlinuxmobsvc).
+[Download the latest Linux master target installation bits](https://aka.ms/latestlinuxmobsvc).
 
-To download it via your linux, type 
+To download it by using Linux, type:
 
 ```
 wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 ```
 
-Make sure you download and unzip the installer in your home directory only. If you unzip in into /usr/Local then the installation will fail.
+Make sure that you download and unzip the installer in your home directory. If you unzip to /usr/Local, then the installation will fail.
 
 
-#### Access the installer from the Process server
+#### Access the installer from the process server
 
-Go to the Process server and navigate to directory - C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+1. Go to C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository on the process server.
 
-Copy the required installer file from the process server and save it as latestlinuxmobsvc.tar.gz in your home directory
-
-
-### Apply Custom Configuration Changes
-
-To apply custom configuration changes, follow the below mentioned steps:
+2. Copy the required installer file from the process server, and save it as latestlinuxmobsvc.tar.gz in your home directory.
 
 
-1. Run the below command to untar the binary.
+### Apply custom configuration changes
+
+To apply custom configuration changes, use the following steps:
+
+
+1. Run the following command to untar the binary.
 	```
 	tar -zxvf latestlinuxmobsvc.tar.gz
 	```
+	![Screenshot of the executed command](./media/site-recovery-how-to-install-linux-master-target/image16.png)
 
-	![](./media/site-recovery-how-to-install-linux-master-target/image16.png)
-	
-2. Execute below command to give permission.
+2. Run the following command to give permission.
 	```
 	chmod 755 ./ApplyCustomChanges.sh
 	```
 
-3. Execute the below command to run the script.
+3. Run the following command to run the script.
 	```
 	./ApplyCustomChanges.sh
 	```
 > [!NOTE]
-> Execute the script only once on the server. Shut down the server. Reboot the server after adding a disk as given in the next steps.
+> Run the script only once on the server. Shut down the server. Reboot the server after you add a disk as described in the next steps.
 
-### Add retention disk to Linux MT VM 
+### Add a retention disk to the Linux master target virtual machine
 
-Follow the steps as mentioned below to create a retention disk.
+Use the following steps to create a retention disk:
 
-1. Attach a new **1-TB** disk to the Linux MT VM and **boot** the machine.
+1. Attach a new **1-TB** disk to the Linux master target virtual machine, and **boot** the machine.
 
-2. Invoke **multipath -ll** command to know the retention disk's
-multipath id.
+2. Use the **multipath -ll** command to learn the retention disk's
+multipath ID.
 
 	```
 	multipath -ll
 	```
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+	![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
-3. Format the drive and create a filesystem on the new drive. 
-	
+3. Format the drive, and create a file system on the new drive.
+
 	```
 	mkfs.ext4 /dev/mapper/<Retention disk's multipath id>
 	```
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
+	![Creating a file system on the drive](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
 
-4. Once done with filesystem creation, mount the retention disk.
+4. After you create the file system, mount the retention disk.
 	```
 	mkdir /mnt/retention
 	mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
 	```
 
-	![](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
+	![Mounting the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
-5. Finally create the fstab entry to mount the retention drive during every boot
+5. Create the **fstab** entry to mount the retention drive during every boot.
 	```
-	vi /etc/fstab 
+	vi /etc/fstab
 	```
-	Press [Insert] to begin editing the file. Create a new line and insert the following text in it. Edit the Disk multipath ID based on the highlighted multipath ID from the previous command.
+	Press **Insert** to begin editing the file. Create a new line, and insert the following text. Edit the disk multipath ID based on the highlighted multipath ID from the previous command.
 
 	**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
-	Press [Esc] and type :wq (write and quit) to close the editor window.
+	Press **Esc**, and type **:wq** (write and quit) to close the editor window.
 
-### Install Master Target
+### Install the master target
+
+> [!IMPORTANT]
+> The version of the master target server must be equal to or earlier than the versions of the process server and the configuration server. If this condition is not met, reprotect will succeed, but replication will fail.
+
 
 > [!NOTE]
-> Master target server version should be less than or equal to the process server and the configuration server. If the MT version is higher, the reprotect will succeed but replication will fail.
- 
+> Before you install the master target server, check that the /etc/hosts file on the virtual machine contains entries that map the local hostname to the IP addresses that are associated with all network adapters.
 
-> [!NOTE]
-> Before installing the master target server, check that the /etc/hosts file on the VM contains entries that map the local hostname to IP addresses associated with all network adapters.
- 
-1. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the Configuration server, and save it in passphrase.txt in the same local directory by running the following command.
+1. Copy the passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server, and save it in passphrase.txt in the same local directory by running the following command.
 
 	```
 	echo <passphrase> >passphrase.txt
 	```
 	Example: echo itUx70I47uxDuUVY >passphrase.txt
 
-2. Note down the Configuration server's IP address. We need it in the next step
+2. Note the configuration server's IP address. You need it in the next step.
 
-3. Run the following command to Install the Master Target server and register the server with the Configuration server.
-	
+3. Run the following command to install the master target server and register the server with the configuration server.
+
 	```
 	./install -t both -a host -R MasterTarget -d /usr/local/ASR -i <Configuration Server IP Address> -p 443 -s y -c https -P passphrase.txt
 	```
 
 	Example: ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
 
-	Wait til the script completes execution. If the Master Target is successfully registered, you can see the MT listed in the Site Recovery Infrastructure page on the portal.
+	Wait until the script finishes. If the master target is successfully registered, the master target is listed on the Site Recovery Infrastructure page of the portal.
 
-#### Installing Master Target using interactive install
+#### Install the master target by using interactive install
 
-1. Execute following command to install Master Target. Choose agent role as "Master Target".
+1. Run the following command to install the master target. Choose agent role as **Master Target**.
 
 	```
 	./install
 	```
 
-2. Choose default location for installation - Press [Enter] to continue
-	
-	![](./media/site-recovery-how-to-install-linux-master-target/image17.png)
-	
+2. Choose the default location for installation, and press **Enter** to continue.
 
-3. Choose the Global settings to configure
+	![Choosing a default location for installation of master target](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 
-	![](./media/site-recovery-how-to-install-linux-master-target/image18.png)
-	
-4. Specify th CS Server IP addresses
 
-5. Specify the CS Server Port as 443.
-	
-	![](./media/site-recovery-how-to-install-linux-master-target/image19.png)
-	
-6. Copy the CS passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server and specify it in the passphrase box. It will appear empty even after copy pasting.
+3. Choose the **Global** settings to configure.
 
-7. Go to [Quit] in the menu
+	![Configuring global settings](./media/site-recovery-how-to-install-linux-master-target/image18.png)
 
-8. Let the installation and registration complete.
+4. Specify the configuration server's IP addresses.
 
-### Install VMware tools on the Master Target server
+5. Specify the configuration server's port as 443.
 
-VMware tools need to be installed on the MT so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores. You will need to reboot post installation of VMware tools.
+	![Specifying IP address and port for the configuration server](./media/site-recovery-how-to-install-linux-master-target/image19.png)
+
+6. Copy the configuration server's passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server and paste it in the **Passphrase** box. The box will be empty even after you paste the text.
+
+7. Go to **Quit** in the menu.
+
+8. Let the installation and registration finish.
+
+### Install VMware tools on the master target server
+
+You need to install VMware tools on the master target so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores. You will need to reboot after installation of the VMware tools.
 
 ## Next steps
-Once the Master target has completed installation and registration, you can see the MT appear on the Master Target section in Site Recovery Infrastructure, under the configuration server overview.
+After the master target has completed installation and registration, you can see the master target appear on the **Master Target** section in **Site Recovery Infrastructure**, under the configuration server overview.
 
-You can now proceed with [Reprotection](site-recovery-how-to-reprotect.md), followed by Failback.
+You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), followed by failback.
 
 ## Common issues
 
-* Make sure you do not turn on Storage vMotion on any Management components such as MT. If the MT moves post a successfult reprotect, the VMDK's cannot be detached and the failback will fail.
-* The MT machine should not have any snapshots on the virtual machine. If there are snapshots, the failback will fail.
-* Due to some custom NIC configurations at some customers, the network interface is disabled during boot up, then the MT agent cannot initialize. make sure the following properties are correctly set.
-	* Check the two properties in the ethernet card files /etc/sysconfig/network-scripts/ifcfg-eth*
-		* BOOTPROTO=dhcp 
-		* ONBOOT=yes
-
+* Make sure you do not turn on Storage vMotion on any management components such as a master target. If the master target moves after a successful reprotect, the virtual machine disks (VMDKs) cannot be detached, and failback will fail.
+* The master target should not have any snapshots on the virtual machine. If there are snapshots, failback will fail.
+* Due to some custom NIC configurations at some customers, the network interface is disabled during startup, and the master target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*.
+	* BOOTPROTO=dhcp
+	* ONBOOT=yes

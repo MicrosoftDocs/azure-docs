@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Schema updates for Azure Logic Apps - June 1, 2016

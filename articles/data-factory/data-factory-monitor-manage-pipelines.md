@@ -70,7 +70,7 @@ You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the dia
 1. Right-click the pipeline, and then click **Open pipeline** to see all activities in the pipeline, along with input and output datasets for the activities. This feature is useful when your pipeline includes more than one activity and you want to understand the operational lineage of a single pipeline.
 
     ![Open pipeline menu](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. In the following example, you see two activities in the pipeline with their inputs and outputs. The activity titled **JoinData** of type HDInsight Hive Activity and **EgressDataAzure** of type Copy Activity are in this sample pipeline.
+2. In the following example, you see a copy activity in the pipeline with an input and an output. 
 
     ![Activities inside a pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. You can navigate back to the home page of the data factory by clicking the **Data factory** link in the breadcrumb at the top-left corner.
@@ -80,11 +80,9 @@ You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the dia
 ### View the state of each activity inside a pipeline
 You can view the current state of an activity by viewing the status of any of the datasets that are produced by the activity.
 
-In the following example, the **BlobPartitionHiveActivity** ran successfully and produced a dataset named **PartitionedProductsUsageTable**, which is in the **Ready** state.
+By double-clicking the **OutputBlobTable** in the **Diagram**, you can see all the slices that are produced by different activity runs inside a pipeline. You can see that the copy activity ran successfully for the last eight hours and produced the slices in the **Ready** state.  
 
 ![State of the pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
-
-By double-clicking the **PartitionedProductsUsageTable** in the **Diagram**, you can see all the slices that are produced by different activity runs inside a pipeline. You can see that the **BlobPartitionHiveActivity** ran successfully every month for the last eight months and produced the slices in the **Ready** state.
 
 The dataset slices in the data factory can have one of the following statuses:
 
