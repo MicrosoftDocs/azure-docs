@@ -166,19 +166,19 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
       1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
     
-      ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose.yml"```
+          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose.yml"```
 
-      ![Visual Studio Team Services - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+          ![Visual Studio Team Services - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
       2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
   
-      ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose.yml"```
+          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose.yml"```
 
      3. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
 
-     ![Visual Studio Team Services - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+         ![Visual Studio Team Services - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-     ![Visual Studio Team Services - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+         ![Visual Studio Team Services - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Click **Save & queue** to test your build definition.
 
