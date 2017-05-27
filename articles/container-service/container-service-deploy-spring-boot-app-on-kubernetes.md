@@ -24,7 +24,7 @@ The **[Spring Framework]** is a popular open-source framework that helps Java de
 
 **[Kubernetes]** and **[Docker]** are open-source solutions that help developers automate the deployment, scaling, and management of their applications  running in containers.
 
-This tutorial walks you though combining these two popular, open-source technologies to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you'll use using *[Spring Boot]* for application development, *[Kubernetes]* for container deployment, and the [Azure Container Service (ACS)] to host your application.
+This tutorial walks you though combining these two popular, open-source technologies to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use *[Spring Boot]* for application development, *[Kubernetes]* for container deployment, and the [Azure Container Service (ACS)] to host your application.
 
 ### Prerequisites
 
@@ -72,7 +72,7 @@ The following steps walk you through building a Spring Boot web application and 
    mvn package spring-boot:run
    ```
 
-1. Test the web app by browsing to http://localhost:8080 , or with the following `curl` command:
+1. Test the web app by browsing to http://localhost:8080, or with the following `curl` command:
    ```
    curl http://localhost:8080
    ```
@@ -116,7 +116,7 @@ The following steps walk you through building a Spring Boot web application and 
    }
    ```
 
-1. Add your Azure Container Registry id and password from the previous section of this tutorial to the `<servers>` collection in the *settings.xml* file.
+1. Add your Azure Container Registry id and password to a new `<server>` collection in the *settings.xml* file.
 The `id` and `username` are the name of the registry. Use the `password` value from the previous command (without quotes).
 
    ```xml
@@ -177,7 +177,7 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 >
 > * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: Incomplete Docker registry authorization credentials. Please provide all of username, password, and email or none.`
 >
-> If this happens, log in to Azure from the Docker command line.
+> If you get this error, log in to Azure from the Docker command line.
 >
 > `docker login -u wingtiptoysregistry -p "=wC56EFwrfH=k:ymJSp-+2V.hGNd>kd4" wingtiptoysregistry.azurecr.io`
 >
@@ -187,7 +187,7 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 
 ## Create a Kubernetes Cluster on ACS using the Azure CLI
 
-1. Create a Kubernetes cluster in Azure Container Service. The following command will create a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-containerservice* as the cluster name, and *wingtiptoys-kubernetes* as the DNS prefix:
+1. Create a Kubernetes cluster in Azure Container Service. The following command creates a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-containerservice* as the cluster name, and *wingtiptoys-kubernetes* as the DNS prefix:
    ```
    az acs create --orchestrator-type=kubernetes --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice --dns-prefix=wingtiptoys-kubernetes
    ```
@@ -210,7 +210,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ```
    kubectl run gs-spring-boot-docker --image=wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest
    ```
-   In the above example:
+   In this command:
 
    * The container name `gs-spring-boot-docker` is specified immediately after the `run` command
 
@@ -220,26 +220,26 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
    ```
    kubectl expose deployment gs-spring-boot-docker --type=LoadBalancer --port=80 --target-port=8080
    ```
-   In the above example:
+   In this command:
 
    * The container name `gs-spring-boot-docker` is specified immediately after the `expose deployment` command
 
-   * The `--type` parameter specifies that the cluster will use a load balancer
+   * The `--type` parameter specifies that the cluster uses load balancer
 
-   * The `--port` parameter specifies the public-facing TCP port of 80; external users access the app on this port.
+   * The `--port` parameter specifies the public-facing TCP port of 80. You access the app on this port.
 
-   * The `--target-port` parameter specifies the internal TCP port of 8080;  the load balancer forwards requests to your app on this port.
+   * The `--target-port` parameter specifies the internal TCP port of 8080. Te load balancer forwards requests to your app on this port.
 
 1. Open the configuration website for your Kubernetes cluster in your default browser:
    ```azurecli
    az acs kubernetes browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
    ```
 
-1. Once your application has been deployed, you will see your Spring Boot application listed under **Services**.
+1. Once your application has been deployed, you can see your Spring Boot application listed under **Services**.
 
    ![Kubernetes Services][KB06]
 
-1. If you click the **External endpoints** link, you will see your Spring Boot application running on Azure.
+1. Click the **External endpoints** link to access your Spring Boot application running on Azure.
 
    ![Kubernetes Services][KB07]
 
@@ -271,7 +271,7 @@ The following links provide additional information about using Kubernetes with A
 
 More information about using Kubernetes command-line interface is available in the **kubectl** user guide at <https://kubernetes.io/docs/user-guide/kubectl/>.
 
-The Kubernetes website provides several articles which discuss using images in private registries and configuring secrets:
+The Kubernetes website has several articles that discuss using images in private registries:
 
 * [Configuring Service Accounts for Pods]
 * [Namespaces]
