@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/21/2017
+ms.date: 05/27/2017
 ms.author: renash
 ---
 # Create a File Share in Azure File Storage
@@ -46,7 +46,7 @@ To create an Azure File share, you can use a storage account that already exists
 
 
 ## Create file share through PowerShell
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) for the install point and installation instructions.
 
 > [!Note]  
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
@@ -54,13 +54,13 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 1. **Create a context for your storage account and key**
     The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure Portal](https://portal.azure.com/), see [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-
-    ```PowerShell
+    ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
     ```
-
+    
 2. **Create a new file share**:    
-    ```PowerShell
+    
+    ```powershell
     $share = New-AzureStorageShare logs -Context $storageContext
     ```
 

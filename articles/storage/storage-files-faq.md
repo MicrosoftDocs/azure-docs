@@ -12,31 +12,34 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/21/2017
+ms.date: 05/27/2017
 ms.author: renash
 ---
 # Frequently Asked Questions about Azure File storage
 
 ## General
-* **Q. What is Azure File Storage?**
+* **Q. What is Azure File Storage?**  
+   
     Azure File Storage is a distributed file system in Azure. It provides an SMB protocol interface which allows users to mount the storage as a native share on supportedAzure Virtual Machine or  on-premises machine.
 
-* **Q. Why is Azure File Storage useful?**
+* **Q. Why is Azure File Storage useful?**  
+   
     Azure File Storage provides shared data access across multiple VMs and platforms. Refere to [Why is Azure File useful](storage-file-storage.md#why-is-azure-file-storage-useful).
 
-* **Q. When should I use Azure File vs Azure Blob vs Azure Disk ?**
-    Microsoft Azure provides several ways to store and access data in the cloud.
-
-    Azure File Storage - Provides an SMB interface, client libraries, and a REST interface that allows easy access from anywhere to stored files. 
-
-
-    Azure Blobs - Provides client libraries and a REST interface that allows unstructured data to be stored and accessed at a massive scale in block blobs. 
-
-    Azure Data Disks - Provides client libraries and a REST interface that allows data to be persistently stored and accessed from an attached virtual hard disk. 
-
+* **Q. When should I use Azure File vs Azure Blob vs Azure Disk ?**  
+   
+    Microsoft Azure provides several ways to store and access data in the cloud.  
+   
+    Azure File Storage - Provides an SMB interface, client libraries, and a REST interface that allows easy access from anywhere to stored files.  
+   
+    Azure Blobs - Provides client libraries and a REST interface that allows unstructured data to be stored and accessed at a massive scale in block blobs.  
+   
+    Azure Data Disks - Provides client libraries and a REST interface that allows data to be persistently stored and accessed from an attached virtual hard disk.  
+   
     Learn more on [Deciding when to use Azure Blobs, Azure Files, or Azure Data Disks](https://docs.microsoft.com/en-us/rest/api/storageservices/deciding-when-to-use-azure-blobs--azure-files--or-azure-data-disks)
 
-* **Q. How do I get started using Azure FIle Storage?**
+* **Q. How do I get started using Azure FIle Storage?**  
+   
     You can start by creating an Azure file share. You can create Azure File shares using Azure Portal, the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API.In this tutorial, you will learn:
 
     * [Learn how to create Azure File share using the Portal](storage-file-how-to-create-file-share.md#create-file-share-through-the-portal)

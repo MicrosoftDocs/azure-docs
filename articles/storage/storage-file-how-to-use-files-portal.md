@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/21/2017
+ms.date: 05/27/2017
 ms.author: renash
 ---
 
@@ -44,7 +44,7 @@ The [Azure Portal](https://portal.azure.com) provides a user interface for manag
 
     ![Screenshot that shows how to create file share in the portal](media/storage-file-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to estimate the storage cost of using Azure File Storage.
+6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the storage cost of using Azure File Storage.
 
     ![Screenshot that shows how to create file share in the portal](media/storage-file-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
