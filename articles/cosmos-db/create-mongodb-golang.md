@@ -19,8 +19,7 @@ ms.author: durgaprasad
 
 ---
 
-# Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure
-portal
+# Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database
 service. You can quickly create and query document, key/value, and graph
@@ -144,86 +143,89 @@ particular boolean we need to set:
 The following code snippet to connect with MongoDB with GO app. DialInfo holds
 options for establishing a session with a MongoDB cluster.
 
-    tlsConfig := &tls.Config{}
+```go
+tlsConfig := &tls.Config{}
 
-    // InsecureSkipVerify controls whether a client verifies the
-    // server's certificate chain and host name.
-    // If InsecureSkipVerify is true, TLS accepts any certificate
-    // presented by the server and any host name in that certificate.
-    // In this mode, TLS is susceptible to man-in-the-middle attacks.
-    // This should be used only for testing.
-    tlsConfig.InsecureSkipVerify = true
+// InsecureSkipVerify controls whether a client verifies the
+// server's certificate chain and host name.
+// If InsecureSkipVerify is true, TLS accepts any certificate
+// presented by the server and any host name in that certificate.
+// In this mode, TLS is susceptible to man-in-the-middle attacks.
+// This should be used only for testing.
+tlsConfig.InsecureSkipVerify = true
 
-    // DialInfo holds options for establishing a session with a MongoDB cluster.
-    dialInfo := &mgo.DialInfo{
-        Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
-        Timeout:  60 * time.Second,
-        Database: "golang-couch", // It can be anything
-        Username: "golang-couch", // Username
-        Password: "Password from MongoDB Setting in azure portal", // PASSWORD
-    }
+// DialInfo holds options for establishing a session with a MongoDB cluster.
+dialInfo := &mgo.DialInfo{
+    Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
+    Timeout:  60 * time.Second,
+    Database: "golang-couch", // It can be anything
+    Username: "golang-couch", // Username
+    Password: "Password from MongoDB Setting in azure portal", // PASSWORD
+}
 
-    dialInfo.DialServer = func(serverAddress *mgo.ServerAddr) (net.Conn, error) {
-        fmt.Println(serverAddress.String());
-        connection, err := tls.Dial("tcp", serverAddress.String(), tlsConfig)
-        return connection, err
+dialInfo.DialServer = func(serverAddress *mgo.ServerAddr) (net.Conn, error) {
+    fmt.Println(serverAddress.String());
+    connection, err := tls.Dial("tcp", serverAddress.String(), tlsConfig)
+    return connection, err
 
-    }
+}
 
-    // Create a session which maintains a pool of socket connections
-    // to our MongoDB.
-    session, err := mgo.DialWithInfo(dialInfo)
+// Create a session which maintains a pool of socket connections
+// to our MongoDB.
+session, err := mgo.DialWithInfo(dialInfo)
 
-    if err != nil {
-        fmt.Printf("Can't connect to mongo, go error %v\n", err)
-        os.Exit(1)
-    }
+if err != nil {
+    fmt.Printf("Can't connect to mongo, go error %v\n", err)
+    os.Exit(1)
+}
 
-    defer session.Close()
+defer session.Close()
 
-    // SetSafe changes the session safety mode.
-    // If the safe parameter is nil, the session is put in unsafe mode, // and writes become fire-and-forget,
-    // without error checking. The unsafe mode is faster since operations won't hold on waiting for a confirmation.
-    // 
-    .
-    session.SetSafe(&mgo.Safe{})
-
+// SetSafe changes the session safety mode.
+// If the safe parameter is nil, the session is put in unsafe mode, // and writes become fire-and-forget,
+// without error checking. The unsafe mode is faster since operations won't hold on waiting for a confirmation.
+// 
+session.SetSafe(&mgo.Safe{})
+```
 **mgo.Dial()** method is used when there is no SSL connection and for SSL
 connection **mgo.DialWithInfo()** method is required.
 
 Instance of **DialWIthInfo{}** object will be used to create session object.
 Once session is established, we can access collection by following code snippet
 
-    collection := session.DB(“golang-couch”).C(“package”)
-
+```go
+   collection := session.DB(“golang-couch”).C(“package”)
+```
 ### CRUD Operations
 
 #### 1. Create Document
 
-    // Model
-    type Package struct {
-    	Id bson.ObjectId  `bson:"_id,omitempty"`
-    	FullName      string
-    	Description   string
-    	StarsCount    int
-    	ForksCount    int
-    	LastUpdatedBy string
-    }
+```go
+// Model
+type Package struct {
+    Id bson.ObjectId  `bson:"_id,omitempty"`
+    FullName      string
+    Description   string
+    StarsCount    int
+    ForksCount    int
+    LastUpdatedBy string
+}
 
-    // insert Document in collection
-    err = collection.Insert(&Package{
-        FullName:"react",
-        Description:"A framework for building native apps with React.",
-        ForksCount: 11392,
-        StarsCount:48794,
-        LastUpdatedBy:"shergin",
+// insert Document in collection
+err = collection.Insert(&Package{
+    FullName:"react",
+    Description:"A framework for building native apps with React.",
+    ForksCount: 11392,
+    StarsCount:48794,
+    LastUpdatedBy:"shergin",
 
-    })
+})
 
-    if err != nil {
-        log.Fatal("Problem inserting data: ", err)
-        return
-    }
+if err != nil {
+    log.Fatal("Problem inserting data: ", err)
+    return
+}
+```
 
 #### 2. Query/Read Document
 
@@ -231,38 +233,45 @@ Azure Cosmos DB supports rich queries against JSON documents stored in each
 collection. The following sample code shows a query that you can run against the
 documents in your collection.
 
-    // Get Document from collection
-    result := Package{}
-    err = collection.Find(bson.M{"fullname": "react"}).One(&result)
-    if err != nil {
-        log.Fatal("Error finding record: ", err)
-        return
-    }
+```go
+// Get Document from collection
+result := Package{}
+err = collection.Find(bson.M{"fullname": "react"}).One(&result)
+if err != nil {
+    log.Fatal("Error finding record: ", err)
+    return
+}
 
-    fmt.Println("Description:", result.Description)
+fmt.Println("Description:", result.Description)
+```
+
 
 #### 3. Update Document
 
-    // update document
-    updateQuery := bson.M{"_id": result.Id}
-    change := bson.M{"$set": bson.M{"fullname": "react-native"}}
-    err = collection.Update(updateQuery, change)
-    if err != nil {
-        log.Fatal("Error updating record: ", err)
-        return
-    }
+```go
+// update document
+updateQuery := bson.M{"_id": result.Id}
+change := bson.M{"$set": bson.M{"fullname": "react-native"}}
+err = collection.Update(updateQuery, change)
+if err != nil {
+    log.Fatal("Error updating record: ", err)
+    return
+}
+```
 
 #### 4. Delete Document
 
 Azure Cosmos DB supports deleting JSON documents.
 
-    // delete document
-    query := bson.M{"_id": result.Id}
-    err = collection.Remove(query)
-    if err != nil {
-        log.Fatal("Error deleting record: ", err)
-        return
-    }
+```go
+// delete document
+query := bson.M{"_id": result.Id}
+err = collection.Remove(query)
+if err != nil {
+    log.Fatal("Error deleting record: ", err)
+    return
+}
+```
 
 ### Get the complete Golang tutorial solution
 
