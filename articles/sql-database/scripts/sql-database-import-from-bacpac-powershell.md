@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ---
 
@@ -27,7 +27,7 @@ This sample PowerShell script imports a database from a **bacpac** file.
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1 "Create SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/import-from-bacpac/import-from-bacpac.ps1?highlight=18-19 "Create SQL Database")]
 
 ## Clean up deployment
 
