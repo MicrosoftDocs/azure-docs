@@ -135,11 +135,11 @@ East US | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
 
 ## Considerations if you already have Azure to on-premises ExpressRoute / VPN configuration
 
-a.	If you have an ExpressRoute or a VPN connection between on-premises and the source location in Azure, follow the guidance below:
+If you have an ExpressRoute or a VPN connection between on-premises and the source location in Azure, follow the guidance below:
 
 ### Forced tunneling configuration
 
-a.	A common customer configuration is to define a default route (0.0.0.0/0) which forces outbound internet traffic to flow through on-premises. This is not ideal as the replication traffic and Site Recovery service communication should not leave Azure boundary. The solution is to add user-defined routes (UDRs) for [IP ranges mentioned here](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
+- A common customer configuration is to define a default route (0.0.0.0/0) which forces outbound internet traffic to flow through on-premises. This is not ideal as the replication traffic and Site Recovery service communication should not leave Azure boundary. The solution is to add user-defined routes (UDRs) for [IP ranges mentioned here](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
 
 ### Connectivity between target location and on-premises
 
@@ -150,15 +150,15 @@ a.	A common customer configuration is to define a default route (0.0.0.0/0) whic
 - If you want to retain IPs for the virtual machines after they failover, ensure you keep the target region 'Site-to-Site'/'ExpressRoute' connection in a disconnected state. This is to make sure there is no IP range clash between the source region's IP ranges and target region IP ranges
 
 ### Best practices for ExpressRoute configuration
-1. You need to create ExpressRoute circuit in both source and target regions. And, then you need to create a connection between
+- You need to create ExpressRoute circuit in both source and target regions. And, then you need to create a connection between
   - source VNet and the ExpressRoute circuit
   - target VNet and the ExpressRoute circuit
 
-2. As part of ExpressRoute standard, you can create circuits in same geo-political region. To create ExpressRouteotue circuits in different geo-political region ExpressRoute premium is required. This is an incremental cost. But if you are already using ExpressRoute Premium then there is no extra cost. You can refer to [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/) for more details.
+- As part of ExpressRoute standard, you can create circuits in same geo-political region. To create ExpressRouteotue circuits in different geo-political region ExpressRoute premium is required. This is an incremental cost. But if you are already using ExpressRoute Premium then there is no extra cost. You can refer to [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/) for more details.
 
-3. It is recommended to use different IP ranges in source and target regions. ExpressRoute circuit won't be able to connect with two VNETs of same IP ranges at the same time.
+- It is recommended to use different IP ranges in source and target regions. ExpressRoute circuit won't be able to connect with two VNETs of same IP ranges at the same time.
 
-4. You can create VNets with same IP ranges in both regions and then create ExpressRoute circuits in both regions. And in case of a failover event, disconnect the circuit from source VNet and connect the circuit in target VNet.
+- You can create VNets with same IP ranges in both regions and then create ExpressRoute circuits in both regions. And in case of a failover event, disconnect the circuit from source VNet and connect the circuit in target VNet.
 
  >[!IMPORTANT]
  >
