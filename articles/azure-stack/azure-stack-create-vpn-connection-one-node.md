@@ -1,5 +1,5 @@
 ---
-title: Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC Environments | Microsoft Docs
+title: Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC environments | Microsoft Docs
 description: Step-by-step procedure that allows a cloud administrator to create a Site-to-Site VPN connection between two one-node POC environments.
 services: azure-stack
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 5/23/2017
 ms.author: scottnap
 
 ---
-# Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC Environments
+# Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC environments
 ## Overview
 This article shows you how to create a Site-to-Site VPN Connection between two virtual networks in two separate Azure Stack Proof-of-Concept (POC) environments. While you configure the connections, you will learn how VPN gateways in Azure Stack work.
 
