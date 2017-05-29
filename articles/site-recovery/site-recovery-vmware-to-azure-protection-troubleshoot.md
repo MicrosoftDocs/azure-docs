@@ -1,6 +1,6 @@
 ---
-title: troubleshoot protection failures (VMWare/Physical to Azure) | Microsoft Docs
-description: This article describes the common VMWare machine replication failures and how to troubleshoot them
+title: troubleshoot protection failures VMware/Physical to Azure | Microsoft Docs
+description: This article describes the common VMware machine replication failures and how to troubleshoot them
 services: site-recovery
 documentationcenter: ''
 author: asgang
@@ -17,7 +17,7 @@ ms.date: 05/26/2017
 ms.author: asgang
 
 ---
-# Troubleshoot on-premises VMware/Physical servers replication  issues
+# Troubleshoot on-premises VMware/Physical server replication issues
 You may receive a specific error message when protecting your VMware virtual machines or physical servers using Azure Site Recovery. This article details some of the more common error messages encountered, along with troubleshooting steps to resolve them.
 
 
@@ -30,7 +30,7 @@ For most cases, you can self troubleshoot these issues by following the steps li
 	 
 	`telnet <PS IP address> <port>`
 > [!NOTE]
-	> Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/en-us/library/cc771275(v=WS.10).aspx)
+	> Use Telnet, don’t use PING to test connectivity.  If Telnet is not installed, follow the steps list [here](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
 
 If unable to connect, allow inbound port 9443 on the Process Server and check if the problem still exits. There has been some cases where process server was behind DMZ, which was causing this problem.
 
@@ -98,10 +98,14 @@ To check what you have provided at the time of Configuration Server setup. Go to
 
 Now ensure that the same settings are being used by Azure Site Recovery agent to send data.
 Search Microsoft Azure  Backup 
+
 ![Enable replication](./media/site-recovery-protection-common-errors/mab.png)
 
 Open it and click on Action > Change Properties. Under Proxy Configuration tab, you should see the proxy address, which should be same as shown by the registry settings. If not, please change it to the same address.
 
-![Enable replication](./media/site-recovery-protection-common-errors/mab_proxy.png)
+![Enable replication](./media/site-recovery-protection-common-errors/mabproxy.png)
 
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
+
+##Next steps
+If you need more help, then post your query to [ASR forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community and one of our engineers will be able to assist you.
