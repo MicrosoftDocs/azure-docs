@@ -19,6 +19,10 @@ ms.author: sujayt
 ---
 # Networking guidance for replicating Azure virtual machines
 
+> [!div class="op_single_selector"]
+> * [Replicate from Azure to Azure](site-recovery-azure-to-azure-networking-guidance.md)
+> * [Replicate from on-premises to Azure](site-recovery-network-design.md)
+
 This article details the networking guidance for Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
 ## Site Recovery architecture

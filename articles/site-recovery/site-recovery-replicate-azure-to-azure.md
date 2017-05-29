@@ -21,6 +21,10 @@ ms.author: asgang
 
 # Replicate Azure virtual machines to another Azure region
 
+> [!div class="op_single_selector"]
+> * [Azure to Azure](site-recovery-replicate-azure-to-azure.md)
+> * [VMware to Azure](site-recovery-replicate-vmware-to-azure.md)
+
 >[!NOTE]
 >
 > Site Recovery replication for Azure virtual machines is currently in preview.
@@ -30,13 +34,12 @@ This article describes how to set up replication of virtual machines running in 
 
 * The article assumes that you already know about Site Recovery and Recovery Services Vault. You need to have a 'Recovery services vault' pre created.
 
-    [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
-
     >[!NOTE]
     >
     > It is recommended that you create the 'Recovery services vault' in the location where you want your VMs to replicate. For example, if your target location is 'Central US', create vault in 'Central US'.
 
 * If you are using Network Security Groups (NSG) rules or firewall proxy to control access to outbound internet connectivity on the Azure VMs, ensure that you whitelist the required URLs or IPs. Refer to [Networking guidance document](./site-recovery-azure-to-azure-networking-guidance.md) for more details.
+
 * If you have an ExpressRoute or a VPN connection between on-premises and the source location in Azure, follow [Site Recovery Considerations for Azure to on-premises ExpressRoute / VPN configuration](site-recovery-azure-to-azure-networking-guidance.md#considerations-if-you-already-have-azure-to-on-premises-expressroute--vpn-configuration) document.
 
 ## Enable replication from Azure Site Recovery vault
@@ -79,6 +82,7 @@ Under Settings section you can configure target site properties
 7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, ASR will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
+  
 #### Customize  Resource Group, Network, Storage and Availability sets
 
 In case you want to change the defaults used by ASR, you can change the settings based on your needs.
@@ -102,6 +106,7 @@ Once virtual machines are protected you can check the status of VMs health under
 >[!NOTE]
 >During the time of initial replication there could a possibility that status takes time to refresh and you don't see progress for some time. You can click the Refresh button on the top of the blade to get the latest status.
 >
+
 ![Enable replication](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)
 
 

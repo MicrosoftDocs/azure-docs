@@ -32,7 +32,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## User interface options
 
-* * |  **Supported / Not supported**
+** ** |  **Supported / Not supported**
 --- | ---
 **Azure portal** | Supported
 **Classic portal** | Not supported

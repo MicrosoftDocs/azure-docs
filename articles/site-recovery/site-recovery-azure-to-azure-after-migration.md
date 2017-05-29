@@ -17,7 +17,7 @@ ms.date: 05/22/2017
 ms.author: ponatara
 
 ---
-# Replicate Azure VMs to another after migration to Azure using Azure Site Recovery
+# Replicate Azure VMs to another region after migration to Azure using Azure Site Recovery
 
 ## Overview
 
@@ -27,7 +27,7 @@ This article details the guidance to prepare Azure virtual machines for replicat
 Today, more and more enterprises are moving their workloads to Azure. With enterprises moving mission-critical on-premises production workloads to Azure, setting up disaster recovery for these workloads is mandatory for compliance reasons and to safeguard against any disruptions in an Azure region.
 
 ##Preparatory steps
-Below are the steps to prepare migrated machines for settin up to replication to another Azure region.
+Below are the steps to prepare migrated machines for setting up to replication to another Azure region.
 
 1. Complete migration
 
@@ -37,7 +37,7 @@ Below are the steps to prepare migrated machines for settin up to replication to
 
 4. Restart the VM
 
-### 1. Migrate workloads running on Hyper-V VMs, VMware VMs, and physical servers, to run on Azure VMs:
+### Step 1 - Migrate workloads running on Hyper-V VMs, VMware VMs, and physical servers, to run on Azure VMs:
 
 Follow the steps detailed in this [article](site-recovery-migrate-to-azure.md) to setup replication and migrate your on-premises Hyper-V, VMware and physical workloads to Azure.
 
@@ -47,7 +47,7 @@ After migration, you don't need to commit a failover, or delete it. Instead, you
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
-### 2. Install the Azure VM Agent on the virtual machine
+### Step 2 - Install the Azure VM Agent on the virtual machine
 The Azure VM Agent must be installed on the virtual machine for the Site Recovery extension to work and to protect the VM.
 
 >[!IMPORTANT]
@@ -64,7 +64,7 @@ The following table provides additional information about installing and validat
 | Validating the VM Agent installation |<li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. |N/A |
 
 
-###3. Remove Mobility Service from the migrated virtual machine
+### Step 3 - Remove Mobility Service from the migrated virtual machine
 
 If you have migrated your on-premises VMware machines or physical servers on Windows/Linux, you need to manually remove/uninstall the mobility service from the migrated virtual machine.
 
@@ -94,13 +94,12 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 uninstall.sh -Y
 ```
-####
 
-###Restart the VM
+### Step 4 - Restart the VM
 
 Once you uninstall the mobility service, restart the VM at your convenience before you setup replication to another Azure region.
 
 
 ## Next steps
 - Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md)
-* Learn more about [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md)
+- Learn more about [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md)
