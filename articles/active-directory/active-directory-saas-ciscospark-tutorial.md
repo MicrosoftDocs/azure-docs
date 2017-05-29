@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 05/29/2017
 ms.author: jeedes
 
 ---
@@ -148,25 +148,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-ciscospark-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **Cisco Spark** side, you need to send the downloaded **Metadata XML** to [Cisco Spark support team](https://support.ciscospark.com/).
+8. Sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
 
-9. Sign in to [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
-
-10. Select **Settings** and under the **Authentication** section, click **Modify**.
+9. Select **Settings** and under the **Authentication** section, click **Modify**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-ciscospark-tutorial/tutorial_cisco_spark_10.png)
     
-11. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
+10. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 
-12. Click **Download Metadata File** and save the file on your computer.
-
-13. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**. 
+11. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**. 
 	
 	![Configure Single Sign-On](./media/active-directory-saas-ciscospark-tutorial/tutorial_cisco_spark_11.png)
 
-14. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
+12. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
 
-15. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
+13. Return to the **Cisco Cloud Collaboration Management** browser tab. If the test was successful, select **This test was successful. Enable Single Sign-On option** and click **Next**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
