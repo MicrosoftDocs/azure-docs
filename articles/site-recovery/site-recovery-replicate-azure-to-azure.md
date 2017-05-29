@@ -43,6 +43,10 @@ This article describes how to set up replication of virtual machines running in 
 
 * If you have an ExpressRoute or a VPN connection between on-premises and the source location in Azure, follow [Site Recovery Considerations for Azure to on-premises ExpressRoute / VPN configuration](site-recovery-azure-to-azure-networking-guidance.md#considerations-if-you-already-have-azure-to-on-premises-expressroute--vpn-configuration) document.
 
+* Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of an Azure virtual machine.
+
+* Your Azure subscription should be enabled to create VMs in the target location you want to use as DR region. You can contact support to enable the required quota.
+
 ## Enable replication from Azure Site Recovery vault
 For this illustration, we will replicate VMs running  in the ‘East Asia’ Azure location to the ‘South East Asia’ location. The steps are as follows:
 

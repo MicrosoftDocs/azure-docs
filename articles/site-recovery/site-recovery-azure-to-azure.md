@@ -68,6 +68,10 @@ Here's a summary of what you need to do to set up replication of VMs between Azu
 >
 > Refer to [Networking guidance document](./site-recovery-azure-to-azure-networking-guidance.md) for configuring the required network outbound connectivity for Azure VMs for Site Recovery replication.
 
+#### Before you start
+
+* Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of an Azure virtual machine.
+* Your Azure subscription should be enabled to create VMs in the target location you want to use as DR region. You can contact support to enable the required quota.
 
 ## Create a Recovery Services vault
 
