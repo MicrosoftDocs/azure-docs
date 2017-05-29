@@ -20,7 +20,7 @@ ms.author: TomSh
 ---
 # Azure security technical capabilities
 
-To assist current and prospective Azure customers understand and utilize the various Security-related capabilities available in and surrounding the Azure Platform, Microsoft has developed a series of White Papers, Security Overviews, Best Practices and Checklists. The topics range in terms of breadth and depth and will be updated periodically. This document is part of that series as summarized in the Abstract section below. Further information on this Azure Security series can be found at (URL).
+To assist current and prospective Azure customers understand and utilize the various Security-related capabilities available in and surrounding the Azure Platform, Microsoft has developed a series of White Papers, Security Overviews, Best Practices, and Checklists. The topics range in terms of breadth and depth and are updated periodically. This document is part of that series as summarized in the Abstract section below. Further information on this Azure Security series can be found at (URL).
 
 ## Azure platform
 
@@ -44,14 +44,14 @@ The focal point of this whitepaper concerns security features and functionality 
 
 The importance of understanding this shared responsibility model is essential for customers who are moving to the cloud. Cloud providers offer considerable advantages for security and compliance efforts, but these advantages do not absolve the customer from protecting their users, applications, and service offerings.
 
-For IaaS solutions, the customer is responsible or has a shared responsibility for securing and managing the operating system, network configuration, applications, identity, clients, and data.  PaaS solutions build on IaaS deployments, the customer is still responsible or has a shared responsibility for securing and managing applications, identity, clients, and data. For SaaS solutions, Nonetheless, the customer continues to be accountable; they must ensure that data is classified correctly, and they share a responsibility to manage their users and end-point devices.
+For IaaS solutions, the customer is responsible or has a shared responsibility for securing and managing the operating system, network configuration, applications, identity, clients, and data.  PaaS solutions build on IaaS deployments, the customer is still responsible or has a shared responsibility for securing and managing applications, identity, clients, and data. For SaaS solutions, Nonetheless, the customer continues to be accountable. They must ensure that data is classified correctly, and they share a responsibility to manage their users and end-point devices.
 
 This document does not provide detailed coverage of any of the related Microsoft Azure platform components such as Azure Web Sites, Azure Active Directory, HDInsight, Media Services, and other services that are layered atop the core components. Although a minimum level of general information is provided, readers are assumed familiar with Azure basic concepts as described in other references provided by Microsoft and included in links provided in this white paper.
 
 
 ## Available security technical capabilities to fulfil user (Customer) responsibility - Big picture
 
-Microsoft Azure provides services that can help customers meet the security, privacy, and compliance needs. The picture below helps explain various Azure services available for users to build a secure and compliant application infrastructure based on industry standards.
+Microsoft Azure provides services that can help customers meet the security, privacy, and compliance needs. The Following picture helps explain various Azure services available for users to build a secure and compliant application infrastructure based on industry standards.
 
 ![Available security technical capabilities- Big picture](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
@@ -97,9 +97,9 @@ Following are core Azure Identity management capabilities:
 
 [Single sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all the applications you need without being required to authenticate (for example, type a password) a second time.
 
-Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
+Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
-[Azure AD extends on-premises Active Directory into the cloud ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
+[Azure AD extends on-premises Active Directory into the cloud](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
 
 Not only do users not have to manage multiple sets of usernames and passwords, application access can be automatically provisioned or de-provisioned based on organizational groups and their status as an employee. [Azure AD introduces security and access governance controls](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) that enable you to centrally manage users' access across SaaS applications.
 
@@ -127,7 +127,7 @@ In the Azure classic portal or through [Azure Active directory portal](http://aa
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) is a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 
-In the past, application developers who wanted to [sign up and sign in consumers](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform and a large set of extensible policies.
+In the past, application developers who wanted to [sign up and sign in consumers](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform, and a large set of extensible policies.
 
 When you use Azure Active Directory B2C, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password).
 
@@ -155,7 +155,7 @@ Azure AD Privileged Identity Management lets you:
 
 #### Identity protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Identity Protection leverages existing Azure Active Directory’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Identity Protection uses existing Azure Active Directory’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
 
 ## Secured resource access in Azure
 
@@ -175,7 +175,7 @@ Using RBAC, you can segregate duties within your team and grant only the amount 
 
 ## Azure data security and encryption (protect)
 
-One of the keys to data protection in the cloud is accounting for the possible states in which your data may occur, and what controls are available for that state. For Azure data security and encryption best practices the recommendations will be around the following data’s states.
+One of the keys to data protection in the cloud is accounting for the possible states in which your data may occur, and what controls are available for that state. For Azure data security and encryption best practices the recommendations be around the following data’s states.
 
 - At-rest: This includes all information storage objects, containers, and types that exist statically on physical media, be it magnetic or optical disk.
 
@@ -190,21 +190,21 @@ Support at least one of the recommended encryption models detailed in the follow
 | Encryption Models |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Server Encryption | Server Encryption | Server Encryption | Client Encryption
-| Server Side Encryption using Service Managed Keys | Server side encryption using Customer Managed Keys in Azure Key Vault | Server side encryption using on-prem customer managed keys |
+| Server-Side Encryption using Service Managed Keys | Server-side encryption using Customer-Managed Keys in Azure Key Vault | Server-side encryption using on-prem customer managed keys |
 | •	Azure Resource Providers perform the encryption and decryption operations <br> •	Microsoft manages the keys <br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations<br>•	Customer controls keys via Azure Key Vault<br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations <br>•	Customer controls keys On-Prem <br> •	Full cloud functionality| •	Azure services cannot see decrypted data <br>•	Customers keep keys on-premises (or in other secure stores). Keys are not available to Azure services <br>•	Reduced cloud functionality|
 
 ### Enabling encryption at rest
 
 **Identify All Locations Your Stores Data**
 
-The goal of Encryption at Rest is to encrypt all data; doing so eliminates the possibility of missing important data or all persisted locations.Enumerate all data stored by your application. 
+The goal of Encryption at Rest is to encrypt all data. Doing so eliminates the possibility of missing important data or all persisted locations.Enumerate all data stored by your application. 
 
 > [!Note] 
 > Not just "application data" or "PII' but any data relating to application including account metadata (subscription mappings, contract info, PII).
 
 Consider what stores you are using to store data. For example:
 
-- External storage (e.g. SQL Azure, Document DB, HDInsights, Data Lake, etc.)
+- External storage (for example, SQL Azure, Document DB, HDInsights, Data Lake, etc.)
 
 - Temporary storage (any local cache that includes tenant data)
 
@@ -232,9 +232,9 @@ Services running on PaaS v2 using Service Fabric can use Azure disk encryption f
 
 PaaS v1
 
-Azure Disk Encryption currently is not supported on PaaS v1. Therefore, you must use application level encryption to encrypt persisted data at rest.  This includes, but is not limited to, application data, temporary files, logs and crash dumps.
+Azure Disk Encryption currently is not supported on PaaS v1. Therefore, you must use application level encryption to encrypt persisted data at rest.  This includes, but is not limited to, application data, temporary files, logs, and crash dumps.
 
-Most services should attempt to leverage the encryption of a storage resource provider. Some services will have to do explicit encryption for example any persisted key material (Certificates, root / master keys) must be stored in Key Vault.
+Most services should attempt to leverage the encryption of a storage resource provider. Some services have to do explicit encryption, for example, any persisted key material (Certificates, root / master keys) must be stored in Key Vault.
 
 If you support service-side encryption with customer-managed keys there needs to be a way for the customer to get the key to us. The supported and recommended way to do that by integrating with Azure Key Vault (AKV). In this case customers can add and manage their keys in Azure Key Vault. A customer can learn how to use AKV via [Getting Started with Key Vault](http://go.microsoft.com/fwlink/?linkid=521402).
 
@@ -246,13 +246,13 @@ If you support customer managed keys, you need to provide a UX for the customer 
 
 As Encryption at Rest involves the encryption of host, infrastructure and tenant data, the loss of the keys due to system failure or malicious activity could mean all the encrypted data is lost. It is therefore critical that your Encryption at Rest solution has a comprehensive disaster recovery story resilient to system failures and malicious activity.
 
-Services that implement Encryption at Rest are usually still susceptible to the encryption keys or data being left unencrypted on the host drive (e.g. in the page file of the host OS.) Therefore, services must ensure the host volume for their services is encrypted. To facilitate this the Compute team has enabled the deployment of Host Encryption which uses [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP and extensions to the DCM service and agent to encrypt the host volume.
+Services that implement Encryption at Rest are usually still susceptible to the encryption keys or data being left unencrypted on the host drive (for example, in the page file of the host OS.) Therefore, services must ensure the host volume for their services is encrypted. To facilitate this Compute team has enabled the deployment of Host Encryption, which uses [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP and extensions to the DCM service and agent to encrypt the host volume.
 
-Most services are implemented on standard Azure VMs. Such services should get [Host Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automatically when Compute enables it. For services running in Compute managed clusters host encryption will be enabled automatically as Windows Server 2016 is rolled out.
+Most services are implemented on standard Azure VMs. Such services should get [Host Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automatically when Compute enables it. For services running in Compute managed clusters host encryption is enabled automatically as Windows Server 2016 is rolled out.
 
 ### Encryption in-transit
 
-Protecting data in transit should be essential part of your data protection strategy. Since data will be moving back and forth from many locations, the general recommendation is that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you may want to isolate the entire communication channel between your on-premises and cloud infrastructure by using a virtual private network (VPN).
+Protecting data in transit should be essential part of your data protection strategy. Since data is moving back and forth from many locations, the general recommendation is that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you may want to isolate the entire communication channel between your on-premises and cloud infrastructure by using a virtual private network (VPN).
 
 For data moving between your on-premises infrastructure and Azure, you should consider appropriate safeguards such as HTTPS or VPN.
 
@@ -264,7 +264,7 @@ Larger data sets can be moved over a dedicated high-speed WAN link such as [Expr
 
 If you are interacting with Azure Storage through the Azure Portal, all transactions occur via HTTPS. [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS can also be used to interact with [Azure Storage](https://azure.microsoft.com/services/storage/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Organizations that fail to protect data in transit are more susceptible for [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) and session hijacking. These attacks can be the first step in gaining access to confidential data.
+Organizations that fail to protect data in transit are more susceptible for [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
 You can learn more about Azure VPN option by reading the article [Planning and design for VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
@@ -308,10 +308,10 @@ Some of the common web vulnerabilities which web application firewall protects a
 
 - Prevention against bots, crawlers, and scanners
 
-- Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
+- Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
 > [!Note]
-> For a more detailed list of rules and their protections see the following [Core rule sets](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets).
+> For a more detailed list of rules and their protections see the following [Core rule sets](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets):
 
 Azure also provides several easy-to-use features to help secure both inbound and outbound traffic for your app. Azure also helps customers secure their application code by providing externally provided functionality to scan your web application for vulnerabilities.
 
@@ -376,11 +376,11 @@ Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-ti
 
 Microsoft developed [the Cloud Services Due Diligence Checklist](https://aka.ms/cloudchecklist.download) to help organizations exercise due diligence as they consider a move to the cloud. It provides a structure for an organization of any size and type—private businesses and public-sector organizations, including government at all levels and nonprofits—to identify their own performance, service, data management, and governance objectives and requirements. This allows them to compare the offerings of different cloud service providers, ultimately forming the basis for a cloud service agreement.
 
-The checklist provides a framework that aligns clause-by-clause with a new international standard for cloud service agreements, ISO/IEC 19086. This standard offers a unified set of considerations for organizations to help them make decisions about cloud adoption, as well as create a common ground for comparing cloud service offerings.
+The checklist provides a framework that aligns clause-by-clause with a new international standard for cloud service agreements, ISO/IEC 19086. This standard offers a unified set of considerations for organizations to help them make decisions about cloud adoption, and create a common ground for comparing cloud service offerings.
 
 The checklist promotes a thoroughly vetted move to the cloud, providing structured guidance and a consistent, repeatable approach for choosing a cloud service provider.
 
-Cloud adoption is no longer simply a technology decision. Because checklist requirements touch on every aspect of an organization, they serve to convene all key internal decision-makers—the CIO and CISO as well as legal, risk management, procurement, and compliance professionals. This will increase the efficiency of the decision-making process and ground decisions in sound reasoning, thereby reducing the likelihood of unforeseen roadblocks to adoption.
+Cloud adoption is no longer simply a technology decision. Because checklist requirements touch on every aspect of an organization, they serve to convene all key internal decision-makers—the CIO and CISO as well as legal, risk management, procurement, and compliance professionals. This increases the efficiency of the decision-making process and ground decisions in sound reasoning, thereby reducing the likelihood of unforeseen roadblocks to adoption.
 
 In addition, the checklist:
 
@@ -394,11 +394,11 @@ In addition, the checklist:
 
 ## Azure infrastructure and application security validation (detect)
 
-[Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) refers to the services, controls and features available to users for protecting their data, applications and other assets in Microsoft Azure.
+[Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure.
 
 ![security validation (detect)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-Azure Operational Security is built on a framework that incorporates the knowledge gained through a variety of capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cybersecurity threat landscape.
+Azure Operational Security is built on a framework that incorporates the knowledge gained through a various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cybersecurity threat landscape.
 
 ### Microsoft operations management suite(OMS)
 
@@ -465,7 +465,7 @@ Auditing your network security is vital for detecting network vulnerabilities an
 
 ### Application insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your devOps process, and has connection points to a variety of development tools.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your devOps process, and has connection points to a various development tools.
 
 It monitors:
 
