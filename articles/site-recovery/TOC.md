@@ -39,7 +39,7 @@
 ### [Fail over protected machines](site-recovery-failover.md)
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
-### [Run a test failover](site-recovery-test-failover-to-azure.md )
+### [Run a test failover](site-recovery-test-failover-to-azure.md)
 ### [Reprotect machines after failover](site-recovery-how-to-reprotect.md)
 ### [Fail back from Azure](site-recovery-failback-azure-to-vmware.md)
 
@@ -69,8 +69,9 @@
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
+## [Monitor and troubleshoot]
 ### [Azure VM replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [On-premises to Azure replication issues](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
