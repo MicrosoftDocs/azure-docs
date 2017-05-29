@@ -20,7 +20,8 @@
 # How To
 ## Plan
 ### [Prerequisites for Azure replication](site-recovery-azure-to-azure-prereq.md)
-### [Plan network infrastructure](site-recovery-azure-to-azure-networking-guidance.md)
+### [Plan network infrastructure for Azure VMs (preview)](site-recovery-azure-to-azure-networking-guidance.md)
+### [Plan network infrastructure for on-premises machines](site-recovery-network-design.md)
 ### [Plan network mapping](site-recovery-network-mapping-azure-to-azure.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)

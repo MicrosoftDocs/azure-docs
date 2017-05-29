@@ -19,10 +19,6 @@ ms.author: sujayt
 ---
 # Networking guidance for replicating Azure virtual machines
 
-> [!div class="op_single_selector"]
-> * [Replicate from Azure to Azure](site-recovery-azure-to-azure-networking-guidance.md)
-> * [Replicate from on-premises to Azure](site-recovery-network-design.md)
-
 >[!NOTE]
 >
 > Site Recovery replication for Azure virtual machines is currently in preview.

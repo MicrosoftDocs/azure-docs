@@ -94,3 +94,7 @@ If the source subnet and the target subnet have the same address space, then tar
 If the source subnet and the target subnet have different address space, then target IP is set as any available IP in the target subnet.
 
 You can modify the target IP on each network interface by going to Compute and Network settings of the virtual machine.
+
+## Next steps
+
+- Learn about [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md).

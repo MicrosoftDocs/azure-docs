@@ -102,9 +102,7 @@ In **Recovery Services vaults**, click the vault name. In the vault, click **+Re
 
     ![Settings](./media/site-recovery-azure-to-azure/settings.png)
 
-2. Click **Customize** to override the default target settings and specify the settings of your choice.
-
-    ![Customize target](./media/site-recovery-azure-to-azure/customize-target.png)
+2. Click **Customize** to override the default target settings and specify the settings of your choice. You can refer to ['Customize settings'](site-recovery-replicate-azure-to-azure.md##customize-target-resources) for more details.
 
 3. By default, Site Recovery creates a replication policy that takes app-consistent snapshots every 4 hours, and retains recovery points for 24 hours. To create a policy with different settings, click **Customize** next to **Replication Policy**.
 
@@ -120,13 +118,21 @@ In **Recovery Services vaults**, click the vault name. In the vault, click **+Re
 
 ## Run a test failover
 
-1. In the vault, click **Replicated Items**.
-2. Right-click the VM you want to test > **Test Failover**.
-    - By default failover is to the latest recovery point.
-    - Specify a Azure virtual network in which target test VMs will be created.
-3. Track **test failover progress** on the **Jobs** tab.
+After you've set everything up, run a test failover to make sure everything's working as expected.
 
-[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
+1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
+
+2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).  
+
+3. In **Test Failover**, select the target Azure virtual network to which Azure VMs will be connected after failover occurs.
+
+4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+
+5. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+
+6. Once you're done, click on **Cleanup test failover** on the replicated item or the recovery plan. In **Notes**, record and save any observations associated with the test failover. This will delete the VMs that were created during test failover.
+
+[Learn more](site-recovery-test-failover-to-azure.md) about test failovers.
 
 
 ## Next steps
@@ -135,4 +141,3 @@ After you've tested the deployment:
 
 - [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
 - Learn more about [using recovery plans](site-recovery-create-recovery-plans.md) to reduce RTO.
-- Learn more about [reprotecting Azure VMs](site-recovery-how-to-reprotect.md) after failover.

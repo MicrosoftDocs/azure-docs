@@ -32,7 +32,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 ## User interface options
 
-** ** |  **Supported / Not supported**
+**User interface** |  **Supported / Not supported**
 --- | ---
 **Azure portal** | Supported
 **Classic portal** | Not supported
@@ -110,9 +110,10 @@ VMs migrated using Site Recovery | Supported | If it is a VMware/Physical machin
 
 **Configuration** | **Supported/Not supported** | **Remarks**
 --- | --- | ---
-Maximum OS disk size | Maximum OS disk size supported by Azure| Refer to [Disks used by VMs](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
-Maximum data disk size | Maximum data disk size supported by Azure| Refer to [Disks used by VMs](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Maximum OS disk size | Maximum OS disk size supported by Azure| Refer to [Disks used by VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Maximum data disk size | Maximum data disk size supported by Azure| Refer to [Disks used by VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
 Number of data disks | Upto 64 as supported by a specific Azure VM size | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
+Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) for more details.
 Disks on standard storage accounts | Supported |
 Disks on premium storage accounts | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk to ensure you have the same storage configuration in target region
 Standard Managed disks | Not supported |  
