@@ -36,11 +36,11 @@
 #### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
 ### [Enable replication](site-recovery-replicate-azure-to-azure.md)
-## Fail over and fail back
-### [Fail over protected machines](site-recovery-failover.md)
+## Failover and failback
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
 ### [Run a test failover](site-recovery-test-failover-to-azure.md)
+### [Fail over protected machines](site-recovery-failover.md)
 ### [Reprotect machines after failover](site-recovery-how-to-reprotect.md)
 ### [Fail back from Azure](site-recovery-failback-azure-to-vmware.md)
 
@@ -70,7 +70,7 @@
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-## [Monitor and troubleshoot]
+## Monitor and troubleshoot
 ### [Azure VM replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [On-premises to Azure replication issues](site-recovery-monitoring-and-troubleshooting.md)
 
