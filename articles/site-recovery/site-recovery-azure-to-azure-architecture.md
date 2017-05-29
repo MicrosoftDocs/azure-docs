@@ -24,11 +24,15 @@ ms.author: sujayt
 > * [Replicate Azure virtual machines](site-recovery-azure-to-azure-architecture.md)
 > * [Replicate on-premises machines](site-recovery-components.md)
 
+>[!NOTE]
+>
+> Site Recovery replication for Azure virtual machines is currently in preview.
+
 This article details Azure Site Recovery architecture and various components involved when replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
 
 ## Prerequisites
 
-Refer to [support matrix for replicating Azure virtual machines](site-recovery-support-matrix-azure-to-azure.md)
+Refer to [support matrix for replicating Azure virtual machines.](site-recovery-support-matrix-azure-to-azure.md)
 
 ## Customer scenario
 

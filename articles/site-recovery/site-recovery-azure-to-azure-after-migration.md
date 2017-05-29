@@ -19,6 +19,10 @@ ms.author: ponatara
 ---
 # Replicate Azure VMs to another region after migration to Azure using Azure Site Recovery
 
+>[!NOTE]
+>
+> Site Recovery replication for Azure virtual machines is currently in preview.
+
 ## Overview
 
 This article details the guidance to prepare Azure virtual machines for replication between two Azure regions after these machines have been migrated from on-premises environment to Azure using Azure Site Recovery (ASR).

@@ -1,7 +1,7 @@
 # Overview
 ## [What is Site Recovery?](site-recovery-overview.md)
 ## [How does Site Recovery work?](site-recovery-components.md)
-## [How does Hyper-V replication to Azure work?](site-recovery-hyper-v-azure-architecture.md)
+## [How does Hyper-V replication to Azure work?](site-recovery-azure-to-azure-architecture.md)
 ## [What workloads can you protect?](site-recovery-workload.md)
 ## [Site Recovery support matrix](site-recovery-support-matrix-azure-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
@@ -19,9 +19,9 @@
 
 # How To
 ## Plan
-### [Prerequisites for Azure replication](site-recovery-prereq.md)
-### [Plan network infrastructure](site-recovery-network-design.md)
-### [Plan network mapping](site-recovery-network-mapping.md)
+### [Prerequisites for Azure replication](site-recovery-azure-to-azure-prereq.md)
+### [Plan network infrastructure](site-recovery-azure-to-azure-networking-guidance.md)
+### [Plan network mapping](site-recovery-network-mapping-azure-to-azure.md)
 ### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
 ### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
@@ -34,12 +34,12 @@
 ### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Enable replication](site-recovery-replicate-vmware-to-azure.md)
+### [Enable replication](site-recovery-replicate-azure-to-azure.md)
 ## Fail over and fail back
 ### [Fail over protected machines](site-recovery-failover.md)
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
-### [Run a test failover](site-recovery-test-failover-to-azure.md)
+### [Run a test failover](site-recovery-test-failover-to-azure.md )
 ### [Reprotect machines after failover](site-recovery-how-to-reprotect.md)
 ### [Fail back from Azure](site-recovery-failback-azure-to-vmware.md)
 

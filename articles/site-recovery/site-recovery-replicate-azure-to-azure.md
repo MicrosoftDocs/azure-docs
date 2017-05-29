@@ -28,6 +28,7 @@ ms.author: asgang
 >[!NOTE]
 >
 > Site Recovery replication for Azure virtual machines is currently in preview.
+
 This article describes how to set up replication of virtual machines running in one Azure region to another Azure region.
 
 ## Prerequisites
@@ -68,22 +69,27 @@ In **Virtual Machines > Select virtual machines**, click and select each machine
 Under Settings section you can configure target site properties
 
 1. **Target Location:**  This is the location where your source virtual machine data will be replicated. Depending upon your selected machines location, Site Recovery will provide you the list of suitable target regions.
+
 	> [!TIP]
 	> It is recommended to keep target location same as of your recovery services vault.
+
 2. **Target resource group :** It is the resource group to which all your replicated virtual machines will belong.By default ASR will create a new resource group in the target region with name having "asr" suffix. In case resource group created by ASR already exist, it will be reused.You can also choose to customize it as shown in the section below.    
 3. **Target Virtual Network:** By default, ASR will create a new virtual network in the target region with name having "asr" suffix. This will be mapped to your source network and will be used for any future protection.
+
 	> [!NOTE]
 	> [Check networking details](site-recovery-network-mapping-azure-to-azure.md) to know more about network mapping.
+
 4. **Target Storage accounts:** By default, ASR will create the new target storage account mimicking your source VM storage configuration. In case storage account created by ASR already exist, it will be reused.
-	> [!NOTE]
-	> Source VMs which are having more than one storage account can only replicate to a single storage account  >currently
-5. **Cache Storage accounts:** ASR needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location.  
+
+5. **Cache Storage accounts:** ASR needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location.
+
 6. **Availability set :** By default, ASR will create a new availability set in the target region with name having "asr" suffix. In case availability set created by ASR already exist, it will be reused.
+
 7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, ASR will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-  
-#### Customize  Resource Group, Network, Storage and Availability sets
+
+## Customize target resources
 
 In case you want to change the defaults used by ASR, you can change the settings based on your needs.
 
