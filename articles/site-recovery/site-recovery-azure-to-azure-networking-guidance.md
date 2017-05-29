@@ -35,7 +35,7 @@ If you are using ExpressRoute or a VPN connection from on-premises to Azure, the
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Typically customers protect their networks using firewalls and/or Network security Groups (NSGs). The firewalls can use either URL based whitelisting or IP based whitelisting for controlling network connectivity. NSGs allow rules for using IP ranges to control network connectivity.
+Typically customers protect their networks using firewalls and/or Network security Groups (NSGs). The firewalls can use either URL-based whitelisting or IP-based whitelisting for controlling network connectivity. NSGs allow rules for using IP ranges to control network connectivity.
 
 >[!IMPORTANT]
 >
@@ -45,20 +45,20 @@ The below network outbound connectivity changes are required from Azure virtual 
 
 ## Outbound connectivity for Azure Site Recovery URLs
 
-If you are using any URL based firewall proxy to control outbound connectivity, ensure you whitelist all the required Azure Site Recovery service URLs mentioned below.
+If you are using any URL-based firewall proxy to control outbound connectivity, ensure you whitelist all the required Azure Site Recovery service URLs mentioned below.
 
 
 **URL** | **Purpose**  
 --- | ---
 *.blob.core.windows.net | Required so that data can be written to the cache storage account in source region form the VM.
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
-*.hypervrecoverymanager.windowsazure.com | Required so that the Site recovery service communication can happen from the VM.
+*.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can happen from the VM.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data  can be written from the VM.
 
 
 ##Outbound connectivity for Azure Site Recovery IP ranges
 
-If you are using any IP based firewall proxy or Network Security Group (NSG) rules to control outbound connectivity, below are the IP ranges that need to be white-listed depending on the source location where virtual machines are running and target location where the virtual machines will be replicated to.
+If you are using any IP-based firewall proxy or Network Security Group (NSG) rules to control outbound connectivity, below are the IP ranges that need to be white-listed depending on the source location where virtual machines are running and target location where the virtual machines will be replicated to.
 
 >[!Note]
 >
@@ -68,7 +68,7 @@ If you are using any IP based firewall proxy or Network Security Group (NSG) rul
 
 - Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
 
-- Ensure that you whitelist Site recovery service endpoint IPs depending on your target location. You can get the IPs in an [XML file here](https://aka.ms/site-recovery-public-ips).
+- Ensure that you whitelist Site Recovery service endpoint IPs depending on your target location. You can get the IPs in an [XML file here](https://aka.ms/site-recovery-public-ips).
 
 
   **Target Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
