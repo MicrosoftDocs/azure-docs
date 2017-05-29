@@ -22,7 +22,7 @@ ms.author: TomSh
 
 To assist current and prospective Azure customers understand and utilize the various Security-related capabilities available in and surrounding the Azure Platform, Microsoft has developed a series of White Papers, Security Overviews, Best Practices and Checklists. The topics range in terms of breadth and depth and will be updated periodically. This document is part of that series as summarized in the Abstract section below. Further information on this Azure Security series can be found at (URL).
 
-### Azure platform
+## Azure platform
 
 [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) is a cloud platform comprised of infrastructure and application services, with integrated data services and advanced analytics, and developer tools and services, hosted within Microsoft’s public cloud data centers. Customers use Azure for many different capacities and scenarios, from basic compute, networking, and storage, to mobile and web app services, to full cloud scenarios like Internet of Things, and can be used with open source technologies, and deployed as hybrid cloud or hosted within a customer’s datacenter. Azure provides cloud technology as building blocks to help companies save costs, innovate quickly, and manage systems proactively. When you build on, or migrate IT assets to a cloud provider, you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
 
@@ -38,7 +38,7 @@ With Microsoft Azure, you can:
 
 - Protect their business.
 
-### Scope
+## Scope
 
 The focal point of this whitepaper concerns security features and functionality supporting Microsoft Azure’s core components, namely [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/), [Microsoft Azure’s virtual machine model](https://docs.microsoft.com/azure/virtual-machines/	), and the tools and infrastructure that manage it all. This white paper focus on Microsoft Azure technical capabilities available to you as customers to fulfil their role in protecting the security and privacy of their data.
 
@@ -197,7 +197,10 @@ Support at least one of the recommended encryption models detailed in the follow
 
 **Identify All Locations Your Stores Data**
 
-Enumerate all data stored by your application. Note: not just "application data" or "PII' but any data relating to application including account metadata (subscription mappings, contract info, PII) The goal of Encryption at Rest is to encrypt all data; doing so eliminates the possibility of missing important data or all persisted locations.
+The goal of Encryption at Rest is to encrypt all data; doing so eliminates the possibility of missing important data or all persisted locations.Enumerate all data stored by your application. 
+
+> [!Note] 
+> Not just "application data" or "PII' but any data relating to application including account metadata (subscription mappings, contract info, PII).
 
 Consider what stores you are using to store data. For example:
 
