@@ -28,7 +28,7 @@ Microsoft Azure provides confidentiality, integrity, and availability of custome
 
 This paper is intended to inform you about the wide range of network controls that you can configure to enhance the security of the solutions you deploy in Azure. If you are interested in what Microsoft does to secure the network fabric of the Azure platform itself,  see the Azure security section in the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
 
-### Azure platform
+## Azure platform
 
 Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases, and devices.  It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java, and Node.js; build back-ends for iOS, Android, and Windows devices. Azure cloud services support the same technologies millions of developers and IT professionals already rely on and trust.
 
@@ -36,7 +36,7 @@ When you build on, or migrate IT assets to, a public cloud service provider, you
 
 Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security requirements. In addition, Azure provides you with an extensive collection of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your organization’s deployments.
 
-### Abstract
+## Abstract
 
 Microsoft public cloud services deliver hyper-scale services and infrastructure, enterprise-grade capabilities, and many choices for hybrid connectivity. You can choose to access these services either via the Internet or with Azure ExpressRoute, which provides private network connectivity. The Microsoft Azure platform allows you to seamlessly extend your infrastructure into the cloud and build multi-tier architectures. Additionally, third parties can enable enhanced capabilities by offering security services and virtual appliances.
 
