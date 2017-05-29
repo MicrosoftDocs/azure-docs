@@ -1,7 +1,7 @@
 # Overview
 ## [What is Site Recovery?](site-recovery-overview.md)
-## [How does Site Recovery work?](site-recovery-components.md)
-## [How does Hyper-V replication to Azure work?](site-recovery-azure-to-azure-architecture.md)
+## [How does Site Recovery work?](site-recovery-azure-to-azure-architecture.md)
+## [How does Hyper-V replication to Azure work?](site-recovery-hyper-v-azure-architecture.md)
 ## [What workloads can you protect?](site-recovery-workload.md)
 ## [Site Recovery support matrix](site-recovery-support-matrix-azure-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
