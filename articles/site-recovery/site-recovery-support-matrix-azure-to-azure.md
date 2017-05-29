@@ -53,7 +53,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment model** | **Supported / Not supported** | **Remarks**  
 --- | --- | ---
-**Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource Manager virtual machine.
+**Classic** | Supported | You can only replicate a classic virtual machine and recover it as a classic virtual machine. You cannot recover it as a Resource Manager virtual machine. If you deploy a classic VM without a virtual network and directly to an Azure region, it is not supported.
 **Resource Manager** | Supported |
 
 ## Support for replicated machine OS versions

@@ -68,13 +68,20 @@ login.microsoftonline.com | Required for authorization and authentication to the
 
 If you are using any IP-based firewall proxy or Network Security Group (NSG) rules to control outbound connectivity, below are the IP ranges that need to be white-listed depending on the source location where virtual machines are running and target location where the virtual machines will be replicated to.
 
->[!Note]
->
-> You can download and use the [script available here](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to automatically create the required NSG rules on the NSG.
+    >[!NOTE]
+    >
+    > You can download and use the [script available here](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to automatically create the required NSG rules on the NSG.
+
+    >[!IMPORTANT]
+    > 1. It is recommended that you create the required NSG rules on a test NSG and verify that everything is fine before you create the rules on a production NSG.
+    > 2. Ensure that your subscription is whitelisted to create the required number of NSG rules. You can contact support to increase the NSG rule limit in your subscription.
 
 - Ensure that all IP ranges corresponding to the source location are whitelisted. You can get the IP ranges [here](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiax5XFqffTAhUERo8KHc-HB8AQFggoMAE&url=https%3A%2F%2Fwww.microsoft.com%2Fen-in%2Fdownload%2Fdetails.aspx%3Fid%3D41653&usg=AFQjCNF0PQrMilyQDTjmj336PUiOhiViIw). This is required so that data can be written to the cache storage account form the VM.
 
 - Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
+
+    >[!NOTE]
+    > If new IPs get added Office 365 IP ranges in future, you need to create new NSG rules for the same.
 
 - Ensure that you whitelist Site Recovery service endpoint IPs depending on your target location. You can get the IPs in an [XML file here](https://aka.ms/site-recovery-public-ips).
 
