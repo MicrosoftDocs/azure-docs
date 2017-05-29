@@ -25,10 +25,18 @@ This article details the common issues in Azure Site Recovery when replicating a
 
 Your 'enable replication' job could fail if the all the latest trusted root certificates are not present on the VM. Without the certificates, the authentication and authorization of Site Recovery service calls from the VM would fail. You would see the below error details in the failed 'Enable replication' Site Recovery job.
 
-**Error details** | **How to fix it**
---- | ---
-***Error code - ***151066<br></br>***Message -***  Site recovery configuration failed. <br></br>***Possible causes***<br></br>The required trusted root certificates used for authorization and authentication are not present on the machine.<br></br>***Recommendations***<br></br>1. For a VM running Windows OS, ensure the trusted root certificates are present on the machine following the guidance in the below article.<br></br>https://technet.microsoft.com/en-in/library/dn265983.aspx <br></br>2. For a VM running Linux OS, follow the guidance for trusted root certificates published by the Linux OS version distributor." | ***Windows*** <br></br>Ensure you install all the latest Windows updates on the VM. This will ensure all the trusted root certificates are present on the machine. If you are in a disconnected environment, ensure you follow the standard Windows update process in your organization to get the certificates. Due to security reasons, the calls to Site Recovery service will fail in case the required certificates are not present on the VM.
+**Error code** | **Possible causes** | **Recommendations**
+--- | --- | ---
+151066<br></br>***Message -***  Site recovery configuration failed. | The required trusted root certificates used for authorization and authentication are not present on the machine. | 1. For a VM running Windows OS, ensure the trusted root certificates are present on the machine following the guidance in the below article.<br></br>https://technet.microsoft.com/en-in/library/dn265983.aspx <br></br>2. For a VM running Linux OS, follow the guidance for trusted root certificates published by the Linux OS version distributor."
 
+### How to fix it?
+***Windows***
+
+Ensure you install all the latest Windows updates on the VM. This will ensure all the trusted root certificates are present on the machine. If you are in a disconnected environment, ensure you follow the standard Windows update process in your organization to get the certificates. Due to security reasons, the calls to Site Recovery service will fail in case the required certificates are not present on the VM.
+
+You can follow the typical update management process in your organization to get all the latest root certificates and updated certificate revocation list on the VMs.
+
+***Linux***
 
 ## Next steps
 - [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

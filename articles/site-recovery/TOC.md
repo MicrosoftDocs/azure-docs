@@ -70,6 +70,7 @@
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
+### [Monitor and troubleshoot](site-recovery-azure-to-azure-troubleshoot-errors.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
