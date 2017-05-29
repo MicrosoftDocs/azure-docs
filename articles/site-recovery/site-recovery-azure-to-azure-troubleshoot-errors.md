@@ -19,7 +19,19 @@ ms.author: sujayt
 ---
 # Troubleshoot Azure VM replication issues
 
-This article details the common issues in Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region and how to troubleshoot them. Refer to [support matrix for replicating Azure VMs](site-recovery-support-matrix-to-azure.md) for more details about supported configurations
+This article details the common issues in Azure Site Recovery (ASR) when replicating and recovering Azure virtual machines from one region to another region and how to troubleshoot them. Refer to [support matrix for replicating Azure VMs](site-recovery-support-matrix-to-azure.md) for more details about supported configurations
+
+## Azure resource quota issues (Error code - 150097)
+Your subscription should be enabled to create Azure VMs in the target region which you plan to use as DR region. Also, your subscription should have sufficient quota enabled to create VMs of specific size. By default, ASR picks the same size as source VM for the target VM. If the matching size is not available, the closest possible size is auto picked. If there is no matching size that supports source VM configuration, the below error message will be seen.
+
+**Error code** | **Possible causes** | **Recommendations**
+--- | --- | ---
+150097<br></br>***Message -***  Replication couldn't be enabled for the virtual machine 'VmName'. | 1. Your subscription 'Subscription Id' might not have been enabled to create any VMs in 'Target region' location.</br>2. Your subscription '%SubscriptionId;' might not have been enabled or do not have sufficient quota to create specific VM sizes in 'Target region' location.</br>3. A suitable target VM size that matches source VM NIC count ('2') is not found for subscription 'Subscription Id' in location 'Target region'.| Contact support to enable VM creation for the required VM sizes in target location for your subscription. Once enabled, retry the failed operation.
+
+#### How to fix it?
+You can contact Azure support to enable your subscription to create VMs of required sizes in the target location.
+
+If there is a capacity constraint and you cannot get your subscription enabled in the target location, you can disable replication and enable replication to a different location where your subscription has sufficient quota to create VMs of required sizes.
 
 ## Trusted Root certificates (Error code - 151066)
 
@@ -57,7 +69,7 @@ Follow the below specific steps for SuSE Linux as SuSE Linux uses symlinks to ma
 6. Verify that you can connect to login.microsoftonline.com
   openssls_client -connect login.microsoftonline.com:443
 
-## Outbound connectivity for Azure Site Recovery URLs or IP ranges
+## Outbound connectivity for Azure Site Recovery URLs or IP ranges (Error code - 151037 or 151072)
 
 For Site recovery replication to work, outbound connectivity to specific URLs or IP-ranges is required from the VM. If your VM is behind a firewall or using NSG rules to control outbound connectivity, you might see the below error.
 
@@ -66,14 +78,9 @@ For Site recovery replication to work, outbound connectivity to specific URLs or
 151037<br></br>***Message -***  Failed to register Azure virtual machine with Site recovery. | 1. You are using NSG to control outbound access on the VM and the required IP ranges are not whitelisted for outbound access.</br>2. You are using third party firewall tools and the required IP ranges/URLs are not whitelisted.</br>3. The required trusted root certificates used for authorization and authentication are not present on the machine. | 1. If you are using NSG to control outbound access on the VM, ensure you whitelist the Azure datacenter IP ranges of the location in which the VM is running and the target location. For example, if your VM is running in 'East US' and target region is 'Central US', you need to whitelist all IP ranges of 'East US' and 'Central US'. You can check the latest Azure datacenter IP ranges in this link - https://www.microsoft.com/en-in/download/details.aspx?id=41653.</br>2. If you are using third party firewall tools, ensure you whitelist the URLs mentioned in the documentation or whitelist the Azure datacenter IP ranges of the location in which the VM is running and the target location.</br>3. For a VM running Windows OS, ensure the trusted root certificates are present on the machine following the guidance in the article: https://technet.microsoft.com/en-in/library/dn265983.aspx.</br>For a VM running Linux OS, follow the guidance for trusted root certificates published by the Linux OS version distributor.
 151072<br></br>***Message -*** Site recovery configuration failed. | Connection cannot be established to Azure Site Recovery service endpoints. | 1. If you are using firewall proxy to control outbound network connectivity on the VM, ensure the prerequisite URLs or datacenter IP ranges are whitelisted. Refer to https://aka.ms/a2a-firewall-proxy-guidance </br>2. If you are using Azure Network security group (NSG) rules to control outbound network connectivity on the VM, ensure the prerequisite datacenter IP ranges are whitelisted. Refer to https://aka.ms/a2a-nsg-guidance
 
-### How to fix it?
+#### How to fix it?
 Ensure you follow the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md) to whitelist [the required URLs](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-urls) and/or the [required IP-ranges](site-recovery-azure-to-azure-networking-guidance.md#outbound-connectivity-for-azure-site-recovery-ip-ranges).
 
-## Azure VM agent issues
-
-## Azure resource quota issues
-
-## Disable replication issues
 
 ## Next steps
 - [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
