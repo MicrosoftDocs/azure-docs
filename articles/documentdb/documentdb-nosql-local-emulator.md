@@ -73,7 +73,7 @@ You can download and install the Azure Cosmos DB Emulator from the [Microsoft Do
 
 The Azure Cosmos DB Emulator can be run on Docker for Windows. The Emulator does not work on Docker for Oracle Linux.
 
-Once you have [Docker for Windows](https://www.docker.com/docker-windows) installed, you can pull the Emulator image from Docker Hub by running the following command from your favorite shell (cmd.exe, PowerShell, etc.).
+Once you have [Docker for Windows](https://www.docker.com/docker-windows) installed and switched to Windows containers, you can pull the Emulator image from Docker Hub by running the following command from your favorite shell (cmd.exe, PowerShell, etc.).
 
 ```      
 docker pull microsoft/azure-documentdb-emulator 
@@ -82,7 +82,7 @@ To start the image, run the following commands.
 
 ``` 
 md %LOCALAPPDATA%\DocumentDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i microsoft/azure-documentdb-emulator 
+docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i -m 2GB microsoft/azure-documentdb-emulator 
 ```
 
 The response looks similar to the following:
