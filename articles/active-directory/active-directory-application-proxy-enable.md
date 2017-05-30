@@ -35,18 +35,13 @@ If your organization uses proxy servers to connect to the internet, read [Work w
 
 If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high-level domains msappproxy.net and servicebus.windows.net. Make sure to open the following ports to **outbound** traffic:
 
-| Port Number | Description |
+| Port number | How it's used |
 | --- | --- |
-| 80 |Enable outbound HTTP traffic for security validation. |
-| 443 |Enable user authentication against Azure AD (required only for the Connector registration process)<br>Enable the connector bootstrap sequence and automatic updates<br>Enable communication between the connector and the Azure service for incoming requests  |
-| 10100–10120 |Enable LOB HTTP responses sent back to the proxy |
-| 9350 |Optional, to enable better performance for incoming requests |
-| 8080 |Enable the connector bootstrap sequence and connector automatic update |
-| 9090 |Enable connector registration (required only for the connector registration process) |
-| 9091 |Enable connector trust certificate automatic renewal |
+| 80 | Downloading certificate revocation lists (CRLs) while validating the SSL certificate |
+| 443 | All outbound communication with the Application Proxy service |
 
 > [!IMPORTANT]
-> The table reflects the port requirements for the most recent version of the connector. If you still have a connector that's older than version 1.5, you also need to enable 9350, 9352, and 5671. These ports enable communication between the older connectors and the Azure service for incoming requests. 
+> The table reflects the port requirements for connector versions 1.5.132.0 and newer. If you still have an older connector version, you also need to enable the following ports: 5671, 8080, 9090, 9091, 9350, 9352, and 10100–10120.
 
 If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service. Also, make sure to enable port 8080 for NT Authority\System.
 
