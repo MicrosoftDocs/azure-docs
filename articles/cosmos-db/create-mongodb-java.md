@@ -34,7 +34,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Create a database account
 
-[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## Add a collection
 

@@ -71,12 +71,12 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. In the **Nuget** tab, click **Browse**, and type **azure documentdb** in the search box.
 6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
-   The package ID for the Azure Cosmos DB Client Library is [Microsoft.Azure.Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Azure Cosmos DB).
+   The package ID for the Azure Cosmos DB DocumentDB API Client Library is [Microsoft Azure DocumentDB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
    ![Screen shot of the Nuget Menu for finding Azure Cosmos DB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     If you get a messages about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
-Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/dotnet-getting-started/blob/master/src/Program.cs).
+Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 First, add these references to the beginning of your C# application, in the Program.cs file:
@@ -525,13 +525,13 @@ You should see the output of your get started app. The output will show the resu
 Congratulations! You've completed the tutorial and have a working C# console application!
 
 ## <a id="GetSolution"></a> Get the complete tutorial solution
-If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/dotnet-getting-started). 
+If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
 To build the GetStarted solution, you will need the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * A [Azure Cosmos DB account][cosmos-db-create-account].
-* The [GetStarted](https://github.com/Azure-Samples/dotnet-getting-started) solution available on GitHub.
+* The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
 
 To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to an Azure Cosmos DB account](#Connect).
 

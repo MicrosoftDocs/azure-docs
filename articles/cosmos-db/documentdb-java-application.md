@@ -27,7 +27,7 @@ ms.author: denlee
 > 
 > 
 
-This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://portal.azure.com/#gallery/Microsoft.Azure Cosmos DB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
+This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
 
 * How to build a basic JSP application in Eclipse.
 * How to work with the Azure Cosmos DB service using the [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java).
@@ -226,7 +226,7 @@ To do this, you will need to convert your project to a maven project by completi
                 return collectionCache;
             }
         }
-4. The next step is to write some code to persist the TodoItems in to the collection. In this example, we will use [Gson](https://code.google.com/p/google-gson/) to serialize and de-serialize TodoItem Plain Old Java Objects (POJOs) to JSON documents. [Jackson](http://jackson.codehaus.org/) or your own custom serializer are also great alternatives for serializing POJOs.
+4. The next step is to write some code to persist the TodoItems in to the collection. In this example, we will use [Gson](https://code.google.com/p/google-gson/) to serialize and de-serialize TodoItem Plain Old Java Objects (POJOs) to JSON documents.
    
         // We'll use Gson for POJO <=> JSON serialization for this example.
         private static Gson gson = new Gson();
@@ -732,7 +732,7 @@ Azure Websites makes deploying Java Applications as simple as exporting your app
 4. To view your finished product, navigate to http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ and start adding your tasks!
 
 ## <a id="GetProject"></a>Get the project from GitHub
-All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/java-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
+All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
 
 1. Install [Project Lombok](http://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line.
 2. If Eclipse is open, close it and restart it to load Lombok.
@@ -757,4 +757,4 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 21. In a browser, navigate to http://localhost:8080/azure-documentdb-java-sample/ and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
 22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Websites](#Deploy).
 
-[1]: media/java-application/keys.png
+[1]: media/documentdb-java-application/keys.png

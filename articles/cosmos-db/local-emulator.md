@@ -161,7 +161,7 @@ If you're using [Azure Cosmos DB protocol support for MongoDB](mongodb-introduct
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
 
-You can use existing tools like [Azure Cosmos DB Studio](https://github.com/mingaliu/Azure Cosmos DBStudio) to connect to the Azure Cosmos DB Emulator. You can also migrate data between the Azure Cosmos DB Emulator and the Azure Cosmos DB service using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
+You can use existing tools like [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the Azure Cosmos DB Emulator. You can also migrate data between the Azure Cosmos DB Emulator and the Azure Cosmos DB service using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
 Using the Azure Cosmos DB emulator, by default, you can create up to 25 single partition collections or 1 partitioned collection. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
 
@@ -307,12 +307,12 @@ To change the number of collections available to the Azure Cosmos DB Emulator, d
 
 Use the following tips to help troubleshoot issues you encounter with the Azure Cosmos DB emulator:
 
-- If the Azure Cosmos DB emulator crashes, collect dump files from c:\Users\user_name\AppData\Local\CrashDumps folder, compress them, and attach them to an email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+- If the Azure Cosmos DB emulator crashes, collect dump files from c:\Users\user_name\AppData\Local\CrashDumps folder, compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 - If you experience crashes in DocumentDB.StartupEntryPoint.exe, run the following command from an admin command prompt:
 `lodctr /R` 
 
-- If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+- If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 ### <a id="trace-files"></a>Collect trace files
 
@@ -325,7 +325,7 @@ To collect debugging traces, run the following commands from an administrative c
 5. Reproduce the problem. If Data Explorer is not working, you only need to wait for the browser to open for a few seconds to catch the error.
 5. `DocumentDB.Emulator.exe /stoptraces`
 6. Navigate to `%ProgramFiles%\DocumentDB Emulator` and find the docdbemulator_000001.etl file.
-7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
+7. Send the .etl file along with repro steps to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) for debugging.
 
 ## Next steps
 

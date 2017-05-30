@@ -234,7 +234,7 @@ The surface area of the new Table API (preview) is compatible with existing Azur
 No, existing customers can create and use present Standard Table assets without interruption of any kind. However, if you do not use the new Table API (preview), you cannot benefit from the automatic index, additional consistency option, or global distribution. 
 
 ### How do I add replication for the data in Premium Table API (Preview) across multiple regions of Azure?
-You can use the Cosmos DB portal’s [global replication settings](tutorial-gloabal-distribution-documentdb.md#portal) for adding regions which are suitable for your application. To develop a globally distributed application - you should also add your application with PreferredLocation information set to local region for providing low read latency. 
+You can use the Cosmos DB portal’s [global replication settings](tutorial-global-distribution-documentdb.md#portal) for adding regions which are suitable for your application. To develop a globally distributed application - you should also add your application with PreferredLocation information set to local region for providing low read latency. 
 
 ### How do I change the primary write region for the account in  Premium Table API(preview)?
 You can use Cosmos DB’s global replication portal pane to add a region and then failover to required region. For instructions see [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
@@ -249,19 +249,19 @@ Table API(Preview) provides low latency reads with Read your own writes with ses
 By default  Standard Table today provides strong consistency within a region and eventual in the secondary locations.  
 
 ### Does this mean compared to eventual & strong consistency that is possible with standard Table  – we now have more choices?
-Yes, these choices are documented in the [Consistency levels](documentdb-consistency-levels.md) article to help application developers leverage the distributed nature of Cosmos DB. Since guarantees are provided for consistency too - you can leverage these with confidence today. These settings are documented [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities)
+Yes, these choices are documented in the [Consistency levels](consistency-levels.md) article to help application developers leverage the distributed nature of Cosmos DB. Since guarantees are provided for consistency too - you can leverage these with confidence today. These settings are documented [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities)
 
 ### When global distribution is enabled – how long does it take to replicate the data?
 We commit the data durably in local region and push the data to other regions immediately in matter of milliseconds and this replication is only dependent on the RTT of the datacenter. Please read up on the global distribution abilities of Cosmos DB in [Azure Cosmos DB: A globally distributed database service on Azure](distribute-data-globally.md).
 
 ### Can the read request consistency be changed?
-Cosmos DB allows setting the consistency at the container level (on the table). The SDK also enables you to change the level by providing the value for TableConsistencyLevel key in the app.config file. Theses are the possible values - Strong|Bounded Staleness|Session|ConsistentPrefix|Eventual. This is documented in the [consistency levels](documentdb-consistency-levels.md) article. Key here is to remember that request consistency can't be more than what is set for the Table. For example - if you have setup consistency for the Table at eventual and set consistency level of strong on request, that will not work. 
+Cosmos DB allows setting the consistency at the container level (on the table). The SDK also enables you to change the level by providing the value for TableConsistencyLevel key in the app.config file. Theses are the possible values - Strong|Bounded Staleness|Session|ConsistentPrefix|Eventual. This is documented in the [consistency levels](consistency-levels.md) article. Key here is to remember that request consistency can't be more than what is set for the Table. For example - if you have setup consistency for the Table at eventual and set consistency level of strong on request, that will not work. 
 
 ### How does Premium Table API (preview) account take care of failover in case a region goes down? 
 Premium Table API (preview) leverages the globally distributed platform of Cosmos DB. To ensure your application can tolerate datacenter downtime - you need to enable at least one more region for the account in the Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). You can add as many regions for the account and control where it can failover to by providing priority. Of course it goes without saying you need to provide an application there too to leverage the database. This way your customers will not see downtime. The client SDK is auto homing - it can detect the region being down and automatically failover to the new region.
 
 ### Is Premium Table API (preview) enabled for backups?
-Yes, Premium Table API (preview) leverages the platform of Cosmos DB for backups. Backups are taken automatically. Cosmos DB backup is documented here [Online backup and restore with Azure Cosmos DB](C:\Users\govindk\azure-docs-pr\articles\documentdb\documentdb-online-backup-and-restore.md)
+Yes, Premium Table API (preview) leverages the platform of Cosmos DB for backups. Backups are taken automatically. Cosmos DB backup is documented here [Online backup and restore with Azure Cosmos DB](online-backup-and-restore.md)
 
  
 ### Does the Table API (preview) index all attributes of entities by default?
