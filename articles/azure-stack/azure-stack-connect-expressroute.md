@@ -3,7 +3,7 @@ title: Connect Azure Stack to Azure using ExpressRoute
 description: How to connect virtual networks in Azure Stack to virtual networks in Azure using ExpressRoute.
 services: azure-stack
 documentationcenter: ''
-author: vhorne
+author: victorar
 manager: byronr
 editor: ''
 
@@ -35,7 +35,7 @@ The following are specific requirements to connect Azure Stack and Azure using E
 * A router that has the ExpressRoute circuit connected to its WAN ports.
 * The LAN side of the router is linked to the Azure Stack Multitenant Gateway.
 * The router must support Site-to-Site VPN connections between its LAN interface and Azure Stack Multitenant Gateway.
-* The ability to create multiple VRFs (Virtual Routing and Forwarding) if more than one tenant is added in your Azure Stack deployment.
+* The router must have the ability to create multiple VRFs (Virtual Routing and Forwarding) if more than one tenant is added in your Azure Stack deployment.
 
 The following conceptual diagram shows how this looks after you complete the configuration:
 
@@ -84,19 +84,23 @@ Use the following procedures to create the required network resources in Azure S
 
    |Field  |Value  |
    |---------|---------|
-   |Name     |TenantAVNet1         |
+   |Name     |Tenant1VNet1         |
    |Address space     |10.1.0.0/16|
-   |Subnet name     |TenantA-Sub1|
+   |Subnet name     |Tenant1-Sub1|
    |Subnet address range     |10.1.1.0/24|
 
-6. You should see the Subscription you created earlier populated in the
-   **Subscription** field.
-      f. For Resource Group, you can either create a Resource Group or if you already have one, select **Use existing**.
-      g. Verify the default location.
-      h. Click **Create**.
+6. You should see the Subscription you created earlier populated in the **Subscription** field.
+
+    a. For Resource Group, you can either create a Resource Group or if you already have one, select **Use existing**.
+
+    b. Verify the default location.
+
+    c. Click **Create**.
+
+
 
 #### Create the Gateway Subnet
-1. Open the Virtual Network resource you created (TenantA-VNet01) from
+1. Open the Virtual Network resource you created (Tenant1VNet1) from
    the dashboard.
 2. On the Settings blade, select **Subnets**.
 3. Click **Gateway Subnet** to add a gateway subnet to
@@ -116,7 +120,7 @@ Use the following procedures to create the required network resources in Azure S
    network resources.
 4. In the **Name** field type **GW1**.
 5. Click the **Virtual network** item to choose a virtual network.
-   Select **TenantAVNet1** from the list.
+   Select **Tenant1VNet1** from the list.
 6. Click the **Public IP address** menu item. When the **Choose public
    IP address** blade opens click **Create new**.
 7. In the **Name** field, type **GW1-PiP** and click **OK**.
@@ -175,7 +179,7 @@ need virtual machines to send and receive data in the Azure Stack Vnet. Create a
 7. On the **Size** blade, click a virtual machine size for this instance and then
    click **Select**.
 8. On the **Settings** blade, you can accept the defaults. But ensure
-   the virtual network selected is **TenantAVNet1** and the subnet is
+   the virtual network selected is **Tenant1VNet1** and the subnet is
    set to **10.1.1.0/24**. Click **OK**.
 9. Review the settings on the **Summary** blade and click **OK**.
 
@@ -264,7 +268,7 @@ In the example, a standard hub (192.168.1.x/24) and spoke (10.100.x.x./16) VNet 
 
 ### Configure Vnets
 1. Sign in to the Azure portal with your Azure credentials.
-2. Follow the steps in [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to create VNets that you want. For this example, a Hub VNet with 192.168.1.X/24 address space and a Spoke VNet with a 10.100.x.x /16 address space is created.
+2. Follow the steps in [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to create VNets that you want. For this example, a Hub VNet with 192.168.2.X/24 address space and a Spoke VNet with a 10.100.x.x /16 address space is created.
 3. Peer the Hub and Spoke VNets using the steps in [Create a virtual network peering using the Azure portal](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). When configuring VNet peering, ensure you select the following options:
    * From hub to spoke: **Allow gateway transit**
    * From spoke to hub: **Use remote gateway**
