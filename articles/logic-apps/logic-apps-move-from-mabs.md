@@ -124,6 +124,6 @@ Logic Apps provides richer tracking and monitoring capabilities in the [Azure po
 To achieve high availability (HA) in BizTalk Services, you use more than one instance in a given region to share the processing load. With logic apps, in-region HA is built-in, and comes at no additional cost. For out-of-region disaster recovery for B2B processing in BizTalk Services, a backup and restore process is required. In Logic Apps, a cross-region active/passive [DR capability](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) is provided; which allows the synchronization of B2B data across Integration Accounts in different regions for business continuity.
 
 ## Next
-* [What are Logic Apps](../articles/logic-apps/logic-apps-what-are-logic-apps.md)
-* [Create your first logic app](../articles/logic-apps/logic-apps-create-a-logic-app.md), or quickly get started using a [pre-built template](../articles/logic-apps/logic-apps-use-logic-app-templates.md)  
-* [View all the available connectors](../articles/connectors/apis-list.md) you can use in a logic app
+* [What are Logic Apps](logic-apps-what-are-logic-apps.md)
+* [Create your first logic app](logic-apps-create-a-logic-app.md), or quickly get started using a [pre-built template](logic-apps-use-logic-app-templates.md)  
+* [View all the available connectors](../connectors/apis-list.md) you can use in a logic app
