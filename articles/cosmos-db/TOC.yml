@@ -124,6 +124,7 @@
     href: https://aka.ms/documentdb-tco-paper
   - name: Use cases
     href: use-cases.md
+    items:
       - name: Social media apps
         href: social-media-apps.md
 - name: How To Guides
