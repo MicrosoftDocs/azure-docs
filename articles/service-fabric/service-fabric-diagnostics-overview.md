@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Monitoring and Diagnostics Overview | Microsoft Docs
+title: Azure Service Fabric Monitoring and Diagnostics Overview | Microsoft Docs
 description: Learn about monitoring and diagnostics for Azure Service Fabric clusters, applications, and services.
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: dekapur
 
 ---
 
-# Monitoring and Diagnostics for Service Fabric
+# Monitoring and Diagnostics for Azure Service Fabric
 
 Monitoring and diagnostics are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement a monitoring and diagnostics workflow that helps you ensure that your applications and services are working as expected, whether in a local development environment or in production clusters.
 
@@ -82,8 +82,10 @@ You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md
 
 To customize the charts, follow the instructions in [Metrics in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). You also can create alerts based on these metrics, as described in [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). You can send alerts to a notification service by using web hooks, as described in [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor supports only one subscription. If you need to monitor multiple subscriptions, or if you need additional features, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), part of Microsoft Operations Management Suite, provides a holistic IT management solution both for on-premises and cloud-based infrastructures. You can route data from Azure Monitor directly to Log Analytics, so you can see metrics and logs for your entire environment in a single place.
 
-## Additional steps
+## Next steps
 
 ### Watchdogs
 
 A watchdog is a separate service that can watch health and load across services, and report health for anything in the health model hierarchy. This can help prevent errors that would not be detected based on the view of a single service. Watchdogs also are a good place to host code that can perform remediation actions for known conditions without user interaction (for example, cleaning up log files in storage after a certain amount of time). You can find a sample watchdog service implementation [here](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+
+Get started with understanding how events and logs get generated at the [infrastructure level](service-fabric-diagnostics-event-generation-infra.md) and the [application level](service-fabric-diagnostics-event-generation-app.md).

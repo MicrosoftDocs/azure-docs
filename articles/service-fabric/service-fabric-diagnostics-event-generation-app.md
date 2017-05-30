@@ -164,8 +164,8 @@ Some third-party providers use the approach described in the preceding section, 
 
 5. Instrument the code the same as if you were using ASP.NET Core without Serilog.
 
-  > [!NOTE]
-  > We recommend that you don't use the static Log.Logger with the preceding example. Service Fabric can host multiple instances of the same service type within a single process. If you use the static Log.Logger, the last writer of the property enrichers will show values for all instances that are running. This is one reason why the _logger variable is a private member variable of the service class. Also, you must make the _logger available to common code, which might be used across services.
+  >[!NOTE]
+  >We recommend that you don't use the static Log.Logger with the preceding example. Service Fabric can host multiple instances of the same service type within a single process. If you use the static Log.Logger, the last writer of the property enrichers will show values for all instances that are running. This is one reason why the _logger variable is a private member variable of the service class. Also, you must make the _logger available to common code, which might be used across services.
 
 ## Choosing a logging provider
 

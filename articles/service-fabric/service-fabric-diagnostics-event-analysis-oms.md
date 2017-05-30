@@ -28,7 +28,7 @@ Log Analytics collects data from managed resources, i.e. an Azure storage table 
 
 When OMS is configured, you will have access to a specific *OMS workspace*, from where the Log Analytics data can be queried or visualized in dashboards.
 
-After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. There are several others as well that are worth exploring, and OMS also allows for the creation of custom solutions, which you can read more about [here](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-solutions). Each solution that you choose to use for a cluster will be configured in the same OMS workspace, alongside Log Analytics. Workspaces allow for custom dashboards and quick visualization of data, as well as easy customization of the solutions you choose to use and the data you want to collect and show with Log Analytics.
+After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. There are several others as well that are worth exploring, and OMS also allows for the creation of custom solutions, which you can read more about [here](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions). Each solution that you choose to use for a cluster will be configured in the same OMS workspace, alongside Log Analytics. Workspaces allow for custom dashboards and quick visualization of data, as well as easy customization of the solutions you choose to use and the data you want to collect and show with Log Analytics.
 
 ## Setting up an OMS workspace with the Service Fabric Solution
 
@@ -42,9 +42,10 @@ There are two ways to provision and configure an OMS workspace, either through a
 
 This happens at the cluster creation stage - when deploying a cluster using a Resource Manager template, the template can also create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
 
->Note: For this to work, Diagnostics has to be enabled in order for the Azure storage tables to exist for OMS / Log Analytics to read information in from.
+>[!NOTE]
+>For this to work, Diagnostics has to be enabled in order for the Azure storage tables to exist for OMS / Log Analytics to read information in from.
 
-[Here](https://azure.microsoft.com/en-us/resources/templates/service-fabric-oms/) is a sample template that you can use or modify as per your requirements that performs all the above actions. In the case that you want more optionality, there are a few more templates that give you different options depending on where in the process you might be of setting up an OMS workspace - they can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/en-us/resources/templates/?term=service+fabric+OMS).
+[Here](https://azure.microsoft.com/resources/templates/service-fabric-oms/) is a sample template that you can use or modify as per your requirements that performs all the above actions. In the case that you want more optionality, there are a few more templates that give you different options depending on where in the process you might be of setting up an OMS workspace - they can be found at [Service Fabric and OMS templates](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
 ### Deploying OMS using through Azure Marketplace
 
@@ -56,7 +57,7 @@ Clicking **Create** will ask you for an OMS workspace. Click **Select a workspac
 
 ## Using the OMS Agent
 
-It is generally recommended to use EventFlow and WAD as aggregation solutions, because they allow for a more modular approach to diagnostics and monitoring, i.e. if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using OMS and are willing to continue using it for event analysis (does not have to be the only platform you use, but rather that it will be at least one of the platforms), we recommend that you explore setting up the [OMS agent](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents).
+It is generally recommended to use EventFlow and WAD as aggregation solutions, because they allow for a more modular approach to diagnostics and monitoring, i.e. if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using OMS and are willing to continue using it for event analysis (does not have to be the only platform you use, but rather that it will be at least one of the platforms), we recommend that you explore setting up the [OMS agent](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
 
 The process for doing this is relatively easy, since you just have to add the agent as a virtual machine scale set extension to your Resource Manager template, ensuring that it gets installed on each of your nodes. A sample Resource Manager template that deploys the OMS workspace with the Service Fabric solution (as above) and adds the agent to your nodes can be found [here](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample).
 
@@ -77,11 +78,11 @@ When deploying containers to a Service Fabric cluster, it is recommended that th
 
 The agent enables the collection of several container specific logs that can be queried in OMS, or used to visualized performance indicators. The log types that are collected are:
 
-1. ContainerInventory: shows information about container location, name, and images
-2. ContainerImageInventory: information about deployed images, including IDs or sizes
-3. ContainerLog: specific error logs, docker logs (stdout, etc.), and other entries
-4. ContainerServiceLog: docker daemon commands that have been run
-5. Perf: performance counters including container cpu, memory, network traffic, disk i/o, and custom metrics from the host machines
+* ContainerInventory: shows information about container location, name, and images
+* ContainerImageInventory: information about deployed images, including IDs or sizes
+* ContainerLog: specific error logs, docker logs (stdout, etc.), and other entries
+* ContainerServiceLog: docker daemon commands that have been run
+* Perf: performance counters including container cpu, memory, network traffic, disk i/o, and custom metrics from the host machines
 
 This article covers the steps required to set up container monitoring for your cluster. To learn more about OMS's Containers solution, check out their [documentation](../log-analytics/log-analytics-containers.md).
 

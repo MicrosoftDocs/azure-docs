@@ -18,7 +18,7 @@ ms.author: dekapur
 
 ---
 
-# Event Aggregation and Collection using Azure Diagnostics
+# Event Aggregation and Collection using Linux Azure Diagnostics
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)

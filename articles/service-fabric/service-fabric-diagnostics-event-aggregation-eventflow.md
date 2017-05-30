@@ -34,8 +34,8 @@ You will see a list of various packages show up, labeled with "Inputs" and "Outp
 * `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` (we are going to send the logs to an Azure Application Insights resource)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(enables initialization of the EventFlow pipeline from Service Fabric service configuration and reports any problems with sending diagnostic data as Service Fabric health reports)
 
-
-> Note: `Microsoft.Diagnostics.EventFlow.Input.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package.
+>[!NOTE]
+>`Microsoft.Diagnostics.EventFlow.Input.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package.
 
 After all the packages are installed, the next step is to configure and enable EventFlow in the service.
 
@@ -138,8 +138,8 @@ The name passed as the parameter of the `CreatePipeline` method of the `ServiceF
 
 Start your service and observe the Debug output window in Visual Studio. After the service is started, you should start seeing evidence that your service is sending records to the output that you have configured. Navigate to your event analysis and visualization platform and confirm that logs have started to show up (could take a few minutes).
 
-## Related Articles
+## Next steps
 
-* [Configuring Application Insights to view monitoring and diagnostics events](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow documentation](https://github.com/Azure/diagnostics-eventflow)
-
