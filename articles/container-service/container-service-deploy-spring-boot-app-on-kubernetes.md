@@ -111,7 +111,7 @@ The following steps walk you through building a Spring Boot web application and 
    ```json
    {
   "name": "password",
-  "value": "=wC56EFwrfH=k:ymJSp-+2V.hGNd>kd4"
+  "value": "AbCdEfGhIjKlMnOpQrStUvWxYz"
    }
    ```
 
@@ -123,7 +123,7 @@ The `id` and `username` are the name of the registry. Use the `password` value f
       <server>
          <id>wingtiptoysregistry</id>
          <username>wingtiptoysregistry</username>
-         <password>=wC56EFwrfH=k:ymJSp-+2V.hGNd>kd4</password>
+         <password>AbCdEfGhIjKlMnOpQrStUvWxYz</password>
       </server>
    </servers>
    ```
@@ -178,7 +178,7 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 >
 > If you get this error, log in to Azure from the Docker command line.
 >
-> `docker login -u wingtiptoysregistry -p "=wC56EFwrfH=k:ymJSp-+2V.hGNd>kd4" wingtiptoysregistry.azurecr.io`
+> `docker login -u wingtiptoysregistry -p "AbCdEfGhIjKlMnOpQrStUvWxYz" wingtiptoysregistry.azurecr.io`
 >
 > Then push your container:
 >
@@ -202,11 +202,56 @@ The `id` and `username` are the name of the registry. Use the `password` value f
    az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
    ```
 
-## Deploy your Docker container with your Spring Boot app to your Kubernetes cluster
+## Deploy the image to your Kubernetes cluster
 
 This tutorial deploys the app using `kubectl`, then allow you to explore the deployment through the Kubernetes web interface.
 
-### Deploying your Docker container with kubectl
+### Deploy with the Kubernetes web interface
+
+### Deploying your Docker container by using the Kubernetes configuration website
+
+1. Open a command prompt.
+
+1. Open the configuration website for your Kubernetes cluster in your default browser:
+   ```
+   az acs kubernetes browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
+   ```
+
+1. When the Kubernetes configuration website opens in your browser, click the link to **deploy a containerized app**:
+
+   ![Kubernetes Configuration Website][KB01]
+
+1. When the **Deploy a containerized app** page is displayed, specify the following options:
+
+   a. Select **Specify app details below**.
+
+   b. Enter your Spring Boot application name for the **App name**; for example: "*gs-spring-boot-docker*".
+
+   c. Enter your login server and container image from earlier for the **Container image**; for example: "*wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*".
+
+   d. Choose **External** for the **Service**.
+
+   e. Specify your external and internal ports in the **Port** and **Target port** text boxes.
+
+   ![Kubernetes Configuration Website][KB02]
+
+
+1. Click **Deploy** to deploy the container.
+
+   ![Deploy Container][KB05]
+
+1. Once your application has been deployed, you will see your Spring Boot application listed under **Services**.
+
+   ![Kubernetes Services][KB06]
+
+1. If you click on the link for **External endpoints**, you will see your Spring Boot application running on Azure.
+
+   ![Kubernetes Services][KB07]
+
+   ![Browse Sample App on Azure][SB02]
+
+
+### Deploy with kubectl
 
 1. Open a command prompt.
 
@@ -234,18 +279,16 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 
    * The `--target-port` parameter specifies the internal TCP port of 8080. Te load balancer forwards requests to your app on this port.
 
+1. Once the app is deployed to the cluster, query the external IP address and open it in your web browser:
+
+   ```
+   kubectl get services -o jsonpath={.items[*].status.loadBalancer.ingress[0].ip} --namespace=${namespace}
+   ```
+
 1. Open the configuration website for your Kubernetes cluster in your default browser:
    ```azurecli
    az acs kubernetes browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
    ```
-
-1. Once your application has been deployed, you can see your Spring Boot application listed under **Services**.
-
-   ![Kubernetes Services][KB06]
-
-1. Click the **External endpoints** link to access your Spring Boot application running on Azure.
-
-   ![Kubernetes Services][KB07]
 
    ![Browse Sample App on Azure][SB02]
 
