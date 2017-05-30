@@ -19,7 +19,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database Connectivity Architecture 
 
-Client applications connect to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) to the Azure SQL Database gateway. This gateway is responsible for establishing the connection to the database. This article explains how these connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs.
+Client applications connect to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) to the Azure SQL Database gateway. This gateway is responsible for establishing the connection to the database. This article explains how these connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
 
 ## Connectivity architecture
 
@@ -41,21 +41,61 @@ The following steps describe how an connection is established to an Azure SQL da
 
 ### Connectivity from within Azure
 
-If you are connecting from within Azure, your connections will be **Redirect**. This means that connections will be established via the Azure SQL Database gateway. After the TCP session is established, it then be redirected to the proxy middleware and incur a change of the destination virtual IP from that of the Azure SQL Database gateway to that of the proxy middleware.
+If you are connecting from within Azure, your connections have a connection policy of **Redirect** by default. A policy of **Redirect** means that connections after the TCP session is established to the Azure SQL database, the client session is then redirected to the proxy middleware with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the proxy middleware. Thereafter, all subsequent packets flow directly via the proxy middleware, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
 
 
 ### Connectivity from outside of Azure
 
-If you are connecting from outside Azure then the connectivity will be ‘Proxy’ by default and the connection will be established via the gateway all subsequent packets will flow via the gateway.
+If you are connecting from outside Azure, your connections have a connection policy of **Proxy** by default. A policy of **Proxy** means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 
 ## Change Azure SQL Database connection policy
 
-You to use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx) to change the connection connection policy for an Azure SQL Database server from proxy to redirect, and from redirect to proxy. 
+To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+
+- If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Direct**. 
+- If you connection policy is setting **Direct**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
+
+## Script to change connection settings
+
+The following PowerShell script shows how to change the connection policy.
+
+```powershell
+import-module azure
+Login-AzureRmAccount
+
+$tenantId =  #your AAD tenant ID
+$subscriptionId = #Azure SubscriptionID
+$uri = #AAD uri
+$authUrl = "https://login.windows.net/$tenantId"
+$serverName = #sqldb server name 
+$resourceGroupName=#sqldb resource group
+$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
+
+$result = $AuthContext.AcquireToken("https://management.core.windows.net/",
+$clientId,
+[Uri]$uri, 
+[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto)
+
+$authHeader = @{
+'Content-Type'='application\json; '
+'Authorization'=$result.CreateAuthorizationHeader()
+}
+
+#getting the current connection property
+Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
+
+#setting the property to ‘Proxy’
+$connectionType=”Proxy” <#Redirect / Default are other options#>
+$body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
+```
 
 ## Next steps
 
+- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
