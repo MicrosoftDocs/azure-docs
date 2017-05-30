@@ -1,7 +1,7 @@
 ---
 title: How to query with SQL in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query with DocumentDB data with SQL in Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article
