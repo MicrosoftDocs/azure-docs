@@ -96,7 +96,8 @@ The following steps walk you through building a Spring Boot web application and 
 
 1. Create a private Azure container registry in the resource group. The tutorial pushes the sample app as a Docker image to this registry in later steps. Replace `wingtiptoysregistry` with a unique name for your registry.
    ```azurecli
-   az acr create --admin-enabled --resource-group wingtiptoys-kubernetes--location eastus --name wingtiptoysregistry --sku Basic
+   az acr create --admin-enabled --resource-group wingtiptoys-kubernetes--location eastus \
+    --name wingtiptoysregistry --sku Basic
    ```
 
 ## Push your app to the container registry
@@ -188,7 +189,8 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 
 1. Create a Kubernetes cluster in Azure Container Service. The following command creates a *kubernetes* cluster in the *wingtiptoys-kubernetes* resource group, with *wingtiptoys-containerservice* as the cluster name, and *wingtiptoys-kubernetes* as the DNS prefix:
    ```azurecli
-   az acs create --orchestrator-type=kubernetes --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice --dns-prefix=wingtiptoys-kubernetes
+   az acs create --orchestrator-type=kubernetes --resource-group=wingtiptoys-kubernetes \ 
+    --name=wingtiptoys-containerservice --dns-prefix=wingtiptoys-kubernetes
    ```
    This command may take a while to complete.
 
@@ -199,7 +201,8 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 
 1. Download the cluster configuration information so you can manage your cluster from the Kubernetes web interface and `kubectl`. 
    ```azurecli
-   az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
+   az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes  \ 
+    --name=wingtiptoys-containerservice
    ```
 
 ## Deploy the image to your Kubernetes cluster
@@ -207,8 +210,6 @@ The `id` and `username` are the name of the registry. Use the `password` value f
 This tutorial deploys the app using `kubectl`, then allow you to explore the deployment through the Kubernetes web interface.
 
 ### Deploy with the Kubernetes web interface
-
-### Deploying your Docker container by using the Kubernetes configuration website
 
 1. Open a command prompt.
 
@@ -283,11 +284,6 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 
    ```
    kubectl get services -o jsonpath={.items[*].status.loadBalancer.ingress[0].ip} --namespace=${namespace}
-   ```
-
-1. Open the configuration website for your Kubernetes cluster in your default browser:
-   ```azurecli
-   az acs kubernetes browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
    ```
 
    ![Browse Sample App on Azure][SB02]
