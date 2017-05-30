@@ -26,8 +26,8 @@ of the most important features that you can enable on Azure SQL Database to opti
 
 ## Why automatic tuning?
 
-One of the main tasks in classic database administration is monitoring workload, identifying critical SQL queries, indexes that
-should be added to improve performance, rarely used, and heavily fragmented indexes.
+One of the main tasks in classic database administration is monitoring the workload, identifying critical SQL queries, indexes that
+should be added to improve performance, and rarely used indexes.
 Azure SQL Database provides detailed insight into the queries and indexes that you need to monitor. However, constantly monitoring
 database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible
 to do efficiently even with all available tools and reports that Azure SQL Database and Azure portal provide. 
@@ -46,10 +46,10 @@ performance of your workloads and what indexes affect your workloads. Based on t
 tuning applies tuning actions that improve performance** of your workload.
 In addition, Azure SQL Database will continuously monitor performance after any change made by automatic tuning to ensure that it improves
 performance of your workload. Any action that didn’t improve performance is automatically reverted. This verification
-process is a key feature that ensures that any change made by Automatic tuning do not decrease the performance
+process is a key feature that ensures that any change made by Automatic tuning does not decrease the performance
 of your workload.
 
-There are two automatic tuning features that are available in Azure SQL Database:
+There are two automatic tuning aspects that are available in Azure SQL Database:
  -	*Automatic index management* that identifies indexes that should be added in your database, and indexes that should be removed.
  -	*Automatic plan correction* (coming soon, already available in SQL Server 2017) that identifies problematic plans and fixes SQL plan performance problems.
 
