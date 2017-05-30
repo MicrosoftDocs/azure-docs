@@ -79,7 +79,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --resource-group MyResourceGroup
     ```
 4. Create a script file and save it. At the Cloud Shell command prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor, with an empty myscript.sh file. Place your cursor inside the editor window, right-click, and then click **Paste**. Cloud Shell storage does not persist across sessions. If you want to the script to persist across Cloud Shell sessions, set up [persistent storage](../cloud-shell/persisting-shell-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Cloud Shell. 
-5. To save the file as myscript.sh, press Ctrl+X, type **y**, and then press the Enter key.
+5. To save the file as myscript.sh, press Ctrl+X, type **Y**, and then press the Enter key.
 6. At the Cloud Shell command prompt, to mark the file as executable, run the `chmod +x myscript.sh` command.
 7. To execute the script, enter `./myscript.sh`.
 8. When the script is finished running, to review the subnets for the virtual network, copy the following command, and then paste it in the Bash Cloud Shell pane:
@@ -179,7 +179,7 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
     To learn more about how to deploy templates by using these methods, type `Get-Help New-AzureRmResourceGroupDeployment`. 
 
 ## <a name="delete"></a>Delete resources
-When you've finish this tutorial, you might want to delete the resources that you used for the tutorial, so you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group.
+When you've finished this tutorial, you might want to delete the resources that you used for the tutorial, so you don't incur usage charges. Deleting a resource group also deletes all resources that are in the resource group.
 
 ### <a name="delete-portal"></a>Azure portal
 
