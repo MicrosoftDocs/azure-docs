@@ -812,7 +812,7 @@ You need to do the following per-requisites steps to access Azure Cosmos DB from
 Once you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample* which contains python code to access DocumentDB and do some basic querying. You can learn more about DocumentDB by visiting the service [documentation page](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 ## 8. Build reports and dashboard using the Power BI Desktop
-Let us visualize the Volcano JSON file we saw in the Cosmos DB example above in Power BI to gain visual insights into the data. Detailed steps are available in the [Power BI article](../documentdb/documentdb-powerbi-visualize.md). The high level steps are below :
+Let us visualize the Volcano JSON file we saw in the Cosmos DB example above in Power BI to gain visual insights into the data. Detailed steps are available in the [Power BI article](../cosmos-db/powerbi-visualize.md). The high level steps are below :
 
 1. Open Power BI Desktop and do "Get Data". Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. You should see the JSON records imported as a list

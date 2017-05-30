@@ -124,6 +124,8 @@
     href: https://aka.ms/documentdb-tco-paper
   - name: Use cases
     href: use-cases.md
+      - name: Social media apps
+        href: social-media-apps.md
 - name: How To Guides
   items:
   - name: Develop
@@ -148,6 +150,8 @@
         href: multi-region-writers.md
       - name: DateTimes
         href: working-with-dates.md
+      - name: Modeling document data 
+        href: documentdb-modeling-data.md 
       - name: Tutorials
         items:
         - name: Write your first app
