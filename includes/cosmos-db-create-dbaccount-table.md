@@ -1,7 +1,7 @@
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
 2. In the left menu, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
    
-   ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
@@ -11,7 +11,7 @@
 
     Fill out the New account blade using the information in the screenshot as a guide. You will choose unique values as you set up your account so your values will not match the screenshot exactly. 
  
-    ![Screen shot of the New Azure Cosmos DB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Screen shot of the New Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
     Setting|Suggested value|Description
     ---|---|---
@@ -24,8 +24,8 @@
 4. Click **Create** to create the account.
 5. On the toolbar, click **Notifications** to monitor the deployment process.
 
-    ![Deployment started notification](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
+    ![Deployment started notification](./media/cosmos-db-create-dbaccount/azure-documentdb-nosql-notification.png)
 
 6.  When the deployment is complete, open the new account from the All Resources tile. 
 
-    ![DocumentDB account on the All Resources tile](./media/documentdb-create-dbaccount/azure-documentdb-all-resources.png)
+    ![DocumentDB account on the All Resources tile](./media/cosmos-db-create-dbaccount/azure-documentdb-all-resources.png)

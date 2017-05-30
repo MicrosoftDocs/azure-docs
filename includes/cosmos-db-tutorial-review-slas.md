@@ -2,4 +2,4 @@ Now that your app is up and running, you'll want to ensure ensure business conti
 
 * In the Azure portal, in the left menu, under **Monitoring**, click **Metrics**.
 
-   ![Todo app with sample data](./media/cosmosdb-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+   ![Todo app with sample data](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)

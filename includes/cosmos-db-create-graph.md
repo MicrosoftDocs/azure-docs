@@ -3,7 +3,7 @@ You can now use Data Explorer to create a graph container and add data to your d
 1. In the Azure portal, in the navigation menu, click **Data Explorer**. 
 2. In the Data Explorer blade, click **New Graph**, then fill in the page using the following information.
 
-    ![Data Explorer in the Azure portal](./media/cosmosdb-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Data Explorer in the Azure portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
     Setting|Suggested value|Description
     ---|---|---
