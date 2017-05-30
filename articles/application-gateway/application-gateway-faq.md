@@ -90,9 +90,12 @@ No, but you can deploy other application gateways in the subnet
 
 **Q. Are Network Security Groups supported on the Application Gateway subnet?**
 
-Network Security Groups are supported on the Application Gateway subnet with the following caveats:
+Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
+
 * Exceptions must be put in for ports 65503-65534 for backend health to work correctly.
+
 * Outbound internet connectivity should not be blocked.
+
 * Traffic from the AzureLoadBalancer tag must be allowed.
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
