@@ -2,7 +2,7 @@
 title: Use MongoChef for Azure Cosmos DB | Microsoft Docs
 description: 'Learn how to use MongoChef with an Azure Cosmos DB: API for MongoDB account'
 keywords: mongochef
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: ''

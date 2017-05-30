@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell Script-Multiregion replication for Azure Cosmos DB | Microsoft Docs
 description: Azure PowerShell Script Sample - Multiregion replication for Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard

@@ -1,7 +1,7 @@
 ---
 title: C++ tutorial for Azure Cosmos DB | Microsoft Docs
 description: A C++ tutorial that creates a C++ database and console application using an Azure Cosmos DB endorsed SDK for C++. Azure Cosmos DB is a planet-scale database service.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cpp
 author: asthana86
 manager: jhubbard

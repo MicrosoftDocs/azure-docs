@@ -1,7 +1,7 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Table API | Microsoft Docs
 description: Get started with Azure Cosmos DB's Tables API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard

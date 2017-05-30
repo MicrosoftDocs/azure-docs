@@ -1,7 +1,7 @@
 ﻿---
 title: Introduction to Azure Cosmos DB's Table API | Microsoft Docs
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency using the popular OSS MongoDB APIs.
-services: cosmosdb
+services: cosmos-db
 author: bhanupr
 manager: jhubbard
 editor: monicar

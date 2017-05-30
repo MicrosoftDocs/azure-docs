@@ -1,7 +1,7 @@
 ---
 title: DocumentDB API performance levels | Microsoft Docs
 description: Learn about how DocumentDB API performance levels enable you to reserve throughput on a per container basis.
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar

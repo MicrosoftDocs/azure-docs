@@ -2,7 +2,7 @@
 title: Azure Cosmos DB resource model and concepts | Microsoft Docs
 description: Learn about Azure Cosmos DB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more.
 keywords: Hierarchical model, cosmosdb, azure, Microsoft azure
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: AndrewHoh
 manager: jhubbard

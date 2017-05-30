@@ -2,7 +2,7 @@
 title: Performance tips - Azure Cosmos DB NoSQL | Microsoft Docs
 description: Learn client configuration options to improve Azure Cosmos DB database performance
 keywords: how to improve database performance
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: ''

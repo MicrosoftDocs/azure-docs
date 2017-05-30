@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for MongoDB API | Microsoft Docs
 description: Learn how to setup Azure Cosmos DB global distribution using the MongoDB API.
-services: cosmosdb
+services: cosmos-db
 keywords: global distribution, MongoDB
 documentationcenter: ''
 author: mimig1

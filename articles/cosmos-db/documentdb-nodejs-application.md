@@ -2,7 +2,7 @@
 title: Learn Node.js - Azure Cosmos DB Node.js Tutorial | Microsoft Docs
 description: Learn Node.js! Tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
 keywords: Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure
-services: cosmosdb
+services: cosmos-db
 documentationcenter: nodejs
 author: syamkmsft
 manager: jhubbard

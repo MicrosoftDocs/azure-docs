@@ -2,7 +2,7 @@
 title: MongoDB connection string for Azure Cosmos DB account | Microsoft Docs
 description: Learn how to connect your MongoDB app to an Azure Cosmos DB account using a MongoDB connection string.
 keywords: mongodb connection string
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: ''

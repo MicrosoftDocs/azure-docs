@@ -1,7 +1,7 @@
 ---
 title: Build an Azure Cosmos DB Node.js application using the Graph API | Microsoft Docs
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard

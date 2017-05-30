@@ -1,7 +1,7 @@
 ---
 title: Multi-master database architectures with Azure Cosmos DB | Microsoft Docs
 description: Learn about how to design application architectures with local reads and writes across multiple geographic regions with Azure Cosmos DB.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard

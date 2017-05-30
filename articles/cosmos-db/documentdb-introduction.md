@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: DocumentDB API | Microsoft Docs'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using SQL and JavaScript. 
 keywords: json database, document database
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar

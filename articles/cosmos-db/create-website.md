@@ -1,7 +1,7 @@
 ---
 title: Deploy a web app with a template - Azure Cosmos DB | Microsoft Docs
 description: Learn how to deploy an Azure Cosmos DB account, Azure App Service Web Apps, and a sample web application using an Azure Resource Manager template.
-services: cosmosdb, app-service\web
+services: cosmos-db, app-service\web
 author: mimig1
 manager: jhubbard
 editor: monicar

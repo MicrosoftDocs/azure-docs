@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB Python API, SDK & Resources | Microsoft Docs
 description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: python
 author: rnagpal
 manager: jhubbard

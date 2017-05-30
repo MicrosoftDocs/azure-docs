@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Cosmos DB | Microsoft Docs
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, and high availability.
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar

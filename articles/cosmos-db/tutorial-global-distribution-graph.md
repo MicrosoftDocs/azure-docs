@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for Graph API | Microsoft Docs
 description: Learn how to setup Azure Cosmos DB global distribution using the Graph API.
-services: cosmosdb
+services: cosmos-db
 keywords: global distribution, graph, gremlin
 documentationcenter: ''
 author: mimig1

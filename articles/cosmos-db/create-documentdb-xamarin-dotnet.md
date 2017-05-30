@@ -1,7 +1,7 @@
 ---
 title: 'Azure Cosmos DB: Build a web app with Xamarin and Facebook auth | Microsoft Docs'
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard

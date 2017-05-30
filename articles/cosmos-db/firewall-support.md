@@ -2,7 +2,7 @@
 title: Azure Cosmos DB firewall support & IP access control | Microsoft Docs
 description: Learn how to use IP access control policies for firewall support on Azure Cosmos DB database accounts.
 keywords: IP access control, firewall support
-services: cosmosdb
+services: cosmos-db
 author: shahankur11
 manager: jhubbard
 editor: ''

@@ -2,7 +2,7 @@
 title: 'NoSQL tutorial: Azure DocumentDB Java SDK | Microsoft Docs'
 description: A NoSQL tutorial that creates an online database and Java console application using the DocumentDB Java SDK. Azure DocumentDB is a NoSQL database for JSON.
 keywords: nosql tutorial, online database, java console application
-services: cosmosdb
+services: cosmos-db
 documentationcenter: Java
 author: arramac
 manager: jhubbard

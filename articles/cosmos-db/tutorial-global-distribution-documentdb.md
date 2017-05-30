@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB global distribution tutorial for DocumentDB API | Microsoft Docs
 description: Learn how to setup Azure Cosmos DB global distribution using the DocumentDB API.
-services: cosmosdb
+services: cosmos-db
 keywords: global distribution, documentdb
 documentationcenter: ''
 author: mimig1

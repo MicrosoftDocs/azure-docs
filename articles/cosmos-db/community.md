@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB community, news, & events | Microsoft Docs
 description: Join the Azure Cosmos DB community to build relationships, showcase your work, and sharpen your skills.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: aliuy
 manager: jhubbard

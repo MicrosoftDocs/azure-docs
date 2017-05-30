@@ -2,7 +2,7 @@
 title: Use MongoDB APIs to build an Azure Cosmos DB app | Microsoft Docs
 description: A tutorial that creates an online database using the DocumentDB APIs for MongoDB.
 keywords: mongodb examples
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: ''

@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: DocumentDB API getting started tutorial | Microsoft Docs'
 description: A tutorial that creates an online database and C# console application using the DocumentDB API.
 keywords: nosql tutorial, online database, c# console application
-services: cosmosdb
+services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
 manager: jhubbard

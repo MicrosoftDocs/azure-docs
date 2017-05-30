@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script-Create a firewall for Azure Cosmos DB | Microsoft Docs
 description: Azure CLI Script Sample - Create a firewall for Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard

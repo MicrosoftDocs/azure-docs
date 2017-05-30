@@ -1,7 +1,7 @@
 ---
 title: Working with dates in Azure Cosmos DB | Microsoft Docs
 description: Learn about how to work with dates in Azure Cosmos DB.
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: mimig
