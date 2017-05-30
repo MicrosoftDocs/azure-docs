@@ -200,7 +200,7 @@ There is an important difference in how tables are created. Azure Cosmos DB rese
 
 You can configure the default throughput by configuring the setting for `TableThroughput` in terms of RU (request units) per second. 
 
-A read of a 1-KB entity is normalized as 1 RU, and other operations are normalized to a fixed RU value based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB(request-units.md).
+A read of a 1-KB entity is normalized as 1 RU, and other operations are normalized to a fixed RU value based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB](request-units.md).
 
 > [!NOTE]
 > While Table storage SDK does not currently support modifying throughput, you can change the throughput instantaneously at any time using the Azure portal or Azure CLI.
