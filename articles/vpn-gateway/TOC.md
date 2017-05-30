@@ -7,6 +7,7 @@
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
 ## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)
 ## [About VPN devices](vpn-gateway-about-vpn-devices.md)
+## [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md)
 ## [About BGP and VPN Gateway](vpn-gateway-bgp-overview.md)
 ## [About highly available connections](vpn-gateway-highlyavailable.md)
 
@@ -21,11 +22,16 @@
 ### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Generate self-signed certificates for Point-to-Site
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Configure a VNet-to-VNet connection
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+## Configure IPsec/IKE policies on connections
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Configure a VNet-to-VNet connection between deployment models
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -47,19 +53,16 @@
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Create self-signed certificates for Point-to-Site
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Reference
-## [PowerShell](/powershell/module/azurerm.network)
-## [PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST](/rest/api/network/virtualnetworkgateways)
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure CLI](/cli/azure/network/vnet-gateway)
 
 # Related
 ## [Virtual Network](/azure/virtual-network/)

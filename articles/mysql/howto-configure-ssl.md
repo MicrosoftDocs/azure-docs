@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/18/2017
 ---
 
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
@@ -117,7 +117,7 @@ The following examples show how to connect to your MySQL server through both the
 Using the MySQL command-line interface, execute the following command:
 
 ```dos
-mysql.exe -h yourservername.mysql.database.azure.com -uUsername@yourservername -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
+mysql.exe -h mysqlserver4demo.mysql.database.azure.com -uUsername@mysqlserver4demo -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
 ```
 Execute the mysql **status** command to verify that you have connected to your MySQL server using SSL:
 
