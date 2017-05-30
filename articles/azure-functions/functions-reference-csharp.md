@@ -24,8 +24,8 @@ ms.author: chrande
 > * [C# script](functions-reference-csharp.md)
 > * [F# script](functions-reference-fsharp.md)
 > * [Node.js](functions-reference-node.md)
-> 
-> 
+>
+>
 
 The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
@@ -35,7 +35,7 @@ This article assumes that you've already read the [Azure Functions developer ref
 The `.csx` format allows you to write less "boilerplate" and focus on writing just a C# function. For Azure Functions, you just include any assembly references and namespaces you need up top, as usual, and instead of wrapping everything in a namespace and class, you can just define your `Run` method. If you need to include any classes, for instance to define Plain Old CLR Object (POCO) objects, you can include a class inside the same file.   
 
 ## Binding to arguments
-The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. A POCO object must have a getter and setter defined for each property. 
+The various bindings are bound to a C# function via the `name` property in the *function.json* configuration. Each binding has its own supported types which is documented per binding; for instance, a blob trigger can support a string, a POCO, or several other types. You can use the type which best suits your need. A POCO object must have a getter and setter defined for each property.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -70,7 +70,7 @@ To make a function asynchronous, use the `async` keyword and return a `Task` obj
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
-        string blobName, 
+        string blobName,
         Stream blobInput,
         Stream blobOutput)
     {
@@ -79,11 +79,11 @@ public async static Task ProcessQueueMessageAsync(
 ```
 
 ## Cancellation Token
-In certain cases, you may have operations which are sensitive to being shut down. While it's always best to write code which can handle crashing,  in cases where you want to handle graceful shutdown requests, you define a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` will be provided if a host shutdown is triggered. 
+In certain cases, you may have operations which are sensitive to being shut down. While it's always best to write code which can handle crashing,  in cases where you want to handle graceful shutdown requests, you define a [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typed argument.  A `CancellationToken` will be provided if a host shutdown is triggered.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
-        string blobName, 
+        string blobName,
         Stream blobInput,
         Stream blobOutput,
         CancellationToken token)
@@ -172,10 +172,10 @@ When you upload a *project.json* file, the runtime gets the packages and automat
 In the Functions runtime, NuGet restore works by comparing `project.json` and `project.lock.json`. If the date and time stamps of the files do not match, a NuGet restore runs and NuGet downloads updated packages. However, if the date and time stamps of the files match, NuGet does not perform a restore. Therefore, `project.lock.json` should not be deployed as this causes NuGet to skip the restore, and the function will not have the required packages. To avoid deploying the lock file, add the `project.lock.json` to the `.gitignore` file.
 
 ### How to upload a project.json file
-1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. 
-   
-    This also gives access to the streaming logs where package installation output will be displayed. 
-2. To upload a project.json file, use one of the methods described in the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
+1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal.
+
+    This also gives access to the streaming logs where package installation output will be displayed.
+2. To upload a project.json file, use one of the methods described in the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate).
 3. After the *project.json* file is uploaded, you see output like the following example in your function's streaming log:
 
 ```
@@ -185,13 +185,13 @@ In the Functions runtime, NuGet restore works by comparing `project.json` and `p
 2016-04-04T19:02:50.261 Feeds used:
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
-2016-04-04T19:02:50.261 
+2016-04-04T19:02:50.261
 2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
-2016-04-04T19:02:57.189 
-2016-04-04T19:02:57.189 
+2016-04-04T19:02:57.189
+2016-04-04T19:02:57.189
 2016-04-04T19:02:57.455 Packages restored.
 ```
 
@@ -208,13 +208,13 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 public static string GetEnvironmentVariable(string name)
 {
-    return name + ": " + 
+    return name + ": " +
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
 
 ## Reusing .csx code
-You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file. In the following example, a logging routine named `MyLogger` is shared in *myLogger.csx* and loaded into *run.csx* using the `#load` directive: 
+You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file. In the following example, a logging routine named `MyLogger` is shared in *myLogger.csx* and loaded into *run.csx* using the `#load` directive:
 
 Example *run.csx*:
 
@@ -223,7 +223,7 @@ Example *run.csx*:
 
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    log.Verbose($"Log by run.csx: {DateTime.Now}"); 
+    log.Verbose($"Log by run.csx: {DateTime.Now}");
     MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
 }
 ```
@@ -233,7 +233,7 @@ Example *mylogger.csx*:
 ```csharp
 public static void MyLogger(TraceWriter log, string logtext)
 {
-    log.Verbose(logtext); 
+    log.Verbose(logtext);
 }
 ```
 
@@ -280,7 +280,7 @@ public static void Run(Order myQueueItem, out Order outputQueueItem,TraceWriter 
 }
 ```
 
-Example *order.csx*: 
+Example *order.csx*:
 
 ```cs
 public class Order
@@ -293,7 +293,7 @@ public class Order
 
     public override String ToString()
     {
-        return "\n{\n\torderId : " + orderId + 
+        return "\n{\n\torderId : " + orderId +
                   "\n\tcustName : " + custName +             
                   "\n\tcustAddress : " + custAddress +             
                   "\n\tcustEmail : " + custEmail +             
@@ -308,7 +308,7 @@ You can use a relative path with the `#load` directive:
 * `#load "loadedfiles\mylogger.csx"` loads a file located in a folder in the function folder.
 * `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
 
-The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
+The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files.
 
 ## Versioning
 
@@ -320,7 +320,7 @@ Additionally, you may want to upgrade the runtime before it becomes the default 
 
 *To determine your Azure Function App's runtime version:*
 
-Locate the `applicationhost.config` file located in the `D:\local\Config` folder in Kudu. The `virtualDirectory` entry reveals the exact Functions runtime version: 
+Locate the `applicationhost.config` file located in the `D:\local\Config` folder in Kudu. The `virtualDirectory` entry reveals the exact Functions runtime version:
 
 ```xml
 <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Functions\0.8.10564" />
@@ -334,8 +334,8 @@ In C# and other .NET languages, you can use an [imperative](https://en.wikipedia
 Define an imperative binding as follows:
 
 - **Do not** include an entry in *function.json* for your desired imperative bindings.
-- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 
-or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
+- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs)
+or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
 - Use the following C# pattern to perform the data binding.
 
 ```cs
@@ -345,14 +345,14 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
-supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the 
-Mobile Apps table output binding supports 
+where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's
+supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the
+Mobile Apps table output binding supports
 [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
-but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 
+but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)
 or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
-	
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#storage-blob-output-binding)
+
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#using-a-blob-output-binding)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
@@ -369,10 +369,10 @@ public static async Task Run(string input, Binder binder)
 ```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
-defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and 
+defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
-As is, the code gets the default app setting for the Storage account connection string (which is `AzureWebJobsStorage`). You can specify a 
-custom app setting to use by adding the 
+As is, the code gets the default app setting for the Storage account connection string (which is `AzureWebJobsStorage`). You can specify a
+custom app setting to use by adding the
 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 and passing the attribute array into `BindAsync<T>()`. For example,
 
@@ -395,7 +395,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-The following table lists the .NET attributes for each binding type and the packages in which they are defined. 
+The following table lists the .NET attributes for each binding type and the packages in which they are defined.
 
 > [!div class="mx-codeBreakAll"]
 | Binding | Attribute | Add reference |
@@ -420,4 +420,3 @@ For more information, see the following resources:
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-

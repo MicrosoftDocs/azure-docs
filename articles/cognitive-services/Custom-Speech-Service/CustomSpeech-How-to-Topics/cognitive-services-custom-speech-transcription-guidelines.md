@@ -127,18 +127,17 @@ Here are some examples
 
 ## Transcription guidelines for de-DE
 
-Text data uploaded to the Custom Speech Service should only use **UTF-8 encoding (incl. BOM)** or **ANSI encoding**. Each line of the file should contain the text for a single utterance only.
+Text data uploaded to the Custom Speech Service should only use **UTF-8 encoding (incl. BOM)**. Each line of the file should contain the text for a single utterance only.
 
 ### Text normalization performed by the Custom Speech Service
 
 This service will perform the following text normalization on data imported as a language data set or transcriptions for an acoustic data set. This includes
 
 *   Lower-casing all text
-*   Removing all punctuation including special Spanish characters, i.e. ¡ or ¿
-*   Create an empty line for rows containing following characters: ^ ¢ £ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
-*   Expansion of numbers to spoken form, including dollar or euro amounts
-*   Quotes "test", 'test', “test„ or «test» are ok
-*   We accept only umlauts for a, o, u; others will be replaced
+*   Removing all punctuation including English or German quotes ("test", 'test', “test„ or «test» are ok)
+*   Discard any row containing any special character including: ^ ¢ £ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
+*   Expansion of numbers to word form, including dollar or euro amounts
+*   We accept only umlauts for a, o, u; others will be replaced by "th" or discarded
 
 Here are some examples
 
@@ -148,7 +147,7 @@ Here are some examples
 | "Hallo, Mama!" sagt die Tochter. | hallo mama sagt die tochter |
 | ¡Eine Frage! | eine frage |
 | wir, haben | wir haben |
-| Das macht $10 | das macht dollar zehn |
+| Das macht $10 | das macht zehn dollars |
 
 
 ### Text normalization required by users
@@ -157,18 +156,23 @@ To ensure the best use of your data, the following normalization rules should be
 
 *   Decimal point should be , and not . e.g., 2,3% and not 2.3%
 *   Time separator between hours and minutes should be : and not ., e.g., 12:00 Uhr
-*   Abbreviations such as 'ca.'', 'bzw.' are not replaced. We recommend to use the full form.
+*   Abbreviations such as 'ca.', 'bzw.' are not replaced. We recommend to use the full form in order to have the correct pronunciation.
 *   The five main mathematical operators are removed: +, -, \*, /.
- We recommend to replace them by their literal form plus, minus, times, divided by.
-*   Same applies for the comparators (=, <, >)
-*   Use 3/4 (drei viertel) or similar instead of ¾
+ We recommend to replace them by their literal form plus, minus, mal, geteilt.
+*   Same applies for the comparators (=, <, >) - gleich, kleiner als, grösser als
+*   Use fraction such as 3/4 in word form 'drei viertel' instead of ¾
+*   Replace the € symbol with the word form "Euro"
+
+
+Here are some examples
 
 | Original Text | After user's normalization | After system normalization
 |--------  | ----- | -------- |
 | Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf |
-| 3 < 5 | 3 kleiner 5 | drei kleiner 5 |
-| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus 3 minus 4|
+| 3 < 5 | 3 kleiner als 5 | drei kleiner als vier |
+| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
+| Das macht 12€ | Das macht 12 Euros | das macht zwölf euros |
 
 
 
