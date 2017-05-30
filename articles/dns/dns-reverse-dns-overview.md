@@ -58,6 +58,7 @@ Instead, a different mechanism is used to transfer control of individual reverse
 For example, suppose an organization is granted the IP range 192.0.2.128/26 by its ISP. This represents 64 IP addresses, from 192.0.2.128 to 192.0.2.191. Reverse DNS for this range is implemented as follows:
 - The organization creates a reverse lookup zone called 128-26.2.0.192.in-addr.arpa. The prefix '128-26' represents the network segment assigned to the organization within the Class C (/24) range.
 - The ISP creates NS records to set up the DNS delegation for the above zone from the Class C parent zone. It also creates CNAME records in the parent (Class C) reverse lookup zone, mapping each IP address in the IP range to the new zone created by the organization:
+
 ```
 $ORIGIN 2.0.192.in-addr.arpa
 ; Delegate child zone
@@ -70,6 +71,7 @@ $ORIGIN 2.0.192.in-addr.arpa
 ; etc
 ```
 - The organization then manages the individual PTR records within their child zone.
+
 ```
 $ORIGIN 128-26.2.0.192.in-addr.arpa
 ; PTR records for each UIP address. Names match CNAME targets in parent zone
@@ -85,13 +87,13 @@ A reverse lookup for the IP address '192.0.2.129' queries for a PTR record named
 The name of an IPv6 reverse lookup zone should be in the following form:
 `<IPv6 network prefix in reverse order>.ip6.arpa`
 
-For example,. When creating a reverse zone to host records for hosts with IPs that are in the 2001:db8:1000:abcd\:\:/64 prefix, the zone name would be created by isolating the network prefix of the address (2001:db8:abcd\:\:). Next expand the IPv6 network prefix to remove [zero compression](https://technet.microsoft.com/en-us/library/cc781672(v=ws.10).aspx), if it was used to shorten the IPv6 address prefix (2001:0db8:abcd:0000\:\:). Reverse the order, using a period as the delimiter between each hexadecimal number in the prefix, to build the reversed network prefix (`0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2`) and add the suffix `.ip6.arpa`.
+For example,. When creating a reverse zone to host records for hosts with IPs that are in the 2001:db8:1000:abdc::/64 prefix, the zone name would be created by isolating the network prefix of the address (2001:db8:abdc::). Next expand the IPv6 network prefix to remove [zero compression](https://technet.microsoft.com/en-us/library/cc781672(v=ws.10).aspx), if it was used to shorten the IPv6 address prefix (2001:0db8:abdc:0000::). Reverse the order, using a period as the delimiter between each hexadecimal number in the prefix, to build the reversed network prefix (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) and add the suffix `.ip6.arpa`.
 
 
 |Network prefix  |Expanded and reversed network prefix |Standard suffix |Reverse zone name  |
 |---------|---------|---------|---------|
-|2001:db8:abcd\:\:/64    | 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2        | .ip6.arpa        | `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
-|2001:db8:1000:9102\:\:/64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | .ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
+|2001:db8:abdc::/64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | .ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
+|2001:db8:1000:9102::/64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | .ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
 
 
 ## Azure support for reverse DNS
