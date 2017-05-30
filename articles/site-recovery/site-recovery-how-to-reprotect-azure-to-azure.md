@@ -48,9 +48,11 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 Following are the steps to reprotect a virtual machine using the defaults.
 
 1. In **Vault** > **Replicated items**, right-click the virtual machine that's been failed over, and then select **Re-Protect**. You can also click the machine and select **Re-Protect** from the command buttons.
+
 ![Right click to reprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. In the blade, notice that the direction of protection, **Southeast Asia to East asia**, is already selected.
+
 ![Reprotect blade](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
 3. Review the **Resource group, Network, Storage and Availability sets** information and click OK. If there are any resources marked (new), they will be created as part of the reprotect.
@@ -59,9 +61,11 @@ This will trigger a job reprotect job that will first seed the target site (SEA 
 
 ### Reprotect customization
 If you want to choose the extract storage account or the network during reprotect, you can do so using the customize option provided on the reprotect blade.
+
 ![Customize option](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 You can customize the following properties of he target virtual machine during reprotect.
+
 ![Customize blade](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
 |Property |Notes  |
