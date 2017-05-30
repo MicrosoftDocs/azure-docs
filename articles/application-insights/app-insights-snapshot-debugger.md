@@ -112,6 +112,83 @@ For Azure Compute and other types, ensure the symbol files are in the same folde
 ### Optimized Builds
 In some cases, local variables are not viewable in Release builds because of optimizations applied during the build process. This limitation will be fixed in a future release of the NuGet package.
 
+## Troubleshooting
+
+These tips help you troubleshoot problems with the Snapshot Debugger.
+
+### 1. Verify the instrumentation key
+
+Make sure you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify that the value is the same as the instrumentation key for the Application Insights resource you are viewing in the portal.
+
+### 2. Check the uploader logs
+
+After a snapshot is created, a minidump file (.dmp) will be created on disk. A separate uploader process takes that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. Once the minidump has been uploaded successfully, it is deleted from disk. The log files for the minidump uploader are retained on disk. In an Azure App Service environment, you can find these logs in `D:\Home\LogFiles\Uploader_*.log`. Use the Kudu management site for your App Service to find these log files.
+1. Open your App Service application in the Azure portal.
+2. Select the "Advanced Tools" blade (or search for "Kudu")
+3. Click "Go"
+4. Select `CMD` from the `Debug console` drop-down.
+5. Click `LogFiles`
+
+You should see at least one file with a name beginning with `Uploader_` and a `.log` extension. You can download any log files or open them in the browser by clicking the appropriate icon.
+The filename includes the machine name. Therefore, if your App Service is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here is an example of a successful upload:
+```
+MinidumpUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2017-05-25T14:25:08.0349846Z
+MinidumpUploader.exe Information: 0 : Uploading D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp, 329.12 MB
+    DateTime=2017-05-25T14:25:16.0145444Z
+MinidumpUploader.exe Information: 0 : Upload successful.
+    DateTime=2017-05-25T14:25:42.9164120Z
+MinidumpUploader.exe Information: 0 : Extracting PDB info from D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp.
+    DateTime=2017-05-25T14:25:42.9164120Z
+MinidumpUploader.exe Information: 0 : Matched 2 PDB(s) with local files.
+    DateTime=2017-05-25T14:25:44.2310982Z
+MinidumpUploader.exe Information: 0 : Stamp does not want any of our matched PDBs.
+    DateTime=2017-05-25T14:25:44.5435948Z
+MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\139e411a23934dc0b9ea08a626db16c5.dmp
+    DateTime=2017-05-25T14:25:44.6095821Z
+```
+
+In the example above, the instrumentation key is `c12a605e73c44346a984e00000000000`. This value should match the instrumentation key for your application.
+The minidump is associated with a snapshot with the ID of `139e411a23934dc0b9ea08a626db16c5`. You can use this ID later to locate the associated exception telemetry in Application Insights Analytics.
+
+The uploader scans for new PDBs, roughly once every 15 minutes. Here is an example of that:
+```
+MinidumpUploader.exe Information: 0 : PDB rescan requested.
+    DateTime=2017-05-25T15:11:38.8003886Z
+MinidumpUploader.exe Information: 0 : Scanning D:\home\site\wwwroot\ for local PDBs.
+    DateTime=2017-05-25T15:11:38.8003886Z
+MinidumpUploader.exe Information: 0 : Scanning D:\local\Temporary ASP.NET Files\root\a6554c94\e3ad6f22\assembly\dl3\81d5008b\00b93cc8_dec5d201 for local PDBs.
+    DateTime=2017-05-25T15:11:38.8160276Z
+MinidumpUploader.exe Information: 0 : Local PDB scan complete. Found 2 PDB(s).
+    DateTime=2017-05-25T15:11:38.8316450Z
+MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dumps\c12a605e73c44346a984e00000000000\.pdbscan.
+    DateTime=2017-05-25T15:11:38.8316450Z
+```
+
+For applications _not_ hosted in Azure App Service, the uploader logs are in the same folder as the minidumps: `%TEMP%\Dumps\<ikey>` (where `<ikey>` is your instrumentation key).
+
+### 3. Check Application Insights Analytics for exceptions with snapshots
+
+When a snapshot is created, the throwing exception is tagged with a snapshot ID and that snapshot ID is transmitted, along with the exception telemetry to Application Insights. You can use Application Insights Analytics to search for exceptions with snapshots using the following query:
+```sql
+    exceptions
+    | where isnotnull(customDimensions["ai.snapshot.id"])
+```
+
+If this query returns no results, then no snapshots were reported to Application Insights for your application in the selected time range.
+
+If you want to search for a specific snapshot ID that you found in the Uploader logs, then the query should look like this:
+```sql
+    exceptions
+    | where customDimensions["ai.snapshot.id"] == "139e411a23934dc0b9ea08a626db16c5"
+```
+
+If this query returns no results for a snapshot that you know has been uploaded, then
+1. Double-check you're looking at the right Application Insights resource by verifying the instrumentation key.
+2. Extend the time range of the query if necessary to include the time when the snapshot was created. You can use the timestamp in the Uploader log to help.
+
+If you still don't see an exception with that snapshot id, then the exception telemetry wasn't reported to Application Insights. This can happen if your application crashed after taking the snapshot, but before reporting the exception telemetry. In this case, check the App Service logs under `Diagnose and solve problems` to see if there were unexpected restarts or unhandled exceptions.
+
 ## Next Steps
 
 * [Set snappoints in your code](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) - get snapshots without waiting for an exception.

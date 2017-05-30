@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/18/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ---
 
@@ -160,26 +160,94 @@ Named user accounts enable password-less SSH between Linux nodes. You can use a 
 
 To create named user accounts in Batch, add a collection of user accounts to the pool. The following code snippets show how to create named user accounts in .NET, Java, and Python. These code snippets show how to create both admin and non-admin named accounts on a pool. The examples create pools using the cloud service configuration, but you use the same approach when creating a Windows or Linux pool using the virtual machine configuration.
 
-#### Batch .NET example
+#### Batch .NET example (Windows)
 
 ```csharp
 CloudPool pool = null;
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
+// Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicated: 3,                                                         
+    targetDedicatedComputeNodes: 3,                                                         
     virtualMachineSize: "small",                                                
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
+// Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
 {
-    new UserAccount(AdminUserAccountName, AdminPassword, ElevationLevel.Admin),
-    new UserAccount(NonAdminUserAccountName, NonAdminPassword, ElevationLevel.NonAdmin),
+    new UserAccount("adminUser", "xyz123", ElevationLevel.Admin),
+    new UserAccount("nonAdminUser", "123xyz", ElevationLevel.NonAdmin),
 };
- 
-pool.Commit();
+
+// Commit the pool.
+await pool.CommitAsync();
 ```
+
+#### Batch .NET example (Linux)
+
+```csharp
+CloudPool pool = null;
+
+// Obtain a collection of all available node agent SKUs.
+List<NodeAgentSku> nodeAgentSkus =
+    batchClient.PoolOperations.ListNodeAgentSkus().ToList();
+
+// Define a delegate specifying properties of the VM image to use.
+Func<ImageReference, bool> isUbuntu1404 = imageRef =>
+    imageRef.Publisher == "Canonical" &&
+    imageRef.Offer == "UbuntuServer" &&
+    imageRef.Sku.Contains("14.04");
+
+// Obtain the first node agent SKU in the collection that matches
+// Ubuntu Server 14.04. 
+NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
+    sku.VerifiedImageReferences.Any(isUbuntu1404));
+
+// Select an ImageReference from those available for node agent.
+ImageReference imageReference =
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
+
+// Create the virtual machine configuration to use to create the pool.
+VirtualMachineConfiguration virtualMachineConfiguration =
+    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
+
+Console.WriteLine("Creating pool [{0}]...", poolId);
+
+// Create the unbound pool.
+pool = batchClient.PoolOperations.CreatePool(
+    poolId: poolId,
+    targetDedicatedComputeNodes: 3,                                             
+    virtualMachineSize: "Standard_A1",                                      
+    virtualMachineConfiguration: virtualMachineConfiguration);                  
+
+// Add named user accounts.
+pool.UserAccounts = new List<UserAccount>
+{
+    new UserAccount(
+        name: "adminUser",
+        password: "xyz123",
+        elevationLevel: ElevationLevel.Admin,
+        linuxUserConfiguration: new LinuxUserConfiguration(
+            uid: 12345,
+            gid: 98765,
+            sshPrivateKey: new Guid().ToString()
+            )),
+    new UserAccount(
+        name: "nonAdminUser",
+        password: "123xyz",
+        elevationLevel: ElevationLevel.NonAdmin,
+        linuxUserConfiguration: new LinuxUserConfiguration(
+            uid: 45678,
+            gid: 98765,
+            sshPrivateKey: new Guid().ToString()
+            )),
+};
+
+// Commit the pool.
+await pool.CommitAsync();
+```
+
 
 #### Batch Java example
 

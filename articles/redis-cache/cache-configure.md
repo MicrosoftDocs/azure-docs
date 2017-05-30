@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/25/2017
+ms.date: 05/30/2017
 ms.author: sdanie
 
 ---
@@ -427,7 +427,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
   * P2 (13 GB - 130 GB) - up to 32 databases
   * P3 (26 GB - 260 GB) - up to 48 databases
   * P4 (53 GB - 530 GB) - up to 64 databases
-  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 

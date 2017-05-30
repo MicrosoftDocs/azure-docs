@@ -111,7 +111,7 @@ For more information about how to process messages from Service Bus queues, see 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
 
     > [!NOTE]
-    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions**, **Duplicate Detection**, or **Partitioning** enabled. If any of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
     

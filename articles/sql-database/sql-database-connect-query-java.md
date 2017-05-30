@@ -104,7 +104,7 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "your_server.database.windows.net";
+		String hostName = "your_server";
 		String dbName = "your_database";
 		String user = "your_username";
 		String password = "your_password";
@@ -159,7 +159,7 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "your_server.database.windows.net";
+		String hostName = "your_server";
 		String dbName = "your_database";
 		String user = "your_username";
 		String password = "your_password";
@@ -215,7 +215,7 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "your_server.database.windows.net";
+		String hostName = "your_server";
 		String dbName = "your_database";
 		String user = "your_username";
 		String password = "your_password";
@@ -266,7 +266,7 @@ public class App {
 	public static void main(String[] args) {
 	
 		// Connect to database
-		String hostName = "your_server.database.windows.net";
+		String hostName = "your_server";
 		String dbName = "your_database";
 		String user = "your_username";
 		String password = "your_password";

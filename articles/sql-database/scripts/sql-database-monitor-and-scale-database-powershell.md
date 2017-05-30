@@ -27,7 +27,7 @@ This sample PowerShell script monitors the performance metrics of a database, sc
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1 "Monitor and scale single SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 ## Clean up deployment
 
