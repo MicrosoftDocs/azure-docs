@@ -40,6 +40,20 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
+```
+3. Create an azure storage account, say ``sfjenkinsstorage1``. Create a ``File Share`` under that storage account, say ``sfjenkins``. Click on ``Connect`` for the file-share and note the values it displays under ``Connecting from Linux``, say this would look like as follows -
+```sh
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
+```
+4. Update the placeholder values in the ```setupentrypoint.sh``` script with corresponding azure-storage details.
+```sh
+vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
+```
+Replace ``[REMOTE_FILE_SHARE_LOCATION]`` with the value ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` from the output of the connect in point 3 above.
+Replace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` with the value ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` from point 3 above.
+
+5. Connect to the cluster and install the container application.
+```sh
 azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
 bash Scripts/install.sh
 ```
