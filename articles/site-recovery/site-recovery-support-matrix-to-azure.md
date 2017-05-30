@@ -17,10 +17,11 @@ ms.date: 01/25/2017
 ms.author: rajanaki
 
 ---
-# Azure Site Recovery support matrix for replicating to Azure
+# Azure Site Recovery support matrix for replicating from on-premises to Azure
 
 > [!div class="op_single_selector"]
-> * [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
+> * [Replicate from Azure to Azure](site-recovery-support-matrix-azure-to-azure.md)
+> * [Replicate from on-premises to Azure](site-recovery-support-matrix-to-azure.md)
 > * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 
@@ -80,7 +81,7 @@ The following table summarizes replicated operating system support in various de
 
 **Release  ** | **ASR Mobility Service version** | **kernel version** |
 --- | --- | --- |
-14.04 LTS | 9.8 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
+14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 
 ## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
 

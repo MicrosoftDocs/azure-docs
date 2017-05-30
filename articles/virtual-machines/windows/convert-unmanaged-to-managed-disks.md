@@ -155,6 +155,11 @@ This section will show you how to convert your existing Azure VMs on Standard un
     
 You can also have a mixture of disks that use standard and Premium storage.
 	
+Troubleshooting
+
+In case of an error during conversion - or if you have a Virtual Machine in a Failed state due to a previous conversion that faced issues, please retry it by running the ConvertTo-AzureRmVMManagedDisk cmdlet again.
+A simple retry usually unblocks the situation.
+
 
 ## Next steps
 
