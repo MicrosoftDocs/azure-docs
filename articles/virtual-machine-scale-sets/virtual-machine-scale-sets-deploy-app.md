@@ -20,7 +20,7 @@ ms.author: adegeo
 
 # Deploy an App on Virtual Machine Scale Sets
 
-This article shows you how to install software at the time the scale set is provisioned, and describes how to to create a custom virtual machine image.
+This article describes different ways of how to install software at the time the scale set is provisioned.
 
 You may want to review the [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md) article, which describes some of the limits imposed by virtual machine scale sets.
 
@@ -56,9 +56,9 @@ For a Windows-based operating system, use either the **Custom Script v1.8** exte
 
 #### Custom Script
 
-The Custom Script extension runs a script on each virtual machine instance. A config file or variable indicates which files are downloaded to the virtual machine, and then what command runs.
+The Custom Script extension runs a script on each virtual machine instance in the scale set. A config file or variable indicates which files are downloaded to the virtual machine, and then what command runs. You could use this to run an installer, a script, a batch file, any executable for example.
 
-PowerShell uses a hashtable for the settings. This example runs a PowerShell script on each virtual machine that installs IIS.
+PowerShell uses a hashtable for the settings. This example configures the custom script extension to run a PowerShell script that installs IIS.
 
 ```powershell
 # Setup extension configuration hashtable variable
@@ -80,7 +80,7 @@ Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachine
 ---------
 
 
-Azure CLI uses a json for the settings. This example runs a PowerShell script on each virtual machine that installs IIS. Save the following json file as _settings.json_.
+Azure CLI uses a json file for the settings. This example configures the custom script extension to run a PowerShell script that installs IIS. Save the following json file as _settings.json_.
 
 ```json
 {
@@ -102,7 +102,7 @@ az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomS
 
 ### PowerShell DSC
 
-You can use PowerShell DSC to customize the scale set vm instances The **DSC** extension published by **Microsoft.Powershell** deploys and runs the provided DSC configuration on each virtual machine instance. A config file or variable tells the extension where *.zip* package is, and then, which _script-function_ combination to run.
+You can use PowerShell DSC to customize the scale set vm instances. The **DSC** extension published by **Microsoft.Powershell** deploys and runs the provided DSC configuration on each virtual machine instance. A config file or variable tells the extension where *.zip* package is, and which _script-function_ combination to run.
 
 PowerShell uses a hashtable for the settings. This example deploys a DSC package that installs IIS.
 
