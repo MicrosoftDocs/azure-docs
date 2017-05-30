@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: Develop with the Table API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's Table API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
