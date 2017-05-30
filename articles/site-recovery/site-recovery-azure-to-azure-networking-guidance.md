@@ -72,9 +72,9 @@ If you are using any IP-based firewall proxy or Network Security Group (NSG) rul
 > 1. It is recommended that you create the required NSG rules on a test NSG and verify that everything is fine before you create the rules on a production NSG.
 > 2. Ensure that your subscription is whitelisted to create the required number of NSG rules. You can contact support to increase the NSG rule limit in your subscription.
 
-- Ensure that all IP ranges corresponding to the source location are whitelisted. You can get the IP ranges [here](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiax5XFqffTAhUERo8KHc-HB8AQFggoMAE&url=https%3A%2F%2Fwww.microsoft.com%2Fen-in%2Fdownload%2Fdetails.aspx%3Fid%3D41653&usg=AFQjCNF0PQrMilyQDTjmj336PUiOhiViIw). This is required so that data can be written to the cache storage account form the VM.
+- Ensure that all IP ranges corresponding to the source location are whitelisted. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account form the VM.
 
-- Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
+- Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
 
     >[!NOTE]
     > If new IPs get added Office 365 IP ranges in future, you need to create new NSG rules for the same.
@@ -123,9 +123,9 @@ For example, if your VM's source location is 'East US' and your replication is t
 
 ### NSG rules on 'East US' NSG
 
-1. Create rules corresponding to 'East US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/en-in/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account form the VM.
+1. Create rules corresponding to 'East US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account form the VM.
 
-2. Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
 3. Create rules corresponding to target location.
 
@@ -137,9 +137,9 @@ Central US | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
 
 These rules are required so that replication can be enabled from target region to source region post failover.
 
-1. Create rules corresponding to 'Central US' IP ranges. You can get the IP ranges [here](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiax5XFqffTAhUERo8KHc-HB8AQFggoMAE&url=https%3A%2F%2Fwww.microsoft.com%2Fen-in%2Fdownload%2Fdetails.aspx%3Fid%3D41653&usg=AFQjCNF0PQrMilyQDTjmj336PUiOhiViIw). This is required so that data can be written to the cache storage account form the VM.
+1. Create rules corresponding to 'Central US' IP ranges. You can get the IP ranges [here](https://www.microsoft.com/download/confirmation.aspx?id=41653. This is required so that data can be written to the cache storage account form the VM.
 
-2. Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints listed here](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
 3. Create rules corresponding to source location.
 
@@ -169,7 +169,7 @@ If you have an ExpressRoute or a VPN connection between on-premises and the sour
   - source VNet and the ExpressRoute circuit
   - target VNet and the ExpressRoute circuit
 
-- As part of ExpressRoute standard, you can create circuits in same geo-political region. To create ExpressRouteotue circuits in different geo-political region ExpressRoute premium is required. This is an incremental cost. But if you are already using ExpressRoute Premium then there is no extra cost. You can refer to [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/) for more details.
+- As part of ExpressRoute standard, you can create circuits in same geo-political region. To create ExpressRouteotue circuits in different geo-political region ExpressRoute premium is required. This is an incremental cost. But if you are already using ExpressRoute Premium then there is no extra cost. You can refer to [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/) for more details.
 
 - It is recommended to use different IP ranges in source and target regions. ExpressRoute circuit won't be able to connect with two VNETs of same IP ranges at the same time.
 
