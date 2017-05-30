@@ -139,6 +139,7 @@ Ready to give it a try? Let's get started.
     
     ![Power BI tutorial for Azure Cosmos DB Power BI connector - Close & Apply](./media/powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
+<a id="build-the-reports"></a>
 ## Build the reports
 Power BI Desktop Report view is where you can start creating reports to visualize data.  You can create reports by dragging and dropping fields into the **Report** canvas.
 
