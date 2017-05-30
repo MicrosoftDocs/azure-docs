@@ -1,7 +1,7 @@
 ---
 
-title="Configure an App Service Environments" 
-description="How to create, publish and scale apps in an App Service Environment" 
+title="Configure an Azure App Service Environments" 
+description="How to create, publish and scale apps in an Azure App Service Environment" 
 services: app-service
 documentationcenter: ''
 author: ccompy
