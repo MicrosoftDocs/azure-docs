@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
         href: web-sites-java-add-app.md
-      - name: Remote debug Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Remote debug IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Django app with MySQL
