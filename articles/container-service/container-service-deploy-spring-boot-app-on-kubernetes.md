@@ -192,7 +192,7 @@ The `id` and `username` are the name of the registry. Use the `password` value f
    ```
    This command may take a while to complete.
 
-1. Install `kubectl` using the Azure CLI. Linux users may have to prefix this with `sudo` since it deploys the Kubernetes CLI to `/usr/local/bin`.
+1. Install `kubectl` using the Azure CLI. Linux users may have to prefix this command with `sudo` since it deploys the Kubernetes CLI to `/usr/local/bin`.
    ```azurecli
    az acs kubernetes install-cli
    ```
@@ -244,7 +244,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 
    ![Kubernetes Services][KB06]
 
-1. If you click on the link for **External endpoints**, you will see your Spring Boot application running on Azure.
+1. If you click the link for **External endpoints**, you can see your Spring Boot application running on Azure.
 
    ![Kubernetes Services][KB07]
 
@@ -277,7 +277,7 @@ This tutorial deploys the app using `kubectl`, then allow you to explore the dep
 
    * The `--port` parameter specifies the public-facing TCP port of 80. You access the app on this port.
 
-   * The `--target-port` parameter specifies the internal TCP port of 8080. Te load balancer forwards requests to your app on this port.
+   * The `--target-port` parameter specifies the internal TCP port of 8080. The load balancer forwards requests to your app on this port.
 
 1. Once the app is deployed to the cluster, query the external IP address and open it in your web browser:
 
