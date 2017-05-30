@@ -56,24 +56,35 @@ Follow the guidance provided by your Linux distributor to get the latest trusted
 
 Follow the below specific steps for **SuSE Linux** as SuSE Linux uses symlinks to maintain certificate list.
 
-1.	Login as root user
-2.	Run the below command
-      # cd /etc/ssl/certs
-3.	Check if the Symantec root CA cert is present or not
-      # ls  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
-a.	If the file is not found, run the below commands
-      # wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
-      # c_rehash
-4.	Create a symlink with b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
-      # ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0
-5.	Check if the below command has the following output. If not you have to create a symlink
-      # ls -l | grep Baltimore
+1.	Login as root user.
+
+2.	Run the below command.
+
+      ``# cd /etc/ssl/certs``
+
+3.	Check if the Symantec root CA cert is present or not.
+
+      ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+4.	If the file is not found, run the below commands.
+
+      ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+
+      ``# c_rehash``
+
+5.	Create a symlink with b204d74a.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+
+      ``# ln -s  VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+
+6.	Check if the below command has the following output. If not, you have to create a symlink.
+
+      ``# ls -l | grep Baltimore
       -rw-r--r-- 1 root root   1303 Apr  7  2016 Baltimore_CyberTrust_Root.pem
       lrwxrwxrwx 1 root root     29 May 30 04:47 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem
+      lrwxrwxrwx 1 root root     29 May 30 05:01 653b494a.0 -> Baltimore_CyberTrust_Root.pem``
 
-6. If symlink 653b494a.0 is not present, use the below command to create symlink
-      # ln -s Baltimore_CyberTrust_Root.pem 653b494a.0
+7. If symlink 653b494a.0 is not present, use the below command to create symlink.
+
+      ``# ln -s Baltimore_CyberTrust_Root.pem 653b494a.0``
 
 
 ## Outbound connectivity for Azure Site Recovery URLs or IP ranges (Error code - 151037 or 151072)
