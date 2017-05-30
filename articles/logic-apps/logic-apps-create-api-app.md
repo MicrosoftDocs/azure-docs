@@ -210,7 +210,7 @@ or the [*webhook trigger*](#webhook-triggers) pattern. Also, learn more about
 
 <a name="polling-triggers"></a>
 
-### Check for new data or events regularly with a polling trigger pattern
+### Check for new data or events regularly with the polling trigger pattern
 
 A *polling trigger* acts much like the [long-running asynchronous action](#async-pattern) 
 previously described in this topic. The Logic Apps engine periodically calls and checks the trigger endpoint for new data or events. If the engine finds new data or an event that meets your specified condition, the trigger fires. Then, the engine creates a logic app instance that processes the data as input. 
