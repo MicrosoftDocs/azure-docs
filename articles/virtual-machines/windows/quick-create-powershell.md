@@ -140,7 +140,7 @@ With IIS installed and port 80 now open on your VM from the Internet, you can us
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 

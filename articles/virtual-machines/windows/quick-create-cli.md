@@ -103,7 +103,8 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the public IP address you documented above to visit the default page. 
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
-## Delete virtual machine
+
+## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 

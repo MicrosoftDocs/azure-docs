@@ -1,14 +1,14 @@
 ---
 title: Azure Cosmos DB community, news, & events | Microsoft Docs
 description: Join the Azure Cosmos DB community to build relationships, showcase your work, and sharpen your skills.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: aliuy
 manager: jhubbard
 editor: mimig
 
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: Develop with the Table API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's Table API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -200,7 +200,7 @@ There is an important difference in how tables are created. Azure Cosmos DB rese
 
 You can configure the default throughput by configuring the setting for `TableThroughput` in terms of RU (request units) per second. 
 
-A read of a 1-KB entity is normalized as 1 RU, and other operations are normalized to a fixed RU value based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB(request-units.md).
+A read of a 1-KB entity is normalized as 1 RU, and other operations are normalized to a fixed RU value based on their CPU, memory, and IOPS consumption. Learn more about [Request units in Azure Cosmos DB](request-units.md).
 
 > [!NOTE]
 > While Table storage SDK does not currently support modifying throughput, you can change the throughput instantaneously at any time using the Azure portal or Azure CLI.

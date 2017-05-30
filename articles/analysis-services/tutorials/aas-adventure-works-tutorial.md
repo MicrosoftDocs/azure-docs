@@ -14,10 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 05/26/2017
 ms.author: owend
 ---
 # Azure Analysis Services - Adventure Works tutorial
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
 This tutorial provides lessons on how to create and deploy a tabular model at the 1400 compatibility level by using [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
 If you're new to Analysis Services and tabular modeling, completing this tutorial is the quickest way to learn how to create a basic tabular model and deploy it to a real Analysis Services server. Once you have all of the prerequisites in-place, it should take about two or three hours to complete.  
