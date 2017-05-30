@@ -5,7 +5,7 @@
 # Quickstarts
 ## [Kubernetes cluster - Linux](container-service-kubernetes-walkthrough.md)
 ## [Kubernetes cluster - Windows](container-service-kubernetes-windows-walkthrough.md)
-## [DC/OS cluster](container-service-dcos-quickstart.md)
+## [Create DC/OS cluster](container-service-dcos-quickstart.md)
 
 # Tutorials
 ## [Deploy cluster - Portal](container-service-deployment.md)
