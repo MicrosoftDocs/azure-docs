@@ -127,8 +127,7 @@ Let's get started:
 2. Open the SocialAndLocalAccounts folder.  The base file (TrustFrameworkBase.xml) in this folder contains content needed for both local and social/corporate accounts. The social content does not interfere with the steps for getting local accounts up and running.
 3. Open TrustFrameworkBase.xml. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 4. In the root `TrustFrameworkPolicy` element, update the `TenantId` and `PublicPolicyUri` attributes, replacing `yourtenant.onmicrosoft.com` with the domain name of your Azure AD B2C tenant:
-
-    ```xml
+   ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -151,11 +150,9 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 
 1. In the extensions file (TrustFrameworkExtensions.xml), find the element `<TechnicalProfile Id="login-NonInteractive">`.
 2. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application that you created earlier. Here is an example:
-
 ```xml
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
 ```
-
 3. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the Proxy Identity Experience Framework application that you created earlier.
 4. Save your extensions file.
 
@@ -200,7 +197,6 @@ To set up Facebook:
 1. [Configure a Facebook application in developers.facebook.com](active-directory-b2c-setup-fb-app.md).
 2. [Add the Facebook application secret to your Azure AD B2C tenant](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies).
 3. In the TrustFrameworkExtensions policy file, replace the value of `client_id` with the Facebook application ID:
-
 ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
      <Metadata>
@@ -213,6 +209,4 @@ To set up Facebook:
 ### Add Azure Active Directory as an identity provider
 The base file used in this getting started guide already contains some of the content that you need for adding other identity providers. For information on setting up sign-ins, see the [Azure Active Directory B2C: Sign in by using Azure AD accounts](active-directory-b2c-setup-aad-custom.md) article.
 
-
-## Next steps
 For an overview of custom policies in Azure AD B2C that use the Identity Experience Framework, see the [Azure Active Directory B2C: Custom policies](active-directory-b2c-overview-custom.md) article. 
