@@ -53,15 +53,15 @@
       href: sql-database-saas-tutorial-provision-and-catalog.md
     - name: Monitor performance
       href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Monitor with Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
     - name: Restore a single tenant
       href: sql-database-saas-tutorial-restore-single-tenant.md
     - name: Manage tenant schemas
       href: sql-database-saas-tutorial-schema-management.md
     - name: Run ad-hoc analytics
       href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Monitor with Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Manage tenant analytics
+    - name: Run tenant analytics
       href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Samples
   items:
