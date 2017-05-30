@@ -50,10 +50,7 @@ public class MyClass
 }
 ```
 
-> [!TIP]
->
-> If you plan to use the HTTP or WebHook bindings, we suggest reading this best practices document on [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
->
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## Using method return value for output binding
 
@@ -93,7 +90,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 ## Logging
 To log output to your streaming logs in C#, include an argument of type `TraceWriter`. We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions. 
 
-`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host\.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host\.json].
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -192,6 +189,10 @@ To reference a custom assembly, you can use either a *shared* assembly or a *pri
 - Private assemblies are part of a given function's context, and support side-loading of different versions. Private assemblies should be uploaded in a `bin` folder in the function directory. Reference using the file name, such as  `#r "MyAssembly.dll"`. 
 
 For information on how to upload files to your function folder, see the following section on package management.
+
+### Watched directories
+
+The directory that contains the function script file is automatically watched for changes to assemblies. To watch for assembly changes in other directories, add them to the `watchDirectories` list in [host\.json].
 
 ## Using NuGet packages
 To use NuGet packages in a C# function, upload a *project.json* file to the function's folder in the function app's file system. Here is an example *project.json* file that adds a reference to Microsoft.ProjectOxford.Face version 1.1.0:
@@ -448,3 +449,5 @@ For more information, see the following resources:
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+
+[host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json
