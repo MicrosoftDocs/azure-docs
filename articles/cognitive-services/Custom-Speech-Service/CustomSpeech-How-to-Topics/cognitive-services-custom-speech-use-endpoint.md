@@ -83,7 +83,7 @@ To create a post request, follow the same process you use for the Cognitive Serv
 2.  Post audio to the endpoint by using POST again.
 
     ```
-    curl -X POST --data-binary @@example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
+    curl -X POST --data-binary @example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
     ```
 
     **token** is your access token you received with the previous call. **https_endpoint** is the full address of your custom speech-to-text endpoint, shown in the **Deployment Information** page.

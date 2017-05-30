@@ -39,12 +39,20 @@ Both *Speech to Text* APIs can enrich the transcribed text results by adding cap
 | Service detects when speech ends | Yes| No |
 | Subscription key authorization | Yes | No |
 | Recognition result forms | Lexical, ITN, Masked ITN, Display | Lexical, ITN, Masked ITN, Display |
-| N-Best | Up to 5 | Up to 5 |
-| Confidence | Yes| Yes |  
-| Debug support with telemetry | Yes | No |
+
+### Speech Recognition Modes
+Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. Choose the mode that  expect produces better recognition results:
+
+| Mode | Description |
+|---|---|
+| Interactive | A user makes short requests and expects the application to perform an action in response. |
+| Dictation | Users are engaged in a human-to-human conversation. |
+| Conversation | The user recites longer utterances to the application for further processing. |
+
+Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in API reference for more information.
 
 ### Speech Recognition Supported languages  
-The languages and locales supported by the *Speech to Text* APIs include:    
+The *Speech to Text* APIs support many spoken languages in multiple dialects. The languages and locales supported by the *Speech to Text* APIs include:    
 
 | language-Country | language-Country | language-Country | language-Country    
 |---------|----------|--------|--------------- 
@@ -56,6 +64,9 @@ The languages and locales supported by the *Speech to Text* APIs include:
 | en-CA    |  fr-CA  | pl-PL  |      
 | en-GB    |  fr-FR  | pt-BR  |        
 | en-IN    |  hi-IN  | pt-PT  |  
+
+Refer to [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages) 
+for full list of supported languages for each recognition mode. 
 
 ## Text to Speech (Speech Synthesis)
 *Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide real-time text to speech conversion in a variety of different 
@@ -77,7 +88,7 @@ The languages and locales supported by *Text to Speech* API include:
 | el-GR    |   fr-CH  |   pl-PL  |   zh-HK  
 | en-AU    |   fr-FR  |   pt-BR  |   zh-TW    
 
+Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts) for full list of supported languages and voices.
+
 ### Text to Speech API 
 The maximum amount of audio returned for any single request is 15 seconds. 
-
-

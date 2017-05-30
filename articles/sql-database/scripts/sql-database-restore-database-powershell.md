@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 05/23/2017
 ms.author: janeng
 ---
 
@@ -27,7 +27,7 @@ This sample PowerShell script restores an Azure SQL database from a geo-redundan
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1 "Create SQL Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
 ## Clean up deployment
 
