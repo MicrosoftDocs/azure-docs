@@ -47,7 +47,7 @@ sudo ./install.sh
 
 You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run AzCopy using the shell script 'azcopy' in the extracted folder. 
 
-#### Alternative Installation on Ubuntu
+### Alternative Installation on Ubuntu
 
 **Ubuntu 14.04**
 
@@ -58,7 +58,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotne
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 ```
 
-Add apt source for Microsoft Linux product repository:
+Add apt source for Microsoft Linux product repository and install AzCopy:
 
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
@@ -81,7 +81,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotne
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 ```
 
-Add apt source for Microsoft Linux product repository:
+Add apt source for Microsoft Linux product repository and install AzCopy:
 
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
@@ -104,7 +104,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotne
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 ```
 
-Add apt source for Microsoft Linux product repository:
+Add apt source for Microsoft Linux product repository and install AzCopy:
 
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > ./microsoft-prod.list
