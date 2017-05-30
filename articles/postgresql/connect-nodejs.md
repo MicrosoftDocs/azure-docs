@@ -8,14 +8,14 @@ manager: jhubbard
 editor: jasonwhowell
 ms.assetid: 
 ms.service: postgresql-database
-ms.custom: quick start connect
+ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/30/2017
 ---
 
 # Connect to Azure Database for PostgreSQL from Node.js
-This quick start demonstrates how to connect to an Azure Database for PostgreSQL using [Node.js](https://nodejs.org/) from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and that you are new to working with Azure Database for PostgreSQL.
+This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using [Node.js](https://nodejs.org/) from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and that you are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
