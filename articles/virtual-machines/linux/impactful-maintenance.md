@@ -3,7 +3,7 @@ title: VM restarting maintenance for Linux VMs in Azure | Microsoft Docs
 description: VM restarting maintenance for Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
-author: 
+author: zivr
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: 
+ms.author: zivr
 
 ---
 
