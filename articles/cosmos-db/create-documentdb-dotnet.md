@@ -42,6 +42,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+<a id="add-sample-data"></a>
 ## Add sample data
 
 You can now add data to your new collection using Data Explorer.
