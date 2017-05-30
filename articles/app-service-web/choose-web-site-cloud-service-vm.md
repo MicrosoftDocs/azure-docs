@@ -139,7 +139,7 @@ If your open source framework is supported on App Service, the languages and fra
 If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](/azure/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 HTTP-based web services enable you to support a wide variety of clients, including mobile clients. Frameworks like ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, App Service is a great choice for hosting REST APIs. With App Service, you can:
@@ -159,17 +159,17 @@ For more information about the three web hosting options, see [Introducing Azure
 
 To get started with the option(s) you choose for your application, see the following resources:
 
-* [Azure App Service](/documentation/services/app-service/)
-* [Azure Cloud Services](/documentation/services/cloud-services/)
-* [Azure Virtual Machines](/documentation/services/virtual-machines/)
-* [Service Fabric](/documentation/services/service-fabric)
+* [Azure App Service](/documentation/azure/app-service/)
+* [Azure Cloud Services](/documentation/azure/cloud-services/)
+* [Azure Virtual Machines](/documentation/azure/virtual-machines/)
+* [Service Fabric](/documentation/azure/service-fabric)
 
 <!-- URL List -->
 
-[Azure App Service]: /services/app-service/
+[Azure App Service]: /azure/app-service/
 [Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
 [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-[Service Fabric]: /services/service-fabric
+[Service Fabric]: /azure/service-fabric
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
@@ -179,9 +179,9 @@ To get started with the option(s) you choose for your application, see the follo
 [nodejs]: http://www.windowsazure.com/develop/nodejs/
 [PHP]: http://www.windowsazure.com/develop/php/
 [Python]: http://www.windowsazure.com/develop/python/
-[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[Storage]: http://www.windowsazure.com/documentation/services/storage/
+[servicebus]: http://www.windowsazure.com/documentation/azure/service-bus/
+[sqldatabase]: http://www.windowsazure.com/documentation/azure/sql-database/
+[Storage]: http://www.windowsazure.com/documentation/azure/storage/
 
 <!-- IMG List -->
 
