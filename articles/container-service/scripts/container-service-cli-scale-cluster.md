@@ -19,7 +19,7 @@ ms.date: 05/30/2017
 ms.author: nepeters
 ---
 
-# SCale an Azure Container Service Cluster
+# Scale an Azure Container Service Cluster
 
 This sample scales and Azure Container Service. 
 
