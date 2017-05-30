@@ -107,7 +107,7 @@ It's important to carefully plan how you will instrument your code. The right in
   private ILogger _logger = null;
 
   ```
-4. In the constructor of your service class, add this code.
+4. In the constructor of your service class, add this code:
 
   ```csharp
   _logger = new LoggerFactory().CreateLogger<Stateless>();
@@ -142,7 +142,7 @@ Some third-party providers use the approach described in the preceding section, 
   ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
   ```
 
-4. In the service constructor, add the following code. The code creates the property enrichers for the **ServiceTypeName**, **ServiceName**, **PartitionId**, and **InstanceId** properties of the service. It also adds a property enricher to the ASP.NET Core logging factory, so you can use Microsoft.Extensions.Logging.ILogger in your code.
+4. In the service constructor, add the following code, which creates the property enrichers for the **ServiceTypeName**, **ServiceName**, **PartitionId**, and **InstanceId** properties of the service. It also adds a property enricher to the ASP.NET Core logging factory, so you can use Microsoft.Extensions.Logging.ILogger in your code.
 
   ```csharp
   public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
@@ -169,7 +169,7 @@ Some third-party providers use the approach described in the preceding section, 
 
 ## Choosing a logging provider
 
-If your application relies on high performance, **EventSource** is the usually the best approach. **EventSource** *generally* uses fewer resources and performs better than ASP.NET Core logging or any of the available third-party solutions.  This isn't an issue for many services, but if your service is performance-oriented, using **EventSource** might be a better choice. However, to get these benefits of structured logging, **EventSource** requires a larger investment from your engineering team. If possible, do a quick prototype of each of the above discussed logging options, and then choose the one that best meets your needs.
+If your application relies on high performance, **EventSource** is usually a good approach. **EventSource** *generally* uses fewer resources and performs better than ASP.NET Core logging or any of the available third-party solutions.  This isn't an issue for many services, but if your service is performance-oriented, using **EventSource** might be a better choice. However, to get these benefits of structured logging, **EventSource** requires a larger investment from your engineering team. If possible, do a quick prototype of a few logging options, and then choose the one that best meets your needs.
 
 ## Next steps
 
