@@ -235,7 +235,8 @@ gulp prod
 Next, run the following command to use the connection string you configured in _config/env/production.js_.
 
 ```bash
-NODE_ENV=production node server.js
+NODE_ENV=production
+node server.js
 ```
 
 `NODE_ENV=production` sets the environment variable that tells Node.js to run in the production environment, and `node server.js` starts the Node.js server with `server.js` in your repository root. This is how your Node.js application is loaded in Azure. 
