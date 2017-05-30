@@ -43,7 +43,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 >
 >
 
-[!INCLUDE [cosmosdb-create-dbaccount-mongodb](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## Update your connection string
 

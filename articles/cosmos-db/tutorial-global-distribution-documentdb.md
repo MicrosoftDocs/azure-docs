@@ -29,7 +29,7 @@ This article covers the following tasks:
 > * Configure global distribution using the [DocumentDB APIs](documentdb-introduction.md)
 
 <a id="portal"></a>
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## Connecting to a preferred region using the DocumentDB API

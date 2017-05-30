@@ -33,7 +33,7 @@ This example shows you how to build an Azure Cosmos DB: API for MongoDB console 
 
 To use this example, you must:
 
-* [Create](create-mongodb-account.md) an Azure Cosmos DB: API for MongoDB account.
+* [Create](create-mongodb-dotnet.md#create-account) an Azure Cosmos DB: API for MongoDB account.
 * Retrieve your MongoDB [connection string](connect-mongodb-account.md) information.
 
 ## Create the app

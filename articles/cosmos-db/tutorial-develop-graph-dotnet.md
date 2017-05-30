@@ -54,7 +54,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 >
 > 
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
 1. Open **Visual Studio** on your computer.

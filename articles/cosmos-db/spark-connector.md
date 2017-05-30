@@ -33,7 +33,7 @@ Get started by downloading the Spark to Azure Cosmos DB connector (preview) from
 
 The connector utilizes the following components:
 
-* [Azure Cosmos DB](http://documentdb.com) enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers turn key [global distribution](distribute-data-globally.md) and horizontal scale, guaranteed single digit latencies at the 99th percentile, [multiple well-defined consistency models](consistency-levels.md), and guarantees high avaiability with multi-homing capabilities — all backed by industry-leading, comprehensive [service level agreements](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db) (SLAs).
+* [Azure Cosmos DB](http://documentdb.com) enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers turn key [global distribution](distribute-data-globally.md) and horizontal scale, guaranteed single digit latencies at the 99th percentile, [multiple well-defined consistency models](consistency-levels.md), and guarantees high avaiability with multi-homing capabilities — all backed by industry-leading, comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db) (SLAs).
 
 * [Apache Spark](http://spark.apache.org/)is a powerful open source processing engine built around speed, ease of use, and sophisticated analytics. 
 

@@ -28,7 +28,7 @@ This article covers the following tasks:
 > * Configure global distribution using the Azure portal
 > * Configure global distribution using the [MongoDB API](mongodb-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## Verifying your regional setup using the MongoDB API
 The simplest way of double checking your global configuration within API for MongoDB is to run the *isMaster()* command from the Mongo Shell.

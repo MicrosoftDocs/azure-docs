@@ -63,7 +63,7 @@ The SQL queries in this article use the following sample document.
 ```
 ## Where can I run SQL queries?
 
-You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](documentdb-query-collections-query-explorer.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
+You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](documentdb-sdk-dotnet.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
 
 For more information about SQL queries, see:
 * [SQL query and SQL syntax](documentdb-sql-query.md)
