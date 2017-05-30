@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

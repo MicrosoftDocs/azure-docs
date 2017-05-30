@@ -8,7 +8,7 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

@@ -8,7 +8,7 @@ manager: jhubbard
 editor: ''
 
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na

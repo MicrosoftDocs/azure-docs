@@ -8,7 +8,7 @@ manager: jhubbard
 editor: mimig
 
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

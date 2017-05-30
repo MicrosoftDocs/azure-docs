@@ -9,7 +9,7 @@ editor: monicar
 documentationcenter: python
 
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

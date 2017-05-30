@@ -8,7 +8,7 @@ editor: monicar
 documentationcenter: ''
 
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

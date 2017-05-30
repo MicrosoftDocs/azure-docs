@@ -9,7 +9,7 @@ editor: cgronlun
 documentationcenter: ''
 
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

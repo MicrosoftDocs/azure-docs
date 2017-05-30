@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article

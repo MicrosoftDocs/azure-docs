@@ -9,7 +9,7 @@ manager: jhubbard
 editor: mimig
 
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA

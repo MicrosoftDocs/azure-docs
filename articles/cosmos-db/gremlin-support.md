@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

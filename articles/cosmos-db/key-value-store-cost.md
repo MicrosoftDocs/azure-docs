@@ -10,7 +10,7 @@ tags: ''
 documentationcenter: ''
 
 ms.assetid: 7f765c17-8549-4509-9475-46394fc3a218
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -8,7 +8,7 @@ editor: ''
 documentationcenter: ''
 
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

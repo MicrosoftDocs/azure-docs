@@ -9,7 +9,7 @@ editor: monicar
 documentationcenter: nodejs
 
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

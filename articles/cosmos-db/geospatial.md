@@ -8,7 +8,7 @@ manager: jhubbard
 editor: monicar
 
 ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

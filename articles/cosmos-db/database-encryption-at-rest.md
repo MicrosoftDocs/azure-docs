@@ -8,7 +8,7 @@ editor: mimig
 documentationcenter: ''
 
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
