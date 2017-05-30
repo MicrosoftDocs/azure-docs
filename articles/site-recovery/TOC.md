@@ -41,13 +41,15 @@
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
 ### [Run a test failover](site-recovery-test-failover-to-azure.md)
 ### [Fail over protected machines](site-recovery-failover.md)
-### [Reprotect machines after failover](site-recovery-how-to-reprotect.md)
+### [Reprotect machines after failover](site-recovery-how-to-reprotect-azure-to-azure.md)
 ### [Fail back from Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Migrate
 ### [Migrate to Azure](site-recovery-migrate-to-azure.md)
 ### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
 ### [Migrate AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
+### [Replicate migrated machines to another Azure region](site-recovery-azure-to-azure-after-migration.md)
+
 ## Workloads
 ### [Active Directory and DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
