@@ -19,7 +19,7 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the Azure CLI version 2.0 or later. To install or upgrade Azure CLI, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you want to run this sample on your own computer, [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) or later.
 
 ## Sample script
 In this sample script, edit the highlighted lines to customize the admin username and password.
