@@ -1,5 +1,5 @@
 ---
-title: 'Replicate applications (Azure to Azure) | Microsoft Docs'
+title: Replicate applications (Azure to Azure) | Microsoft Docs
 description: This article describes how to set up replication of virtual machines running in one Azure region  to  another region in Azure.
 services: site-recovery
 documentationcenter: ''

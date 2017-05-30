@@ -32,7 +32,7 @@ Azure Recovery Services contribute to your BCDR strategy. The [Azure Backup](htt
 - **Migration**—You can use Site Recovery to migrate on-premises and AWS instances to Azure VMs, or to migrate Azure VMs between Azure regions.
 - **Simplified BCDR**—You can deploy replication from a single location in the Azure portal.  You can run simple failovers and failback of single and multiple machines.
 - **Resilience**—Site recovery orchestrates replication and failover, without intercepting application data. Replicated data is stored in Azure storage, with the resilience that Azure storage provides. When failover occurs, Azure VMs are created based on the replicated data.
-- **Replication performance**—Site Recovery provides continuosu replication for Azure VMs and VMware VMs, and replication frequency as low as 30 seconds for Hyper-V. You can reduce recovery time objective (RTO) with Site Recovery's automated recovery process, and integration with [Azure Traffic Manager](https://azure.microsoft.com/en-us/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)
+- **Replication performance**—Site Recovery provides continuous replication for Azure VMs and VMware VMs, and replication frequency as low as 30 seconds for Hyper-V. You can reduce recovery time objective (RTO) with Site Recovery's automated recovery process, and integration with [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)
 - **Application consistency**— You can configure application-consistent snapshots for the recovery points. In addition to capturing disk data, application-consistent snapshots capture all data in memory, and all transactions in process.
 - **Testing without disruption**—You can easily run test failovers to support disaster recovery drills, without affecting production environments and the ongoing replication.
 - **Flexible failover and recovery**—You can run planned failovers for expected outages with zero-data loss, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. You can easily fail back to your primary site when it's available again.
@@ -50,7 +50,12 @@ Azure Recovery Services contribute to your BCDR strategy. The [Azure Backup](htt
 **Which regions are supported for Site Recovery?** | [Supported regions](https://azure.microsoft.com/en-us/regions/services/) |
 **What can I replicate?** | Azure VMs (in preview), On-premises VMware VMs, Hyper-V VMs, Windows and Linux physical servers.
 **What operating systems do replicated machines need?** | [Supported operating systems](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)for Azure VMs<br></br>[Supported operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) for VMware VMs<br/><br/> For Hyper-V VMs, any [guest OS](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) supported by Azure and Hyper-V is supported.<br/><br/> [Operating systems](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) for physical servers
-**Where can I replicate to?** | For Azure VMs, you can replicate another Azure region. <br></br> For on-premises machines, you can replicate to Azure storage, or to a secondary datacenter.<br/><br/> Note: For Hyper-V, only VMs on Hyper-V hosts managed in System Center VMM clouds can replicate to a secondary datacenter.
+**Where can I replicate to?** | For Azure VMs, you can replicate another Azure region. <br></br> For on-premises machines, you can replicate to Azure storage, or to a secondary datacenter.<br/><br/> 
+
+>[!NOTE]
+>
+> For Hyper-V, only VMs on Hyper-V hosts managed in System Center VMM clouds can replicate to a secondary datacenter.
+
 **What VMware servers/hosts do I need?** | VMware VMs you want to replicate can be managed by [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
 **What workloads can I replicate** | You can replicate any workload running on a supported replication machine. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
 
