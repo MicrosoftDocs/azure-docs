@@ -91,17 +91,11 @@ OUTPUT @searchlog
     TO "/Output/SearchLog-from-Data-Lake.csv"
     USING Outputters.Csv();
 ```
-    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
 
-    Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics creates the output folder if it doesn't exist.  In this case, we are using simple, relative paths.  
 
-    It is simpler to use relative paths for files stored in default Data Lake accounts. You can also use absolute paths.  For example
+This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
 
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-
-    For more about U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
-
-1. Click **Submit Job** from the top.   
+1. Click **Submit Job**.   
 2. Wait until the job status is changed to **Succeeded**.
 3. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 4. Click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. 

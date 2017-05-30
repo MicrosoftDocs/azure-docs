@@ -26,7 +26,7 @@ Azure SQL Database is a relational database-as-a service using the Microsoft SQL
 
 > [!div class="checklist"]
 > * Create a database
-> * Set up a firewall rule
+> * Set up a server-level firewall rule
 > * Connect to the database with [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
 > * Create tables
 > * Bulk load data
