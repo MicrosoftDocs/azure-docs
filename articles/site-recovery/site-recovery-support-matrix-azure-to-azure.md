@@ -73,22 +73,12 @@ The below support is applicable for any workload running on the mentioned OS.
 - Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
 
->[!IMPORTANT]
->
-> On Red Hat Enterprise Linux Server 7+ and CentOS 7+ servers, kernel version 3.10.0-514 is supported starting from version 9.8 of the Azure Site Recovery mobility service.<br/><br/>
-> Customers on the 3.10.0-514 kernel with a version of the mobility service lower than version 9.8 are required to disable replication, update the version of the mobility service to version 9.8 and then enable replication again.  
-
 ## Supported file systems and guest storage configurations on Azure virtual machines running Linux OS
 
-* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS (upto v4 only)
+* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
 * Volume manager : LVM2
 * Multipath software : Device Mapper
 
-
->[!Note]
-> On Linux servers the following directories (if set up as separate partitions/file-systems) must all be on the same disk (the OS disk) on the source server :   / (root), /boot, /usr, /usr/local, /var, /etc<br/><br/>
-> XFS v5 features such as metadata checksum are currently not supported by Azure Site Recovery on XFS filesystems. Ensure that your XFS filesystems aren't using any v5 features. You can use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are being used.
->
 
 ## Support for Compute configuration
 
