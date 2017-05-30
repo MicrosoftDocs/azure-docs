@@ -26,13 +26,13 @@ Azure Application Insights is an extensible platform for application monitoring 
 
 ### Creating an AI Resource
 
-To create a new AI resource, head over to the Azure Marketplace, and search for "Application Insights". It should show up as the first solution (it is under category "Web + Mobile"). Click **Create** when you are looking at the right resource (confirm that your path matches the image below).
+To create an AI resource, head over to the Azure Marketplace, and search for "Application Insights". It should show up as the first solution (it is under category "Web + Mobile"). Click **Create** when you are looking at the right resource (confirm that your path matches the image below).
 
 ![New Application Insights resource](media/service-fabric-diagnostics-event-analysis-appinsights/create-new-ai-resource.png)
 
-You will need to fill out some information to provision the resource correctly. In the *Application Type* field, use "ASP.NET web application" if you will be using any of Service Fabric's programming models or publishing a .NET application to the cluster. Use "General" if you will be deploying guest executables and containers. In general, default to using "ASP.NET web application" to keep your options open in the future. The name is up to your preference, and both the resource group and subscription are changeable post-deployment of the resource. We recommend that your AI resource is in the same resource group as your cluster.If you need more information, please see [Create an Application Insights resource](../application-insights/app-insights-create-new-resource.md)
+You will need to fill out some information to provision the resource correctly. In the *Application Type* field, use "ASP.NET web application" if you will be using any of Service Fabric's programming models or publishing a .NET application to the cluster. Use "General" if you will be deploying guest executables and containers. In general, default to using "ASP.NET web application" to keep your options open in the future. The name is up to your preference, and both the resource group and subscription are changeable post-deployment of the resource. We recommend that your AI resource is in the same resource group as your cluster. If you need more information, please see [Create an Application Insights resource](../application-insights/app-insights-create-new-resource.md)
 
-You will need the AI Instrumentation Key to configure AI with your event aggregation tool. Once your AI resource is set up (will likely take a few minutes after the deployment has been validated), navigate to it and find the **Properties** section on the left navigation bar. A new blade will open up that shows an *INSTRUMENTATION KEY*. This is also the place for you change the subscription or resource group of the resource if needed.
+You need the AI Instrumentation Key to configure AI with your event aggregation tool. Once your AI resource is set up (takes a few minutes after the deployment is validated), navigate to it and find the **Properties** section on the left navigation bar. A new blade will open up that shows an *INSTRUMENTATION KEY*. If you need to change the subscription or resource group of the resource, it can be done here as well.
 
 ### Configuring AI with WAD
 
@@ -68,7 +68,7 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 "sinks": "applicationInsights"
 ```
 
-In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement, and as long as the two match, you can set the name to any other string.
+In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
 Currently, logs from the cluster will show up as traces in AI's log viewer. Since most of the traces coming from the infrastructure level are of type "Information", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error". This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 

@@ -20,7 +20,7 @@ ms.author: dekapur
 
 # Event Aggregation and Collection using EventFlow
 
-[Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) can route events from a node to one or more monitoring destinations. Because it is included as a NuGet package in your service project, EventFlow code and configuration travel with the service, eliminating the per-node configuration issue mentioned earlier about Azure Diagnostics. EventFlow runs within your service process, and connects directly to the configured outputs. Because of the direct connection, EventFlow works for Azure, container, and on-premises service deployments. Be careful if you run EventFlow in high-density scenarios, such as in a container, because each EventFlow pipeline makes an external connection. If you host a lot of processes, you get a lot of outbound connections! This isn't as much a concern for Service Fabric applications, because all replicas of a `ServiceType` run in the same process, and this limits the number of outbound connections. EventFlow also offers event filtering, so that only the events that match the specified filter are sent.
+[Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) can route events from a node to one or more monitoring destinations. Because it is included as a NuGet package in your service project, EventFlow code and configuration travel with the service, eliminating the per-node configuration issue mentioned earlier about Azure Diagnostics. EventFlow runs within your service process, and connects directly to the configured outputs. Because of the direct connection, EventFlow works for Azure, container, and on-premises service deployments. Be careful if you run EventFlow in high-density scenarios, such as in a container, because each EventFlow pipeline makes an external connection. So, if you host several processes, you get several outbound connections! This isn't as much a concern for Service Fabric applications, because all replicas of a `ServiceType` run in the same process, and this limits the number of outbound connections. EventFlow also offers event filtering, so that only the events that match the specified filter are sent.
 
 ## Setting up EventFlow
 
@@ -28,7 +28,7 @@ EventFlow binaries are available as a set of NuGet packages. To add EventFlow to
 
 ![EventFlow NuGet packages in Visual Studio NuGet package manager UI](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow is very pluggable into various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For exmaple, you can add the following packages to sent EventSource events to Application Insights:
+You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow supports various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For exmaple, you can add the following packages to sent EventSource events to Application Insights:
 
 * `Microsoft.Diagnostics.EventFlow.Input.EventSource` to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
 * `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` (we are going to send the logs to an Azure Application Insights resource)
@@ -85,7 +85,7 @@ internal sealed class ServiceEventSource : EventSource
 
 Note that `eventFlowConfig.json` file is part of service configuration package. Changes to this file can be included in full- or configuration-only upgrades of the service, subject to Service Fabric upgrade health checks and automatic rollback if there is upgrade failure. For more information, see [Service Fabric application upgrade](service-fabric-application-upgrade.md).
 
-The filters section of the config allows you to further customize the information that is going to go through the EventFlow pipeline to the outputs, allowing you to drop or include certain information, or change the structure of the event data. For further information on filtering, see [EventFlow filters](https://github.com/Azure/diagnostics-eventflow#filters).
+The *filters* section of the config allows you to further customize the information that is going to go through the EventFlow pipeline to the outputs, allowing you to drop or include certain information, or change the structure of the event data. For more information on filtering, see [EventFlow filters](https://github.com/Azure/diagnostics-eventflow#filters).
 
 The final step is to instantiate EventFlow pipeline in your service's startup code, located in `Program.cs` file:
 
