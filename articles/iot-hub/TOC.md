@@ -32,6 +32,8 @@
 ##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
+### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
+
 ## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
 ## [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
