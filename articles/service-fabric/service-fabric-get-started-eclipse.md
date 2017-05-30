@@ -32,7 +32,8 @@ You can install a Service Fabric plug-in in Eclipse. The plug-in can help simpli
 2.  To install the Service Fabric plug-in, in Eclipse Neon, go to **Help** > **Install New Software**.
   1.    In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
   2.    Click **Add**.
-    ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![Service Fabric plug-in for Eclipse Neon][sf-eclipse-plugin-install] 
   3.    Select the Service Fabric plug-in, and then click **Next**.
   4.    Complete the installation steps, and then accept the Microsoft Software License Terms.
 
@@ -144,7 +145,7 @@ The application upgrade takes a few minutes. You can monitor the application upg
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png
