@@ -44,29 +44,6 @@ Now, you will create a Data Lake Analytics and a Data Lake Store account simulta
 4. Optionally, select a pricing tier for your Data Lake Analytics account.
 5. Click **Create**. 
 
-Your account will be ready in about 60 seconds.
-
-## Install the sample data
-
-**Copy sample data files**
-
-1. From the [Azure portal](https://portal.azure.com), open your Data Lake Analytics account.  See [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md) to create one and open the account in the portal.
-2. Expand the **Essentials** pane, and then click **Explore sample scripts**. It opens another blade called **Sample
-   Scripts**.
-3. Click **Sample Data Missing** to copy the sample data files. When it is done, the portal shows **Sample data updated successfully**.
-4. From the Data Lake analytics account blade, click **Data Explorer** on the top. It opens two blades. One is **Data Explorer**, and the other is the default Data Lake Store account.
-5. In the default Data Lake Store account blade, click **Samples** to expand the folder, and the click **Data** to expand the folder. You shall see the following files and folders:
-
-```
-AmbulanceData/
-AdsLog.tsv
-SearchLog.tsv
-version.txt
-WebLog.log
-```
-
-This tutorial uses `SearchLog.tsv`.
-
 ## Create and submit Data Lake Analytics jobs
 After you have prepared the source data, you can start developing a U-SQL script.  
 
