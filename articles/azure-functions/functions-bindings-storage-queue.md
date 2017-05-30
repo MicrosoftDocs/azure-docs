@@ -45,19 +45,15 @@ Define a queue trigger using the **Integrate** tab in the Functions portal. The 
 
 * The `connection` property must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you select a storage account.
 
-[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine-tune queue storage triggers. For example, you can change the queue polling interval in *host.json*.
-
-### Handling poison queue messages
-When a queue trigger function fails, Azure Functions retries that function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue storage named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed. 
-
-To handle poison messages manually, check the `dequeueCount` of the queue message (see [Queue trigger metadata](#meta)).
+Additional settings can be provided in a [host.json file](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) to further fine-tune queue storage triggers. For example, you can change the queue polling interval in host.json.
 
 <a name="triggerusage"></a>
 
 ## Using a queue trigger
-In .NET functions, access the queue payload using a method parameter such as `CloudQueueMessage paramName`. Here, `paramName` is the value you specified in the [trigger configuration](#trigger). In Node.js functions, access the queue data using `context.bindings.<name>`.
+In Node.js functions, access the queue data using `context.bindings.<name>`.
 
-The queue message can be deserialized to any of the following types:
+
+In .NET functions, access the queue payload using a method parameter such as `CloudQueueMessage paramName`. Here, `paramName` is the value you specified in the [trigger configuration](#trigger). The queue message can be deserialized to any of the following types:
 
 * POCO object. Use if the queue payload is a JSON object. The Functions runtime deserializes the payload into the POCO object. 
 * `string`
@@ -77,12 +73,12 @@ The queue trigger provides several metadata properties. These properties can be 
 * **NextVisibleTime** - Type `DateTimeOffset?. The time that the message will next be visible.
 * **PopReceipt** - Type `string`. The message's pop receipt.
 
-See how to use the queue metadata in [Trigger sample](#triggersample)
+See how to use the queue metadata in [Trigger sample](#triggersample).
 
 <a name="triggersample"></a>
 
 ## Trigger sample
-Suppose you have the following function.json that defines a queue storage trigger:
+Suppose you have the following function.json that defines a queue trigger:
 
 ```json
 {
@@ -160,10 +156,15 @@ module.exports = function (context) {
 };
 ```
 
+### Handling poison queue messages
+When a queue trigger function fails, Azure Functions retries that function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue storage named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed. 
+
+To handle poison messages manually, check the `dequeueCount` of the queue message (see [Queue trigger metadata](#meta)).
+
 <a name="output"></a>
 
 ## Queue storage output binding
-The Azure queue storage output binding enables you to write messages to a queue storage in your function. 
+The Azure queue storage output binding enables you to write messages to a queue. 
 
 Define a queue output binding using the **Integrate** tab in the Functions portal. The portal creates the following definition in the  **bindings** section of *function.json*:
 
@@ -184,7 +185,7 @@ Define a queue output binding using the **Integrate** tab in the Functions porta
 ## Using a queue output binding
 In Node.js functions, you access the output queue using `context.bindings.<name>`.
 
-In .NET functions, you can output to any of the following types. When there is a type parameter `T`, `T` must be one of the supported output types.
+In .NET functions, you can output to any of the following types. When there is a type parameter `T`, `T` must be one of the supported output types, such as `string` or a POCO.
 
 * `out T` (serialized as JSON)
 * `out string`
