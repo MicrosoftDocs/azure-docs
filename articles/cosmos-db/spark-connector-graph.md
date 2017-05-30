@@ -45,7 +45,7 @@ First, we create a database account with the Graph API.
 
 ## Add a collection
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## Get Apache TinkerPop
 

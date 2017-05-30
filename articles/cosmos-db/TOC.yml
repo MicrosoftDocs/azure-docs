@@ -60,9 +60,9 @@
   - name: 2 - Import
     items:
     - name: DocumentDB
-      href: documentdb-import-data.md
+      href: import-data.md
     - name: MongoDB
-      href: documentdb-mongodb-migrate.md
+      href: mongodb-migrate.md
   - name: 3 - Query
     items:
     - name: DocumentDB
@@ -131,7 +131,7 @@
     - name: DocumentDB API
       items:
       - name: Resources
-        href: resources.md
+        href: documentdb-resources.md
       - name: SQL query
         href: documentdb-sql-query.md
       - name: SQL playground
@@ -167,7 +167,7 @@
           - name: .NET
             href: documentdb-dotnet-application.md
           - name: Xamarin
-            href: documentdb-mobile-apps-with-xamarin.md
+            href: mobile-apps-with-xamarin.md
           - name: Node.js
             href: documentdb-nodejs-application.md
           - name: Java
@@ -242,14 +242,6 @@
       href: monitor-accounts.md
     - name: Manage keys and consistency
       href: manage-account.md
-    - name: Automation
-      items:
-      - name: Azure CLI 1.0 - Create an account
-        href: documentdb-automation-resource-manager-cli-nodejs.md
-      - name: Azure CLI 1.0 - Add or remove regions
-        href: documentdb-automation-region-management.md
-      - name: Azure PowerShell
-        href: documentdb-manage-account-with-powershell.md
     - name: Security
       items:
       - name: Encryption at rest
@@ -265,7 +257,7 @@
     - name: Connect to Spark GraphX
       href: spark-connector-graph.md      
     - name: Deploy a website with Azure App Service
-      href: create-documentdb-website.md
+      href: create-website.md
     - name: Application logging with Logic Apps
       href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
     - name: Bind to Azure Functions

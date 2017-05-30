@@ -19,7 +19,7 @@ ms.author: andrl
 ---
 # Community portal
 ## Community spotlight
-Let us promote your project! Show us the awesome project you're working on with Azure Cosmos DB, the next generation of the DocumentDB stack, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+Let us promote your project! Show us the awesome project you're working on with Azure Cosmos DB, the next generation of the DocumentDB stack, and we will help share your genius with the world. To submit your project, send us an e-mail at: [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 ### documentdb-lumenize
 *by Larry Maccherone*
@@ -74,13 +74,11 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 * [**Azure DocumentDB protocol support for MongoDB in Preview, my test with Sitecore**](https://alwaysupalwayson.blogspot.ca/2016/05/azure-documentdb-protocol-support-for.html) - *by Mathieu Benoit* 
 * [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *by Matías Quaranta*
 * [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *by Eric Langland*
-* [**Notifications for new or changed DocumentDB resources using Logic Apps**](change-notification.md) - *by Howard Edidin*
 * [**Collecting logs in to Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
 * [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *by Peter Mannerhult*
 * [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *by George Saadeh*
 * [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *by Robert Sheldon*
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *by Jan Hentschel*
-* [**Azure DocumentDB in production!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - *by Alexandre Walsh and Marc-Olivier Duval*
 * [**Azure Search Indexers – DocumentDB Queries (Spanish)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) - *by Matthias Quaranta*
 * [**Azure DocumentDB SQL query basics (Japanese)**](http://beachside.hatenablog.com/entry/2015/12/06/000045) - *by Atsushi Yokohama*
 * [**Data Points - Aurelia Meets DocumentDB: A Matchmaker’s Journey**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *by Julie Lerman*
@@ -88,13 +86,12 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 * [**Why DocumentDb Makes Good Business Sense for Some Projects**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *by Samuel Uresin*
 * [**Azure DocumentDB development moving forward – development of the Client class (1 of 2) (Japanese)**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
 * [**Things you need to know when using Azure DocumentDB (Japanese)**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
-* [**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
 * [**Data Points - An Overview of Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *by Julie Lerman*
 * [**Using DocumentDB With F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *by Jamie Dixon*
 * [**Analysing Application Logs with DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *by Vincent-Philippe Lauzon*
 * [**Azure DocumentDB – Point in time Backups**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *by Juan Carlos Sanchez*
 
-*Do you have a blog post, code sample, or case-study you'd like to share? [Let us know](mailto:askdocdb@microsoft.com)!*
+*Do you have a blog post, code sample, or case-study you'd like to share? [Let us know](mailto:askcosmosdb@microsoft.com)!*
 
 ## Events and recordings
 ### Recent and upcoming events
@@ -105,7 +102,7 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 |[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|April 22, 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
 |[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Norway|June 14, 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
-*Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
+*Are you speaking at or hosting an event? [Let us know](mailto:askcosmosdb@microsoft.com) how we can help!*
 
 ### Previous events and recordings
 | Event Name | Speaker | Location | Date | Recording |
@@ -119,7 +116,6 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 | [DevTeach](http://devteach.com/) |Ken Cenerelli |Montreal, Canada |July 4-8, 2016 |[NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
 | [Integration and IoT ](http://www.btug.be/events) |Eldert Grootenboer |Kontich, Belgium |June 30, 2016 |n/a |
 | [MongoDB World 2016](https://www.mongodb.com/world16) |Kirill Gavrylyuk |New York, New York |June 28-29, 2016 |n/a |
-| [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |Howard S. Edidin |Webcast |June 20, 2016 |[Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/) |Andrew Liu |London, UK |May 12, 2016 |n/a |
 | [Meetup: ONETUG - Orlando .NET User Group ](http://www.meetup.com/ONETUG/events/230797164/) |Santosh Hari |Orlando, FL |May 12, 2016 |n/a |
 | [SQLBits XV](https://sqlbits.com/) |Andrew Liu, Aravind Ramachandran |Liverpool, UK |May 4-7, 2016 |n/a |
@@ -175,7 +171,6 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 | The Azure Podcast |Cale Teeter |January 14, 2016 |[Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
 | Channel 9: Modern Applications |Tara Shankar Jana |December 13, 2016 |[Take a modern approach to data in your apps](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips |Miguel Quintero |December 10, 2015 |[DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
-| Integration User Group |Howard Edidin |November 9, 2015 |[Azure DocumentDB for Healthcare Integration – Part 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group |Howard Edidin |October 5, 2015 |[Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | DX Italy - #TecHeroes |Alessandro Melchiori |October 2, 2015 |[#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
 | Microsoft Cloud Show - Podcast |Andrew Liu |September 30, 2015 |[Episode 099 - Azure DocumentDB with Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
@@ -210,7 +205,7 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 ## Contact the team
 ![Team](./media/community/team.png)
 
-Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can schedule a 1:1 chat directly with the DocumentDB engineering team by sending us an [e-mail](mailto:askdocdb@microsoft.com) or tweeting us at [@DocumentDB](https://twitter.com/DocumentDB).
+Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can schedule a 1:1 chat directly with the DocumentDB engineering team by sending us an [e-mail](mailto:askcosmosdb@microsoft.com) or tweeting us at [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Open source projects
 These projects are actively developed by the Azure DocumentDB team in collaboration with our open source community.
@@ -243,5 +238,5 @@ Azure Cosmos DB Wizards are community leaders who’ve demonstrated an exemplary
 |  [Santosh Hari](https://twitter.com/_s_hari) |[![Santosh Hari](./media/community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) |
 | [Matías Quaranta](https://twitter.com/ealsur) |[![Matías Quaranta](./media/community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) |
 
-Want to become an Azure Cosmos DB Wizard? While there is no benchmark for becoming a Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
+Want to become an Azure Cosmos DB Wizard? While there is no benchmark for becoming a Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askcosmosdb@microsoft.com).
 

@@ -1,5 +1,5 @@
 ---
-redirect_url: https://aka.ms/acdbclisamples
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/cli-samples
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---

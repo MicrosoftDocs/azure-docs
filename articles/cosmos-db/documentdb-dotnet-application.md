@@ -21,7 +21,6 @@ ms.author: syamk
 # <a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
-> * [.NET for MongoDB](mongodb-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
 > * [Java](documentdb-java-application.md)
 > * [Python](documentdb-python-application.md)
@@ -57,7 +56,7 @@ Let's start by creating an Azure Cosmos DB account. If you already have an accou
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [keys](../../includes/cosmosdb-keys.md)]
+[!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
 <br/>
 We will now walk through how to create a new ASP.NET MVC application from the ground-up. 

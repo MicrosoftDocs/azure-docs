@@ -1,5 +1,5 @@
 ---
-redirect_url: https://docs.microsoft.com/azure/cosmos-db/automation-region-manager-cli
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/cli-samples
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---

@@ -89,7 +89,7 @@ In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a Java console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
 ## Step 4: Create a database
-Your Azure Cosmos DB [database](resources.md#databases) can be created by using the [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
+Your Azure Cosmos DB [database](documentdb-resources.md#databases) can be created by using the [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
 
     Database database = new Database();
     database.setId("familydb");
@@ -101,7 +101,7 @@ Your Azure Cosmos DB [database](resources.md#databases) can be created by using 
 > 
 > 
 
-A [collection](resources.md#collections) can be created by using the [createCollection](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createCollection-java.lang.String-com.microsoft.azure.documentdb.DocumentCollection-com.microsoft.azure.documentdb.RequestOptions-) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
+A [collection](documentdb-resources.md#collections) can be created by using the [createCollection](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createCollection-java.lang.String-com.microsoft.azure.documentdb.DocumentCollection-com.microsoft.azure.documentdb.RequestOptions-) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -115,7 +115,7 @@ A [collection](resources.md#collections) can be created by using the [createColl
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Step 6: Create JSON documents
-A [document](resources.md#documents) can be created by using the [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](import-data.md) to import the data into a database.
+A [document](documentdb-resources.md#documents) can be created by using the [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](import-data.md) to import the data into a database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();

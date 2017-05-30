@@ -455,7 +455,7 @@ As with all other resources, permissions in Cosmos DB can be created, replaced, 
 ## Next steps
 Learn more about working with resources by using HTTP commands in [RESTful interactions with Cosmos DB resources](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
-[1]: media/resources/resources1.png
-[2]: media/resources/resources2.png
-[3]: media/resources/resources3.png
+[1]: media/documentdb-resources/resources1.png
+[2]: media/documentdb-resources/resources2.png
+[3]: media/documentdb-resources/resources3.png
 
