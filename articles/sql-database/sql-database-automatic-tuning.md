@@ -1,5 +1,5 @@
 ---
-title: SQL Database backups - automatic tuning | Microsoft Docs
+title: SQL Database - automatic tuning | Microsoft Docs
 description: SQL Database analizes SQL query and automaticaly adapts to user workload.
 services: sql-database
 documentationcenter: ''
@@ -7,7 +7,7 @@ author: jovanpop-msft
 manager: jhubbard
 editor: ''
 
-ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
+ms.assetid: 
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article
@@ -103,7 +103,7 @@ actions will not negatively affect performance of your workload.
 dropping or renaming columns will not be blocked by the presence of automatically created indexes. Indexes that are automatically
 created by Azure SQL Database are immediately dropped when related table or columns is dropped.
 
-## Automatic plan choice correction
+# Automatic plan choice correction
 
 Automatic plan correction is a new automatic tuning feature added in SQL Server 2017 CTP2.0 that identifies SQL plans that misbehave.
 This automatic tuning option is coming soon on Azure SQL Database. 
