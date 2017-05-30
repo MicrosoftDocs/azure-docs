@@ -74,7 +74,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 2. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
 3. Click the server name **mypgserver-20170401**.
 4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for PostgreSQL - Server Admin Login](./media/quickstart-connect-from-nodejs/1-connection-string.png)
+ ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-nodejs/1-connection-string.png)
 5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
 
 ## Running the JavaScript code in Node.js
