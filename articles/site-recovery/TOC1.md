@@ -32,21 +32,7 @@
 ### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 ### [Control VM replication with role-based access](site-recovery-role-based-linked-access-control.md)
 
-## Configure
-### [Set up the source environment](site-recovery-set-up-vmware-to-azure.md)
-### [Set up the target environment](site-recovery-prepare-target-vmware-to-azure.md)
-### [Configure replication settings](site-recovery-setup-replication-settings-vmware.md)
-### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
-#### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
-#### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Enable replication](site-recovery-replicate-azure-to-azure.md)
-## Failover and failback
-### [Set up recovery plans](site-recovery-create-recovery-plans.md)
-#### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
-### [Run a test failover](site-recovery-test-failover-to-azure.md)
-### [Fail over protected machines](site-recovery-failover.md)
-### [Reprotect machines after failover](site-recovery-how-to-reprotect.md)
-### [Fail back from Azure](site-recovery-failback-azure-to-vmware.md)
+
 
 ## Migrate
 ### [Migrate to Azure](site-recovery-migrate-to-azure.md)
