@@ -80,7 +80,7 @@ The following table summarizes replicated operating system support in various de
 
 **Release  ** | **ASR Mobility Service version** | **kernel version** |
 --- | --- | --- |
-14.04 LTS | 9.8 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
+14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 
 ## Supported file systems and guest storage configurations on Linux (VMware/Physical servers)
 
