@@ -27,13 +27,10 @@ The following diagram provides a high-level overview of the Azure SQL Database c
 
 ![architecture overview](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
-> [!NOTE]
-> All of the components show here (including the servers) are hosted on Azure and are within the Azure network boundary.
-> 
+
 The following steps describe how an connection is established to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) and the Azure SQL Database gateway.
 
-- Clients connect to one of the Azure front-end servers.
-- The Azure server redirects the SQL traffic to the SLB, which has a a public IP address and listens on port 1433.
+- Clients within Azure or outside of Azure connect to the SLB, which has a a public IP address and listens on port 1433.
 - The SLB directs traffic to the Azure SQL Database gateway.
 - The gateway redirects the traffic to the correct proxy middleware.
 - The proxy middleware redirects the traffic to the appropriate Azure SQL database.
@@ -44,7 +41,7 @@ The following steps describe how an connection is established to an Azure SQL da
 
 ### Connectivity from within Azure
 
-If you are connecting from within Azure, your connections will be **Redirect**. This means that connections will be established via the gateway. After the TCP session is established, will then be redirected to the proxy middleware after that this will incur a change of the destination VIP from that of the Gateway to that of the Middleware.
+If you are connecting from within Azure, your connections will be **Redirect**. This means that connections will be established via the Azure SQL Database gateway. After the TCP session is established, it then be redirected to the proxy middleware and incur a change of the destination virtual IP from that of the Azure SQL Database gateway to that of the proxy middleware.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
 
