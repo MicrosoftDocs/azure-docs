@@ -224,7 +224,7 @@ To provision an Azure AD-based contained database user (other than the server ad
 > [!IMPORTANT]
 > Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
  
-## Using an Azure AD identity to connect using SSMS or SSSDT  
+## Using an Azure AD identity to connect using SSMS or SSDT  
 
 The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools.
 
