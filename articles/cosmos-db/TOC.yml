@@ -316,6 +316,6 @@
   - name: FAQ
     href: faq.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cosmos-db
+    href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
   - name: Data consistency explained through baseball
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

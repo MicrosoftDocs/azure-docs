@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: cf537bdd-2352-4bb1-96cd-a283fcd3d6cf
 ms.service: iot-hub
 ms.devlang: cpp
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2017

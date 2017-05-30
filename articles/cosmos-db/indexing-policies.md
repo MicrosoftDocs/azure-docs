@@ -2,14 +2,14 @@
 title: Azure Cosmos DB indexing policies | Microsoft Docs
 description: Understand how indexing works in Azure Cosmos DB. Learn how to configure and change the indexing policy for automatic indexing and greater performance.
 keywords: how indexing works, automatic indexing, indexing database
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
 
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

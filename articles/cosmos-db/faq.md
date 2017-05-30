@@ -2,7 +2,7 @@
 title: Azure Cosmos DB Database Questions - Frequently Asked Questions | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Cosmos DB a globally distributed, mutli-model database service. Answer database questions about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
