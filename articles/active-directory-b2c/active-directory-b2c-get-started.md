@@ -31,7 +31,7 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
 > B2C features can't be enabled in your existing tenants. You'll need to create a new Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. This is the same account that you used to sign up for Azure.
-2. Click **New**(or the + button if collapsed). In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
+2. Click the **New** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
 
    ![Screen shot of finding the Azure AD B2C option](./media/active-directory-b2c-get-started/find-azure-ad-b2c.png)
 3. In the results list, select **Azure Active Directory B2C**.
@@ -92,6 +92,7 @@ To improve discoverability, we've added a shortcut to the B2C features blade on 
 
    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-get-started/switch-to-b2c-tenant.png)
 3. In **Search resources** at the top of the portal, enter `Azure AD B2C` and select **Azure AD B2C** in the results list to access the B2C features blade.
+
     ![Screen shot of Search resources to access B2C features blade](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 ## Next steps
