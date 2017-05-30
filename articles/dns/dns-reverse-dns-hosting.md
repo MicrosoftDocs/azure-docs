@@ -23,7 +23,7 @@ To configure reverse DNS for Azure-owned IP address assigned to your Azure servi
 
 Before reading this article, you should be familiar with this [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
 
-This article walks you through the steps to create your first reverse lookup DNS zone and record using the Azure portal. You can also perform these steps using Azure PowerShell or the cross-platform Azure CLI.
+This article walks you through the steps to create your first reverse lookup DNS zone and record using the Azure portal, Azure PowerShell, Azure CLI 1.0 or Azure CLI 2.0.
 
 ## Create a reverse lookup DNS zone
 
@@ -39,7 +39,7 @@ This article walks you through the steps to create your first reverse lookup DNS
 The name of an IPv4 reverse lookup zone is based on the IP range it represents. It should be in the following format: `<IPv4 network prefix in reverse order>.in-addr.arpa`. For examples, see [overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md#ipv4).
 
 > [!NOTE]
-> When creating classless reverse DNS lookup zones in Azure DNS, you must use a hyphen (`'`) rathern than a forward slash ('/') in the zone name.
+> When creating classless reverse DNS lookup zones in Azure DNS, you must use a hyphen (`'`) rather than a forward slash ('/') in the zone name.
 >
 > For example, for the IP range 192.0.2.128/26, you must use `128-26.2.0.192.in-addr.arpa` as the zone name instead of `128/26.2.0.192.in-addr.arpa`.
 >
@@ -49,7 +49,7 @@ The following example shows how to create a 'Class C' reverse DNS zone named `2.
 
  ![create DNS zone](./media/dns-reverse-dns-hosting/figure2.png)
 
-Note that the 'Resource group location' defines the location for the resource group, and has no impact on the DNS zone. The DNS zone location is always 'global', and is not shown.
+The 'Resource group location' defines the location for the resource group, and has no impact on the DNS zone. The DNS zone location is always 'global', and is not shown.
 
 The following examples show how to complete this task with Azure PowerShell and the Azure CLI:
 
@@ -81,7 +81,7 @@ The following example shows how to create an IPv6 reverse DNS lookup zone named 
 
  ![create DNS zone](./media/dns-reverse-dns-hosting/figure3.png)
 
-Note that the 'Resource group location' defines the location for the resource group, and has no impact on the DNS zone. The DNS zone location is always 'global', and is not shown.
+The 'Resource group location' defines the location for the resource group, and has no impact on the DNS zone. The DNS zone location is always 'global', and is not shown.
 
 The following examples show how to complete this task with Azure PowerShell and the Azure CLI:
 
@@ -107,13 +107,13 @@ az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2
 
 Having created your reverse DNS lookup zone, you must ensure that the zone is delegated from the parent zone. DNS delegation enables the DNS name resolution process to find the name servers hosting your reverse DNS lookup zone. This enables those name servers to answer DNS reverse queries for the IP addresses in your address range.
 
-For forward lookup zones, the process of delegating a DNS zone is described in [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md). Delegation for reverse lookup zones works the same way. The only difference is that rather than configuring the Azure DNS name servers with the domain registrar for your zone, you will need to configure the name servers with the ISP who provided your IP range.
+For forward lookup zones, the process of delegating a DNS zone is described in [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md). Delegation for reverse lookup zones works the same way. The only difference is that you need to configure the name servers with the ISP who provided your IP range, rather than your domain name registrar.
 
 ## Create a DNS PTR record
 
 ### IPv4
 
-The following example walks you through the process of creating new PTR record. For other record types and to modify existing records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
+The following example walks you through the process of creating a PTR record in a reverse DNS zone in Azure DNS. For other record types and to modify existing records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
 
 1.	At the top of the **DNS zone** blade, select **+ Record set** to open the **Add record set** blade.
 
@@ -244,7 +244,7 @@ Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -Reso
 
 Yes. Hosting the reverse lookup (ARPA) zones for your own IP ranges in Azure DNS is fully supported.
 
-Simply create the reverse lookup zone in Azure DNS as explained in this article, then work with your ISP to [delegate the zone](../articles/dns/dns-domain-delegation.md).  You can then manage the PTR records for each reverse lookup in the same way as other record types.
+Create the reverse lookup zone in Azure DNS as explained in this article, then work with your ISP to [delegate the zone](dns-domain-delegation.md).  You can then manage the PTR records for each reverse lookup in the same way as other record types.
 
 ### How much does hosting my reverse DNS lookup zone cost?
 
@@ -258,12 +258,10 @@ Yes. This article explains how to create both IPv4 and IPv6 reverse DNS lookup z
 
 Yes. You can use the Azure CLI to import existing DNS zones into Azure DNS. This works for both forward lookup zones and reverse lookup zones.
 
-For further information, see [Import and export a DNS zone file using the Azure CLI](dns-import-export.md).
+For more information, see [Import and export a DNS zone file using the Azure CLI](dns-import-export.md).
 
 ## Next steps
 
-For more information on reverse DNS, please see [reverse DNS lookup on Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
-
-

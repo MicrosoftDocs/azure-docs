@@ -31,7 +31,7 @@
 ## Manage reverse DNS
 ### [Overview](dns-reverse-dns-overview.md)
 ### [Host reverse lookup zones in Azure DNS](dns-reverse-dns-hosting.md)
-### [Manage reverse DNS records for Azure services](dns-reverse-dns-for-azure-services,md)
+### [Manage reverse DNS records for Azure services](dns-reverse-dns-for-azure-services.md)
 
 ## [Import and export a DNS zone file](dns-import-export.md)
 ## [Integrate with other Azure services](dns-for-azure-services.md)
