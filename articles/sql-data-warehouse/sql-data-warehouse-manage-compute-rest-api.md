@@ -1,10 +1,10 @@
 ---
 title: Pause, resume, scale with REST in Azure SQL Data Warehouse | Microsoft Docs
-description: PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
+description: Manage compute power in SQL Data Warehouse through REST, T-SQL and PowerShell.
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokib
-manager: barbkess
+author: hirokib; barbkess
+manager: johnmac
 editor: ''
 
 ms.assetid: 21de7337-9356-49bb-a6eb-06c1beeba2c4
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
-ms.author: elbutter
+ms.author: elbutter; barbkess
 
 ---
 # Manage compute power in Azure SQL Data Warehouse (REST)
