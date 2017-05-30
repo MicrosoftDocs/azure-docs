@@ -2,14 +2,14 @@
 title: DocumentDB API Python examples for Azure Cosmos DB | Microsoft Docs
 description: Find Python examples on github for common tasks in Azure Cosmos DB, including CRUD operations.
 keywords: python examples
-services: cosmosdb
+services: cosmos-db
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: python
 
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

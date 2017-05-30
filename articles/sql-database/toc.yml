@@ -145,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditing
       href: sql-database-auditing.md
-    - name: Auditing and TDS
+    - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Threat detection
       href: sql-database-threat-detection.md
