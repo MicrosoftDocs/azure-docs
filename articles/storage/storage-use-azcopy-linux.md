@@ -27,7 +27,7 @@ There are two versions of AzCopy that you can download. AzCopy on Linux is built
 
 AzCopy on Linux requires .NET Core framework on the platform. See the installation instructions on the [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) page.
 
-As an example, let's install .NET Core on Ubuntu 16.10:
+As an example, let's install .NET Core on Ubuntu 16.10. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) installation page.
 
 
 ```bash
@@ -125,7 +125,7 @@ The basic syntax for AzCopy commands is:
 azcopy --source <source> --destination <destination> [Options]
 ```
 
-The following examples demonstrate various scenarios for copying data to and from Microsoft Azure Blobs and Files. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
+The following examples demonstrate various scenarios for copying data to and from Microsoft Azure Blobs and Files. Refer to the `azcopy --help` menu for a detailed explanation of the parameters used in each sample.
 
 ## Blob: Download
 ### Download single blob
@@ -623,6 +623,8 @@ azcopy \
 	--recursive
 ```
 
+Note that AzCopy currently only supports the [Account SAS](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+
 ### Journal file folder
 Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
 
@@ -647,7 +649,7 @@ azcopy \
 	--source /mnt/myfiles \
 	--destination https://myaccount.blob.core.windows.net/mycontainer \
 	--dest-key key \
-	--resume "~"
+	--resume "/mnt/myjournal"
 ```
 
 This example creates the journal file if it does not already exist. If it does exist, then AzCopy resumes the operation based on the journal file.
@@ -672,7 +674,7 @@ azcopy \
 Option `--parallel-level` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. The number of concurrent operations is equal eight times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for --parallel-level to avoid failure caused by resource competition.
 
 [!TIP]
-To view the complete list of AzCopy parameters, check out 'azcopy --help'
+To view the complete list of AzCopy parameters, check out 'azcopy --help' menu.
 
 ## Known issues and best practices
 ### Error: .NET Core is not found in the system.
