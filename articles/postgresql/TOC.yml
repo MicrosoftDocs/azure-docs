@@ -14,9 +14,9 @@
   - name: Connect
     items:
     - name: Node.js
-      href: quickstart-connect-from-nodejs.md
+      href: connect-nodejs.md
     - name: Python
-      href: quickstart-connect-from-python.md
+      href: connect-python.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
