@@ -156,7 +156,7 @@ The following example walks you through the process of creating new 'PTR' record
 
 2. On the **Add record set** blade. 
 3. Select **PTR** from the record "**Type**" menu.  
-4. The name of the record set for a PTR record needs to be the rest of the IPv6 address in reverse order. It must not include any zero compression. In this example, the first 64 bits of the IPv6 are already populated as part of the zone name (0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Therefore, only the last 64 bits are supplied in the name field. The last 64 bits of the IP address are entered in reverse order, using a period as the delimiter between each hexadecimal number. For example, you could name your record set "**e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f**" for a resource whose IP address is 2001:0db8:abcd:0000:f524:10bc:1af9:405e.  
+4. The name of the record set for a PTR record needs to be the rest of the IPv6 address in reverse order. It must not include any zero compression. In this example, the first 64 bits of the IPv6 are already populated as part of the zone name (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa). Therefore, only the last 64 bits are supplied in the name field. The last 64 bits of the IP address are entered in reverse order, using a period as the delimiter between each hexadecimal number. For example, you could name your record set "**e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f**" for a resource whose IP address is 2001:0db8:abdc:0000:f524:10bc:1af9:405e.  
 5. In the "**Domain Name**" field, enter the fully qualified domain name (FQDN) of the resource using the IP.
 6. Select **OK** at the bottom of the blade to create the DNS record.
 
@@ -167,19 +167,19 @@ The following are examples on how to complete this task with PowerShell and the 
 #### PowerShell
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc2.contoso.com")
+New-AzureRmDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc2.contoso.com")
 ```
 
 #### AzureCLI 1.0
 
 ```
-azure network dns record-set add-record MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
+azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
 ```
  
 #### AzureCLI 2.0
 
 ```azurecli
-	az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
+	az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
 ```
 
 ## View Records
@@ -223,19 +223,19 @@ The following are examples on how to view the records with PowerShell and the Az
 #### PowerShell
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### Azure CLI 1.0
 
 ```azurecli
-	azure network dns record-set list MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+	azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 #### Azure CLI 2.0
 
 ```azurecli
-	azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+	azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 ## FAQ
