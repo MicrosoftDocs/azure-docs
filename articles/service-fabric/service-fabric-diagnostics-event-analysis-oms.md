@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Event Analysis with OMS | Microsoft Docs
+title: Azure Service Fabric Event Analysis with OMS | Microsoft Docs
 description: Learn about visualizing and analyzing events using OMS for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: dekapur
 
 ---
 
-# Event Analysis and Visualization with OMS
+# Event analysis and visualization with OMS
 
 Operations Management Suite (OMS) is a collection of management services that help with monitoring and diagnostics for applications and services hosted in the cloud. To get a more detailed overview of OMS and what it offers, read [What is OMS?](../operations-management-suite/operations-management-suite-overview.md)
 
@@ -97,7 +97,7 @@ In the creation step, it requests an OMS workspace. Select the one that was crea
 
 ## Next steps
 
-Explore the following OMS tolls and options to customize the workspace to your needs:
+Explore the following OMS tools and options to customize a workspace to your needs:
 
 * For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md)
 * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics

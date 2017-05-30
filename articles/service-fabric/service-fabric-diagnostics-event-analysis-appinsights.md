@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Event Analysis with Application Insights | Microsoft Docs
+title: Azure Service Fabric Event Analysis with Application Insights | Microsoft Docs
 description: Learn about visualizing and analyzing events using Application Insights for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: dekapur
 
 ---
 
-# Event Analysis and Visualization with Application Insights
+# Event analysis and visualization with Application Insights
 
 Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services.
 
@@ -50,23 +50,23 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 1. Add the sink configuration:
 
-```json
-"SinksConfig": {
-    "Sink": [
-        {
-            "name": "applicationInsights",
-            "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-        }
-    ]
- }
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
 
-```
+    ```
 
 2. Include the Sink in the DiagnosticMonitorConfiguration by adding the following line in "DiagnosticMonitorConfiguration" of the "WadCfg":
 
-```json
-"sinks": "applicationInsights"
-```
+    ```json
+    "sinks": "applicationInsights"
+    ```
 
 In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 

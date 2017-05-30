@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Infrastructure Level Monitoring | Microsoft Docs
+title: Azure Service Fabric Infrastructure Level Monitoring | Microsoft Docs
 description: Learn about infrastructure level events and logs used to monitor and diagnose Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: dekapur
 
 ---
 
-# Infrastructure Event and Log Generation
+# Infrastructure level event and log generation
 
 ## Monitoring the cluster
 
@@ -92,7 +92,7 @@ If you are going to deploy containers to your cluster, enable WAD to pick up doc
 
 ```
 
-## Measuring Performance
+## Measuring performance
 
 Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about [scaling a cluster on Azure](service-fabric-cluster-scale-up-down.md), or [on-premise](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. Here are two common ways in which you can set up collecting performance data for your cluster:
 

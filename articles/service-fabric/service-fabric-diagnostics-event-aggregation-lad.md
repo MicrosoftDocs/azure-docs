@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Event Aggregation with Linux Azure Diagnostics | Microsoft Docs
+title: Azure Service Fabric Event Aggregation with Linux Azure Diagnostics | Microsoft Docs
 description: Learn about aggregating and collecting events using LAD for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: dekapur
 
 ---
 
-# Event Aggregation and Collection using Linux Azure Diagnostics
+# Event aggregation and collection using Linux Azure Diagnostics
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
