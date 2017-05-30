@@ -36,23 +36,25 @@
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## [Configure Site-to-Site and ExpressRoute coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-## Configure forced tunneling
-### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
 ## Configure multiple Site-to-Site connections
 ### [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (classic)](vpn-gateway-multi-site.md)
+## Connect multiple policy-based VPN devices
+### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## [Configure BGP for a VPN gateway](vpn-gateway-bgp-resource-manager-ps.md)
+## Configure forced tunneling
+### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
+### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
 ## [Configure highly available active-active connections](vpn-gateway-activeactive-rm-powershell.md)
+## Manage Azure VPN gateways
+### [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
+### [Delete gateway using Azure portal)](vpn-gateway-delete-vnet-gateway-portal.md)
+### [Delete gateway using PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [Delete gateway using PowerShell classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## Modify local network gateway settings
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
-## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
-## Delete a VPN gateway
-### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)

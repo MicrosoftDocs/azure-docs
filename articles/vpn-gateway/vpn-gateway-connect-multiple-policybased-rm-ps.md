@@ -161,7 +161,7 @@ $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -UsePolicyBasedTrafficSelectors $True -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-After completing the steps, the S2S VPN connection will use the IPsec/IKE policy defined above, and enable policy-based traffic selectors on the connection.
+After completing the steps, the S2S VPN connection will use the IPsec/IKE policy defined above, and enable policy-based traffic selectors on the connection. You can repeat the same steps to add more connections to additional on-premises policy-based VPN devices from the same Azure VPN gateway.
 
 ## Update policy-based traffic selectors for a connection
 The last section will show you how to update the policy-based traffic selectors option for an existing  S2S VPN connection.
