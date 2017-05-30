@@ -155,10 +155,6 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## IPsec/IKE policy
-
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
-
 ## <a name="P2S"></a>Point-to-Site connections
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
@@ -194,6 +190,11 @@ Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to mu
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
+
+## IPsec/IKE policy
+
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+
 
 ## <a name="bgp"></a>BGP
 
