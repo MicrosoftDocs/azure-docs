@@ -28,9 +28,9 @@ Here is a detailed comparison of the various device-to-cloud communication optio
 
 |  | Device-to-cloud messages | Reported properties | File uploads |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Telemetry time series and alerts. For example, 256 KB sensor data batches sent every 5 minutes. | Available capabilities and conditions. For example, the current device connectivity mode such as cellular or WiFi. Synchronizing long-running workflows, such as configuration and software updates. | Media files. Large (typically compressed) telemetry batches. |
+| Scenario | Telemetry time series and alerts. For example, 256-KB sensor data batches sent every 5 minutes. | Available capabilities and conditions. For example, the current device connectivity mode such as cellular or WiFi. Synchronizing long-running workflows, such as configuration and software updates. | Media files. Large (typically compressed) telemetry batches. |
 | Storage and retrieval | Temporarily stored by IoT Hub, up to 7 days. Only sequential reading. | Stored by IoT Hub in the device twin. Retrievable using the [IoT Hub query language][lnk-query]. | Stored in user-provided Azure Storage account. |
-| Size | Up to 256 KB messages. | Maximum reported properties size is 8 KB. | Maximum file size supported by Azure Blob Storage. |
+| Size | Up to 256-KB messages. | Maximum reported properties size is 8 KB. | Maximum file size supported by Azure Blob Storage. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
 | Protocol | Available on all protocols. | Currently available only when using MQTT. | Available when using any protocol, but requires HTTP on the device. |
 

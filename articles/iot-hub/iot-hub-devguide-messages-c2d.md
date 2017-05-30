@@ -28,7 +28,7 @@ Each device queue holds at most 50 cloud-to-device messages. Trying to send more
 
 ## The cloud-to-device message lifecycle
 
-To guarantee at least once message delivery, IoT Hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This approach guarantees resiliency against connectivity and device failures.
+To guarantee at-least-once message delivery, IoT Hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This approach guarantees resiliency against connectivity and device failures.
 
 The following diagram shows the lifecycle state graph for a cloud-to-device message in IoT Hub.
 
