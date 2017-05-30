@@ -21,7 +21,7 @@ ms.author: giladm
 
 > [!IMPORTANT]
 > This documents applies only to Table Auditing, which is **now deprecated**.<br>
-> Please use the new [Blob Auditing](sql-database-auditing.md) method, which **does not** require downlevel client modifications. Additional info on setting up Blob Auditing can be [found here](sql-database-auditing.md).
+> Please use the new [Blob Auditing](sql-database-auditing.md) method, which **does not** require downlevel client modifications. Additional info on Blob Auditing can be found in [Get started with SQL database auditing](sql-database-auditing.md).
 
 # SQL Database -  Downlevel clients support and IP endpoint changes for Table Auditing
 
