@@ -46,10 +46,8 @@ Azure AD supports automatic updates for all connectors that you deploy. As long 
 
 If you don't want to wait for an automatic update to come to your connector, you can perform a manual upgrade. Go to the [connector download page](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) on the server where your connector is located and select **Download**. This kicks off an upgrade for the local connector. 
 
-You may experience downtime when your connector updates if:
-
-- You only have one connector. To avoid this downtime and improve high availability, we recommend you install a second connector and [create a connector group](active-directory-application-proxy-connectors-azure-portal.md).
-
+You may experience downtime when your connector updates if:  
+- You only have one connector. To avoid this downtime and improve high availability, we recommend you install a second connector and [create a connector group](active-directory-application-proxy-connectors-azure-portal.md).  
 - A connector was in the middle of a transaction when the update began. Your browser should automatically retry the operation, or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
 ## Outbound-only networking
