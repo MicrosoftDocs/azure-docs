@@ -14,10 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/26/2017
 ms.author: owend
 ---
 # Lesson 1: Create a new tabular model project
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
 In this lesson, you will use SQL Server Data Tool (SSDT) to create a new tabular model project at the 1400 compatibility level. Once your new project is created, you can begin adding data and authoring your model. This lesson also gives you a brief introduction to the tabular model authoring environment in SSDT.  
   
 Estimated time to complete this lesson: **10 minutes**  
