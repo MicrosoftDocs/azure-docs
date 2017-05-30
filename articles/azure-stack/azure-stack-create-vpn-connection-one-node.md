@@ -1,6 +1,6 @@
 ---
-title: Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC environments | Microsoft Docs
-description: Step-by-step procedure that allows a cloud administrator to create a Site-to-Site VPN connection between two one-node POC environments.
+title: Create a site-to-site VPN connection between two virtual networks in different Azure Stack POC environments | Microsoft Docs
+description: Step-by-step procedure that a cloud administrator uses to create a site-to-site VPN connection between two single-node POC environments.
 services: azure-stack
 documentationcenter: ''
 author: ScottNapolitan
@@ -17,9 +17,9 @@ ms.date: 5/23/2017
 ms.author: scottnap
 
 ---
-# Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC environments
+# Create a site-to-site VPN connection between two virtual networks in different Azure Stack POC environments
 ## Overview
-This article shows you how to create a Site-to-Site VPN Connection between two virtual networks in two separate Azure Stack Proof-of-Concept (POC) environments. While you configure the connections, you will learn how VPN gateways in Azure Stack work.
+This article shows you how to create a site-to-site VPN connection between two virtual networks in two separate Azure Stack proof of concept (POC) environments. While you configure the connections, you will learn how VPN gateways in Azure Stack work.
 
 ### Connection diagram
 The following diagram shows what the configuration should look like when you’re done:
@@ -114,7 +114,7 @@ you log in.
 ### Create the Gateway Subnet
 1. Open the Virtual Network resource you created (VNET-01) from
    the dashboard.
-2. On the Settings blade, select **Subnets**.
+2. On the **Settings** blade, select **Subnets**.
 3. Click **Gateway Subnet** to add a gateway subnet to
    the virtual network.
    
@@ -162,22 +162,22 @@ A way to think about this more generically is that the Local Network Gateway res
 8. Verify that your **Subscription**, **Resource Group** and
    **location** are all correct and click **Create**.
 
-### Create the Connection
+### Create the connection
 1. In the user portal, click **New**.
 2. Select **Networking** from the Marketplace menu.
 3. Select **Connection** from the list of resources.
-4. In the **Basics** settings blade, choose **Site-to-site (IPSec)** as
+4. On the **Basics** settings blade, choose **Site-to-site (IPSec)** as
    the **Connection type**.
 5. Select the **Subscription**, **Resource Group** and **Location** and
    click **OK**.
-6. In the **Settings** blade,  click **Virtual network gateway** click **GW1**.
+6. On the **Settings** blade,  click **Virtual network gateway** click **GW1**.
 7. Click **Local network gateway**, and click **POC2-GW**.
 8. In the **Connection Name** field, type **POC1-POC2**.
 9. In the **Shared key (PSK)** field type **12345** and click **OK**.
 10. On the **Summary** blade, click **OK**.
 
 ### Create a VM
-To validate data traveling through the VPN Connection, you
+To validate data traveling through the VPN connection, you
 need virtual machines to send and receive data in each POC. Create a virtual machine in
 POC1 now and put it on your VM subnet in your virtual network.
 
@@ -258,16 +258,16 @@ you log in.
    **VNET-01** from POC1 - **10.0.10.0/23**.
 9. Verify that your **Subscription**, **Resource Group** and **Location** are all correct and click **Create**.
 
-## Create the Connection
+## Create the connection
 1. In the user portal, click **New**.
    
 2. Select **Networking** from the Marketplace menu.
 3. Select **Connection** from the list of resources.
-4. In the **Basic** settings blade, choose **Site-to-site (IPSec)** as
+4. On the **Basic** settings blade, choose **Site-to-site (IPSec)** as
    the **Connection type**.
 5. Select the **Subscription**, **Resource Group** and **Location** and
    click **OK**.
-6. In the **Settings** blade, click **Virtual network gateway** and click **GW2**.
+6. On the **Settings** blade, click **Virtual network gateway** and click **GW2**.
 7. Click **Local network gateway** and click **POC1-GW**.
 8. In the **Connection name** field, type **POC2-POC1**.
 9. In the **Shared key (PSK)** field type **12345**. If you choose a different value, remember that it **MUST** match the value for shared key you created on POC1. Click **OK**.
@@ -300,7 +300,7 @@ is hidden behind a router doing Network Address Translation (NAT). The
 router is actually a Windows Server virtual machine (**MAS-BGPNAT01**) running the
 Routing and Remote Access Services (RRAS) role in the POC
 infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to allow
-the Site-to-Site VPN Connection to connect on both ends. To do this, you must create a Static NAT mapping that maps the external interface on the BGPNAT virtual machine to the VIP of the Edge Gateway Pool for the ports required for a VPN Connection.
+the site-to-site VPN connection to connect on both ends. To do this, you must create a Static NAT mapping that maps the external interface on the BGPNAT virtual machine to the VIP of the Edge Gateway Pool for the ports required for a VPN connection.
 
 > [!NOTE]
 > This configuration is required for POC environments only.
@@ -359,11 +359,11 @@ the Site-to-Site VPN Connection to connect on both ends. To do this, you must cr
 Repeat this procedure on POC2.
 
 ## Test the connection
-Now that the Site-to-Site connection has been established you should
+Now that the site-to-site connection has been established you should
 validate that you can get traffic flowing through it. This task is simple
 as it just involves logging in to one of the virtual machines you created in either POC
 environment to ping the virtual machine you created in the other environment. To
-ensure that you are sending the traffic through the Site-to-Site
+ensure that you are sending the traffic through the site-to-site
 connection, you want to ensure you ping the Direct IP (DIP)
 address of the virtual machine on the remote subnet, not the VIP. To do this, you need to find and note the address on the other end of the connection.
 
@@ -419,15 +419,15 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, yo
    data transfers like a file copy to test your connection.
 
 ### Viewing data transfer statistics through the gateway connection
-If you want to know how much data is passing through your Site-to-Site
-connection, this information is available in the Connection blade. This test
+If you want to know how much data is passing through your site-to-site
+connection, this information is available on the **Connection** blade. This test
 is also another good way to verify that the ping you just sent actually
 went through the VPN connection.
 
 1. While still logged in to tenant virtual machine in POC2, sign in to the
    user portal using your tenant account.
 2. Click the **All resources** menu item and find the **POC2-POC1** connection and click it. **Connections**.
-4. On the Connection Overview blade, you can see statistics for **Data in** and
+4. On the **Connection** blade, you can see statistics for **Data in** and
    **Data out**. In the following screen shot you see some larger numbers than just
    a ping creates. That’s because of some additional file transfers
    as well. You should see some non-zero values there.
