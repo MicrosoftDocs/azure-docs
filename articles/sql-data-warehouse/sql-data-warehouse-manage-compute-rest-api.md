@@ -70,7 +70,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## Check database state
 
-```json
+```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
