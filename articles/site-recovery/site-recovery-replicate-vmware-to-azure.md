@@ -19,8 +19,11 @@ ms.author: asgang
 ---
 
 
-# Replicate applications
+# Replicate applications running on VMware VMs to Azure
 
+> [!div class="op_single_selector"]
+> * [Azure to Azure](site-recovery-replicate-azure-to-azure.md)
+> * [VMware to Azure](site-recovery-replicate-vmware-to-azure.md)
 
 This article describes how to set up replication of virtual machines running on VMware into Azure.
 ## Prerequisites
