@@ -1,7 +1,3 @@
-> [!div class="op_single_selector"]
-> * [Azure to Azure](TOC.md)
-> * [VMware to Azure](TOC1.md)
-
 # Overview
 ## [What is Site Recovery?](site-recovery-overview.md)
 ## [How does Site Recovery work?](site-recovery-azure-to-azure-architecture.md)
