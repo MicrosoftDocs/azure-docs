@@ -12,8 +12,8 @@ ms.date: 02/28/2017
 ms.author: prrajan
 ---
 # Bing Speech API Overview
-Microsoft’s *Speech to Text* and *Text to Speech* cloud offerings help you put speech to work in your applications. Microsoft's
-Speech Service can transcribe speech *to* text and can generate speech *from* text, enabling you to create the powerful experiences that will delight your users.
+Microsoft’s *Speech to Text* and *Text to Speech* cloud offerings help you put speech to work in your application. Microsoft's
+Speech APIs can transcribe speech *to* text and can generate speech *from* text, enabling you to create powerful experiences that will delight your users.
 
 * **Speech to Text** APIs convert human speech to text that can be used as input or commands to control your application.
 * **Text to Speech** APIs convert text to audio streams that can be played back to the user of your application.
@@ -23,10 +23,10 @@ The *Speech to Text* APIs *transcribe* audio streams into text that your applica
 
 * A REST API, useful for apps that need to convert short spoken commands to text but do not need real-time streaming or simultaneous user feedback. The REST API uses 
 [HTTP chunked-transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) to send the audio bytes to the service.
-* A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps that need to convert longer audio to text or that want to take advantage of the user experience benefits 
-like speech recognition hypotheses using the power of the full-duplex WebSocket connection.
+* A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps that need to convert longer audio to text or that want an
+improved user experience by leveraging the power of the full-duplex WebSocket connection through features like speech recognition hypotheses.
 
-Both *Speech to Text* APIs can enrich the transcribed text results by adding capitalization and punctuation, masking profanity, and normalizing text.
+Both *Speech to Text* APIs can enrich the transcribed text results by adding capitalization and punctuation, masking profanity, and text normalization.
 
 ### Comparing API Options for Speech Recognition
 
@@ -35,21 +35,19 @@ Both *Speech to Text* APIs can enrich the transcribed text results by adding cap
 | Speech hypotheses | Yes | No |
 | Continuous recognition | Yes | No |
 | Maximum audio input | 10 minutes of audio | 15 seconds of audio |
-| Recognition modes | *Interactive*, *Dictation*, *Conversational* | *Interactive*, *Dictation*, *Conversational* |
 | Service detects when speech ends | Yes| No |
 | Subscription key authorization | Yes | No |
-| Recognition result forms | Lexical, ITN, Masked ITN, Display | Lexical, ITN, Masked ITN, Display |
 
 ### Speech Recognition Modes
-Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. Choose the mode that  expect produces better recognition results:
+Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. Choose the mode that produces the best recognition results for your application.
 
 | Mode | Description |
 |---|---|
-| Interactive | A user makes short requests and expects the application to perform an action in response. |
-| Dictation | Users are engaged in a human-to-human conversation. |
-| Conversation | The user recites longer utterances to the application for further processing. |
+| *interactive* | "Command and control" recognition for interactive user application scenarios. Users speak short phrases intended as commands to an application. |
+| *dictation* | Continuous recognition for dictation scenarios. Users speak longer sentences that are displayed as text. Users adopt a more formal speaking style. |
+| *conversation* | Continuous recognition for transcribing conversations between humans. Users adopt a less formal speaking style and may alternate between longer sentences and shorter phrases. |
 
-Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in API reference for more information.
+Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in the API reference for more information.
 
 ### Speech Recognition Supported languages  
 The *Speech to Text* APIs support many spoken languages in multiple dialects. The languages and locales supported by the *Speech to Text* APIs include:    
@@ -66,7 +64,7 @@ The *Speech to Text* APIs support many spoken languages in multiple dialects. Th
 | en-IN    |  hi-IN  | pt-PT  |  
 
 Refer to [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages) 
-for full list of supported languages for each recognition mode. 
+for the full list of supported languages for each recognition mode. 
 
 ## Text to Speech (Speech Synthesis)
 *Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide real-time text to speech conversion in a variety of different 
@@ -88,7 +86,8 @@ The languages and locales supported by *Text to Speech* API include:
 | el-GR    |   fr-CH  |   pl-PL  |   zh-HK  
 | en-AU    |   fr-FR  |   pt-BR  |   zh-TW    
 
-Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts) for full list of supported languages and voices.
+Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts) for 
+the full list of supported languages and voices.
 
 ### Text to Speech API 
 The maximum amount of audio returned for any single request is 15 seconds. 
