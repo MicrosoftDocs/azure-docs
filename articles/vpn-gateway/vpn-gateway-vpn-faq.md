@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-ms.author: cherylmc
+ms.date: 05/30/2017
+ms.author: cherylmc,yushwang
 
 ---
 # VPN Gateway FAQ
@@ -154,6 +154,10 @@ This is expected behavior for policy-based (also known as static routing) VPN ga
 We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site-to-Site cross-premises configuration.
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
+
+## IPsec/IKE policy
+
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
 ## <a name="P2S"></a>Point-to-Site connections
 
