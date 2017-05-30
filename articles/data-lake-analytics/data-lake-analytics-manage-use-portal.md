@@ -32,7 +32,7 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Click **New** > **Intelligence + analytics** > **Data Lake Analytics**.
-3. Select values for the following items:   
+3. Select values for the following items: 
    * **Name**: The name of the Data Lake Analytics account.
    * **Subscription**: The Azure subscription used for the account.
    * **Resource Group**: The Azure resource group in which to create the account. 
@@ -60,7 +60,7 @@ Data Lake Analytics supports the following data sources:
 * Data Lake Store
 * Azure Storage
 
-The Data Explorer allows you to browse the data sources and perform basic file management operations. 
+You can use the Data Explorer to browse data sources and perform basic file management operations. 
 
 ### Add a data source
 
@@ -76,7 +76,7 @@ The Data Explorer allows you to browse the data sources and perform basic file m
 
 Data Lake Analytics enables you to further lock down access to your Data Lake Analytics account at the network level. You can enable a firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within the defined range can connect to the store.
 
-If other Azure services, such as Azure Data Factory, or VMs will be connecting to the Data Lake Analytics account, make sure that **Allow Azure Services** is turned **On**. 
+If other Azure services, such as Azure Data Factory, or VMs connect to the Data Lake Analytics account, make sure that **Allow Azure Services** is turned **On**. 
 
 ### Set up a firewall rule
 
@@ -89,11 +89,11 @@ If other Azure services, such as Azure Data Factory, or VMs will be connecting t
 Like other Azure services, you can use Azure Role-Based Access Control (RBAC) to control how users interact with the service.
 
 The standard RBAC roles have the following capabilities with respect to Data Lake Analytics:
-* **Owner**: This role can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
-* **Contributor**: This role can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
-* **Reader**: This role can monitor jobs.
+* **Owner**: You can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
+* **Contributor**: You can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
+* **Reader**: You can monitor jobs.
 
-Use the Data Lake Analytics Developer role to enable U-SQL developers to use the Data Lake Analytics service. The Data Lake Analytics Developer role allows a user to:
+Use the Data Lake Analytics Developer role to enable U-SQL developers to use the Data Lake Analytics service. You can use the Data Lake Analytics Developer role to:
 * Submit jobs.
 * Monitor job status and the progress of jobs submitted by any user.
 * See the U-SQL scripts from jobs submitted by any user.
@@ -125,7 +125,7 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
     For each job, you can configure:
 
     * **Job Name**: The name of the job.
-    * **Priority**: Lower numbers have higher priority. If two jobs are queued, the one with lower priority  runs first.
+    * **Priority**: Lower numbers have higher priority. If two jobs are queued, the one with lower priority runs first.
     * **Parallelism**: The maximum number of compute processes to reserve for this job.
 
 3. Click **Submit Job**.
@@ -140,6 +140,6 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ## See also
 
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
-* [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+* [Get started with Data Lake Analytics by using Azure portal](data-lake-analytics-get-started-portal.md)
+* [Manage Azure Data Lake Analytics by using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 
