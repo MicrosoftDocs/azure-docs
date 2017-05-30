@@ -1,7 +1,7 @@
 ---
 
-title="Create and Use an Internal Load Balancer with an App Service Environment" 
-description="Details on creating and using a internet isolated App Service Environment" 
+title="Create and Use an Internal Load Balancer with an Azure App Service Environment" 
+description="Details on creating and using a internet isolated Azure App Service Environment" 
 services: app-service
 documentationcenter: ''
 author: ccompy
