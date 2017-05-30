@@ -173,7 +173,7 @@ Ensure you have the following prerequisites met:
 - IT Service Management connector installed. More information: [Configuration.](log-analytics-itsmc-overview.md#configuration)
 - ServiceNow supported versions – Fuji, Geneva, Helsinki.
 
-Admin must do the following:
+ServiceNow Admins must do the following in their ServiceNow instance:
 - Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
 - Install the User App for Microsoft OMS integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).

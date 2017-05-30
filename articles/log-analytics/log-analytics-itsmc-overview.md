@@ -52,7 +52,7 @@ After successful addition, you will see the IT Service Management Connector unde
 
 > [!NOTE]
 
-> By default, the IT Service Management Connector refreshes the connection's data once in every 24 hours. To refresh your connection's data instantly for any edits, deletions or additions that you make, click the refresh button displayed next to your connection.
+> By default, the IT Service Management Connector refreshes the connection's data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the refresh button displayed next to your connection.
 
  ![ITSMC refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
