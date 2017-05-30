@@ -1,7 +1,7 @@
 ---
 
-title="Introduction to the App Service Environment" 
-description="Brief overview on the App Service Environment" 
+title="Introduction to the Azure App Service Environment" 
+description="Brief overview on the Azure App Service Environment" 
 services: app-service
 documentationcenter: ''
 author: ccompy
