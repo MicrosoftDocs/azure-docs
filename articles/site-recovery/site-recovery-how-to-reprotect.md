@@ -19,6 +19,10 @@ ms.author: ruturajd
 ---
 # Reprotect from Azure to an on-premises site
 
+> [!div class="op_single_selector"]
+> * [Azure to Azure](site-recovery-how-to-reprotect-azure-to-azure.md)
+> * [On-premises to Azure](site-recovery-how-to-reprotect.md)
+
 ## Overview
 This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure by using [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md).
 
@@ -39,7 +43,7 @@ Following are the prerequisite steps that you need to take or consider when you 
 
 * If the virtual machines that you want to fail back to are managed by a vCenter server, you need to make sure that you have the required permissions for discovery of virtual machines on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 
-> [!WARNING] 
+> [!WARNING]
 > If snapshots are present on the on-premises mater target or the virtual machine then reprotection will fail. You can delete the snapshots on the master target before you proceed to reprotect. The snapshots on the virtual machine wll be automatically merged during reprotect job.
 
 * Before you fail back you willll need to create two additional components:
@@ -124,7 +128,7 @@ Click the following links to read about how to install a master target server:
    * The default retention volume for Windows is R volume.
 
    * The default retention volume for Linux is /mnt/retention.
-   
+
    > [!IMPORTANT]
    > You need to add a new drive in case you are using an existing CS+PS machine or a scale or PS+MT machine. The new drive should meet the above requirements. If the retention drive is not present, none will be listed in the selection drop down on the portal. After you add a drive to the on-premises master target, it takes upto fifteen minutes for the drive to reflect in the selection on the portal. You can also refresh the configuration server if the drive does not appear after fifteen minutes.
 
