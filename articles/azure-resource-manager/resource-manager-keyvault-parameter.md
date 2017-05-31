@@ -184,6 +184,5 @@ To dynamically generate the resource ID for a key vault secret, you must move th
 
 ## Next steps
 * For general information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
-* For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
 * For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 

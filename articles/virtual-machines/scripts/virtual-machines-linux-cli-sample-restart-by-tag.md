@@ -16,11 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Restart VMs
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

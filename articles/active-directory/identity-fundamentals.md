@@ -7,7 +7,8 @@ keywords:
 author: jeffgilb
 manager: femila
 
-ms.date: 5/1/2017
+
+ms.date: 5/23/2017
 
 ms.topic: article
 ms.prod:
@@ -23,7 +24,9 @@ ms.assetid:
 ms.reviewer: jsnow
 #ms.suite:
 #ms.tgt_pltfrm:
-#ms.custom:
+
+ms.custom: it-pro
+
 
 ---
 # Fundamentals of Azure identity management

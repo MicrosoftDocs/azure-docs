@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # Create a CI/CD infrastructure on a Linux VM in Azure that uses Jenkins, GitHub, and Docker
@@ -30,6 +31,8 @@ To automate the build and test phase of application development, you can use a c
 > * Verify GitHub commits build new Docker image and updates running app
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create Jenkins instance
 In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. 
@@ -62,7 +65,7 @@ runcmd:
 
 Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupJenkins --location eastus
 ```
 

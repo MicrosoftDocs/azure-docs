@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Create a VM with a virtual hard disk
@@ -30,6 +31,8 @@ You can download the VHD that we used from https://azclisamples.blob.core.window
 or use your own VHD. The script looks for `~/sample.vhd`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

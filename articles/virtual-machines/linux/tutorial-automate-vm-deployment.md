@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # How to customize a Linux virtual machine on first boot
@@ -28,7 +29,9 @@ In a previous tutorial, you learned how to SSH to a virtual machine (VM) and man
 > * Use Key Vault to securely store certificates
 > * Automate secure deployments of NGINX with cloud-init
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Cloud-init overview
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
@@ -95,7 +98,7 @@ For more information about cloud-init configuration options, see [cloud-init con
 ## Create virtual machine
 Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAutomate* in the *eastus* location:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 

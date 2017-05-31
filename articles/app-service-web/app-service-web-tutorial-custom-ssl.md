@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Bind an existing custom SSL certificate to Azure Web Apps
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 Before following this tutorial, make sure that you have done the following:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a custom DNS name to your web app](web-sites-custom-domain-name.md)
+- [Map a custom DNS name to your web app](app-service-web-tutorial-custom-domain.md)
 - Acquire an SSL certificate from a trusted certificate authority
 
 <a name="requirements"></a>

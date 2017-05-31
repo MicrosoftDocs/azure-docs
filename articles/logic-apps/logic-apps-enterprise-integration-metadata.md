@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ---
 
 # Manage artifact metadata in integration accounts for logic apps

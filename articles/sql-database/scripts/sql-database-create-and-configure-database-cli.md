@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -24,6 +24,10 @@ ms.author: janeng
 This sample CLI script creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

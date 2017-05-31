@@ -1,5 +1,5 @@
 - name: SQL DB Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About SQL DB
@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Manage
+  - name: Connect and query
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-  - name: Connect
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 - Create/design new SQL DB
     href: sql-database-design-first-database.md
-  - name: 2 - Migrate existing SQL Server
+  - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
@@ -45,29 +43,34 @@
     href: sql-database-performance-tutorial.md
   - name: 5 - Implement multi-tenant app
     href: sql-database-multi-tenant-application.md
-  - name: 6 - Deploy a multi-tenant app
-    href: sql-database-saas-tutorial.md
-  - name: 7 - Provision/catalog new tenants
-    href: sql-database-saas-tutorial-provision-and-catalog.md
-  - name: 8 - Monitor performance
-    href: sql-database-saas-tutorial-performance-monitoring.md
-  - name: 9 - Restore a single tenant
-    href: sql-database-saas-tutorial-restore-single-tenant.md
-  - name: 10 - Manage tenant schemas
-    href: sql-database-saas-tutorial-schema-management.md
-  - name: 11 - Run ad-hoc analytics
-    href: sql-database-saas-tutorial-adhoc-analytics.md
-  - name: 12 - Monitor with Log Analytics
-    href: sql-database-saas-tutorial-log-analytics.md
-  - name: 13 - Manage tenant analytics
-
+  - name: 6 - Implement a geo-distributed database
+    href: sql-database-implement-geo-distributed-database.md 
+  - name: Wingtip SaaS tutorials
+    items:
+    - name: Wingtip SaaS introduction
+      href: sql-database-wtp-overview.md
+    - name: Deploy the Wingtip SaaS sample
+      href: sql-database-saas-tutorial.md
+    - name: Provision/catalog new tenants
+      href: sql-database-saas-tutorial-provision-and-catalog.md
+    - name: Monitor performance
+      href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Monitor with Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
+    - name: Restore a single tenant
+      href: sql-database-saas-tutorial-restore-single-tenant.md
+    - name: Manage tenant schemas
+      href: sql-database-saas-tutorial-schema-management.md
+    - name: Run ad-hoc analytics
+      href: sql-database-saas-tutorial-adhoc-analytics.md
+    - name: Run tenant analytics
+      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Samples
   items:
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
-    href: sql-database-powershell-samples.md
- 
+    href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
   - name: DBs and servers
@@ -142,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditing
       href: sql-database-auditing.md
-    - name: Auditing and TDS
+    - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Threat detection
       href: sql-database-threat-detection.md
@@ -348,6 +351,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Extended events - ring buffer
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Diagnostic logging
+      href: sql-database-metrics-diag-logging.md
   - name: Manage
     items:
     - name: Azure Automation

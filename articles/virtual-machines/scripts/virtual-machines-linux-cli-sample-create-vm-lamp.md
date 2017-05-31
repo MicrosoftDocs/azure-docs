@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Deploy the LAMP stack in a load-balanced virtual machine scale set
@@ -25,6 +26,8 @@ and applies an extension that runs a custom script to deploy the LAMP stack
 on each virtual machine in the scale set.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Sample script
 

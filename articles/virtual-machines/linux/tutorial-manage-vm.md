@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create and Manage Linux VMs with the Azure CLI
@@ -29,7 +30,9 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Resize a VM
 > * View and understand VM state
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create resource group
 
@@ -37,7 +40,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus* region. 
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupVM --location eastus
 ```
 

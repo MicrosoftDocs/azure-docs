@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
+ms.custom: mvc
 ---
-
 # How to monitor a Linux virtual machine in Azure
 
 To ensure your virtual machines (VMs) in Azure are running correctly, you can review boot diagnostics and performance metrics. In this tutorial, you learn how to:
@@ -31,13 +31,15 @@ To ensure your virtual machines (VMs) in Azure are running correctly, you can re
 > * Create alerts based on diagnostic metrics
 > * Set up advanced monitoring
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create VM
+
 To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/gropu#create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
@@ -51,7 +53,6 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
-
 
 ## Enable boot diagnostics
 
@@ -111,19 +112,24 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 A Linux VM has a dedicated host in Azure that it interacts with. Metrics are automatically collected for the host and can be viewed in the Azure portal as follows:
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-2. To see how the host VM is performing, click **Metrics** on the VM blade, then select any of the *[Host]* metrics under **Available metrics**.
+1. To see how the host VM is performing, click **Metrics** on the VM blade, then select any of the *[Host]* metrics under **Available metrics**.
 
     ![View host metrics](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 
 ## Install diagnostics extension
 
+> [!IMPORTANT]
+> This document describes version 2.3 of the Linux Diagnostic Extension, which has been deprecated. Version 2.3 will be supported until June 30, 2018.
+>
+> Version 3.0 of the Linux Diagnostic Extension can be enabled instead. For more information, see [the documentation](./diagnostic-extension.md).
+
 The basic host metrics are available, but to see more granular and VM-specific metrics, you to need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure portal as follows:
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
-2. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
-3. In the *Storage account* section, browse to and select the *mydiagdata[1234]* account created in the previous section.
-4. Click the **Save** button.
+1. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
+1. In the *Storage account* section, browse to and select the *mydiagdata[1234]* account created in the previous section.
+1. Click the **Save** button.
 
     ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -133,7 +139,7 @@ The basic host metrics are available, but to see more granular and VM-specific m
 You can view the VM metrics in the same way that you viewed the host VM metrics:
 
 1. In the Azure portal, click **Resource Groups**, select **myResourceGroup**, and then select **myVM** in the resource list.
-2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics**.
+1. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics**.
 
     ![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
