@@ -38,7 +38,7 @@ For your convenience, a PowerShell script for creating a Data Lake Analytics ser
     Optionally, you can go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md) to create your account and upload data manually:
 
     1. [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-    2. [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#install-the-sample-data).
+    2. [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md).
 
 ## Connect to Azure
 **Connect to Data Lake Analytics**
