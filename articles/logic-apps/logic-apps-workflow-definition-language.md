@@ -348,7 +348,7 @@ These functions help you get information about the workflow itself at run time.
 |Function name|Description|  
 |-------------------|-----------------|  
 |listCallbackUrl|Returns a string to call to invoke the trigger or action. <p> **Note**: This function can only be used in an **httpWebhook** and **apiConnectionWebhook**, not in a **manual**, **recurrence**, **http**, or **apiConnection**. <p>For example, the `listCallbackUrl()` function returns: <p>`https://prod-01.westus.logic.azure.com:443/workflows/1235...ABCD/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxx...xxx` |  
-|workflow|This function provides you all the details for the workflow itself at the runtime. <p> Available properties on the workflow object are: <ul><li>`name`</li><li>`type`</li><li>`id`</li><li>`location`</li><li>`run`</li></ul> <p> The `run` property is an object with following properties: <ul><li>`name`</li><li>`type`</li><li>`id`</li></ul> <p>See the [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=525617) for details on those properties.<p> For example, to get the name of the current run, use the `"@workflow().run.name"` expression. |
+|workflow|This function provides you all the details for the workflow itself at the runtime. <p> Available properties on the workflow object are: <ul><li>`name`</li><li>`type`</li><li>`id`</li><li>`location`</li><li>`run`</li></ul> <p> The value of the `run` property is an object with following properties: <ul><li>`name`</li><li>`type`</li><li>`id`</li></ul> <p>See the [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=525617) for details on those properties.<p> For example, to get the name of the current run, use the `"@workflow().run.name"` expression. |
 
 ## Next steps
 
