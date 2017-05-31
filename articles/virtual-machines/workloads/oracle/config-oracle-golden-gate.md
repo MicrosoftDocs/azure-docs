@@ -445,7 +445,7 @@ To install Oracle Golden Gate, complete the following steps:
 #### 6. You may be prompt to run a script as 'root', open a separate session and ssh to the VM, sudo to root and run the script, click OK continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_05.png)
 
-#### 7. When the Installation completed, click Close to complete the installtion.
+#### 7. When the Installation completed, click Close to complete the installation.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### Service setup on myVM1 (primary)
