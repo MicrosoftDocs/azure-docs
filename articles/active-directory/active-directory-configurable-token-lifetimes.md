@@ -81,7 +81,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 ### Exceptions
 | Property | Affects | Default |
 | --- | --- | --- |
-| Refresh Token Max Inactive Time (issued for federated users who have insufficient revocation information) |Refresh tokens (issued for federated users who have insufficient revocation information) |12 hours |
+| Refresh Token Max Age (issued for federated users who have insufficient revocation information) |Refresh tokens (issued for federated users who have insufficient revocation information) |12 hours |
 | Refresh Token Max Inactive Time (issued for confidential clients) |Refresh tokens (issued for confidential clients) |90 days |
 | Refresh Token Max Age (issued for confidential clients) |Refresh tokens (issued for confidential clients) |Until-revoked |
 
