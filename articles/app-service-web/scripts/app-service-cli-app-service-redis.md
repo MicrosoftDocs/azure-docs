@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
@@ -26,7 +26,7 @@ In this scenario you will learn how to create an Azure redis cache and an Azure 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

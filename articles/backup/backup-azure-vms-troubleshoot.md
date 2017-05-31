@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/10/2017
 ms.author: trinadhk;markgal;jpallavi;
 
 ---
@@ -89,8 +89,8 @@ For Windows VMs:
 
 For Linux VMs:
 
-* Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from github.
-* [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+* Install latest from distribution repository. We **strongly recommend** installing agent only through distribution repository. For details on package name, please refer to [Linux agent repository](https://github.com/Azure/WALinuxAgent) 
+* For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed
 
 ### Updating the VM Agent
 For Windows VMs:

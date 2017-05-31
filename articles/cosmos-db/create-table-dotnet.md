@@ -1,14 +1,14 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Table API | Microsoft Docs
 description: Get started with Azure Cosmos DB's Tables API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: ''
 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -32,11 +32,11 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Add a table
 
-[!INCLUDE [cosmosdb-create-table](../../includes/cosmosdb-create-table.md)]
+[!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
 ## Add sample data
 
@@ -65,27 +65,33 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized.
+* The CloudTableClient is initialized.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* A new database is created.
+* A new table is created if it does not exist.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* A new graph container is created.
+* A new Table container is created. You will notice this code very similar to regular Azure Table storage SDK 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## Update your connection string
@@ -101,7 +107,7 @@ Now go back to the Azure portal to get your connection string information and co
 3. Copy your Azure Cosmos DB account name from the portal and make it the value of the AccountName in the PremiumStorageConnection string value in app.config. In the screenshot above, the account name is cosmos-db-quickstart. Your account name is in displayed at the top of the portal.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the AccountKey in PremiumStorageConnectionString. 
 
@@ -109,7 +115,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Finally, copy your URI value from the Keys page of the portal (using the copy button) and make it the value of the TableEndpoint of the PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     You can leave the StandardStorageConnectionString as is.
 
@@ -131,7 +137,7 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 

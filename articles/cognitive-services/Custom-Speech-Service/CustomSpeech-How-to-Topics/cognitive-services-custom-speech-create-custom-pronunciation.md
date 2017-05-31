@@ -1,5 +1,5 @@
 ---
-title: Use custom pronunciation with Custom Speech Service on Azure| Microsoft Docs
+title: Use custom pronunciation with Custom Speech Service on Azure | Microsoft Docs
 description: Learn how to create a language model with the Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
@@ -12,13 +12,13 @@ ms.date: 05/07/2017
 ms.author: panosper
 ---
 
-# Enabling custom pronunciation
-Custom pronunciation enables users to define the phonetic form and display for of a word or term. It is intended to enrich the experience of handling custom terms such as product names or acronyms. A pronunciation file is used during language modelling.
+# Enable custom pronunciation
+Custom pronunciation enables users to define the phonetic form and display of a word or term. It is particularly useful for handling customized terms, such as product names or acronyms. All you need is a pronunciation file (a simple .txt file).
 
-Pronunciation is described by users using .txt files. In a single .txt file a user can enter several custom pronunciation entries. The pronunciation file is a .txt file. The structure is as follows:
+Here's how it works. In a single .txt file, you can enter several custom pronunciation entries. The structure is as follows:
 
 ```
-Display form <Tab> Spoken Form <Newline>
+Display form <Tab> Spoken form <Newline>
 ```
 
 *Examples*:
@@ -30,17 +30,24 @@ Display form <Tab> Spoken Form <Newline>
 | L8R | late are |
 | CNTK | see n tea k|
 
-## Spoken form
-Spoken form must be lower case which can be forced during the import. In addition, we need checks in the data importer. For sure, no tab in the Display Form and Spoken Form is permitted but there might be more forbidden characters such as ~, ^... in the display form
-Each .txt file can have several such entries. The picture below shows such as .txt file
+## Requirements for the spoken form
+The spoken form must be lowercase, which can be forced during the import. In addition, you must provide checks in the data importer. No tab in either the spoken form or the display form is permitted. There might, however, be more forbidden characters in the display form (for example, ~ and ^).
 
-![try](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
+Each .txt file can have several entries. For example, see the following screenshot:
 
-## Display form
-A display form can be only a custom word, term, acronym or even compound words which are a combination of existing words. We want to avoid having customers changing the pronunciation of baseline. We will allow users to enter alternative pronunciations for common words. Some customers might misuse this feature by badly reformulating common words, or by making mistakes in the spoken form but we expect most customers will use this feature correctly. The correct usage would be the customer to run the decoder, see that some unusual words (abbreviations, technical words, foreign words...) are not correctly decoded and then add them to the custom pronunciation file.
+![Screenshot of Notepad with several entries for acronym pronunciation](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
 
-The spoken form is the phonetic sequence of the display form. It is formulated by the user using letters, words or syllables. Currently we do not have a standard of proposing to express this and guide the user in formulating the spoken form. We will provide plenty of sample to reuse. The size of the .txt file containing the pronunciation entries, is significantly limited in relation to the other data assets. We are not expecting the user to upload large amounts of data through this file. We have therefore set a limit to 1MB although we expect a lot files to be a few KBs, some maybe even less.
+The spoken form is the phonetic sequence of the display form. It is composed of letters, words, or syllables. Currently, there is no further guidance or set of standards to help you formulate the spoken form. 
+
+## Requirements for the display form
+A display form can only be a custom word, term, acronym, or compound words that combine existing words. You can also enter alternative pronunciations for common words. 
+
+>[!NOTE]
+Be careful not to misuse this feature by badly reformulating common words, or by making mistakes in the spoken form. It is better to run the decoder to see if some unusual words (such as abbreviations, technical words, and foreign words) are not correctly decoded. If they are, add them to the custom pronunciation file.
+
+## Requirements for the file size
+The size of the .txt file containing the pronunciation entries is limited to 1 MB. Typically, you won't need to upload large amounts of data through this file. Most custom pronunciation files are likely to be just a few KBs in size, and some may be even smaller than that.
 
 ## Next steps
-* Try to create your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md) to improve recognition accuracy
-* [Create a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md) which you can use from app
+* Try to create your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md) to improve recognition accuracy.
+* [Create a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md), which you can use from an app.

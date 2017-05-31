@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script-Multiregion replication for Azure Cosmos DB | Microsoft Docs
 description: Azure CLI Script Sample - Multiregion replication for Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
@@ -9,10 +9,10 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
@@ -27,7 +27,7 @@ This sample replicates any kind of Azure Cosmos DB database account in multiple 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh?highlight=21-31 "Scale Azure Cosmos DB into multiple regions")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh?highlight=21-31 "Scale Azure Cosmos DB into multiple regions")]
 
 ## Clean up deployment
 

@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script-Get account keys for Azure Cosmos DB | Microsoft Docs
 description: Azure CLI Script Sample - Get account keys for Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
@@ -9,10 +9,10 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
@@ -27,7 +27,7 @@ This sample gets account keys for any kind of Azure Cosmos DB account.
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-get-account-key/secure-cosmosdb-get-account-key.sh?highlight=22-25 "Get Azure Cosmos DB account keys")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-get-account-key/secure-cosmosdb-get-account-key.sh?highlight=22-25 "Get Azure Cosmos DB account keys")]
 
 ## Clean up deployment
 

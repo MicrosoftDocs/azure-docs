@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/25/2017
 ms.author: sdanie
 
 ---
@@ -72,8 +72,6 @@ The following FAQs cover basic concepts and questions about Azure Redis Cache an
 The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and [How to troubleshoot Azure Redis Cache](cache-how-to-troubleshoot.md).
 
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [My cache diagnostics storage account settings changed, what happened?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [Why are diagnostics enabled for some new caches but not others?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
 * [Why was my client disconnected from the cache?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -422,12 +420,6 @@ The Redis Cache **Resource menu** also contains several tools for monitoring and
 * **New support request** provides options to open a support request for your cache.
 
 These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Redis Cache](cache-configure.md).
-
-### My cache diagnostics storage account settings changed, what happened?
-Caches in the same region and subscription share diagnostics storage settings, and if the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region. If the diagnostics settings for your cache have changed, check to see if the diagnostic settings for another cache in the same subscription and region have changed. One way to check is to view the audit logs for your cache for a `Write DiagnosticSettings` event. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
-
-### Why are diagnostics enabled for some new caches but not others?
-Caches in the same region and subscription share the same diagnostics storage settings. If you create a new cache in the same region and subscription as another cache that has diagnostics enabled, diagnostics is enabled on the new cache using the same settings.
 
 <a name="cache-timeouts"></a>
 

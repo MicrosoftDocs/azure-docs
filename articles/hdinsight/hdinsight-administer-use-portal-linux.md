@@ -318,7 +318,9 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 >
 
 ## Connect to a cluster
-See [Use Hive with Hadoop in HDInsight with SSH](hdinsight-hadoop-use-hive-beeline.md#a-idsshaconnect-with-ssh).
+
+* [Use Hive with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
 In this article, you have learned how to create an HDInsight cluster by using the Portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:

@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/25/2017
 ms.author: jgao
 
 ROBOTS: NOINDEX
@@ -27,7 +27,7 @@ Using the [Azure portal][azure-portal], you can create Windows-based Hadoop clus
 The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 
 ## Prerequisites
@@ -186,7 +186,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
     The Storm web UI is available on the HDInsight cluster:
 
-    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 

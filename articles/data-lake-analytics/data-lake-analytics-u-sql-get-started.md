@@ -229,48 +229,10 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## Join data
-U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even those produced from files).
-
-The following script joins the searchlog with an advertisement impression log and gives us the advertisements for the query string for a given date.
-
-    @adlog =
-        EXTRACT UserId int,
-                Ad string,
-                Clicked int
-        FROM "/Samples/Data/AdsLog.tsv"
-        USING Extractors.Tsv();
-
-    @join =
-        SELECT a.Ad, s.Query, s.Start AS Date
-        FROM @adlog AS a JOIN <insert your DB name>.dbo.SearchLog1 AS s
-                        ON a.UserId == s.UserId
-        WHERE a.Clicked == 1;
-
-    OUTPUT @join   
-        TO "/output/Searchlog-join.csv"
-        USING Outputters.Csv();
-
-
-U-SQL supports only the ANSI-compliant join syntax: Rowset1 JOIN Rowset2 ON predicate. The old syntax of FROM Rowset1, Rowset2 WHERE predicate is _not_ supported.
-The predicate in a JOIN has to be an equality join and no expression. If you want to use an expression, add it to a previous rowset's select clause. If you want to do a different comparison, you can move it into the WHERE clause.
-
-## Conclusion
-This tutorial covers only a small part of U-SQL. Because of its limited scope, the tutorial has not discussed many other benefits of U-SQL. For example, you can:
-
-* Use CROSS APPLY to unpack parts of strings, arrays, and maps into rows.
-* Operate partitioned sets of data (file sets and partitioned tables).
-* Develop user-defined operators such as extractors, outputters, processors, and user-defined aggregators in C#.
-* Use U-SQL windowing functions.
-* Manage U-SQL code with views, table-valued functions, and stored procedures.
-* Run arbitrary custom code on your processing nodes.
-* Connect to SQL databases and federate queries across them and your U-SQL and Azure Data Lake data.
-
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Let us know what you think
 * [Submit a feature request](http://aka.ms/adlafeedback)

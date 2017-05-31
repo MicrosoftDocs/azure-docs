@@ -88,7 +88,7 @@ After clicking **Verify**, use the **Refresh** button until the **Verify** optio
 ## Step 5 - Assign Certificate to App Service App
 
 > [!NOTE]
-> Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](web-sites-custom-domain-name.md)**
+> Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](app-service-web-tutorial-custom-domain.md)**
 >
 
 In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.

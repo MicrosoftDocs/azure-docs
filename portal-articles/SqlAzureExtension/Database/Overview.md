@@ -31,6 +31,7 @@ Learn how to create, manage, and migrate databases using SQL DB.
 - [Migrate an existing SQL Server Database to use Azure SQL Database](/azure/sql-database/sql-database-migrate-your-sql-server-database)
 - [Secure your SQL Database](/azure/sql-database/sql-database-security-tutorial)
 - [Improve SQL Database performance](/azure/sql-database/sql-database-performance-tutorial)
+- [Implement a multi-tenant SaaS application using SQL DB](/azure/sql-database/sql-database-multi-tenant-application)
 
 ## Free PluralSight Video Training
 

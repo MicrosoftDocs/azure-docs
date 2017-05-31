@@ -619,6 +619,63 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AMLCalloutFailedRequests|Failed Function Requests|Count|Total|Failed Function Requests|
 |AMLCalloutInputEvents|Function Events|Count|Total|Function Events|
 
+## Microsoft.Web/serverfarms
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|CpuPercentage|CPU Percentage|Percent|Average|CPU Percentage|
+|MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|
+|DiskQueueLength|Disk Queue Length|Count|Total|Disk Queue Length|
+|HttpQueueLength|Http Queue Length|Count|Total|Http Queue Length|
+|BytesReceived|Data In|Bytes|Total|Data In|
+|BytesSent|Data Out|Bytes|Total|Data Out|
+
+## Microsoft.Web/sites (including functions)
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|CpuTime|CPU Time|Seconds|Total|CPU Time|
+|Requests|Requests|Count|Total|Requests|
+|BytesReceived|Data In|Bytes|Total|Data In|
+|BytesSent|Data Out|Bytes|Total|Data Out|
+|Http101|Http 101|Count|Total|Http 101|
+|Http2xx|Http 2xx|Count|Total|Http 2xx|
+|Http3xx|Http 3xx|Count|Total|Http 3xx|
+|Http401|Http 401|Count|Total|Http 401|
+|Http403|Http 403|Count|Total|Http 403|
+|Http404|Http 404|Count|Total|Http 404|
+|Http406|Http 406|Count|Total|Http 406|
+|Http4xx|Http 4xx|Count|Total|Http 4xx|
+|Http5xx|Http Server Errors|Count|Total|Http Server Errors|
+|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|
+|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|
+|AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|
+|FunctionExecutionUnits|Function Execution Units|Count|Average|Function Execution Units|
+|FunctionExecutionCount|Function Execution Count|Count|Average|Function Execution Count|
+
+## Microsoft.Web/sites/slots
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|CpuTime|CPU Time|Seconds|Total|CPU Time|
+|Requests|Requests|Count|Total|Requests|
+|BytesReceived|Data In|Bytes|Total|Data In|
+|BytesSent|Data Out|Bytes|Total|Data Out|
+|Http101|Http 101|Count|Total|Http 101|
+|Http2xx|Http 2xx|Count|Total|Http 2xx|
+|Http3xx|Http 3xx|Count|Total|Http 3xx|
+|Http401|Http 401|Count|Total|Http 401|
+|Http403|Http 403|Count|Total|Http 403|
+|Http404|Http 404|Count|Total|Http 404|
+|Http406|Http 406|Count|Total|Http 406|
+|Http4xx|Http 4xx|Count|Total|Http 4xx|
+|Http5xx|Http Server Errors|Count|Total|Http Server Errors|
+|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|
+|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|
+|AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|
+|FunctionExecutionUnits|Function Execution Units|Count|Average|Function Execution Units|
+|FunctionExecutionCount|Function Execution Count|Count|Average|Function Execution Count|
+
 ## Next steps
 * [Read about metrics in Azure Monitor](monitoring-overview-metrics.md)
 * [Create alerts on metrics](insights-receive-alert-notifications.md)

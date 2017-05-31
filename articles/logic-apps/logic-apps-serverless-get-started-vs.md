@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ---
 # Build a serverless app in Visual Studio with Logic Apps and Functions
 

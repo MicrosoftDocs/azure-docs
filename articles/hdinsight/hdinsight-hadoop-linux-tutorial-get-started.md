@@ -1,7 +1,7 @@
 ---
-title: 'Hadoop tutorial: Get started with Hadoop and Hive in HDInsight | Microsoft Docs'
-description: Follow this tutorial to get started using Hadoop in HDInsight. Learn how to create Linux clusters, and query data with Hive.
-keywords: hadoop getting started, hadoop linux, hadoop quick start
+title: Get started with Hadoop and Hive in Azure HDInsight | Microsoft Docs
+description: Learn how to create HDInsight clusters, and query data with Hive.
+keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -11,12 +11,12 @@ tags: azure-portal
 
 ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 05/12/2017
 ms.author: jgao
 
 ---
@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have:
 
 ## Create cluster
 
-Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). Resource Manager template is fully customizable; it makes easy to create Azure resources like HDInsight. Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). Use the selector on the top of the page to choose your cluster creation options.
+Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this section, you create a Hadoop cluster in HDInsight using an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). Resource Manager template experience is not required for following this tutorial. For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). Use the selector on the top of the page to choose your cluster creation options.
 
 The Resource Manager template used in this tutorial is located in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -42,10 +42,10 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Enter or select the following values:
    
-    ![HDInsight Linux get started Resource Manager template on portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
+    ![HDInsight Linux get started Resource Manager template on portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Deploy Hadoop cluster in HDInsigut using the Azure portal and a resource group manager template").
    
     * **Subscription**: Select your Azure subscription.
-    * **Resource group**: Create a new resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. 
+    * **Resource group**: Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. 
     * **Location**: Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. 
     * **Cluster Type**: Select **hadoop** for this tutorial.
     * **Cluster Name**: Enter a name for the Hadoop cluster.
@@ -54,22 +54,22 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
      
     Some properties have been hardcoded in the template.  You can configure these values from the template.
 
-    * **Location**: Both the location of the cluster and the dependent storage account use the same location as the resource group.
+    * **Location**: The location of the cluster and the dependent storage account share the same location as the resource group.
     * **Cluster version**: 3.5
     * **OS Type**: Linux
     * **Number of worker nodes**: 2
 
-     Each cluster has an Azure Storage account dependency. It is usually referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account. 
+     Each cluster has an Azure Storage account dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account. 
      
      For more explanation of these properties, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then click **Purchase**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. And the portal automatically opens the resource group in a new blade. You can see both the cluster and the default storage listed.
    
-    ![HDInsight Linux get started resource group](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+    ![HDInsight Linux get started resource group](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group").
 
 4. Click the cluster name to open the cluster in a new blade.
 
-   ![HDInsight Linux get started cluster settings](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+   ![HDInsight Linux get started cluster settings](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")
 
 
 ## Run Hive queries
@@ -79,7 +79,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
 3. Open **Hive View** as shown in the following screenshot:
    
-    ![Selecting Ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
+    ![Selecting Ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viwer menu").
 4. In the **Query Editor** section of the page, paste the following HiveQL statements into the worksheet:
    
         SHOW TABLES;
@@ -92,7 +92,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
    
     Once the query has finished, The **Query Process Results** section displays the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
    
-    ![HDInsight Hive views](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png).
+    ![HDInsight Hive views](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive View Query Editor").
 6. Repeat step 4 and step 5 to run the following query:
    
         SELECT * FROM hivesampletable;
@@ -117,7 +117,7 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the portal dashboard, click the tile with the resource group name you used when you created the cluster.
-3. Click **Delete** on the resource blade to delete the resource group which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade. Please note, deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
+3. Click **Delete** on the resource blade to delete the resource group, which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
 
 ## Troubleshoot
 
@@ -126,7 +126,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 ## Next steps
 In this tutorial, you have learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries.
 
-To learn more about analyzing data with HDInsight, see the following:
+To learn more about analyzing data with HDInsight, see the following articles:
 
 * To learn more about using Hive with HDInsight, including how to perform Hive queries from Visual Studio, see [Use Hive with HDInsight][hdinsight-use-hive].
 * To learn about Pig, a language used to transform data, see [Use Pig with HDInsight][hdinsight-use-pig].
@@ -142,7 +142,7 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 
 * To learn about managing your Linux-based HDInsight cluster, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
 * To learn more about the options you can select when creating an HDInsight cluster, see [Creating HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md).
-* If you are familiar with Linux, and Hadoop, but want to know specifics about Hadoop on the HDInsight, see [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md). This provides information such as:
+* If you are familiar with Linux, and Hadoop, but want to know specifics about Hadoop on the HDInsight, see [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md). This article provides information such as:
   
   * URLs for services hosted on the cluster, such as Ambari and WebHCat
   * The location of Hadoop files and examples on the local file system

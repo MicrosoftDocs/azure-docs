@@ -24,7 +24,7 @@ To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive S
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## 1. Create a new app
-You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of the [LUIS web page](https://luis.ai).
+You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of the [LUIS web page](https://www.luis.ai).
 
 1. On the **My Apps** page, click **New App**.
 2. In the dialog box, name your application "TravelAgent".

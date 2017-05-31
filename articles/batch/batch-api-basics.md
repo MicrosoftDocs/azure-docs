@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -339,18 +339,24 @@ A combined approach is typically used for handling a variable, but ongoing, load
 
 ## Pool network configuration
 
-When you create a pool of compute nodes in Azure Batch, you can use the APIs to specify the ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created.
+When you create a pool of compute nodes in Azure Batch, you can specify a subnet ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created.
 
 * The VNet must be:
 
    * In the same Azure **region** as the Azure Batch account.
    * In the same **subscription** as the Azure Batch account.
 
-* The VNet should have enough free **IP addresses** to accommodate the `targetDedicated` property of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
+* The type of VNet supported depends on how pools are being allocated for the Batch account:
+    - If the Batch account was created with its **poolAllocationMode** property set to 'BatchService', then the specified VNet must be a classic VNet.
+    - If the Batch account was created with its **poolAllocationMode** property set to 'UserSubscription', then the specified VNet may be a classic VNet or an Azure Resource Manager       VNet. Pools must be created with a virtual machine configuration in order to use a VNet. Pools created with a cloud service configuration are not supported.
+
+* If the Batch account was created with its **poolAllocationMode** property set to 'BatchService', then you must provide permissions for the Batch service principal to access the VNet. The Batch service principal, named 'Microsoft Azure Batch' or 'MicrosoftAzureBatch', must have the [Classic Virtual Machine Contributor Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) role for the specified VNet. If the specified RBAC role is not provided, the Batch service returns 400 (Bad Request).
+
+* The specified subnet should have enough free **IP addresses** to accommodate the total number of target nodes; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
 
 * The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**.
 
-* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For both Linux and Windows pools, ports 29876 and 29877 must be enabled. You can optionally enable (or selectively filter) ports 22 or 3389 for SSH on Linux pools or RDP on Windows pools, respectively.
+* If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Additionally, enable outbound connections to Azure Storage on port 443.
 
 Additional settings for the VNet depend on the pool allocation mode of the Batch account.
 
@@ -410,16 +416,24 @@ You might find it necessary to handle both task and application failures within 
 ### Task failure handling
 Task failures fall into these categories:
 
-* **Scheduling failures**
+* **Pre-processing failures**
 
-    If the transfer of files that are specified for a task fails for any reason, a *scheduling error* is set for the task.
+    If a task fails to start, a pre-processing error is set for the task.  
 
-    Scheduling errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+    Pre-processing errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+
+* **File upload failures**
+
+    If uploading files that are specified for a task fails for any reason, a file upload error is set for the task.
+
+    File upload errors can occur if the SAS supplied for accessing Azure Storage is invalid or does not provide write permissions, if the storage account is no longer available, or if another issue was encountered that prevented the successful copying of files from the node.    
+
 * **Application failures**
 
     The process that is specified by the task's command line can also fail. The process is deemed to have failed when a nonzero exit code is returned by the process that is executed by the task (see *Task exit codes* in the next section).
 
     For application failures, you can configure Batch to automatically retry the task up to a specified number of times.
+
 * **Constraint failures**
 
     You can set a constraint that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating tasks that fail to progress.
@@ -430,6 +444,7 @@ Task failures fall into these categories:
 * `stderr` and `stdout`
 
     During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As mentioned in the earlier section [Files and directories](#files-and-directories), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node. You can use the Azure portal or one of the Batch SDKs to download these files. For example, you can retrieve these and other files for troubleshooting purposes by using [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET library.
+
 * **Task exit codes**
 
     As mentioned earlier, a task is marked as failed by the Batch service if the process that is executed by the task returns a nonzero exit code. When a task executes a process, Batch populates the task's exit code property with the *return code of the process*. It is important to note that a task's exit code is **not** determined by the Batch service. A task's exit code is determined by the process itself or the operating system on which the process executed.
@@ -440,7 +455,7 @@ Tasks might occasionally fail or be interrupted. The task application itself mig
 It is also possible for an intermittent issue to cause a task to hang or take too long to execute. You can set the maximum execution interval for a task. If the maximum execution interval is exceeded, the Batch service interrupts the task application.
 
 ### Connecting to compute nodes
-You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
+You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > To connect to a node via RDP or SSH, you must first create a user on the node. To do this, you can use the Azure portal, [add a user account to a node][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or call the [add_user][py_add_user] method in the Batch Python module.

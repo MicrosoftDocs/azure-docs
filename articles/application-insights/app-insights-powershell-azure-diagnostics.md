@@ -4,7 +4,7 @@ description: Automate configuring Azure Diagnostics to pipe to Application Insig
 services: application-insights
 documentationcenter: .net
 author: sbtron
-manager: douge
+manager: carmonm
 
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Using PowerShell to set up Application Insights for an Azure web app

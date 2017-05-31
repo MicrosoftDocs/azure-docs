@@ -24,11 +24,9 @@ In Azure Functions, input and output bindings provide a declarative way to conne
 
 ![View message in the logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-It should take you less than five minutes to complete all the steps in this topic.
-
 ## Prerequisites 
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-previous-topics.md)]
+[!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 You also need to download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 

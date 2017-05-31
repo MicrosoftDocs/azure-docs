@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script-Create a failover policy for high availability | Microsoft Docs
 description: Azure CLI Script Sample - Create a failover policy for high availability 
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
@@ -9,10 +9,10 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
@@ -27,7 +27,7 @@ This sample CLI script creates an Azure Cosmos DB account, and then configures i
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh?highlight=23-27 "Create an Azure Cosmos DB failover policy")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh?highlight=23-27 "Create an Azure Cosmos DB failover policy")]
 
 ## Clean up deployment
 

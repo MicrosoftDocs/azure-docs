@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
+ms.date: 05/12/2017
 ms.author: brendal
 
 ---
@@ -28,7 +28,9 @@ The below provides a list of available images within the Azure Government Market
 ## Images - Azure Resource Manager
 |Publisher|Offer|SKU|
 | --- | --- | --- |
+| a10networks | a10-vthunder-adc | vthunder_410_byol |
 | a10networks | a10-vthunder-adc | vthunder_byol |
+| alertlogic | alert-logic-tm | 20215000100-tmpbyol |
 | avepoint | avepoint-compliance-guardian | complianceguardian_4 |
 | avepoint | docave-for-office365 | docavemgr_6_6_0 |
 | barracudanetworks | barracuda-email-security-gateway | byol |
@@ -178,6 +180,7 @@ The below provides a list of available images within the Azure Government Market
 | Canonical | UbuntuServer | 16.04-LTS |
 | Canonical | UbuntuServer | 16.04.0-LTS |
 | Canonical | UbuntuServer | 16.10 |
+| Canonical | UbuntuServer | 17.04 |
 | Canonical | UbuntuServer | 17.04-DAILY |
 | checkpoint | check-point-r77-10 | SG-BYOL |
 | checkpoint | sg2 | sg-byol2 |
@@ -195,7 +198,9 @@ The below provides a list of available images within the Azure Government Market
 | cloudera | cloudera-centos-os | 6_7 |
 | cloudera | cloudera-centos-os | 6_8 |
 | cloudera | cloudera-centos-os | 7_2 |
+| codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
 | commvault | commvault | csmav11 |
+| composable | composable | composable-govt |
 | CoreOS | CoreOS | Stable |
 | couchbase | couchbase-server-enterprise | byol |
 | couchbase | couchbase-sync-gateway-enterprise | byol |
@@ -210,6 +215,8 @@ The below provides a list of available images within the Azure Government Market
 | esri | arcgis-10-4-for-server | cloud |
 | esri | arcgis-enterprise | byol |
 | esri | arcgis-for-server | cloud |
+| eventtracker | eventtracker-siem | etlm |
+| eventtracker | eventtracker-siem | etsc |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-best-byol |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-better-byol |
 | f5-networks | f5-big-ip | f5-bigip-virtual-edition-good-byol |
@@ -226,10 +233,9 @@ The below provides a list of available images within the Azure Government Market
 | kemptech | kemp360central-byol | kemp360central-byol |
 | kemptech | vlm-azure | basic-byol |
 | kemptech | vlm-azure | freeloadmaster |
-| mapr-technologies | mapr52-base-dev | 5202 |
+| kemptech | vlm-azure | vlm-byol-lts |
 | mico | mobile-impact-platform | mipvm |
 | MicrosoftAzureSiteRecovery | Process-Server | Windows-2012-R2-Datacenter |
-| MicrosoftBizTalkServer | BizTalk-Server | 2016-PreRelease |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2016 |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2017 |
 | MicrosoftHybridCloudStorage | StorSimple | StorSimple-Garda-8000-Series |
@@ -277,6 +283,7 @@ The below provides a list of available images within the Azure Government Market
 | MicrosoftSQLServer | SQL2016SP1-WS2016 | Web |
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | SQL2017-RHEL73 | Evaluation |
 | MicrosoftVisualStudio | VisualStudio | VS-2013-Comm-VSU5-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2013-Prem-VSU5-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2013-Ult-VSU5-AzureSDK-29-WS2012R2 |
@@ -286,8 +293,10 @@ The below provides a list of available images within the Azure Government Market
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Ent-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-v151-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Comm-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-v151-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-v152-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
@@ -304,6 +313,7 @@ The below provides a list of available images within the Azure Government Market
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
 | OpenLogic | CentOS | 6.7 |
 | OpenLogic | CentOS | 6.8 |
+| OpenLogic | CentOS | 6.9 |
 | OpenLogic | CentOS | 7.2 |
 | OpenLogic | CentOS | 7.2n |
 | OpenLogic | CentOS | 7.3 |
@@ -314,6 +324,7 @@ The below provides a list of available images within the Azure Government Market
 | Oracle | Oracle-Linux | 6.8 |
 | Oracle | Oracle-Linux | 7.2 |
 | orfast-technologies | orfast-mam-1 | orasft_mam_01 |
+| paloaltonetworks | vmseries1 | byol |
 | RedHat | RHEL | 6.8 |
 | RedHat | RHEL | 6.9 |
 | RedHat | RHEL | 6.9-LVM |
@@ -347,6 +358,7 @@ The below provides a list of available images within the Azure Government Market
 | suse-byos | sles-byos | 12-sp1 |
 | talon | talon-fast | talon-azure-byol |
 | tenable | tenable-nessus-byol | serv-nes-byol-azure |
+| winmagic_securedoc_cloudvm | seccuredoc_cloudvm_5 | winmagic_securedoc_cloudvm_byol |
 
 
 
