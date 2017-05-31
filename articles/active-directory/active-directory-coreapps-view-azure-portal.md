@@ -1,5 +1,5 @@
 ---
-title: View all the enterprise apps that I can manage in Azure Active Directory preview | Microsoft Docs
+title: View all the enterprise apps that I can manage in Azure Active Directory | Microsoft Docs
 description: How to see a list of the enterprise apps that you have the permissions to manage in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
 
 ---
-# View all the enterprise apps that I can manage in Azure Active Directory preview
-You can manage your enterprise applications in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) This includes viewing the apps you can manage, assigning users or groups to an app, maintaining properties for the app such as the application name/logo, and even disabling an application so that no users can sign in to it.
+# View all the enterprise apps that I can manage in Azure Active Directory
+You can manage your enterprise applications in the Azure Active Directory (Azure AD). This includes viewing the apps you can manage, assigning users or groups to an app, maintaining properties for the app such as the application name/logo, and even disabling an application so that no users can sign in to it.
 
 ## How do I view all my apps?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.

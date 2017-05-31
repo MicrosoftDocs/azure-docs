@@ -75,7 +75,7 @@ We will start by creating the interface to act as the contract between the state
     ![Creating an interface project for your stateful service][vs-add-class-library-project]
 
 3. In order for an interface to be usable by `ServiceProxy`, it must derive from the IService interface. This interface is included in one of the Service Fabric NuGet packages. To add the package, right-click your new class library project and choose **Manage NuGet Packages**.
-4. Search for the **Microsoft.ServiceFabric.Services** package and install it.
+4. Search for the **Microsoft.ServiceFabric.Services.Remoting** package and install it.
    
     ![Adding the Services NuGet package][vs-services-nuget-package]
 
@@ -159,12 +159,13 @@ Our stateful service is now ready to receive traffic from other services. So all
 
 1. In your ASP.NET project, add a reference to the class library that contains the `ICounter` interface.
 
-2. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
+2. Add the Microsoft.ServiceFabric.Services.Remoting package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
 
 4. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
    
     ```c#
     using MyStatefulService.Interface;
+    using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...

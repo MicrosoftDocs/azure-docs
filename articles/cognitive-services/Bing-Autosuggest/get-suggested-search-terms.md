@@ -13,13 +13,13 @@ ms.date: 01/12/2017
 ms.author: scottwhi
 ---
 
-# Getting Suggested Search Query Terms
+# Getting suggested search query terms
 
 Your user experience must provide a search box where the user enters a search query term. To improve the search box experience, you'd call the Autosuggest API to get back a list of suggested queries based on the partial query string the user has entered. You'd then display the suggestions in a drop-down list. The suggested terms are based on suggested queries that other users have searched on and user intent. 
 
 You'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*. 
 
-The following example shows a request that returns the suggested query strings for *sail*. Remember to URL encode the user's partial query term when you set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference.md#query) query parameter. For example, if the user entered *sailing les*, set `q` to *sailing+les* or *sailing%20les*.
+The following example shows a request that returns the suggested query strings for *sail*. Remember to URL encode the user's partial query term when you set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) query parameter. For example, if the user entered *sailing les*, set `q` to *sailing+les* or *sailing%20les*.
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
@@ -32,7 +32,7 @@ Host: api.cognitive.microsoft.com
 
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
@@ -44,7 +44,7 @@ Host: api.cognitive.microsoft.com
 > ```  
 
 
-The response contains a list of [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference.md#searchaction) objects that contain the suggested query terms.
+The response contains a list of [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#searchaction) objects that contain the suggested query terms.
 
 ```
         {  
@@ -64,12 +64,12 @@ The following shows an example of drop-down search box with suggested query term
 If the user selects a suggested query from the drop-down list, you'd use the query term in the `query` field to call the [Bing Search API](../bing-web-search/search-the-web.md) and display the results yourself. Or, you could use the URL in the `url` field to send the user to the Bing search results page instead.  
   
 
-## Throttling Requests
+## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## Next Steps
+## Next steps
 
 To get started quickly with your first request, see [Making Your First Query](./quick-start.md).
 

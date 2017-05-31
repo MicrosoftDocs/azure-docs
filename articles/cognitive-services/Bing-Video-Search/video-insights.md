@@ -13,11 +13,11 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Get Insights about a Video
+# Get insights about a video
 
 Each video includes a video ID that you can use to get more information about the video, such as related videos.  
   
-To get insights about a video, capture its [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#video-videoid) token in the response. 
+To get insights about a video, capture its [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video-videoid) token in the response. 
 
 ```
     "value" : [
@@ -32,7 +32,7 @@ To get insights about a video, capture its [videoId](https://docs.microsoft.com/
     ],
 ```
 
-Next, send the following GET request to the Video Details endpoint. Set the [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#id) query parameter to the `videoId` token. To specify the insights that you want to get, set the [modulesRequested](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#modulesrequested query parameter. To get all insights, set `modulesRequested` to All. The response includes all insights that you requested, if available.
+Next, send the following GET request to the Video Details endpoint. Set the [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#id) query parameter to the `videoId` token. To specify the insights that you want to get, set the [modulesRequested](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#modulesrequested) query parameter. To get all insights, set `modulesRequested` to All. The response includes all insights that you requested, if available.
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v5.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modulesRequested=All&mkt=en-us HTTP/1.1  
@@ -45,9 +45,9 @@ Host: api.cognitive.microsoft.com
 ``` 
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
-> To get all video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v7-reference.md#modulesrequested) query parameter to All.
+> To get all video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter to All.
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -58,9 +58,9 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-## Getting Related Videos Insights  
+## Getting related videos insights  
 
-To get videos that are related to the specified video, set the [modulesRequested](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#modulesrequested) query parameter to RelatedVideos.
+To get videos that are related to the specified video, set the [modulesRequested](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#modulesrequested) query parameter to RelatedVideos.
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modulesRequested=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -72,7 +72,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
   
-The following is the response to the previous request. The top-level object is a [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#videodetails) object instead of a [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference.md#videos) object.  
+The following is the response to the previous request. The top-level object is a [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videodetails) object instead of a [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videos) object.  
   
 ```  
 {
@@ -105,9 +105,9 @@ The following is the response to the previous request. The top-level object is a
 ```
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
-> To get related video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-image-api-v7-reference.md#modulesrequested) query parameter to RelatedVideos.
+> To get related video insights, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter to RelatedVideos.
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
@@ -120,7 +120,7 @@ The following is the response to the previous request. The top-level object is a
 >
 > The following shows the response to the previous query. Things to note:
 >
-> - Added a level of indirection to `relatedVideos`. The field's data type in v5 was an array of `Video` objects. In v7, it is a [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference.md#videosmodule) object that contains a `value` field whose type is an array of `Video` objects.  
+> - Added a level of indirection to `relatedVideos`. The field's data type in v5 was an array of `Video` objects. In v7, it is a [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) object that contains a `value` field whose type is an array of `Video` objects.  
 >
 >```
 >{

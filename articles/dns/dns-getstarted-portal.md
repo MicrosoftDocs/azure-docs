@@ -43,7 +43,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
    | **Setting** | **Value** | **Details** |
    |---|---|---|
    |**Name**|contoso.com|The name of the DNS zone|
-   |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
+   |**Subscription**|[Your subscription]|Select a subscription to create the DNS zone in.|
    |**Resource group**|**Create new:** contosoDNSRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
    |**Location**|West US||
 
@@ -66,7 +66,7 @@ The following example walks you through the process of creating new 'A' record. 
    |**Type**|A| Type of DNS record to create, acceptable values are A, AAAA, CNAME, MX, NS, SRV, TXT, and PTR.  For more information about record types, visit [Overview of DNS zones and records](dns-zones-records.md)|
    |**TTL**|1|Time-to-live of the DNS request.|
    |**TTL unit**|Hours|Measurement of time for TTL value.|
-   |**IP address**|{ipAddressValue| This value is the IP address that the DNS record resolves.|
+   |**IP address**|ipAddressValue| This value is the IP address that the DNS record resolves.|
 
 ## View records
 

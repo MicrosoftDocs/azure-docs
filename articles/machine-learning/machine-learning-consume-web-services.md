@@ -146,7 +146,7 @@ Similarly, the following sample shows the API response for the service.
             ],
             "ColumnTypes": [
               "Numeric"
-            ].
+            ],
           "Values": [
             [
               "0"
@@ -155,10 +155,11 @@ Similarly, the following sample shows the API response for the service.
               "1"
             ]
           ]
-        }
-      },
+         }
+       },
       "GlobalParameters": {}
-    }
+     }
+   }
 
 The following is the code sample for the C# implementation. For a Classic Web service, you can find code samples at the bottom of the **API help page** or at the bottom of the **Consume** page. For a New Web service, you can find code samples at the bottom of the **Consume** page.
 

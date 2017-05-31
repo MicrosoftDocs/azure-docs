@@ -19,16 +19,19 @@ Azure SQL Database is a relational database-as-a service using the Microsoft SQL
 
 Learn how to create a SQL Database, manage it using SQL Management Studio, and develop with it in C#, Java, Python, Node.js, and Ruby:
 
-- [Azure CLI](/azure/sql-database/sql-database-get-started-cli)
 - [Azure Portal](/azure/sql-database/sql-database-get-started-portal)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
+- [Azure CLI](/azure/sql-database/sql-database-get-started-cli)
 
 ## Step-by-Step Tutorials
 
-Learn how to create, manage, and migrate databases using SQL DB
+Learn how to create, manage, and migrate databases using SQL DB.
 
 - [Create and design the schema for a new SQL Database](/azure/sql-database/sql-database-design-first-database)
 - [Migrate an existing SQL Server Database to use Azure SQL Database](/azure/sql-database/sql-database-migrate-your-sql-server-database)
+- [Secure your SQL Database](/azure/sql-database/sql-database-security-tutorial)
+- [Improve SQL Database performance](/azure/sql-database/sql-database-performance-tutorial)
+- [Implement a multi-tenant SaaS application using SQL DB](/azure/sql-database/sql-database-multi-tenant-application)
 
 ## Free PluralSight Video Training
 
