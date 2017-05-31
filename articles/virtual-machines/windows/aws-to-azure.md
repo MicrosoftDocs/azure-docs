@@ -63,10 +63,9 @@ Export the EC2 instance to a VHD in an Amazon S3 bucket. Follow the steps descri
 
 The exported VHD file is saved in the Amazon S3 bucket you designate during that process. Replace the test in <brackets> with your information.
 
-    ```
-	aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft '
-	--export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
-	```
+```
+aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
+```
 
 Download the VHD file from the S3 bucket. Select the VHD file, then select **Actions** > **Download**.
 
