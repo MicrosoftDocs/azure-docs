@@ -165,9 +165,9 @@ In addition, a Consumption plan requires two additional settings in the site con
 
 <a name="app-service-plan"></a> 
 
-## Deploy Function App on App Service Plan
+## Deploy Functions app on the App Service plan
 
-In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, and Premium SKUs, similar to Web Apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+In the App Service plan, your Functions app runs on dedicated VMs on Basic, Standard, and Premium SKUs, similar to web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 For a sample Azure Resource Manager template, see [Function App on App Service Plan].
 
@@ -189,14 +189,14 @@ For a sample Azure Resource Manager template, see [Function App on App Service P
 }
 ```
 
-### Create Function App 
+### Create a Functions app 
 
-After you've selected a scaling option, create a Function App. The app is the container that holds all your functions.
+After you've selected a scaling option, create a Functions app. The app is the container that holds all your functions.
 
-A Function App has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource and use a different [deployment option](functions-continuous-deployment.md) instead.
+A Functions app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource, and use a different [deployment option](functions-continuous-deployment.md) instead.
 
 > [!IMPORTANT]
-> To successfully deploy your application using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied using **siteConfig**. It's important to set these configurations at a top level because they convey information to the Azure Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your Function App must be deployed *before* **config/appSettings** is applied. For example, when using functions with [Logic Apps](../logic-apps/index.md), your functions are a dependency of another resource.
+> To successfully deploy your application using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied using **siteConfig**. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your Function app must be deployed *before* **config/appSettings** is applied. For example, when you are using functions with [Logic Apps](../logic-apps/index.md), your functions are a dependency of another resource.
 
 ```json
 {
@@ -251,9 +251,11 @@ A Function App has many child resources that you can use in your deployment, inc
 }
 ```
 > [!TIP]
-> This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions Deployment Engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you are not deploying from source control, you can remove this app settings value.
+> This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions deployment engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you are not deploying from source control, you can remove this app settings value.
 
 ## Deploy your template
+
+You can use any of the following ways to deploy your template:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
@@ -287,4 +289,4 @@ Learn more about how to develop and configure Azure Functions.
 <!-- LINKS -->
 
 [Function App on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Function App on App Service Plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Function App on App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
