@@ -9,7 +9,7 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 05/31/2017
 ms.author: bruceper
 
 ---
@@ -24,10 +24,19 @@ Key Vault allows you to securely access sensitive information from within your a
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
 
+## Public Preview - May 31, 2017
+
+>[!NOTE]
+>For this update of Azure Key Vault only the **Storage Account Keys** feature is in preview.
+
+This preview includes our new Storage Account Keys feature, available through these interfaces; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+
+For more information on the new Storage Account Keys feature, see [Azure Key Vault storage account keys overview](key-vault-ovw-storage-keys.md).
+
 ## Public Preview - May 10, 2017
 
 >[!NOTE]
->For this preview version of Azure Key Vault only the **soft-delete** feature is in preview. Azure Key Vault, as a whole, is a full production service.
+>For this update of Azure Key Vault only the **soft-delete** feature is in preview.
 
 This preview includes our new soft-delete feature, recoverable deletion of Key Vaults and Key Vault objects,  and updated interfaces for developers; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) and [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
 
@@ -132,5 +141,4 @@ These articles are about other scenarios and services that use or integrate with
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) provides **IKey** and **IKeyResolver** interfaces for locating keys from identifiers and performing operations with keys.
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) provides extended capabilities for Azure Key Vault.
 
-## Other Key Vault resources
 
