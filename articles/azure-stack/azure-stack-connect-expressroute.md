@@ -187,7 +187,7 @@ Repeat the previous steps from **Create the virtual network and VM subnet** thro
 
 ### Configure the NAT virtual machine for gateway traversal
 > [!IMPORTANT]
-> This section is for Azure Stack POC deployments only
+> This section is for Azure Stack POC deployments only. The NAT is not needed for multi-node deployments.
 
 Because the POC is designed to be self-contained and isolated from the
 network on which the physical host is deployed, the “External” VIP network
