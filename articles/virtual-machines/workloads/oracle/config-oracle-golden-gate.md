@@ -31,19 +31,19 @@ To perform the Oracle Golden Gate install, you need to create two Azure VMs on t
 
 You are familiar with Unix editor vi and basic understanding of x11 (X Windows)
 
->
+
 > The following is a summary of the environment configuration:
 > 
 > |  | **Primary site** | **Replicate site** |
 > | --- | --- | --- |
-> | **Oracle Release** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
-> | **Machine Name** |myVM1 |myVM2 |
-> | **Operating System** |Oracle Linux 6.x |Oracle Linux 6.x |
+> | **Oracle release** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
+> | **Machine name** |myVM1 |myVM2 |
+> | **Operating system** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
-> | **Replication Schema** |TEST|TEST |
-> | **Golden Gate Owner/Replicate** |C##GGADMIN |REPUSER |
-> | **Golden Gate Process** |EXTORA |REPORA|
-> 
+> | **Replication schema** |TEST|TEST |
+> | **Golden Gate owner/replicate** |C##GGADMIN |REPUSER |
+> | **Golden Gate process** |EXTORA |REPORA|
+
 
 ### Log in to Azure 
 
@@ -173,7 +173,7 @@ Use the following command to create an SSH session with the virtual machine. Rep
 ssh <publicIpAddress>
 ```
 
-### Create Database on myVM1 (Primary)
+### Create database on myVM1 (Primary)
 
 The Oracle software is already installed on the Marketplace image, so the next step is to install the database. the first step is running as the 'oracle' superuser.
 
@@ -260,7 +260,7 @@ $ lsnrctl start
 ```
 ### Create Database on myVM2 (replicate)
 
-``bash
+```bash
 sudo su - oracle
 ```
 create the database:
@@ -309,9 +309,9 @@ $ sudo su - oracle
 $ lsnrctl start
 ```
 
-## Golden Gate Configurations
+## Golden Gate configurations
 
-### Enable Archive log mode on myVM1 (primary)
+### Enable archive log mode on myVM1 (primary)
 
 ```bash
 $ sqlplus / as sysdba
@@ -341,24 +341,24 @@ SQL> EXIT;
 ### Download Golden Gate software
 To download and prepare the Oracle Golden Gate software, complete the following steps:
 
-1.  Download fbo_ggs_Linux_x64_shiphome.zip file from the [Oracle Golden Gate download page](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). 
+#### 1.  Download fbo_ggs_Linux_x64_shiphome.zip file from the [Oracle Golden Gate download page](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). 
 
   Under the download title **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, there should be a zip files to download.
 
-2.  After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM.
+#### 2.  After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM.
 
     ```bash
     scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
     ```
 
-3.  Move the .zip files to the /opt folder. Then, change the owner of the files:
+#### 3.  Move the .zip files to the /opt folder. Then, change the owner of the files:
 
     ```bash
     $ sudo su -
     # mv <folder>/*.zip /opt
     ```
 
-4.  Unzip the files (install the Linux unzip utility if it's not already installed):
+#### 4.  Unzip the files (install the Linux unzip utility if it's not already installed):
 
     ```bash
     # yum install unzip
@@ -366,34 +366,32 @@ To download and prepare the Oracle Golden Gate software, complete the following 
     # unzip fbo_ggs_Linux_x64_shiphome.zip
     ```
 
-5.  Change permission:
+#### 5.  Change permission:
 
     ```bash
     # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
     ```
 
 ### Prepare the client and VM to run X11 (for Windows clients only)
-This step is optioanl if you are using a Linux client or already have X11 setup.
+This is an optional step, You can skip this step if you are using a Linux client or already have X11 setup. 
 
-To prepare the client and VM to run X11, complete the following steps: 
-
-1.  Download PuTTY and Xming to your Windows computer:
+#### 1.  Download PuTTY and Xming to your Windows computer:
 
   * [Download PuTTY](http://www.putty.org/)
   * [Download Xming](https://xming.en.softonic.com/)
 
-2.  After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe (PuTTY Key Generator).
+#### 2.  After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe (PuTTY Key Generator).
 
-3.  In PuTTY Key Generator:
+#### 3.  In PuTTY Key Generator:
 
-  3.1.  To generate a key, select the **Generate** button. 
-  3.2.  Copy the contents of the key (Ctrl+C).
-  3.3.  Select the **Save private key** button. 
-  3.4.  Ignore the warning that appears, and then select **OK**.
+- To generate a key, select the **Generate** button.
+- Copy the contents of the key (Ctrl+C).
+- Select the **Save private key** button.
+- Ignore the warning that appears, and then select **OK**.
 
   ![Screenshot of the PuTTY key generator page](./media/oracle-golden-gate/puttykeygen.png)
 
-4.  In your VM, run these commands:
+#### 4.  In your VM, run these commands:
 
   ```bash
   # sudo su - oracle
@@ -401,21 +399,21 @@ To prepare the client and VM to run X11, complete the following steps:
   $ cd .ssh
   ```
 
-5.  Create a file named authorized_keys. Paste the contents of the key in this file, and then save the file.
+#### 5.  Create a file named authorized_keys. Paste the contents of the key in this file, and then save the file.
 
   > [!NOTE]
   > The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
   >  
 
-6.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
+#### 6.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
 
   ![Screenshot of the Set Private Key page](./media/oracle-golden-gate/setprivatekey.png)
 
-7.  In the **Category** pane, go to **Connection** > **SSH** > **X11**. Select the **Enable X11 forwarding** box.
+#### 7.  In the **Category** pane, go to **Connection** > **SSH** > **X11**. Select the **Enable X11 forwarding** box.
 
   ![Screenshot of the Enable X11 page](./media/oracle-golden-gate/enablex11.png)
 
-8. In the **Category** pane, go to **Session**. Enter the host information, and then select **Open**.
+#### 8. In the **Category** pane, go to **Session**. Enter the host information, and then select **Open**.
 
   ![Screenshot of the Session page](./media/oracle-golden-gate/puttysession.png)
 
@@ -423,31 +421,36 @@ To prepare the client and VM to run X11, complete the following steps:
 
 To install Oracle Golden Gate, complete the following steps:
 
-1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) 
+#### 1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) 
 
   > [!NOTE]
   > Make sure that Xming is running before you begin the installation.
-
+  >
     ```bash
     $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
     $ ./runInstaller
     ```
-Select 'Oracle GoldenGte for Oracle Database 12c', click Next to continue.
+#### 2. Select 'Oracle GoldenGte for Oracle Database 12c', click Next to continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_01.png)
-Change the Software location and check the 'Start Manager' box, enter the Database location., Click Next to continue.
+
+#### 3. Change the Software location and check the 'Start Manager' box, enter the Database location., Click Next to continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_02.png)
-Change the Inventory Directory, click next to continue.
+
+#### 4. Change the Inventory Directory, click next to continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_03.png)
-On Summary screen, Click Install to continue.
+
+#### 5. On Summary screen, Click Install to continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_04.png)
-You may be prompt to run a script as 'root', open a separate session and ssh to the VM, sudo to root and run the script, click OK continue.
+
+#### 6. You may be prompt to run a script as 'root', open a separate session and ssh to the VM, sudo to root and run the script, click OK continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_05.png)
-When the Installion completed, click Close to complete the installtion.
+
+#### 7. When the Installation completed, click Close to complete the installtion.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### Service setup on myVM1 (primary)
 
-1. Create or update tnsnames.ora file
+#### 1. Create or update tnsnames.ora file
 
 ```bash
 $ cd $ORACLE_HOME/network/admin
@@ -480,11 +483,11 @@ pdb1=
   )
 ```
 
-2. Create Golden Gate owner and user accounts
+#### 2. Create Golden Gate owner and user accounts
 
-2.1 Create Golden Gate owner account
-
-Note: owner account must have c## prefix
+> [!NOTE]
+> Owner account must have c## prefix.
+>
 
 ```bash
 $ sqlplus / as sysdba
@@ -496,7 +499,7 @@ SQL> ALTER SESSION SET CONTAINER=PDB1;
 SQL> EXIT;
 ```
 
-2.2 Create Golden Gate test user account
+Create Golden Gate test user account
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -510,7 +513,7 @@ SQL> @demo_ora_insert
 SQL> EXIT;
 ```
 
-3. Configuring the Extract Parameter File
+#### 3. Configuring the Extract Parameter File
 
  Start the Golden gate Command Line Interface (ggsci)
 
@@ -540,7 +543,7 @@ UPDATERECORDFORMAT COMPACT
 TABLE pdb1.test.TCUSTMER;
 TABLE pdb1.test.TCUSTORD;
 ```
-4. Registering Extract – Integrated Extract
+#### 4. Registering Extract – Integrated Extract
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -555,7 +558,7 @@ GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
 GGSCI> exit
 ```
-5. Setting up Extract Checkpoints and Start Real-time Extract
+#### 5. Setting up Extract Checkpoints and Start Real-time Extract
 
 ```bash
 $ ./ggsci
@@ -610,7 +613,7 @@ GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
 ### Service setup on myVM2 (replicate)
 
 
-1. Create or update tnsnames.ora file
+#### 1. Create or update tnsnames.ora file
 
 ```bash
 $ cd $ORACLE_HOME/network/admin
@@ -643,7 +646,7 @@ pdb1=
   )
 ```
 
-2. Create replicate account
+#### 2. Create replicate account
 
 ```bash
 $ sqlplus / as sysdba
@@ -655,7 +658,7 @@ SQL> connect repuser/rep_pass@pdb1
 SQL> EXIT;
 ```
 
-3. Create Golden Gate test user account
+#### 3. Create Golden Gate test user account
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -668,7 +671,7 @@ SQL> @demo_ora_create
 SQL> EXIT;
 ```
 
-4. REPLICAT parameter file to replicate changes 
+#### 4. REPLICAT parameter file to replicate changes 
 -- for TCUSTORD and TCUSTMER
 
 ```bash
@@ -689,7 +692,7 @@ USERID repuser@pdb1, PASSWORD rep_pass
 MAP pdb1.test.*, TARGET pdb1.test.*;
 ```
 
-5. Setting up a Replicat Checkpoint
+#### 5. Setting up a Replicat Checkpoint
 ```bash
 GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
 GGSCI> EDIT PARAMS INITREP
@@ -709,7 +712,7 @@ GGSCI> ADD REPLICAT INITREP, SPECIALRUN
 ```
 ### Setting up the replication (myVM1 and myVM2)
 
-1. On myVM2 (replicate)
+#### 1. On myVM2 (replicate)
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -730,7 +733,7 @@ GGSCI> START MGR
 GGSCI> EXIT
 ```
 
-2. On myVM1 (primary)
+#### 2. On myVM1 (primary)
 
 Start the Initial Load and check for errors
 
@@ -740,7 +743,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-3. On myVM2 (replicate)
+#### 3. On myVM2 (replicate)
 
 Change the SCN number with the number you obtained before
 
@@ -752,9 +755,9 @@ START REPLICAT REPORA, AFTERCSN 1857887
 The replication have began, you can test it by inserting new records to TEST tables.
 
 
-### View job status and Troubleshooting
+### View job status and troubleshooting
 
-1. View reports
+#### 1. View reports
 On myVM1, run the followings
 ```bash
 GGSCI> VIEW REPORT EXTORA 
@@ -765,7 +768,7 @@ On myVM2, run the followings
 GGSCI> VIEW REPORT REPORA
 ```
 
-2. View status and history
+#### 2. View status and history
 
 On myVM1, run the followings
 ```bash
