@@ -56,7 +56,7 @@ Sources in BizTalk Services are limited to FTP, SFTP, and Service Bus Queue or T
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
-Each bridge has an HTTP endpoint by default, which is configured with the Runtime Address and the Relative Address properties of the bridge. To achieve the same with Logic Apps, use the [Request and Response](../connectors/connectors-native-http.md) actions.
+Each bridge has an HTTP endpoint by default, which is configured with the Runtime Address and the Relative Address properties of the bridge. To achieve the same with Logic Apps, use the [Request and Response](../connectors/connectors-native-reqres.md) actions.
 
 ## XML processing and bridges
 A bridge in BizTalk Services is analogous to a processing pipeline. A bridge can take data received from a connector, and do some work with the data, and then send it to another system. Logic Apps does the same by supporting the same pipeline-based interaction patterns as BizTalk Services, and also provides a number of other integration patterns. The [XML Request-Reply Bridge](https://msdn.microsoft.com/library/azure/hh689781.aspx) in BizTalk Services is known as a VETER pipeline consisting of stages that can:
