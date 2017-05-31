@@ -423,10 +423,8 @@ To install Oracle Golden Gate, complete the following steps:
 
 #### 1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) 
 
-> [!NOTE]
-> Make sure that Xming is running before you begin the installation.
->
-  
+Make sure that Xming is running before you begin the installation.
+ 
 ```bash
 $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
 $ ./runInstaller
