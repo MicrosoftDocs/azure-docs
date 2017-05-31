@@ -22,7 +22,7 @@ ms.author: valthom; ladocs
 
 Microsoft Connector for MQ sends and retrieves messages stored in an MQ Server on-premises, or in Azure. This connector includes a Microsoft MQ client that communicates with a remote MQ server across a TCP/IP network. This document is a starter guide to use the MQ connector. We recommended you begin by browsing a single message on a queue, and then trying the other actions.    
 
-oThe MQ connector includes the following actions. There are no triggers.
+The MQ connector includes the following actions. There are no triggers.
 
 -	Browse a single message without deleting the message from the IBM MQ Server
 -	Browse a batch of messages without deleting the messages from the IBM MQ Server
@@ -33,7 +33,11 @@ oThe MQ connector includes the following actions. There are no triggers.
 ## Prerequisites
 
 * If using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. If the MQ Server is publicly available, or available within Azure, then the data gateway is not used or required.
-* Use a supported IBM WebSphere MQ version: 
+> [!NOTE]
+> The server where the On-Premises Data Gateway is installed must also have .Net Framework 4.6 installed for the MQ Connector to function.
+* Officially supported IBM WebSphere MQ versions:
+   * MQ 7.5
+   * MQ 8.0
 
 ## Create a logic app
 
