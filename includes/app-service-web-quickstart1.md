@@ -46,17 +46,17 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Create a Web App
 
-Create a [web app](app-service-web-overview.md) in the `quickStartPlan` App Service plan with the [az appservice web create](/cli/azure/appservice/web#create) command. 
+Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `quickStartPlan` App Service plan with the [az appservice web create](/cli/azure/appservice/web#create) command. 
 
 The web app provides a hosting space for your code and provides a URL to view the deployed app.
 
-In the following command, replace *\<app_name>* with a unique name. If `<app_name>` is not unique, you get the error message "Website with given name <app_name> already exists." The default URL of the web app will be `https://<app_name>.azurewebsites.net`. 
+In the following command, replace *\<app_name>* with a unique name. If `<app_name>` is not unique, you get the error message "Website with given name <app_name> already exists." The default URL of the web app is `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-When the Web App has been created, the Azure CLI shows information similar to the following example:
+When the web app has been created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
