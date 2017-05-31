@@ -81,7 +81,7 @@ The below support is applicable for any workload running on the mentioned OS.
 
 ## Region support
 
-You can replicate VMs between any two regions within the below geographic clusters.
+You can replicate and recover VMs between any two regions within the same geographic cluster.
 
 **Geographic cluster** | **Azure regions**
 -- | --
@@ -92,7 +92,7 @@ Australia	| Australia East, Australia Southeast
 
 >[!NOTE]
 >
-> For Brazil South, you can only replicate and failover to one of South Central US, West Central US, East US, East US 2, West US, West US 2 and North Central US and fail back.
+> For Brazil South region, you can only replicate and failover to one of South Central US, West Central US, East US, East US 2, West US, West US 2 and North Central US regions and fail back.
 
 
 ## Support for Compute configuration
