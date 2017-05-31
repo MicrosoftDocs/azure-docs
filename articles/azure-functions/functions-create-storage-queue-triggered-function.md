@@ -44,7 +44,7 @@ Next, you create a function in the new function app.
 
 ## Create a Queue triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, you must first select **Custom function**. This displays the complete set of function templates.
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
 
     ![Functions quickstart page in the Azure portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
