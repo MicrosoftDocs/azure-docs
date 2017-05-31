@@ -76,7 +76,7 @@ On your Windows computer, open a new PowerShell window as **Administrator** and 
 
     New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
 
-In the preceding sample, replace 'contoso100.com' with the DNS domain name of your Azure AD Domain Services managed domain.
+In the preceding sample, replace '*.contoso100.com' with the DNS domain name of your Azure AD Domain Services managed domain (so for example if you created a DNS domain name for AD Domain Services called 'contoso100.onmicrosoft.com' you will want to replace '*.contoso100.com' in the above script with '*.conotoso100.onmicrosoft.com').
 
 ![Select Azure AD Directory](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 
