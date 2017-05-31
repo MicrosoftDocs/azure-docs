@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: glenga
-
+ms.custom: mvc
 ---
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
 ## Overview
