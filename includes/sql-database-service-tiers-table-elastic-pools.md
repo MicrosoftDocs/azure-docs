@@ -7,7 +7,7 @@ sql-database-service-tiers.md
  
 ### Basic elastic pool limits
 
-| Pool size (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** ***|
+| Pool size (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Max data storage per pool* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
 | Max In-Memory OLTP storage per pool | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
@@ -97,7 +97,8 @@ sql-database-service-tiers.md
 
 > [!IMPORTANT]
 >\* Pooled databases share pool storage, so data storage in an elastic pool is limited to the smaller of the remaining pool storage or max storage per database. 
->>
+>
+>
 >\*\* Min/max eDTUs per database starting at 200 eDTUs and higher is in public preview.
 >
 >\*\*\* The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher max data storage size per pool, this size must be explicitly selected using the Azure portal or [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). Premium pools with more than 750 GB of storage is currently in public preview in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The max storage per pool for all other regions is currently limited to 750 GB.
