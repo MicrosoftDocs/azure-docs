@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Create a VM with a virtual hard disk
