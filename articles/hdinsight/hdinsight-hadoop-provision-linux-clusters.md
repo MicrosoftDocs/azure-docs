@@ -1,6 +1,7 @@
 ---
 title: Create Hadoop, HBase, Kafka, Storm or Spark cluster in Azure HDInsight | Microsoft Docs
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight by using a browser, the Azure CLI, Azure PowerShell, REST, or an SDK.
+keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, hbase cluster setup, storm cluster setup, what is cluster in hadoop
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -172,22 +173,35 @@ You can add storage accounts when you create an HDInsight cluster or after a clu
 For more information about secondary Azure Storage account, see [Using Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake Storage, see [Create HDInsight clusters with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
-#### <a name="use-hiveoozie-metastore"></a>Hive/Oozie metastore
+#### <a name="use-hiveoozie-metastore"></a>Hive metastore
+
 We recommend that you use a custom metastore if you want to retain your Hive tables after you delete your HDInsight cluster. You will be able to attach that metastore to another HDInsight cluster.
 
 > [!IMPORTANT]
 > An HDInsight metastore that is created for one HDInsight cluster version cannot be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
 
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you retain your Hive and Oozie metadata, so you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. When you create a Hive table in an HDInsight cluster with a Hive metastore configured, those tables will be retained when you re-create the cluster by using the same Hive metastore.
+The metastore contains Hive metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you retain your Hive metadata, so you don't need to re-create Hive tables when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. When you create a Hive table in an HDInsight cluster with a Hive metastore configured, those tables will be retained when you re-create the cluster by using the same Hive metastore.
 
-Metastore configuration is not available for HBase cluster types.
+Metastore configuration is not available for all cluster types. For example, it is not available for HBase or Kafka clusters.
 
 > [!IMPORTANT]
-> When you create a custom metastore, do not use a database name that contains dashes or hyphens. This can cause the cluster creation process to fail.
->
->
+> When you create a custom metastore, do not use a database name that contains dashes, hyphens, or spaces. This can cause the cluster creation process to fail.
+
+> [!WARNING]
+> Azure SQL Warehouse is not supported for the Hive metastore.
+
+
+#### Oozie metastore
+
+To increase performance when using Oozie, use a custom metastore. A custom metastore is also useful if you want access to Oozie job data after you have deleted your cluster. If you do not plan on using Oozie, or only use Oozie intermittently, you do not need to create a custom metastore.
+
+> [!IMPORTANT]
+> You cannot reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.
+
+Metastore configuration is not available for all cluster types. For example, it is not available for HBase or Kafka clusters.
+
+> [!WARNING]
+> Azure SQL Warehouse is not supported for the Oozie metastore.
 
 ## Install HDInsight applications
 

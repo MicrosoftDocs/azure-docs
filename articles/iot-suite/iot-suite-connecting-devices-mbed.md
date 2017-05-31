@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2017
+ms.date: 05/18/2017
 ms.author: dobett
 
 ---
@@ -74,7 +74,7 @@ Follow these steps to add some sample code to an mbed project. You import the re
 
 1. Open the remote\_monitoring\remote_monitoring.c file and replace the existing `#include` statements with the following code:
 
-    ```
+    ```c
     #include "iothubtransportmqtt.h"
     #include "schemalib.h"
     #include "iothub_client.h"
@@ -98,7 +98,7 @@ Add code to invoke the **remote\_monitoring\_run** function and then build and r
 
 1. Add a **main** function with following code at the end of the remote\_monitoring.c file to invoke the **remote\_monitoring\_run** function:
    
-    ```
+    ```c
     int main()
     {
       remote_monitoring_run();

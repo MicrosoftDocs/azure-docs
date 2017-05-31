@@ -390,7 +390,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-management-portal]: https://portal.azure.com
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 [lnk-portal]: iot-hub-create-through-portal.md
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
@@ -431,4 +431,4 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions

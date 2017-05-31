@@ -1,15 +1,15 @@
 ---
-title: Modeling data in Azure DocumentDB | Microsoft Docs
-description: Learn about modeling data for DocumentDB, a NoSQL document database.
+title: Modeling data in Azure Cosmos DB | Microsoft Docs
+description: Learn about modeling data for Azure Cosmos DB, a globally distributed, multi-model database.
 keywords: modeling data
-services: documentdb
+services: cosmosdb
 author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: ''
 
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,8 +18,8 @@ ms.date: 01/03/2016
 ms.author: arramac
 
 ---
-# Modeling data in DocumentDB
-While schema-free databases, like Azure DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
+# Modeling data in Azure Cosmos DB
+While schema-free databases, like Azure Cosmos DB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
 
 How is data going to be stored? How is your application going to retrieve and query data? Is your application read heavy, or write heavy? 
 
@@ -32,7 +32,7 @@ After reading this article, you will be able to answer the following questions:
 * When do I embed data and when do I link to data?
 
 ## Embedding data
-When you start modeling data in a document store, such as DocumentDB, try to treat your entities as **self-contained documents** represented in JSON.
+When you start modeling data in a document store, such as Azure Cosmos DB, try to treat your entities as **self-contained documents** represented in JSON.
 
 Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with. The following example shows how a person might be stored in a relational database. 
 
@@ -181,7 +181,7 @@ Stock *zaza* may be traded many hundreds of times in a single day and thousands 
 ## <a id="Refer"></a>Referencing data
 So, embedding data works nicely for many cases but it is clear that there are scenarios when denormalizing your data will cause more problems than it is worth. So what do we do now? 
 
-Relational databases are not the only place where you can create relationships between entities. In a document database you can have information in one document that actually relates to data in other documents. Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in DocumentDB, or any other document database, but simple relationships are fine and can be very useful. 
+Relational databases are not the only place where you can create relationships between entities. In a document database you can have information in one document that actually relates to data in other documents. Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be very useful. 
 
 In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it. This way, when the stock item changes frequently throughout the day the only document that needs to be updated is the single stock document. 
 
@@ -227,7 +227,7 @@ An immediate downside to this approach though is if your application is required
 > 
 
 ### What about foreign keys?
-Because there is currently no concept of a constraint, foreign-key or otherwise, any inter-document relationships that you have in documents are effectively "weak links" and will not be verified by the database itself. If you want to ensure that the data a document is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on DocumentDB.
+Because there is currently no concept of a constraint, foreign-key or otherwise, any inter-document relationships that you have in documents are effectively "weak links" and will not be verified by the database itself. If you want to ensure that the data a document is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on Azure Cosmos DB.
 
 ### When to reference
 In general, use normalized data models when:
@@ -255,13 +255,13 @@ If we look at the JSON below that models publishers and books.
     }
 
     Book documents:
-    {"id": "1", "name": "DocumentDB 101" }
-    {"id": "2", "name": "DocumentDB for RDBMS Users" }
+    {"id": "1", "name": "Azure Cosmos DB 101" }
+    {"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "3", "name": "Taking over the world one JSON doc at a time" }
     ...
-    {"id": "100", "name": "Learn about Azure DocumentDB" }
+    {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to DocumentDB" }
+    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
 
 If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher document may be useful. However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher document above. 
 
@@ -274,13 +274,13 @@ Switching things around a bit would result in a model that still represents the 
     }
 
     Book documents: 
-    {"id": "1","name": "DocumentDB 101", "pub-id": "mspress"}
-    {"id": "2","name": "DocumentDB for RDBMS Users", "pub-id": "mspress"}
+    {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
+    {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
     {"id": "3","name": "Taking over the world one JSON doc at a time"}
     ...
-    {"id": "100","name": "Learn about Azure DocumentDB", "pub-id": "mspress"}
+    {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to DocumentDB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
 In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a a reference to the publisher on each book document.
 
@@ -296,11 +296,11 @@ You might be tempted to replicate the same thing using documents and produce a d
     {"id": "a2", "name": "William Wakefield" }
 
     Book documents:
-    {"id": "b1", "name": "DocumentDB 101" }
-    {"id": "b2", "name": "DocumentDB for RDBMS Users" }
+    {"id": "b1", "name": "Azure Cosmos DB 101" }
+    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
-    {"id": "b4", "name": "Learn about Azure DocumentDB" }
-    {"id": "b5", "name": "Deep Dive in to DocumentDB" }
+    {"id": "b4", "name": "Learn about Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -318,10 +318,10 @@ Consider the following.
     {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
     Book documents: 
-    {"id": "b1", "name": "DocumentDB 101", "authors": ["a1", "a2"]}
-    {"id": "b2", "name": "DocumentDB for RDBMS Users", "authors": ["a1"]}
-    {"id": "b3", "name": "Learn about Azure DocumentDB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to DocumentDB", "authors": ["a2"]}
+    {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
+    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
+    {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
+    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
 
 Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the ids of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make. 
 
@@ -361,7 +361,7 @@ Consider the following JSON.
     Book documents:
     {
         "id": "b1",
-        "name": "DocumentDB 101",
+        "name": "Azure Cosmos DB 101",
         "authors": [
             {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
             {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
@@ -369,7 +369,7 @@ Consider the following JSON.
     },
     {
         "id": "b2",
-        "name": "DocumentDB for RDBMS Users",
+        "name": "Azure Cosmos DB for RDBMS Users",
         "authors": [
             {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
         ]
@@ -383,18 +383,18 @@ Sure, if the author's name changed or they wanted to update their photo we'd hav
 
 In the example there are **pre-calculated aggregates** values to save expensive processing on a read operation. In the example, some of the data embedded in the author document is data that is calculated at run-time. Every time a new book is published, a book document is created **and** the countOfBooks field is set to a calculated value based on the number of book documents that exist for a particular author. This optimization would be good in read heavy systems where we can afford to do computations on writes in order to optimize reads.
 
-The ability to have a model with pre-calculated fields is made possible because DocumentDB supports **multi-document transactions**. Many NoSQL stores cannot do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation. With DocumentDB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction. Now you don't **have** to embed everything in to one document just to be sure that your data remains consistent.
+The ability to have a model with pre-calculated fields is made possible because Azure Cosmos DB supports **multi-document transactions**. Many NoSQL stores cannot do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation. With Azure Cosmos DB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction. Now you don't **have** to embed everything in to one document just to be sure that your data remains consistent.
 
 ## <a name="NextSteps"></a>Next steps
 The biggest takeaways from this article is to understand that data modeling in a schema-free world is just as important as ever. 
 
 Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily. 
 
-To learn more about Azure DocumentDB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/documentdb/) page. 
+To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/documentdb/) page. 
 
-To learn about tuning indexes in Azure DocumentDB, refer to the article on [indexing policies](documentdb-indexing-policies.md).
+To learn about tuning indexes in Azure Cosmos DB, refer to the article on [indexing policies](documentdb-indexing-policies.md).
 
-To understand how to shard your data across multiple partitions, refer to [Partitioning Data in DocumentDB](documentdb-partition-data.md). 
+To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](documentdb-partition-data.md). 
 
-And finally, for guidance on modeling data and sharding for multi-tenant applications, consult [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+And finally, for guidance on modeling data and sharding for multi-tenant applications, consult [Scaling a Multi-Tenant Application with Azure Cosmos DB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
 

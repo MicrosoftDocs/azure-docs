@@ -4,7 +4,7 @@ description: Languages, platforms and integrations available for Application Ins
 services: application-insights
 documentationcenter: ''
 author: OlegAnaniev-MSFT
-manager: douge
+manager: carmonm
 
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Developer analytics: languages, platforms, and integrations
@@ -37,6 +37,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)

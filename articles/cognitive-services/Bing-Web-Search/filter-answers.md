@@ -13,7 +13,7 @@ ms.date: 01/12/2017
 ms.author: scottwhi
 ---
 
-# Filtering the Answers that the Search Response Includes  
+# Filtering the answers that the search response includes  
 
 When you query the web, Bing returns all content that it thinks is relevant to the search. For example, if the search query is "sailing+dinghies", the response might contain the following answers:
 

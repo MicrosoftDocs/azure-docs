@@ -14,7 +14,7 @@ If so, we have two resources available to you:
   
   * Differentiating operational data, which is read and written by applications, from analytical data, which is used to provide business intelligence (BI), to help determine the right technology for your needs.
   * A quick review of relational technology.
-  * An introduction to each of the Azure NoSQL technologies: DocumentDB, Table storage, HBase, and HDInsight.
+  * An introduction to each of the Azure NoSQL technologies: Azure Cosmos DB, Table storage, HBase, and HDInsight.
   * A comparison of the NoSQL technologies and Azure SQL Database. 
-  * When to use Azure DocumentDB vs. Table storage vs. HBase vs. HDInsight vs. SQL Database.
+  * When to use Azure Cosmos DB vs. Table storage vs. HBase vs. HDInsight vs. SQL Database.
 

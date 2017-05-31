@@ -69,7 +69,7 @@ In both cases, the user initiated operation takes longer to complete since sched
 ## Using the API
 
 ### Query for events
-You can query for Scheduled Events simply by making the following call
+You can query for Scheduled Events simply by making the following call:
 
 	curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 
@@ -130,11 +130,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -171,7 +173,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-	ApproveScheduledEvent $event.EventId $scheduledEventURI 
+	ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -217,6 +219,7 @@ Scheduled Events could be parsed using the following data structures
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -227,11 +230,12 @@ Scheduled Events could be parsed using the following data structures
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -269,7 +273,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+	    {
+	    	DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+	    };
+	    
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));

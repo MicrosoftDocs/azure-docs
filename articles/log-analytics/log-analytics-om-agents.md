@@ -196,7 +196,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 
 ```
     .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
-    .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
+    .\OM2012_DeleteConnector.ps1 “Microsoft.SystemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
 > [!NOTE]
@@ -205,7 +205,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

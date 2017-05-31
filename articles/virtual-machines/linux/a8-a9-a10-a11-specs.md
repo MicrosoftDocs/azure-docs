@@ -28,7 +28,7 @@ For basic specs, storage capacities, and disk details, see [Sizes for virtual ma
 ## Access to the RDMA network
 You can create clusters of RDMA-capable Linux VMs that run one of the following supported Linux HPC distributions and a supported MPI implementation to take advantage of the Azure RDMA network. See [Set up a Linux RDMA cluster to run MPI applications](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) for deployment options and sample configuration steps.
 
-* **Distributions** - You must deploy VMs from RDMA-capable SUSE Linux Enterprise Server (SLES) or OpenLogic CentOS-based HPC images in the Azure Marketplace. The following Marketplace images support RDMA connectivity:
+* **Distributions** - You must deploy VMs from RDMA-capable SUSE Linux Enterprise Server (SLES) or Rogue Wave Software (formerly OpenLogic) CentOS-based HPC images in the Azure Marketplace. The following Marketplace images support RDMA connectivity:
   
     * SLES 12 SP1 for HPC, SLES 12 SP1 for HPC (Premium)
     

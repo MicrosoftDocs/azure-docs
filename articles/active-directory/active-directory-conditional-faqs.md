@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 05/18/2017
 ms.author: markvi
 
 ---
@@ -49,3 +49,7 @@ The policy is currently not enforced for SharePoint guest users. The guest relat
 **A:** not yet. 
 
 ---
+
+##Q: What is the default exclusion policy for unsupported device platforms?
+
+**A:** At the present time, conditional access policies are selectively enforced on users on iOS and Android devices. Applications on other device platforms are, by default, unaffected by the conditional access policy for iOS and Android devices. Tenant admin may, however, choose to override the global policy to disallow access to users on unsupported platforms.

@@ -1,27 +1,30 @@
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the Jumpbar, click **New**, click **Databases**, and then click **NoSQL (DocumentDB)**.
+2. In the left menu, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
    
-   ![Screen shot of the Azure portal, highlighting More Services, and DocumentDB (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
-3. In the **New account** blade, specify the desired configuration for the DocumentDB account.
-   
-    ![Screen shot of the New DocumentDB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-   
-   * In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which becomes your DocumentDB account endpoint.
-   * In the **NoSQL API** box, select **DocumentDB**.  
-   * For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
-   * In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, a new resource group is created. For more information, see [Using the Azure portal to manage your Azure resources](../articles/azure-portal/resource-group-portal.md).
-   * Use **Location** to specify the geographic location in which to host your DocumentDB account. 
-4. Once the new DocumentDB account options are configured, click **Create**. To check the status of the deployment, check the Notifications hub.  
-   
-   ![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
-   
-   ![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. After the DocumentDB account is created, it is ready for use with the default settings. To review the default settings, click the **NoSQL (DocumentDB)** icon on the Jumpbar, click your new account, and then click **Default consistency** in the resource menu.
+   ![Screen shot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-   ![Screen shot showing how to open your Azure DocumentDB database account in the Azure portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
-   The default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency by selecting one of the other consistency options available. To learn more about the consistency levels offered by DocumentDB, see [Consistency levels in DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+    With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value). 
+    
+    In this quick start we'll be programming against the DocumentDB API, so you'll choose **SQL (DocumentDB)** as you fill out the form. But if you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
 
-[How to: Create a DocumentDB account]: #Howto
-[Next steps]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
+    Fill out the New account blade using the information in the screenshot as a guide. You will choose unique values as you set up your account so your values will not match the screenshot exactly. 
+ 
+    ![Screen shot of the New Azure Cosmos DB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+
+    Setting|Suggested value|Description
+    ---|---|---
+    ID|*Unique value*|A unique name you choose to identify your Azure Cosmos DB account. *documents.azure.com* is appended to the ID you provide to create your URI, so use a unique but identifiable ID. The ID may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
+    API|SQL (DocumentDB)|We'll be programming against the [DocumentDB API](../articles/documentdb/documentdb-introduction.md) later in this article.|
+    Subscription|*Your subscription*|The Azure subscription that you want to use for your Azure Cosmos DB account. 
+    Resource Group|*The same value as ID*|The new resource group name for your account. For simplicity, you can use the same name as your ID. 
+    Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
+4. Click **Create** to create the account.
+5. On the top toolbar, click **Notifications** to monitor the deployment process.
+
+    ![Deployment started notification](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
+
+6.  When the deployment is complete, open the new account from the All Resources tile. 
+
+    ![DocumentDB account on the All Resources tile](./media/documentdb-create-dbaccount/azure-documentdb-all-resources.png)

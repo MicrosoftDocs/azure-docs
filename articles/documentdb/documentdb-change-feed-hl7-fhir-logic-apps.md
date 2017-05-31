@@ -1,15 +1,15 @@
 ﻿---
-title: Change feed for HL7 FHIR resources - Azure DocumentDB | Microsoft Docs
-description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, DocumentDB, and Service Bus.
+title: Change feed for HL7 FHIR resources - Azure Cosmos DB | Microsoft Docs
+description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, Azure Cosmos DB, and Service Bus.
 keywords: hl7 fhir
-services: documentdb
+services: cosmosdb
 author: hedidin
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
 
 ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,11 +19,11 @@ ms.author: b-hoedid
 
 ---
 
-# Notifying patients of HL7 FHIR health care record changes using Logic Apps and DocumentDB
+# Notifying patients of HL7 FHIR health care record changes using Logic Apps and Azure Cosmos DB
 
 Azure MVP Howard Edidin was recently contacted by a healthcare organization that wanted to add new functionality to their patient portal. They needed to send notifications to patients when their health record was updated, and they needed patients to be able to subscribe to these updates. 
 
-This article walks through the change feed notification solution created for this healthcare organization using DocumentDB, Logic Apps, and Service Bus. 
+This article walks through the change feed notification solution created for this healthcare organization using Azure Cosmos DB, Logic Apps, and Service Bus. 
 
 ## Project requirements
 - Providers send HL7 Consolidated-Clinical Document Architecture (C-CDA) documents in XML format. C-CDA documents encompass just about every type of clinical document, including clinical documents such as family histories and immunization records, as well as administrative, workflow, and financial documents. 
@@ -35,15 +35,15 @@ This article walks through the change feed notification solution created for thi
 At a high level, the project required the following workflow steps: 
 1. Convert C-CDA documents to FHIR resources.
 2. Perform recurring trigger polling for modified FHIR resources. 
-2. Call a custom app, FhirNotificationApi, to connect to DocumentDB and query for new or modified documents.
+2. Call a custom app, FhirNotificationApi, to connect to Azure Cosmos DB and query for new or modified documents.
 3. Save the response to to the Service Bus queue.
 4. Poll for new messages in the Service Bus queue.
 5. Send email notifications to patients.
 
 ## Solution architecture
 This solution requires three Logic Apps to meet the above requirements and complete the solution workflow. The three logic apps are:
-1. **HL7-FHIR-Mapping app**: Receives the HL7 C-CDA document, transforms it to the FHIR Resource, then saves it to DocumentDB.
-2. **EHR app**: Queries the DocumentDB FHIR repository and saves the response to a Service Bus queue. This logic app uses an [API app](#api-app) to retrieve new and changed documents.
+1. **HL7-FHIR-Mapping app**: Receives the HL7 C-CDA document, transforms it to the FHIR Resource, then saves it to Azure Cosmos DB.
+2. **EHR app**: Queries the Azure Cosmos DB FHIR repository and saves the response to a Service Bus queue. This logic app uses an [API app](#api-app) to retrieve new and changed documents.
 3. **Process notification app**: Sends an email notification with the FHIR resource documents in the body.
 
 ![The three Logic Apps used in this HL7 FHIR healthcare solution](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-health-care-solution-hl7-fhir.png)
@@ -52,10 +52,10 @@ This solution requires three Logic Apps to meet the above requirements and compl
 
 ### Azure services used in the solution
 
-#### DocumentDB
-DocumentDB is the repository for the FHIR resources as shown in the following figure.
+#### Azure Cosmos DB DocumentDB API
+Azure Cosmos DB is the repository for the FHIR resources as shown in the following figure.
 
-![The Azure DocumentDB account used in this HL7 FHIR healthcare tutorial](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-account.png)
+![The Azure Cosmos DB account used in this HL7 FHIR healthcare tutorial](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-account.png)
 
 #### Logic Apps
 Logic Apps handle the workflow process. The following screenshots show the Logic apps created for this solution. 
@@ -66,9 +66,9 @@ Logic Apps handle the workflow process. The following screenshots show the Logic
 	![The Logic App used to receive HL7 FHIR healthcare records](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **EHR app**: Query the DocumentDB FHIR repository and save the response to a Service Bus queue. The code for the GetNewOrModifiedFHIRDocuments app is below.
+2. **EHR app**: Query the Azure Cosmos DB FHIR repository and save the response to a Service Bus queue. The code for the GetNewOrModifiedFHIRDocuments app is below.
 
-    ![The Logic App used to query Azure DocumentDB](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-api-app.png)
+    ![The Logic App used to query Azure Cosmos DB](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-api-app.png)
 
 3. **Process notification app**: Send an email notification with the FHIR resource documents in the body.
 
@@ -83,11 +83,11 @@ the email subject.
 <a id="api-app"></a>
 
 #### API app
-An API app connects to DocumentDB and queries for new or modified FHIR 
+An API app connects to Azure Cosmos DB and queries for new or modified FHIR 
 documents By resource type. This app has one controller, **FhirNotificationApi** with a one
 operation **GetNewOrModifiedFhirDocuments**, see [source for API app](#api-app-source).
 
-We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the DocumentDB .NET API. For more information, see the [DocumentDB change feed article](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-change-feed). 
+We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) class from the Azure Cosmos DB DocumentDB .NET API. For more information, see the [change feed article](https://docs.microsoft.com/azure/documentdb/documentdb-change-feed). 
 
 ##### GetNewOrModifiedFhirDocuments operation
 
@@ -225,11 +225,11 @@ The following image shows all of the Azure services for this solution running in
 
 ## Summary
 
-- You have learned that DocumentDB has native suppport for notifications for new or modifed documents and how easy it is to use. 
+- You have learned that Azure Cosmos DB has native suppport for notifications for new or modifed documents and how easy it is to use. 
 - By leveraging Logic Apps, you can create workflows without writing any code.
 - Using Azure Service Bus Queues to handle the distribution for the HL7 FHIR documents.
 
 ## Next steps
-For more information about DocumentDB, see the [DocumentDB home page](https://azure.microsoft.com/en-us/services/documentdb/). For more informaiton about Logic Apps, see [Logic Apps](https://azure.microsoft.com/en-us/services/logic-apps/).
+For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/documentdb/). For more informaiton about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

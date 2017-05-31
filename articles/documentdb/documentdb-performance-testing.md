@@ -1,15 +1,15 @@
 ---
-title: DocumentDB scale and performance testing | Microsoft Docs
-description: Learn how to perform scale and performance testing with Azure DocumentDB
+title: Azure Cosmos DB scale and performance testing | Microsoft Docs
+description: Learn how to perform scale and performance testing with Azure Cosmos DB
 keywords: performance testing
-services: documentdb
+services: cosmosdb
 author: arramac
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,34 +18,34 @@ ms.date: 01/19/2017
 ms.author: arramac
 
 ---
-# Performance and scale testing with Azure DocumentDB
-Performance and scale testing is a key step in application development. For many applications, the database tier has a significant impact on the overall performance and scalability, and is therefore a critical component of performance testing. [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is purpose-built for elastic scale and predictable performance, and therefore a great fit for applications that need a high-performance database tier. 
+# Performance and scale testing with Azure Cosmos DB
+Performance and scale testing is a key step in application development. For many applications, the database tier has a significant impact on the overall performance and scalability, and is therefore a critical component of performance testing. [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is purpose-built for elastic scale and predictable performance, and therefore a great fit for applications that need a high-performance database tier. 
 
-This article is a reference for developers implementing performance test suites for their DocumentDB workloads, or evaluating DocumentDB for high-performance application scenarios. It focuses primarily on isolated performance testing of the database, but also includes best practices for production applications.
+This article is a reference for developers implementing performance test suites for their Cosmos DB workloads, or evaluating Cosmos DB for high-performance application scenarios. It focuses primarily on isolated performance testing of the database, but also includes best practices for production applications.
 
 After reading this article, you will be able to answer the following questions:   
 
-* Where can I find a sample .NET client application for performance testing of Azure DocumentDB? 
-* How do I achieve high throughput levels with Azure DocumentDB from my client application?
+* Where can I find a sample .NET client application for performance testing of Cosmos DB? 
+* How do I achieve high throughput levels with Cosmos DB from my client application?
 
-To get started with code, please download the project from [DocumentDB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+To get started with code, please download the project from [Azure Cosmos DB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
-> The goal of this application is to demonstrate best practices for extracting better performance out of DocumentDB with a small number of client machines. This was not made to demonstrate the peak capacity of the service, which can scale limitlessly.
+> The goal of this application is to demonstrate best practices for extracting better performance out of Cosmos DB with a small number of client machines. This was not made to demonstrate the peak capacity of the service, which can scale limitlessly.
 > 
 > 
 
-If you're looking for client-side configuration options to improve DocumentDB performance, see [DocumentDB performance tips](documentdb-performance-tips.md).
+If you're looking for client-side configuration options to improve Cosmos DB performance, see [Azure Cosmos DB performance tips](documentdb-performance-tips.md).
 
 ## Run the performance testing application
 The quickest way to get started is to compile and run the .NET sample below, as described in the steps below. You can also review the source code and implement similar configurations to your own client applications.
 
-**Step 1:** Download the project from [DocumentDB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), or fork the GitHub repository.
+**Step 1:** Download the project from [Azure Cosmos DB Performance Testing  Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), or fork the GitHub repository.
 
 **Step 2:** Modify the settings for EndpointUrl, AuthorizationKey, CollectionThroughput and DocumentTemplate (optional) in App.config.
 
 > [!NOTE]
-> Before provisioning collections with high throughput, please refer to the [Pricing Page](https://azure.microsoft.com/pricing/details/documentdb/) to estimate the costs per collection. DocumentDB bills storage and throughput independently on an hourly basis, so you can save costs by deleting or lowering the throughput of your DocumentDB collections after testing.
+> Before provisioning collections with high throughput, please refer to the [Pricing Page](https://azure.microsoft.com/pricing/details/documentdb/) to estimate the costs per collection. Cosmos DB bills storage and throughput independently on an hourly basis, so you can save costs by deleting or lowering the throughput of your DocumentDB collections after testing.
 > 
 > 
 
@@ -100,13 +100,13 @@ The quickest way to get started is to compile and run the .NET sample below, as 
 Once you have the app running, you can try different [Indexing policies](documentdb-indexing-policies.md) and [Consistency levels](documentdb-consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 
 ## Next steps
-In this article, we looked at how you can perform performance and scale testing with DocumentDB using a .NET console app. Please refer to the links below for additional information on working with DocumentDB.
+In this article, we looked at how you can perform performance and scale testing with Cosmos DB using a .NET console app. Please refer to the links below for additional information on working with Cosmos DB.
 
-* [DocumentDB performance testing sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
-* [Client configuration options to improve DocumentDB performance](documentdb-performance-tips.md)
-* [Server-side partitioning in DocumentDB](documentdb-partition-data.md)
+* [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
+* [Client configuration options to improve Azure Cosmos DB performance](documentdb-performance-tips.md)
+* [Server-side partitioning in Azure Cosmos DB](documentdb-partition-data.md)
 * [DocumentDB collections and performance levels](documentdb-performance-levels.md)
 * [DocumentDB .NET SDK documentation on MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
-* [DocumentDB blog on performance tips](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [Azure Cosmos DB blog on performance tips](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 

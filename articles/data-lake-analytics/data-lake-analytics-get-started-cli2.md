@@ -16,7 +16,7 @@ ms.date: 04/06/2017
 ms.author: jgao
 
 ---
-# Tutorial: get started with Azure Data Lake Analytics using Azure CLI 2.0 (Preview)
+# Tutorial: get started with Azure Data Lake Analytics using Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use Azure CLI 2.0 to create Azure Data Lake Analytics accounts, define Data Lake Analytics
@@ -31,12 +31,6 @@ Before you begin this tutorial, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* **Enable Data Lake Store/Analytics CLI 2.0 Preview**. Data Lake Store and Data Lake Analytics CLI 2.0 is still in Preview. Run the following commands to enable both:
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## Log in to Azure
 

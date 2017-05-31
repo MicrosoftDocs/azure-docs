@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: samples
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/24/2017
@@ -27,7 +27,7 @@ This sample CLI script creates elastic pools, moves pooled databases, and change
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "Move database between pools")]
 
 ## Clean up deployment
 

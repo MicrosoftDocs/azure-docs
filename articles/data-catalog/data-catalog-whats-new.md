@@ -25,7 +25,7 @@ Updates to **Azure Data Catalog** are released regularly. Not every release incl
 As of the week of September 16, 2016, the following capabilities have been added to Azure Data Catalog:
 
 * Support for IBM DB2 data sources. Users can now register and discover DB2 databases, tables, and views.
-* Support for Azure DocumentDB data sources. Users can now register and discover DocumentDB databases and collections.
+* Support for Azure Cosmos DB data sources. Users can now register and discover Cosmos DB databases and collections.
 * Support for customizing the catalog name in the Data Catalog portal. Catalog administrators can now provide text that is displayed in the portal title, such as the organization name.
 
 ## What's new for the week of August 26, 2016 release

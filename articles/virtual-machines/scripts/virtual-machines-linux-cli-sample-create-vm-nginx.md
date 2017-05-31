@@ -28,7 +28,7 @@ This script creates an Azure Virtual Machine and uses the Azure Virtual Machine 
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Quick Create VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "Quick Create VM")]
 
 ## Custom Script Extension
 

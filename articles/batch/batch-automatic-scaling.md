@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 04/03/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -103,6 +103,7 @@ You can **get** the value of these service-defined variables to make adjustments
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
 | $CurrentDedicated |The current number of dedicated compute nodes. |
+| $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!TIP]
 > The read-only, service-defined variables that are shown above are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) below.

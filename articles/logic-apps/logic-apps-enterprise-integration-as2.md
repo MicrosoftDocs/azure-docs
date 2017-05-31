@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: mandia
+ms.author: mandia; ladocs
 
 ---
 # Exchange AS2 messages for enterprise integration with logic apps
@@ -213,6 +213,9 @@ and return to your integration account blade.
 On your integration account blade, choose **Overview**, then select the **Agreements** tile. 
 
 	![Choose "Agreements" tile to view all agreements](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+
+## View the swagger
+See the [swagger details](/connectors/as2/). 
 
 ## Next steps
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

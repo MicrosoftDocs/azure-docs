@@ -28,7 +28,7 @@ This script creates a virtual machine with Docker enabled and starts a Docker co
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Docker Host")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Docker Host")]
 
 ## Clean up deployment 
 

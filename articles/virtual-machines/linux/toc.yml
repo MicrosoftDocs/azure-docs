@@ -1,5 +1,5 @@
 - name: Linux VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
@@ -383,9 +383,9 @@
   - name: Java
     href: /java/api
   - name: Node.js
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: REST
     href: /rest/api/compute
 - name: Resources

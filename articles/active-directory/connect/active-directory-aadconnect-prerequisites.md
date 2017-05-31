@@ -101,6 +101,8 @@ Before you install Azure AD Connect, there are a few things that you need.
     </system.net>
 ```
 
+* When Azure AD Connect sends a web request to Azure AD as part of directory synchronization, Azure AD can take up to 5 minutes to respond. It is common for proxy servers to have connection idle timeout configuration. Please ensure the configuration is set to at least 6 minutes or more.
+
 For more information, see MSDN about the [default proxy Element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 For more information when you have problems with connectivity, see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 

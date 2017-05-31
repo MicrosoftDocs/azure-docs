@@ -1,11 +1,10 @@
 # Overview
-
 ## [What is Azure Analysis Services?](analysis-services-overview.md)
 
-# Get started
-## [Create a server](analysis-services-create-server.md)
-## [Deploy to a server](analysis-services-deploy.md)
-## [Connect](analysis-services-connect.md)
+# Quickstarts
+## [Create a server - portal](analysis-services-create-server.md)
+## [Deploy a model - SSDT](analysis-services-deploy.md)
+
 
 # Tutorials
 ## Create and deploy a model
@@ -31,6 +30,7 @@
 ## [Manage a server](analysis-services-manage.md)
 ## [Manage users](analysis-services-manage-users.md)
 ## [Integrate On-premises data gateway](analysis-services-gateway.md)
+## [Connecting to servers](analysis-services-connect.md)
 ## [Connect with Excel](analysis-services-connect-excel.md)
 ## [Connect with Power BI](analysis-services-connect-pbi.md)
 ## [Get client libraries](analysis-services-data-providers.md)

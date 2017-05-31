@@ -42,7 +42,7 @@ These projects use SCP.NET, a NuGet package that makes it easy to create C# topo
 The Microsoft.SCP.Net.SDK NuGet package used by your project must match the major version of Storm installed on HDInsight. Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, so you must use SCP.NET version 0.10.x.x with these clusters. HDInsight 3.5 uses Storm 1.0.x., so you must use SCP.NET version 1.0.x.x with this cluster version.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 HDInsight 3.4 and greater use Mono to run C# topologies. Most things work with Mono. However you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 

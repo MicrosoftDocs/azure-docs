@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Your First News Search Query
+# Your first news search query
 
 Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
 
@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/bing/v5.0/news/search
 ```
 
 > [!NOTE]
-> Version 7 Preview endpoint:
+> V7 Preview endpoint:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/news/search
@@ -45,7 +45,7 @@ The client IP and location headers are important for returning location aware co
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#headers).
 
-## The Request
+## The request
 
 The following shows a news request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
 
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 >
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -156,7 +156,7 @@ BingAPIs-Market: en-US
 ```
 
 > [!NOTE]
-> Version 7 Preview response changes:
+> V7 Preview response changes:
 >
 > Added the `mentions` field to the [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) object. The `mentions` field contains a list of entities (persons or places) that were found in the article.  
 > 
@@ -222,7 +222,7 @@ BingAPIs-Market: en-US
 > }
 
 
-## Next Steps
+## Next steps
 
 Try out the API. Go to [News Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553). 
 

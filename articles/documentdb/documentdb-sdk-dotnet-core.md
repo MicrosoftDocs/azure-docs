@@ -1,19 +1,19 @@
 ---
 title: Azure DocumentDB .NET Core API, SDK & Resources | Microsoft Docs
 description: Learn all about the .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET Core SDK.
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -52,6 +52,15 @@ The DocumentDB .NET Core SDK has feature parity with the latest version of the [
 
 > [!NOTE] 
 > The DocumentDB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="1.3.0"/>1.3.0
+
+*	Added support for Request Unit per Minute (RU/m) feature.
+*	Added support for a new consistency level called ConsistentPrefix.
+*	Added support for query metrics for individual partitions.
+*	Added support for limiting the size of the continuation token for queries.
+*	Added support for more detailed tracing for failed requests.
+*	Made some performance improvements in the SDK.
 
 ### <a name="1.2.2"/>1.2.2
 
@@ -103,6 +112,7 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |May 10, 2017 |--- |
 | [1.2.2](#1.2.2) |April 19, 2017 |--- |
 | [1.2.1](#1.2.1) |March 29, 2017 |--- |
 | [1.2.0](#1.2.0) |March 25, 2017 |--- |
@@ -113,5 +123,5 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 | [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |December 31, 2016 |
 
 ## See Also
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) service page. 
 

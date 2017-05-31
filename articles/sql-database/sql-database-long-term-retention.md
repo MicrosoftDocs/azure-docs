@@ -96,10 +96,6 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 > [!NOTE]
 > The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
 
-## Removing long-term backup retention backups from the Azure Recovery Services vault
-
-To remove long-term backup retention backups from the vault, see [Delete long-term backup retention backups](sql-database-long-term-backup-retention-configure.md)
-
 ## Long-term backup retention FAQ:
 
 1. Q: Can I manually delete specific backups in the vault?

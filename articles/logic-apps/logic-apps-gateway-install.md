@@ -14,7 +14,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/3/2017
+ms.date: 05/5/2017
 ms.author: LADocs; dimazaid; estfan
 
 ---
@@ -50,6 +50,13 @@ These steps show how to first install the on-premises data gateway before you
 For more information about supported connectors, see 
 [Connectors for Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list). 
 
+For more information about data gateways for other Microsoft services, see these articles:
+
+*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/): [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
+*   [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+*   [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
+*   [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
+
 <a name="requirements"></a>
 ## Requirements
 
@@ -72,7 +79,7 @@ You can't install the gateway on a domain controller.
    > [!TIP]
    > You don't have to install the gateway on the same computer as your data source. 
    > To minimize latency, you can install the gateway as close as possible to your data source, 
-   > or on the same computer, if you have permissions.
+   > or on the same computer, assuming that you have permissions.
 
 * Don't install the gateway on a computer that turns off, goes to sleep, 
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
@@ -89,13 +96,25 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
   > Or, if you signed up for an Office 365 offering and didn't supply your actual work email, 
   > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
 
+* If you have an existing gateway that you set up with 
+  an installer that's earlier than version 14.16.6317.4, 
+  you can't change your gateway's location by 
+  running the latest installer. However, 
+  you can use the latest installer to set up 
+  a new gateway with the location that you want instead.
+  
+  If you have a gateway installer that's earlier than 
+  version 14.16.6317.4, but you haven't installed 
+  your gateway yet, you can download and use the latest installer.
+
+<a name="install-gateway"></a>
 ## Install the data gateway
 
 1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Review and accept the terms of use and privacy statement.
 
-3.	Specify the path on your local computer where you want to install the gateway.
+3. Specify the path on your local computer where you want to install the gateway.
 
 4. When prompted, sign in with your Azure work or school account, 
 not a Microsoft account.
@@ -109,7 +128,7 @@ not a Microsoft account.
      between users in the cloud, like your logic app, 
      the on-premises data gateway, and your data source on premises.
 
-     1. Create a name for your gateway installation and a recovery key. 
+     1. Provide a name for your gateway installation and create a recovery key. 
      Confirm your recovery key.
 
         > [!IMPORTANT] 
@@ -118,30 +137,41 @@ not a Microsoft account.
         > You also need this key when you want to migrate, restore, 
         > or take over an existing gateway, you also need this key.
 
-     2. To confirm or change the region for the gateway cloud service where you 
-     register and deploy your gateway, choose **Change Region**. 
-
-        > [!IMPORTANT]
-        > You can't change this region after installation 
-        > unless you uninstall the gateway and reinstall. 
-        > This region also determines and restricts the location where 
-        > you can create the Azure resource for your gateway connection.
+     2. To change the default region for the gateway cloud service 
+     and Azure Service Bus used by your gateway installation, 
+     choose **Change Region**.
 
         For example, you might select the same region as your logic app, 
         or select the region closest to your on-premises data source 
-        so you can reduce latency.
+        so you can reduce latency. Your gateway resource and logic app 
+        can have different locations.
+
+        > [!IMPORTANT]
+        > You can't change this region after installation. 
+        > This region also determines and restricts the location where 
+        > you can create the Azure resource for your gateway. 
+        > So when you create your gateway resource in Azure, 
+        > make sure that the resource location matches the region 
+        > that you selected during gateway installation.
+        > 
+        > If you want to use a different region for your gateway later, 
+        > you must set up a new gateway.
 
      3. When you're done, choose **Configure**.
 
-6. Now follow these steps in the Azure portal to 
+6. Now follow these steps in the Azure portal so you can 
 [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
 Learn more about [how the data gateway works](#gateway-cloud-service).
 
 ## Migrate, restore, or take over an existing gateway
 
+To perform these tasks, you must have the recovery key 
+that was specified when the gateway was installed.
+
 1. From your computer's Start menu, choose **On-premises data gateway**.
-2. After the installer opens, provide the recovery key that was specified when the gateway was created.
+2. After the installer opens, provide the recovery key for the 
+gateway that you want to migrate, restore, or take over.
 
 <a name="restart-gateway"></a>
 ## Restart the gateway
@@ -264,6 +294,7 @@ and sends the query to the queue for the gateway to process.
 6. The results are sent from the data source, back to the gateway, and then to the gateway cloud service. 
 The gateway cloud service then uses the results.
 
+<a name="faq"></a>
 ## Frequently asked questions
 
 ### General
@@ -281,6 +312,16 @@ The gateway just needs the capability to connect to the server name that was pro
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's UPN matches the email address.
 
+**Q**: Where are my credentials stored? <br/>
+**A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 
+The credentials are decrypted at the on-premises data gateway.
+
+**Q**: Are there any requirements for network bandwidth? <br/>
+**A**: We recommend that your network connection has good throughput. 
+Every environment is different, and the amount of data being sent affects the results. 
+Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
+You can use the third-party tool Azure Speed Test app to help gauge your throughput.
+
 **Q**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
 **A**: To reduce network latency, install the gateway as close to the data source as possible. 
 If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. 
@@ -288,11 +329,14 @@ Consider the datacenters too. For example, if your service uses the West US data
 and you have SQL Server hosted in an Azure VM, your Azure VM should be in the West US too. 
 This proximity minimizes latency and avoids egress charges on the Azure VM.
 
-**Q**: Are there any requirements for network bandwidth? <br/>
-**A**: We recommend that your network connection has good throughput. 
-Every environment is different, and the amount of data being sent affects the results. 
-Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
-You can use the third-party tool Azure Speed Test app to help gauge your throughput.
+**Q**: How are results sent back to the cloud? <br/>
+**A**: Results are sent through the Azure Service Bus.
+
+**Q**: Are there any inbound connections to the gateway from the cloud? <br/>
+**A**: No. The gateway uses outbound connections to Azure Service Bus.
+
+**Q**: What if I block outbound connections? What do I need to open? <br/>
+**A**: See the ports and hosts that the gateway uses.
 
 **Q**: What is the actual Windows service called?<br/>
 **A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
@@ -301,23 +345,7 @@ You can use the third-party tool Azure Speed Test app to help gauge your through
 **A**: No. The Windows service must have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
-**Q**: Are there any inbound connections to the gateway from the cloud? <br/>
-**A**: No. The gateway uses outbound connections to Azure Service Bus.
-
-**Q**: What if I block outbound connections? What do I need to open? <br/>
-**A**: See the ports and hosts that the gateway uses.
-
-**Q**: How are results sent back to the cloud? <br/>
-**A**: Results are sent through the Azure Service Bus.
-
-**Q**: Where are my credentials stored? <br/>
-**A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 
-The credentials are decrypted at the on-premises gateway.
-
 ### High availability and disaster recovery
-
-**Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
-**A**: These scenarios are on the roadmap, but we don't have a timeline yet.
 
 **Q**: What options are available for disaster recovery? <br/>
 **A**: You can use the recovery key to restore or move a gateway. 
@@ -326,10 +354,12 @@ When you install the gateway, specify the recovery key.
 **Q**: What is the benefit of the recovery key? <br/>
 **A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
+**Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
+**A**: These scenarios are on the roadmap, but we don't have a timeline yet.
+
 ## Troubleshooting
 
-**Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this topic.
+[!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
 **Q**: How can I see what queries are being sent to the on-premises data source? <br/>
 **A**: You can enable query tracing, which includes the queries that are sent. 
@@ -338,6 +368,9 @@ Leaving query tracing turned on creates larger logs.
 
 You can also look at tools that your data source has for tracing queries. 
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
+
+**Q**: Where are the gateway logs? <br/>
+**A**: See Tools later in this topic.
 
 ### Update to the latest version
 

@@ -1,14 +1,14 @@
 ---
-title: Connecting DocumentDB with Azure Search using indexers | Microsoft Docs
-description: This article shows you how to use to Azure Search indexer with DocumentDB as a data source.
-services: documentdb
+title: Connecting Azure Cosmos DB with Azure Search using indexers | Microsoft Docs
+description: This article shows you how to use to Azure Search indexer with Azure Cosmos DB as a data source.
+services: cosmosdb
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: ''
 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -19,15 +19,15 @@ redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documen
 ROBOTS: NOINDEX, NOFOLLOW
 
 ---
-# Connecting DocumentDB with Azure Search using indexers
-If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
+# Connecting Azure Cosmos DB with Azure Search using indexers
+If you're looking to implement great search experiences over your Cosmos DB data, use Azure Search indexer for Cosmos DB! In this article, we will show you how to integrate Azure Cosmos DB with Azure Search without having to write any code to maintain indexing infrastructure!
 
-To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal.md) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
+To set this up, you have to [setup an Azure Search account](../search/search-create-service-portal.md) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a Cosmos DB **data source** and an **indexer** for that data source.
 
 In order send requests to interact with the REST APIs, you can use [Postman](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler), or any tool of your preference.
 
 ## <a id="Concepts"></a>Azure Search indexer concepts
-Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
+Azure Search supports the creation and management of data sources (including Cosmos DB) and indexers that operate against those data sources.
 
 A **data source** specifies what data needs to be indexed, credentials to access the data, and policies to enable Azure Search to efficiently identify changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
 
@@ -48,14 +48,14 @@ The `api-version` is required. Valid values include `2015-02-28` or a later vers
 
 The body of the request contains the data source definition, which should include the following fields:
 
-* **name**: Choose any name to represent your DocumentDB database.
+* **name**: Choose any name to represent your Cosmos DB database.
 * **type**: Use `documentdb`.
 * **credentials**:
   
-  * **connectionString**: Required. Specify the connection info to your Azure DocumentDB database in the following format: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+  * **connectionString**: Required. Specify the connection info to your Azure Cosmos DB database in the following format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **container**:
   
-  * **name**: Required. Specify the id of the DocumentDB collection to be indexed.
+  * **name**: Required. Specify the id of the DocumentDB API collection to be indexed.
   * **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
 * **dataChangeDetectionPolicy**: Optional. See [Data Change Detection Policy](#DataChangeDetectionPolicy) below.
 * **dataDeletionDetectionPolicy**: Optional. See [Data Deletion Detection Policy](#DataDeletionDetectionPolicy) below.
@@ -63,7 +63,7 @@ The body of the request contains the data source definition, which should includ
 See below for an [example request body](#CreateDataSourceExample).
 
 ### <a id="DataChangeDetectionPolicy"></a>Capturing changed documents
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` last-modified timestamp property provided by DocumentDB - which is specified as follows:
+The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` last-modified timestamp property provided by Cosmos DB - which is specified as follows:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -89,7 +89,7 @@ When rows are deleted from the source table, you should delete those rows from t
 > 
 
 ### <a id="LeveagingQueries"></a>Leveraging Queries
-In addition to capturing changed and deleted documents, specifying a DocumentDB query can be used to flatten nested properties, unwind arrays, project json properties, and filter the data to be indexed. Manipulating the data to be indexed can improve performance of the Azure Search indexer.
+In addition to capturing changed and deleted documents, specifying a DocumentDB API query can be used to flatten nested properties, unwind arrays, project json properties, and filter the data to be indexed. Manipulating the data to be indexed can improve performance of the Azure Search indexer.
 
 Example Document:
 
@@ -283,8 +283,8 @@ The response should look similar to the following:
 Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
 
 ## <a name="NextSteps"></a>Next steps
-Congratulations! You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
+Congratulations! You have just learned how to integrate Azure Cosmos DB with Azure Search using the indexer for Cosmos DB.
 
-* To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://azure.microsoft.com/services/documentdb/).
+* To learn how more about Cosmos DB, see the [Azure Cosmos DB service page](https://azure.microsoft.com/services/documentdb/).
 * To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/9/2017
+ms.date: 5/17/2017
 ms.author: raiye
 
 ---
@@ -24,11 +24,22 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 > This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
 > 
 > 
- 
 
+
+> [!NOTE]
+> The RSS Feed was recently deprecated. Please stay tuned for updates on a new feed coming soon!
+> 
+> 
+ 
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **May 17 2017**
+Due to a security bug, we are disabling the following December 2016 and January 2017 OS Releases which do not have the [fix] from the portal: WA-GUEST-OS-5.4_201612-01,WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+
+###### **May 12 2017**
+May Guest OS rollout is starting May 12th and is projected to be released on June 13th.
+
 ###### **April 18 2017**
 April Guest OS rollout is starting April 18th and is projected to be released on May 9th.
 
@@ -64,7 +75,7 @@ Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NE
 | --- | --- | --- | --- |
 | WA-GUEST-OS-5.6_201704-01 |May 9 2017 |Post 5.8 |TBD | 
 | WA-GUEST-OS-5.5_201703-01 |April 10 2017 |Post 5.7 |TBD | 
-| WA-GUEST-OS-5.4_201612-01 |Jan 10 2017 |Post 5.6 |TBD | 
+|~~WA-GUEST-OS-5.4_201612-01~~ |Jan 10 2017 |Post 5.6 |TBD | 
 |~~WA-GUEST-OS-5.3_201611-01~~ |Dec 14 2016 |May 9 2017 |TBD |
 |~~WA-GUEST-OS-5.2_201610-02~~ |Nov 1 2016 |April 10 2017 |TBD |
 
@@ -82,7 +93,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 | --- | --- | --- | --- |
 | WA-GUEST-OS-4.41_201704-01 |May 9 2017 |Post 4.43 |TBD |
 | WA-GUEST-OS-4.40_201703-01 |April 10 2017 |Post 4.42 |TBD |
-| WA-GUEST-OS-4.39_201612-01 |Jan 10 2017 |Post 4.41 |TBD |
+|~~WA-GUEST-OS-4.39_201612-01~~ |Jan 10 2017 |Post 4.41 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |Dec 14 2016 |May 9 2017 |TBD |
 |~~WA-GUEST-OS-4.37_201610-02~~ |Nov 16 2016 |April 10 2017 |TBD |
 |~~WA-GUEST-OS-4.36_201609-01~~ |Oct 13 2016 |Jan 14 2017 |TBD |
@@ -109,7 +120,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 | --- | --- | --- | --- |
 | WA-GUEST-OS-3.48_201704-01 |May 9 2017 |Post 3.50 |TBD |
 | WA-GUEST-OS-3.47_201703-01 |April 10 2017 |Post 3.49 |TBD |
-| WA-GUEST-OS-3.46_201612-01 |Jan 10 2017 |Post 3.48 |TBD |
+| ~~WA-GUEST-OS-3.46_201612-01~~ |Jan 10 2017 |Post 3.48 |TBD |
 | ~~WA-GUEST-OS-3.45_201611-01~~ |Dec 14 2016 |May 9 2017 |TBD |
 | ~~WA-GUEST-OS-3.44_201610-02~~ |Nov 16 2016 |May 1 2017 |TBD |
 | ~~WA-GUEST-OS-3.43_201609-01~~ |Oct 13 2016 |Jan 14 2017 |TBD |
@@ -136,7 +147,7 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 | --- | --- | --- | --- |
 | WA-GUEST-OS-2.61_201704-01 |May 9 2017 |Post 2.63 |TBD |
 | WA-GUEST-OS-2.60_201703-01 |April 10 2017 |Post 2.62 |TBD |
-| WA-GUEST-OS-2.59_201701-01 |Jan 10 2017 |Post 2.61 |TBD |
+|~~WA-GUEST-OS-2.59_201701-01~~ |Jan 10 2017 |Post 2.61 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |Jan 10 2017 |May 9 2017|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |Dec 14 2016 |April 10 2017 |TBD |
 |~~WA-GUEST-OS-2.56_201610-02~~ |Nov 16 2016 |Feb 10 2017 |TBD |
@@ -194,7 +205,7 @@ The configuration string for a Guest OS has this same information embedded in it
 ## Guest OS System Update Process
 This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur at least 5 days after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family. 
 
-Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We will update the [Guest OS Update RSS Feed][rss] with the latest information we have, but consider that time an approximate window. We are aware that this is problematic for customers and working on a plan to limit or time reboots. 
+Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We are aware that this is problematic for customers and working on a plan to limit or time reboots. 
 
 When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure classic portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. 
 
@@ -207,7 +218,6 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
-[rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
@@ -224,4 +234,5 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
 

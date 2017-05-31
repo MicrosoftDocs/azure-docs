@@ -107,7 +107,7 @@ To create a VM with multiple NICs or IP addresses, read the following articles:
 
 |Task|Tool|
 |---|---|
-|Create a VM with multiple NICs|[CLI](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-supporting-resources)|
-||[PowerShell](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-core-resources)|
+|Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IP addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
 ||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

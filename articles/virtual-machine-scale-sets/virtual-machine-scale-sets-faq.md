@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/10/2017
+ms.date: 5/09/2017
 ms.author: negat
 ms.custom: na
 
@@ -459,14 +459,49 @@ To execute a custom script that's hosted in a private storage account, set up pr
 
 ## Networking
  
+### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it will apply to all the VM NICs in the set?
+
+Yes. A Network Security Group can be applied directly to a scale set by referencing it in the networkInterfaceConfigurations section of the network profile. Example:
+
+```
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+            "name": "nic1",
+            "properties": {
+                "primary": "true",
+                "ipConfigurations": [
+                    {
+                        "name": "ip1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                            }
+                "loadBalancerInboundNatPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                                }
+                            ],
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                }
+            }
+        }
+    ]
+}
+```
+
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
 To do a VIP swap for virtual machine scale sets in the same subscription and same region, see [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
- 
-  
-### What is the resourceGuid property on a NIC used for?
-
-The resourceGuid property on a network interface card (NIC) is a unique ID. Lower layers will log this ID at some point in the future. 
  
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 

@@ -101,7 +101,7 @@ If you are enabling Seamless SSO with Password synchronization, and if there is 
 
 - The Azure AD Connect server can communicate with `*.msappproxy.net` URLs.
 - Azure AD Connect (versions 1.1.484.0 or higher) can make HTTPS requests to Azure AD over port 443. This is only used to enable the feature, not for actual user sign-ins.
-- Azure AD Connect can also make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Again, this is only used to enable the feature.
+- Azure AD Connect can also make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Again, this is only used to enable the feature.
 
 >[!NOTE]
 > Older versions of Azure AD Connect (lower than 1.1.484.0) need to be able to communicate with Azure AD over port 9090.

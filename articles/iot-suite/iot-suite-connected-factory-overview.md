@@ -39,7 +39,7 @@ To complete this tutorial, you need an active Azure subscription.
 
 1. Log on to azureiotsuite.com using your Azure account credentials, and click "**+**" to create a solution.
 2. Click **Select** on the **Connected factory** tile.
-3. Enter a **Solution name** for your remote monitoring preconfigured solution.
+3. Enter a **Solution name** for your connected factory preconfigured solution.
 4. Select the **Subscription** and **Region** you want to use to provision the solution.
 5. Click **Create Solution** to begin the provisioning process. This process typically takes several minutes to run.
 
@@ -299,7 +299,7 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

@@ -13,7 +13,7 @@ ms.date: 04/15/2017
 ms.author: scottwhi
 ---
 
-# Making Your First Autosuggest Query
+# Making your first Autosuggest query
 
 Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
@@ -24,7 +24,7 @@ https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 ```  
 
 > [!NOTE]
-> Version 7 Preview endpoint:
+> V7 Preview endpoint:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
@@ -45,7 +45,7 @@ The client IP and location headers are important for returning location aware co
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
-## The Request
+## The request
 
 The request should include all the suggested query parameters and headers. You'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant that the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*. 
 
@@ -61,7 +61,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Version 7 Preview request:
+> V7 Preview request:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
@@ -145,7 +145,7 @@ BingAPIs-Market: en-US
 }  
 ```
 
-## Next Steps
+## Next steps
 
 Try out the API. Go to [Autosuggest API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2). 
 

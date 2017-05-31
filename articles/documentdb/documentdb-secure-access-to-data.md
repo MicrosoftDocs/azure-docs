@@ -1,14 +1,14 @@
 ---
-title: Learn how to secure access to data in DocumentDB | Microsoft Docs
-description: Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions.
-services: documentdb
+title: Learn how to secure access to data in Azure Cosmos DB | Microsoft Docs
+description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,10 +17,10 @@ ms.date: 03/23/2017
 ms.author: mimig
 
 ---
-# Securing access to DocumentDB data
-This article provides an overview of securing access to data stored in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+# Securing access to Azure Cosmos DB data
+This article provides an overview of securing access to data stored in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 
-DocumentDB uses two types of keys to authenticate users and provide access to its data and resources. 
+Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources. 
 
 |Key type|Resources|
 |---|---|
@@ -39,7 +39,7 @@ Master keys provide access to the all the administrative resources for the datab
 
 Each account consists of two Master keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data. 
 
-In addition to the two master keys for the DocumentDB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
+In addition to the two master keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
 
 Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 
@@ -51,11 +51,11 @@ The process of rotating your master key is simple. Navigate to the Azure portal 
 
 ### Code sample to use a master key
 
-The following code sample illustrates how to use a DocumentDB account endpoint and master key to instantiate a DocumentClient and create a database. 
+The following code sample illustrates how to use a Cosmos DB account endpoint and master key to instantiate a DocumentClient and create a database. 
 
 ```csharp
 //Read the DocumentDB endpointUrl and authorization keys from config.
-//These values are available from the Azure portal on the NOSQL (DocumentDB) account blade under "Keys".
+//These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -82,33 +82,33 @@ Resource tokens provide access to the application resources within a database. R
 - Use a hash resource token specifically constructed for the user, resource, and permission.
 - Are time bound with a customizable validity period. The default valid timespan is one hour. Token lifetime, however, may be explicitly specified, up to a maximum of five hours.
 - Provide a safe alternative to giving out the master key. 
-- Enable clients to read, write, and delete resources in the DocumentDB account according to the permissions they've been granted.
+- Enable clients to read, write, and delete resources in the Cosmos DB account according to the permissions they've been granted.
 
-You can use a resource token (by creating DocumentDB users and permissions) when you want to provide access to resources in your DocumentDB account to a client that cannot be trusted with the master key.  
+You can use a resource token (by creating Cosmos DB users and permissions) when you want to provide access to resources in your Cosmos DB account to a client that cannot be trusted with the master key.  
 
-DocumentDB resource tokens provide a safe alternative that enables clients to read, write, and delete resources in your DocumentDB account according to the permissions you've granted, and without need for either a master or read only key.
+Cosmos DB resource tokens provide a safe alternative that enables clients to read, write, and delete resources in your Cosmos DB account according to the permissions you've granted, and without need for either a master or read only key.
 
 Here is a typical design pattern whereby resource tokens may be requested, generated, and delivered to clients:
 
 1. A mid-tier service is set up to serve a mobile application to share user photos. 
-2. The mid-tier service possesses the master key of the DocumentDB account.
+2. The mid-tier service possesses the master key of the Cosmos DB account.
 3. The photo app is installed on end-user mobile devices. 
 4. On login, the photo app establishes the identity of the user with the mid-tier service. This mechanism of identity establishment is purely up to the application.
 5. Once the identity is established, the mid-tier service requests permissions based on the identity.
 6. The mid-tier service sends a resource token back to the phone app.
-7. The phone app can continue to use the resource token to directly access DocumentDB resources with the permissions defined by the resource token and for the interval allowed by the resource token. 
+7. The phone app can continue to use the resource token to directly access Cosmos DB resources with the permissions defined by the resource token and for the interval allowed by the resource token. 
 8. When the resource token expires, subsequent requests receive a 401 unauthorized exception.  At this point, the phone app re-establishes the identity and requests a new resource token.
 
-    ![DocumentDB resource tokens workflow](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
+    ![Azure Cosmos DB resource tokens workflow](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-Resource token generation and management is handled by the native DocumentDB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) or the [source code for our SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) or the [source code for our SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
 For an example of a middle tier service used to generate or broker resource tokens, see the [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
 ## Users
-DocumentDB users are associated with a DocumentDB database.  Each database can contain zero or more DocumentDB users.  The following code sample shows how to create a DocumentDB user resource.
+Cosmos DB users are associated with a Cosmos DB database.  Each database can contain zero or more Cosmos DB users.  The following code sample shows how to create a Cosmos DB user resource.
 
 ```csharp
 //Create a user.
@@ -121,21 +121,21 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 ```
 
 > [!NOTE]
-> Each DocumentDB user has a PermissionsLink property that can be used to retrieve the list of [permissions](#permissions) associated with the user.
+> Each Cosmos DB user has a PermissionsLink property that can be used to retrieve the list of [permissions](#permissions) associated with the user.
 > 
 > 
 
 <a id="permissions"></a>
 
 ## Permissions
-A DocumentDB permission resource is associated with a DocumentDB user.  Each user may contain zero or more DocumentDB permissions.  A permission resource provides access to a security token that the user needs when trying to access a specific application resource.
+A Cosmos DB permission resource is associated with a Cosmos DB user.  Each user may contain zero or more Cosmos DB permissions.  A permission resource provides access to a security token that the user needs when trying to access a specific application resource.
 There are two available access levels that may be provided by a permission resource:
 
 * All: The user has full permission on the resource.
 * Read: The user can only read the contents of the resource but cannot perform write, update, or delete operations on the resource.
 
 > [!NOTE]
-> In order to run DocumentDB stored procedures the user must have the All permission on the collection in which the stored procedure will be run.
+> In order to run Cosmos DB stored procedures the user must have the All permission on the collection in which the stored procedure will be run.
 > 
 > 
 
@@ -160,7 +160,7 @@ If you have specified a partition key for your collection, then the permission f
 
 ### Code sample to read permissions for user
 
-To easily obtain all permission resources associated with a particular user, DocumentDB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new DocumentClient on behalf of the user.
+To easily obtain all permission resources associated with a particular user, Cosmos DB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new DocumentClient on behalf of the user.
 
 ```csharp
 //Read a permission feed.
@@ -177,6 +177,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
 ## Next steps
-* To learn more about DocumentDB database security, see [DocumentDB: NoSQL database security](documentdb-nosql-database-security.md).
-* To learn about managing master and read-only keys, see [How to manage a DocumentDB account](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
-* To learn how to construct DocumentDB authorization tokens, see [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources).
+* To learn more about Cosmos DB database security, see [Cosmos DB: Database security](documentdb-nosql-database-security.md).
+* To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
