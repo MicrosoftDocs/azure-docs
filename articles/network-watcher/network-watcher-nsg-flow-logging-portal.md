@@ -27,9 +27,9 @@ ms.author: gwallace
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Network security group flow logs are a feature of Network Watcher that enable you to view information about ingress and egress IP traffic through a network security group. These flow logs are written in JSON format. They show several things, including: 
+Network security group flow logs are a feature of Network Watcher that enables you to view information about ingress and egress IP traffic through a network security group. These flow logs are written in JSON format. They show important information, including: 
 
-- Outbound and inbound flows on a per rule basis.
+- Outbound and inbound flows on a per-rule basis.
 - The NIC that the flow applies to.
 - 5-tuple information about the flow (source/destination IP, source/destination port, protocol).
 - Whether traffic was allowed or denied.
@@ -54,7 +54,7 @@ These steps take you through the process of enabling flow logs on a network secu
 
 ### Step 1
 
-Navigate to a Network Watcher instance, and then select **Flow logs**.
+Navigate to a Network Watcher instance, and then select **NSG Flow logs**.
 
 ![Flow logs overview][1]
 
@@ -88,7 +88,7 @@ Go to the correct storage account. Then select **Containers** > **insights-log-n
 
 ### Step 3
 
-G to the location of the flow log, select it, and then select **Download**.
+Go to the location of the flow log, select it, and then select **Download**.
 
 ![Flow logs settings][6]
 
