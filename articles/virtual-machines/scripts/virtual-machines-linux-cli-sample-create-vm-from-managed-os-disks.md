@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
+ms.custom: mvc
 ---
 
 # Create a virtual machine using an existing managed OS disk with CLI
