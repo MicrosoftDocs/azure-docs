@@ -45,26 +45,6 @@
     href: sql-database-multi-tenant-application.md
   - name: 6 - Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: Wingtip SaaS tutorials
-    items:
-    - name: Wingtip SaaS introduction
-      href: sql-database-wtp-overview.md
-    - name: Deploy the Wingtip SaaS sample
-      href: sql-database-saas-tutorial.md
-    - name: Provision/catalog new tenants
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Monitor performance
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Monitor with Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Restore a single tenant
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Manage tenant schemas
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Run ad-hoc analytics
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Run tenant analytics
-      href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -361,6 +341,28 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
+   - name: Develop apps
+     items:
+     - name: Sample SaaS tutorials
+     - items:
+       - name: Wingtip SaaS introduction
+         href: sql-database-wtp-overview.md
+       - name: Deploy the Wingtip SaaS sample
+         href: sql-database-saas-tutorial.md
+       - name: Provision/catalog new tenants
+         href: sql-database-saas-tutorial-provision-and-catalog.md
+       - name: Monitor performance
+         href: sql-database-saas-tutorial-performance-monitoring.md
+       - name: Monitor with Log Analytics
+         href: sql-database-saas-tutorial-log-analytics.md
+       - name: Restore a single tenant
+         href: sql-database-saas-tutorial-restore-single-tenant.md
+       - name: Manage tenant schemas
+         href: sql-database-saas-tutorial-schema-management.md
+       - name: Run ad-hoc analytics
+         href: sql-database-saas-tutorial-adhoc-analytics.md
+       - name: Run tenant analytics
+         href: sql-database-saas-tutorial-tenant-analytics.md   
 - name: Reference
   items:
   - name: PowerShell
