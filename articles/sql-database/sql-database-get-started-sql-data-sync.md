@@ -38,7 +38,7 @@ This tutorial assumes that you have at least some prior experience with SQL Serv
 
 3.  On the **SQL databases** blade, select the existing SQL database that you want to use as the hub database for Data Sync. The SQL database blade opens.
 
-4.  On the SQL database blade for the selected database, select **Sync to other databases**. The Data Sync (?) blade opens.
+4.  On the SQL database blade for the selected database, select **Sync to other databases**. The Data Sync blade opens.
 
     ![Sync to other databases option](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
 
