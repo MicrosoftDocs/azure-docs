@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Bind an existing custom SSL certificate to Azure Web Apps
 
