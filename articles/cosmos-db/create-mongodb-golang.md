@@ -50,7 +50,7 @@ We’ll cover:
 account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you
 begin.)
 1.  IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains or [Visual Studio
-Code](https://code.visualstudio.com/) by Mircosoft or [Atom](https://atom.io/)
+Code](https://code.visualstudio.com/) by Microsoft or [Atom](https://atom.io/)
 
 ### Creating and connecting to an Azure Cosmos DB account
 
