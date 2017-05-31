@@ -117,7 +117,7 @@ Each starter pack contains:
 >[!NOTE]
 >If your XML editor supports validation, you might want to validate the files against the TrustFrameworkPolicy_0.3.0.0.xsd XML schema file that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
 
-Let's get started:
+ Let's get started:
 
 1. Download active-directory-b2c-custom-policy-starterpack from GitHub. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or run
 
@@ -151,9 +151,9 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 1. In the extensions file (TrustFrameworkExtensions.xml), find the element `<TechnicalProfile Id="login-NonInteractive">`.
 2. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application that you created earlier. Here is an example:
 
-```xml
+   ```xml
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-```
+   ```
 3. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the Proxy Identity Experience Framework application that you created earlier.
 4. Save your extensions file.
 
@@ -199,12 +199,12 @@ To set up Facebook:
 2. [Add the Facebook application secret to your Azure AD B2C tenant](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies).
 3. In the TrustFrameworkExtensions policy file, replace the value of `client_id` with the Facebook application ID:
 
-```xml
+   ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
      <Metadata>
      <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
        <Item Key="client_id">00000000000000</Item>
-```
+   ```
 4. Upload the TrustFrameworkExtensions.xml policy file to your tenant.
 5. Test by using **Run now** or by invoking the policy directly from your registered application.
 
