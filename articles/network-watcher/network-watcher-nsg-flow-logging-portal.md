@@ -32,7 +32,7 @@ Network security group flow logs are a feature of Network Watcher that enables y
 - Outbound and inbound flows on a per-rule basis.
 - The NIC that the flow applies to.
 - 5-tuple information about the flow (source/destination IP, source/destination port, protocol).
-- Whether traffic was allowed or denied.
+- Information about whether traffic was allowed or denied.
 
 ## Before you begin
 
@@ -44,7 +44,7 @@ For flow logging to work successfully, the **Microsoft.Insights** provider must 
 
 1. Go to **Subscriptions**, and then select the subscription for which you want to enable flow logs. 
 2. On the **Subscription** blade, select **Resource Providers**. 
-3. Look at the list of providers and verify that the **microsoft.insights** provider is registered. If not, then select **Register**.
+3. Look at the list of providers, and verify that the **microsoft.insights** provider is registered. If not, then select **Register**.
 
 ![View providers][providers]
 
@@ -54,7 +54,7 @@ These steps take you through the process of enabling flow logs on a network secu
 
 ### Step 1
 
-Navigate to a Network Watcher instance, and then select **NSG Flow logs**.
+Go to a Network Watcher instance, and then select **NSG Flow logs**.
 
 ![Flow logs overview][1]
 
@@ -76,7 +76,7 @@ Flow logs are saved in a storage account. Download your flow logs to view them.
 
 ### Step 1
 
-To download flow logs, select **You can download flow logs from configured storage accounts**. This step takes you to a storage account view where you can choose which log to download.
+To download flow logs, select **You can download flow logs from configured storage accounts**. This step takes you to a storage account view where you can choose which logs to download.
 
 ![Flow logs settings][4]
 
