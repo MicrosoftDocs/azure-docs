@@ -177,7 +177,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Creating an Azure AD test user](./media/active-directory-saas-collaborativeinnovation-tutorial/create_aaduser_02.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
  
