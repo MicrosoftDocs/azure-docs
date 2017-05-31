@@ -13,11 +13,11 @@ ms.date: 03/16/2017
 ms.author: prrajan
 ---
 
-# Get started with Speech REST API in cURL
+# Get started with the Speech REST API in cURL
 
-You can use the Bing Speech Recognition API with cURL to convert spoken audio to text by sending audio to Microsoft servers in the cloud. The example in this article contains bash commands that demonstrate the use of Microsoft Cognitive Services (formerly Project Oxford) Speech To Text API using cURL.
+You can use the Bing Speech Recognition API with cURL to convert spoken audio to text by sending audio to Microsoft servers in the cloud. The examples in this article contain bash commands that demonstrate the use of Microsoft Cognitive Services (formerly Project Oxford) Speech To Text API using cURL.
 
-The Speech Recognition web example demonstrates the following features when you use a wav file or an external microphone input:
+The Speech Recognition web example demonstrates the following features when you use a .wav file or an external microphone input:
  * Access-token generation
  * Short-form recognition
 This example assumes that cURL is available in your bash environment.
