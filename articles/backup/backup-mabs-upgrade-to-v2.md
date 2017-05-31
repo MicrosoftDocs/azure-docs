@@ -21,7 +21,7 @@ ms.author: masaran;markgal
 
 Azure Backup Server protects your virtual machines (VMs), workloads, files and folders, and more. Azure Backup Server v2 builds on top of Azure Backup Server v1, that is, Azure Backup Server v2 enables additional features, not available in v1. For a comparison of features between v1 and v2, see the article, [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). The additional features in Azure Backup Server v2 are an upgrade from Azure Backup Server v1. However, Azure Backup Server v1 is not a prerequisite for Azure Backup Server v2. If you want to upgrade Azure Backup Server v1 to Azure Backup Server v2, install Azure Backup Server v2 on the Azure Backup Server protection server. Your existing Azure Backup Server settings remain.
 
-You can install Azure Backup Server v2 on Windows Server 2012 R2 or on Windows Server 2016. However to take advantage of new features such as Modern Backup Storage, you must install Azure Backup Server v2 on Windows Server 2016. Before you upgrade or install Azure Backup Server v2, please read the [Installation prerequisites](http://docs.microsoft.com/system-center/dpm/install-dpm.md#setup-prerequisites).
+You can install Azure Backup Server v2 on Windows Server 2012 R2 or on Windows Server 2016. However to take advantage of new features such as Modern Backup Storage, you must install Azure Backup Server v2 on Windows Server 2016. Before you upgrade or install Azure Backup Server v2, read the [Installation prerequisites](http://docs.microsoft.com/system-center/dpm/install-dpm.md#setup-prerequisites).
 
 > [!NOTE]
 > Azure Backup Server is based on the same code base as System Center Data Protection Manager (DPM). Azure Backup Server v1 is equivalent to DPM 2012 R2, and Azure Backup Server is equivalent to DPM 2016. This documentation occasionally references the DPM documentation.
@@ -69,7 +69,7 @@ To upgrade Azure Backup Server v1 to v2, make sure your installation has the nec
 
   ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. On the Installation Settings screen, make any changes to the location where Azure Backup Server is installed, or the scratch location. Once these are set, click **Next**.
+8. On the Installation Settings screen, make any changes to the location where Azure Backup Server is installed, or the scratch location. Once you've made the changes, click **Next**.
 
   ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -98,8 +98,8 @@ To add a volume in the administrator console:
 
       ![Add volume](./media/backup-mabs-upgrade-to-v2/add-volume.png)
 
-  If you want to add a disk, it must belong to a protection group with legacy storage. Those disks can only be used for those protection groups. If the Azure Backup Server doesn't have sources with legacy protection, the disk won't appear.
-  See the topic, [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage), for more information on adding disks. You can't give disks a friendly name.
+  If you want to add a disk, it must belong to a protection group with legacy storage. Those disks can only be used for those protection groups. If the Azure Backup Server doesn't have sources with legacy protection, the disk doesn't appear.
+  For more information on adding disks, see [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage). You can't give disks a friendly name.
 
 
 ### Assign Workloads to Volumes
@@ -142,8 +142,8 @@ To create a Protection Group:
 
   ![Select group members for protection group](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
-6. On the **Select Data Protection Method** screen, type a name for the **Protection group**, select the protection method(s) and click **Next**.
-    If you want short term protection, you must use Disk backup.
+6. On the **Select Data Protection Method** screen, type a name for the **Protection group**, select the protection method, and click **Next**.
+    If you want short-term protection, you must use Disk backup.
 
   ![Select data protection method](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
 
@@ -157,7 +157,7 @@ To create a Protection Group:
 
   The storage volumes are determined based on the workload volume allocation (set using PowerShell) and the available storage. You can change the storage volumes by selecting other volumes from the drop-down menu. If you change the **Target Storage**, the **Available disk storage** dynamically changes to reflect the **Free Space** and **Underprovisioned Space**.
 
-  The **Underprovisioned Space** column in **Available disk storage**, reflects the amount of additional storage needed if the data sources grow as planned. Use this value to help plan your storage needs to enable smooth backups. If the value is zero, then there are no potential problems with storage in the foreseeable future. If the value is a number other than zero, then you do not have sufficient storage allocated  - based on your protection policy and the data size of your protected members.
+  If the data sources grow as planned, the **Underprovisioned Space** column in **Available disk storage** reflects the amount of additional storage needed. Use this value to help plan your storage needs to enable smooth backups. If the value is zero, then there are no potential problems with storage in the foreseeable future. If the value is a number other than zero, then you do not have sufficient storage allocated  - based on your protection policy and the data size of your protected members.
 
   ![Underallocated disk storage](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
 
@@ -174,11 +174,11 @@ Once you upgrade or install Azure Backup Server v2 and the operating system to W
 
 2. In the **Remove from Group** dialog, review the used disk space and the available free space in the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Click **OK**.
 
-    If you want to immediately return the used disk space to the free storage pool, select **Delete replica on disk**. This will delete the backup data (and recovery points) associated with that member.
+    If you want to immediately return the used disk space to the free storage pool, click **Delete replica on disk** to delete the backup data (and recovery points) associated with that member.
 
     ![Retain data](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
-3. Create a new protection group that uses Modern Backup Storage, and include the unprotected data sources.
+3. Create a protection group that uses Modern Backup Storage, and include the unprotected data sources.
 
 
 ## Adding Disks to increase legacy storage
@@ -203,8 +203,8 @@ If you want to use legacy storage with DPM 2016, it may become necessary to add 
 
 ## Update the DPM protection agent
 
-If you are upgrading a protection agent that is installed on a computer that is not connected to the network, you cannot perform a connected agent upgrade from within DPM Administrator Console. You must perform the upgrade in a non-active domain environment. The DPM server will show that the protection agent update is pending until the client computer is connected to the network.
-This topic describes how to update protection agents for both connected and non-connected client computers.
+If you are upgrading a protection agent that is not connected to the network, you cannot use the DPM Administrator console to perform a connected agent upgrade. You must upgrade the protection agent in a non-active domain environment. The DPM Administrator console shows the protection agent update is pending, until the client computer is connected to the network.
+The following sections describe how to update protection agents for both connected and non-connected client computers.
 
 ### Update a protection agent for a connected client computer
 
@@ -213,13 +213,13 @@ This topic describes how to update protection agents for both connected and non-
 2. In the display pane, select the client computers on which you want to update the protection agent.
 
   > [!NOTE]
-  > The Agent Updates column indicates when a protection agent updates is available, for each protected computer. The **Update** action in the **Actions** pane is not enabled when a protected computer is selected, unless updates are available.
+  > The Agent Updates column indicates when a protection agent update is available, for each protected computer. The **Update** action in the **Actions** pane is enabled only when a protected computer is selected, and updates are available.
   >
   >
 
 3. To install updated protection agents on selected computers, click **Update** in the **Actions** pane.
 
-### Update a protection agent on a disconnected client comptuer
+### Update a protection agent on a disconnected client computer
 
 1. In the Azure Backup Server Administrator console, click **Management** on the navigation bar, and then click the **Agents** tab.
 
