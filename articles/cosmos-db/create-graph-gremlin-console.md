@@ -14,7 +14,6 @@ ms.devlang: terminal
 ms.topic: hero-article
 ms.date: 05/19/2017
 ms.author: anhoh
-
 ---
 # Azure Cosmos DB: Create, query, and traverse a graph in the Gremlin console
 
