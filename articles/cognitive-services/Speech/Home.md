@@ -47,7 +47,7 @@ Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. 
 | *dictation* | Continuous recognition for dictation scenarios. Users speak longer sentences that are displayed as text. Users adopt a more formal speaking style. |
 | *conversation* | Continuous recognition for transcribing conversations between humans. Users adopt a less formal speaking style and may alternate between longer sentences and shorter phrases. |
 
-Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in the API reference for more information.
+For more information, see [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in the API reference.
 
 ### Speech Recognition Supported languages  
 The *Speech to Text* APIs support many spoken languages in multiple dialects. For the full list of supported languages in 
