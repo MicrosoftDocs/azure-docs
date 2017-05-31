@@ -185,8 +185,10 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > [!NOTE]
 > Currently, the Logic App Designer doesn't support 
 > discovering webhook endpoints through Swagger. 
-> So for this pattern, you have to add a **Webhook** action 
+> So for this pattern, you have to add a 
+> [**Webhook** action](../connectors/connectors-native-webhook.md)
 > and specify the URL, headers, and body for your request. 
+> See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#api-connection-webhook-action). 
 > To pass in the callback URL, you can use the `@listCallbackUrl()` 
 > workflow function in any of the previous fields as necessary.
 
@@ -281,8 +283,10 @@ Your API can then unregister the callback URL and stop any processes as necessar
 > [!NOTE]
 > Currently, the Logic App Designer doesn't support 
 > discovering webhook endpoints through Swagger. 
-> So for this pattern, you have to add a **Webhook** action 
+> So for this pattern, you have to add a 
+> [**Webhook** trigger](../connectors/connectors-native-webhook.md) 
 > and specify the URL, headers, and body for your request. 
+> See also [HTTPWebhook trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). 
 > To pass in the callback URL, you can use the `@listCallbackUrl()` workflow 
 > function in any of the previous fields as necessary.
 >
