@@ -139,7 +139,7 @@ The purpose of the Local network gateway resource is to indicate the remote gate
 4. Select **local network gateway** from the list of resources.
 5. In the **Name** field type **ER Router GW**.
 6. For the **IP address** field, refer to Diagram 2. The IP address of the ExpressRoute router's LAN sub-interface for Tenant 1 is 10.60.3.255. For your own environment, type the IP address of your router's corresponding interface.
-7. In the **Address Space** field, type the address space of the VNets that you want to connect to in Azure. For this example, refer to Diagram 2. For Tenant 1, notice that the required subnets are **192.168.1.0/24** and **10.100.0.0/16**. Type the corresponding subnets for your own environment.
+7. In the **Address Space** field, type the address space of the VNets that you want to connect to in Azure. For this example, refer to Diagram 2. For Tenant 1, notice that the required subnets are **192.168.2.0/24** and **10.100.0.0/16**. Type the corresponding subnets for your own environment.
    > [!IMPORTANT]
    > This example assumes you are using static routes for the Site-to-Site VPN connection between the Azure Stack gateway and the ExpressRoute router.
 
