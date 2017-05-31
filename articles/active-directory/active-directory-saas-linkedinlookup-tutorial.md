@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/25/2017
 ms.author: jeedes
 
 ---
@@ -135,19 +135,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/updateusermail.png)
 	
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add another claim named **department** and the value is to be mapped with **user.department**.
+9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add 3 claims named **department**, **firstname** and **lastname** and the value is to be mapped with **user.department**, **user.givenname** and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
 	| department| user.department |
+	| firstname| user.givenname |
+	| lastname| user.surname |
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
+   	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-   a. Click **Add attribute** to open the attribute details page add the department attribute as shown below-
+   	a. Click on **Add Attribute** to open the attribute dialog.
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
+   	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
    
-   b. Click **Ok** to save the attribute.
+   	b. In the **Name** textbox, type the attribute name shown for that row.
+	
+	c. From the **Value** list, type the attribute value shown for that row.
+	
+	d. Click **Ok**
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -167,7 +173,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -235,6 +241,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
+
 	
 ### Testing single sign-on
 
@@ -242,15 +249,12 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the LinkedIn Lookup tile in the Access Panel, you should be redirected to Organizational page where you have to provide your personal LinkedIn account details. It links your personal account with your LinkedIn business account. 
 
-For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
-* [Tutorial: Configuring LinkedIn Lookup for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinlookup-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
