@@ -51,7 +51,6 @@ You can easily [create a new Azure Container Registry](../container-registry/con
     ```
 
 
-
 ## Create an Azure Container Service with Kubernetes
 
 Now you're ready to use [az acs create](/cli/azure/acs#create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
@@ -110,16 +109,7 @@ waiting for AAD role to propagate.done
 }
 ```
 
-> [!NOTE]
-> Notice that the deployment id contains the service principal that created it. If you examine the name of the cluster, however, the name you specified is there:
->>
-```azurecli
-az acs list -o table
-Location    Name                              ProvisioningState    ResourceGroup
-----------  --------------------------------  -------------------  --------------------
-westus      draft-kube-acs                    Succeeded            DRAFT
-```
->>
+Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
 
 ## Install and configure draft
 The installation instructions for Draft are in the [Draft repository](https://github.com/Azure/draft/blob/master/docs/install.md). They are relatively simple, but do require some configuration, as it depends on [Helm](https://aka.ms/helm) to create and deploy a Helm chart into the Kubernetes cluster.
@@ -145,45 +135,88 @@ The installation instructions for Draft are in the [Draft repository](https://gi
 
 ## Wire up deployment domain
 
-Draft will create a new deployment for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. To do this, you must create an A record in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
+Draft will create a new deployment for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. To do this, you must create an A record for `'*'` in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
 
-Your own domain provider will have their own way to do this. But if you have [delegated your domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
+Your own domain provider will have their own way to do this; to [delegate your domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
 
 1. Create a resource group for your zone.
-  ```azurecli
-  az group create --name zones --location eastus
-  {
-    "id": "/subscriptions/<guid>/resourceGroups/squillace.io",
-    "location": "eastus",
-    "managedBy": null,
-    "name": "zones",
-    "properties": {
-      "provisioningState": "Succeeded"
-    },
-    "tags": null
-  }
-  ```
+    ```azurecli
+    az group create --name squillace.io --location eastus
+    {
+      "id": "/subscriptions/<guid>/resourceGroups/squillace.io",
+      "location": "eastus",
+      "managedBy": null,
+      "name": "zones",
+      "properties": {
+        "provisioningState": "Succeeded"
+      },
+      "tags": null
+    }
+    ```
+
 2. Create a DNS zone for your domain.
-  ```azurecli
-  az network dns zone create --resource-group zones --name squillace.info
-  {
-    "etag": "00000002-0000-0000-ad31-373f41dad201",
-    "id": "/subscriptions/f7f09258-6753-4ca2-b1ae-193798e2c9d8/resourceGroups/zones/providers/Microsoft.Network/dnszones/squillace.info",
-    "location": "global",
-    "maxNumberOfRecordSets": 5000,
-    "name": "squillace.info",
-    "nameServers": [
-      "ns1-09.azure-dns.com.",
-      "ns2-09.azure-dns.net.",
-      "ns3-09.azure-dns.org.",
-      "ns4-09.azure-dns.info."
-    ],
-    "numberOfRecordSets": 2,
-    "resourceGroup": "zones",
-    "tags": {},
-    "type": "Microsoft.Network/dnszones"
-  }
-  ```
+
+Use the [az network dns zone create](/cli/azure/network/dns/zone#create) command to obtain the nameservers to delegate DNS control to Azure DNS for your domain.
+
+    ```azurecli
+    az network dns zone create --resource-group squillace.io --name squillace.io
+    {
+      "etag": "<guid>",
+      "id": "/subscriptions/<guid>/resourceGroups/zones/providers/Microsoft.Network/dnszones/squillace.io",
+      "location": "global",
+      "maxNumberOfRecordSets": 5000,
+      "name": "squillace.io",
+      "nameServers": [
+        "ns1-09.azure-dns.com.",
+        "ns2-09.azure-dns.net.",
+        "ns3-09.azure-dns.org.",
+        "ns4-09.azure-dns.info."
+      ],
+      "numberOfRecordSets": 2,
+      "resourceGroup": "squillace.io",
+      "tags": {},
+      "type": "Microsoft.Network/dnszones"
+    }
+    ```
+3. Add the DNS servers you are given to the domain provider for your deployment domain, which enables you to use Azure DNS to repoint your domain as you want.
+
+
+4. Create an A record-set entry for your deployment domain mapping to the `ingress` IP from step 2 of the previous section.
+
+    ```azurecli
+    az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*' -g squillace.io -z squillace.io
+    ```
+
+The output looks something like:
+
+    ```json
+    {
+      "arecords": [
+        {
+          "ipv4Address": "13.64.108.240"
+        }
+      ],
+      "etag": "<guid>",
+      "id": "/subscriptions/<guid>/resourceGroups/squillace.io/providers/Microsoft.Network/dnszones/squillace.io/A/*",
+      "metadata": null,
+      "name": "*",
+      "resourceGroup": "squillace.io",
+      "ttl": 3600,
+      "type": "Microsoft.Network/dnszones/A"
+    }
+    ```
+
+5. Configure Draft to use your registry and create subdomains for each Helm chart it creates. To do this, you need:
+  - your Azure Container Registry name (in this example, `draftacs`)
+  - your registry key, or password, from `az acr credential show -n $acrname --output tsv --query "passwords[0].value"`.
+  - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `13.64.108.240`)
+  -
+
+
+
 ## Build and deploy an application
 
 
+
+
+Then install [Draft]()
