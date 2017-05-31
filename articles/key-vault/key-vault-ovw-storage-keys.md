@@ -119,8 +119,11 @@ If the identity, via OBO token, does not have *regenerate* permission or if Key 
 
 The OBO token will only work when you use first-party, native client applications of either PowerShell or CLI.
 
-## Other information
+## Other applications
 
 - SAS tokens, constructed using Key Vault storage account keys, provide even more controlled access to an Azure storage account. For more information, see [Using shared access signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
+## See Also
 
+[About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/)
+[Key Vault Team Blog](https://blogs.technet.microsoft.com/kv/)
