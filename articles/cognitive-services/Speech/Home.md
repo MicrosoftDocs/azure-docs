@@ -13,7 +13,7 @@ ms.author: prrajan
 ---
 # Bing Speech API Overview
 Microsoft’s *Speech to Text* and *Text to Speech* cloud offerings help you put speech to work in your application. Microsoft's
-Speech APIs can transcribe speech *to* text and can generate speech *from* text, enabling you to create powerful experiences that will delight your users.
+Speech APIs can transcribe speech *to* text and can generate speech *from* text, enabling you to create powerful experiences that  delight your users.
 
 * **Speech to Text** APIs convert human speech to text that can be used as input or commands to control your application.
 * **Text to Speech** APIs convert text to audio streams that can be played back to the user of your application.
@@ -21,10 +21,10 @@ Speech APIs can transcribe speech *to* text and can generate speech *from* text,
 ## Speech to Text (Speech Recognition)
 The *Speech to Text* APIs *transcribe* audio streams into text that your application can display to the user or act upon as command input. The *Speech To Text* APIs come in two flavors.
 
-* A REST API, useful for apps that need to convert short spoken commands to text but do not need real-time streaming or simultaneous user feedback. The REST API uses 
+* A REST API, useful for apps that need to convert short spoken commands to text but do not need simultaneous user feedback. The REST API uses 
 [HTTP chunked-transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) to send the audio bytes to the service.
-* A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps that need to convert longer audio to text or that want an
-improved user experience by leveraging the power of the full-duplex WebSocket connection through features like speech recognition hypotheses.
+* A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps that desire an
+improved user experience by leveraging the power of the full-duplex WebSocket connection through features like speech recognition hypotheses. Also useful for apps that need to transcribe longer audio passages.  
 
 Both *Speech to Text* APIs can enrich the transcribed text results by adding capitalization and punctuation, masking profanity, and text normalization.
 
@@ -55,8 +55,8 @@ The *Speech to Text* APIs support many spoken languages in multiple dialects. Re
 for the full list of supported languages for each recognition mode. 
 
 ## Text to Speech (Speech Synthesis)
-*Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide real-time text to speech 
-conversion in a variety of different voices and languages. Refer to 
+*Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech 
+conversion in various voices and languages. Refer to 
 [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts)
 for the full list of supported languages and voices.
 
