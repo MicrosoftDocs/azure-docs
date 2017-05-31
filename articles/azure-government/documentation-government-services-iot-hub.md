@@ -29,6 +29,6 @@ The following URLs for Azure IoT Hub are different in Azure Government:
 | *.azure-devices.net | *.azure-devices.us | Replace `*` with your IoT Hub name |
 
 
-## Next Steps
+### Next Steps
 
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov).
