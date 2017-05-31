@@ -86,7 +86,7 @@ In this section, you create a .NET console app that connects to your hub as **my
         }
     The **Client** object exposes all the methods you require to interact with device twins from the device. The code shown above, initializes the **Client** object, and then retrieves the device twin for **myDeviceId**.
 
-1. Add the following method to the **Program** class, to send initial values of telemetry from the device:
+1. Add the following method to the **Program** class. This method sets the initial values of telemetry on the local device and then updates the device twin.
 
         public static async void InitTelemetry()
         {
@@ -117,7 +117,7 @@ In this section, you create a .NET console app that connects to your hub as **my
             }
         }
 
-1. Add the following method to the **Program** class. This is a callback which will detect a change in **desired properties** in the device twin.
+1. Add the following method to the **Program** class. This is a callback which will detect a change in *desired properties* in the device twin.
 
         private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
         {
@@ -223,7 +223,7 @@ In this section, you create a .NET console app that connects to your hub as **my
    > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, some might have to queue them, and some could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
    > 
    > 
-1. Build the solution and run the device app, by clicking **F5**. On the output console, you should see the messages indicating that your simulated device is retrieving the device twin, setting up the telemetry, and waiting for desired property change. Keep the app running.
+1. Build the solution and then run the device app from Visual Studio by clicking **F5**. On the output console, you should see the messages indicating that your simulated device is retrieving the device twin, setting up the telemetry, and waiting for desired property change. Keep the app running.
 
 ## Create the service app
 In this section, you will create a .NET console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
