@@ -59,7 +59,7 @@ The following example creates a DNS zone called *contoso.com* in the resource gr
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
-### To create a DNS zone with tags.
+### To create a DNS zone with tags
 
 The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*, by using the `--tags` parameter (short form `-t`):
 
