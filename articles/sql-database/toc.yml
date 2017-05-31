@@ -155,24 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: App upgrades
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Development
+  - name: Database development
     items:
     - name: Overview
       href: sql-database-develop-overview.md
     - name: Connectivity
       href: sql-database-libraries.md
-    - name: App design - SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Security - SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Ports - ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Authenticate App 
-      href: sql-database-client-id-keys.md
-    - name: Error messages
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: JSON data
       href: sql-database-json-features.md
     - name: In-memory
@@ -343,8 +331,20 @@
       href: sql-database-ssms-mfa-authentication-configure.md
    - name: Develop apps
      items:
-     - name: Sample SaaS tutorials
-     - items:
+      - name: App design - SaaS
+        href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+      - name: Security - SaaS
+        href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+      - name: Ports - ADO.NET
+        href: sql-database-develop-direct-route-ports-adonet-v12.md
+      - name: Authenticate App 
+        href: sql-database-client-id-keys.md
+      - name: Error messages
+        href: sql-database-develop-error-messages.md
+      - name: Dapper
+        href: sql-database-elastic-scale-working-with-dapper.md
+      - name: Sample SaaS tutorials
+      - items:
        - name: Wingtip SaaS introduction
          href: sql-database-wtp-overview.md
        - name: Deploy the Wingtip SaaS sample
