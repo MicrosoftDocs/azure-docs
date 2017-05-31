@@ -1,14 +1,14 @@
 ---
 title: Run a Hadoop job using Azure Cosmos DB and HDInsight | Microsoft Docs
 description: Learn how to run a simple Hive, Pig, and MapReduce job with Azure Cosmos DB and Azure HDInsight.
-services: cosmosdb
+services: cosmos-db
 author: dennyglee
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
 
 ms.assetid: 06f0ea9d-07cb-4593-a9c5-ab912b62ac42
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
