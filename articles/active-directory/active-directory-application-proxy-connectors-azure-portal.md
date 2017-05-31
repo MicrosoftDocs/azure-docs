@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
 ---
 
-# Publish applications on separate networks and locations using connector groups - Public preview
+# Publish applications on separate networks and locations using connector groups
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure classic portal](active-directory-application-proxy-connectors.md)
@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 
 ## Azure AD Application Proxy and connector groups
 
-Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups – a new capability to assign specific connectors to serve specific applications. This capability generates many use cases for Application Proxy that were not possible before. During the private preview phase, we witnessed large customers enabling connector groups to boost their live Application Proxy deployments. 
+Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups – a new capability to assign specific connectors to serve specific applications. This capability generates many use cases for Application Proxy that were not possible before. 
 
 The basic concept is that each Application Proxy connector is assigned to a connector group. All the connectors that belong to the same connector group act as a separate group for high-availability and load balancing. By default, all connectors belong to a default group. The admin can create new groups and change these assignments in the Azure portal. 
 

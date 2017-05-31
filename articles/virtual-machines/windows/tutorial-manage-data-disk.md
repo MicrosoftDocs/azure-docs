@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure disks with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Manage Azure disks with the Azure PowerShell 
 services: virtual-machines-windows
@@ -14,15 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ---
 
 # Manage Azure disks with PowerShell
 
-In this tutorial, you learn about the different types of VM disks, how to select a disk configuration, and how to create and attach disks to Azure VMs. This tutorial also covers taking disk snapshots.  
+Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
 
-The steps in this tutorial can be completed using the latest [Azure PowerShell](/powershell/azure/overview) module.
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
+
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Default Azure disks
 
@@ -34,7 +41,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ### Temporary disk sizes
 
-| Type | VM Size | Max temp disk size |
+| Type | VM Size | Max temp disk size (GB) |
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
@@ -87,7 +94,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 Create the initial configuration with [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). The following example configures a disk that is 128 gigabytes in size.
 
 ```powershell
-$diskConfig = New-AzureRmDiskConfig -Location westus -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -Location EastUS -CreateOption Empty -DiskSizeGB 128
 ```
 
 Create the data disk with the [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) command.
@@ -131,6 +138,16 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## Next steps
 
-In this tutorial, you have learned about VM disks. Advance to the next tutorial to learn about automating VM configuration.
+In this tutorial, you learned about VM disks topics such as:
 
-[Automate VM configuration](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
+
+Advance to the next tutorial to learn about automating VM configuration.
+
+> [!div class="nextstepaction"]
+> [Automate VM configuration](./tutorial-automate-vm-deployment.md)

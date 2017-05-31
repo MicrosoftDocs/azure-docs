@@ -13,7 +13,7 @@ ms.date: 01/12/2017
 ms.author: scottwhi
 ---
 
-# Search the Web
+# Search the web
 
 The Web Search API provides a similar (but not exact) experience to Bing.com/Search by returning search results that Bing determines are relevant to the specified user's query. The results include webpages and may include images, videos, and more. 
 
@@ -21,16 +21,16 @@ If you're building a search results page that displays any content that's releva
 
 If Bing didn't find content from one of the content-specific APIs relevant enough, it would not include it in the search results. For example, the results could include webpages, news articles, and videos but not images. However, it's possible that if you called the Image Search API directly with the same query, it would return images.
 
-If you don't need webpages but you do need answers from more than one of the other APIs, such as images and news, you'd still call this API. For example, if you only wanted Images and News, you'd call this API and set [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#responsefilter) query parameter to limit the results to only Images and News. For more information, see [Filtering Answers](./filter-answers.md).
+If you don't need webpages but you do need answers from more than one of the other APIs, such as images and news, you'd still call this API. For example, if you only wanted Images and News, you'd call this API and set [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#responsefilter) query parameter to limit the results to only Images and News. For more information, see [Filtering Answers](./filter-answers.md).
 
 
-## Search Query Term
+## Search query term
 
 Your user experience must provide a search box where the user enters a search query term. You can determine the maximum length of the term that you allow, but the maximum length of all your query parameters should be less than 1,500 characters.
 
-After the user enters their query term, you need to URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#query) query parameter. For example, if the user entered *sailing lessons near me*, you would set `q` to *sailing+lessons+near+me* or *sailing%20lessons%20near%20me*.
+After the user enters their query term, you need to URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query) query parameter. For example, if the user entered *sailing lessons near me*, you would set `q` to *sailing+lessons+near+me* or *sailing%20lessons%20near%20me*.
 
-If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
+If the query term contains a spelling mistake, the search response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
 
 ```
   "queryContext":{  
@@ -44,9 +44,9 @@ You can use this information to let the user know that you modified their query 
 
 ![Query context UX example](./media/cognitive-services-bing-web-api/bing-query-context.PNG)
 
-## The Search Response
+## The search response
 
-When you send Bing a search request, it sends back a response that contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#searchresponse) object in the body of the response. The object includes a field for each answer that Bing thought was relevant to the user's query term. The following shows an example of the response object if Bing returned all answers.
+When you send Bing a search request, it sends back a response that contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#searchresponse) object in the body of the response. The object includes a field for each answer that Bing thought was relevant to the user's query term. The following shows an example of the response object if Bing returned all answers.
 
 ```
 {
@@ -63,11 +63,11 @@ When you send Bing a search request, it sends back a response that contains a [S
     "rankingResponse" : {...}
 ```
 
-Typically, Bing returns a subset of the answers. For example, if the query term was *sailing dinghies*, the response might include only `webPages`, `images`, and `rankingResponse`. Unless you've used [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#responsefilter) to filter out webpages, the response always includes the `webpages` and `rankingResponse` answers.
+Typically, Bing returns a subset of the answers. For example, if the query term was *sailing dinghies*, the response might include only `webPages`, `images`, and `rankingResponse`. Unless you've used [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#responsefilter) to filter out webpages, the response always includes the `webpages` and `rankingResponse` answers.
 
 ### Webpages answer
 
-The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#webanswer) answer contains a list of links to webpages that Bing thought were relevant to the query. Each [webpage](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#webpage) in the list includes the page's name, url, display URL, short description of the content and the date Bing found the content.
+The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#webanswer) answer contains a list of links to webpages that Bing thought were relevant to the query. Each [webpage](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#webpage) in the list includes the page's name, url, display URL, short description of the content and the date Bing found the content.
 
 ```
         {
@@ -86,7 +86,7 @@ Use `name` and `url` to create a hyperlink that takes the user to the webpage. T
 
 ### Images answer
 
-The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference.md#images) answer contains a list of images that Bing thought were relevant to the query. Each [image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference.md#image) in the list includes the URL of the image, its size, its dimensions, and its encoding format. The image object also includes the URL of a thumbnail of the image and the thumbnail's dimensions.
+The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#images) answer contains a list of images that Bing thought were relevant to the query. Each [image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#image) in the list includes the URL of the image, its size, its dimensions, and its encoding format. The image object also includes the URL of a thumbnail of the image and the thumbnail's dimensions.
 
 ```
         {
@@ -127,7 +127,7 @@ For details about the image answer and images, see [Image Search API](../bing-im
 
 ### Related searches answer
 
-The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#relatedsearches) answer contains a list of the most popular related queries made by other users. Each [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#query_obj) in the list includes a query string (`text`), a query string with hit highlighting characters (`displayText`), and a URL (`webSearchUrl`) to Bing's search results page for that query.
+The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#searchresponse-relatedsearches) answer contains a list of the most popular related queries made by other users. Each [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#query_obj) in the list includes a query string (`text`), a query string with hit highlighting characters (`displayText`), and a URL (`webSearchUrl`) to Bing's search results page for that query.
 
 ```
         {
@@ -148,7 +148,7 @@ The following shows an example of the related queries usage in Bing.com.
 
 ### Videos answer
 
-The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-videos-api-v5-reference.md#videos) answer contains a list of videos that Bing thought were relevant to the query. Each [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference.md#video) in the list includes the URL of the video, its duration, its dimensions, and its encoding format. The video object also includes the URL of a thumbnail of the video and the thumbnail's dimensions.
+The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#videos) answer contains a list of videos that Bing thought were relevant to the query. Each [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference#video) in the list includes the URL of the video, its duration, its dimensions, and its encoding format. The video object also includes the URL of a thumbnail of the video and the thumbnail's dimensions.
 
 ```
         {
@@ -201,7 +201,7 @@ For details about the video answer and videos, see [Video Search API](../bing-vi
 
 ### News answer
 
-The [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#news) answer contains a list of news articles that Bing thought were relevant to the query. Each [news article](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference.md#newsarticle) in the list includes the article's name, description, and URL to the article on the host's website. If the article contains an image, the object includes a thumbnail of the image.
+The [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news) answer contains a list of news articles that Bing thought were relevant to the query. Each [news article](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#newsarticle) in the list includes the article's name, description, and URL to the article on the host's website. If the article contains an image, the object includes a thumbnail of the image.
 
 ```
         {
@@ -236,7 +236,7 @@ For details about the news answer and news articles, see [News Search API](../bi
 
 ## Computation answer
 
-If the user enters a mathematical expression or a unit conversion query, the response may contain a [Computation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#computation) answer. The `computation` answer contains the normalized expression and its result.  
+If the user enters a mathematical expression or a unit conversion query, the response may contain a [Computation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#computation) answer. The `computation` answer contains the normalized expression and its result.  
   
 A unit conversion query is a query that converts one unit to another. For example, *How many feet in 10 meters?* or *How many tablespoons in a 1/4 cup?*  
   
@@ -346,7 +346,7 @@ Mathematical expressions that contain variables (for example, 4x+6=18, where x i
 
 ### TimeZone answer  
 
-If the user enters a time or date query, the response may contain a [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#timezone) answer. This answer supports implicit or explicit queries. An implicit query such as *What time is it?*, returns the local time of the user's location. An explicit query such as *What time is it in Seattle?*, returns the local time of Seattle, WA.  
+If the user enters a time or date query, the response may contain a [TimeZone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#timezone) answer. This answer supports implicit or explicit queries. An implicit query such as *What time is it?*, returns the local time of the user's location. An explicit query such as *What time is it in Seattle?*, returns the local time of Seattle, WA.  
   
 The `timeZone` answer provides the name of the location, the current UTC date and time at the specified location, and the UTC offset. If the boundary of the location is within multiple time zones, the answer contains the current UTC date and time of all time zones within the boundary. For example, because Florida State falls within two time zones, the answer contains the local date and time of both time zones.  
   
@@ -444,7 +444,7 @@ Query: What time is it in the U.S.
   
 ### SpellSuggestion answer
 
-If Bing determines that the user may have intended to search for something different, the response includes a [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference.md#spellsuggestions) object. For example, if the user searches for *carlos pen*, Bing may determine that the user likely intended to search for Carlos Pena instead (based on past searches by others of *carlos pen*). The following shows an example spell response.  
+If Bing determines that the user may have intended to search for something different, the response includes a [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference#spellsuggestions) object. For example, if the user searches for *carlos pen*, Bing may determine that the user likely intended to search for Carlos Pena instead (based on past searches by others of *carlos pen*). The following shows an example spell response.  
   
 ```  
     "spellSuggestions" : {  
@@ -461,13 +461,13 @@ The following shows how Bing uses the spelling suggestion.
 ![Bing spelling suggestion example](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)
 
 
-## Throttling Requests
+## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
 
-## Next Steps
+## Next steps
 
 To get started quickly with your first request, see [Making Your First Query](./quick-start.md).
 

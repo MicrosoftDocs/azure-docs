@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/29/2017
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management connector (Preview)
@@ -89,9 +89,8 @@ Run the script by providing the following required details:
 - Resource group name
 - Location
 - Service Manager server details (server name, domain, user name, and password)
-- URL for deployment
-- Site name for your Web app
-- Biz talk service name.
+- Site name prefix for your Web app
+- ServiceBus Namespace.
 
 The script creates the Web app using the name that you specified (along with few additional strings to make it unique). It generates the **Web app URL**, **client ID** and **client secret**.
 
@@ -172,10 +171,12 @@ The following sections provide details about how to connect your ServiceNow prod
 Ensure you have the following prerequisites met:
 
 - IT Service Management connector installed. More information: [Configuration.](log-analytics-itsmc-overview.md#configuration)
-- Client ID and client secret for ServiceNow product are generated and available.  For information on how to generate client ID and secret, see [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
 - ServiceNow supported versions – Fuji, Geneva, Helsinki.
-- User App for Microsoft OMS integration (ServiceNow app) installed and the integration user role is configured. [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
-- User role: Integration user role. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
+
+ServiceNow Admins must do the following in their ServiceNow instance:
+- Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
+- Install the User App for Microsoft OMS integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+- Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
 
 
 ### **Connection procedure**

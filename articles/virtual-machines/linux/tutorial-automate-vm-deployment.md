@@ -14,15 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ---
 
 # How to customize a Linux virtual machine on first boot
-To create virtual machines (VMs) in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). This tutorial describes how to use cloud-init to automatically install packages, configure the NGINX web server, and deploy a Node.js app.
+In a previous tutorial, you learned how to SSH to a virtual machine (VM) and manually install NGINX. To create VMs in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). In this tutorial you learn how to:
 
-The steps in this tutorial can be completed using the latest [Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Create a cloud-init config file
+> * Create a VM that uses a cloud-init file
+> * View a running Node.js app after the VM is created
+> * Use Key Vault to securely store certificates
+> * Automate secure deployments of NGINX with cloud-init
 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Cloud-init overview
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
@@ -87,10 +95,10 @@ runcmd:
 For more information about cloud-init configuration options, see [cloud-init config examples](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]
 
 ## Create virtual machine
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAutomate* in the *westus* location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAutomate* in the *eastus* location:
 
-```azurecli
-az group create --name myResourceGroupAutomate --location westus
+```azurecli-interactive
+az group create --name myResourceGroupAutomate --location eastus
 ```
 
 Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
@@ -255,6 +263,16 @@ Your secured NGINX site and Node.js app is then displayed as in the following ex
 
 
 ## Next steps
-In this tutorial, you have learned how to customize a VM on first boot. Advance to the next tutorial to learn how to create custom VM images.
+In this tutorial, you configured VMs on first boot with cloud-init. You learned how to:
 
-[Create custom VM images](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * Create a cloud-init config file
+> * Create a VM that uses a cloud-init file
+> * View a running Node.js app after the VM is created
+> * Use Key Vault to securely store certificates
+> * Automate secure deployments of NGINX with cloud-init
+
+Advance to the next tutorial to learn how to create custom VM images.
+
+> [!div class="nextstepaction"]
+> [Create custom VM images](./tutorial-custom-images.md)

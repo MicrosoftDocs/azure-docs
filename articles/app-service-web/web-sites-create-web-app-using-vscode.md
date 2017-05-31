@@ -37,7 +37,7 @@ ASP.NET Core is a significant redesign of ASP.NET. ASP.NET Core is a new open-so
 ## Install ASP.NET Core
 ASP.NET Core is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
-This tutorial is designed to get you started building applications with the latest development versions of ASP.NET Core. The following instructions are specific to Windows. For installation instructions on OS X, Linux, and Windows, see [Getting Sratrted with ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started). 
+This tutorial is designed to get you started building applications with the latest development versions of ASP.NET Core. The following instructions are specific to Windows. For installation instructions on OS X, Linux, and Windows, see [Getting Started with ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started). 
 
 
 > [!NOTE]
@@ -46,7 +46,7 @@ This tutorial is designed to get you started building applications with the late
 > 
 
 ## Create the web app
-This section shows you how to scaffold a new app ASP.NET web app using donet CLI tool. 
+This section shows you how to scaffold a new app ASP.NET web app using the .NET CLI tool. 
 
 1. Enter the following at the command prompt to create the project folder and scaffold the app.
    
@@ -57,7 +57,7 @@ dotnet new mvc
 ```
 ![dotnet CLI - ASP.NET Core generator](./media/web-sites-create-web-app-using-vscode/dotnetcore-mvc-01.png)
 
-2. To install the necessary NuGet packages to run the following command:
+2. To restore the necessary NuGet packages, run the following command:
    
     ```terminal
     dotnet restore

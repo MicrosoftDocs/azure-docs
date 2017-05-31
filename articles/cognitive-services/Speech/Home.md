@@ -11,61 +11,58 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: prrajan
 ---
+# Bing speech API overview
+Welcome to Speech Service – Microsoft’s speech recognition and text to speech cloud offering which helps users to voice-enable their applications and bring in a delightful conversational experience. 
 
-# Bing Speech API Overview
+Microsoft Speech Service has two APIs:
+* [Speech to Text API](#speech-to-text-speech-recognition):   
+	Using REST API : For apps converting short spoken commands (up to 15 seconds) to text without real-time streaming or user feedback.  
+	Using WebSocket API : For apps converting long audio (up to 10 minutes) to text with intermediate results.
+* [Text to Speech API](#text-to-speech-speech-synthesis) 
+	For apps requiring the functionality of converting text into audio that can be played back to the user. 
 
-Welcome to Bing Speech API, a cloud-based API that provides advanced algorithms to process spoken language. With Bing Speech API you can add speech driven actions to your apps, including real-time interaction with the user.
+## Speech to Text (STT)
+Microsoft's Speech Service *transcribes* audio streams into text suitable for display to a user. Transcription includes adding appropriate capitalization and punctuation, masking profanity, and normalizing text. For example, if a user says `remind me to buy six pencils`, Microsoft's Speech Services will return the transcribed text `Remind me to buy 6 pencils.`
+There are two options for adding speech recognition capabilities to your app:
+* The REST API uses chunked-transfer encoding to convert short spoken commands without real-time streaming or user feedback.
+* The WebSocket API uses full-duplex communication to convert longer audio input and supports intermediate results.
+Use this comparison chart to help you choose the API that fits your needs.
 
-Bing Speech API has two components:
-* [Speech To Text API](#SpeechRecognition):  For apps converting spoken words to text.
-* [Text To Speech API](#TextToSpeech): For apps converting text into audio that can be played back to the user. 
+### Speech recognition modes
+The API supports multiple types of speech input depending on speaking style. Choosing the most suitable style you expect produces better recognition results:
 
-Bing Speech APIs and libraries enables speech capabilities on all internet-connected devices. Every major platform including Android, iOS, Windows, and 3rd party IoT devices are supported. It offers industry-leading speech-to-text, text-to-speech, and language understanding capabilities delivered through the cloud.
+| Mode | Description |
+|---|---|
+| Interactive | A user makes short requests and expects the application to perform an action in response. |
+| Dictation | Users are engaged in a human-to-human conversation. |
+| Conversation | The user recites longer utterances to the application for further processing. |
 
-Microsoft uses Bing Speech API for Windows applications like [Cortana](https://www.microsoft.com/en-us/mobile/experiences/cortana/) and [Skype Translator](https://www.skype.com/en/features/skype-translator/) as well as Android applications like [Bing Torque](https://play.google.com/store/apps/details?id=com.microsoft.bing.torque) for Android Wear and Android Phone.
+Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in API reference for more information.
 
-<a name="SpeechRecognition"></a>
-## Speech Recognition API
-Bing Speech Recognition API provides the ability to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Developers have a choice of using the REST API, Client Library or the Service Library. 
+### Quick feature comparison
+Here is a quick comparison of features between the REST and WebSocket APIs for speech recognition.
 
-### Speech Recognition - REST API versus Client Library versus Service Library
-* Using the **REST API** means getting only one recognition result back with no partial results. Documentation for the REST API can be found [here](API-Reference-REST/BingVoiceRecognition.md) and code samples [here](https://oxfordportal.blob.core.windows.net/speech/doc/recognition/Program.cs). 
-*	Using the **client library** allows for real-time streaming, meaning that as audio is being sent or spoken to the server, partial recognition results are returned at the same time. Real-time streaming is supported on Android, iOS, and Windows. The client library also supports speech intent recognition in addition to returning recognized text from audio inputs. Structured information about the speech to apps that parse the intent of the speaker can also be retrieved to drive further actions. Models trained by [Project LUIS](https://www.luis.ai/) service are used to generate the intent. To use intent, you will need to train a model after getting an AppID and a Secret. Once you have a trained model, you can use the Speech Recognition API for intent parsing on reco results via the “WithIntent” clients.
-* Using the **service library** allows for real-time streaming audio from a service to the speech cloud allowing for partial results. Service Library is supported for Windows.  
+| Feature | WebSocket API | REST API |
+|-----|-----|-----|
+| Continuous Recognition | Yes | No |
+| Audio Length  | 10 mins | 15 seconds |
+| Partial results | Yes | No |
+| Service Endpointing | Yes| No |
+| Recognition Modes | Interactive, Dictation, Conversational| Interactive, Dictation, Conversational |
+| Debug support with Telemetry | Yes | No |
+| Subscription Key Authorization | Yes | No |
+| Reco Results | Lexical, ITN, Masked | Lexical, ITN, Masked |
+| N-Best | Up to 5 | Up to 5 |
+| Confidence | Yes| Yes |  
 
-#### Supported languages
-Locales supported by the Speech Recognition API include:
+Refer to [Output Format](api-reference-rest/bingvoicerecognition.md#output-format) in API reference for more information.
 
-language-Country |language-Country | language-Country |language-Country 
----------|----------|--------|------------------
-ar-EG*   |  en-NZ  | it-IT  |  ru-RU
-ca-ES    |  en-US  | ja-JP  |  sv-SE
-da-DK    |  es-ES  | ko-KR  |  zh-CN
-de-DE    |  es-MX  | nb-NO  |  zh-HK
-en-AU    |  fi-FI  | nl-NL  |  zh-TW
-en-CA    |  fr-CA  | pl-PL  |    
-en-GB    |  fr-FR  | pt-BR  |      
-en-IN    |  hi-IN  | pt-PT  |
-*ar-EG supports Modern Standard Arabic (MSA)
+## Supported languages  
+Speech recognition API supports many spoken languages in multiple dialects. Refer to [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages) for full list of supported languages for each recognition mode.
 
-<a name="TextToSpeech"></a>
-## Text To Speech API
-When applications need to “talk” back to their users, this API can be used to convert text generated by the app into audio that can played back to the user. Text to speech conversion (TTS) is done via a REST API. The TTS demo can be found on the [Speech landing page](https://www.microsoft.com/cognitive-services/en-us/speech-api), documentation for the REST API can be found [here](API-Reference-REST/BingVoiceOutput.md), and code samples [here](https://github.com/Microsoft/Cognitive-Speech-TTS/tree/master/Samples-Http/CSharp/TTSProgram.cs).
+## Text to speech (TTS)
+The speech synthesis REST API provides real-time text to speech conversion in a variety of different voices and languages. The maximum amount of audio returned for any single request must not exceed 15 seconds. 
 
-#### Supported languages
-Locales supported by Text to Speech API include:
+### Supported languages  
+Text to speech API supports many voices in many languages in multiple dialects. Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts) for full list of supported languages and voices.
 
-language-Country |language-Country | language-Country | language-Country
----------|----------|------------|------------
-ar-EG*   |   en-GB  |   hi-IN  |   pt-PT
-ar-SA    |   en-IE  |   hu-HU  |   ro-RO
-ca-ES    |   en-IN  |   id-ID  |   ru-RU
-cs-CZ    |   en-US  |   it-IT  |   sk-SK
-da-DK    |   es-ES  |   ja-JP  |   sv-SE
-de-AT    |   es-MX  |   ko-KR  |   th-TH
-de-CH    |   fi-FI  |   nb-NO  |   tr-TR
-de-DE    |   fr-CA  |   nl-NL  |   zh-CN
-el-GR    |   fr-CH  |   pl-PL  |   zh-HK
-en-AU    |   fr-FR  |   pt-BR  |   zh-TW     
-
-*ar-EG supports Modern Standard Arabic (MSA)

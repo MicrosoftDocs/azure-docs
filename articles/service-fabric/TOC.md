@@ -18,8 +18,10 @@
 ### [Java on Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Deploy apps on a local cluster](service-fabric-get-started-with-a-local-cluster.md)
+## [Deploy .NET apps in a container](service-fabric-host-app-in-a-container.md)
 ## [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
 ## [Create your first standalone cluster](service-fabric-get-started-standalone-cluster.md)
+## [Create your first container app](service-fabric-get-started-containers.md)
 
 # How To
 ## Build an application
@@ -27,6 +29,7 @@
 ### Concepts
 #### [Supported programming models](service-fabric-choose-framework.md)
 #### [Application model](service-fabric-application-model.md)
+#### [Hosting model](service-fabric-hosting-model.md)
 #### [Service manifest resources](service-fabric-service-manifest-resources.md)
 #### [Service state](service-fabric-concepts-state.md)
 #### [Service partitioning](service-fabric-concepts-partitioning.md)
@@ -44,20 +47,29 @@
 #### [Overview](service-fabric-containers-overview.md)
 #### [Deploy Windows container](service-fabric-deploy-container.md)
 #### [Deploy Linux container](service-fabric-deploy-container-linux.md)
+#### [Docker compose (preview)](service-fabric-docker-compose.md)
+#### [Resource governance for containers and services](service-fabric-resource-governance.md)
+#### [Volume and logging drivers](service-fabric-containers-volume-logging-drivers.md)
 
 ### Build a Reliable Service service
 #### [Overview](service-fabric-reliable-services-introduction.md)
 #### Concepts
 ##### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
+
+#### Reliable Collections
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+##### [Reliable Collection guidelines & recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
+##### [Transactions and locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Reliable Collection serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
+##### [Reliable State Manager and Reliable Collection internals](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Reliable Services lifecycle
-#### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configure](service-fabric-reliable-services-configuration.md)
 #### [Send notifications](service-fabric-reliable-services-notifications.md)
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
@@ -75,12 +87,12 @@
 ### Build a Reliable Actor service
 #### [Overview](service-fabric-reliable-actors-introduction.md)
 #### Concepts
-#### [Architecture](service-fabric-reliable-actors-platform.md)
-#### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-#### [State management](service-fabric-reliable-actors-state-management.md)
-#### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
-#### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
-#### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Architecture](service-fabric-reliable-actors-platform.md)
+##### [Lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+##### [State management](service-fabric-reliable-actors-state-management.md)
+##### [Polymorphism](service-fabric-reliable-actors-polymorphism.md)
+##### [Reentrancy](service-fabric-reliable-actors-reentrancy.md)
+##### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-actors-get-started.md)
@@ -94,7 +106,9 @@
 
 ### Communicate with services
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS service](service-fabric-dnsservice.md)
 #### [Reverse proxy](service-fabric-reverseproxy.md)
+#### [Configure reverse proxy for secure communication](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Add a web front end](service-fabric-add-a-web-frontend.md)
 
@@ -202,6 +216,7 @@
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 
 ### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md)
+### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
 ### Manage and orchestrate cluster resources
 #### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
@@ -236,11 +251,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Collect logs from a service process](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Monitor Windows Server containers](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Reference
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java API](/java/api/)
 ## [.NET](/dotnet/api/)

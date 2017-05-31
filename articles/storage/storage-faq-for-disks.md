@@ -75,6 +75,7 @@ No, the VMs in an Availability Set must use either all managed or all unmanaged 
 
 Not currently, but it will become the default in the future.
 
+
 **Can I create an empty managed disk?**
 
 Yes, you can create an empty disk. A managed disk can be created independently of a VM, i.e., without attaching it to a VM.
@@ -123,6 +124,10 @@ No. This feature is not supported currently.
 **Can I change the computer name property when using a specialized (not sysprepped or generalized) OS disk to provision a VM**
 No. You cannot update computer name property. New VM will inherit it from the parent VM which was used to create the OS disk. 
 
+**Where can I find sample Azure resource manager templates to create VMs with Managed Disks**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
+
 ## Managed Disks and port 8443
 
 **Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
@@ -141,7 +146,7 @@ There will be no impact on the deployment.
 
 The extension won't be successfully deployed. The status of the extension will be unknown. 
 
-**What happens if an ARM template is used to provision multiple VMs with port 8443 blocked -- one VM with extensions and a second VM dependent on the first VM?**
+**What happens if an Azure resource manager template is used to provision multiple VMs with port 8443 blocked -- one VM with extensions and a second VM dependent on the first VM?**
 
 The first VM will show as a failed deployment because the extensions were not successfully deployed. The second VM will not be deployed. 
 

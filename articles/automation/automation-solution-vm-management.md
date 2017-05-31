@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/18/2017
 ms.author: magoedte
 ---
 
@@ -23,7 +23,7 @@ The Start/Stop VMs during off-hours [Preview] solution starts and stops your Azu
 
 ## Prerequisites
 
-- The runbooks work with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
+- The runbooks work with an [Azure Run As account](automation-offering-get-started.md#authentication-methods).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
 
 - This solution can only manage VMs that are in the same subscription as where the Automation account resides.  
 

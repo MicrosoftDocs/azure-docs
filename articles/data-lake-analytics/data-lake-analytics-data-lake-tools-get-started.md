@@ -38,7 +38,7 @@ For your convenience, a PowerShell script for creating a Data Lake Analytics ser
     Optionally, you can go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md) to create your account and upload data manually:
 
     1. [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-    2. [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#prepare-source-data).
+    2. [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md).
 
 ## Connect to Azure
 **Connect to Data Lake Analytics**
@@ -195,7 +195,7 @@ Data Lake Tools for Visual Studio provides user-selectable color-overlays on job
 
 ## Run U-SQL locally
 
-You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs. 
+You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs.
 
 * [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
