@@ -1,6 +1,6 @@
 ﻿---
-title: Migrate AWS VMs to Azure | Microsoft Docs
-description: Migrate an Amazon Web Services (AWS) EC2 instance to Azure Virtual Machines. This scenario uses Managed Disks to simplify your cloud storage.
+title: Migrate Windows AWS VMs to Azure | Microsoft Docs
+description: Migrate an Amazon Web Services (AWS) EC2 Windows instance to Azure Virtual Machines using Azure PowerShell. This scenario uses Managed Disks to simplify your cloud storage.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,18 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/30/2017
 ms.author: cynthn
 
 ---
 
-# Migrate from Amazon Web Services (AWS) to Azure Managed Disks
+# Move a Windows VM from Amazon Web Services (AWS) to Azure using PowerShell
 
-You can migrate an Amazon Web Services (AWS) EC2 instance to Azure by uploading the virtual hard disk (VHD). If you want to create multiple virtual machines (VMs) in Azure from the same image, you must first generalize the VM and then export the generalized VHD to a local directory. Once the VHD is uploaded, you can create a new Azure VM that uses [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for storage. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
+If you are evaluating Azure virtual machines for hosting your workloads, you can move an existing Amazon Web Services (AWS) EC2 Windows VM instance to Azure by uploading the virtual hard disk (VHD). Once the VHD is uploaded, you can create a new VM in Azure from the VHD. 
 
-Before starting this process,  make sure that you review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-
-Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This topic covers moving a single VM from AWS to Azure. If you want to move VMs from AWS to Azure at scale, see [Migrate virtual machines in Amazon Web Services (AWS) to Azure with Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
@@ -35,6 +33,7 @@ Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
+Before uploading any production workload VHDs to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Generalize the VM
 
@@ -60,15 +59,16 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
 ## Export the VHD from AWS
 
-1.	If you are using Amazon Web Services (AWS), export the EC2 instance to a VHD in an Amazon S3 bucket. Follow the steps described in the Amazon documentation for Exporting Amazon EC2 Instances to install the Amazon EC2 command-line interface (CLI) tool and run the create-instance-export-task command to export the EC2 instance to a VHD file. Be sure to use VHD for the DISK_IMAGE_FORMAT variable when running the create-instance-export-task command. The exported VHD file is saved in the Amazon S3 bucket you designate during that process.
+Export the EC2 instance to a VHD in an Amazon S3 bucket. Follow the steps described in the Amazon documentation topic [Exporting an Instance as a VM Using VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) Exporting Amazon EC2 Instances to install the Amazon EC2 command-line interface (CLI) tool and run the [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) command to export the EC2 instance to a VHD file. 
+
+The exported VHD file is saved in the Amazon S3 bucket you designate during that process. Replace the test in <brackets> with your information.
 
     ```
-	aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT '
-	--export-to-s3-task DiskImageFormat=DISK_IMAGE_FORMAT,ContainerFormat=ova,S3Bucket=BUCKET,S3Prefix=PREFIX
+	aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft '
+	--export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 	```
 
-2.	Download the VHD file from the S3 bucket. Select the VHD file, then select **Actions** > **Download**.
-
+Download the VHD file from the S3 bucket. Select the VHD file, then select **Actions** > **Download**.
 
 
 ## Upload the VHD
@@ -98,7 +98,9 @@ If you don't already have PowerShell version installed, read [How to install and
 ### Get the storage account
 You need a storage account in Azure to store the uploaded VM image. You can either use an existing storage account or create a new one. 
 
-If you are using the VHD to create a managed disk for a VM, the storage account location must be same the location where you create the VM.
+> [!IMPORTANT]
+> The storage account location must be same the location where you create the VM.
+
 
 To show the available storage accounts, type:
 
@@ -116,26 +118,18 @@ If you need to create a storage account, follow these steps:
     Get-AzureRmResourceGroup
     ```
 
-    To create a resource group named **myResourceGroup** in the **West US** region, type:
+    To create a resource group named **myResourceGroup** in the **West Central US** region, type:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup -Name myResourceGroup -Location "West Central US"
     ```
 
 2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West Central US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
-   
-    Valid values for -SkuName are:
-   
-   * **Standard_LRS** - Locally redundant storage. 
-   * **Standard_ZRS** - Zone redundant storage.
-   * **Standard_GRS** - Geo redundant storage. 
-   * **Standard_RAGRS** - Read access geo redundant storage. 
-   * **Premium_LRS** - Premium locally redundant storage. 
 
 ### Upload the VHD 
 
@@ -171,11 +165,13 @@ Save the **Destination URI** path to use later if you are going to create a mana
 
 You can also upload a VHD to your storage account using one of the following:
 
--   [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [AzCopy](http://aka.ms/downloadazcopy)
 
--   [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+- [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 
--   [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
+- [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+
+- [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
 
 	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 
