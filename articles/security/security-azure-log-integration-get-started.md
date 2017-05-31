@@ -63,7 +63,7 @@ You also have the option to scale up the Azure Log Integration service to help i
 * On an 8-processor (core) machine, a single instance of Azlog Integrator can process about 24 million events per day (~1M/hour).
 
 * On a 4-processor (core) machine, a single instance of Azlog Integrator can process about 1.5 million events per day (~62.5K/hour).
-*
+
 ## Install Azure log integration
 To install Azure Log Integration, you need to download the [Azure log integration](https://www.microsoft.com/download/details.aspx?id=53324) installation file. Run through the setup routine and decide if you want to provide telemetry information to Microsoft.  
 
