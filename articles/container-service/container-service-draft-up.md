@@ -30,6 +30,7 @@ You can use Draft with any Docker image registry and any Kubernetes cluster, inc
 - [Create an Azure Container Registry](#create-an-azure-container-registry)
 - [Create a Azure Container Service running Kubernetes](#create-an-azure-container-service-with-kubernetes)
 - [Install and configure Draft](#install-and-configure-draft)
+- [Wire up a deployment domain](#wire-up-deployment-domain)
 - [Build and deploy an application](#build-and-deploy-an-application)
 
 ## Example of Draft workflow
@@ -38,7 +39,7 @@ The following video shows how easy it is to develop iteratively and still get li
 ![Draft animated gif](media/container-service-draft-up/draft.gif)
 
 ## Create an Azure Container Registry
-You can easily create a new Azure Container Registry, but the steps are as follows:
+You can easily [create a new Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), but the steps are as follows:
 
 1. Create a Azure resource group to managed your ACR registry and the Kubernetes cluster in ACS.
     ```azurecli
@@ -49,10 +50,7 @@ You can easily create a new Azure Container Registry, but the steps are as follo
     az acr create -g draft -n draftacs --sku Basic --admin-enabled true -l eastus
     ```
 
-3. Create a Service Principal for your registry. When you create your registry, you are prompted to create a service principal to enable the automation of the registry. If you do not want to re-use an SP for this purpose, create a new one with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac):
-    ```azurecli
-    az ad sp create-for-rbac --scopes /subscriptions/<subscription guid>/resourcegroups/draft/providers/Microsoft.ContainerRegistry/registries/draftacs --role Owner --password "<created automatically if you do not>"
-    ```
+
 
 ## Create an Azure Container Service with Kubernetes
 
@@ -124,6 +122,68 @@ westus      draft-kube-acs                    Succeeded            DRAFT
 >>
 
 ## Install and configure draft
-The installation instructions for Draft are in the Draft repository.
+The installation instructions for Draft are in the [Draft repository](https://github.com/Azure/draft/blob/master/docs/install.md). They are relatively simple, but do require some configuration, as it depends on [Helm](https://aka.ms/helm) to create and deploy a Helm chart into the Kubernetes cluster.
+1. [Download and install Helm](https://aka.ms/helm#install).
+2. Use Helm to search for an install `stable/traefik`, and ingress controller to enable inbound requests for your builds.
+    ```bash
+    $ helm search traefik
+    NAME          	VERSION	DESCRIPTION
+    stable/traefik	1.2.1-a	A Traefik based Kubernetes ingress controller w...
 
+    $ helm install stable/traefik --name ingress
+    ```
+    Now set a watch on the the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one [mapped to your deployment domain](#wire-up-deployment-domain) in the next section.
+
+    ```bash
+    kubectl get svc -w
+    NAME                          CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+    ingress-traefik               10.0.248.104   13.64.108.240   80:31046/TCP,443:32556/TCP   1h
+    kubernetes                    10.0.0.1       <none>          443/TCP                      7h
+    ```
+
+    In this case, the external IP for the deployment domain is `13.64.108.240`. Now you can map your domain to that IP.
+
+## Wire up deployment domain
+
+Draft will create a new deployment for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. To do this, you must create an A record in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
+
+Your own domain provider will have their own way to do this. But if you have [delegated your domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
+
+1. Create a resource group for your zone.
+  ```azurecli
+  az group create --name zones --location eastus
+  {
+    "id": "/subscriptions/<guid>/resourceGroups/squillace.io",
+    "location": "eastus",
+    "managedBy": null,
+    "name": "zones",
+    "properties": {
+      "provisioningState": "Succeeded"
+    },
+    "tags": null
+  }
+  ```
+2. Create a DNS zone for your domain.
+  ```azurecli
+  az network dns zone create --resource-group zones --name squillace.info
+  {
+    "etag": "00000002-0000-0000-ad31-373f41dad201",
+    "id": "/subscriptions/f7f09258-6753-4ca2-b1ae-193798e2c9d8/resourceGroups/zones/providers/Microsoft.Network/dnszones/squillace.info",
+    "location": "global",
+    "maxNumberOfRecordSets": 5000,
+    "name": "squillace.info",
+    "nameServers": [
+      "ns1-09.azure-dns.com.",
+      "ns2-09.azure-dns.net.",
+      "ns3-09.azure-dns.org.",
+      "ns4-09.azure-dns.info."
+    ],
+    "numberOfRecordSets": 2,
+    "resourceGroup": "zones",
+    "tags": {},
+    "type": "Microsoft.Network/dnszones"
+  }
+  ```
 ## Build and deploy an application
+
+
