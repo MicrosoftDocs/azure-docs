@@ -1,26 +1,28 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Emotion API Python quick start | Microsoft Docs
+description: Get information and code samples to help you quickly get started using the Emotion API with Python in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: emotion
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 05/23/2017
+ms.author: anroth
 ---
 
 # Emotion API Python Quick Start
 This article provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with Python to recognize the emotions expressed by one or more people in an image. 
 
 ## Prerequisite
-* Get your free Subscription Key [here](https://www.microsoft.com/cognitive-services/en-us/sign-up)
+* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
 ## Recognize Emotions Python Example Request
 
-```Python
+Copy the appropriate section for your version of Python and save it to a file such as `test.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, add a URL to a photograph of a celebrity to the `body` variable, and change the REST URL to use the region where you obtained your subscription keys.
+
+```python
 ########### Python 2.7 #############
 import httplib, urllib, base64
 
@@ -37,6 +39,9 @@ params = urllib.urlencode({
 body = "{ 'url': 'http://example.com/picture.jpg' }"
 
 try:
+    # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
     response = conn.getresponse()
@@ -64,6 +69,9 @@ params = urllib.parse.urlencode({
 body = "{ 'url': 'http://example.com/picture.jpg' }"
 
 try:
+    # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+    #   URL below with "westcentralus".
     conn = http.client.HTTPSConnection('westus.api.cognitive.microsoft.com')
     conn.request("POST", "/emotion/v1.0/recognize?%s" % params, body, headers)
     response = conn.getresponse()

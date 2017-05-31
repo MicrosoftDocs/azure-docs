@@ -1,25 +1,25 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API cURL quick start | Microsoft Docs
+description: Get information and code samples to help you quickly get started using the Face API with cURL in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 05/23/2017
+ms.author: anroth
 ---
 
-# Face API curl Quick Starts
-This article provides information and code samples to help you quickly get started using the Face API with curl to accomplish the following tasks: 
+# Face API cURL Quick Starts
+This article provides information and code samples to help you quickly get started using the Face API with cURL to accomplish the following tasks: 
 * [Detect Faces in Images](#Detect) 
 * [Identify Faces in Images](#Identify)
 
-Learn more about obtaining free Subscription Keys [here](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe). 
+Learn more about obtaining free Subscription Keys [here](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md). 
 
-## Detect Faces in Images With Face API Using curl <a name="Detect"> </a>
+## Detect Faces in Images With Face API Using cURL <a name="Detect"> </a>
 Use the [Face - Detect method](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
 to detect faces in an image and return face attributes including:
 * Face ID: Unique ID used in a number of Face API scenarios. 
@@ -27,12 +27,15 @@ to detect faces in an image and return face attributes including:
 * Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
 * Facial attributes including age, gender, smile intensity, head pose, and facial hair. 
 
-#### Face Detect curl Example Request
+#### Face Detect cURL Example Request
+
+> [!NOTE]
+> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
 
 ```javascript  
 @ECHO OFF
 
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes={string}"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes={string}"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -42,7 +45,7 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?ret
 #### Face - Detect Response
 A successful response will be returned in JSON. Following is an example of a successful response: 
 
-```php
+```json
 [
     {
         "faceId": "c5c24a82-6845-4031-9d5d-978df9175426",
@@ -170,7 +173,6 @@ A successful response will be returned in JSON. Following is an example of a suc
                 "mustache": 0.8,
                 "beard": 0.1,
                 "sideburns": 0.02
-                }
             },
             "glasses": "sunglasses",
             "headPose": {
@@ -183,15 +185,19 @@ A successful response will be returned in JSON. Following is an example of a suc
 ]
 ```
 
-## Identify Faces in Images With Face API Using curl <a name="Identify"> </a>
+## Identify Faces in Images With Face API Using cURL <a name="Identify"> </a>
 Use the [Face - Identify method](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 
 identify people based on a detected face and people database (defined as a person group) which needs to be created in advance and can be edited over time
 
-#### Face - Identify curl Example Request
+#### Face - Identify cURL Example Request
+
+> [!NOTE]
+> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
+
 ```javascript
 @ECHO OFF
 
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/identify"
+curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
@@ -199,27 +205,25 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/face/v1.0/identify"
 ```
 #### Face - Identify Response
 A successful response will be returned in JSON. Following is an example of a successful response: 
-```php
-{
-    [
-        {
-            "faceId":"c5c24a82-6845-4031-9d5d-978df9175426",
-            "candidates":[
-                {
-                    "personId":"25985303-c537-4467-b41d-bdb45cd95ca1",
-                    "confidence":0.92
-                }
-            ]
-        },
-        {
-            "faceId":"65d083d4-9447-47d1-af30-b626144bf0fb",
-            "candidates":[
-                {
-                    "personId":"2ae4935b-9659-44c3-977f-61fac20d0538",
-                    "confidence":0.89
-                }
-            ]
-        }
-    ]
-}
+```json
+[
+    {
+        "faceId":"c5c24a82-6845-4031-9d5d-978df9175426",
+        "candidates":[
+            {
+                "personId":"25985303-c537-4467-b41d-bdb45cd95ca1",
+                "confidence":0.92
+            }
+        ]
+    },
+    {
+        "faceId":"65d083d4-9447-47d1-af30-b626144bf0fb",
+        "candidates":[
+            {
+                "personId":"2ae4935b-9659-44c3-977f-61fac20d0538",
+                "confidence":0.89
+            }
+        ]
+    }
+]
 ```

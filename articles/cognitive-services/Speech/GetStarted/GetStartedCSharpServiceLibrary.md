@@ -25,14 +25,14 @@ This section describes how to install, build, and run the C# sample application.
 * **Subscribe to Speech API and Get a Free Trial Subscription Key**: Before creating the example, you must subscribe to Speech API which is part of Microsoft Cognitive Services (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). 
  Both the primary and secondary key can be used in this tutorial.
 
-### <a name="Step1">Step 1: Install the Sample Application.
+## <a name="Step1">Step 1: Install the Sample Application.
 1. Start Microsoft Visual Studio 2015 and click **File**, select **Open**, then **Project/Solution**.  
 2. Double-click to open the Visual Studio 2015 Solution (.sln) file named **SpeechClient.sln**. This will open the solution in Visual Studio.
 
-### <a name="Step2"> Step 2: Build the Sample Application.   
+## <a name="Step2"> Step 2: Build the Sample Application.   
 Press Ctrl+Shift+B, or click **Build** on the ribbon menu, then select **Build Solution**.
 
-### <a name="Step3">Step 3: Run the Sample Application.  
+## <a name="Step3">Step 3: Run the Sample Application.  
 1. After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.  
 2. Open the output directory for the sample (**SpeechClientSample\bin\Debug**), press **Shift+Right Click**, press **Open command window here**.  
 3. Run **SpeechClientSample.exe** with the following arguments:   

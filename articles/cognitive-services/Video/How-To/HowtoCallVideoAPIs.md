@@ -1,15 +1,15 @@
 ﻿---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Call Video APIs in Microsoft Cognitive Services | Microsoft Docs
+description: Get guidance for calling Video APIs, with samples in C# using the Video API client library.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: CYokel
+manager: ytkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: video
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 01/20/2017
+ms.author: chbryant
 ---
 
 # How to Call Video APIs
@@ -17,24 +17,14 @@ ms.author: <author's microsoft alias, one value only, alias only>
 
 The samples are written in C# using the Video API client library.
 
-## Table of Contents
-* [Concepts](#concepts)
-* [Preparation](#preparation)
-* [Step 1: Authorize the API call](#step1)
-* [Step 2: Upload a video to the service and check the status](#step2)
-* [Step 3: Retrieving video output files for stabilization](#step3)
-* [Step 4: Retrieving and understanding the face detection and tracking JSON output](#step4)
-* [Step 5: Retrieving and understanding the motion detection JSON output](#step5)
-* [Summary](#summary)
-  
-## <a name="concepts">Concepts </a>
+## <a name="concepts"></a>Concepts 
 If you are not familiar with any of the following concepts in this guide, please refer to the definitions in our [glossary](../Glossary.md) at any time.
 
 * Stabilization
 * Face Detection and Tracking
 * Motion Detection
 
-## <a name="preparation">Preparation </a>
+## <a name="preparation"></a>Preparation 
 In the below examples the following features are demonstrated:
 * Creating a stabilized video from a shaky video
 * Analyzing faces detected in a video and outputting the corresponding JSON
@@ -45,7 +35,7 @@ In order to implement these features, you will need a video with the below speci
 * For face detection and tracking: A video where people's faces are facing the camera.
 * For motion detection: A video with a stationary background and some movement in the foreground.
 
-## <a name="step1">Step 1: Authorize the API call </a>
+## <a name="step1"></a>Step 1: Authorize the API call 
 Every call to the Video API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header. To pass the subscription key through a query string, refer to the Video API request URL below as an example:
 
 ```
@@ -69,9 +59,9 @@ var videoServiceClient = new VideoServiceClient("Your subscription key");
 
 ```
  
-To obtain a subscription key, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+To obtain a subscription key, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
-## <a name="step2">Step 2: Upload a video to the service and check the status</a>
+## <a name="step2"></a>Step 2: Upload a video to the service and check the status
 
 The most basic way to perform any of the Video API calls is by uploading a video directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from a video file. The maximum size of the video is 100MB.
 
@@ -140,7 +130,7 @@ Video Operation  | How to retrieve results?  | Sample code
 Stabilization   |  The result (as a video file) can be retrieved from the URL specified in the ResourceLocation field of the OperationResult instance.  |  var stabilziationResultUrl = operationResult.ResourceLocation;     
 Face Detection/Tracking and Motion Detection|The result (as a JSON string) is available in the ProcessingResult field of OperationResult. |var motionDetectionJsonString = operationResult.ProcessingResult;
 
-## <a name="step3">Step 3: Retrieving video output files for stabilization</a>  
+## <a name="step3"></a>Step 3: Retrieving video output files for stabilization  
      
 The output from the Stabilization Video API is stabilized in MP4 video format. Once your video output is ready, as informed by the GetVideoOperationResultAsync method, you can download your video using the GetResultVideoAsync method.
 
@@ -154,7 +144,7 @@ using (var fileStream = File.Create(outputFile))
 
 ```
 
-## <a name="step4">Step 4: Retrieving and understanding the face detection and tracking JSON output</a>
+## <a name="step4"></a>Step 4: Retrieving and understanding the face detection and tracking JSON output
 For the face detection and tracking operation, the output result contains the metadata from the faces within the given file in JSON format. 
 
 As explained in Step 2, the JSON output is available in the ProcessingResult field of OperationResult, when its status is shown as “Succeeded”.
@@ -191,7 +181,7 @@ var faceDetecionTracking = JsonConvert.DeserializeObject<FaceDetectionResult>(fa
 
 ```
 
-## <a name="step5">Step 5: Retrieving and understanding the motion detection JSON output</a>  
+## <a name="step5"></a>Step 5: Retrieving and understanding the motion detection JSON output  
 
 You retrieve the motion detection JSON results in exactly the same way as with the face detection and tracking method. Please see Step 4 to learn how to retrieve the results.
 
@@ -224,7 +214,7 @@ var motionDetection = JsonConvert.DeserializeObject<MotionDetectionResult>(motio
 
 ```  
 
-## <a name="summary">Summary</a>
+## <a name="summary"></a>Summary
 You have now learned about the functionalities of the Video API: how you can upload a video, check its status, retrieve a stabilized video, and retrieve face detection/tracking and motion detection metadata.
 
 For more information about API details, see the API reference guide “[Video API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/565d6516778daf15800928d5)”.

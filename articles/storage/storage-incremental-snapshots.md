@@ -101,7 +101,7 @@ The steps described below will take snapshots of *mypremiumdisk* and maintain th
 ## Steps to restore a disk from snapshots
 The steps described below will restore premium disk, *mypremiumdisk* to an earlier snapshot from the backup storage account *mybackupstdaccount*.
 
-1. Identify the point in time you wish to restore the premium disk to. Let’s say that is snapshot *mybackupstdpageblob_ss2*, which is stored in the backup storage account *mybackupstdaccount*.
+1. Identify the point in time you wish to restore the premium disk to. Let's say that is snapshot *mybackupstdpageblob_ss2*, which is stored in the backup storage account *mybackupstdaccount*.
 2. In mybackupstdaccount, promote the snapshot *mybackupstdpageblob_ss2* as the new backup base page blob *mybackupstdpageblobrestored*.
 3. Take a snapshot of this restored backup page blob, called *mybackupstdpageblobrestored_ss1*.
 4. Copy the restored page blob *mybackupstdpageblobrestored* from *mybackupstdaccount* to *mypremiumaccount* as the new premium disk *mypremiumdiskrestored*.

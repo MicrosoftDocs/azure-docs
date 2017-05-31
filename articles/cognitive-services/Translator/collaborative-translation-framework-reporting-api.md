@@ -1,19 +1,19 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Collaborative Translation Framework (CTF) Reporting API | Microsoft Docs
+description: Use Collaborative Translation Framework (CTF) Reporting API to return statistics and the actual content in the CTF store.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: chriswendt1
+manager: arulm
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: translator
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 10/26/2016
+ms.author: christw
 ---
 
 
-##Collaborative Translation Framework (CTF) Reporting API##
+# Collaborative Translation Framework (CTF) Reporting API
 
 The Collaborative Translation Framework (CTF) Reporting API returns statistics and the actual content in the CTF store. This API is different from the GetTranslations() method because it: 
 
@@ -39,13 +39,11 @@ These methods enable you to:
  * Obtain the list of the frequent contributors. Ensure that the correct user name is provided in AddTranslation().
  * Build a user interface (UI) that allows your trusted users to see all available candidates, if necessary restricted to a portion of your site, based on the URI prefix.
  
->**Note**: Both the methods are relatively slow and expensive. It is recommended to use them sparingly. 
+>[!NOTE]
+>Both the methods are relatively slow and expensive. It is recommended to use them sparingly. 
 
-
-
-
-##- 
-##GetUserTranslations Method##
+ 
+**GetUserTranslations Method**
 
 This method retrieves the translations that are created by the user. It provides the translations grouped by the uriPrefix, from, to, user, and minrating and maxRating request parameters. 
 
@@ -84,7 +82,8 @@ UserTranslation[] GetUserTranslations (
 | skip       | **Optional**. The number of results that you want to skip on a page. For example, if you want the skip the first 20 rows of the results and view from the 21st result record, specify 20 for this parameter. The default value for this parameter is 0. |
 | take       | **Optional**. The number of results that you want to retrieve. The maximum number of each request is 100. The default is 50.                                                                                                                            |
 
->**Note**: The skip and take request parameters enable pagination for a large number of result records. 
+>[!NOTE]
+>The skip and take request parameters enable pagination for a large number of result records. 
 
 **Return Value**
 
@@ -109,7 +108,8 @@ The result set contains array of the **UserTranslation**. Each UserTranslation h
 | TranslateApiException                                                                                           | IP is over the quota.                                                             |  The limit for the number of requests per minute is reached.   The request size remains limited at 10000 characters.  An hourly and a daily quota limit the number of characters that the Microsoft, Translator API will accept. |
 |                                                                                                                 | AppId is over the quota.                                                          | The application ID exceeded the hourly or daily quota.                                                                                                                                                                           |
 
->**Note:** The quota will adjust to ensure fairness among all users of the service. 
+>[!NOTE]
+>The quota will adjust to ensure fairness among all users of the service. 
 
 **Example**
 **C#**
@@ -408,13 +408,13 @@ try {
 ```                                       
 
 
-##GetUserTranslationCounts Method##
+## GetUserTranslationCounts Method
 
 This method gets the count of translations that are created by the user. It provides the list of translation counts grouped by the uriPrefix, from, to, user, minRating, and maxRating request parameters. 
 
 **Syntax**
 
-##C###
+## C###
 
 UserTranslationCount[]GetUserTranslationCounts(
             string appId,
@@ -469,9 +469,10 @@ The result set contains array of the **UserTranslationCount**. Each UserTranslat
 | TranslateApiException                                                                                            | IP is over the quota.                                                             |  The limit for the number of requests per minute is reached.   The request size remains limited at 10000 characters. An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept. |
 |                                                                                                                  | AppId is over the quota.                                                          | The application ID exceeded the hourly or daily quota.                                                                                                                                                                         |
 
->**Note**: The quota will adjust to ensure fairness among all users of the service.
+>[!NOTE]
+>The quota will adjust to ensure fairness among all users of the service.
 
-###**Example**###
+### **Example** ###
 **C#
 PHP**
 

@@ -3,8 +3,8 @@ title: Set up your development environment on Mac OS X | Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Mac OS X.
 services: service-fabric
 documentationcenter: java
-author: saysa
-manager: raunakp
+author: sayantancs
+manager: timlt
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/27/2016
+ms.date: 04/06/2017
 ms.author: saysa
 
 ---
@@ -47,7 +47,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```
     This steps bring downs the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.
 
-   
+
 2. Navigate to the local clone of the repo
 
     ```bash

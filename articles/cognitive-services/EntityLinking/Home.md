@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Entity Linking Intelligence Service API | Microsoft Docs
+description: Learn how to use the Entity Linking Intelligence Service API for entity-linking tasks in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: DavidLiCIG
+manager: wkwok
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: entitylinking
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/28/2016
+ms.author: davl
 ---
 
 # Entity Linking Intelligence Service API

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Academic Graph entity attributes Academic Knowledge API | Microsoft Docs
-description: Learn about the entity attributes you can use in the Academic Graph by using the Academic Knowledge API.
+title: Academic Graph entity attributes for the Academic Knowledge API | Microsoft Docs
+description: Learn about the entity attributes you can use with the Academic Graph in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
 manager: kuansanw

@@ -46,7 +46,7 @@ This topic presents a Transact-SQL code sample that:
 * An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Any database you can create a table in.
   
-  * Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
+  * Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started-portal.md) in minutes.
 * SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
   You can download the latest ssms.exe from:
   

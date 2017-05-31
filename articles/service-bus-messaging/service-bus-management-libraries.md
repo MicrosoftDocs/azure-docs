@@ -1,6 +1,6 @@
 ---
-  title: Azure Service Bus Management Libraries| Microsoft Docs
-  description: Manage Service Bus namespaces and entities from .NET
+  title: Azure Service Bus management libraries| Microsoft Docs
+  description: Manage Service Bus namespaces and messaging entities from .NET
   services: service-bus-messaging
   cloud: na
   documentationcenter: na
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: dotnet
   ms.topic: article
-  ms.date: 1/6/2017
+  ms.date: 04/03/2017
   ms.author: jotaub;sethm
 
 ---
@@ -33,17 +33,17 @@ The Service Bus management libraries can dynamically provision Service Bus names
 
 To get started using the Service Bus management libraries, you must authenticate with Azure Active Directory (AAD). AAD requires that you authenticate as a service principal which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
-* [Use the Azure Portal to create Active Directory application and service principal that can access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Use Azure PowerShell to create a service principal to access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Use Azure CLI to create a service principal to access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Use the Azure portal to create Active Directory application and service principal that can access resources](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Use Azure PowerShell to create a service principal to access resources](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Use Azure CLI to create a service principal to access resources](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-These tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which are used for authentication by the management libraries. You must have 'Owner' permissions for the resource group on which you wish to run.
+These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have 'Owner' permissions for the resource group on which you wish to run.
 
 ## Programming pattern
 
 The pattern to manipulate any Service Bus resource follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
+1. Obtain a token from Azure Active Directory using the **Microsoft.IdentityModel.Clients.ActiveDirectory** library.
     ```csharp
     var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
 
@@ -62,7 +62,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
     };
     ```
 
-1. Set the CreateOrUpdate parameters to your specified values.
+1. Set the `CreateOrUpdate` parameters to your specified values.
     ```csharp
     var queueParams = new QueueCreateOrUpdateParameters()
     {

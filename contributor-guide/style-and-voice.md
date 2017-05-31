@@ -7,7 +7,7 @@ At a bare minimum, please:
 * Use a casual and friendly voice--like you were talking to another person one-on-one.
 * Use simple sentences. They are easier to understand, and they are more easily translated by both human and machine translators.
 
-The following sections contain a more details:
+The following sections contain more details:
 
 * [Use a customer-friendly voice]
 * [Consider localization and machine translation]

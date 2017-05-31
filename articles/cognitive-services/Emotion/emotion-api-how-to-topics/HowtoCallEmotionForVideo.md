@@ -1,29 +1,20 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Call the Emotion API for Video | Microsoft Docs
+description: Learn how to call the Emotion API for Video in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: emotion
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/06/2017
+ms.author: anroth
 ---
 
 # How to Call Emotion API for Video
 
 This guide demonstrates how to call Emotion API for Video. The samples are written in C# using the Emotion API for Video client library.
-
-### Table of Contents
-
-*	[Preparation](#Prep)
-*	[Step 1: Authorize the API call](#Step1)
-*	[Step 2: Upload a video to the service and check the status](#Step2)
-*	[Step 3: Retrieving and understanding the face detection and tracking JSON output](#Step3)
-*	[Summary](#Summary)
-
 
 ### <a name="Prep">Preparation</a> 
 In order to use the Emotion API for Video, you will need a video that includes people, preferably video where the people are facing the camera.
@@ -46,8 +37,7 @@ When using a client library, the subscription key is passed in through the const
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-To obtain a subscription key, see [Subscriptions]
-(https://www.microsoft.com/cognitive-services/en-us/sign-up). 
+To obtain a subscription key, see [Subscriptions] (https://azure.microsoft.com/en-us/try/cognitive-services/). 
 
 ### <a name="Step2">Step 2: Upload a video to the service and check the status</a>
 The most basic way to perform any of the Emotion API for Video calls is by uploading a video directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from a video file. The maximum size of the video is 100MB.

@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API Java for Android tutorial | Microsoft Docs
+description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/24/2017
+ms.author: anroth
 ---
 
 # Getting Started with Face API in Java for Android Tutorial
@@ -17,17 +17,6 @@ ms.author: <author's microsoft alias, one value only, alias only>
 In this tutorial, you will learn to create and develop a simple Android application that invokes the Face API to detect human faces in an image. The application shows the result by framing the faces that it detects.     
 
 ![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
-
-## Table of Contents
-
-- [Preparation](#preparation)
-- [Step 1: Subscribe to Face API and get your subscription key](#step1)
-- [Step 2: Create the application framework](#step2)
-- [Step 3: Configure the Face API client library](#step3)
-- [Step 4: Upload images to detect faces](#step4)
-- [Step 5: Mark faces in the image](#step5)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="preparation"></a> Preparation
 
@@ -38,7 +27,7 @@ To use the tutorial, you will need the following prerequisites:
 
 ## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services (formerly Project Oxford) portal. See [subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both primary and secondary key can be used in this tutorial.
+Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
 
 ## <a name="step2"></a>Step 2: Create the application framework
 
@@ -48,20 +37,21 @@ In this step you will create an Android application project to implement the bas
 2. From the File menu, click New Project…
 3. Name the application MyFirstApp, and then click Next. 
 
-![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
+    ![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
 
 4. Choose target platform as required, and then click Next. 
 
-![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
+    ![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
 
 5. Select "Basic Activity" and then click Next.
 6. Name the activity as follows, and then click Finish. 
 
-![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
+    ![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
 
 7. Open activity_main.xml, you should see the Layout Editor of this activity.
 8. View Text source file and then edit the activity layout as follows:			 
 
+    ```xml
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -81,7 +71,8 @@ In this step you will create an Android application project to implement the bas
             android:text="Browse"
             android:id="@+id/button1"
             android:layout_alignParentBottom="true" />
-    </RelativeLayout>  
+    </RelativeLayout>
+    ```  
 
 9. Open MainActivity.java and insert the following import directives at the beginning of the file:			 
 

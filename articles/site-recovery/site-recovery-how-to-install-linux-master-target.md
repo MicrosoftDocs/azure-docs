@@ -33,13 +33,14 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 * The master target should be on a network that can communicate with the process server and the configuration server.
 * The version of the master target must be equal to or earlier than the versions of the process server and the configuration server. For example, if the version of the configuration server is 9.4, the version of the master target can be 9.4 or 9.3 but not 9.5.
 * The master target can only be a VMware virtual machine and not a physical server.
-* The master target needs to faollow the following sizing guideline
+
+## Master target sizing guideline
+
+The master target needs to be created with the following sizing guideline
 	* RAM - 6GB or more
-	* OS Disk size - 50GB or more (to install CentOS6.6)
+	* OS Disk size - 100GB or more (to install CentOS6.6)
 	* Additional disk size for retention drive - 1TB
 	* CPU cores - 4 Cores or more
-
-
 
 
 ## Steps to deploy the master target server
@@ -414,5 +415,5 @@ You can now proceed with [reprotection](site-recovery-how-to-reprotect.md), foll
 * Make sure you do not turn on Storage vMotion on any management components such as a master target. If the master target moves after a successful reprotect, the virtual machine disks (VMDKs) cannot be detached, and failback will fail.
 * The master target should not have any snapshots on the virtual machine. If there are snapshots, failback will fail.
 * Due to some custom NIC configurations at some customers, the network interface is disabled during startup, and the master target agent cannot initialize. Make sure that the following properties are correctly set. Check these properties in the Ethernet card file's /etc/sysconfig/network-scripts/ifcfg-eth*.
-		* BOOTPROTO=dhcp
-		* ONBOOT=yes
+	* BOOTPROTO=dhcp
+	* ONBOOT=yes

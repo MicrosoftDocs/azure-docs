@@ -1,34 +1,25 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Call the Computer Vision API | Microsoft Docs
+description: Learn how to call the Computer Vision API by using REST in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: JuliaNik
+manager: ytkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: computer-vision
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 01/20/2017
+ms.author: juliakuz
 ---
 
-#How to Call Computer Vision API
+# How to Call Computer Vision API
 
 This guide demonstrates how to call Computer Vision API using REST. The samples are written both in C# using the Computer Vision API client library, and as HTTP POST/GET calls. We will focus on:
 
 -	How to get "Tags", "Description" and "Categories".
 -	How to get "Domain-specific" information (celebrities).
 
-###Table of Contents
-* [Prerequisites](#Prerequisites)
-* [Step 1: Authorize the API call](#Step1)
-* [Step 2: Upload an image and get back tags, description and celebrities](#Step2)
-* [Step 3: Retrieving and understanding the JSON output from analyze&visualFeatures=tags, description](#Step3)
-* [Step 4: Retrieving and understanding the JSON output from domain-specific models](#Step4)
-* [Error Responses](#Errors)
-* [Summary](#Summary)
-
-###<a name="Prerequisites">Prerequisites</a> 
+### <a name="Prerequisites">Prerequisites</a> 
 Image URL or path to locally stored image.
   * Supported input methods: Raw image binary in the form of an application/octet stream or image URL
   * Supported image formats: JPEG, PNG, GIF, BMP
@@ -43,12 +34,13 @@ In the examples below, the following features are demonstrated:
 Features are broken down on:
 
   * **Option One:** Scoped Analysis - Analyze only a given model
-  * **Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy)
+  * **Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
   
-###<a name="Step1">Step 1: Authorize the API call</a> 
+### <a name="Step1">Step 1: Authorize the API call</a> 
 Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header. 
 
-To obtain a subscription key, see [How to Obtain Subscription Keys](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/vision-api-how-to-topics/HowToSubscribe).
+To obtain a subscription key, see [How to Obtain Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md
+).
 
 **1.** Passing the subscription key through a query string, see below as a Computer Vision API example:
 
@@ -62,7 +54,7 @@ To obtain a subscription key, see [How to Obtain Subscription Keys](https://www.
 
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
-###<a name="Step2">Step 2: Upload an image to the Computer Vision API service and get back tags, descriptions and celebrities</a>
+### <a name="Step2">Step 2: Upload an image to the Computer Vision API service and get back tags, descriptions and celebrities</a>
 The basic way to perform the Computer Vision API call is by uploading an image directly. This is done by sending a "POST" request with application/octet-stream content type together with the data read from the image. For "Tags" and "Description", this upload method will be the same for all the Computer Vision API calls. The only difference will be the query parameters the user specifies. 
 
 Here’s how to get "Tags" and "Description" for a given image:
@@ -86,13 +78,13 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 **Option Two** Get list of "Tags" only, or list of "Description" only:
 
-######Tags-only:
+###### Tags-only:
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v1.0/tag&subscription-key=<Your subscription key>
 var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
 ```
 
-######Description-only:
+###### Description-only:
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v1.0/describe&subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
@@ -100,7 +92,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
   analysisResult = await visionClient.DescribeAsync(fs);
 }
 ```
-###Here is how to get domain-specific analysis (in our case, for celebrities).
+### Here is how to get domain-specific analysis (in our case, for celebrities).
 
 **Option One:** Scoped Analysis - Analyze only a given model
 ```
@@ -112,17 +104,17 @@ For this option, all other query parameters {visualFeatures, details} are not va
 GET https://westus.api.cognitive.microsoft.com/vision/v1.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy)
+**Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
 
 For applications where you want to get generic image analysis in addition to details from one or more domain-specific models, we extend the v1 API with the models query parameter.
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?details=celebrities
 ```
-When this method is invoked, we will call the 86-category classifier first. If any of the categories match that of a known/matching model, a second pass of classifier invocations will occur. For example, if "details=all", or "details" include ‘celebrities’, we will call the celebrities model after the [86-category](./Images/86categories.md) classifier is called and the result includes the category person. This will increase latency for users interested in celebrities, compared to Option One.
+When this method is invoked, we will call the 86-category classifier first. If any of the categories match that of a known/matching model, a second pass of classifier invocations will occur. For example, if "details=all", or "details" include ‘celebrities’, we will call the celebrities model after the 86-category classifier is called and the result includes the category person. This will increase latency for users interested in celebrities, compared to Option One.
 
 All v1 query parameters will behave the same in this case.  If visualFeatures=categories is not specified, it will be implicitly enabled.
 
-###<a name="Step3">Step 3: Retrieving and understanding the JSON output for analyze&visualFeatures=Tags, Description</a>
+### <a name="Step3">Step 3: Retrieving and understanding the JSON output for analyze&visualFeatures=Tags, Description</a>
 
 Here's an example:
 ```
@@ -162,7 +154,7 @@ description.tags[] |	string	| List of tags.  If there insufficient confidence in
 description.captions[].text	| string	| A phrase describing the image.
 description.captions[].confidence	| number	| Confidence for the phrase.
 
-###<a name="Step4">Step 4: Retrieving and understanding the JSON output of domain-specific models</a>
+### <a name="Step4">Step 4: Retrieving and understanding the JSON output of domain-specific models</a>
 
 **Option One:** Scoped Analysis - Analyze only a given model
 
@@ -210,7 +202,7 @@ For domain-specific models using Option Two (Enhanced Analysis), the categories 
   }
 ```
 
-The categories field is a list of one or more of the [86-categories](https://www.microsoft.com/cognitive-services/en-us/Computer-Vision-API/documentation/Category-Taxonomy) in the original taxonomy. Note also that categories ending in an underscore will match that category and its children (for example, people_ as well as people_group, for celebrities model).
+The categories field is a list of one or more of the [86-categories](../Category-Taxonomy.md) in the original taxonomy. Note also that categories ending in an underscore will match that category and its children (for example, people_ as well as people_group, for celebrities model).
 
 Field	| Type	| Content
 ------|------|------|
@@ -221,10 +213,10 @@ categories[].detail	 | object?      | Optional detail object
 
 Note that if multiple categories match (for example, 86-category classifier returns a score for both people_ and people_young when model=celebrities), the details are attached to the most general level match (people_ in that example.)
 
-###<a name="Errors">Errors Responses</a>
+### <a name="Errors">Errors Responses</a>
 These are identical to vision.analyze, with the additional error of NotSupportedModel error (HTTP 400), which may be returned in both Option One and Option Two scenarios. For Option Two (Enhanced Analysis), if any of the models specified in details are not recognized, the API will return a NotSupportedModel, even if one or more of them are valid.  Users can call listModels to find out what models are supported.
 
-###<a name="Summary">Summary</a>
+### <a name="Summary">Summary</a>
 
 These are the basic functionalities of the Computer Vision API: how you can upload images and retrieve valuable metadata in return.
 

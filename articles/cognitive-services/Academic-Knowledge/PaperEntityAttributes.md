@@ -1,21 +1,21 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Paper entity attributes in the Academic Knowledge API | Microsoft Docs
+description: Learn the attributes you can use with the Paper entity in the Academic Knowledge API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: alch-msft
+manager: kuansanw
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: academic-knowledge
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/31/2017
+ms.author: alch
 ---
 
 # Paper Entity
 
 <sub>
-*Below attributes are specific to author entity. (Ty = '1')
+*Below attributes are specific to paper entity. (Ty = '1')
 </sub>
 
 

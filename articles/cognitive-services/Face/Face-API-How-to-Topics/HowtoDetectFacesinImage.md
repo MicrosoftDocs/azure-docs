@@ -1,31 +1,20 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Detect faces in images with the Face API | Microsoft Docs
+description: Use the Face API in Cognitive Services to detect faces in images.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/06/2017
+ms.author: anroth
 ---
 
 # How to Detect Faces in Image
 
 This guide will demonstrate how to detect faces from an image, with face attributes like gender, age, or pose extracted. The samples are written in C# using the Face API client library. 
-
-## Table of Contents
-
-- [Concepts](#concepts)
-- [Preparation](#preparation)
-- [Step 1: Authorize the API call](#step1)
-- [Step 2: Upload an image to the service and execute face detection](#step2)
-- [Step 3: Understanding and using face landmarks](#step3)
-- [Step 4: Using other face attributes](#step4)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="concepts"></a> Concepts
 
@@ -60,7 +49,6 @@ When using a client library, the subscription key is passed in through the const
 ```CSharp
 faceServiceClient = new FaceServiceClient("Your subscription key");
 ```
-See [subscription and key management](https://www.microsoft.com/cognitive-services/en-US/subscriptions).
 
 ## <a name="step2"></a> Step 2: Upload an image to the service and execute face detection
 

@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Bing Speech Recognition API in Java on Android | Microsoft Docs
+description: Use Bing Speech API to develop Android applications that convert spoken audio to text.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 12/09/2016
+ms.author: prrajan
 ---
 
 # Get Started with Bing Speech Recognition in Java on Android
@@ -17,14 +17,7 @@ With Bing Speech Recognition API you can develop Android applications that lever
 
 This article uses a sample application to demonstrate how to use the Bing Speech Recognition API Client Library for Android to develop speech to text applications in Java for Android devices.  
 
-### Table of Contents
-* [Prerequisites](#Prerequisites)
-* [Step 1: Install the Example Application and Create the Application Framework](#Step1)
-* [Step 2: Build the Example Application](#Step2)
-* [Step 3: Run the Example Application](#Step3)
-* [Related Topics](#Related)
-
-## <a name="Prerequisites"> Prerequisites</a>
+## Prerequisites
 
 #### Platform Requirements
 The below example has been developed for [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
@@ -35,14 +28,15 @@ Download Speech Recognition API Client Library for Android from [this link](http
 #### Subscribe to Speech API and Get a Free Trial Subscription Key 
 Before creating the example, you must subscribe to Speech API which is part of Cognitive Services. Click the yellow **"Try for free"** button on one of the offered services, in this case Speech API, and follow the directions. For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial. 
 
-## <a name="Step1"> Step 1: Install the Example Application and Create the Application Framework</a>
+## Step 1: Install the Example Application and Create the Application Framework
 
 Create an Android application project to implement use of the Speech Recognition API
 
-1.	Open Android Studio.
+1.	Open Android Studio.Import build.gradle package under samples/SpeechRecoExample.
 2.	Paste your subscription key into the **primaryKey** string in the **..\samples\SpeechRecoExample\res\values** folder. 
     
-    **Note:** You don’t have to worry about the LUIS values if you don’t want to use Intent at this point.)
+    >[!NOTE]
+    >You don’t have to worry about the LUIS values if you don’t want to use Intent at this point.)
 
 3.	Create a new application project.
 4.	Using files downloaded from the **speech_SpeechToText-SDK-Android** zip package, do the following: 
@@ -53,7 +47,7 @@ Create an Android application project to implement use of the Speech Recognition
 
 **You can now run the example application or continue with thes following instructions to build your own application.**
 
-##<a name="Step2"> Step 2: Build the Example Application</a>
+## Step 2: Build the Example Application
 Open [MainActivity.java](https://oxfordportal.blob.core.windows.net/example-speech/MainActivity.java) or locate the **MainActivity.java** file within the **samples**, **SpeechRecoExample**, **src**, **com**, **microsoft**, **AzureIntelligentServicesExample** folder from the downloaded **speech_SpeechToText-SDK-Android** zip package. You will need the subscription key you generated above. Once you have added your subscription key to the application, notice that you use the **SpeechRecognitionServiceFactory** to create a client of your liking. 
 
 ```
@@ -160,11 +154,9 @@ For each if the n-best choices, you get a confidence value and few different for
 * **InverseTextNormalizationResult:** Inverse text normalization (ITN) converts phrases like "one two three four" to a normalized form such as "1234". Another example is converting result text from "go to fourth street" to "go to 4th st". This form is optimal for use by applications that interpret the speech recognition results as commands or which perform queries based on the recognized text.
 * **MaskedInverseTextNormalizationResult:** The recognized phrase with inverse text normalization and profanity masking applied, but not capitalization or punctuation. Profanity is masked with asterisks after the initial character, e.g. "d***". This form is optimal for use by applications that display the speech recognition results to a user. Inverse Text Normalization (ITN) has also been applied. An example of ITN is converting result text from "go to fourth street" to "go to 4th st". This form is optimal for use by applications that use the unmasked ITN results but also need to display the command or query to the user.
 
-<a name="Step3"> </a>
 ## Step 3: Run the Example Application
 Run the application with the chosen clients, recognition modes and event handlers.
 
-<a name="Related"> </a>
 ## Related Topics
 * [Get Started with Bing Speech Recognition in C Sharp for Windows in .NET](GetStartedCSharpDesktop.md)
 * [Get Started with Bing Speech Recognition and/or intent in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)

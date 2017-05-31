@@ -1,28 +1,33 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Emotion API Ruby quick start | Microsoft Docs
+description: Get information and code samples to help you quickly get started using the Emotion API with Ruby in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: emotion
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 05/23/2017
+ms.author: anroth
 ---
 
 # Emotion API Ruby Quick Start
 This article provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with Ruby to recognize the emotions expressed by one or more people in an image.
 
 ## Prerequisite
-* Get your free Subscription Key [here](https://www.microsoft.com/cognitive-services/en-us/sign-up)
+* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
 ## Recognize Emotions Ruby Example Request
 
-```Ruby
+Change the REST URL to use the location where you obtained your subscription keys, replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, and add a URL to a photograph to the `body` variable.
+
+```ruby
 require 'net/http'
 
+# NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
+#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+#   URL below with "westcentralus".
 uri = URI('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize')
 uri.query = URI.encode_www_form({
 })
@@ -30,10 +35,10 @@ uri.query = URI.encode_www_form({
 request = Net::HTTP::Post.new(uri.request_uri)
 # Request headers
 request['Content-Type'] = 'application/json'
-# Request headers
-request['Ocp-Apim-Subscription-Key'] = '{subscription key}'
+# NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+request['Ocp-Apim-Subscription-Key'] = '13hc77781f7e4b19b5fcdd72a8df7156'
 # Request body
-request.body = "{body}"
+request.body = "{\"url\":\"http://example.com/1.jpg\"}"
 
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
     http.request(request)

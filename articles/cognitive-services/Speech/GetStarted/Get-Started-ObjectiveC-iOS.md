@@ -1,29 +1,22 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Get started with Bing Speech Recognition API in Objective C on iOS | Microsoft Docs
+description: Use Bing Speech Recognition API to develop iOS applications applications that convert spoken audio to text.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: priyaravi20
+manager: yanbo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: speech
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/16/2017
+ms.author: prrajan
 ---
 
-#Get Started with Bing Speech Recognition API in Objective C on iOS
+# Get Started with Bing Speech Recognition API in Objective C on iOS
 
 With Bing Speech Recognition API you can develop iOS applications that leverage Microsoft cloud servers to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it is sending audio to the service 
 
 This article uses a sample application to demonstrate the basics of getting started with the Bing Speech Recognition API to develop an iOS application. For a complete API reference, see [Speech SDK Client Library Reference](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
-
-###Table of Contents
- * [Prerequisites](#Prereqs)
- * [Step 1: Install the Example Application and Create the Application Framework](#Step1)
- * [Step 2: Build the Example Application / Example Code](#Step2)
- * [Step 3: Run the Example Application](#Step3)
- * [Related Topics](#Related)
 
 <a name="Prereqs"> </a>
 ## Prerequisites
@@ -36,7 +29,7 @@ Make sure Mac XCode IDE is installed.
 
 You may download the Speech API client library and example for iOS through https [SDK](https://github.com/microsoft/cognitive-speech-stt-ios). The downloaded zip file needs to be extracted to a folder of your choice.
 Install the .pkg file on your Mac. The .pkg file will install onto your Mac hard drive in the root (or personal) Documents directory under **SpeechSDK**. Inside the folder there is both a fully buildable example and an SDK library. The buildable example can be found in the **samples\SpeechRecognitionServerExample** directory and the library can be found at the **SpeechSDK\SpeechSDK.framework**.
-
+
 #### Subscribe to Speech API and get a free trial subscription key
 
 Before creating the example, you must subscribe to Speech API which is part of Cognitive Services. For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
@@ -71,7 +64,7 @@ If you want to **build your own application**, continue on with these instructio
 <a name="Step2"> </a>
 ## Step 2: Build the Application / Example Code
 
-3.-Open [ViewController.mm](https://oxfordportal.blob.core.windows.net/example-speech/ViewController.mm) in a new window or find **ViewController.mm** in the downloaded file under **samples\SpeechRecognitionServiceExample**. You will need the **Speech API primary subscription key**. The below code snippet shows where to use the key. (You may ignore the LUIS values if you don’t want to use “Intent” right now.)
+Open [ViewController.mm](https://oxfordportal.blob.core.windows.net/example-speech/ViewController.mm) in a new window or find **ViewController.mm** in the downloaded file under **samples\SpeechRecognitionServiceExample**. You will need the **Speech API primary subscription key**. The below code snippet shows where to use the key. (You may ignore the LUIS values if you don’t want to use “Intent” right now.)
 
 ```
 {

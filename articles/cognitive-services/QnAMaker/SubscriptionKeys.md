@@ -1,18 +1,18 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Authentication and subscription keys for QnA Maker | Microsoft Docs
+description: Get authentication and subscription keys that are used to track your QnA Maker tool usage.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: pchoudhari
+manager: rsrikan
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: qnamaker
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 12/08/2016
+ms.author: pchoudh
 ---
 
-# Authentication & Subscription keys #
+# Authentication & Subscription keys
 You will need a [Microsoft account](https://www.microsoft.com/en-us/account/) if you don't already have one, to sign in to the portal.
 
 You will receive a unique pair of keys. The second one is just a spare. Please do not share the secret keys with anyone.

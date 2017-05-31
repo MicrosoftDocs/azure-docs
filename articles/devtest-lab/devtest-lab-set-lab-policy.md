@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 > 
 > 
 
-Azure DevTest Labs enables you control cost and minimize waste in your labs by managing policies (settings) for each lab. This article walks explains in step-by-step detail how to set each policy.  
+Azure DevTest Labs lets you control cost and minimize waste in your labs by managing policies (settings) for each lab. This article explains in step-by-step detail how to set each policy.  
 
 ## Set allowed virtual machine sizes
 The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
@@ -96,6 +96,9 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 4. Select **Save**.
 
 	Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto-start** setting 
+
+## Set expiration date
+You can set an expiration date when you [create the VM](devtest-lab-add-vm.md). In **Advanced settings**, choose the calendar icon to specify a date on which the VM will be automatically deleted.  By default, the VM will never expire.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

@@ -1,19 +1,19 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: View the Content Moderator Dashboard | Microsoft Docs
+description: The Content Moderator Dashboard displays metrics for all content that the tool has reviewed.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: sanjeev3
+manager: mikemcca
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: content-moderator
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/03/2017
+ms.author: sajagtap
 ---
 
 # View Dashboard #
 
 Click the **Dashboard** TAB to see key metrics for all content review done within the tool. You can see total, completed, and in-progress reviews for images and text. You can see metrics for your default team and for your subteams.
 
-![View Dashboard](images/0-Dashboard.PNG)
+![View Dashboard](images/0-dashboard.png)

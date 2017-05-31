@@ -1,5 +1,5 @@
 ---
-title: Bing Speech Recognition in Microsoft Cognitive Services | Microsoft Docs
+title: Get started with Bing Speech Recognition in C# for .Net Windows | Microsoft Docs
 description: Develop basic Windows applications that use the Bing Speech Recognition API to convert spoken audio to text.
 services: cognitive-services
 author: priyaravi20
@@ -16,7 +16,7 @@ ms.author: prrajan
 
 Develop a basic Windows application that uses Bing Speech Recognition API to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Using the Client Library allows for real-time streaming, which means that at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. This page describes use of the Client Library, which currently supports speech in seven languages, the example below defaults to American English, “en-US”. For client library API reference, see [Microsoft Bing Speech SDK](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
 
-<a name="Prerequisites">
+<a name="Prerequisites"></a>
 ## Prerequisites
 #### Platform Requirements
 The below example has been developed for Windows 8+ and .NET Framework 4.5+ using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
@@ -25,30 +25,31 @@ You may download the Speech API client library and example through [SDK](https:/
 #### Subscribe to Speech API and Get a Free Trial Subscription Key
 Before creating the example, you must subscribe to Speech API which is part of Microsoft Cognitive Services (previously Project Oxford). For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.
 
-<a name="Step1">
+<a name="Step1"></a>
 ## Step 1: Install the Example Application
 1.	Start Microsoft Visual Studio 2015 and click **File**, select **Open**, then **Project/Solution**.
 2.	Browse to the folder where you saved the downloaded Speech API files. Click on **Speech**, then **Windows**, and then the **Sample-WPF** folder.
 3.	Double-click to open the Visual Studio 2015 Solution (.sln) file named **SpeechToText-WPF-Samples.sln**. This will open the solution in Visual Studio.
 
-<a name="Step2">
+<a name="Step2"></a>
 ## Step 2: Build the Example Application
 1.	Press Ctrl+Shift+B, or click **Build** on the ribbon menu, then select **Build Solution**.
 
-<a name="Step3">
+<a name="Step3"></a>
 ## Step 3: Run the Example Application
 1.	After the build is complete, press **F5** or click **Start** on the ribbon menu to run the example.
 2.	Locate the **Project Oxford Speech to Text** window with the **text edit box** reading **"Paste your subscription key here to start"**. Paste your subscription key into the text box as shown in below screenshot. You may choose to persist your subscription key on your PC or laptop by clicking the **Save Key** button. When you want to delete the subscription key from the system, click **Delete Key** to remove it from your PC or laptop.
 
-![Speech Recognition paste in key](../Images/SpeechRecog_paste_key.PNG)
+  ![Speech Recognition paste in key](../Images/SpeechRecog_paste_key.PNG)
+
 3.	Under **Speech Recognition Source** choose one of the six speech sources, which fall into two main input categories.
-*  Using your computer’s microphone, or an attached microphone, to capture speech.
-*  Playing an audio file.
+  *  Using your computer’s microphone, or an attached microphone, to capture speech.
+  *  Playing an audio file.
 
 Each category has three recognition modes.
-* **ShortPhrase Mode**: An utterance up to 15 seconds long. As data is sent to the server, the client will receive multiple partial results and one final multiple N-best choice result.
-* **LongDictation Mode**: An utterance up to 2 minutes long. As data is sent to the server, the client will receive multiple partial results and multiple final results, based on where the server indicates sentence pauses.
-* **Intent Detection**: The server returns additional structured information about the speech input. To use Intent you will need to first train a model. See details [here](https://www.luis.ai/).
+ * **ShortPhrase Mode**: An utterance up to 15 seconds long. As data is sent to the server, the client will receive multiple partial results and one final multiple N-best choice result.
+ * **LongDictation Mode**: An utterance up to 2 minutes long. As data is sent to the server, the client will receive multiple partial results and multiple final results, based on where the server indicates sentence pauses.
+ * **Intent Detection**: The server returns additional structured information about the speech input. To use Intent you will need to first train a model. See details [here](https://www.luis.ai/).
 
 There are example audio files to be used with this example application. You find the files in the repository you downloaded with this example under **SpeechToText**, in the **Windows** folder, under **samples**, in the **SpeechRecognitionServiceExample** folder. These example audio files will run automatically if no other files are chosen when selecting the **Use wav file for Shortphrase mode** or **Use wav file for Longdictation mode** as your speech input. Currently only wav audio format is supported.
 

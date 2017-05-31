@@ -1,28 +1,20 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API Python tutorial | Microsoft Docs
+description: Learn how to use the Face API with the Python SDK to detect human faces in an image in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/24/2017
+ms.author: anroth
 ---
 
 # Getting Started with Face API in Python Tutorial
 
 In this tutorial, you will learn to invoke the Face API via the Python SDK to detect human faces in an image.
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Detect a Face in an Image](#sdk-example)
-- [Further Exploration](#further)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="prerequisites"></a> Prerequisites
 
@@ -36,7 +28,7 @@ To use the tutorial, you will need to do the following:
 pip install cognitive_face
 ```
 
-- Obtain a [subscription key](https://www.microsoft.com/cognitive-services/en-us/sign-up) for Microsoft Cognitive Services (formerly Project Oxford). You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
+- Obtain a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
 
 ## <a name="sdk-example"></a> Detect a Face in an Image
 

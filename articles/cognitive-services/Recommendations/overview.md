@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Recommendations API | Microsoft Docs
+description: Use the Recommendations API, built with Microsoft Azure Machine Learning, to help your customer discover items in your catalog in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: LuisCabrer
+manager: mwinkle
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: recommendations
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 06/18/2016
+ms.author: luisca
 ---
 
 # Recommendations
@@ -20,11 +20,11 @@ The recommendation engine may be trained by uploading data about past customer a
 
 ## Resources ##
 
-[Getting Started Guide](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-quick-start)
+[Getting Started Guide](../../../articles/cognitive-services/cognitive-services-recommendations-quick-start.md)
 
-[Collecting Data to Train your Model](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-collecting-data)
+[Collecting Data to Train your Model](../../../articles/cognitive-services/cognitive-services-recommendations-collecting-data.md)
 
-[Build Types and Model Quality](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-buildtypes)
+[Build Types and Model Quality](../../../articles/cognitive-services/cognitive-services-recommendations-buildtypes.md)
 
 [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0)
 

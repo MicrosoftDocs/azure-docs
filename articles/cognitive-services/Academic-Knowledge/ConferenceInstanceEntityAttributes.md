@@ -1,21 +1,21 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Conference Instance entity attributes in the Academic Knowledge API | Microsoft Docs
+description: Learn the attributes you can use with the Conference Instance entity in the Academic Knowledge API in Cognitive Services.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: alch-msft
+manager: kuansanw
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: academic-knowledge
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 03/23/2017
+ms.author: alch
 ---
 
 # Conference Instance Entity
 
 <sub>
-*Below attributes are specific to conference instance entity. (Ty = '4')
+*Following attributes are specific to conference instance entity. (Ty = '4')
 </sub>
 
 Name	|Description							|Type       | Operations
@@ -36,7 +36,7 @@ PCS.CN	|Conference series name of the instance |String 	|Equals
 PCS.CId	|Conference series ID of the instance |Int64 	|Equals
 CC		|Conference instance total citation count			|Int32		|none  
 ECC		|Conference instance total estimated citation count	|Int32		|none
-SSD		|Satori data 							|String		|none
+
 
 ## Extended Metadata Attributes ##
 

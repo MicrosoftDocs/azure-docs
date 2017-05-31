@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Face API C# tutorial | Microsoft Docs
+description: Create a simple Windows app that uses the Cognitive Services Emotion API to detect faces in an image by framing the faces.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/24/2017
+ms.author: anroth
 ---
 
 # Getting Started with Face API in C&#35; Tutorial
@@ -17,17 +17,6 @@ ms.author: <author's microsoft alias, one value only, alias only>
 In this tutorial, you will learn to create and develop a simple Windows application that invokes the Face API to detect faces in an image by framing the faces.
 
 ![GettingStartCSharpScreenshot](../Images/GetStartedCSharp-Detected.PNG)
-
-## Table of Contents
-
-- [Preparation](#Preparation)
-- [Step 1: Subscribe for Face API and get your subscription key](#step1)
-- [Step 2: Create the application framework](#step2)
-- [Step 3: Configure the Face API client library](#step3)
-- [Step 4: Upload images to detect faces](#step4)
-- [Step 5: Mark faces in the image](#step5)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="Preparation"></a>Preparation
 
@@ -37,7 +26,7 @@ To use the tutorial, you will need the following prerequisites:
 
 ## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services (formerly Project Oxford) portal. See [subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both primary and secondary key can be used in this tutorial.
+Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
 
 ## <a name="step2"></a>Step 2: Create the application framework
 

@@ -1,29 +1,27 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Review API for Content Moderator | Microsoft Docs
+description: The Review API integrates content with the review tool to handle automated moderation and human reviews.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: sanjeev3
+manager: mikemcca
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: content-moderator
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 11/21/2016
+ms.author: sajagtap
 ---
 
-# The Review API #
+# The Review API
 
-Use the [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Content Moderator Review API") to integrate your content with the review tool that in turn handles both automated moderation and human reviews.
-
-Also read: [How to authenticate your Review API calls](review-api-authentication.md). 
+Use Content Moderators's review API [(See API reference)](api-reference.md "Content Moderator API Reference") to integrate your content with the review tool to get both automated moderation and human reviews.
 
 The Review API has a small set of operations that use the underlying moderation APIs to moderate your content and make the tagged images available within the review tool for human review.
 
 Here is a sample sequence of steps you might follow:
 
 1. Submit an image to start a moderation job.
-1. Get details for a moderation job that is either in-progress or completed. 
+1. Get details for a moderation job that is either in-progress or completed.
 1. Once the human reviews are completed, get the detailed results.
 
 ## Submitting an image to start a moderation job ##
@@ -35,11 +33,11 @@ Your inputs will include:
 - The default workflow identifier (“default”)
 - Your API callback point for notification
 
-The response will return the identifier of the job that was started. 
+The response will return the identifier of the job that was started.
 
 Once the job is completed, the operation will use your API callback information to notify you. You can then use the job identifier to get the detailed information back and take further action.
 
-## Getting details for an in-progress or completed job ##
+## Getting details for an in-progress or completed job
 
 Use the **Job-Get** operation to get the details of a moderation job for the identifier returned by the previous operation. Note that while the method returns immediately with the job settings information, the moderation job itself is run asynchronously. The results are returned through the callback point, and can also be queried by using the operation that we discuss in the next section.
 
@@ -54,7 +52,7 @@ The response will include the following information:
 - The status of the review (completed or in-progress)
 - The assigned moderation tags (key-value pairs)
 
-## Getting results after a human review ##
+## Getting results after a human review
 
 Use the **Review-Get** operation to get the results after a human review of the moderated image is completed. You will get notified when your defined callback point is called by the review API. The operation will return two sets of tag data - the tags assigned by the moderation service, and the tags after the human review was completed.
 
@@ -68,16 +66,16 @@ The response will include the following information:
 - The tags (key-value pairs) confirmed by the human reviewer
 - The tags (key-value pairs) assigned by the moderation service
 
-## Directly creating reviews within the review tool ##
+## Directly creating reviews within the review tool
 
-If you want to use the review tool just for the human review capability because you are either already using the moderation APIs, or you want to separate them for other reasons, you can do that using the **Review-Create** operation. 
+If you want to use the review tool just for the human review capability because you are either already using the moderation APIs, or you want to separate them for other reasons, you can do that using the **Review-Create** operation.
 
 Your inputs to this operation will include:
 
 - The content (image) to be reviewed
 - The tags (key value pairs)
 
-## Creating or updating custom workflow ##
+## Creating or updating custom workflow
 
 While the review tool uses a default workflow, you can also define your custom workflow based on your business rules and content policies.
 
@@ -99,7 +97,7 @@ Expression with one condition as in: Create review if **adult score > 0.4**.
 		"OutputName": "adultscore",
 		"Operator": "ge",  //- where ge = greater than or equal to
 		"Value": "0.4",
-		"Type": "Condition" 
+		"Type": "Condition"
 	}
 
 Expression with two conditions combined as in: Create review if **(adult score > 0.5 AND racy score > 0.5)**.
@@ -110,9 +108,9 @@ Expression with two conditions combined as in: Create review if **(adult score >
 			"OutputName": "adultscore",
 			"Operator": "ge",
 			"Value": "0.4",
-			"Type": "Condition" 
+			"Type": "Condition"
 		},
-		"Right": { 
+		"Right": {
 			"ConnectorName": "imagemoderator",
 			"OutputName": "racyscore",
 			"Operator": "ge",

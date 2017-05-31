@@ -50,7 +50,7 @@ For a device failover, ensure that the following prerequisites are satisfied:
   > Do not attempt to configure the registered virtual device through the service. No device configuration should be performed through the service.
   > 
   > 
-* The target device cannot have the same name as the source device. You can always rename the target device once the failover is complete.
+* The target device cannot have the same name as the source device.
 * The source and target device have to be the same type. You can only fail over a virtual array configured as a file server to another file server. The same is true for an iSCSI server.
 * For a file server DR, we recommend that you join the target device to the same domain as the source. This configuration ensures that the share permissions are automatically resolved. Only the failover to a target device in the same domain.
 * The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space are not available as target devices.
@@ -151,7 +151,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
     1. Select and click the StorSimple device that was used as the target device for the failover process.
     2. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
         ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. You can now rename the device (same as the old source device) so that the application servers can directly connect to this device. If you do not want to rename the device, you will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
+14. You will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR
 

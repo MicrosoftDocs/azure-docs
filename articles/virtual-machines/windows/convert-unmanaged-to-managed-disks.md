@@ -23,7 +23,7 @@ ms.author: cynthn
 If you have existing Azure VMs that use unmanaged disks in storage accounts and you want to be able to take advantage of [Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), you can convert the VMs. The process converts both the OS disk and any attached data disks from using an unmanaged disks in a storage account to using managed disks. The VMs are shut down and deallocated, then you use Powershell to convert the VM to use managed disks. After the conversion, you restart the VM and it will now be using managed disks.
 
 Before starting,  make sure that you review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
-Test the migration process by migrating a test virtual machine before performing the migration in production because the migration process is not reversible.
+Test the migration process by migrating a test virtual machine before performing the migration in production because the migration process is not reversible. Management of the VM is locked during the migration, so you can't start, stop or delete the VM until it is complete.
 
 
 > [!IMPORTANT] 
@@ -155,6 +155,11 @@ This section will show you how to convert your existing Azure VMs on Standard un
     
 You can also have a mixture of disks that use standard and Premium storage.
 	
+Troubleshooting
+
+In case of an error during conversion - or if you have a Virtual Machine in a Failed state due to a previous conversion that faced issues, please retry it by running the ConvertTo-AzureRmVMManagedDisk cmdlet again.
+A simple retry usually unblocks the situation.
+
 
 ## Next steps
 

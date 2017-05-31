@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: FAQs for Content Moderator | Microsoft Docs
+description: Get answers to frequently asked questions about the Content Moderator.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: sanjeev3
+manager: mikemcca
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: content-moderator
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 11/21/2016
+ms.author: sajagtap
 ---
 
 # Frequently Asked Questions (FAQs) #
@@ -18,11 +18,11 @@ ms.author: <author's microsoft alias, one value only, alias only>
 Your Content Moderator subscription includes access to the review tool and the APIs. You can decide whether you want to use one or the other, or both, depending on your business needs.
 
 #### When do I use review tool vs. the API, or both? ####
-**The API:** If you have an existing implementation for reviewing and/or taking action on flagged content, and would like to just use the APIs for scanning speed, coverage, and scale, use the API to scan your content and process the results at your end.
+**The API:** If you have an existing implementation for reviewing and/or taking action on flagged content, just use the APIs to scan your content and process the results at your end.
 
-**The Review tool:** If you are looking to moderate your content, augmented by human review teams, while complying with your escalation workflows and content policies, the review tool is a great new product to try out. We will be constantly adding support for new content types, adding more extensibility options, and integrating custom classifiers for even better fit with your business and users.
+**The Review tool:** If you are looking to moderate your content with human review teams, while complying with your escalation workflows and content policies, the review tool is a great new product to try out. We will be constantly adding support for new content types and adding more extensibility options.
 
-**Both:** You either have an existing API subscription that you would like to use with the review tool, or you could be trying out the review tool with one content type (images) while using your own systems for another content type (text). In any or all combinations of these scenarios, it's completely fine to use both the review tool and the API. 
+**Both:** You either have an existing API subscription that you would like to use with the review tool, or you could be trying out the review tool with one content type (images) while using your own systems for another content type (text). In any or all combinations of these scenarios, it's completely fine to use both the review tool and the API.
 
 #### What are the limits/restrictions of the content that can be moderated by using the API? ####
 When using the API, images need to have a minimum of 128 pixels and a maximum file size of 4MB. Text can be at most 1024 characters long. There is no limit on the video other than those imposed by the Azure Media Service if any.

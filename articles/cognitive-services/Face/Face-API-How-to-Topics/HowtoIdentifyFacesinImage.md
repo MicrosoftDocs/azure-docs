@@ -1,33 +1,20 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: Identify faces in images with the Face API | Microsoft Docs
+description: Use the Face API in Cognitive Services to identify faces in images.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: v-royhar
+manager: yutkuo
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: face
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 02/06/2017
+ms.author: anroth
 ---
 
 # How to Identify Faces in Image
 
 This guide will demonstrate how to identify unknown faces using person groups, which are created from known people in advance. The samples are written in C# using the Face API client library.
-
-## Table of Contents
-
-- [Concepts](#concepts)
-- [Preparation](#preparation)
-- [Step 1: Authorize the API call](#step1)
-- [Step 2: Create the person group](#step2)
-    - [Define people for the person group](#step2-1)
-    - [Detect faces and register them to correct person](#step2-2)
-- [Step 3: Train the person group](#step3)
-- [Step 4: Identify a face against a defined person group](#step4)
-- [Summary](#summary)
-- [Related Topics](#related)
 
 ## <a name="concepts"></a> Concepts
 
@@ -64,7 +51,7 @@ When using a client library, the subscription key is passed in through the const
 faceServiceClient = new FaceServiceClient("Your subscription key");
 ```
  
-The subscription key can be obtained from the Marketplace page of your Azure management portal. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+The subscription key can be obtained from the Marketplace page of your Azure management portal. See [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
 ## <a name="step2"></a> Step 2: Create the person group
 

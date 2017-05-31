@@ -1,15 +1,15 @@
 ---
-title: <page title displayed in search results. Include the brand Azure. Up to 60 characters> | Microsoft Docs
-description: <article description that is displayed in search results. 115 - 145 characters.>
+title: QnA Maker tool FAQs | Microsoft Docs
+description: Get answers to the most commonly asked questions about the QnA Maker tool.
 services: cognitive-services
-author: <author's GitHub user alias, with correct capitalization>
-manager: <MSFT alias of the author's manager>
+author: pchoudhari
+manager: rsrikan
 
 ms.service: cognitive-services
-ms.technology: <use folder name, all lower-case>
+ms.technology: qnamaker
 ms.topic: article
-ms.date: mm/dd/yyyy
-ms.author: <author's microsoft alias, one value only, alias only>
+ms.date: 01/04/2017
+ms.author: pchoudh
 ---
 
 # FAQs #
