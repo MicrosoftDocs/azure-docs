@@ -27,7 +27,7 @@ This sample PowerShell script creates two elastic pools and moves a database fro
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1 "Move database between pools")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=17-18 "Move database between pools")]
 
 ## Clean up deployment
 

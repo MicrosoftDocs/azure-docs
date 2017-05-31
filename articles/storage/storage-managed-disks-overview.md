@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 05/26/2017
 ms.author: robinsh
 
 ---
@@ -29,7 +29,9 @@ Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing th
 
 ## Benefits of managed disks
 
-Let's take a look at some of the benefits you gain by using managed disks.
+Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+<br/>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
 ### Simple and scalable VM deployment
 

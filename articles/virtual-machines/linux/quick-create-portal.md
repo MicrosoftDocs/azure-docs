@@ -108,7 +108,7 @@ With NGINX installed, and port 80 open to your VM, the webserver can now be acce
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
 
