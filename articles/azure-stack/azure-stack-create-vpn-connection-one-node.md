@@ -19,36 +19,32 @@ ms.author: scottnap
 ---
 # Create a site-to-site VPN connection between two virtual networks in different Azure Stack POC environments
 ## Overview
-This article shows you how to create a site-to-site VPN connection between two virtual networks in two separate Azure Stack proof of concept (POC) environments. While you configure the connections, you will learn how VPN gateways in Azure Stack work.
+This article shows you how to create a site-to-site VPN connection between two virtual networks in two separate Azure Stack proof of concept (POC) environments. While you configure the connections, you learn how VPN gateways in Azure Stack work.
 
 ### Connection diagram
-The following diagram shows what the configuration should look like when you’re done:
+The following diagram shows what the connection configuration should look like when you’re done.
 
-![The final configuration](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
+![Site-to-site VPN connection configuration](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
 
 ### Before you begin
-To complete this configuration, ensure you have the following items before you get started:
+To complete the connection configuration, ensure that you have the following items before you begin:
 
-* Two Servers that meet the Azure Stack POC hardware requirements
-  defined by the [Azure Stack Deployment
-  Prerequisites](azure-stack-deploy.md),
-  and the other prerequisites defined by that article.
-* The Azure Stack Technical Preview Deployment Package.
+* Two servers that meet the Azure Stack POC hardware requirements,
+  which are defined by the [Azure Stack deployment
+  prerequisites](azure-stack-deploy.md). Ensure that the other prerequisites that appear in the [article](azure-stack-deploy.md) are fulfilled too.
+* The [Azure Stack Technical Preview](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
 
 ## Deploy the POC environments
-You must deploy two Azure Stack POC environments to
-complete this configuration.
+To complete the connection configuration, you must deploy two Azure Stack POC environments.
+> [!NOTE] 
+> For each POC that you deploy, follow the [deployment instructions](azure-stack-run-powershell-script.md). Each POC environment in this article is referred to as *POC1* and *POC2*.
 
-* For each POC that you deploy, follow the deployment instructions
-  in the article [Deploy Azure Stack
-  POC](azure-stack-run-powershell-script.md).
-  Each POC environment in this document is generically referred to as *POC1* and *POC2*.
 
 ## Prepare an offer on POC1 and POC2
-On both POC1 and POC2, prepare an offer so that a user can subscribe to the offer and deploy virtual machines. Use the following article to create an offer: [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)
+On both POC1 and POC2, prepare an offer so that a user can subscribe to the offer and deploy the virtual machines. For information on how to create an offer, see [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md).
 
 ## Review and complete the network configuration table
-The following table summarizes the network configuration for both POC environments. Use the procedure following the table to fill in the External BGPNAT address specific for your network.
+The following table summarizes the network configuration for both POC environments. Use the procedure that appears after the table to add the External BGPNAT address that is specific for your network.
 
 **Network configuration table**
 |   |POC1|POC2|
@@ -60,8 +56,9 @@ The following table summarizes the network configuration for both POC environmen
 |Gateway subnet     |10.0.11.0/24|10.0.21.0/24|
 |External BGPNAT address     |         |         |
 
+> [!NOTE]
+> The external BGPNAT IP addresses in the example environment are 10.16.167.195 for POC1, and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your POC hosts, and then add them to the previous table.
 
-The external BGPNAT IP addresses in the example environment are 10.16.167.195 for POC1 and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your POC hosts and record them in the table.
 
 ### Get the IP address of the external adapter of the NAT VM
 1. Log in to the Azure Stack physical machine for POC1.
