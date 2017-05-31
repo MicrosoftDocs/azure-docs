@@ -29,7 +29,7 @@
 #### [Use Azure Backup Server to back up Exchange](backup-azure-exchange-mabs.md)
 #### [Use Azure Backup Server to back up a SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
 #### [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
-#### [Protect system state and bare metal Recovery](backup-mabs-system-state-and-bmr.md)
+#### [Protect system state and bare metal recovery](backup-mabs-system-state-and-bmr.md)
 ### Troubleshoot
 #### [Troubleshoot Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 
