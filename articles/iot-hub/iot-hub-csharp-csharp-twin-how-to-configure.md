@@ -13,11 +13,15 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 05/31/2017
 ms.author: dkshir
 
 ---
 # Use desired properties to configure devices
+
+## Introduction
+In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
+
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 At the end of this tutorial, you will have two .NET console apps:
@@ -45,113 +49,178 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 ## Create the simulated device app
 In this section, you create a .NET console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
 
-1. Create a new empty folder called **simulatedeviceconfiguration**. In the **simulatedeviceconfiguration** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults.
+1. In Visual Studio, create a new Visual C# Windows Classic Desktop project by using the **Console Application** project template. Name the project **SimulateDeviceConfiguration**.
    
-    ```
-    npm init
-    ```
-1. At your command prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
+    ![New Visual C# Windows Classic device app][img-createdeviceapp]
+
+1. In Solution Explorer, right-click the **ReportConnectivity** project, and then click **Manage NuGet Packages...**.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices.client**. Select **Install** to install the **Microsoft.Azure.Devices.Client** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
    
-    ```
-    npm install azure-iot-device azure-iot-device-mqtt --save
-    ```
-1. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
-1. Add the following code to the **SimulateDeviceConfiguration.js** file, and substitute the **{device connection string}** placeholder with the device connection string you copied when you created the **myDeviceId** device identity:
+    ![NuGet Package Manager window Client app][img-clientnuget]
+1. Add the following `using` statements at the top of the **Program.cs** file:
    
-        'use strict';
-        var Client = require('azure-iot-device').Client;
-        var Protocol = require('azure-iot-device-mqtt').Mqtt;
-   
-        var connectionString = '{device connection string}';
-        var client = Client.fromConnectionString(connectionString, Protocol);
-   
-        client.open(function(err) {
-            if (err) {
-                console.error('could not open IotHub client');
-            } else {
-                client.getTwin(function(err, twin) {
-                    if (err) {
-                        console.error('could not get twin');
-                    } else {
-                        console.log('retrieved device twin');
-                        twin.properties.reported.telemetryConfig = {
-                            configId: "0",
-                            sendFrequency: "24h"
-                        }
-                        twin.on('properties.desired', function(desiredChange) {
-                            console.log("received change: "+JSON.stringify(desiredChange));
-                            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
-                            if (desiredChange.telemetryConfig &&desiredChange.telemetryConfig.configId !== currentTelemetryConfig.configId) {
-                                initConfigChange(twin);
-                            }
-                        });
-                    }
-                });
+        using Microsoft.Azure.Devices.Client;
+        using Microsoft.Azure.Devices.Shared;
+        using Newtonsoft.Json;
+
+1. Add the following method to the **Program** class:
+ 
+        public static void InitClient()
+        {
+            try
+            {
+                Console.WriteLine("Connecting to hub");
+                Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
+                Console.WriteLine("Retrieving twin");
+                var twinTask = Client.GetTwinAsync();
+                twinTask.Wait();
+                twin = twinTask.Result;
             }
-        });
-   
-    The **Client** object exposes all the methods required to interact with device twins from the device. This code initializes the **Client** object, retrieves the device twin for **myDeviceId**, and then attaches a handler for the update on *desired properties*. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
-   
-    Note that for the sake of simplicity, this code uses a hard-coded default for the initial configuration. A real app would probably load that configuration from a local storage.
-   
-   > [!IMPORTANT]
-   > Desired property change events are always emitted once at device connection. Make sure to check that there is an actual change in the desired properties before performing any action.
-   > 
-   > 
-1. Add the following methods before the `client.open()` invocation:
-   
-        var initConfigChange = function(twin) {
-            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
-            currentTelemetryConfig.pendingConfig = twin.properties.desired.telemetryConfig;
-            currentTelemetryConfig.status = "Pending";
-   
-            var patch = {
-            telemetryConfig: currentTelemetryConfig
-            };
-            twin.properties.reported.update(patch, function(err) {
-                if (err) {
-                    console.log('Could not report properties');
-                } else {
-                    console.log('Reported pending config change: ' + JSON.stringify(patch));
-                    setTimeout(function() {completeConfigChange(twin);}, 60000);
-                }
-            });
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
         }
-   
-        var completeConfigChange =  function(twin) {
-            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
-            currentTelemetryConfig.configId = currentTelemetryConfig.pendingConfig.configId;
-            currentTelemetryConfig.sendFrequency = currentTelemetryConfig.pendingConfig.sendFrequency;
-            currentTelemetryConfig.status = "Success";
-            delete currentTelemetryConfig.pendingConfig;
-   
-            var patch = {
-                telemetryConfig: currentTelemetryConfig
-            };
-            patch.telemetryConfig.pendingConfig = null;
-   
-            twin.properties.reported.update(patch, function(err) {
-                if (err) {
-                    console.error('Error reporting properties: ' + err);
-                } else {
-                    console.log('Reported completed config change: ' + JSON.stringify(patch));
+    The **Client** object exposes all the methods you require to interact with device twins from the device. The code shown above, initializes the **Client** object, and then retrieves the device twin for **myDeviceId**.
+
+1. Add the following method to the **Program** class, to send initial values of telemetry from the device:
+
+        public static async void InitTelemetry()
+        {
+            try
+            {
+                Console.WriteLine("Report initial telemetry config:");
+                TwinCollection telemetryConfig = new TwinCollection();
+                telemetryConfig["configId"] = "0";
+                telemetryConfig["sendFrequency"] = "24h";
+                twin.Properties.Reported["telemetryConfig"] = telemetryConfig;
+                Console.WriteLine(JsonConvert.SerializeObject(twin.Properties.Reported));
+
+                twin.Properties.Reported.ClearMetadata();
+                await Client.UpdateReportedPropertiesAsync(twin.Properties.Reported);
+            }
+            catch (AggregateException ex)
+            {
+                foreach (Exception exception in ex.InnerExceptions)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error in sample: {0}", exception);
                 }
-            });
-        };
-   
-    The **initConfigChange** method updates the reported properties on the local device twin object with the configuration update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the device twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the device twin on the service.
-   
-    Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
-   
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+        }
+
+1. Add the following method to the **Program class**. This is a callback which will detect a change in **desired properties** in the device twin.
+
+        private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
+        {
+            try
+            {
+                Console.WriteLine("Desired property change:");
+                Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+
+                var currentTelemetryConfig = twin.Properties.Reported["telemetryConfig"];
+                var desiredTelemetryConfig = desiredProperties["telemetryConfig"];
+
+                if ((desiredTelemetryConfig != null) && (desiredTelemetryConfig["configId"] != currentTelemetryConfig["configId"]))
+                {
+                    Console.WriteLine("\nInitiating config change");
+                    currentTelemetryConfig["status"] = "Pending";
+                    currentTelemetryConfig["pendingConfig"] = desiredTelemetryConfig;
+
+                    twin.Properties.Reported.ClearMetadata();
+                    await Client.UpdateReportedPropertiesAsync(twin.Properties.Reported);
+
+                    CompleteConfigChange();
+                }
+            }
+            catch (AggregateException ex)
+            {
+                foreach (Exception exception in ex.InnerExceptions)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error in sample: {0}", exception);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+        }
+
+    This method updates the reported properties on the local device twin object with the configuration update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the device twin, it completes the config change by calling the method `CompleteConfigChange` described in the next point.
+
+1. Add the following method to the **Program** class. This method simulates a device reset, then updates the local reported properties setting the status to **Success** and removing the **pendingConfig** element. It then updates the device twin on the service. 
+
+        public static async void CompleteConfigChange()
+        {
+            try
+            {
+                var currentTelemetryConfig = twin.Properties.Reported["telemetryConfig"];
+
+                Console.WriteLine("\nSimulating device reset");
+                await Task.Delay(30000); 
+
+                Console.WriteLine("\nCompleting config change");
+                currentTelemetryConfig["configId"] = currentTelemetryConfig["pendingConfig"]["configId"];
+                currentTelemetryConfig["sendFrequency"] = currentTelemetryConfig["pendingConfig"]["sendFrequency"];
+                currentTelemetryConfig["status"] = "Success";
+                currentTelemetryConfig["pendingConfig"] = null;
+
+                twin.Properties.Reported.ClearMetadata();
+                await Client.UpdateReportedPropertiesAsync(twin.Properties.Reported);
+                Console.WriteLine("Config change complete \nPress any key to exit.");
+            }
+            catch (AggregateException ex)
+            {
+                foreach (Exception exception in ex.InnerExceptions)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error in sample: {0}", exception);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+        }
+
+1. Finally add the following lines to the **Main** method:
+            try
+            {
+                InitClient();
+                InitTelemetry();
+
+                Console.WriteLine("Wait for desired telemetry...");
+                Client.SetDesiredPropertyUpdateCallback(OnDesiredPropertyChanged, null).Wait();
+                Console.ReadKey();
+            }
+            catch (AggregateException ex)
+            {
+                foreach (Exception exception in ex.InnerExceptions)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error in sample: {0}", exception);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+
    > [!NOTE]
    > This tutorial does not simulate any behavior for concurrent configuration updates. Some configuration update processes might be able to accommodate changes of target configuration while the update is running, some might have to queue them, and some could reject them with an error condition. Make sure to consider the desired behavior for your specific configuration process, and add the appropriate logic before initiating the configuration change.
    > 
    > 
-1. Run the device app:
-   
-        node SimulateDeviceConfiguration.js
-   
-    You should see the message `retrieved device twin`. Keep the app running.
+1. Build the solution and run the device app, by clicking *F5*. On the console, you should see the messages indicating that your simulated device is retrieving the device twin, setting up the telemetry, and waiting for desired property change. Keep the app running.
 
 ## Create the service app
 In this section, you will create a .NET console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
@@ -220,7 +289,7 @@ In this section, you will create a .NET console app that updates the *desired pr
         Console.WriteLine("Press any key to quit.");
         Console.ReadLine();
 1. In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **SetDesiredConfigurationAndQuery** project is **Start**. Build the solution.
-1. With **SimulateDeviceConfiguration.js** running, run the .NET application from Visual Studio using **F5** and you should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
+1. With **SimulateDeviceConfiguration** device app running, run the service app from Visual Studio using **F5**. You should see the reported configuration change from **Pending** to **Success** with the new active send frequency of five minutes instead of 24 hours.
 
  ![Device configured successfully][img-deviceconfigured]
    
@@ -239,28 +308,24 @@ Use the following resources to learn how to:
 * control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- images -->
-[img-servicenuget]: media/iot-hub-csharp-node-twin-how-to-configure/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-node-twin-how-to-configure/createnetapp.png
-[img-deviceconfigured]: media/iot-hub-csharp-node-twin-how-to-configure/deviceconfigured.png
+[img-servicenuget]: media/iot-hub-csharp-csharp-twin-how-to-configure/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-csharp-twin-how-to-configure/createnetapp.png
+[img-deviceconfigured]: media/iot-hub-csharp-csharp-twin-how-to-configure/deviceconfigured.png
+[img-createdeviceapp]: media/iot-hub-csharp-csharp-twin-how-to-configure/createdeviceapp.png
+[img-clientnuget]: media/iot-hub-csharp-csharp-twin-how-to-configure/devicesdknuget.png
+[img-deviceconfigured]: media/iot-hub-csharp-csharp-twin-how-to-configure/deviceconfigured.png
+
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-nuget-client-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0/
 
-[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-twin-notifications]: iot-hub-devguide-device-twins.md#back-end-operations
-[lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-csharp-csharp-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
+[lnk-iothub-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
-
-[lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
-
 [lnk-how-to-configure-createapp]: iot-hub-csharp-csharp-twin-how-to-configure.md#create-the-simulated-device-app
