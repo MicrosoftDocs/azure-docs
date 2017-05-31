@@ -1,5 +1,5 @@
 ---
-title: How to deploy an Azure API Management service instance to multiple Azure regions
+title: Deploy Azure API Management services to multiple Azure regions | Microsoft Docs
 description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to deploy an Azure API Management service instance to multiple Azure regions
 API Management supports multi-region deployment which enables API publishers to distribute a single API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline. 

@@ -16,16 +16,21 @@
 ### [Synced tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 # How to
-## [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm.md)
-## [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-## [Join a Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-## [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
-## [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
-## [Configure secure LDAP for a managed domain](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
-## [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
+## Join a managed domain
+### [Join a Windows Server VM](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Join a Windows Server VM using PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Join a Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## Administer a managed domain
+### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
+### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
+### [Configure secure LDAP for a managed domain](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
+### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)
-
+## Deploy applications
+### [Configure support for profile synchronization for SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
+### [Configure Kerberos Constrained Delegation](active-directory-ds-enable-kcd.md)
+### [Deploy Azure AD Application Proxy](active-directory-ds-deploy-azure-app-proxy.md)
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Troubleshooting guide](active-directory-ds-troubleshooting.md)

@@ -1,23 +1,30 @@
 ---
 title: Azure Diagnostics 1.0 Configuration Schema | Microsoft Docs
-description: Schema version 1.0 for Azure diagnostics shipped as part of the Microsoft Azure SDK.
-services: multiple
+description: ONLY relevant if you are using Azure SDK 2.4 and below with Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric, or Cloud Services.
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: ''
 
 ms.assetid:
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 05/15/2017
 ms.author: robb
 
 ---
 # Azure Diagnostics 1.0 Configuration Schema
+> [!NOTE]
+> Azure Diagnostics is the component used to collect performance counters and other statistics from Azure Virtual Machines, Virtual Machine Scale Sets, Service
+> Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
+>
+
+Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+
 The Azure Diagnostics configuration file defines values that are used to initialize the Diagnostics Monitor. This file is used to initialize diagnostic configuration settings when the diagnostics monitor starts.  
 
  By default, the Azure Diagnostics configuration schema file is installed to the `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` directory. Replace `<version>` with the installed version of the [Azure SDK](http://www.windowsazure.com/develop/downloads/).  
@@ -29,7 +36,7 @@ The Azure Diagnostics configuration file defines values that are used to initial
  The following example shows a typical diagnostics configuration file:  
 
 ```xml  
-<?xml version="1.0" encoding="utf-8"?> 
+<?xml version="1.0" encoding="utf-8"?>
 <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"  
       configurationChangePollInterval="PT1M"  
       overallQuotaInMB="4096">  

@@ -4,7 +4,7 @@ description: Follow this tutorial to get started with using Mobile Apps for Xama
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: dwrede
+manager: adrianha
 editor: ''
 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34

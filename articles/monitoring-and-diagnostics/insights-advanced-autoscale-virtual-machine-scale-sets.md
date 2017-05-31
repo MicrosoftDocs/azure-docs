@@ -1,8 +1,8 @@
 ---
-title: Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets | Microsoft Docs
-description: Configure autoscale for VM Scale Sets based on multiple rules and profiles with email and webhoook notifications for scale actions.
+title: Advanced Autoscale using Azure Virtual Machines | Microsoft Docs
+description: Uses Resource Manager and VM Scale Sets with multiple rules and profiles which send email and call webhook URLs with scale actions.
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2016
 ms.author: ashwink
 
 ---
 
-# Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets
-You can scale out and in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
+# Advanced autoscale configuration using Resource Manager templates for VM Scale Sets
+You can scale-in and scale-out in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
 
 > [!NOTE]
-> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling Cloud Services and Web Apps.
+> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
 > For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) and [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) documents
 >
 >
@@ -238,6 +238,8 @@ You have updated an autoscale setting on a VM Scale set to include multiple scal
 
 ## Next Steps
 Use these links to learn more about autoscaling.
+
+[TroubleShoot Autoscale with Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
 [Common Metrics for Autoscale](insights-autoscale-common-metrics.md)
 

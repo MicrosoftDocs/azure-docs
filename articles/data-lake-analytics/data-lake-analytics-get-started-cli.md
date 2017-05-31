@@ -21,54 +21,54 @@ ms.author: edmaca
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Learn how to use Azure CLI to create Azure Data Lake Analytics accounts, define Data Lake Analytics
-jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytics accounts. For more 
+jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytics accounts. For more
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
-In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
+In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
+* **Azure CLI**. See [Install and configure Azure CLI](../cli-install-nodejs.md).
   * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 * **Authentication**, using the following command:
-  
+
         azure login
     For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 * **Switch to the Azure Resource Manager mode**, using the following command:
-  
+
         azure config mode arm
 
 ## Create Data Lake Analytics account
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
 * **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
-  
+
     To enumerate the resource groups in your subscription:
-  
-        azure group list 
-  
+
+        azure group list
+
     To create a new resource group:
-  
+
         azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 * **Data Lake Analytics account name**
 * **Location**: one of the Azure data centers that supports Data Lake Analytics.
 * **Default Data Lake account**: each Data Lake Analytics account has a default Data Lake account.
-  
+
     To list the existing Data Lake account:
-  
+
         azure datalake store account list
-  
+
     To create a new Data Lake account:
-  
+
         azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
-  
+
   > [!NOTE]
   > The Data Lake account name must only contain lowercase letters and numbers.
-  > 
-  > 
+  >
+  >
 
 **To create a Data Lake Analytics account**
 
@@ -81,13 +81,13 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 
 > [!NOTE]
 > The Data Lake Analytics account name must only contain lowercase letters and numbers.
-> 
-> 
+>
+>
 
 ## Upload data to Data Lake Store
-In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
+In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage.
 
-The Azure Portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
+The Azure Portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md) to upload the data to the default Data Lake Store account.
 
 To upload files using cli, use the following command:
 
@@ -102,7 +102,7 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 **To create a Data Lake Analytics job script**
 
 * Create a text file with following U-SQL script, and save the text file to your workstation:
-  
+
         @searchlog =
             EXTRACT UserId          int,
                     Start           DateTime,
@@ -113,27 +113,27 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-  
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
-  
-    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
-  
+
+    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
+
     Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
-  
-    It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
-  
+
+    It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example
+
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-  
+
     You must use absolute paths to access files in linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
-  
+
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-  
+
   > [!NOTE]
   > Azure Blob container with public blobs or public containers access permissions are not currently supported.      
-  > 
-  > 
+  >
+  >
 
 **To submit the job**
 
@@ -161,4 +161,3 @@ After the job is completed, you can use the following cmdlets to list the file, 
 * To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
 * To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-

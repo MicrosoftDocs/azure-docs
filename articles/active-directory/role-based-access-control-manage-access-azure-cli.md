@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/22/2016
+ms.date: 02/22/2017
 ms.author: kgremban
 
 ---
@@ -22,14 +22,13 @@ ms.author: kgremban
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
-> 
-> 
+
 
 You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
-Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following:
+Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
 
-* Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
+* Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
 * Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) for more details.
 
 ## List roles
@@ -73,7 +72,7 @@ The following example shows the role assignments in the *pharma-sales-projecforc
 azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
 ```
 
-![RBAC Azure command line - azure role assignment list by group- screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
+![RBAC Azure command line - azure role assignment list by group - screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ### List role assignments for a user
 To list the role assignments for a specific user and the assignments that are assigned to a user's groups, use:
@@ -106,7 +105,7 @@ To assign a role to a group at the subscription scope, use:
 
 The following example assigns the *Reader* role to *Christine Koch's Team* at the *subscription* scope.
 
-![RBAC Azure command line - azure role assignment create by group- screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
+![RBAC Azure command line - azure role assignment create by group - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
 ### Assign a role to an application at the subscription scope
 To assign a role to an application at the subscription scope, use:
@@ -124,7 +123,7 @@ To assign a role to a user at the resource group scope, use:
 
 The following example grants the *Virtual Machine Contributor* role to *samert@aaddemo.com* user at the *Pharma-Sales-ProjectForcast* resource group scope.
 
-![RBAC Azure command line - azure role assignment create by user- screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
+![RBAC Azure command line - azure role assignment create by user - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
 ### Assign a role to a group at the resource scope
 To assign a role to a group at the resource scope, use:
@@ -133,7 +132,7 @@ To assign a role to a group at the resource scope, use:
 
 The following example grants the *Virtual Machine Contributor* role to an *Azure AD* group on a *subnet*.
 
-![RBAC Azure command line - azure role assignment create by group- screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
+![RBAC Azure command line - azure role assignment create by group - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
 
 ## Remove access
 To remove a role assignment, use:
@@ -150,7 +149,7 @@ To create a custom role, use:
 
     azure role create --inputfile <file path>
 
-The following example creates a custom role called *Virtual Machine Operator*. The custom role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions. This example uses a JSON file as an input.
+The following example creates a custom role called *Virtual Machine Operator*. This custom role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
 ![JSON - custom role definition - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
@@ -177,7 +176,7 @@ The following example removes the *Virtual Machine Operator* custom role.
 ## List custom roles
 To list the roles that are available for assignment at a scope, use the `azure role list` command.
 
-The following example lists all role that are available for assignment in the selected subscription.
+The following command lists all roles that are available for assignment in the selected subscription.
 
 ```
 azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'

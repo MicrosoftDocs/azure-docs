@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 05/02/2017
 ms.author: dobett
 
 ---
@@ -93,42 +93,42 @@ You can change the settings of an existing IoT hub after it is created from the 
 ![][10]
 
 ## Endpoints
-Click **Endpoints** to display a list of endpoints for the IoT hub that is being modified. There are two main types of endpoints: endpoints that are built into the IoT hub, and endpoints that you added to the IoT hub after its creation.
-
-### Built-in endpoints
-There are two main built-in endpoints: **Cloud to device feedback** and **Events**.
-
-* **Cloud to device feedback** settings: This setting has two subsettings: **Cloud to Device TTL** (time-to-live) and **Retention time** for the messages. When the IoT hub is first created, both these settings are created with a default value of one hour. To adjust these values, use the sliders or type the values.
-* **Events** settings: This setting has several subsettings, some of which are named/assigned when the IoT hub is created and can only be copied to other subsettings that are customizable. These settings are listed in the next section.
-
-**Partitions**: This value is set when the IoT hub is created and can be changed through this setting.
-
-**Event Hub-compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need access to under certain circumstances. This Event Hub-compatible name and endpoint cannot be customized but is available for use via the **Copy** button.
-
-**Retention Time**: Set to one day by default but can be customized to other values using the drop-down list. This value is in days for Device to Cloud and not in hours, as is the similar setting for Cloud to Device.
-
-**Consumer Groups**: Consumer Groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs.
-
-> [!NOTE]
-> The default consumer group cannot be edited or deleted.
-> 
-> 
+Click **Endpoints** to display a list of endpoints for the IoT hub that you are modifying. There are two types of endpoints: endpoints that are built into the IoT hub, and endpoints that you add to the IoT hub after its creation.
 
 ![][11]
 
+### Built-in endpoints
+There are two built-in endpoints: **Cloud to device feedback** and **Events**.
+
+* **Cloud to device feedback** settings: This setting has two subsettings: **Cloud to Device TTL** (time-to-live) and **Retention time** (in hours) for the messages. When your first create an IoT hub, both these settings have the default value of one hour. To adjust these settings, use the sliders or type the values.
+* **Events** settings: This setting has several subsettings, some of which are read-only. The following list describes these settings:
+
+    * **Partitions**: A default value is set when the IoT hub is created. You can change the number of partitions through this setting.
+
+    * **Event Hub-compatible name and endpoint**: When the IoT hub is created, an Event Hub is created internally that you may need access to under certain circumstances. You cannot customize the Event Hub-compatible name and endpoint values but you can copy them by clicking **Copy**.
+
+    * **Retention Time**: Set to one day by default but you can change it using the drop-down list. This value is in days for the device-to-cloud setting.
+
+    * **Consumer Groups**: Consumer groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs using this setting.
+
+    > [!NOTE]
+    > The default consumer group cannot be edited or deleted.
+    > 
+    > 
+
 ### Custom endpoints
-You can add custom endpoints to your IoT hub via the portal. From the endpoints blade, click **Add** at the top of the blade to open the **Add endpoint** blade. Enter the information required in the blade, then click **OK**. Your custom endpoint then shows up in the main endpoints blade.
+You can add custom endpoints on your IoT hub using the portal. From the **Endpoints** blade, click **Add** at the top to open the **Add endpoint** blade. Enter the required information, then click **OK**. Your custom endpoint is now listed in the main **Endpoints** blade.
 
 ![][13]
 
 You can read more about custom endpoints in [Reference - IoT hub endpoints][lnk-devguide-endpoints].
 
 ## Routes
-Click **Routes** to manage how IoT Hub dispatches your device to cloud messages.
+Click **Routes** to manage how IoT Hub dispatches your device-to-cloud messages.
 
 ![][14]
 
-You can add additional routes to your IoT hub by clicking **Add** at the top of the blade and entering the information required in the blade and clicking **OK**. Your route then shows up in the main endpoints blade. You can edit a route by clicking it in the list of routes and then modifying it. To enable a route, click it in the list of routes and set the enable/disable toggle to **Off**. Click **OK** at the bottom of the blade to save the change.
+You can add routes to your IoT hub by clicking **Add** at the top of the **Routes*** blade, entering the required information, and clicking **OK**. Your route is then listed in the main **Routes** blade. You can edit a route by clicking it in the list of routes. To enable a route, click it in the list of routes and set the **Enabled** toggle to **Off**. Click **OK** at the bottom of the blade to save the change.
 
 ![][15]
 
@@ -155,7 +155,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -173,6 +173,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

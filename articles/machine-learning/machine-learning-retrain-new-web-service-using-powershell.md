@@ -1,5 +1,5 @@
 ---
-title: Retrain a New web service using the Machine Learning Management PowerShell cmdlets | Microsoft Docs
+title: Retrain a New Azure Machine Learning web service with PowerShell | Microsoft Docs
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning using the Machine Learning Management PowerShell cmdlets.
 services: machine-learning
 documentationcenter: ''
@@ -13,20 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 
 ---
-# Retrain a New web service using the Machine Learning Management PowerShell cmdlets
+# Retrain a New Resource Manager based web service using the Machine Learning Management PowerShell cmdlets
 When you retrain a New web service, you update the predictive web service definition to reference the new trained model.  
 
 ## Prerequisites
-You must have set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). 
+You must set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
 > The predictive experiment must be deployed as an Azure Resource Manager (New) based machine learning web service. 
-> 
-> 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information, see [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md). 
 
 For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 

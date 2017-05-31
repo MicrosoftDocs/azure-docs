@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: dkershaw;bryanla
+ms.custom: aaddev
 
 ---
 # Understanding the Azure Active Directory application manifest
@@ -23,12 +24,12 @@ Applications that integrate with Azure Active Directory (AD) must be registered 
 ## Updating an application's identity configuration
 There are actually multiple options available for updating the properties on an application's identity configuration, which vary in capabilities and degrees of difficulty, including the following:
 
-* The **[Azure classic portal's][AZURE-CLASSIC-PORTAL] Web user interface** allows you to update the most common properties of an application. This is the quickest and least error prone way of updating your application's properties, but does not give you full access to all properties, like the next two methods.
+* The **[Azure portal's][AZURE-PORTAL] Web user interface** allows you to update the most common properties of an application. This is the quickest and least error prone way of updating your application's properties, but does not give you full access to all properties, like the next two methods.
 * For more advanced scenarios where you need to update properties that are not exposed in the Azure classic portal, you can modify the **application manifest**. This is the focus of this article and is discussed in more detail starting in the next section.
 * It's also possible to **write an application that uses the [Graph API][GRAPH-API]** to update your application, which requires the most effort. This may be an attractive option though, if you are writing management software, or need to update application properties on a regular basis in an automated fashion.
 
 ## Using the application manifest to update an application's identity configuration
-Through the [Azure classic portal][AZURE-CLASSIC-PORTAL], you can manage your application's identity configuration, by downloading and uploading a JSON file representation, which is called an application manifest. No actual file is stored in the directory. The application manifest is merely an HTTP GET operation on the Azure AD Graph API Application entity, and the upload is an HTTP PATCH operation on the Application entity.
+Through the [Azure portal][AZURE-PORTAL], you can manage your application's identity configuration by updating the application manifest using the inline manifest editor. You can also download and upload the application manifest as a JSON file. No actual file is stored in the directory. The application manifest is merely an HTTP GET operation on the Azure AD Graph API Application entity, and the upload is an HTTP PATCH operation on the Application entity.
 
 As a result, in order to understand the format and properties of the application manifest, you will need to reference the Graph API [Application entity][APPLICATION-ENTITY] documentation. Examples of updates that can be performed though application manifest upload
 include:
@@ -46,22 +47,12 @@ The application manifest also provides a good way to track the state of your app
 ## Step by step example
 Now lets walk through the steps required to update your application's identity configuration through the application manifest. We will highlight one of the preceding examples, showing how to declare a new permission scope on a resource application:
 
-1. Navigate to the [Azure classic portal][AZURE-CLASSIC-PORTAL] and sign in with an account that has service administrator or co-administrator privileges.
-2. After you've authenticated, scroll down and select the Azure "Active Directory" extension in the left navigation panel (1), then click on the Azure AD tenant where your application is registered (2).
-   
-    ![Select the Azure AD tenant][SELECT-AZURE-AD-TENANT]
-3. When the directory page comes up, click "Applications" (1) on the top of the page to see a list of applications registered in the tenant. Then find the application you want to update in the list and click on it (2).
-   
-    ![Select the Azure AD tenant][SELECT-AZURE-AD-APP]
-4. Now that you've selected the application's main page, notice the "Manage Manifest" feature on the bottom of the page (1). If you click this link, you will be prompted to either download or upload the JSON manifest file. Click "Download Manifest" (2). This will be immediately followed with the download confirmation dialog prompting you to confirm by clicking "Download Manifest" (3), then either open or save the file locally (4).
-   
-    ![Manage the manifest, download option][MANAGE-MANIFEST-DOWNLOAD]
-   
-    ![Download the manifest][DOWNLOAD-MANIFEST]
-5. In this example, we saved the file locally, allowing us to open in an editor, make changes to the JSON, and save again. Here's what the JSON structure looks like inside the Visual Studio JSON editor. Note that it follows the schema for the [Application entity][APPLICATION-ENTITY] as we mentioned earlier:
-   
-    ![Update the manifest JSON][UPDATE-MANIFEST]
-   
+1. Sign in to the [Azure portal][AZURE-PORTAL].
+2. After you've authenticated, choose your Azure AD tenant by selecting it from the top right corner of the page.
+3. Select **Azure Active Directory** extension from the left navigation panel and click on **App Registrations**.
+4. Find the application you want to update in the list and click on it.
+5. From the application page, click **Manifest** to open the inline manifest editor. 
+6. You can directly edit the manifest using this editor. Note that the manifest follows the schema for the [Application entity][APPLICATION-ENTITY] as we mentioned earlier:
     For example, assuming we want to implement/expose a new permission called "Employees.Read.All" on our resource application (API), you would simply add a new/second element to the oauth2Permissions collection, ie:
    
         "oauth2Permissions": [
@@ -87,27 +78,15 @@ Now lets walk through the steps required to update your application's identity c
         }
         ],
    
-    The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered. This grants the client application permission to access it on the account's behalf. The description and display name strings are used during consent and for display in the Azure classic portal.
-6. When you're finished updating the manifest, return to the Azure AD application page in the Azure classic portal, and click the "Manage Manifest" feature again (1). But this time, select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
+    The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered. This grants the client application permission to access it on the account's behalf. The description and display name strings are used during consent and for display in the Azure portal.
+6. When you're finished updating the manifest, click **Save** to save the manifest.  
    
-    ![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
-   
-    ![Upload the manifest JSON][UPLOAD-MANIFEST]
-   
-    ![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
+Now that the manifest is saved, you can give a registered client application access to the new permission we added above. This time you can use the Azure portal's Web UI instead of editing the client application's manifest:  
 
-Now that the manifest is saved, you can give a registered client application access to the new permission we added above. This time you can use the Azure classic portal's Web UI instead of editing the client application's manifest:  
+1. First go to the **Settings** blade of the client application to which you wish to add access to the new API, click **Required Permissions** and choose **Select an API**.
+2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the resource application to select it, or type the name of the application the search box. When you've found the application, click **Select**.  
+3. This will take you to the **Select Permissions** page, which will show the list of Application Permissions and Delegated Permissions available for the resource application. Select the new permission in order to add it to the client's requested list of permissions. This new permission will be stored in the client application's identity configuration, in the "requiredResourceAccess" collection property.
 
-1. First go to the "Configure" page of the client application to which you wish to add access to the new API, and click the "Add application" button.
-2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the plus/+ symbol next to the resource application's name to select it.  
-3. Then click the check mark in the lower right.
-4. When you return to the "Add Application" section of your client's configuration page, you will see the new resource application in the list. If you hover over the "Delegated Permissions" section to the right of that row, you will see a drop-down list show up. Click the list, then select the new permission in order to add it to the client's requested list of permissions. Note: this new permission will be stored in the client application's identity configuration, in the "requiredResourceAccess" collection property.
-
-![Permissions to other applications][PERMS-TO-OTHER-APPS]
-
-![Permissions to other applications][PERMS-SELECT-APP]
-
-![Permissions to other applications][PERMS-SELECT-PERMS]
 
 That's it. Now your applications will run using their new identity configuration.
 
@@ -115,20 +94,7 @@ That's it. Now your applications will run using their new identity configuration
 * For more details on the relationship between an application's Application and Service Principal object(s), see [Application and service principal objects in Azure AD][AAD-APP-OBJECTS].
 * See the [Azure AD developer glossary][AAD-DEVELOPER-GLOSSARY] for definitions of some of the core Azure Active Directory (AD) developer concepts.
 
-Please use the DISQUS comments section below to provide feedback and help us refine and shape our content.
-
-<!--Image references-->
-[DOWNLOAD-MANIFEST]: ./media/active-directory-application-manifest/download-manifest.png
-[MANAGE-MANIFEST-DOWNLOAD]: ./media/active-directory-application-manifest/manage-manifest-download.png
-[MANAGE-MANIFEST-UPLOAD]: ./media/active-directory-application-manifest/manage-manifest-upload.png
-[PERMS-SELECT-APP]: ./media/active-directory-application-manifest/portal-perms-select-app.png
-[PERMS-SELECT-PERMS]: ./media/active-directory-application-manifest/portal-perms-select-perms.png
-[PERMS-TO-OTHER-APPS]: ./media/active-directory-application-manifest/portal-perms-to-other-apps.png
-[SELECT-AZURE-AD-APP]: ./media/active-directory-application-manifest/select-azure-ad-application.png
-[SELECT-AZURE-AD-TENANT]: ./media/active-directory-application-manifest/select-azure-ad-tenant.png
-[UPDATE-MANIFEST]: ./media/active-directory-application-manifest/update-manifest.png
-[UPLOAD-MANIFEST]: ./media/active-directory-application-manifest/upload-manifest.png
-[UPLOAD-MANIFEST-CONFIRM]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
+Please use the comments section below to provide feedback and help us refine and shape our content.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md
@@ -138,7 +104,7 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
-[AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
+[AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md

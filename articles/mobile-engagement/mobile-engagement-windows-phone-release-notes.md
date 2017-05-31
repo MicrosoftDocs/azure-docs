@@ -1,23 +1,28 @@
 ---
-title: Windows Phone Silverlight SDK Release Notes
+title: Azure Mobile Engagement Windows Phone Silverlight SDK Release Notes | Microsoft Docs
 description: Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 8b87045c-79c2-46da-a147-c075bf276b89
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 
 ---
 # Windows Phone Silverlight SDK Release Notes
+##3.3.1 (11/03/2016)
+Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.1**
+
+* Stability improvements.
+
 ## 3.3.0 (04/19/2016)
 Part of the *MicrosoftAzure.MobileEngagement* Nuget package **v3.4.0**
 

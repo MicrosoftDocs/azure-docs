@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Data Lake Analytics Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn big data analysis with Data Lake Analytics. Tutorials show you how to run batch, real-time, and interactive analytics, and how to write U-SQL queries.
+services: data-lake-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: data-lake-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Data Lake Analytics Documentation
 
@@ -200,6 +211,7 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
+                        <p><a href="/cli/azure/dla">CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

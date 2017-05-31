@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: 'Azure Active Directory B2C: Authentication Protocols | Microsoft Docs'
 description: How to build apps directly by using the protocols supported by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
@@ -62,4 +62,5 @@ When you're ready to review some example requests, you can start with one of the
 
 * [Build mobile and native applications by using OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 * [Build web apps by using OpenID Connect](active-directory-b2c-reference-oidc.md)
+* [Build single-page apps using the OAuth 2.0 implicit flow](active-directory-b2c-reference-spa.md)
 

@@ -1,9 +1,9 @@
 ---
-title: Using blob storage for IIS and table storage for events | Microsoft Docs
+title: Use blob storage for IIS and table storage for events in Azure Log Analytics | Microsoft Docs
 description: Log Analytics can read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
-ms.author: banders
+ms.date: 04/12/2017
+ms.author: magoedte
+ms.custom: H1Hack27Feb2017
 
 ---
-# Using blob storage for IIS and table storage for events
+# Use Azure blob storage for IIS and Azure table storage for events with Log Analytics
+
 Log Analytics can read the logs for the following services that write diagnostics to table storage or IIS logs written to blob storage:
 
 * Service Fabric clusters (Preview)
@@ -65,8 +67,6 @@ Use the following procedure to enable Azure diagnostics in a virtual machine for
    4. Set the **Status** to **ON**.
    5. Select each diagnostics log that you want to collect.
    6. Click **OK**.
-
-Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage. Refer to [Collect data using Azure diagnostics written to table storage or IIS Logs written to blob](log-analytics-azure-storage-json.md).
 
 ## Enable Azure diagnostics in a Web role for IIS log and event collection
 Refer to [How To Enable Diagnostics in a Cloud Service](../cloud-services/cloud-services-dotnet-diagnostics.md) for general steps on enabling Azure diagnostics. The instructions below use this information and customize it for use with Log Analytics.
@@ -188,6 +188,6 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
 
 ## Next steps
-* [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
+* [Collect logs and metrics for Azure services](log-analytics-azure-storage.md) for supported Azure services.
 * [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 * [Use search queries](log-analytics-log-searches.md) to analyze the data.

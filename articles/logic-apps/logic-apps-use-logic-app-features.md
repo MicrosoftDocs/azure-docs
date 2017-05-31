@@ -1,6 +1,6 @@
 ---
-title: Use Logic App features | Microsoft Docs
-description: Learn how to use the advanced features of logic apps.
+title: Add conditional logic and start workflows - Azure Logic Apps | Microsoft Docs
+description: Control how workflows run in Azure Logic Apps by adding conditional logic, triggers, actions, and parameters.
 author: stepsic-microsoft-com
 manager: anneta
 editor: ''
@@ -13,12 +13,15 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2016
-ms.author: stepsic
+ms.date: 01/28/2017
+ms.author: LADocs; stepsic
 
 ---
 # Use Logic Apps features
-In the [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+In the [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), 
+you created your first logic app. 
+Now you'll build a fuller process with Azure Logic Apps. 
+This topic introduces the following new Azure Logic Apps concepts:
 
 * Conditional logic, which executes an action only when a certain condition is met.
 * Code view to edit an existing logic app.
@@ -34,67 +37,123 @@ You may find the following documents useful:
 * [Trigger and action types](https://msdn.microsoft.com/library/azure/mt643939.aspx) - the different types of actions and the inputs they take
 * [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
 
-## Adding conditional logic
-Although the original flow works, there are some areas that could be improved.
+## Add conditional logic to your logic app
+
+Although your logic app's original flow works, we could improve some areas.
 
 ### Conditional
-This logic app may result in you getting a lot of emails. The following steps add logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers.
 
-1. Click the plus and find the action *Get User* for Twitter.
-2. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
+Your first logic app might result in you getting too many emails. 
+The following steps add conditional logic so that you receive email 
+only when the tweet comes from someone with a specific number of followers.
 
-    ![Get user](media/logic-apps-use-logic-app-features/getuser.png)
-3. Click the plus again, but this time select **Add Condition**
-4. In the first box, click the **...** underneath **Get User** to find the **Followers count** field.
-5. In the dropdown, select **Greater than**
-6. In the second box type the number of followers you want users to have.
+0. In the Logic App Designer, choose **New Step** (+) > **Add an action**.
+0.	Find and add the **Get User** action for Twitter.
+0. To get the information about the Twitter user, 
+find and add the **Tweeted by** field from the trigger.
 
-    ![Conditional](media/logic-apps-use-logic-app-features/conditional.png)
-7. Finally, drag-and-drop the email box into the **If Yes** box. This will mean you'll only get emails when the follower count is met.
+	![Get user](media/logic-apps-use-logic-app-features/getuser.png)
 
-## Repeating over a list with forEach
-The forEach loop specifies an array to repeat an action over. If it is not an array the flow fails. As an example, if you have action1 that outputs an array of messages, and you want to send each message, you can include this forEach statement in the properties of your action: forEach : "@action('action1').outputs.messages"
+0. Choose **New Step** (+) > **Add a condition**.
+0. To filter on the number of followers that users have, 
+under **Object name**, choose **Add dynamic content**. 
+0.	In the search box, find and add the **Followers count** field.
+0. Under **Relationship**, select **is greater than**.
+0. In the **Value** box, enter the number of followers you want users to have.
 
-## Using the code view to edit a Logic App
-In addition to the designer, you can directly edit the code that defines a logic app, as follows.
+	![Conditional](media/logic-apps-use-logic-app-features/conditional.png)
 
-1. Click on the **Code view** button in the command bar.
+0. Finally, drag the **Send email** box into the **If Yes** box. 
 
-    This opens a full editor that shows the definition you just edited.
+Now you get emails only when the follower count meets your condition.
+
+## Repeat actions over a list with forEach
+
+The forEach loop specifies an array to repeat an action over. 
+If it is not an array, the flow fails. For example, 
+if you have action1 that outputs an array of messages, 
+and you want to send each message, 
+you can include this forEach statement in the properties of your action: 
+`forEach : "@action('action1').outputs.messages"`
+
+## Edit the code definition for a logic app
+
+Although you have the Logic App Designer, 
+you can directly edit the code that defines a logic app.
+
+1. On the command bar, choose **Code view**.
+
+    A full editor opens and shows the definition you edited.
 
     ![Code view](media/logic-apps-use-logic-app-features/codeview.png)
 
-    By using the text editor, you can copy and paste any number of actions within the same logic app or between logic apps. You can also easily add or remove entire sections from the definition, and you can also share definitions with others.
-2. After you make your changes in code view, simply click **Save**.
+	In the text editor, you can copy and paste any number 
+	of actions within the same logic app or between logic apps. 
+	You can also easily add or remove entire sections from the definition, 
+	and you can also share definitions with others.
+
+2. To save your edits, choose **Save**.
 
 ### Parameters
-There are some capabilities of Logic Apps that can only be used in the code view. One example of these is parameters. Parameters make it easy to re-use values throughout your logic app. For example, if you have an email address that you want use in several actions, you should define it as a parameter.
 
-The following updates your existing logic app to use parameters for the query term.
+Some Logic Apps capabilities are available only in code view, 
+for example, parameters. Parameters make it easy to reuse 
+values throughout your logic app. For example, if you have 
+an email address that you want use in several actions, 
+you should define that email address as a parameter.
 
-1. In the code view, locate the `parameters : {}` object and insert the following topic object:
+Parameters are good for pulling out values that you are likely to change a lot. 
+They are especially useful when you need to override parameters in different environments. 
+To learn how to override parameters based on environment, 
+see the [REST API documentation](https://docs.microsoft.com/rest/api/logic).
 
-        "topic" : {
-            "type" : "string",
-            "defaultValue" : "MicrosoftAzure"
-        }
-2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
-    You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above.
+This example shows how to update your existing logic app 
+so that you can use parameters for the query term.
 
-Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](https://msdn.microsoft.com/library/mt643787.aspx).
+1. In code view, find the `parameters : {}` object, 
+and add a topic object:
 
-Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
+		"topic" : {
+			"type" : "string",
+			"defaultValue" : "MicrosoftAzure"
+		}
 
-To learn more about Logic App definitions, see [author Logic App definitions](../logic-apps/logic-apps-author-definitions.md).
+2. Go to the `twitterconnector` action, find the query value, 
+and replace that value with `#@{parameters('topic')}`. 
 
-## Starting a logic app workflow
-There are several different options for starting the workflow defined in you logic app. A workflow can always be started on-demand in the [Azure portal].
+	To join two or more strings, you can also use the `concat` function. 
+	For example, 	`@concat('#',parameters('topic'))` works the same as the above.
+
+3.	When you're done, choose **Save**. 
+
+	Now every hour, you get new tweets 
+	that have more than five retweets 
+	delivered to a folder called **tweets** in your Dropbox.
+
+To learn more about Logic App definitions, see 
+[author Logic App definitions](../logic-apps/logic-apps-author-definitions.md).
+
+## Start logic app workflows
+
+You have different options for starting the workflow defined in your logic app. 
+You can always start a workflow on-demand in the [Azure portal].
 
 ### Recurrence triggers
-A recurrence trigger runs at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When it does not need to run, it returns a `202` status code.
+
+A recurrence trigger runs at an interval that you specify. 
+When the trigger has conditional logic, the trigger 
+determines whether the workflow needs to run. 
+A trigger indicates the workflow should run 
+by returning a `200` status code. 
+When the workflow doesn't need to run, 
+the trigger returns a `202` status code.
 
 ### Callback using REST APIs
-Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](../logic-apps/logic-apps-http-endpoint.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
+
+To start a workflow, services can call a logic app endpoint. 
+To start this kind of logic app on-demand, 
+choose **Run now** on the command bar. 
+See [Start workflows by calling logic app endpoints as triggers](../logic-apps/logic-apps-http-endpoint.md). 
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com

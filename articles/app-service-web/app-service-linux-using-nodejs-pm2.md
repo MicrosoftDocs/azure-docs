@@ -1,11 +1,11 @@
 ---
-title: Using PM2 configuration for Node.js in Web Apps on Linux | Microsoft Docs
-description: Using PM2 configuration for Node.js in Web Apps on Linux
+title: Using PM2 configuration for Node.js in Azure Web App on Linux | Microsoft Docs
+description: Using PM2 configuration for Node.js in Azure Web App on Linux
 keywords: azure app service, web app, nodejs, pm2, linux, oss
 services: app-service
 documentationcenter: ''
 author: naziml
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: fb420f32-6d74-49c7-992f-0ed5616e66e7
@@ -14,16 +14,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: naziml
+ms.date: 02/16/2017
+ms.author: naziml;wesmc
 
 ---
-# Use PM2 configuration for Node.js in Web Apps on Linux
-If you set the application stack to Node.js for Web Apps on Linux, you get the option to set a Node.js startup file as shown in the following image.
+# Use PM2 configuration for Node.js in Azure Web App on Linux
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+If you set the application stack to Node.js for Azure Web App on Linux, you get the option to set a Node.js startup file as shown in the following image:
 
 ![Set a Node.js startup file][1]
 
-You can use this to do one of the following tasks:
+You can use this option to do one of the following tasks:
 
 * Specify the startup script for your Node.js app (for example: /bin/server.js).
 * Specify the PM2 configuration file to use for your Node.js app (for example: /foo/process.json).
@@ -57,7 +61,8 @@ Important things to note in this configuration are:
 * For the "watch_options", you currently need to specify "usePolling" as true because of the way your application content is mounted.
 
 ## Next steps
-* [What is App Service on Linux?](app-service-linux-intro.md)
+* [What is Azure Web App on Linux?](app-service-linux-intro.md)
+* [Azure App Service Web App on Linux FAQ](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png

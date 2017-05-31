@@ -1,9 +1,9 @@
 ---
-title: Learn to encode or decode flat files using the Enterprise Integration Pack in Azure Logic Apps| Microsoft Docs
-description: Use the features of Enterprise Integration Pack and Logic apps to encode or decode flat files
+title: Encode or decode flat files in Azure logic apps | Microsoft Docs
+description: How to use the file file encoder or decoder in the Enterprise Integration Pack in your logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
 editor: 
 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: LADocs; mandia
 
 ---
-# Enterprise integration with flat files
-## Overview
+# Overview of enterprise integration with flat files
+
 You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [logic apps documentation](logic-apps-what-are-logic-apps.md "Learn more about Logic apps").  
 
-## How to create the flat file encoding connector
+## Create the flat file encoding connector
 Follow these steps to add a flat file encoding connector to your logic app.
 
 1. Create a logic app and [link it to your integration account](logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
@@ -50,11 +50,10 @@ At this point, you are finished setting up your flat file encoding connector. In
 
 You can now test your connector by making a request to the HTTP endpoint, and including the XML content in the body of the request.  
 
-## How to create the flat file decoding connector
+## Create the flat file decoding connector
+
 > [!NOTE]
 > To complete these steps, you need to have a schema file already uploaded into you integration account.
-> 
-> 
 
 1. Add a **Request - When an HTTP request is received** trigger to your logic app.  
    ![Screenshot of trigger to select](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    

@@ -1,5 +1,5 @@
 ---
-title: Customizing Attribute Mappings | Microsoft Docs
+title: Customizing Azure AD Attribute Mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/16/2017
 ms.author: markvi
 
+ms.custom: H1Hack27Feb2017
+
 ---
-# Customizing Attribute Mappings
-Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you have user provisioning for a third party SaaS application enabled, the Azure Management Portal controls its attribute values in form of a configuration called “attribute mapping”.
+# Customizing User Provisioning Attribute Mappings for SaaS Applications in Azure Active Directory
+Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you have user provisioning for a third-party SaaS application enabled, the Azure Management Portal controls its attribute values in form of a configuration called “attribute mapping.”
 
 There is a preconfigured set of attribute mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. <br> 
  You can customize the default attribute mappings according to your business needs. This means, you can change or delete existing attribute mappings or create new attribute mappings.
@@ -47,27 +49,27 @@ If you either want to customize your attribute mappings or if you want to revert
 There are attribute mappings that are required by a SaaS application to function correctly. 
  In the attributes table, the related attribute mappings have **Yes** as value for the **Required** attribute. If an attribute mapping is required, you cannot delete it. In this case, **Delete** feature is unavailable.
 
-To modify an existing attribute mapping, just select the mapping, and then click **Edit**. This brings up a dialog page that enables you to modify the selected attribute mapping.
+To modify an existing attribute mapping, select the mapping, and then click **Edit**. This brings up a dialog page that enables you to modify the selected attribute mapping.
 
 ![Edit Attribute Mapping][4]  
 
 ## Understanding Attribute Mapping Types
-With attribute mappings, you control how attributes are populated in a third party SaaS application. 
+With attribute mappings, you control how attributes are populated in a third-party SaaS application. 
 There are four different mapping types supported:
 
 * **Direct** – the target attribute is populated with the value of an attribute of the linked object in Azure AD.
 * **Constant** – the target attribute is populated with a specific string you have specified.
 * **Expression** - the target attribute is populated based on the result of a script-like expression. 
-  For more details, see [Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
-* **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it will be populated with the Default value that you specify.
+  For more information, see [Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it is populated with the Default value that you specify.
 
 In addition to these four basic attribute mapping types, custom attribute mappings support the concept of a **default** value assignment. The default value assignment ensures that a target attribute is populated with a value if there is neither a value in Azure AD nor on the target object.
 
-Microsoft Azure AD provides a very efficient implementation of a synchronization process. 
+Microsoft Azure AD provides an efficient implementation of a synchronization process. 
  In an initialized environment, only objects requiring updates are processed during a synchronization cycle. 
  Updating attribute mappings has an impact on the performance of a synchronization cycle. 
- This is because an update to the attribute mapping configuration requires all managed objects to be reevaluated. 
- Because of this, it is a recommended best practice to keep the number of consecutive changes to your attribute mappings at a minimum.
+ An update to the attribute mapping configuration requires all managed objects to be reevaluated. 
+ It is a recommended best practice to keep the number of consecutive changes to your attribute mappings at a minimum.
 
 ## Related Articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

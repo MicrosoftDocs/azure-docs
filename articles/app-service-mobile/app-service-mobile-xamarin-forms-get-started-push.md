@@ -4,7 +4,7 @@ description: Learn how to use Azure services to send multi-platform push notific
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: dwrede
+manager: adrianha
 editor: ''
 
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
@@ -181,7 +181,7 @@ With the back end configured with FCM, you can add components and codes to the c
             }
         }
 
-        Note that this code uses the `messageParam` parameter in the template registration.
+    Note that this code uses the `messageParam` parameter in the template registration.
 12. Add the following code that implements **OnMessage**:
 
         protected override void OnMessage(Context context, Intent intent)

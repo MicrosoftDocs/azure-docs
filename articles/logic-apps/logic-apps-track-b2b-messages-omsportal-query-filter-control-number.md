@@ -1,6 +1,6 @@
 ---
-title: Track B2B messages in the Operations Management Suite portal by using a query | Microsoft Docs
-description: Learn how to track B2B messages in the Operations Management Suite portal by using a query.
+title: Track AS2, X12, EDIFACT messages using a query - Azure logic apps  | Microsoft Docs
+description: Use queries to track business-to-business messages in the Operations Management Suite portal 
 author: padmavc
 manager: anneta
 editor: ''
@@ -13,18 +13,18 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
-ms.author: padmavc
+ms.date: 01/27/2017
+ms.author: LADocs; padmavc
 
 ---
 # Track B2B messages in the Operations Management Suite portal by using a query
 To track business-to-business (B2B) messages in the Operations Management Suite portal, you can create a query that filters data for a specific interchange control number.
 
-## Prerequisites
+## Prereqs
 
 For debugging and for more detailed diagnostics information, turn on diagnostics in your [integration account](logic-apps-monitor-b2b-message.md) for your [logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors. Then, do the steps to [publish diagnostic data](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) to the Operations Management Suite portal.
 
-## To create a query to search for a specific interchange control number
+## Search for an interchange control number
 
 1. On the start page, select **Log Search**.  
 ![Select log search](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)

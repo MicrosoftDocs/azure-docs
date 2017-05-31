@@ -4,7 +4,7 @@ description: Audited events that are available for viewing and downloading from 
 services: active-directory
 documentationcenter: ''
 author: dhanyahk
-manager: mbaldwin
+manager: femila
 editor: ''
 
 ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2016
-ms.author: dhanyahk
+ms.date: 05/16/2017
+ms.author: dhanyahk;markvi
 
 ---
 # Azure Active Directory audit report events

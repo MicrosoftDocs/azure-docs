@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 
 ---
@@ -33,7 +33,7 @@ Security Center is offered in two tiers: Free and Standard.
 
 The Free tier enables you to set security policies and receive security alerts, incidents, and recommendations that guide you through the process of configuring needed controls. With the Free tier, you can also monitor the security state of your Azure resources and partner solutions integrated with your Azure subscription.
 
-The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. A free 90-day trial of the Standard tier is available. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies-for-subscriptions). To learn more, see [Security Center pricing](security-center-pricing.md).
+The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. The Standard tier is offered free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we will automatically start to charge for the service. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies-for-subscriptions). To learn more, see [Security Center pricing](security-center-pricing.md).
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -68,7 +68,7 @@ Data collection is enabled via the Azure Monitoring Agent and the Azure Security
 The agent and extension consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### Where is my data stored?
-For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.) When you select a subscription, a new blade opens. To select a region, select **Choose storage accounts**.
+For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.) When you select a subscription, a new blade opens. To select a region, select **Choose storage accounts**. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group.
 
 > [!NOTE]
 > Security policies can be set at the Azure subscription level and resource group level but selecting a region for your storage account occurs at the subscription level only.

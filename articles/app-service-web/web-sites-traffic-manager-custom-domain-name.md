@@ -4,7 +4,7 @@ description: Use a custom domain name for an a web app in Azure App Service that
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---

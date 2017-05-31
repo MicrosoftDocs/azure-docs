@@ -3,8 +3,8 @@ title: How to use File Storage from C++ | Microsoft Docs
 description: Store file data in the cloud with Azure File storage.
 services: storage
 documentationcenter: .net
-author: seguler
-manager: jahogg
+author: renashahmsft
+manager: aungoo
 editor: tysonn
 
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: renashahmsft
 
 ---
 # How to use File Storage from C++
@@ -25,7 +25,7 @@ ms.author: seguler
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 ## About this tutorial
-In this tutorial, you’ll learn how to perform basic operations on the Microsoft Azure File storage service. Through samples written in C++, you’ll learn how to create shares and directories, upload, list, and delete files. If you are new to Microsoft Azure’s File Storage service, going through the concepts in the sections that follow will be very helpful in understanding the samples.
+In this tutorial, you'll learn how to perform basic operations on the Microsoft Azure File storage service. Through samples written in C++, you'll learn how to create shares and directories, upload, list, and delete files. If you are new to Microsoft Azure's File Storage service, going through the concepts in the sections that follow will be helpful in understanding the samples.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -47,12 +47,12 @@ Install-Package wastorage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access files:
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/file.h"
+#include <was/storage_account.h>
+#include <was/file.h>
 ```
 
 ## Set up an Azure storage connection string
-To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string which we’ll use to connect to your storage account. Let’s define a static variable to do that.
+To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string, which we'll use to connect to your storage account. Let's define a static variable to do that.
 
 ```cpp
 // Define the connection-string with your values.
@@ -129,7 +129,7 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## How to: Create a Directory
-You can also organize storage by putting files inside subdirectories instead of having all of them in the root directory. The Azure file storage service allows you to create as much directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a subdirectory named **my-sample-subdirectory**.
+You can also organize storage by putting files inside subdirectories instead of having all of them in the root directory. The Azure file storage service allows you to create as many directories as your account will allow. The code below will create a directory named **my-sample-directory** under the root directory as well as a subdirectory named **my-sample-subdirectory**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -171,9 +171,9 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## How to: Download a file
-To download files, first retrieve a file reference and then call the **download_to_stream** method to transfer the file contents to a stream object which you can then persist to a local file. Alternatively, you can use the **download_to_file** method to download the contents of a file to a local file. You can use the **download_text** method to download the contents of a file as a text string.
+To download files, first retrieve a file reference and then call the **download_to_stream** method to transfer the file contents to a stream object, which you can then persist to a local file. Alternatively, you can use the **download_to_file** method to download the contents of a file to a local file. You can use the **download_text** method to download the contents of a file as a text string.
 
-The following example uses the **download_to_stream** and **download_text** methods to demonstrate downloading the files which were created in previous sections.
+The following example uses the **download_to_stream** and **download_text** methods to demonstrate downloading the files, which were created in previous sections.
 
 ```cpp
 // Download as text
@@ -351,6 +351,7 @@ For more information about creating and using shared access signatures, see [Usi
 To learn more about Azure Storage, explore these resources:
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
+* [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 

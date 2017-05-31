@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions | Microsoft Docs
+title: Azure Media Services frequently asked questions | Microsoft Docs
 description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---

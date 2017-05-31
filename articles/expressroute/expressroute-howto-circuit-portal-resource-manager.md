@@ -1,10 +1,10 @@
 ---
-title: Create and modify an ExpressRoute circuit by using Resource Manager and the Azure portal | Microsoft Docs
+title: 'Create and modify an ExpressRoute circuit: Azure portal | Microsoft Docs'
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
 
 ---
@@ -22,16 +22,12 @@ ms.author: cherylmc;ganesr
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
 > * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
 
 This article describes how to create an Azure ExpressRoute circuit by using the Azure portal and the Azure Resource Manager deployment model. The following steps also show you how to check the status of the circuit, update it, or delete and deprovision it.
 
-**About Azure deployment models**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before you begin
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
@@ -119,16 +115,31 @@ You can view the status of a circuit by selecting it.
 ![Status of an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## Modifying an ExpressRoute circuit
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity. At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. For more information, see the section [Modifying an ExpressRoute circuit by using PowerShell](expressroute-howto-circuit-arm.md#modify).
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
 
 You can do the following with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported. 
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Note that downgrading the bandwidth of a circuit is not supported. 
 * Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
-* You can enable and disable **Allow Classic Operations**.
+* You can enable and disable *Allow Classic Operations*.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
+
+To modify an ExpressRoute circuit, click on the **Configuration** as shown in the figure below.
+
+![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+You can modify the bandwidth, SKU, billing model and allow classic operations within the configuration blade.
+
+> [!IMPORTANT]
+> You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+>
+> You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+> 
+> Disable premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
+> 
+> 
 
 ## Deprovisioning and deleting an ExpressRoute circuit
 You can delete your ExpressRoute circuit by selecting the **delete** icon. Note the following:
