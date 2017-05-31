@@ -33,7 +33,7 @@ This sample creates an Azure Container Service cluster running Kubernetes for Wi
 az group create --name myResourceGroup --location eastus
 
 az acs create \
-  --orchestrator-type dcos \
+  --orchestrator-type kubernetes \
   --resource-group myResourceGroup \
   --name myK8SCluster \
   --generate-ssh-keys \
