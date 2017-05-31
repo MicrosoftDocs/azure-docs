@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 05/31/2017
 ms.author: jeedes
 
 ---
@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_LinkedIn_admin_032.png)
 
-6. On Azure Portal, under **LinkedIn Lookup Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+6. On Azure portal, under **LinkedIn Lookup Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_url.png)
 
@@ -129,13 +129,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.linkedIn.com/checkpoint/enterprise/login/<AccountId>?application=lookup`
 	 
 	> [!NOTE] 
-	> Please note that it is not the real value. The user has to update these values with the actual Sign-On URL. Contact [LinkedIn Lookup Client support team](https://business.LinkedIn.com/lookup) to get this value.
+	> This is not real value. The user has to update these values with the actual Sign-On URL. Contact [LinkedIn Lookup Client support team](https://business.LinkedIn.com/lookup) to get this value.
 
 8. Your **LinkedIn Lookup** application expects the SAML assertions in a specific format. The user has to add custom attribute mappings to the SAML token attributes configuration. The following screenshot shows an example. The default value of **User Identifier** is **user.userprincipalname** but LinkedIn Lookup expects this to be mapped with the user's email address. You can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/updateusermail.png)
 	
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add 3 claims named **department**, **firstname** and **lastname** and the value is to be mapped with **user.department**, **user.givenname** and **user.surname** respectively
+9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add three claims named **department**, **firstname, and **lastname** and the value is to be mapped with **user.department**, **user.givenname, and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
    	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-   	a. Click on **Add Attribute** to open the attribute dialog.
+   	a. Click **Add Attribute** to open the attribute dialog.
 
    	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
    
