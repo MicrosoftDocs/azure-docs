@@ -27,7 +27,7 @@ ms.author: gwallace
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-Network security group flow logs are a feature of Network Watcher that enables you to view information about ingress and egress IP traffic through a network security group. These flow logs are written in JSON format. They show important information, including: 
+Network security group flow logs are a feature of Network Watcher that enables you to view information about ingress and egress IP traffic through a network security group. These flow logs are written in JSON format, and provide important information, including: 
 
 - Outbound and inbound flows on a per-rule basis.
 - The NIC that the flow applies to.
@@ -36,11 +36,11 @@ Network security group flow logs are a feature of Network Watcher that enables y
 
 ## Before you begin
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md). The scenario also assumes that a resource group with a valid virtual machine exists that you can use.
+This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md). The scenario also assumes that a you have a resource group with a valid virtual machine.
 
 ## Register Insights provider
 
-For flow logging to work successfully, the **Microsoft.Insights** provider must be registered. To register the provider, take the following steps. 
+For flow logging to work successfully, the **Microsoft.Insights** provider must be registered. To register the provider, take the following steps: 
 
 1. Go to **Subscriptions**, and then select the subscription for which you want to enable flow logs. 
 2. On the **Subscription** blade, select **Resource Providers**. 
@@ -76,7 +76,7 @@ Flow logs are saved in a storage account. Download your flow logs to view them.
 
 ### Step 1
 
-To download flow logs, select **You can download flow logs from configured storage accounts**.  This takes you to a storage account view where you can choose which log to download.
+To download flow logs, select **You can download flow logs from configured storage accounts**. This step takes you to a storage account view where you can choose which log to download.
 
 ![Flow logs settings][4]
 
