@@ -26,7 +26,7 @@ For more general information on Azure Key Vault, see [What is Key Vault](key-vau
 
 ## Public Previews
 
-Periodically, we release a public preview of a new Key Vault feature. Please try out these and let us know what you think via, [Azure Key Vault Feedback] (azurekeyvault@microsoft.com).  
+Periodically, we release a public preview of a new Key Vault feature. Please try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
 
 ### Storage Account Keys - May 31, 2017
 
