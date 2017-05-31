@@ -108,7 +108,7 @@ With NGINX installed and port 80 now open on your VM from the Internet - you can
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
