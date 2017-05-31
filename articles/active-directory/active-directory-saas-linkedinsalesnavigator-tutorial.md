@@ -132,17 +132,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
 	
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add another claim named **department** and the value is to be mapped to **user.department**.
+9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add 3 claims named **department**, **firstname** and **lastname** and the value is to be mapped with **user.department**, **user.givenname** and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
 	| department| user.department |
+	| firstname| user.givenname |
+	| lastname| user.surname |
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
 
-	a. Click on **Add Attribute** to open the attribute dialog
+	a. Click on **Add Attribute** to open the attribute dialog.
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+   	![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
    
 	b. In the **Name** textbox, type the attribute name shown for that row.
 	
@@ -246,7 +248,6 @@ When you click the LinkedIn Sales Navigator tile in the Access Panel, you should
 
 ## Additional resources
 
-* [Tutorial: Configuring LinkedIn Sales Navigator for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinsalesnavigator-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
