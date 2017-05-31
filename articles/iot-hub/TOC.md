@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Use a simulated gateway
-#### [Simulation on Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Simulation on Windows](iot-hub-windows-iot-edge-get-started.md)
-
 ### Use a physical device
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
@@ -119,6 +117,9 @@
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 ## IoT Edge
+### Get started
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Simulate a device
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
