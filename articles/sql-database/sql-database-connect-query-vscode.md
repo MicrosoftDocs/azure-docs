@@ -185,7 +185,6 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
-- For information about Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs)
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
 - To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
