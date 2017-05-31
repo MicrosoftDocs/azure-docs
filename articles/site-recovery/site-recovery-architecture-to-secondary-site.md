@@ -104,7 +104,6 @@ You replicate VMware VMs or physical servers to a secondary site using InMage Sc
 ![VMware to VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
 
-
-
+## Next steps
 
 Review the [support matrix](site-recovery-support-matrix-to-sec-site.md)
