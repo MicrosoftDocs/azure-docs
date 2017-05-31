@@ -105,8 +105,8 @@ To facilitate these multiple workflows to multiple source and target systems, Az
 
 * **Workday Writeback** - This app facilitates writeback of user's email addresses from Azure Active Directory to Workday.
 
-> [!NOTE]
-> The regular "Workday" app is used for setting up single sign-on.
+> [!TIP]
+> The regular "Workday" app is used for setting up single sign-on between Workday and Azure Active Directory. 
 
 How to set up and configure these special provisioning connector apps is the subject of the remaining sections of this tutorial. Which apps you choose to configure will depend on which systems you need to provision to, and how many Active Directory Forests and Azure AD tenants are in your environment.
 
