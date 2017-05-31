@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 
@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 
 In this overview of the core components of the Azure Batch service, we discuss the primary service features and resources that Batch developers can use to build large-scale parallel compute solutions.
 
-Whether you're developing a distributed computational application or service that issues direct [REST API][batch_rest_api] calls or you're using one of the [Batch SDKs](batch-apis-tools.md#batch-development-apis), you'll use many of the resources and features discussed in this article.
+Whether you're developing a distributed computational application or service that issues direct [REST API][batch_rest_api] calls or you're using one of the [Batch SDKs](batch-apis-tools.md#azure-accounts-for-batch-development), you'll use many of the resources and features discussed in this article.
 
 > [!TIP]
 > For a higher-level introduction to the Batch service, see [Basics of Azure Batch](batch-technical-overview.md).
@@ -69,15 +69,15 @@ A Batch account is a uniquely identified entity within the Batch service. All pr
 
 You can create an Azure Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account.
 
-Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you different options for authenticating with the Batch service and for provisioning and managing Batch [pools](#pool) (see later in this article). 
+Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you access to different capabilities related to Batch [pools](#pool) (see later in this article).
 
 
-* **Batch service** (default): You can access the Batch APIs using either shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated behind the scenes in an Azure-managed account.   
-* **User subscription**: You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md). Batch compute resources are allocated directly in your Azure subscription. This mode gives you more flexibility to configure the compute nodes and integrate with other services. This mode requires you to set up an additional Azure key vault for your Batch account.
- 
+* **Batch service**: : This is the default option, with Batch pool VMs being allocated behind the scenes in Azure-managed subscriptions. This account configuration must be used if Cloud Services pools are required, but cannot be used if Virtual Machine pools are required that are created from custom VM images or use a virtual network. You can access the Batch APIs using either shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md). You can use either dedicated or low-priority compute nodes in pools in the Batch service account configuration.
+
+* **User subscription**: This account configuration must be used if Virtual Machine pools are required that are created from custom VM images or use a virtual network. You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md), and Cloud Services pools are not supported. Batch compute VMs are allocated directly in your Azure subscription. This mode requires you to set up an Azure key vault for your Batch account. You can use only dedicated compute nodes in pools in the user subscription account configuration. 
 
 ## Compute node
-A compute node is an Azure virtual machine (VM) that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
+A compute node is an Azure virtual machine (VM) or cloud service VM that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
 
 Nodes can run any executable or script that is supported by the operating system environment of the node. This includes \*.exe, \*.cmd, \*.bat and PowerShell scripts for Windows--and binaries, shell, and Python scripts for Linux.
 
@@ -111,6 +111,25 @@ When you create a pool, you can specify the following attributes. Some settings 
   * The *OS Family* also determines which versions of .NET are installed with the OS.
   * As with worker roles within Cloud Services, you can specify an *OS Version* (for more information on worker roles, see the [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) section in the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)).
   * As with worker roles, we recommend that you specify `*` for the *OS Version* so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for selecting a specific OS version is to ensure application compatibility, which allows backward compatibility testing to be performed before allowing the version to be updated. After validation, the *OS Version* for the pool can be updated and the new OS image can be installed--any running tasks are interrupted and requeued.
+
+* **Compute node type** and **target number of nodes**
+
+    When you create a pool, you can specify which types of compute nodes you want and the target number for each. The two types of compute nodes are:
+
+    - **Low-priority compute nodes.** Low-priority nodes take advantage of surplus capacity in Azure to run your Batch workloads. Low-priority nodes are more cost-effective than dedicated nodes, and enable workloads requiring a lot of compute power. For more information, see [Use low-priority VMs with Batch](batch-low-pri-vms.md).
+
+        Low-priority compute nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes.
+
+        Low-priority compute nodes are available only for Batch accounts created with the pool allocation mode set to **Batch Service**.
+
+    - **Dedicated compute nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than low-priority nodes, but they are guaranteed to never be preempted.    
+
+    You can have both low-priority and dedicated compute nodes in the same pool. Each type of node &mdash; low-priority and dedicated &mdash; has its own target setting, for which you can specify the desired number of nodes. 
+        
+    The number of compute nodes is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. For example, a pool might not achieve the target if it reaches the [core quota](batch-quota-limit.md) for your Batch account first. Or, the pool might not achieve the target if you have applied an auto-scaling formula to the pool that limits the maximum number of nodes.
+
+    For pricing information for both low-priority and dedicated compute nodes, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
+
 * **Size of the nodes**
 
     **Cloud Services Configuration** compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Batch supports all Cloud Services sizes except `ExtraSmall`, `STANDARD_A1_V2`, and `STANDARD_A2_V2`.
@@ -120,12 +139,11 @@ When you create a pool, you can specify the following attributes. Some settings 
     When selecting a compute node size, consider the characteristics and requirements of the applications you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. It's typical to select a node size assuming one task will run on a node at a time. However, it is possible to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a larger node size to accommodate the increased demand of parallel task execution. See [Task scheduling policy](#task-scheduling-policy) for more information.
 
     All of the nodes in a pool are the same size. If you intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools.
-* **Target number of nodes**
 
-    This is the number of compute nodes that you want to deploy in the pool. This is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. A pool might not reach the desired number of nodes if it reaches the [core quota](batch-quota-limit.md) for your Batch account--or if there is an auto-scaling formula that you have applied to the pool that limits the maximum number of nodes (see the following "Scaling policy" section).
 * **Scaling policy**
 
     For dynamic workloads, you can write and apply an [auto-scaling formula](#scaling-compute-resources) to a pool. The Batch service periodically evaluates your formula and adjusts the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
+
 * **Task scheduling policy**
 
     The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each compute node within the pool.
@@ -321,25 +339,31 @@ A combined approach is typically used for handling a variable, but ongoing, load
 
 ## Pool network configuration
 
-When you create a pool of compute nodes in Azure Batch, you can use the APIs to specify the ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created.
+When you create a pool of compute nodes in Azure Batch, you can specify a subnet ID of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created.
 
 * The VNet must be:
 
    * In the same Azure **region** as the Azure Batch account.
    * In the same **subscription** as the Azure Batch account.
 
-* The VNet should have enough free **IP addresses** to accommodate the `targetDedicated` property of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
+* The type of VNet supported depends on how pools are being allocated for the Batch account:
+    - If the Batch account was created with its **poolAllocationMode** property set to 'BatchService', then the specified VNet must be a classic VNet.
+    - If the Batch account was created with its **poolAllocationMode** property set to 'UserSubscription', then the specified VNet may be a classic VNet or an Azure Resource Manager       VNet. Pools must be created with a virtual machine configuration in order to use a VNet. Pools created with a cloud service configuration are not supported.
 
-* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**. 
+* If the Batch account was created with its **poolAllocationMode** property set to 'BatchService', then you must provide permissions for the Batch service principal to access the VNet. The Batch service principal, named 'Microsoft Azure Batch' or 'MicrosoftAzureBatch', must have the [Classic Virtual Machine Contributor Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) role for the specified VNet. If the specified RBAC role is not provided, the Batch service returns 400 (Bad Request).
 
-* If the specified VNet has any associated NSGs, then inbound communication must be enabled. For a Linux pool, ports 29876, 29877, and 22 must be enabled. For a Windows pool, port 3389 must be enabled.
+* The specified subnet should have enough free **IP addresses** to accommodate the total number of target nodes; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
+
+* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**.
+
+* If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Additionally, enable outbound connections to Azure Storage on port 443.
 
 Additional settings for the VNet depend on the pool allocation mode of the Batch account.
 
 ### VNets for pools provisioned in the Batch service
 
 In Batch service allocation mode, only **Cloud Services Configuration** pools can be assigned a VNet. Additionally, the specified VNet must be a  **classic** VNet. VNets created with the Azure Resource Manager deployment model are not supported.
-   
+
 
 
 * The *MicrosoftAzureBatch* service principal must have the [Classic Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) Role-Based Access Control (RBAC) role for the specified VNet. In the Azure portal:
@@ -362,7 +386,7 @@ With [automatic scaling](batch-automatic-scaling.md), you can have the Batch ser
 
 You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#automatic-scaling-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval that you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
 
-As an example, perhaps a job requires that you submit a very large number of tasks to be executed. You can assign a scaling formula to the pool that adjusts the number of nodes in the pool based on the current number of queued tasks and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula and resizes the pool, based on workload and your other formula settings. The service adds nodes as needed when there are a large number of queued tasks, and removes nodes when there are no queued or running tasks. 
+As an example, perhaps a job requires that you submit a very large number of tasks to be executed. You can assign a scaling formula to the pool that adjusts the number of nodes in the pool based on the current number of queued tasks and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula and resizes the pool, based on workload and your other formula settings. The service adds nodes as needed when there are a large number of queued tasks, and removes nodes when there are no queued or running tasks.
 
 A scaling formula can be based on the following metrics:
 
@@ -392,16 +416,24 @@ You might find it necessary to handle both task and application failures within 
 ### Task failure handling
 Task failures fall into these categories:
 
-* **Scheduling failures**
+* **Pre-processing failures**
 
-    If the transfer of files that are specified for a task fails for any reason, a *scheduling error* is set for the task.
+    If a task fails to start, a pre-processing error is set for the task.  
 
-    Scheduling errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+    Pre-processing errors can occur if the task's resource files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+
+* **File upload failures**
+
+    If uploading files that are specified for a task fails for any reason, a file upload error is set for the task.
+
+    File upload errors can occur if the SAS supplied for accessing Azure Storage is invalid or does not provide write permissions, if the storage account is no longer available, or if another issue was encountered that prevented the successful copying of files from the node.    
+
 * **Application failures**
 
     The process that is specified by the task's command line can also fail. The process is deemed to have failed when a nonzero exit code is returned by the process that is executed by the task (see *Task exit codes* in the next section).
 
     For application failures, you can configure Batch to automatically retry the task up to a specified number of times.
+
 * **Constraint failures**
 
     You can set a constraint that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating tasks that fail to progress.
@@ -412,6 +444,7 @@ Task failures fall into these categories:
 * `stderr` and `stdout`
 
     During execution, an application might produce diagnostic output that you can use to troubleshoot issues. As mentioned in the earlier section [Files and directories](#files-and-directories), the Batch service writes standard output and standard error output to `stdout.txt` and `stderr.txt` files in the task directory on the compute node. You can use the Azure portal or one of the Batch SDKs to download these files. For example, you can retrieve these and other files for troubleshooting purposes by using [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] in the Batch .NET library.
+
 * **Task exit codes**
 
     As mentioned earlier, a task is marked as failed by the Batch service if the process that is executed by the task returns a nonzero exit code. When a task executes a process, Batch populates the task's exit code property with the *return code of the process*. It is important to note that a task's exit code is **not** determined by the Batch service. A task's exit code is determined by the process itself or the operating system on which the process executed.
@@ -422,7 +455,7 @@ Tasks might occasionally fail or be interrupted. The task application itself mig
 It is also possible for an intermittent issue to cause a task to hang or take too long to execute. You can set the maximum execution interval for a task. If the maximum execution interval is exceeded, the Batch service interrupts the task application.
 
 ### Connecting to compute nodes
-You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
+You can perform additional debugging and troubleshooting by signing in to a compute node remotely. You can use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes and obtain Secure Shell (SSH) connection information for Linux nodes. You can also do this by using the Batch APIs--for example, with [Batch .NET][net_rdpfile] or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > To connect to a node via RDP or SSH, you must first create a user on the node. To do this, you can use the Azure portal, [add a user account to a node][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] method in Batch .NET, or call the [add_user][py_add_user] method in the Batch Python module.

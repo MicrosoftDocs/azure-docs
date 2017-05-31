@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Automation DSC Overview | Microsoft Docs
 description: An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues
 services: automation
@@ -114,7 +114,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 * [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 * [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md)
-* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 * [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey](automation-dsc-cd-chocolatey.md)
 

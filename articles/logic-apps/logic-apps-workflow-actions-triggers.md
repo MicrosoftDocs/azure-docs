@@ -1,4 +1,4 @@
----
+﻿---
 title: Workflow actions and triggers - Azure Logic Apps | Microsoft Docs
 description: 
 services: logic-apps
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
-ms.author: mandia
+ms.author: LADocs; mandia
 ---
 
 # Workflow actions and triggers for Azure Logic Apps
@@ -430,6 +430,8 @@ Collection actions may contain many other actions within itself.
 -   **Wait** \- This simple action waits a fixed amount of time or until a specific time.  
   
 -   **Workflow** \- This action represents a nested workflow.  
+
+-   **Function** \- This action represents an Azure Function.
 
 ### Collection actions
 
@@ -882,6 +884,47 @@ meaning you need access to the workflow.
 The outputs from the `workflow` action are based on what you 
 defined in the `response` action in the child workflow. 
 If you have not defined any `response` action, then the outputs are empty.  
+
+## Function action   
+
+|Name|Required|Type|Description|  
+|--------|------------|--------|---------------|  
+|function id|Yes|String|The resource ID of the function that you want to invoke.|  
+|method|No|String|The HTTP method used to invoke the function. By default, it is `POST` when not specified.|  
+|queries|No|Object|Represents the query parameters to add to the URL. For example, `"queries" : { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL.|  
+|headers|No|Object|Represents each of the headers that is sent to the request. For example, to set the language and type on a request: `"headers" : { "Accept-Language": "en-us" }`.|  
+|body|No|Object|Represents the payload sent to the endpoint.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+	"body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+When you save the logic app, we perform some checks on the referenced function:
+-   You need to have access to the function.
+-   Only standard HTTP trigger or generic JSON webhook trigger is allowed.
+-   It should not have any route defined.
+-   Only "function" and "anonymous" authorization level is allowed.
+
+The trigger URL is retrieved, cached, and used at runtime. So if any operation invalidates the cached URL, the action fails at runtime. To work around this, save the logic app again, which will cause logic app to retrieve and cache the trigger URL again.
 
 ## Collection actions (scopes and loops)
 

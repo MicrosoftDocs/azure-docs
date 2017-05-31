@@ -3,7 +3,7 @@ title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
-ms.author: barbkess
+ms.author: kevin;barbkess
 
 ---
 # Troubleshooting Azure SQL Data Warehouse
@@ -52,7 +52,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. |Either reduce the [DWU][DWU] of the database you are trying to create or [request a quota increase][request a quota increase]. |
 | Investigating space utilization |See [Table sizes][Table sizes] to understand the space utilization of your system. |
 | Help with managing tables |See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary]. |
-|Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
+|Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## Polybase
 | Issue | Resolution |

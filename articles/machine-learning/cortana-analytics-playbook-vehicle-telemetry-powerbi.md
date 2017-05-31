@@ -26,7 +26,7 @@ The Vehicle Telemetry Analytics solution showcases how car dealerships, automobi
 This document contains step by step instructions on how you can configure the Power BI reports and dashboard once the solution is deployed in your subscription. 
 
 ## Prerequisites
-1. Deploy the Vehicle Telemetry Analytics solution by navigating to [https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9](https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9)  
+1. Deploy the [Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) solution  
 2. [Install Microsoft Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331)
 3. An [Azure subscription](https://azure.microsoft.com/pricing/free-trial/). If you don't have an Azure subscription, get started with Azure free subscription
 4. Microsoft Power BI account

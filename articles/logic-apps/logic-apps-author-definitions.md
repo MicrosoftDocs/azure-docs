@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Create workflow definitions for logic apps using JSON
@@ -314,7 +314,7 @@ the first five characters are not used.
       "defaultValue": {
         "quantity": 10,
         "id": "myorder1",
-        "orderer": "NAME=St�ph�n__�?�i?ian�"
+        "orderer": "NAME=Contoso"
       },
       "type": "Object"
     }

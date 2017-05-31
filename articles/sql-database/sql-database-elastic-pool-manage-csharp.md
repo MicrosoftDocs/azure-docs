@@ -300,11 +300,11 @@ The following PowerShell script creates the Active Directory (AD) application an
 
 To complete the steps in this article, you need the following items:
 
-* An elastic pool. To create an elastic, see [Create an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md).
+* An elastic pool. To create an elastic pool, see [Create an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 ## Move a database into an elastic pool
-You can move a stand-alone database in or out of an elastic.  
+You can move a stand-alone database in or out of an elastic pool.  
 
     // Retrieve current database properties.
 
@@ -328,7 +328,7 @@ You can move a stand-alone database in or out of an elastic.
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
 ## List databases in an elastic pool
-To retrieve all databases in an elastic, call the [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases) method.
+To retrieve all databases in an elastic pool, call the [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases) method.
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
@@ -366,5 +366,5 @@ Retrieve existing the pool properties. Modify the values and execute the CreateO
 ## Additional Resources
 *  For SQL error codes for SQL Database client applications, database connection error and other issues, see [Error messages](sql-database-develop-error-messages.md).
 * [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* For elastic pool guidance, see [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md)
+* For elastic pool guidance, see [When should an elastic pool be used?](sql-database-elastic-pool.md)
 

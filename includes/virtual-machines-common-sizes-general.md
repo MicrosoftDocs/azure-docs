@@ -13,7 +13,7 @@ The basic tier sizes are primarily for development workloads and other applicati
 
 ACU: 210-250
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 48 |2 moderate |
 | Standard_DS2_v2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 96 |2 high |
@@ -40,7 +40,7 @@ ACU: 210-250
 ## DS-series*
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2^ / moderate |
+| Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2 / moderate |
 | Standard_DS2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 64 |2 / high |
 | Standard_DS3 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 128 |4 / high |
 | Standard_DS4 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 256 |8 / high |
@@ -70,7 +70,7 @@ ACU: 100
 | Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500                         | 2 / moderate                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / high                     |
 | Standard_A8_v2  | 8         | 16          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / high                     |
-| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4X500                         | 2 / moderate                 |
+| Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4x500                         | 2 / moderate                 |
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500                         | 4 / high                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500                       | 8 / high                     |
 
@@ -87,7 +87,7 @@ ACU: 50-100
 | Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / moderate |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
-| Standard_A5 |2 |14 |135 |4 |4X500 |2 / moderate |
+| Standard_A5 |2 |14 |135 |4 |4x500 |2 / moderate |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
 <br>

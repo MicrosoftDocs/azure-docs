@@ -14,28 +14,40 @@ ms.author: sajagtap
 
 # Text Moderation API
 
-Use the Content Moderator’s [text moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66e "Content Moderator Text Moderation API") to moderate text for profanity in more than 100 languages, report on malware and phishing URLs, and match against custom and shared lists that are specific to your business and users.
+Use Content Moderator’s text moderation API [(see API reference)](api-reference.md "Content Moderator API Reference") to moderate text for profanity in more than 100 languages, and match against custom and shared lists that are specific to your business and users.
+
+Try it live on the API Reference page by using the "Open API Testing Console" buttons and selecting your region (of your API key).
 
 ## Language detection
 
-The first step to using the text moderation API is to have the algorithm detect the language of the content to be moderated. The API supports more than [100 languages](Text-Moderation-API-Languages.md). The **Detect Language** operation will return language codes for the predominant language comprising the submitted text in the following format:
+The first step to using the text moderation API is to have the algorithm detect the language of the content to be moderated. The API supports more than [100 languages](Text-Moderation-API-Languages.md). The **Detect Language** operation returns language codes for the predominant language comprising the submitted text in the following format:
 {"DetectedLanguage": "eng"}
 
 ## Screening for profanity
 
-The text moderation API’s **Screen** operation does it all – screen the incoming text (maximum 1024 characters) for profanity, detect the presence of malware and phishing URLs, and PII, while matching against custom lists of terms if needed.
+The text moderation API’s **Screen** operation does it all – screen the incoming text (maximum 1024 characters) for profanity and Personally Identifiable Information (PII), while matching against custom lists of terms.
 
-The response will contain one or more of these, depending on what you ask it to do:
+The response may include:
 
 - Auto-corrected text
 - Original text
 - Language
 - PII
-- Location(s) of detected term(s)/phrase(s) within the submitted text
+- Location of detected profanity terms within the submitted text
 - Terms: detected profanity content
-- Detected malware URLs
 
-Let’s look at these in greater detail.
+Let’s look at these fields in greater detail.
+
+## Profanity terms
+
+If any terms are detected, those terms are included in the response, along with their starting index (location) within the original text.
+
+## PII
+The PII feature outputs this information if detected within the text input:
+
+1. Email
+1. Phone
+1. Mailing Address
 
 ## Auto-correction
 
@@ -47,17 +59,11 @@ If you ask for auto-correction, the response will contain the corrected version 
 
 	“The quick brown fox jumps over the lazy dog."
 
-## Profanity terms
 
-If any terms are detected, those are included in the response, along with their starting index (location) within the original text.
-
-## Malware and phishing URLs
-
-The Screen operation’s response will return any malware and phishing URLs detected and their categories as in adult, malware, and/or phishing, along with a probability score between 0 and 1.
 
 ## Creating and managing your custom lists of terms
 
-While the default, global list of terms works great for most cases, you may want to screen against terms that are specific to your business needs. For example, you may want to filter out any competitive brand names from posts by users. Your threshold of permitted text content may be very different from the default list.
+While the default, global list of terms works great for most cases, you may want to screen against terms that are specific to your business needs. For example, you may want to filter out any competitive brand names from posts by users. Your threshold of permitted text content may be different from the default list.
 
 The Content Moderator provides a complete [terms list API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "Content Moderator Terms List API") with operations for creating and deleting lists of terms, and for adding and removing text terms from those lists.
 

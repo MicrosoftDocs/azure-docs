@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 05/23/2017
 ms.author: kgremban
 
 ms.custom: H1Hack27Feb2017
@@ -21,7 +21,9 @@ ms.custom: H1Hack27Feb2017
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication - Public preview
 
 The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
- 
+
+This extension was created for organizations that want to protect VPN connections without deploying the Azure MFA Server. The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication for federated or synced users. 
+
 When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers. 
@@ -105,6 +107,8 @@ Use these steps to get a test account started:
 2. Go to any website that kicks off an Azure AD authentication, like https://portal.azure.com.
 3. [Register for two-step verification](./end-user/multi-factor-authentication-end-user-first-time.md).
 
+Your users also need to follow these steps to enroll before they can authenticate with the NPS extension.
+
 ## Install the NPS extension
 
 > [!IMPORTANT]
@@ -141,6 +145,8 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 5. Sign in to Azure AD as an administrator.
 6. PowerShell shows a success message when the script is finished.  
 
+Repeat these steps on any additional NPS servers that you want to set up for load balancing. 
+
 ## Configure your NPS extension
 
 This section includes design considerations and suggestions for successful NPS extension deployments.
@@ -164,7 +170,7 @@ If you have users that aren't enrolled for MFA, you can determine what happens w
 
 The purpose of this setting is to determine what to do when a user is not enrolled for MFA. When the key does not exist, is not set, or is set to TRUE, and the user is not enrolled, then the extension fails the MFA challenge. When the key is set to FALSE and the user is not enrolled, authentication proceeds without performing MFA.
 
-You can choose to create this key and set it to FALSE during user onboarding. Since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
+You can choose to create this key and set it to FALSE while your users are onboarding, and may not all be enrolled for Azure MFA yet. However, since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
 
 ## Troubleshooting
 

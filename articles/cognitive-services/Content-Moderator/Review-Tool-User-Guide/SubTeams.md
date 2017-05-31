@@ -20,13 +20,13 @@ When you sign up and name your team, that creates your default team. In addition
 
 To get started on creating a subteam, select the **Teams** option under Settings.
 
-![Team Settings](images/0-Teams-1.PNG)
+![Team Settings](images/0-teams-1.png)
 
 ## Use the Subteam command ##
 
 Scroll down the page and use the "**Add Subteam**" button to bring up the name dialog.
 
-![Add Subteam](images/1-Teams-1.PNG)
+![Add Subteam](images/1-teams-1.png)
 
 ## Name your subteam ##
 
@@ -45,17 +45,14 @@ Use the "**Add Member**" option to assign members from your default team to one 
 Once you have your subteams created and team members assigned, you can start assigning image and text reviews to those subteams. The following screen shows from where you can do so during the review process.
 
 For images:
-![Assign image review to subteam](images/3-Review-Image-Subteam-1.PNG)
-
-For text:
-![Assign text review to subteam](images/3-Review-Text-3-Escalate-2.PNG)
+![Assign image review to subteam](images/3-review-image-subteam-1.png)
 
 ## Switch between subteams to review assigned content ##
 
 If you are a member of one or more subteams, you can switch between your subteams as shown in the following screenshot.
-![Switch between subteams](images/3-Review-Image-Subteam-2.PNG)
+![Switch between subteams](images/3-review-image-subteam-2.png)
 
 ## Review content within a subteam ##
 
 Once you have your subteam selected, you will see all assigned and still pending content reviews for your attention.
-![Switch between subteams](images/3-Review-Image-Subteam-3.PNG)
+![Switch between subteams](images/3-review-image-subteam-3.png)

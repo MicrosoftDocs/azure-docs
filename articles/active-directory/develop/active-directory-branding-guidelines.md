@@ -3,7 +3,7 @@ title: Branding Guidelines for Applications | Microsoft Docs
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: msmbaldwin
+author: bryanla
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
+ms.custom: aaddev
 
 ---
 # Branding Guidelines for Applications

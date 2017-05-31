@@ -59,7 +59,7 @@ You may also download the extension for Chrome and Firefox from the direct links
 
 -   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Firefox Access Panel Extension](https://addons.mozilla.org/en-us/firefox/addon/access-panel-extension/)
+-   [Firefox Access Panel Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## Setting up a group policy for Internet Explorer
 
@@ -71,11 +71,11 @@ The prerequisites include:
 
 -   You must have the "Edit settings" permission to edit the Group Policy Object (GPO). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Follow the tutorial [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-group-policy) for step by step instructions on how to configure the group policy and deploy it to users.
+Follow the tutorial [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md) for step by step instructions on how to configure the group policy and deploy it to users.
 
 ## Troubleshoot the Access Panel in Internet Explorer
 
-Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-Troubleshoot) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
+Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) guide for access a diagnostics tool and step by step instructions on configuring the extension for IE.
 
 ## If these troubleshooting steps do not resolve the issue
 

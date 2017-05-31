@@ -1,5 +1,5 @@
 ---
-title: Add company branding to your sign-in and Access Panel pages in Azure Active Directory
+title: Add company branding to your sign-in and Access Panel pages
 description: Learn how to add a company branding to the Azure sign-in page and the access panel page
 services: active-directory
 documentationcenter: ''
@@ -9,105 +9,105 @@ editor: ''
 
 ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
-ms.workload: identity
+ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/07/2017
+ms.date: 05/23/2017
 ms.author: curtand
 
 ---
-# Add company branding to sign-in and Access Panel pages
-Many organizations want to apply a consistent look and feel across the websites and services they manage. Azure Active Directory provides this capability by allowing IT pros to customize the appearance of the following web pages with company logos and images:
+# Add company branding to your sign-in and Access Panel pages
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the following web pages with your company logo and custom color schemes:
 
-* **Sign-in page** - This is the page that appears when your employees and business guests sign in to Office 365 or other applications that use Azure AD.
-* **Access Panel page** -  - The Access Panel is a web-based portal that allows you to view and launch the cloud-based applications to which your Azure AD administrator granted you access. Access Panel can be found at: [https://myapps.microsoft.com](https://myapps.microsoft.com).
+* **Sign-in page** - This is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page either during a Home Realm Discovery or to enter your credentials. The Home Realm Discovery allows the system to redirect federated users to their on-premises STS (such as AD FS).
+* **Access Panel page** - The Access Panel is a web-based portal that allows you to view and launch the cloud-based applications your Azure AD administrator has granted you access to. To access the Access Panel, use the following URL: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 This topic explains how you can customize the sign-in page and the access panel page.
 
 > [!NOTE]
-> * Company branding is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or have an Office 365 license. For more information, see Azure Active Directory editions.
-> 
-> * Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the Azure Active Directory Forum.
-
+> * Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+> * Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>
+>
 
 ## Customizing the sign-in page
-Your users usually interact with the Azure AD sign-in page when trying to access cloud applications and services that your organization
-subscribes to.
+Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
 
-If you have applied branding changes to your sign-in page, it can take up to an hour for the changes to appear for end users.
+If you have applied changes to your sign-in page, it can take up to an hour for the changes to appear.
 
-Company branding elements will appear on the Azure AD sign-in page when users are accessing a tenant-specific URL such as
-https://outlook.com/contoso.com.
+A branded sign-in page only appears when you visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com.
 
-When users visit a service at a generic URL such as www.office.com, the sign-in page doesn’t contain company branding information yet, because the system doesn’t know who the user is. However, company branding appears after users enter their user ID or select a user tile.
+When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
 
 > [!NOTE]
 > * Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
-> * Sign-in page branding doesn’t carry over to the sign-in page for personal Microsoft accounts. If your employees or business guests sign in with a personal Microsoft account, their sign-in page will not reflect the branding of your organization.
+> * Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a personal Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
+>
 >
 
-The following screenshots explain how sign-in pages are customized.
+If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
 
-### Scenario 1: Contoso employee goes to a generic app URL (for example, www.office.com)
+The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **before** a customization:
 
-In this example, a Contoso user signs in to a mobile application, or to a web application using a generic URL. The illustration on the left will always represent the app, and the interaction pane on the right will update to show Contoso brand elements when appropriate.
+![Office 365 sign-in page before customization][1]
 
-![Office 365 sign-in page before and after customization][1]
+The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **after** a customization:
 
-### Scenario 2: Contoso employee goes to Contoso app that’s restricted to internal users
+![Office 365 sign-in page after customization][2]
 
-In this example, a Contoso user is signing into an internal application using a company-specific URL. The illustration on the left represents the company brand (Contoso). The interaction pane on the right is locked to Contoso and helps employees through sign-in.
+The following screenshot shows an example of the Office 365 sign-in page on a mobile device **before** a customization:
 
-![restricted app sign-in page][2]
+![Office 365 sign-in page before customization][3]
 
-### Scenario 3: Contoso employee goes to a Contoso app that’s open to external users
+The following screenshot shows an example of the Office 365 sign-in page on a mobile device **after** a customization:
 
-In this example, users are signing into a LoB application from Contoso, but the user may or may not be a Contoso employee. The illustration on the left represent the resource owner (Contoso), just like case \#2 above. But this time, the interaction pane on the right is not locked to Contoso, to convey that external users are welcome to sign in.
+![Office 365 sign-in page after customization][4]
 
-![sign in to open access][3]
+When you resize a browser window, the large Illustration, like the one shown previously, is often cropped to accommodate different screen aspect ratios. With this in mind, you should try to keep the key visual elements in the illustration so that they always appear in the top-left corner (top-right for right-to-left languages). This is important because resizing typically occurs from the bottom-right corner going towards the top / left or from the bottom towards the top.
 
-### Scenario 4: Fabrikam business guest goes to Contoso app that’s open to external users
+The following picture shows how the illustration is cropped when the browser is resized to the left:
 
-In this example, a Contoso user is signing into an internal application using a company-specific URL. The illustration on the left represents the company brand (Contoso). The interaction pane on the right is locked to Contoso and helps employees through sign-in.
+![][6]
 
-![sign in as an external user][4]
+Here is how it appears after the browser is resized toward the top:
 
+![][7]
 
 ## What elements on the page can I customize?
-
 You can customize the following elements on the sign-in page:
 
 ![][5]
 
 | Page element | Location on the page |
 |:--- | --- |
-| Banner Logo | Shown at the top-right of the page. Replaces the app logo once the user’s organization is determined (usually, after the user name is entered). |
-| Background illustration | Shown as a full-bleed image on the left side of the sign-in page. Replaces the app’s illustration, for tenanted sign-in scenarios (when users access an application published by their own organization or an organization in which they are a business guest).<br>On low-bandwidth connections, the background illustration is replaced with a background color. On narrow screens such as phones, the illustration is not shown.<br>The background illustration will be cropped when users resize their browser. When you design your illustration, please keep key visual elements in the top-left corner so they don’t get cropped. | 
-| “Keep me signed-in” check box | Shown under the **Password** box. |
-| Sign-in page text | Bboilerplate text to be shown above the page footer. It can be used to convey helpful information to your users, such as the phone number of your help desk, or a legal statement. |
+| Banner Logo |Shown at the top-right of the page. Replaces the logo the destination site you are signing in to displays (For example. Office 365 or Azure). |
+| Large Illustration / Background Color |Shown at the left of the page. Replaces the image the destination site you are signing in to displays. The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on narrow screens. |
+| Keep me signed-in |Shown under the Password textbox. |
+| Sign-in Page Text |Shown above the page footer when you need to convey helpful information before a sign-in with a work or school account. For example, you may want to include the phone number to your help desk, or a legal statement. |
 
 > [!NOTE]
-> All elements are optional. For example, if you specify a Banner Logo but no Background illustration, the sign-in page shows your logo and the illustration for the destination site (for example, the Office 365 California highway image).
+> All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the sign-in page shows your logo and the illustration for the destination site (that is, the Office 365 California highway image).
+>
 >
 
-On your sign-in page, the **Keep me signed in** check box allows a user to remain signed in when they close and re-open their browser and does not affect session lifetime.
+On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser. It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
 
-Whether the check box is displayed depends on the setting of **Hide KMSI**.
+Whether the checkbox is displayed depends on the setting of **Hide KMSI**.
 
-![Hide KMSI setting][6]
+![][9]
 
-To hide the check box, configure this setting to **Hidden**.
+To hide the checkbox, configure this setting to **Hidden**.
 
 > [!NOTE]
-> Some features of SharePoint Online and Office 2010 depend on users being able to select this check box. If you configure this setting to hidden, your users may see additional and unexpected sign-in prompts.
+> Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
 >
 >
 
 You can also localize all elements on this page. Once you’ve configured a “default” set of customization elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you can:
 
-* Create a “default” illustration that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the specific image appears, while the default illustration appears for all other languages.
-* Configure different logos for your organization (for example, Japanese or Hebrew versions).
+* Create a “default” Large Illustration that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the specific image appears, while the default illustration appears for all other languages.
+* Configure different logos for your organization (e.g. Japanese or Hebrew versions).
 
 ## Access panel page customization
 The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles.
@@ -129,6 +129,10 @@ Imagine the following configuration:
 If your language preference is German, you get the default Banner Logo but the German text.
 
 While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
+
+> [!IMPORTANT]
+> Yammer does not show the Azure AD branded sign-in page until after the user signs in. The user sees the generic Office 365 sign-in page first, and then the branded page after that.   
+ 
  
 **To add company branding to your directory, perform the following steps:**
 
@@ -174,32 +178,47 @@ fs3. In the toolbar on the top, click **Configure**.
 8. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed.
     All branding settings have been removed when you click **Customize Branding** and see the **Customize Default Branding** form with no existing settings configured.
 
+## Testing and examples
+We recommend that you experiment with a test tenant before making changes in your production environment.
+
+**To verify whether your branding has been applied:**
+
+1. Open an InPrivate or Incognito browser session.
+2. Visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized.
+
+This also works with domains that look like contoso.onmicrosoft.com.
+
+To help you create effective customization sets, we have customized the following two fictitious sign-in pages:
+
+* [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
+* [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
+
+To test the language-specific settings, you need to modify the default language preferences in your web browser to a language you have set in your customization. In Internet Explorer, you configure this in the **Internet Options** menu.
 
 ## Customizable elements
-Company logos are used for the sign-in and Access Panel pages, while
-other elements are only used on the sign-in page. The following table
-provides details for the different customizable elements.
+Some customizable elements in Azure AD have multiple use cases. You can configure company logos once per directory and is used on both, the sign-in and Access Panel pages. Some customizable elements are specific only to the sign-in page. The following table provides details for the different customizable elements.
 
 | Name | Description | Constraints | Recommendations |
 | --- | --- | --- | --- |
-| Banner logo |The banner logo is displayed on the sign-in page and the Access panel. |<p>JPG or PNG</p><p>60x280 pixels</p><p>10 KB</p> |<p>Use your organization’s full logo (including pictogram and logotype)</p><p>Keep it under 30 pixels high to avoid introducing scrollbars on mobile devices</p><p>Keep it under 4 KB</p><p>Use a transparent PNG (don’t assume that the sign-in page always has a white background)</p> |
-| Tile logo | Not currently used |<p>JPG or PNG</p><p>120x120 pixels</p><p>10 KB</p> |<p>Keep it simple (no small text), as this image may be resized to 50% |
+| Banner Logo |The Banner Logo is displayed on the sign-in page and the Access panel. |<p>JPG or PNG</p><p>60x280 pixels</p><p>10 KB</p> |<p>Use your organization’s full logo (including pictogram and logotype)</p><p>Keep it under 30 pixels high to avoid introducing scrollbars on mobile devices</p><p>Keep it under 4 KB</p><p>Use a transparent PNG (don’t assume that the sign-in page always has a white background)</p> |
+| Tile Logo |(currently not used in the sign-in page) In the future, this text may be used to replace the generic “work or school account” pictogram in different places of the experience. |<p>JPG or PNG</p><p>120x120 pixels</p><p>10 KB</p> |<p>Keep it simple (no small text), as this image may be resized to 50% |
 | </p> | | | |
-| Sign-in username label | Not currently used |<p>Unicode text, up to 50 characters</p><p>Plain text only (no links or HTML tags)</p> |<p>Keep it short and simple</p><p>Ask your users how they usually refer to the work or school account you provide them with.</p> |
-| Sign-in page boilerplate text |This boilerplate text appears below the sign-in page form and can be used to communicate additional instructions, or where to get help and support. |<p>Unicode text, up to 256 characters</p><p>Plain text only (no links or HTML tags)</p> |Keep it under 250 characters (approximately 3 lines of text) |
-| Sign-in page background illustration | Large image that is displayed on the left of the sign-in page (on the right for RtL languages) when users access tenant-specific URLs. |<p>JPG or PNG</p><p>1420x1200</p><p>500 KB</p> |<p>1420x1200 pixels</p><p>Important: Keep it as small as possible, ideally under 200 KB. If this image is too large, the performance of the Sign-in page is impacted when the image isn’t cached</p><p>This image will almost always be cropped to accommodate different screen aspect ratios. Keep the primary visual elements in the top left corner.</p> |
-| Sign-in page background color | On low bandwidth connection, this solid color is used in place of the background illustration. | Must be an RGB color in hexadecimal form (example: \#FFFFFF) | We suggest picking the primary color of the banner logo. |
+| Sign-in Page User Name Label |(currently not used in the sign-in page) In the future, this text may be used to replace the generic “work or school account” string in different places of the experience. You can set it to something like “Contoso account” or “Contoso ID.” |<p>Unicode text, up to 50 characters</p><p>Plain text only (no links or HTML tags)</p> |<p>Keep it short and simple</p><p>Ask your users how they usually refer to the work or school account you provide them with.</p> |
+| Sign-in Page Text |This “boilerplate” text appears below the sign-in page form and can be used to communicate additional instructions, or where to get help and support. |<p>Unicode text, up to 256 characters</p><p>Plain text only (no links or HTML tags)</p> |Keep it under 250 characters (approximately 3 lines of text) |
+| Sign-in Page Illustration |The illustration is a large image that is displayed on the sign-in page to the left of the sign-in page form. |<p>JPG or PNG</p><p>1420x1200</p><p>500 KB</p> |<p>1420x1200 pixels</p><p>Important: Keep it as small as possible, ideally under 200 KB. If this image is too large, the performance of the Sign-in page is impacted when the image isn’t cached</p><p>This image is often cropped, to accommodate different screen ratios. Keep the primary visual elements in the top left corner (top right for RTL languages), because resizing occurs from the bottom/right corner, going towards the top / left, as the browser window shrinks.</p> |
+| Sign-in Page Background Color |The sign-in page background color is used in the area to the left of the sign-in page form. |Must be an RGB color in hexadecimal form (example: #FFFFFF) |<p>The background color may be shown in place of the large Illustration on low-bandwidth connections</p><p>We suggest picking the primary color of the Banner Logo</p> |
 
 ## Next steps
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-add-company-branding/signin-page_before-customization.png
-[2]: ./media/active-directory-add-company-branding/signin-page-restricted-app.png
-[3]: ./media/active-directory-add-company-branding/signin-page-open-access.png
-[4]: ./media/active-directory-add-company-branding/signin-page-external-guest.png
-[5]: ./media/active-directory-add-company-branding/which-elements-can-i-customize.png
-[6]: ./media/active-directory-add-company-branding/hide-kmsi.png
+[1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
+[2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
+[3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png
+[4]: ./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png
+[5]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png
+[6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
+[7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png

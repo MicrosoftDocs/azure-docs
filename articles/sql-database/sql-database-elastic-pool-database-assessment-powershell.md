@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-elastic-pool-guidance
+redirect_url: /azure/sql-database/sql-database-elastic-pool
 --- 

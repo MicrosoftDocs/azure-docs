@@ -3,7 +3,7 @@ title: Manage workspaces in Azure Log Analytics and the OMS portal | Microsoft D
 description: You can manage workspaces in Azure Log Analytics and the OMS portal using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/12/2017
-ms.author: banders
+ms.author: magoedte
 
 ---
 # Manage workspaces
@@ -89,13 +89,15 @@ The following table summarizes the access that can be set using each permission 
 
 The legacy Log Analytics user roles only control access to activities performed in the [Log Analytics portal](https://mms.microsoft.com).
 
-The following activities in the Log Analytics portal also require Azure permissions:
+The following activities also require Azure permissions:
 
 | Action                                                          | Azure Permissions Needed | Notes |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Adding and removing management solutions                        | Resource Group write <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Adding and removing management solutions                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Changing the pricing tier                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
+| Creating a workspace in the Azure portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### Managing access to Log Analytics using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
@@ -173,7 +175,7 @@ You can change the account role for a user associated with your OMS account. You
 4. In the confirmation dialog box, click **Yes**.
 
 ### Remove a user from a workspace
-Use the following steps to remove a user from a workspace. Removing the user does not close the workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user can still sign in to OMS and see his other workspaces.
+Use the following steps to remove a user from a workspace. Removing the user does not close the workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user can still sign in to OMS and see their other workspaces.
 
 1. In the OMS portal, click the **Settings** tile.
 2. Click the **Accounts** tab and then click the **Manage Users** tab.

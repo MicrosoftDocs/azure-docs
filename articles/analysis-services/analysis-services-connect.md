@@ -14,18 +14,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/13/2017
+ms.date: 04/17/2017
 ms.author: owend
 
 ---
 # Connect to an Azure Analysis Services server
 
-This article describes connecting to a server by using data modeling and management applications like SQL Server Management Studio (SSMS) or SQL Server Data Tools (SSDT). Or, with a client reporting applications like Microsoft Excel, Power BI Desktop, or custom applications.
+This article describes connecting to a server by using data modeling and management applications like SQL Server Management Studio (SSMS) or SQL Server Data Tools (SSDT). Or, with client reporting applications like Microsoft Excel, Power BI Desktop, or custom applications. Connections to Azure Analysis Services use HTTPS.
 
-## Data providers (aka client libraries)
-[Get the latest data providers](analysis-services-data-providers.md)
+## Client libraries
+[Get the latest Client libraries](analysis-services-data-providers.md)
 
-All connections to a server, regardless of type, require updated AMO, ADOMD.NET, and OLEDB data providers to connect to and interface with an Analysis Services server. For SSMS, SSDT, Excel 2016, and Power BI, the latest data providers are installed or updated with monthly releases. However, in some cases, it's possible an application may not have the latest data providers. For example, when policies delay updates, or Office 365 updates are on the Deferred Channel.
+All connections to a server, regardless of type, require updated AMO, ADOMD.NET, and OLEDB client libraries to connect to and interface with an Analysis Services server. For SSMS, SSDT, Excel 2016, and Power BI, the latest client libraries are installed or updated with monthly releases. However, in some cases, it's possible an application may not have the latest. For example, when policies delay updates, or Office 365 updates are on the Deferred Channel.
 
 ## Server name
 
@@ -47,17 +47,27 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the entire s
 When connecting to Azure Analysis Services using the Tabular Object Model, use the following connection string formats:
 
 ###### Integrated Azure Active Directory authentication
+Integrated authentication picks up the Azure Active Directory credential cache if available. If not, the Azure login window is shown.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
 ```
-Integrated authentication picks up the Azure Active Directory credential cache if available. If not, the Azure login window is shown.
+
 
 ###### Azure Active Directory authentication with username and password
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
 ```
+
+###### Windows authentication (Integrated security)
+Use the Windows account running the current process.
+
+```
+"Provider=MSOLAP;Data Source=<Azure AS instance name>; Integrated Security=SSPI;Persist Security Info=True;"
+```
+
+
 
 ## Connect using an .odc file
 With older versions of Excel, users can connect to an Azure Analysis Services server by using an Office Data Connection (.odc) file. To learn more, see [Create an Office Data Connection (.odc) file](analysis-services-odc.md).

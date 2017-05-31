@@ -20,6 +20,8 @@ ms.author: xshi
 ---
 # IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox
 
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/7.png)
+
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 Azure Logic Apps provides a way to automate processes as a series of steps. A logic app can connect across various services and protocols. It begins with a trigger such as 'When an account is added', and followed by a combination of actions, one like 'sending a push notification'. This feature makes Logic Apps a perfect IoT solution for IoT monitoring, such as staying alert for anomalies, among other usage scenarios.
@@ -36,7 +38,7 @@ You learn how to create a logic app that connects your IoT hub and your mailbox 
 
 ## What you need
 
-* Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+* Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
   * A client application that sends messages to your Azure IoT hub.

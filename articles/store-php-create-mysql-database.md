@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm;cephalin
 
 ---
@@ -127,7 +127,6 @@ app. Just follow the steps below:
         azure site appsetting add DB_USERNAME=<USERNAME_from_properties_blade>
         azure site appsetting add DB_PASSWORD=<PASSWORD_from_properties_blade>
 
-    Find out how this works in [Configure the Azure web app](app-service-web/app-service-web-get-started-php.md#configure-to-use-php).
 6. Next, commit and push to Azure the local changes made earlier while running `php artisan make:auth`.
 
         git add .
