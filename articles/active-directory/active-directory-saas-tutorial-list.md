@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: ''
 
 ms.assetid: 08c0c52b-76d9-4250-936a-6bec0edb8816
 ms.service: active-directory
@@ -13,8 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 05/31/2017
 ms.author: joflore
+ms.editor: jeedes
+ms.custom: it-pro
 
 ---
 # List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
