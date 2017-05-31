@@ -294,7 +294,7 @@ The following table describes the JSON properties used in the JSON definition:
 | className | Application's Java/Spark main class | No |
 | arguments | A list of command-line arguments to the Spark program. | No |
 | proxyUser | The user account to impersonate to execute the Spark program | No |
-| sparkConfig | Spark configuration properties. | No |
+| sparkConfig | Specify values for Spark configuration properties listed in the topic: [Spark Configuration - Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties). | No |
 | getDebugInfo | Specifies when the Spark log files are copied to the Azure storage used by HDInsight cluster (or) specified by sparkJobLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No |
 | sparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. | No |
 

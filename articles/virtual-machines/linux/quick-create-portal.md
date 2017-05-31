@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with the Azure portal
@@ -102,9 +103,9 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 6. Click **OK**.
 
 
-## View the NGIX welcome page
+## View the NGINX welcome page
 
-With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. the public IP address can be found on the VM blade in the Azure portal.
+With NGINX installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. The public IP address can be found on the VM blade in the Azure portal.
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
