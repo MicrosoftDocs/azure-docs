@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/19/2017
+ms.date: 05/26/2017
 ms.author: curtand
 
 ---
@@ -34,7 +34,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 If you are unable to find answers by using self-help resources, you can open an online support ticket. Please limit each support ticket to a single issue so that we can connect you to support engineers who are the subject matter experts for your issue. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
 
-### How to open a support ticket
+## How to open a support ticket in the Azure portal
 
 1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
 2. Scroll down to **Troubleshooting + Support** and select **New support request**
@@ -45,6 +45,18 @@ If you are unable to find answers by using self-help resources, you can open an 
 7. Add the rest of your problem information and click **Next**.
 8. Provide your contact information and select **Create**.
   ![problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+
+## How to open a support ticket in the Office 365 portal
+
+If you are a Premier Support customer, you should open an Azure AD support ticket on the [Premier support page](https://support.microsoft.com/premier/contacts) instead. Otherwise, use the following steps.
+
+1. Sign in to the [Office 365 admin center](https://portal.office.com/) with an Azure AD account. What identity is needed? What credentials are needed?
+2. Choose the Admin tile.
+3. On the left, under Support, select **Support** to open a ticket.
+
+
+[Azure support page](https://azure.microsoft.com/support/options/)
+[Office 365 support page](https://portal.office.com/Support/Support.aspx)
 
 ##  Next steps
 
