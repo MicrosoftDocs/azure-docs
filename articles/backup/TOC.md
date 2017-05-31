@@ -17,19 +17,19 @@
 ### [Windows Server in classic portal](backup-client-automation-classic.md)
 
 ## Azure Backup Server
-### [Azure Backup Server Protection Matrix](backup-mabs-protection-matrix.md)
-### Install or Upgrade
+### [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md)
+### Install or upgrade
 #### [Prepare Azure Backup Server workloads in Azure portal](backup-azure-microsoft-azure-backup.md)
 #### [Prepare Azure Backup Server workloads in classic portal](backup-azure-microsoft-azure-backup-classic.md)
-#### [Add Storage to Azure Backup Server](backup-mabs-add-storage.md)
+#### [Add storage to Azure Backup Server](backup-mabs-add-storage.md)
 #### [Upgrade Azure Backup Server to v.2](backup-mabs-upgrade-to-v2.md)
 #### [Unattended installation of Azure Backup Server](backup-mabs-unattended-install.md)
-### Protect Workloads
+### Protect workloads
 #### [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
 #### [Use Azure Backup Server to back up Exchange](backup-azure-exchange-mabs.md)
 #### [Use Azure Backup Server to back up a SharePoint farm](backup-azure-backup-sharepoint-mabs.md)
 #### [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
-#### [Protect System State and Bare Metal Recovery](backup-mabs-system-state-and-bmr.md)
+#### [Protect system state and bare metal Recovery](backup-mabs-system-state-and-bmr.md)
 ### Troubleshoot
 #### [Troubleshoot Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 
@@ -49,7 +49,7 @@
 ### Plan your environment
 #### [Plan VM backup infrastructure](backup-azure-vms-introduction.md)
 ### Back up servers and workloads
-#### [Back up Azure virtual machines to Backup vault](backup-azure-vms.md)
+#### [Back up Azure virtual machines to backup vault](backup-azure-vms.md)
 #### [Back up Azure virtual machines to a Recovery Services vault](backup-azure-arm-vms.md)
 #### [Back up encrypted virtual machines](backup-azure-vms-encryption.md)
 ### Manage and monitor VMs
