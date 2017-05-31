@@ -19,6 +19,12 @@ The endpoints you create by using this service can process different numbers of 
 
 The service assumes that data is transmitted in real time. If it is sent faster, the request is considered running until its audio duration in real time has passed.
 
+> [!NOTE]
+> We **do not** support the [new Web Socket](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) yet. Please follow the instructions below in case you plan to use Web Sockets with custom speech endpoint.
+>
+> The new [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedrest) support is coming soon! If you plan to call your custom speech endpoint via HTTP follow the instructions below, please.
+>
+
 ## Send requests by using the speech client library
 
 To send requests to your custom endpoint by using the speech client library, start the recognition client. Use the Client Speech SDK from [nuget](http://nuget.org/). Search for "speech recognition" and select the speech recognition nuget from Microsoft for your platform. Some sample code can be found on [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). The Client Speech SDK provides a factory class _SpeechRecognitionServiceFactory_, which offers the following methods:

@@ -98,19 +98,23 @@ There are several methods to view Blob Auditing logs:
 
 1. Through the [Azure portal](https://portal.azure.com) - open the relevant database. At the top of the database's **Auditing & Threat detection** blade, click on **View audit logs**.
 
-    ![Navigation Pane][10]
+    ![Navigation Pane][7]
 
     An **Audit records** blade will open, where you'll be able to view the logs.
 
     - You can choose to view specific dates by clicking on **Filter** at the top area of the Audit records blade
     - You can toggle between audit records that were created by server policy or database policy audit
 
-    ![Navigation Pane][11]
+    ![Navigation Pane][8]
 
 2. Using the **Merge Audit Files** feature in SSMS (starting with SSMS 17):  
     - In the SSMS top menu, click on **File** --> **Open** --> **Merge Audit Files...**
+
+        ![Navigation Pane][9]
     - A dialog window will open, click on **Add...**
     - In the following page, choose whether to merge audit files from local disk or import from Azure Storage (you will be required to provide your Azure Storage details and account key).
+
+        ![Navigation Pane][10]
     - Once all files to merge have been added, click **OK** to complete the merge operation.
     - The merged file will open in SSMS, where you'll be able to view and analyze it, as well as export to XEL/CSV files or to a table.
 
@@ -158,10 +162,10 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 1. In the storage details blade switch the **Storage Access Key** from *Primary* to *Secondary*, and then click **OK** at the bottom. Then click **SAVE** at the top of the auditing configuration blade.
 
-    ![Navigation Pane][6]
+    ![Navigation Pane][5]
 2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
 
-    ![Navigation Pane][8]
+    ![Navigation Pane][6]
 3. Go back to the auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary*, and then click **OK** at the bottom. Then click **SAVE** at the top of the auditing configuration blade.
 4. Go back to the storage configuration blade and **regenerate** the *Secondary Access Key* (in preparation for the next keys refresh cycle).
 
@@ -202,16 +206,13 @@ You can also configure Auditing in Azure SQL Database using the following automa
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
 [2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
 [3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[3-tbl]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on_table.png
 [4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_audited_events.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_storage_key_regeneration.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_activity_log.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_regenerate_key.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_report_template.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_blob_view_audit_logs.png
-[11]: ./media/sql-database-auditing-get-started/11_auditing_get_started_blob_audit_records.png
-[12]: ./media/sql-database-auditing-get-started/12_auditing_get_started_table_audit_records.png
+[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
+[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
+[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
+[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
+[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
+[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
 [101]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
 [102]: https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
