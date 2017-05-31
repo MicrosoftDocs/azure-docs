@@ -401,9 +401,9 @@ $ cd .ssh
 
 #### 5.  Create a file named authorized_keys. Paste the contents of the key in this file, and then save the file.
 
-  > [!NOTE]
-  > The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
-  >  
+> [!NOTE]
+> The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
+>  
 
 #### 6.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
 
@@ -423,9 +423,10 @@ To install Oracle Golden Gate, complete the following steps:
 
 #### 1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) 
 
-  > [!NOTE]
-  > Make sure that Xming is running before you begin the installation.
-  >
+> [!NOTE]
+> Make sure that Xming is running before you begin the installation.
+>
+  
 ```bash
 $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
 $ ./runInstaller
