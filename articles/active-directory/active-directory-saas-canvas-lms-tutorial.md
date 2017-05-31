@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Canvas Lms | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Canvas Lms.
+description: Learn how to configure single sign-on between Azure Active Directory and Canvas LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/31/2017
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Canvas Lms
+# Tutorial: Azure Active Directory integration with Canvas LMS
 
 In this tutorial, you learn how to integrate Canvas with Azure Active Directory (Azure AD).
 
