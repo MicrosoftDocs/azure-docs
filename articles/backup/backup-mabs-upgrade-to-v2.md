@@ -105,7 +105,7 @@ To add a volume in the administrator console:
 ### Assign Workloads to Volumes
 
 With Azure Backup Server, you specify which workloads are assigned to which volumes. For example, expensive volumes, that support high IOPS, can be configured to store only workloads that require frequent, high-volume backups like SQL with Transaction Logs.
-To update the properties of a volume in the storage pool on a DPM server, use the PowerShell cmdlet, Update-DPMDiskStorage.
+To update the properties of a volume in the storage pool on an Azure Backup Server, use the PowerShell cmdlet, Update-DPMDiskStorage.
 
 **Update-DPMDiskStorage**
 
@@ -183,7 +183,7 @@ Once you upgrade or install Azure Backup Server v2 and the operating system to W
 
 ## Adding Disks to increase legacy storage
 
-If you want to use legacy storage with DPM 2016, it may become necessary to add disks to increase legacy storage. To add disk storage:
+If you want to use legacy storage with Azure Backup Server, it may become necessary to add disks to increase legacy storage. To add disk storage:
 
 1. On the Administrator Console, click **Management**.
 
@@ -197,13 +197,13 @@ If you want to use legacy storage with DPM 2016, it may become necessary to add 
 
 4. In the **Add Disk Storage** dialog, click **Add disks**.
 
-    DPM provides a list of available disks.
+    The dialog provides a list of available disks.
 
 5. Select the disks, click **Add** to add the disks, and click **OK**.
 
 ## Update the DPM protection agent
 
-If you are upgrading a protection agent that is not connected to the network, you cannot use the DPM Administrator console to perform a connected agent upgrade. You must upgrade the protection agent in a non-active domain environment. The DPM Administrator console shows the protection agent update is pending, until the client computer is connected to the network.
+Azure Backup Server uses the System Center DPM protection agent to update. If you are upgrading a protection agent that is not connected to the network, you cannot use the DPM Administrator console to perform a connected agent upgrade. You must upgrade the protection agent in a non-active domain environment. The DPM Administrator console shows the protection agent update is pending, until the client computer is connected to the network.
 The following sections describe how to update protection agents for both connected and non-connected client computers.
 
 ### Update a protection agent for a connected client computer
