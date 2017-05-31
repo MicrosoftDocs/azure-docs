@@ -21,7 +21,7 @@ ms.author: douglasl
 # Getting Started with Azure SQL Data Sync (Preview)
 In this tutorial, you learn how to set up Azure SQL Data Sync.
 
-This tutorial assumes that you have at least some prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid sync group containg SQL Server and SQL Database instances. The new sync group is fully configured and synchronizing on the schedule you set.
+This tutorial assumes that you have at least some prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid sync group that contains SQL Server and SQL Database instances. The new sync group is fully configured and synchronizing on the schedule you set.
 
 > [!NOTE]
 > The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .pdf. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
@@ -30,7 +30,7 @@ This tutorial assumes that you have at least some prior experience with SQL Serv
 
 ### Locate the Data Sync settings
 
-1.  In your browser, navigate to the Azure management portal.
+1.  In your browser, navigate to the Azure portal.
 
 2.  In the portal, locate your SQL databases from your Dashboard or from the SQL Databases icon on the toolbar.
 
@@ -46,7 +46,7 @@ This tutorial assumes that you have at least some prior experience with SQL Serv
 
 1.  On the Data Sync blade, select **New Sync Group**. The **New sync group** blade opens with Step 1, **Create sync group**, highlighted. The **Create Data Sync Group** blade also opens.
 
-2.  On the **Create Data Sync Group** blade, do the following things.
+2.  On the **Create Data Sync Group** blade, do the following things:
 
     - In the **Sync Group Name** field, enter a name for the new sync group.
 
@@ -62,7 +62,7 @@ This tutorial assumes that you have at least some prior experience with SQL Serv
 
     ![Specify sync frequency](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
-    - In the **Conflict Resolution** section, select "Hub wins" or "Member wins".
+    - In the **Conflict Resolution** section, select "Hub wins" or "Member wins."
 
     ![Specify how conflicts are resolved](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
@@ -80,7 +80,7 @@ In the **Hub Database** section, enter the existing credentials for the SQL Data
 
 In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** blade opens.
 
-On the **Configure Azure Database** blade, do the following things.
+On the **Configure Azure Database** blade, do the following things:
 
 1.  In the **Sync Member Name** field, provide a name for the new sync member. This name is distinct from the name of the database itself.
 
@@ -104,7 +104,7 @@ On the **Configure Azure Database** blade, do the following things.
 
 In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** blade opens.
 
-On the **Configure On-Premises** blade, do the following things.
+On the **Configure On-Premises** blade, do the following things:
 
 1.  Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** blade opens.
 
@@ -114,7 +114,7 @@ On the **Configure On-Premises** blade, do the following things.
 
     If you chose **Existing agents**, select the existing agent from the list.
 
-    If you chose **Create a new agent**, do the following things.
+    If you chose **Create a new agent**, do the following things:
 
     1.  Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
 
@@ -134,11 +134,11 @@ On the **Configure On-Premises** blade, do the following things.
 
     7.  In the sync agent app, select **Submit Agent Key**. The **Sync Metadata Database Configuration** dialog box opens.
 
-    8.  In the **Sync Metadata Database Configuration** dialog box, paste in the agent key copied from the Azure portal and provide the existing credentials for the Azure SQL Database server on which the metadata database is located. (If you created a new metadata database, this database is on the same server as the hub database.) Select **OK** and wait for the configuration to finish.
+    8.  In the **Sync Metadata Database Configuration** dialog box, paste in the agent key copied from the Azure portal. Also provide the existing credentials for the Azure SQL Database server on which the metadata database is located. (If you created a new metadata database, this database is on the same server as the hub database.) Select **OK** and wait for the configuration to finish.
 
     ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
-    >   [!NOTE] If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can do this manually in the portal, but you may find it easier to do in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database. Enter its name as <hub_database_name>.database.windows.net. Follow the steps in the dialog box to configure the Azure firewall rule. Then return to the Client Sync Agent app.
+    >   [!NOTE] If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as <hub_database_name>.database.windows.net. Follow the steps in the dialog box to configure the Azure firewall rule. Then return to the Client Sync Agent app.
 
     9.  In the Client Sync Agent app, click **Register** to register a SQL Server database with the agent. The **SQL Server Configuration** dialog box opens.
 
@@ -179,7 +179,7 @@ Finally, select **Save**.
 ## Next steps
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
 
-For more info about SQL Database and SQL Data Sync see:
+For more info about SQL Database and SQL Data Sync, see:
 
 -   [Download the complete SQL Data Sync technical documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 -   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
