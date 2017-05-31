@@ -28,18 +28,18 @@ This article discusses how to configure a client application and have it make a 
 
 ## Prerequisite
 
-Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration.md) section.
+Before requesting an access token, you first need to register a web API and publish permissions that can be granted to the client application. Get started by following the steps under the [Register a web API](active-directory-b2c-app-registration.md#register-a-web-api) section.
 
 ## Granting permissions to a web API
 
 In order for a client application to get specific permissions to an API, the client application needs to be granted those permissions via the Azure portal. To grant permissions to a client application:
 
 1. Navigate to the **Applications** menu in the B2C features blade.
-2. Click on your client application ([Register an application](active-directory-b2c-app-registration.md) if you don’t have one).
-3. Select **Api access**.
-4. Click on **Add**.
-5. Select your web API and the scopes (permissions) you would like to grant.
-6. Click **OK**.
+1. Register a client application ([web app](active-directory-b2c-app-registration.md#register-a-web-application) or [native client](active-directory-b2c-app-registration.md#register-a-mobilenative-application)) if you don’t have one already.
+1. On your application's Settings blade, select **Api access**.
+1. Click on **Add**.
+1. Select your web API and the scopes (permissions) you would like to grant.
+1. Click **OK**.
 
 > [!NOTE]
 > Azure AD B2C does not ask your client application users for their consent. Instead, all consent is provided by the admin, based on the permissions configured between the applications described above. If a permission grant for an application is revoked, all users who were previously able to acquire that permission will no longer be able to do so.
@@ -47,6 +47,9 @@ In order for a client application to get specific permissions to an API, the cli
 ## Requesting a token
 
 To get an access token for a resource application, the client application needs to specify the permissions wanted in the **scope** parameter of the request. For example, to acquire the “read” permission for the resource application that has the App ID URI of `https://contoso.onmicrosoft.com/notes`, the scope would be `https://contoso.onmicrosoft.com/notes/read`. Below is an example of an authorization code request to the `authorize` endpoint.
+
+> [!NOTE]
+> At this point, custom domains are not supported along with access tokens. You must use your yourtenantId.onmicrosoft.com domain in the request URL and the scopes.
 
 ```
 https://login.microsoftonline.com/<yourTenantId>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 

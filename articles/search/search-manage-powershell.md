@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure Search with Powershell scripts | Microsoft Docs
 description: Manage your Azure Search service with PowerShell scripts. Create or update an Azure Search service and manage Azure Search admin keys
 services: search
@@ -22,7 +22,6 @@ ms.author: seasa
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](search-get-started-management-api.md)
 > 
 > 
 
@@ -30,7 +29,7 @@ This topic describes the PowerShell commands to perform many of the management t
 These commands parallel the management options available in the [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## Prerequisites
-* You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 * You must be logged in to your Azure subscription in PowerShell as described below.
 
 First, you must login to Azure with this command:

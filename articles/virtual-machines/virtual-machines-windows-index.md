@@ -1,4 +1,4 @@
----
+﻿---
 title: Technical articles for classic Windows VMs | Microsoft Azure
 description: A complete list of Microsoft Azure documentation articles for Windows virtual machines in the classic deployment model
 services: virtual-machines-windows
@@ -25,18 +25,18 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Overview
-[About virtual machines](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About virtual machines](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Frequently asked question about Azure Virtual Machines created with the classic deployment model](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Compare VMs, websites, and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
-[Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Virtual Machines and Containers in Azure](windows/containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Environment setup
 [Free account](https://azure.microsoft.com/free/)
 
-[Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
+[Install Azure PowerShell](/powershell/azure/overview)
 
 [Install Azure CLI](../cli-install-nodejs.md)
 
@@ -50,13 +50,13 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Plan
 [About images for classic virtual machines](windows/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Sizes for virtual machines](windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About H-series and compute-intensive A-series VMs](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Planned maintenance for Azure virtual machines](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Planned maintenance for Azure virtual machines](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Azure infrastructure services implementation guidelines](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure infrastructure services implementation guidelines](windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Create an availability set for virtual machines](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -67,7 +67,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Create and upload a classic Windows Server VHD using PowerShell](windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Automating Azure virtual machine deployment with Chef](windows/chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Create and configure a classic Windows Virtual Machine in Azure PowerShell](windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -84,12 +84,12 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Custom Script extension for classic Windows virtual machines](windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+[Platform-supported migration from classic to Azure Resource Manager](windows/migration-classic-resource-manager-deep-dive.md)
 
 ## Configure
-[How to reset a password or the Remote Desktop service for a Windows VM](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[How to reset a password or the Remote Desktop service for a Windows VM](windows/reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[About virtual machine extensions and features](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About virtual machine extensions and features](windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to install and configure Symantec Endpoint Protection on a Windows VM](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -106,7 +106,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [How to detach a data disk from a classic Windows virtual machine](windows/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Use the D drive as a data drive on a Windows VM](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Use the D drive as a data drive on a Windows VM](windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Networking
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
@@ -127,7 +127,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Django Hello World web application on a Windows Server VM](windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Workloads
-[HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[HPC Pack](windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [MongoDB](windows/classic/install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -148,14 +148,14 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Service Management .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
-[Azure Service Management PowerShell cmdlet reference documentation](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+[Azure Service Management PowerShell cmdlet reference documentation](/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## Troubleshooting
-[Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Troubleshoot Access to an Application Running on an Azure Virtual Machine](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Troubleshoot Access to an Application Running on an Azure Virtual Machine](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Troubleshoot allocation failures when you create, restart, or resize VMs in Azure](virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Troubleshoot allocation failures when you create, restart, or resize VMs in Azure](windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](windows/classic/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

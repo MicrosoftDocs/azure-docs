@@ -13,9 +13,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.custom: loading
+
 
 ---
 # Load data from SQL Server into Azure SQL Data Warehouse (AZCopy)

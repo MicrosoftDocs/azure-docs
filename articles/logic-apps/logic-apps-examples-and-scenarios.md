@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/14/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Examples and common scenarios for Azure Logic Apps
@@ -98,6 +98,7 @@ like Azure Functions, Azure API Management,
 Azure App Services, and custom HTTP endpoints, 
 for example, REST and SOAP.
 
+* [Create a real-time social dashboard with Azure Serverless](logic-apps-scenario-social-serverless.md)
 * [Call Azure Functions from logic apps](../logic-apps/logic-apps-azure-functions.md)
 * [Scenario: Trigger logic apps with Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)

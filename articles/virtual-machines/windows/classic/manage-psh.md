@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage your virtual machines by using Azure PowerShell | Microsoft Docs
 description: Learn commands that you can use to automate tasks in managing your virtual machines.
 services: virtual-machines-windows
@@ -25,7 +25,7 @@ ms.author: kasing
 Many tasks you do each day to manage your VMs can be automated by using Azure PowerShell cmdlets. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
 
 > [!NOTE]
-> If you haven't installed and configured Azure PowerShell yet, you can get instructions in the article [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+> If you haven't installed and configured Azure PowerShell yet, you can get instructions in the article [How to install and configure Azure PowerShell](/powershell/azure/overview).
 > 
 > 
 

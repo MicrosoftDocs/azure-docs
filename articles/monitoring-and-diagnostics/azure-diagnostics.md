@@ -55,7 +55,7 @@ For more advanced topics, see
 
 * [Using Azure Diagnostics with Application Insights for Cloud Services](../application-insights/app-insights-cloudservices.md)
 * [Trace the flow of a Cloud Services application with Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Use PowerShell to set up diagnostics on Cloud Services](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use PowerShell to set up diagnostics on Cloud Services](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Virtual Machines using Azure Diagnostics
 * If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see
@@ -63,8 +63,8 @@ For more advanced topics, see
 
 For more advanced topics, see
 
-* [Use PowerShell to set up diagnostics on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use PowerShell to set up diagnostics on Azure Virtual Machines](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Service Fabric using Azure Diagnostics
 Get started at [Monitor a Service Fabric application](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Many other Service Fabric diagnostics articles are available in the navigation tree on the left once you get to this article.

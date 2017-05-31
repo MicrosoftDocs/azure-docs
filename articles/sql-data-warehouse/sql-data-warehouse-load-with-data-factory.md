@@ -4,7 +4,7 @@ title: Load data into Azure SQL Data Warehouse – Data Factory | Microsoft Docs
 description: This tutorial loads data into Azure SQL Data Warehouse by using Azure Data Factory, and uses a SQL Server database as the data source.
 services: sql-data-warehouse
 documentationcenter: NA
-author: linda33wj
+author: ckarst
 manager: jhubbard
 editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
@@ -14,9 +14,10 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: jingwang;kevin;barbkess
 ms.custom: loading
+ms.date: 02/08/2017
+ms.author: cakarst;barbkess
+
 
 ---
 

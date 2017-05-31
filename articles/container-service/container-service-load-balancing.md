@@ -20,7 +20,7 @@ ms.author: rogardle
 
 ---
 # Load balance containers in an Azure Container Service DC/OS cluster
-In this article, we'll explore how to create an internal load balancer in a a DC/OS managed Azure Container Service using Marathon-LB. This will enable you to scale your applications horizontally. It will also enable you to take
+In this article, we'll explore how to create an internal load balancer in a DC/OS managed Azure Container Service using Marathon-LB. This will enable you to scale your applications horizontally. It will also enable you to take
 advantage of the public and private agent clusters by placing your load balancers on the public cluster and your application containers on the private cluster.
 
 ## Prerequisites
@@ -51,7 +51,7 @@ After installing the DC/OS CLI and ensuring you can connect to your cluster, run
 dcos package install marathon-lb
 ```
 
-This commadn automatically installs the load balancer on the public agents cluster.
+This command automatically installs the load balancer on the public agents cluster.
 
 ## Deploy A Load Balanced Web Application
 Now that we have the marathon-lb package, we can deploy an application container that we wish to load balance. For this example we will deploy a simple web server by using the following configuration:
@@ -91,19 +91,19 @@ Now that we have the marathon-lb package, we can deploy an application container
 
 ```
 
-* Set the value of `HAProxy_0_VHOST` to the FQDN of the load balancer for your agents. This is in the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if you create a Container Service cluster with name `myacs` in region `West US`, the FQDN would be `myacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when you're looking through the resources in the resource group that you created for Container Service in the [Azure portal](https://portal.azure.com).
-* Set the servicePort to a port >= 10,000. This identifies the service that is being run in this container--marathon-lb uses this to identify services that it should balance across.
+* Set the value of `HAPROXY_0_VHOST` to the FQDN of the load balancer for your agents. This is in the form `<acsName>agents.<region>.cloudapp.azure.com`. For example, if you create a Container Service cluster with name `myacs` in region `West US`, the FQDN would be `myacsagents.westus.cloudapp.azure.com`. You can also find this by looking for the load balancer with "agent" in the name when you're looking through the resources in the resource group that you created for Container Service in the [Azure portal](https://portal.azure.com).
+* Set the `servicePort` to a port >= 10,000. This identifies the service that is being run in this container--marathon-lb uses this to identify services that it should balance across.
 * Set the `HAPROXY_GROUP` label to "external".
 * Set `hostPort` to 0. This means that Marathon will arbitrarily allocate an available port.
 * Set `instances` to the number of instances you want to create. You can always scale these up and down later.
 
-It is worth noing that by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the behavior we desire.
+It is worth noting that by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the behavior we desire.
 
 ### Deploy using the DC/OS Web UI
-1. Visit the Marathon page at http://localhost/marathon (after setting up your [SSH tunnel](container-service-connect.md) and click `Create Appliction`
+1. Visit the Marathon page at http://localhost/marathon (after setting up your [SSH tunnel](container-service-connect.md)) and click `Create Application`
 2. In the `New Application` dialog click `JSON Mode` in the upper right corner
 3. Paste the above JSON into the editor
-4. Click `Create Appliction`
+4. Click `Create Application`
 
 ### Deploy using the DC/OS CLI
 To deploy this application with the DC/OS CLI simply copy the above JSON into a file called `hello-web.json`, and run:

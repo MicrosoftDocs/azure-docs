@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 5/09/2017
 ms.author: negat
 ms.custom: na
 
@@ -95,15 +95,19 @@ To securely ship a certificate to the VM, you can install a customer certificate
 Use the following JSON:
 
 ```json
-        "secrets": [ {
-	          "sourceVault": {
-		              "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-		  },
-		  "vaultCertificates": [ {
-		              "certificateUrl": "https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}",
-			      "certificateStore": "certificateStoreName"
-		  } ]
-        } ]
+"secrets": [
+    {
+        "sourceVault": {
+            "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
+        },
+        "vaultCertificates": [
+            {
+                "certificateUrl": "https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}",
+                "certificateStore": "certificateStoreName"
+            }
+        ]
+    }
+]
 ```
 
 The code supports Windows and Linux.
@@ -111,48 +115,48 @@ The code supports Windows and Linux.
 For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### Example: Self-signed certificate
+### Example of Self-signed certificate
 
 1.  Create a self-signed certificate in a key vault.
 
     Use the following PowerShell commands:
 
-  ```powershell
-  Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+    ```powershell
+    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-  Login-AzureRmAccount
+    Login-AzureRmAccount
 
-  Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-  ```
+    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
+    ```
 
-  This command gives you the input for the Azure Resource Manager template.
+    This command gives you the input for the Azure Resource Manager template.
 
-  For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 2.  Change the Resource Manager template.
 
-  Add this property to **virtualMachineProfile**, as part of the virtual machine scale set resource:
+    Add this property to **virtualMachineProfile**, as part of the virtual machine scale set resource:
 
-  ```json 
-  "osProfile": {
-              "computerNamePrefix": "[variables('namingInfix')]",
-              "adminUsername": "[parameters('adminUsername')]",
-              "adminPassword": "[parameters('adminPassword')]",
-              "secrets": [
-                {
-                  "sourceVault": {
+    ```json 
+    "osProfile": {
+        "computerNamePrefix": "[variables('namingInfix')]",
+        "adminUsername": "[parameters('adminUsername')]",
+        "adminPassword": "[parameters('adminPassword')]",
+        "secrets": [
+            {
+                "sourceVault": {
                     "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                  },
-                  "vaultCertificates": [
+                },
+                "vaultCertificates": [
                     {
-                      "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                      "certificateStore": "My"
+                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
+                        "certificateStore": "My"
                     }
-                  ]
-                }
-              ]
+                ]
             }
-  ```
+        ]
+    }
+    ```
   
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?  
@@ -163,20 +167,20 @@ Include **osProfile** in your template:
 
 ```json 
 "osProfile": {
-          "computerName": "[variables('vmName')]",
-          "adminUsername": "[parameters('adminUserName')]",
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": "true",
-            "ssh": {
-              "publicKeys": [
+    "computerName": "[variables('vmName')]",
+    "adminUsername": "[parameters('adminUserName')]",
+    "linuxConfiguration": {
+        "disablePasswordAuthentication": "true",
+        "ssh": {
+            "publicKeys": [
                 {
-                  "path": "[variables('sshKeyPath')]",
-                  "keyData": "[parameters('sshKeyData')]"
+                    "path": "[variables('sshKeyPath')]",
+                    "keyData": "[parameters('sshKeyData')]"
                 }
-              ]
-            }
-          }
+            ]
         }
+    }
+}
 ```
  
 This JSON block is used in 
@@ -200,13 +204,15 @@ If you are providing the VMs only with a public SSH key, you don't need to put t
 You can provide SSH public keys in plain text when you create a Linux VM:
 
 ```json
-"linuxConfiguration": {  
-          "ssh": {  
-            "publicKeys": [ {  
-              "path": "path",
-              "keyData": "publickey"
-            } ]
-          }
+"linuxConfiguration": {
+    "ssh": {
+        "publicKeys": [
+            {
+                "path": "path",
+                "keyData": "publickey"
+            }
+        ]
+    }
 ```
  
 linuxConfiguration element name | Required | Type | Description
@@ -220,7 +226,7 @@ For an example, see [the 101-vm-sshkey GitHub quick start template](https://gith
  
 ### When I run `Update-AzureRmVmss` after adding more than one certificate from the same key vault, I see the following message:
  
-  Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+>Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
  
 This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzureRmVmssSecret` command does not work correctly if you are adding additional secrets.
  
@@ -376,7 +382,7 @@ $extName = "VMAccessAgent"
 $publisher = "Microsoft.Compute"
 $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
 $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName VirtualMachineScaleSet $vmss
+Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
 ```
  
  
@@ -400,28 +406,28 @@ To join a virtual machine scale set to an Azure Active Directory (Azure AD) doma
 To define an extension, use the JsonADDomainExtension property:
 
 ```json
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "joindomain",
-                                "properties": {
-                                    "publisher": "Microsoft.Compute",
-                                    "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.0",
-                                    "settings": {
-                                        "Name": "[parameters('domainName')]",
-                                        "OUPath": "[variables('ouPath')]",
-                                        "User": "[variables('domainAndUsername')]",
-                                        "Restart": "true",
-                                        "Options": "[variables('domainJoinOptions')]"
-                                    },
-                                    "protectedsettings": {
-                                        "Password": "[parameters('domainJoinPassword')]"
-                                    }
-                                }
-                            }
-                        ]
-                    }
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "joindomain",
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "JsonADDomainExtension",
+                "typeHandlerVersion": "1.3",
+                "settings": {
+                    "Name": "[parameters('domainName')]",
+                    "OUPath": "[variables('ouPath')]",
+                    "User": "[variables('domainAndUsername')]",
+                    "Restart": "true",
+                    "Options": "[variables('domainJoinOptions')]"
+                },
+                "protectedsettings": {
+                    "Password": "[parameters('domainJoinPassword')]"
+                }
+            }
+        }
+    ]
+}
 ```
  
 ### My virtual machine scale set extension is trying to install something that requires a reboot. For example, "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
@@ -459,14 +465,49 @@ To execute a custom script that's hosted in a private storage account, set up pr
 
 ## Networking
  
+### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it will apply to all the VM NICs in the set?
+
+Yes. A Network Security Group can be applied directly to a scale set by referencing it in the networkInterfaceConfigurations section of the network profile. Example:
+
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+            "name": "nic1",
+            "properties": {
+                "primary": "true",
+                "ipConfigurations": [
+                    {
+                        "name": "ip1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                            }
+                "loadBalancerInboundNatPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                                }
+                            ],
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                }
+            }
+        }
+    ]
+}
+```
+
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
 To do a VIP swap for virtual machine scale sets in the same subscription and same region, see [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
- 
-  
-### What is the resourceGuid property on a NIC used for?
-
-The resourceGuid property on a network interface card (NIC) is a unique ID. Lower layers will log this ID at some point in the future. 
  
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -501,67 +542,54 @@ To change the number of VMs in a virtual machine scale set, see [Change the inst
 You have some flexibility in how you handle alerts for specified thresholds. For example, you can define customized webhooks. The following webhook example is from a Resource Manager template:
 
 ```json
-   {
-         "type": "Microsoft.Insights/autoscaleSettings",
-	       "apiVersion": "[variables('insightsApi')]",
-	             "name": "autoscale",
-		           "location": "[parameters('resourceLocation')]",
-			         "dependsOn": [
-				         "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-				 ],
-				 "properties": {
-				         "name": "autoscale",
-					 "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-					 "enabled": true,
-					 "notifications": [{
-					 		  "operation": "Scale",
-							  "email": {
-							  	   "sendToSubscriptionAdministrator": true,
-							  	   "sendToSubscriptionCoAdministrators": true,
-							  	   "customEmails": [
-							  		  "youremail@address.com"
-							  	   ]},
-							  "webhooks": [{
-									"serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
-									"properties": {
-										"key1": "custommetric",
-										"key2": "scalevmss"
-									}
-									}
-							  ]}],
+{
+    "type": "Microsoft.Insights/autoscaleSettings",
+    "apiVersion": "[variables('insightsApi')]",
+    "name": "autoscale",
+    "location": "[parameters('resourceLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
+    ],
+    "properties": {
+        "name": "autoscale",
+        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
+        "enabled": true,
+        "notifications": [
+            {
+                "operation": "Scale",
+                "email": {
+                    "sendToSubscriptionAdministrator": true,
+                    "sendToSubscriptionCoAdministrators": true,
+                    "customEmails": [
+                        "youremail@address.com"
+                    ]
+                },
+                "webhooks": [
+                    {
+                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "properties": {
+                            "key1": "custommetric",
+                            "key2": "scalevmss"
+                        }
+                    }
+                ]
+            }
+        ],
 ```
 
 In this example, an alert goes to Pagerduty.com when a threshold is reached.
 
 
 
-## Troubleshooting
+## Patching and operations
 
-### How do I turn on boot diagnostics?
+### How do I create a scale set in an existing resource group?
 
-To turn on boot diagnostics, first, create a storage account. Then, put this JSON block in your virtual machine scale set **virtualMachineProfile**, and update the virtual machine scale set:
+Creating scale sets in an existing resource group is not yet possible from the Azure portal, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
 
-```json
-      "diagnosticsProfile": {
-        "bootDiagnostics": {
-          "enabled": true,
-          "storageUri": "http://yourstorageaccount.blob.core.windows.net"
-        }
-      }
-```
+### Can we move a scale set to another resource group?
 
-When a new VM is created, the InstanceView property of the VM shows the details for the screenshot, and so on. Here's an example:
- 
-```json
-"bootDiagnostics": {
-    "consoleScreenshotBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.screenshot.bmp",
-    "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
-  }
-```
-
- 
-
-## Updates
+Yes, you can move scale set resources to a new subscription or resource group.
 
 ### How to I update my virtual machine scale set to a new image? How do I manage patching?
 
@@ -573,6 +601,31 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+
+
+## Troubleshooting
+
+### How do I turn on boot diagnostics?
+
+To turn on boot diagnostics, first, create a storage account. Then, put this JSON block in your virtual machine scale set **virtualMachineProfile**, and update the virtual machine scale set:
+
+```json
+"diagnosticsProfile": {
+    "bootDiagnostics": {
+        "enabled": true,
+        "storageUri": "http://yourstorageaccount.blob.core.windows.net"
+    }
+}
+```
+
+When a new VM is created, the InstanceView property of the VM shows the details for the screenshot, and so on. Here's an example:
+ 
+```json
+"bootDiagnostics": {
+    "consoleScreenshotBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.screenshot.bmp",
+    "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
+  }
+```
 
 
 ## Virtual machine properties

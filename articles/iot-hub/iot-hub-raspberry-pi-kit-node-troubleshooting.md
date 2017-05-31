@@ -8,6 +8,9 @@ manager: timlt
 tags: ''
 keywords: 'iot issues, internet of things problems'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
+
 ms.assetid: 22cf50dc-8206-42a2-a1fc-f75fa85135fa
 ms.service: iot-hub
 ms.devlang: node

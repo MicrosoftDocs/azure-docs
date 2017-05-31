@@ -19,7 +19,7 @@ ms.author: danlep
 
 ---
 # Set up a Linux RDMA cluster to run MPI applications
-Learn how to set up a Linux RDMA cluster in Azure with [H-series or compute-intensive A-series VMs](../../virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the RDMA-capable Azure VM sizes (currently H16r, H16mr, A8, or A9). Use the cluster to run MPI applications that communicate efficiently over a low-latency, high-throughput network based on remote direct memory access (RDMA) technology.
+Learn how to set up a Linux RDMA cluster in Azure with [H-series or compute-intensive A-series VMs](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the RDMA-capable Azure VM sizes (currently H16r, H16mr, A8, or A9). Use the cluster to run MPI applications that communicate efficiently over a low-latency, high-throughput network based on remote direct memory access (RDMA) technology.
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
@@ -81,7 +81,7 @@ Where:
 
 
 ### Customize the VM
-After the VM finishes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and then customize it. For connection details, see [How to log on to a virtual machine running Linux](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
+After the VM finishes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and then customize it. For connection details, see [How to log on to a virtual machine running Linux](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
 
 > [!IMPORTANT]
 > Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user to the VM, run commands by using `sudo`.

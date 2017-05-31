@@ -3,7 +3,7 @@ title: SQL Data Warehouse capacity limits | Microsoft Docs
 description: Maximum values for connections, databases, tables and queries for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess;jrj
+ms.author: kevin;barbkess
 
 ---
 # SQL Data Warehouse capacity limits

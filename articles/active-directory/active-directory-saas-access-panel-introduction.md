@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/16/2017
 ms.author: markvi
 
 ms.custom: H1Hack27Feb2017
@@ -57,7 +57,7 @@ After authentication, users can interact with the applications that the administ
 ## Web browser requirements
 At a minimum, the Access Panel requires a browser that supports JavaScript and has CSS enabled. For the user to be signed in to applications through password-based single sign-on (SSO), the Access Panel extension must be installed in the user’s browser. This extension is downloaded automatically when a user selects an application that is configured for password-based SSO.
 
-The Access Panel extension is currently available for Internet Explorer 8 and later, Chrome, and Firefox browsers.
+The Access Panel extension is currently available for Internet Explorer 8 and later, Edge, Chrome, and Firefox browsers.
 
 ## Mobile app support
 The Azure Active Directory team publishes the My Apps mobile app. When users install this app, they can sign in to password-based SSO applications on iOS and Android devices.

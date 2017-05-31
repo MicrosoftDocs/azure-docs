@@ -28,7 +28,7 @@ This article explains how to create a virtual machine (VM) through the Azure Res
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
-If you want to create a VM with multiple IP addresses, or a static private IP address, you must create it using PowerShell or the Azure CLI. Click the PowerShell or CLI options at the top of this article to learn how. You can create a VM with a single dynamic private IP address and (optionally) a single public IP address using the portal by following the steps in the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) articles. After you create the VM, you can change the IP address type from dynamic to static and add additional IP addresses using the portal by following steps in the [Add IP addresses to a VM](#add) section of this article.
+If you want to create a VM with multiple IP addresses, or a static private IP address, you must create it using PowerShell or the Azure CLI. Click the PowerShell or CLI options at the top of this article to learn how. You can create a VM with a single dynamic private IP address and (optionally) a single public IP address using the portal by following the steps in the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) articles. After you create the VM, you can change the IP address type from dynamic to static and add additional IP addresses using the portal by following steps in the [Add IP addresses to a VM](#add) section of this article.
 
 ## <a name="add"></a>Add IP addresses to a VM
 

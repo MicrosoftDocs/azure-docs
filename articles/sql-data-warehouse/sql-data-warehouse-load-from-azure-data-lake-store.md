@@ -13,9 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-ms.custom: loading
+
 
 ---
 # Load data from Azure Data Lake Store into SQL Data Warehouse
@@ -37,6 +38,7 @@ To run this tutorial, you need:
 
 >[!NOTE] 
 > You need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.
+>Note for Azure Active Directory App Registration use the 'Application ID' as the Client ID.
 
 * SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect see [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
@@ -76,6 +78,12 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.windows.net/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 
@@ -92,7 +100,7 @@ You can find the ADL URI in the Azure portal and www.portal.azure.com.
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
+    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalakestore.net',
     CREDENTIAL = ADLCredential
 );
 ```
@@ -157,7 +165,7 @@ Creating an external table is easy, but there are some nuances that need to be d
 Loading data with PolyBase is strongly typed. This means that each row of the data being ingested must satisfy the table schema definition.
 If a given row does not match the schema definition, the row is rejected from the load.
 
-The Reject Type and Reject Value allows you to define how many rows or what percentage of the data must be present in the final table.
+The REJECT_TYPE and REJECT_VALUE options allow you to define how many rows or what percentage of the data must be present in the final table.
 During load, if the reject value is reached, the load fails. The most common cause of rejected rows is a schema definition mismatch.
 For example, if a column is incorrectly given the schema of int when the data in the file is a string, every row will fail to load.
 

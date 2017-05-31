@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 05/04/2017
 ms.author: jingwang
 
 ---
 # Move data From MongoDB using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premsies MongoDB database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises MongoDB database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 You can copy data from an on-premises MongoDB data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a MongoDB data store to other data stores, but not for moving data from other data stores to an MongoDB datastore. 
 
@@ -49,6 +49,44 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises MongoDB data store, see [JSON example: Copy data from MongoDB to Azure Blob](#json-example-copy-data-from-mongodb-to-azure-blob) section of this article. 
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to MongoDB source:
+
+## Linked service properties
+The following table provides description for JSON elements specific to **OnPremisesMongoDB** linked service.
+
+| Property | Description | Required |
+| --- | --- | --- |
+| type |The type property must be set to: **OnPremisesMongoDb** |Yes |
+| server |IP address or host name of the MongoDB server. |Yes |
+| port |TCP port that the MongoDB server uses to listen for client connections. |Optional, default value: 27017 |
+| authenticationType |Basic, or Anonymous. |Yes |
+| username |User account to access MongoDB. |Yes (if basic authentication is used). |
+| password |Password for the user. |Yes (if basic authentication is used). |
+| authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |Optional (if basic authentication is used). default: uses the admin account and the database specified using databaseName property. |
+| databaseName |Name of the MongoDB database that you want to access. |Yes |
+| gatewayName |Name of the gateway that accesses the data store. |Yes |
+| encryptedCredential |Credential encrypted by gateway. |Optional |
+
+## Dataset properties
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
+
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| collectionName |Name of the collection in MongoDB database. |Yes |
+
+## Copy activity properties
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
+
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+
+When the source is of type **MongoDbSource** the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query |Use the custom query to read data. |SQL-92 query string. For example: select * from MyTable. |No (if **collectionName** of **dataset** is specified) |
+
+
 
 ## JSON example: Copy data from MongoDB to Azure Blob
 This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MongoDB to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
@@ -154,7 +192,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%M"
+                        "format": "MM"
                     }
                 },
                 {
@@ -162,7 +200,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%d"
+                        "format": "dd"
                     }
                 },
                 {
@@ -170,7 +208,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
                     "value": {
                         "type": "DateTime",
                         "date": "SliceStart",
-                        "format": "%H"
+                        "format": "HH"
                     }
                 }
             ]
@@ -233,43 +271,6 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 }
 ```
 
-## Linked service properties
-The following table provides description for JSON elements specific to **OnPremisesMongoDB** linked service.
-
-| Property | Description | Required |
-| --- | --- | --- |
-| type |The type property must be set to: **OnPremisesMongoDb** |Yes |
-| server |IP address or host name of the MongoDB server. |Yes |
-| port |TCP port that the MongoDB server uses to listen for client connections. |Optional, default value: 27017 |
-| authenticationType |Basic, or Anonymous. |Yes |
-| username |User account to access MongoDB. |Yes (if basic authentication is used). |
-| password |Password for the user. |Yes (if basic authentication is used). |
-| authSource |Name of the MongoDB database that you want to use to check your credentials for authentication. |Optional (if basic authentication is used). default: uses the admin account and the database specified using databaseName property. |
-| databaseName |Name of the MongoDB database that you want to access. |Yes |
-| gatewayName |Name of the gateway that accesses the data store. |Yes |
-| encryptedCredential |Credential encrypted by gateway. |Optional |
-
-See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises MongoDB data source.
-
-## Dataset properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
-
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **MongoDbCollection** has the following properties:
-
-| Property | Description | Required |
-| --- | --- | --- |
-| collectionName |Name of the collection in MongoDB database. |Yes |
-
-## Copy activity properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
-
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
-
-When the source is of type **MongoDbSource** the following properties are available in typeProperties section:
-
-| Property | Description | Allowed values | Required |
-| --- | --- | --- | --- |
-| query |Use the custom query to read data. |SQL-92 query string. For example: select * from MyTable. |No (if **collectionName** of **dataset** is specified) |
 
 ## Schema by Data Factory
 Azure Data Factory service infers schema from a MongoDB collection by using the latest 100 documents in the collection. If these 100 documents do not contain full schema, some columns may be ignored during the copy operation.
@@ -348,9 +349,11 @@ Table “ExampleTable_Ratings”:
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-> [!NOTE]
-> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+## Map source to sink columns
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 
+## Repeatable read from relational sources
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
