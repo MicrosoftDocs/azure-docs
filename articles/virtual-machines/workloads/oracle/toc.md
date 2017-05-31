@@ -5,3 +5,5 @@
 # Tutorials
 ## [Configuring Oracle ASM](asm-configuration.md)
 ## [Configuring Oracle DataGuard](configuring-oracle-dataguard.md)
+## [Configuring Oracle GoldenGate](configure-oracle-golden-gate.md)
+
