@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 04/10/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 
 # Bind a custom SSL certificate to a web app
