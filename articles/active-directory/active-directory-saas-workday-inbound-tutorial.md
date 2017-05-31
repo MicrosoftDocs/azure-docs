@@ -59,7 +59,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [Azure AD Connect](connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
 
 > [!NOTE]
-> If your Azure AD tenant is located in Europe, please see the [Known issues] section below.
+> If your Azure AD tenant is located in Europe, please see the [Known issues](#known-issues) section below.
 
 
 ### Solution architecture
@@ -275,7 +275,6 @@ Follow these instructions to configure user account provisioning from Workday to
 ![Azure portal](./media/active-directory-saas-workday-inbound-tutorial/WD_1.PNG)
 
 ### Part 2: Configure attribute mappings 
-
 
 In this section, you will configure how user data flows from Workday to
 Active Directory.
@@ -723,7 +722,7 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 
 ## Known issues
 
-* **Audit logs in European locales** - As of the release of this technical preview, there is a known issue with the (audit logs)[active-directory-saas-provisioning-reporting.md] for the Workday connector apps not appearing in the [Azure portal](https://portal.azure.com). A fix for this issue is forthcoming. Please check this space again in the near future for updates. 
+* **Audit logs in European locales** - As of the release of this technical preview, there is a known issue with the [audit logs](active-directory-saas-provisioning-reporting.md) for the Workday connector apps not appearing in the [Azure portal](https://portal.azure.com) if the Azure AD tenant resides in a European data center. A fix for this issue is forthcoming. Please check this space again in the near future for updates. 
 
 ## Additional resources
 * [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
