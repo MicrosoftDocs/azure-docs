@@ -47,8 +47,8 @@ This step assuming you have an Oracle instance (cdb1) running on a virtual machi
 Run the *oracle* superuser, and then initialize the listener:
 
     ```bash
-    sudo su - oracle
-    [oracle@myVM /]$ lsnrctl start
+    $ sudo su - oracle
+    $ lsnrctl start
     Copyright (c) 1991, 2014, Oracle.  All rights reserved.
 
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
