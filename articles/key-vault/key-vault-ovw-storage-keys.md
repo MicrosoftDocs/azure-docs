@@ -13,7 +13,7 @@ Before Azure Key Vault Storage Account Keys, developers had to manage their own 
 
 The Key Vault ASA key feature adds value through managing secret rotation for you. It also removes the need for your direct contact with an Azure Storage Account key by offering shared access signatures (SAS) as a method. 
 
-Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key. *(BRP - Such as?)*
+Also, Key Vault ASA keys are useful beyond Azure Storage Account. You can perform a wide range of operations with a Key Vault ASA key such as list and regenerate keys.
 
 For more general information on Azure Storage accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -33,9 +33,7 @@ Key Vault performs several internal management functions on your behalf when you
     - Key values are never returned in response to caller. 
     - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts. 
 2. Azure Key Vault allows you, the vault/object owner, to create SAS (account or service SAS) definitions. 
-    - The SAS value, created using SAS definition, is returned as a secret via /secrets route.
-
-    *BRP - Is "/secrets route" referring to a general CS method or is this a REST term. Would pathway be a better general term?*
+    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path.
 
 ### Naming guidance
 
@@ -43,10 +41,7 @@ Storage account names must be between 3 and 24 characters in length and may cont
  
 A SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z.
 
-
-## Developer experience
-
-*BRP - This section was in spec but I'm not sure it adds much value here given the realestate it takes up. I think our well commented examples would do this best.* 
+## Developer experience 
 
 ### Before Azure Key Vault Storage Keys 
 
@@ -80,8 +75,7 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 // and update the accountSasCredential accountSasCredential.UpdateSASToken(sasToken); 
  ```
  
-
-### Developer best practices 
+ ### Developer best practices 
 
 1. Allow only Key Vault to manage your ASA keys. Do not attempt to manage them yourself as your manual management interferes with Key Vault's processes. 
 2. Do not allow ASA keys to be managed by more than one key vault object. 
@@ -102,7 +96,7 @@ Key Vault needs permissions to list and regenerate keys for a storage account. S
 For a classic account set the role parameter to 'Classic Storage Account Key Operator Service Role'. 
 
 >[!NOTE]
->The Key Vault identity might be invisible in tenants which had vaults created before <date>*(BRP - what's the date?)*. As a workaround, you can create a new vault and delete it to make Key Vault’s identity visible in these tenants.
+>The Key Vault identity might be invisible in tenants which had vaults created before <date>. As a workaround, you can create a new vault and delete it to make Key Vault’s identity visible in these tenants.
 
 ### Storage account onboarding 
 
@@ -121,8 +115,6 @@ Some supporting examples:
 If the identity, via OBO token, does not have regenerate permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails as a bad request with an appropriate error code and message. 
 
 The OBO token will only work when you use first-party, native client applications of either PowerShell or CLI.
-
-
 
 ## Other information
 
