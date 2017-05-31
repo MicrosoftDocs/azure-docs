@@ -343,26 +343,8 @@
       href: sql-database-design-patterns-multi-tenancy-saas-applications.md
     - name: SaaS security
       href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: SaaS tutorial  
-      items:
-      - name: Sample SaaS app overview
-        href: sql-database-wtp-overview.md
-      - name: Deploy the SaaS sample
-        href: sql-database-saas-tutorial.md
-      - name: Provision/catalog new tenants
-        href: sql-database-saas-tutorial-provision-and-catalog.md
-      - name: Monitor performance
-        href: sql-database-saas-tutorial-performance-monitoring.md
-      - name: Monitor with log analytics
-        href: sql-database-saas-tutorial-log-analytics.md
-      - name: Restore a single tenant
-        href: sql-database-saas-tutorial-restore-single-tenant.md
-      - name: Manage tenant schemas
-        href: sql-database-saas-tutorial-schema-management.md
-      - name: Run ad-hoc analytics
-        href: sql-database-saas-tutorial-adhoc-analytics.md
-      - name: Run tenant analytics
-        href: sql-database-saas-tutorial-tenant-analytics.md   
+    - name: SaaS app tutorial
+      href: sql-database-wtp-overview.md
 - name: Reference
   items:
   - name: PowerShell
@@ -442,7 +424,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Elastic pool custom dashboard
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-    - name: Sample SaaS tutorial
-    - href: sql-database-wtp-overview.md
-    
-
