@@ -4,7 +4,7 @@ description: 'Application Performance Monitoring for Java web apps with Applicat
 services: application-insights
 documentationcenter: java
 author: harelbr
-manager: douge
+manager: carmonm
 
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/02/2016
-ms.author: awills
+ms.date: 03/14/2017
+ms.author: cfreeman
 
 ---
 # Get started with Application Insights in a Java web project
@@ -372,6 +372,10 @@ You'll get charts of response times, plus email notifications if your site goes 
 ## Questions? Problems?
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## Next steps
 * [Monitor dependency calls](app-insights-java-agent.md)
 * [Monitor Unix performance counters](app-insights-java-collectd.md)
@@ -390,4 +394,4 @@ You'll get charts of response times, plus email notifications if your site goes 
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md

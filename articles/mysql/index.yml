@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Database for MySQL Documentation
+metadata:
+  document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
+  title: Azure MySQL Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Azure Database for MySQL is a relational database service in the Microsoft cloud built for developers based on the open source MySQL database engine.
+  services: mysql
+  author: jasonh
+  manager: jhubbard
+  ms.service: mysql
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/13/2017
+  ms.author: jasonh
+abstract:
+  description: Azure Database for MySQL is a relational database service based on the open source MySQL Server engine.  It is a fully managed database as a service offering capable of handing mission-critical workload with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create a MySQL database on Azure using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to design your database and develop apps:'
+  - type: list
+    style: ordered
+    items:
+    - html: Design a Database&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>
+    - html: Create a Web App&#58; <a href="../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>

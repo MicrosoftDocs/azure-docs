@@ -15,7 +15,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/7/2017
+ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 
 ---
@@ -46,7 +46,7 @@ The size of the cache folder determines the amount of data that you are backing 
 No. The vault is created at a subscription level and cannot be reassigned to another subscription once it’s created.
 
 ### Recovery Services vaults are Resource Manager based. Are Backup vaults (classic mode) still supported? <br/>
-Yes, Backup vaults are still supported. Create Backup vaults in the [Classic portal](https://manage.windowsazure.com). Create Recovery Services vaults in the [Azure portal](https://portal.azure.com). We recommend you create Recovery Services vaults because future enhancements will apply to Recovery Services vaults, only.
+All existing Backup vaults in the [classic portal](https://manage.windowsazure.com) continue to be supported. However, you can no longer use the classic portal to deploy new Backup vaults. Microsoft recommends using Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only. If you attempt to create a Backup vault in the classic portal, you will be redirected to the [Azure portal](https://portal.azure.com).
 
 ### Can I migrate a Backup vault to a Recovery Services vault? <br/>
 Unfortunately no, you can't migrate the contents of a Backup vault to a Recovery Services vault. We are working on adding this functionality, but it is not currently available.
@@ -63,7 +63,7 @@ Classic VM recovery points in a backup vault don't automatically migrate to a Re
 
 
 
-## Backup agent
+## Azure Backup agent
 
 ### Where can I download the latest Azure Backup agent? <br/>
 You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from [here](http://aka.ms/azurebackup_agent). If you want to back up a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.
@@ -163,7 +163,7 @@ We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azur
 To use Azure Backup with System Center Data Protection Manager (DPM), install DPM first and then install Azure Backup agent. Installing the Azure Backup components in this order ensures the Azure Backup agent works with DPM. Installing the Azure Backup agent before installing DPM is not advised or supported.
 
 
-## How backup works
+## How Azure Backup works
 
 ### Does the Azure Backup agent work on a server that uses Windows Server 2012 deduplication? <br/>
 Yes. The agent service converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the online backup service.
@@ -182,6 +182,10 @@ Yes. You can run backup jobs on Windows Server or Windows workstations up to thr
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data I backed up?<br/>
  All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
+ ### Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
+  Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](backup-configure-vault.md#enable-network-throttling)**.
+
+
 
 ## What can I back up
 
@@ -197,6 +201,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 | Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 and latest SPs |64 bit |Datacenter, Foundation, Standard |
+| Windows Storage Server 2016 and latest SPs |64 bit |Standard, Workgroup | 
 | Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 and latest SPs |64 bit |Essential |
@@ -205,7 +210,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 
 **For Azure VM backup:**
 
-* **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
+* **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/linux/endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
 * **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
 
@@ -232,8 +237,6 @@ The following table explains how each data source size is determined.
 
 
 
-
-
 ## Retention policy and recovery points
 
 ### Is there a difference between the retention policy for DPM and Windows Server/client (that is, on Windows Server without DPM)?<br/>
@@ -252,7 +255,7 @@ No. Retention policies can only be applied on backup points. In the following im
 No, the incremental copy is sent based on the time mentioned in the backup schedule page. The points that can be retained are determined based on the retention policy.
 
 ### If a backup is retained for a long duration, does it take more time to recover an older data point? <br/>
- No – the time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.
+No – the time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.
 
 ### If each recovery point is like a full point, does it impact the total billable backup storage?<br/>
 Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum. Learn more on how [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) save are efficient.
@@ -264,29 +267,23 @@ You can create up to 9999 recovery points per protected instance. A protected in
 There is no limit on the number of recoveries from Azure Backup.
 
 ### When restoring data, do I pay for the egress traffic from Azure? <br/>
- No. Your recoveries are free and you are not charged for the egress traffic.
+No. Your recoveries are free and you are not charged for the egress traffic.
+
+### I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
+This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
 
 
-## Encryption
+
+## Azure Backup encryption
 
 ### Is the data sent to Azure encrypted? <br/>
 Yes. Data is encrypted on the on-premises server/client/SCDPM machine using AES256 and the data is sent over a secure HTTPS link.
 
 ### Is the backup data on Azure encrypted as well?<br/>
- Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point. When backing up an Azure VM, Azure Backup relies on encryption of the virtual machine. For example, if your VM is encrypted using Azure Disk Encryption, or some other encryption technology, Azure Backup uses that encryption to secure your data.
+Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point. When backing up an Azure VM, Azure Backup relies on encryption of the virtual machine. For example, if your VM is encrypted using Azure Disk Encryption, or some other encryption technology, Azure Backup uses that encryption to secure your data.
 
 ### What is the minimum length of encryption key used to encrypt backup data? <br/>
- The encryption key should be at least 16 characters.
+The encryption key should be at least 16 characters.
 
 ### What happens if I misplace the encryption key? Can I recover the data (or) can Microsoft recover the data? <br/>
 The key used to encrypt the backup data is present only on the customer premises. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the customer misplaces the key, Microsoft cannot recover the backup data.
-
-
-
-## I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
-This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
-
-
-
-## Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
- Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](backup-configure-vault.md#enable-network-throttling)** in the article, [Back up a Windows Server or client to Azure using the Resource Manager deployment model.

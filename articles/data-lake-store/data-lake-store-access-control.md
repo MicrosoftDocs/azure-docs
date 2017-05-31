@@ -326,9 +326,11 @@ No.
 
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
 
-* [POSIX 1003.1e 1997](http://users.suse.com/~agruen/acl/posix/Posix_1003.1e-990310.pdf)
+* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 
-* [POSIX ACL on Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
+* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+
+* [POSIX ACL on Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 
 * [ACL using access control lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 

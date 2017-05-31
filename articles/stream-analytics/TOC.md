@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
@@ -32,23 +32,33 @@
 
 ## Manage
 ### [Job reliability](stream-analytics-job-reliability.md)
-### [Monitor jobs](stream-analytics-monitoring.md)
-### [Diagnostic logs](stream-analytics-job-diagnostic-logs.md)
 ### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)
 ### [Monitor jobs with PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Scale to increase throughput](stream-analytics-scale-jobs.md)
 ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Troubleshoot
+### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
+### [Monitor jobs](stream-analytics-monitoring.md)
+### [Resource health blade](stream-analytics-resource-health.md)
+### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
+### [Test queries](stream-analytics-test-query.md)
+### [Sample input data](stream-analytics-sample-data-input.md)
+### [SELECT INTO debugging](stream-analytics-select-into.md)
+### [Event order handling](stream-analytics-out-of-order-and-late-events.md)
+### [Event hub reader limits](stream-analytics-event-hub-consumer-groups.md)
+### [Optimize Streaming Units](stream-analytics-streaming-unit-consumption.md)
+### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md)
+
 ## Automate
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
-## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
+## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Resources
 ## [Release notes](stream-analytics-release-notes.md)

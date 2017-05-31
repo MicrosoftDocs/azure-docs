@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # ASP.NET web app sign-in and sign-out with Azure AD
@@ -42,8 +43,8 @@ To set up the app to authenticate users, first register it in your tenant by doi
 5. Follow the prompts to create a new **Web Application and/or WebAPI**.
   * **Name** describes the app to users.
   * **Sign-On URL** is the base URL of the app. The skeleton's default URL is https://localhost:44320/.
-  * **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 6. After you've completed the registration, Azure AD assigns the app a unique application ID. Copy the value from the app page to use in the next sections.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
 In this step, you configure the OWIN middleware to use the OpenID Connect authentication protocol. You use OWIN to issue sign-in and sign-out requests, manage user sessions, get user information, and so forth.
@@ -84,6 +85,15 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
                  ClientId = clientId,
                  Authority = authority,
                  PostLogoutRedirectUri = postLogoutRedirectUri,
+                 Notifications = new OpenIdConnectAuthenticationNotifications
+                    {
+                        AuthenticationFailed = context =>
+                        {
+                            context.HandleResponse();
+                            context.Response.Redirect("/Error?message=" + context.Exception.Message);
+                            return Task.FromResult(0);
+                        }
+                    }
              });
      }
      ```

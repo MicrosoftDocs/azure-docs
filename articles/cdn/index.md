@@ -19,7 +19,7 @@ Learn how to use Content Delivery Network (CDN) to deliver high-bandwidth conten
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/best-practices-CDN">
+        <a href="/azure/best-practices-cdn">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +47,7 @@ Learn how to use Content Delivery Network (CDN) to deliver high-bandwidth conten
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
+                        <h3>Azure CDN Video Library</h3>
                     </div>
                 </div>
             </div>

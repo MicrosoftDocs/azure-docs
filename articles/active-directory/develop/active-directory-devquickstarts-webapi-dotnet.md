@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # Help protect a web API by using bearer tokens from Azure AD
@@ -50,9 +51,10 @@ To help secure your application, you first need to create an application in your
 5. Follow the prompts and create a new **Web Application and/or Web API**.
   * **Name** describes your application to users. Enter **To Do List Service**.
   * **Redirect Uri** is a scheme and string combination that Azure AD uses to return any tokens that your app has requested. Enter `https://localhost:44321/` for this value.
-  * For **AppID URI**, enter a tenant-specific identifier. For example, enter `https://contoso.onmicrosoft.com/TodoListService`.
-  
-6. Save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
+
+6. From the **Settings** -> **Properties** page for your application, update the App ID URI. Enter a tenant-specific identifier. For example, enter `https://contoso.onmicrosoft.com/TodoListService`.
+
+7. Save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
 To validate incoming requests and tokens, you need to set up your application to communicate with Azure AD.

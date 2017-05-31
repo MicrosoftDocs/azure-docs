@@ -3,18 +3,18 @@ title: How to use Blob Storage from Xamarin | Microsoft Docs
 description: The Azure Storage Client Library for Xamarin enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an application that uses Azure Blob storage.
 services: storage
 documentationcenter: xamarin
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 
 ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
+ms.date: 05/11/2017
+ms.author: michaelhauss
 
 ---
 # How to use Blob Storage from Xamarin
@@ -28,7 +28,7 @@ Xamarin enables developers to use a shared C# codebase to create iOS, Android, a
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Create a new Xamarin Application
-For this tutorial, we'll be creating an app that targets Android, iOS, and Windows. This app will simply create a container and upload a blob into this container. We'll be using Visual Studio on Windows, but the same learnings can be applied when creating an app using Xamarin Studio on Mac OS.
+For this tutorial, we'll be creating an app that targets Android, iOS, and Windows. This app will simply create a container and upload a blob into this container. We'll be using Visual Studio on Windows, but the same learnings can be applied when creating an app using Xamarin Studio on macOS.
 
 Follow these steps to create your application:
 

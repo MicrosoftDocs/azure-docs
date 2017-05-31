@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -22,7 +22,7 @@ ms.author: carlrab
 # SQL Server database migration to SQL Database in the cloud
 In this article, you learn about the two primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
 
-In both cases, you need to ensure that the source database is compatible with Azure SQL Database. With SQL Database V12, we are approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
+In both cases, you need to ensure that the source database is compatible with Azure SQL Database using the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 is approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
 
 > [!NOTE]
 > To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
@@ -30,7 +30,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
 ## Method 1: Migration with downtime during the migration
 
- Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration.
+ Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
 
 The following list contains the general workflow for a SQL Server database migration using this method.
 
@@ -40,8 +40,8 @@ The following list contains the general workflow for a SQL Server database migra
 2. Prepare any necessary fixes as Transact-SQL scripts.
 3. Make a transactionally consistent copy of the source database being migrated - and ensure no further changes are being made to the source database (or you can manually apply any such changes after the migration completes). There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
-5. [Export](sql-database-export-sqlpackage.md) the database copy to a .BACPAC file on a local drive.
-6. [Import](sql-database-import-sqlpackage.md) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
+5. [Export](sql-database-export.md) the database copy to a .BACPAC file on a local drive.
+6. [Import](sql-database-import.md) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
 
 ### Optimizing data transfer performance during migration 
 

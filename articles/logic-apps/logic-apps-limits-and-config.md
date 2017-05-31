@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Logic App limits and configuration
@@ -66,9 +66,9 @@ These are limits for a single logic app run.
 
 |Name|Limit|Notes|
 |----|----|----|
-|ForEach items|5,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
+|ForEach items|100,000|You can use the [query action](../connectors/connectors-native-query.md) to filter larger arrays as needed|
 |Until iterations|5,000||
-|SplitOn items|5,000||
+|SplitOn items|100,000||
 |ForEach Parallelism|20|You can set to a sequential foreach by adding `"operationOptions": "Sequential"` to the `foreach` action|
 
 
@@ -78,8 +78,13 @@ These are limits for a single logic app instance.
 
 |Name|Limit|Notes|
 |----|----|----|
-|Actions executions per second (bursts)|1,000|Can distribute workload across multiple apps as needed|
-|Actions executions per hour (sustained)|1,000,000|Can distribute workload across multiple apps as needed|
+|Actions executions per 5 minutes |100,000|Can distribute workload across multiple apps as needed|
+|Actions concurrent outgoing calls |~2,500|Decrease number of concurrent requests or reduce the duration as needed|
+|Runtime endpoint concurrent incoming calls |~1,000|Decrease number of concurrent requests or reduce the duration as needed|
+|Runtime endpoint read calls per 5 minutes |60,000|Can distribute workload across multiple apps as needed|
+|Runtime endpoint invoke calls per 5 minutes |45,000|Can distribute workload across multiple apps as needed|
+
+If you expect to exceed this limit in normal processing or wish to run load testing that may exceed this limit for a period of time please [contact us](mailto://logicappsemail@microsoft.com) so that we can help with your requirements.
 
 ### Definition limits
 
@@ -106,6 +111,10 @@ These are limits for artifacts added to integration Account
 |----|----|----|
 |Schema|8MB|You can use [blob URI](logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB |
 |Map (XSLT file)|2MB| |
+|Runtime endpoint read calls per 5 minutes |60,000|Can distribute workload across multiple accounts as needed|
+|Runtime endpoint invoke calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
+|Runtime endpoint tracking calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
+|Runtime endpoint blocking concurrent calls |~1,000|Decrease number of concurrent requests or reduce the duration as needed|
 
 ### B2B protocols (AS2, X12, EDIFACT) message size
 
@@ -130,6 +139,8 @@ Calls made from a logic app directly (i.e. via [HTTP](../connectors/connectors-n
 |Australia East|13.75.153.66, 104.210.89.222, 104.210.89.244, 13.75.149.4, 104.210.91.55, 104.210.90.241|
 |Australia Southeast|13.73.115.153, 40.115.78.70, 40.115.78.237, 13.73.114.207, 13.77.3.139, 13.70.159.205|
 |Brazil South|191.235.86.199, 191.235.95.229, 191.235.94.220, 191.235.82.221, 191.235.91.7, 191.234.182.26|
+|Canada Central|52.233.29.92,52.228.39.241,52.228.39.244|
+|Canada East|52.232.128.155,52.229.120.45,52.229.126.25|
 |Central India|52.172.157.194, 52.172.184.192, 52.172.191.194, 52.172.154.168, 52.172.186.159, 52.172.185.79|
 |Central US|13.67.236.76, 40.77.111.254, 40.77.31.87, 13.67.236.125, 104.208.25.27, 40.122.170.198|
 |East Asia|168.63.200.173, 13.75.89.159, 23.97.68.172, 13.75.94.173, 40.83.127.19, 52.175.33.254|
@@ -155,6 +166,8 @@ Calls made from a [connector](../connectors/apis-list.md) will come from the IP 
 |Australia East|40.126.251.213|
 |Australia Southeast|40.127.80.34|
 |Brazil South|191.232.38.129|
+|Canada Central|52.233.31.197,52.228.42.205,52.228.33.76,52.228.34.13|
+|Canada East|52.229.123.98,52.229.120.178,52.229.126.202,52.229.120.52|
 |Central India|104.211.98.164|
 |Central US|40.122.49.51|
 |East Asia|23.99.116.181|

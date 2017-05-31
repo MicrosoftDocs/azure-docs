@@ -3,7 +3,7 @@ title: Azure AD Node.js Getting Started | Microsoft Docs
 description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
+ms.custom: aaddev
 
 ---
 # Get started with web APIs for Node.js
@@ -67,11 +68,11 @@ To create an application:
 
       * The **Sign-On URL** is the base URL of your app.  The default URL of the sample code is `https://localhost:8080`.
 
-      * The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, for example:     `https://contoso.onmicrosoft.com/my-first-aad-app`.
-
 6. After you register, Azure AD assigns your app a unique Application ID. You need this value in the next sections, so copy it from the application page.
 
-7. Create a **Key** for your application from the **Settings** page, and then copy it somewhere. You'll need it shortly.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+
+8. Create a **Key** for your application from the **Settings** page, and then copy it somewhere. You'll need it shortly.
 
 ## Step 3: Download Node.js for your platform
 To successfully use this sample, you must have a working installation of Node.js.

@@ -20,7 +20,7 @@ ms.author: eugenesh
 # Connecting Azure SQL Database to Azure Search using indexers
 Azure Search service is a hosted cloud search service that makes it easy to provide a great search experience. Before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process. This means you have less code to write and less infrastructure to care about.
 
-This article covers the mechanics of using indexers, but it also describes the features that are only available with Azure SQL databases (for example, integrated change tracking). Azure Search also supports other data sources, such as Azure DocumentDB, blob storage, and table storage. If you would like to see support for additional data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
+This article covers the mechanics of using indexers, but it also describes the features that are only available with Azure SQL databases (for example, integrated change tracking). Azure Search also supports other data sources, such as Azure Cosmos DB, blob storage, and table storage. If you would like to see support for additional data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## Indexers and data sources
 You can set up and configure an Azure SQL indexer using:

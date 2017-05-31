@@ -1,6 +1,6 @@
 ---
-title: Create multi-VM environments with Azure Resource Manager templates | Microsoft Docs
-description: Learn how to create multi-VM environments in Azure DevTest Labs from an Azure Resource Manager template
+title: Create multi-VM environments and PaaS resources with Azure Resource Manager templates | Microsoft Docs
+description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -18,15 +18,20 @@ ms.author: tarcher
 
 ---
 
-# Create multi-VM environments with Azure Resource Manager templates
+# Create multi-VM environments and PaaS resources with Azure Resource Manager templates
 
-The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](./devtest-lab-add-vm-with-artifacts.md). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM has to be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
+The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM has to be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
 
 - Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Team Services Git).
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal as what they can do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaasS VMs.
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
 - Users have the same VM policy control for environments as what they have for single-lab VMs.
+
+> [!NOTE]
+> Deploying resource type Microsoft.DevTestLab/labs (or its nested resource types, e.g. Microsoft.DevTestLab/labs/virtualmachines) through ARM templates is not yet supported in this experience. To deploy a VM, make sure to use Microsoft.Compute/virtualmachines. More ARM template samples can be found at [Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json).
+>
+>
 
 ## Configure Azure Resource Manager template repositories
 
@@ -111,4 +116,4 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Explore the [Azure Resource Manager templates from Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates)
+* Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates)

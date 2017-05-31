@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm;asirveda
 
 ---
@@ -66,7 +66,7 @@ Before you publish your application, you first need to configure your module set
 2. When the Project Structure dialog box appears:
 
    a. Click **Artifacts** in the list of **Project Settings**.
-   b. Change the artifact name in the **Name** box so that it contains whitespace or special characters; this is necessary since the name will be used in the Uniform Resource Identifier (URI).
+   b. Change the artifact name in the **Name** box so that it doesn't contain whitespace or special characters; this is necessary since the name will be used in the Uniform Resource Identifier (URI).
    c. Change the **Type** to **Web Application: Archive**.
    d. Click **OK** to close the Project Structure dialog box.
 

@@ -11,11 +11,11 @@ tags: azure-service-management
 ms.assetid:
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: CLI
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 04/24/2017
 ms.author: janeng
 ---
 
@@ -23,10 +23,11 @@ ms.author: janeng
 
 This sample CLI script scales a single Azure SQL database to a different performance level after querying the size information of the database. 
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. 
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

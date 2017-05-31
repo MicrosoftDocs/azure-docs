@@ -11,29 +11,25 @@ tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 02/21/2017
+ms.devlang: azurecli
+ms.tgt_pltfrm: na
+ms.topic: sample
+ms.date: 03/20/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
-
 # Create a web app with continuous deployment from Visual Studio Team Services
 
-This sample script does the following using Azure CLI 2.0: 
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services repository. For this sample, you will need:
 
-* Create a web app in Azure App Service in the West Europe Azure region. 
-* Deploy your web app code from Visual Studio Team Services.
-* Display the deployed Azure web app in the browser.
+* A Visual Studio Team Services repository with application code, that you have administrative permissions for.
+* A [Personal Access Token (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) for your Visual Studio Team Services account.
 
-## Prerequisites
-
-* Run `az login` to log in to Azure.
-* Put your web app code in a Visual Studio Team Services repository.
-* For a Visual Studio Team Services repository you own, [create an access token](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Create app sample
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

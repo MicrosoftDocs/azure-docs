@@ -11,11 +11,11 @@ tags: azure-service-management
 ms.assetid:
 ms.service: sql-database
 ms.custom: sample
-ms.devlang: CLI
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 04/24/2017
 ms.author: janeng
 ---
 
@@ -23,13 +23,15 @@ ms.author: janeng
 
 This sample CLI script creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
-Before running this script, ensure that a connection with Azure has been created using the `az login` command. 
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
 
 ## Clean up deployment
 
@@ -47,7 +49,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az sql server create](/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
 | [az sql db create](/cli/azure/sql/db#create) | Creates the SQL Database in the logical server. |
 | [az group delete](/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
@@ -56,3 +58,4 @@ This script uses the following commands. Each command in the table links to comm
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+

@@ -13,8 +13,10 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 04/07/2017
 ms.author: karolz@microsoft.com
+
+redirect_url: /azure/service-fabric/service-fabric-diagnostic-collect-logs-without-an-agent
 
 ---
 # Use Elasticsearch as a Service Fabric application trace store

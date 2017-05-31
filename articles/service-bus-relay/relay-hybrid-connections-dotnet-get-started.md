@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 03/27/2017
 ms.author: jotaub;sethm
 
 ---

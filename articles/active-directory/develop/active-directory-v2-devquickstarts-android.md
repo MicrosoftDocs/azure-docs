@@ -3,7 +3,7 @@ title: Azure Active Directory v2.0 Android app | Microsoft Docs
 description: How to build an Android app that signs in users with both personal Microsoft account and work or school accounts and calls the Graph API by using third party libraries.
 services: active-directory
 documentationcenter: ''
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/07/2017
 ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint

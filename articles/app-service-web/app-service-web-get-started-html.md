@@ -3,7 +3,7 @@ title: Create a static HTML web app in Azure in five minutes | Microsoft Docs
 description: Learn how easy it is to run web apps in App Service by deploying a sample app.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
+author: rick-anderson
 manager: wpickett
 editor: ''
 
@@ -13,62 +13,72 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/08/2017
-ms.author: cephalin
-
+ms.date: 05/08/2017
+ms.author: riande
+ms.custom: mvc
 ---
 # Create a static HTML web app in Azure in five minutes
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-This QuickStart helps you deploy a simple HTML+CSS site to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes.
+This quickstart walks through how to and deploy a basic HTML+CSS site to Azure. You’ll run the app using an [Azure App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), and create a web app in it using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli). You use Git to deploy the app to Azure. It takes about five minutes to complete the tutorial once the prerequisites are installed.
 
-Before starting this QuickStart, ensure that [the Azure CLI is installed](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-## Create a static HTML site in Azure
-2. Log in to Azure by running `az login` and following the on-screen directions.
-   
-    ```azurecli
-    az login
-    ```
+## Prerequisites
 
-3. Create a [resource group](../azure-resource-manager/resource-group-overview.md). This is where you put all the Azure resources that you want to manage together, such as 
-the web app and its SQL Database back end.
+Before creating this sample, download and install the following components:
 
-    ```azurecli
-    az group create --location "West Europe" --name myResourceGroup
-    ```
+- [Git](https://git-scm.com/)
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-    To see what possible values you can use for `---location`, use the `az appservice list-locations` Azure CLI command.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-3. Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+## Download the sample
 
-    ```azurecli
-    az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-    ```
+In a terminal window, clone the sample app repository to your local machine:
 
-4. Create a new web app with a unique name in `<app_name>`.
+```bash
+git clone https://github.com/Azure-Samples/html-docs-hello-world.git
+```
 
-    ```azurecli
-    az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-    ```
+## View the HTML
 
-4. Deploy a sample HTML site from GitHub.
+Navigate to the directory that contains the sample HTML. Open the *index.html* file in your browser.
 
-    ```azurecli
-    az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
-    --repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
-    ```
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
 
-5. To see your app running live in Azure, run this command.
+[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
 
-    ```azurecli
-    az appservice web browse --name <app_name> --resource-group myResourceGroup
-    ```
+[!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
 
-Congratulations, your first static HTML site is running live in Azure App Service.
+Create a [Web App](app-service-web-overview.md) in the `quickStartPlan` App Service plan. 
+The web app provides a hosting space for your code and provides a URL for to view the deployed app.
+
+[!INCLUDE [app-service-web-quickstart2](../../includes/app-service-web-quickstart2.md)] 
+
+The page is running as an Azure App Service web app:
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+## Update and redeploy the app
+
+Open the *index.html* file. Make a change to the markup. For example, change `Hello world!` to `Hello Azure!`
+
+Commit your changes in Git, and then push the code changes to Azure.
+
+```bash
+git commit -am "updated HTML"
+git push azure master
+```
+
+Once deployment has completed, refresh your browser to see the changes.
+
+[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
+
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).
+- Explore sample [Web Apps CLI scripts](app-service-cli-samples.md).
+- Learn how to [Map a custom domain name](app-service-web-tutorial-custom-domain.md), such as contoso.com, to an [App Service app](app-service-web-tutorial-custom-domain.md).
