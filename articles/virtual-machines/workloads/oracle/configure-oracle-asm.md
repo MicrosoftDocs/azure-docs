@@ -343,28 +343,11 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
     # service iptables stop
     ```
 
-7.  Check available swap space. You need at least 6 GB of swap space to install Oracle Grid Infrastructure:
+7.  Check available swap space, you need at lease 6 GB of swap space to install Grid, by default Linux Azure VMs will not have swap enabled and configured by default.
 
-    ```bash
-    # swapon -s
-    ```
+It is highly recommended that you use the waagent to configure swap space so it is always created within the ephemeral disk (temporary disk), for more information about the steps, please check the link below: 
 
-    If you have less than 6 GB of swap space, you can add more swap space by running the following commands:
-
-    ```bash
-    # dd if=/dev/zero of=/extraswap bs=1M count=6144
-    6144+0 records in
-    6144+0 records out
-    6442450944 bytes (6.4 GB) copied, 141.245 s, 45.6 MB/s
-
-    # mkswap /mnt/resource/extraswap
-    mkswap: /mnt/resource/extraswap: warning: don't erase bootbits sectors
-            on whole disk. Use -f to force.
-    Setting up swapspace version 1, size = 6291452 KiB
-    no label, UUID=80bd7816-b3a2-4eec-a824-733209644fc5
-    # swapon /mnt/resource/extraswap
-
-    ```
+* [How to add a swap file in Linux Azure virtual machines](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines)
 
 ## Prepare the client and VM to run X11 (for Windows clients only)
 
