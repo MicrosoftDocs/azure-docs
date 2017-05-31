@@ -1,6 +1,6 @@
 ---
-title: Create your first Python web app in Azure in five minutes | Microsoft Docs
-description: Deploy your first Python Hello World in App Service Web App in minutes.
+title: Create a Python web app in Azure | Microsoft Docs
+description: Deploy your first Python Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -17,7 +17,7 @@ ms.date: 03/17/2017
 ms.author: cfowler
 
 ---
-# Create a Python application on Web App
+# Create a Python web app in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart walks through how to develop and deploy a Python app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Python code to the web app.
 

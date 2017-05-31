@@ -1,6 +1,6 @@
 ---
-title: Create a Node.js Application on Azure Web App | Microsoft Docs
-description: Deploy your first Node.js Hello World in App Service Web App in minutes.
+title: Create a Node.js web app in Azure | Microsoft Docs
+description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,7 +16,7 @@ ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cfowler
 ---
-# Create a Node.js Application on Web App
+# Create a Node.js web app in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a Node.js app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample Node.js code to the web app.
 

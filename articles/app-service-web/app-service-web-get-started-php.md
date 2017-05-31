@@ -1,6 +1,6 @@
 ---
-title: Create a PHP application on Azure Web App | Microsoft Docs
-description: Deploy your first PHP Hello World in App Service Web App in minutes.
+title: Create a PHP web app in Azure | Microsoft Docs
+description: Deploy your first PHP Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -17,7 +17,7 @@ ms.date: 05/04/2017
 ms.author: cfowler
 
 ---
-# Create a PHP application on Web App
+# Create a PHP web app in Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample PHP code to the web app.
 
@@ -51,7 +51,7 @@ cd php-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `php` command to launch the built in PHP web server.
+Run the application locally by opening a terminal window and using the `php` command to launch the built-in PHP web server.
 
 ```bash
 php -S localhost:8080

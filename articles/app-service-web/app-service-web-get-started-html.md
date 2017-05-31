@@ -1,6 +1,6 @@
 ---
 title: Create a static HTML web app in Azure | Microsoft Docs
-description: Learn how to run web apps in App Service by deploying a static HTML sample app.
+description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
 services: app-service\web
 documentationcenter: ''
 author: rick-anderson
