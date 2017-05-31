@@ -19,7 +19,7 @@ For more general information on Azure Storage accounts, see [About Azure storage
 
 ## Supporting interfaces
 
-The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. Refer to the references for these for more details, [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. For more information, see [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
 ## Feature behavior
 
@@ -69,10 +69,10 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If Sas token is about to expire then Get sastoken again from Key Vault 
+// If SAS token is about to expire then Get sasToken again from Key Vault 
 //.... 
  
-// and update the accountSasCredential accountSasCredential.UpdateSASToken(sasToken); 
+// and update the accountSasCredential.UpdateSASToken(sasToken); 
  ```
  
  ### Developer best practices 
@@ -85,7 +85,7 @@ var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 
 ### Setup for role-based access control permissions
 
-Key Vault needs permissions to list and regenerate keys for a storage account. Set this up using the followign stesp:
+Key Vault needs permissions to list and regenerate keys for a storage account. Set this up using the following steps:
 
 1. Get ObjectId of KV through this command: 
 `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`  
@@ -96,15 +96,18 @@ Key Vault needs permissions to list and regenerate keys for a storage account. S
 For a classic account set the role parameter to 'Classic Storage Account Key Operator Service Role'. 
 
 >[!NOTE]
->The Key Vault identity might be invisible in tenants which had vaults created before <date>. As a workaround, you can create a new vault and delete it to make Key Vault’s identity visible in these tenants.
+>The Key Vault identity might be invisible in tenants that had vaults created before <date>. As a workaround, you can create a vault and delete it to make Key Vault’s identity visible in these tenants.
 
 ### Storage account onboarding 
 
 An example onboarding: A key vault object owner adds a storage account object on AzKV to onboard a storage account.
 
-During onboarding, Key Vault needs to verify that the identity of the onboarding the account has access to list and regenerate the storage keys. Key Vault gets an OBO token from EvoSTS with audience as Azure Resource Manager and makes a list key call to Storage RP. If the list call fails, then the Key Vault object creation fails with *Forbidden* http status code. The keys listed in this fashion are cached with your key vault entity storage. 
+During onboarding, Key Vault needs to verify that the identity of the onboarding the account has access to *list* and *regenerate* the storage keys. Key Vault gets an OBO token from EvoSTS with audience as Azure Resource Manager and makes a list key call to Storage RP. If the list call fails, then the Key Vault object creation fails with *Forbidden* http status code. The keys listed in this fashion are cached with your key vault entity storage. 
 
-Additionally, Key Vault must verify that the identity has regenerate permissions before key vault take ownership of regenerating your keys. To verify that identity (via OBO token) as well as key vault first party identity has permission to rotate and list keys, key vault lists RBAC permissions on the storage account resource and validates the response via regular expression matching of actions and not-actions. 
+Key Vault must verify that the identity has *regenerate* permissions before it can take ownership of regenerating your keys. To verify that the identity, via OBO token, as well as the Key Vault first party identity has these permissions:
+
+- Key Vault lists RBAC permissions on the storage account resource.
+- Key Vault validates the response via regular expression matching of actions and non-actions. 
 
 Some supporting examples: 
 
@@ -112,7 +115,7 @@ Some supporting examples:
 [VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
 - Example [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
 
-If the identity, via OBO token, does not have regenerate permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails as a bad request with an appropriate error code and message. 
+If the identity, via OBO token, does not have *regenerate* permission or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
 
 The OBO token will only work when you use first-party, native client applications of either PowerShell or CLI.
 
