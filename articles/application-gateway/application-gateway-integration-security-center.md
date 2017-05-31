@@ -67,6 +67,16 @@ Azure Security center tracks applications added to an application gateway as a p
 
 ![web application firewall add blade][5]
 
+## Security Alerts
+
+Within Azure Security Center navigate to **DETECTION** > **Security Alerts**.  Here you find WAF alerts for your application gateways. Alerts are broken down by WAF rule.
+
+![security alerts][8]
+
+Clicking an rule will provide a list of alerts for that specific WAF rule. Each alert shows additional details on the finding. The details provide a link to the application gateway.
+ 
+![alert details][9]
+
 ## Next steps 
 
 To learn how to enable web application firewall on an existing application gateway, visit [Create or update an Azure Application Gateway with web application firewall](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
@@ -78,3 +88,5 @@ To learn how to enable web application firewall on an existing application gatew
 [5]: ./media/application-gateway-integration-security-center/figure5.png
 [6]: ./media/application-gateway-integration-security-center/figure6.png
 [7]: ./media/application-gateway-integration-security-center/figure7.png
+[8]: ./media/application-gateway-integration-security-center/securitycenter.png
+[9]: ./media/application-gateway-integration-security-center/figure9.png
