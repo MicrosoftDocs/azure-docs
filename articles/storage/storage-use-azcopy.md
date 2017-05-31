@@ -890,7 +890,6 @@ For more information about Azure Storage and AzCopy, refer to the following reso
 * [How to create, manage, or delete a storage account](storage-create-storage-account.md)
 * [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md)
 
-storage-use-azcopy-linux.md
 ### Azure Storage blog posts:
 * [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introducing synchronous copy and customized content type](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)

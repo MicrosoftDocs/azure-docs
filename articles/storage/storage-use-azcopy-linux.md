@@ -674,7 +674,7 @@ azcopy \
 Option `--parallel-level` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. The number of concurrent operations is equal eight times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for --parallel-level to avoid failure caused by resource competition.
 
 [!TIP]
-To view the complete list of AzCopy parameters, check out 'azcopy --help' menu.
+>To view the complete list of AzCopy parameters, check out 'azcopy --help' menu.
 
 ## Known issues and best practices
 ### Error: .NET Core is not found in the system.
@@ -739,10 +739,10 @@ For more information about Azure Storage and AzCopy, see the following resources
 * [Create a storage account](storage-create-storage-account.md)
 * [Manage blobs with Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
 * [Using the Azure CLI 2.0 with Azure Storage](storage-azure-cli.md)
-* [How to use Blob storage from C++](https://docs.microsoft.com/en-us/azure/storage/storage-c-plus-plus-how-to-use-blobs)
-* [How to use Blob storage from Java](https://docs.microsoft.com/en-us/azure/storage/storage-java-how-to-use-blob-storage)
-* [How to use Blob storage from Node.js](https://docs.microsoft.com/en-us/azure/storage/storage-nodejs-how-to-use-blob-storage)
-* [How to use Blob storage from Python](https://docs.microsoft.com/en-us/azure/storage/storage-python-how-to-use-blob-storage)
+* [How to use Blob storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
+* [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md)
+* [How to use Blob storage from Node.js](storage-nodejs-how-to-use-blob-storage.md)
+* [How to use Blob storage from Python](storage-python-how-to-use-blob-storage.md)
 
 ### Azure Storage blog posts:
 * [Announcing AzCopy on Linux Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
