@@ -23,29 +23,25 @@ Azure Backup Server protects your virtual machines (VMs), workloads, files and f
 
 You can install Azure Backup Server v2 on Windows Server 2012 R2 or on Windows Server 2016. However to take advantage of new features such as Modern Backup Storage, you must install Azure Backup Server v2 on Windows Server 2016. Before you upgrade or install Azure Backup Server v2, please read the [Installation prerequisites](http://docs.microsoft.com/system-center/dpm/install-dpm.md#setup-prerequisites).
 
-> Are DPM's prerequisites followed?
-
 > [!NOTE]
 > Azure Backup Server is based on the same code base as System Center Data Protection Manager (DPM). Azure Backup Server v1 is equivalent to DPM 2012 R2, and Azure Backup Server is equivalent to DPM 2016. This documentation occasionally references the DPM documentation.
 >
 >
 
-## Upgrade Azure Backup Server to v.2
-To upgrade Azure Backup Server v.1 to v.2, make sure your installation has the necessary updates:
+## Upgrade Azure Backup Server to v2
+To upgrade Azure Backup Server v1 to v2, make sure your installation has the necessary updates:
 
-- Update the agents on the protected servers.
-> How do you update the agent before you start the upgrade process? Isn't updating the agent part of the upgrade process?
-
+- [Update the protection agents](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) on the protected servers.
 - Upgrade Windows Server 2012 R2 to Windows Server 2016.
 - Upgrade Azure Backup Server Remote Administrator on all production servers.
 - Backups continue without rebooting your production server.
 
 
-### Upgrade steps for Azure Backup Server v.2
+### Upgrade steps for Azure Backup Server v2
 
-1. Where do they download the bits from?
+1. Go to the Download center and [download the upgrade installer](https://go.microsoft.com/fwlink/?LinkId=626082).
 
-2. After you have extracted the setup wizard, make sure the Execute setup.exe is selected. Click **Finish** to open the Azure Backup Server v.2 wizard.
+2. After you have extracted the setup wizard, make sure the Execute setup.exe is selected. Click **Finish** to open the Azure Backup Server v2 wizard.
 
   ![setup installer](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
@@ -94,12 +90,16 @@ To add a volume in the administrator console:
 
 1. In the Azure Backup Server Administrator console, select the **Management** feature > **Disk Storage** > **Add**.
 
+    ![Open the add disk storage wizard](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
+
+    The Add Disk Storage wizard opens.
+
 2. In the **Add Disk Storage** dialog, select an available volume > click **Add** > type a friendly name for the volume ** > click **OK**.
 
-      ![Add volume](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-volume.png)
+      ![Add volume](./media/backup-mabs-upgrade-to-v2/add-volume.png)
 
-If you want to add a disk, it must belong to a protection group with legacy storage. Those disks can only be used for those protection groups. If the Azure Backup Server doesn't have sources with legacy protection, the disk won't appear.
-See the topic, [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage), for more information on adding disks. You can't give disks a friendly name.
+  If you want to add a disk, it must belong to a protection group with legacy storage. Those disks can only be used for those protection groups. If the Azure Backup Server doesn't have sources with legacy protection, the disk won't appear.
+  See the topic, [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage), for more information on adding disks. You can't give disks a friendly name.
 
 
 ### Assign Workloads to Volumes
@@ -201,6 +201,41 @@ If you want to use legacy storage with DPM 2016, it may become necessary to add 
 
 5. Select the disks, click **Add** to add the disks, and click **OK**.
 
+## Update the DPM protection agent
+
+If you are upgrading a protection agent that is installed on a computer that is not connected to the network, you cannot perform a connected agent upgrade from within DPM Administrator Console. You must perform the upgrade in a non-active domain environment. The DPM server will show that the protection agent update is pending until the client computer is connected to the network.
+This topic describes how to update protection agents for both connected and non-connected client computers.
+
+### Update a protection agent for a connected client computer
+
+1. In the Azure Backup Server Administrator console, click **Management** on the navigation bar, and then click the **Agents** tab.
+
+2. In the display pane, select the client computers on which you want to update the protection agent.
+
+  > [!NOTE]
+  > The Agent Updates column indicates when a protection agent updates is available, for each protected computer. The **Update** action in the **Actions** pane is not enabled when a protected computer is selected, unless updates are available.
+  >
+  >
+
+3. To install updated protection agents on selected computers, click **Update** in the **Actions** pane.
+
+### Update a protection agent on a disconnected client comptuer
+
+1. In the Azure Backup Server Administrator console, click **Management** on the navigation bar, and then click the **Agents** tab.
+
+2. In the display pane, select the client computers on which you want to update the protection agent.
+
+  > [!NOTE]
+  > The **Agent Updates** column indicates for each protected computer when a protection agent is available. The **Update** action in the **Actions** pane is not enabled when a protected computer is selected unless updates are available.
+  >
+  >
+
+3. To install updated protection agents on selected computers, click **Update**.
+
+4. For client computers not connected to the network, **Update Pending** appears in the **Agent Status** column until the computer is connected to the network.
+
+  After a client computer is connected to the network, **Updating** appears in the **Agent Updates** column for the client computer.
+
 ## New PowerShell cmdlets
 
-For DPM 2016, two new cmdlets: [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx) and [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx) are available. Click the cmdlet name to see its reference documentation.
+When you install Azure Backup Server v2, two new cmdlets: [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx) and [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx) are available. Click the cmdlet name to see its reference documentation.
