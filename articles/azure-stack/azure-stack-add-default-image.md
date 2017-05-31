@@ -19,7 +19,7 @@ ms.author: sngun
 ---
 # Add the Windows Server 2016 VM image to the Azure Stack marketplace
 
-By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add a virtual machine image to the Azure Stack marketplace before users can create them. You can add the Windows Server 2016 Virtual Machine image to the Azure Stack marketplace by using one of the following two methods:
+By default, there aren’t any virtual machine images available in the Azure stack marketplace. The administrator must add an image to the marketplace before users can use them. You can add the Windows Server 2016 image to the Azure Stack marketplace by using one of the following two methods:
 
 * [Add the image by downloading it from the Azure Marketplace](#add-the-image-by-downloading-it-from-the-Azure-marketplace) - Use this option if you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure.
 
@@ -35,7 +35,7 @@ By default, there aren’t any virtual machine images available in the Azure sta
 
    ![Download image from Azure](media/azure-stack-add-default-image/download-image.png)
 
-After the download completes, the image it is added to the **Marketplace Management** blade and it is also visible from the **Virtual Machines** blade.
+After the download completes, the image it is added to the **Marketplace Management** blade and it is also made available from the **Virtual Machines** blade.
 
 ## Add the image by using PowerShell
 
