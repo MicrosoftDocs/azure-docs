@@ -52,7 +52,7 @@ This tutorial assumes that you have at least some prior experience with SQL Serv
 
     - In the **Sync Metadata Database** section, choose whether to create a new database (recommended) or to use an existing database.
 
-    If you chose **New database**, select **Create new database." The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
+    If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
 
     If you chose **Use existing database**, select the database from the list.
 
@@ -139,7 +139,7 @@ On the **Configure On-Premises** blade, do the following things:
     ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
     >   [!NOTE] 
-    >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as <hub_database_name>.database.windows.net. Follow the steps in the dialog box to configure the Azure firewall rule. Then return to the Client Sync Agent app.
+    >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as \<hub_database_name\>.database.windows.net. Follow the steps in the dialog box to configure the Azure firewall rule. Then return to the Client Sync Agent app.
 
     9.  In the Client Sync Agent app, click **Register** to register a SQL Server database with the agent. The **SQL Server Configuration** dialog box opens.
 
