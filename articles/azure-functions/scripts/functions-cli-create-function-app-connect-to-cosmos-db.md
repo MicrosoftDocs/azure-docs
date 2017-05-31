@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Function that connects to an Azure DocumentDB | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure DocumentDB
+title: Create an Azure Function that connects to an Azure Cosmos DB | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Cosmos DB
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -16,7 +16,6 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ---
-
 # Create an Azure Function that connects to an Azure Cosmos DB
 
 This sample script creates an Azure Function App and connects to an Azure Cosmos DB database.
@@ -25,7 +24,7 @@ This sample script creates an Azure Function App and connects to an Azure Cosmos
 
 ## Sample script
 
-Create app sample
+This sample creates an Azure Function app and adds a Cosmos DB endpoint and access key to app settings.
 
 [!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 

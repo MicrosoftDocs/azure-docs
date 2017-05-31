@@ -90,7 +90,7 @@ To see more details run `clouddrive mount -h`: <br>
 To discover which file share is mounted as `clouddrive`:
 1. Run `df` 
 
-The filepath to clouddrive will show your storage account name and fileshare in the url.
+The filepath to clouddrive will show your storage account name and file share in the url.
 
 `//storageaccountname.file.core.windows.net/filesharename`
 
@@ -106,28 +106,23 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## Upload or download local files
-Use the Azure portal to manage transferring local files to or from the file share.
-Updating files from within Cloud Shell reflects in the File Storage GUI on blade refresh.
+## Transfer local files to Cloud Shell
+The `clouddrive` directory syncs to the Azure portal storage blade. Use this to transfer local files to or from your file share. Updating files from within Cloud Shell reflects in the File Storage GUI on blade refresh.
 
-1. Navigate to the mounted fileshare
-![](media/touch-txt-storage.png)
+### Download files
+![](media/download.gif)
+1. Navigate to the mounted file share
 2. Select target file in Portal
 3. Hit "Download"
-![](media/download-storage.png)
 
-If you need to download a file that exists outside of `clouddrive`:
-1. Copy the file to `/<User>/clouddrive` <br>
-2. Follow [previous steps](#upload-or-download-local-files) <br>
+### Upload files
+![](media/upload.gif)
+1. Navigate to mounted file share
+2. Select "Upload"
+3. Select file you wish to upload
+4. Confirm upload
 
-## Cloud Shell tagging
-Cloud Shell adds a "tag" to mounted storage accounts using the format: <br>
-
-| Key | Value |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-Use these tags to see which users map to certain file shares and where certain $Home images can be found.
+You should now see the file accessible in your clouddrive directory in Cloud Shell.
 
 ## Next steps
 [Cloud Shell Quickstart](quickstart.md) 

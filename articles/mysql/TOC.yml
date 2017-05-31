@@ -94,7 +94,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDatabaseforMySQL
+    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Request a feature

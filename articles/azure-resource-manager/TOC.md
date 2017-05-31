@@ -24,7 +24,6 @@
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
-### [Sequential loop](resource-manager-sequential-loop.md)
 ### [Set location](resource-manager-template-location.md)
 ### [Assign tags](resource-manager-template-tags.md)
 ### [Set child resource name and type](resource-manager-template-child-resource.md)
@@ -44,7 +43,7 @@
 #### [Export template and redeploy](resource-manager-export-template-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Multiple resource group deployment](resource-manager-cross-resource-group-deployment.md)
+### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 
@@ -56,7 +55,6 @@
 ### [Use tags to organize resources](resource-group-using-tags.md)
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ### [Governance examples](resource-manager-subscription-examples.md)
-### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Control Access
 ### Create service principal
@@ -80,6 +78,7 @@
 ## Use managed applications
 ### [Publish managed application](managed-application-publishing.md)
 ### [Consume managed application](managed-application-consumption.md)
+### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit
 ### [View activity logs](resource-group-audit.md)

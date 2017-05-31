@@ -1,6 +1,6 @@
 ---
-title: SaaS in a box (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Build SaaS applications using SQL Database"
+title: Azure SQL Database sample multi-tenant app | Microsoft Docs 
+description: "Introduction to the Azure SQL Database sample Wingtip Tickets (WTP) app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''

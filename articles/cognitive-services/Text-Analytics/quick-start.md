@@ -1,5 +1,5 @@
 ---
-title: 'Text Analytics Quick Start | Microsoft Docs'
+title: 'Azure Text Analytics Quick Start | Microsoft Docs'
 description: Get information to help you quickly get started using the Text Analytics API in Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: onewth
 
 ---

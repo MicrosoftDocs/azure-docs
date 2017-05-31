@@ -294,8 +294,25 @@ We recommend that you verify the VM properties, and make any changes you need to
      - For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
    - If the virtual machine has multiple network adapters they will all connect to the same network.
    - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
-5. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
+4. In **Disks**, you can see the VM operating system, and the data disks that will be replicated.
 
+#### Managed disks
+
+In **Compute and Network** > **Compute properties**, you can set "Use managed disks" setting to "Yes" for the VM if you want to attach managed disks to your machine on failover to Azure. Managed disks simplifies disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. [Learn More about managed disks.](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview)
+
+   - Managed disks are created and attached to the virtual machine only on a failover to Azure. On enabling protection, data from on-premises machines will continue to replicate to storage accounts.  Managed disks can be created only for virtual machines deployed using the Resource manager deployment model.  
+  
+   - When you set "Use managed disks" to "Yes", only availability sets in the resource group with "Use managed disks" set to "Yes" would be available for selection. This is because virtual machines with managed disks can only be part of availability sets with "Use managed disks" property set to "Yes". Make sure that you create availability sets with "Use managed disks" property set based on your intent to use managed disks on failover.  Likewise, when you set "Use managed disks" to "No", only availability sets in the resource group with "Use managed disks" property set to "No" would be available for selection. [Learn more about managed disks and availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+  
+  > [!NOTE]
+  > If the storage account used for replication was encrypted with Storage Service Encryption at any 
+  > point in time, creation of managed disks during failover will fail. You can either set "Use 
+  > managed disks" to "No" and retry failover or disable protection for the virtual machine and
+  > protect it to a storage account which did not have Storage service encryption enabled at any point
+  > in time. 
+  > [Learn more about Storage service encryption and managed disks](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
+   
 ## Run a test failover
 
 

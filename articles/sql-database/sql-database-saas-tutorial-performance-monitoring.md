@@ -1,6 +1,6 @@
 ---
-title: Performance Monitoring the WTP application  (a sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Monitor performance of a sample SaaS application that uses Azure SQL Database"
+title: Monitor performance of a SQL Database SaaS app  | Microsoft Docs 
+description: "Monitor and manage performance for the Azure SQL Database sample Wingtip Tickets (WTP) app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 05/11/2017
 ms.author: tomfitz
 
 ---
@@ -25,55 +25,59 @@ The resource group is the lifecycle container for the application and its collec
 
 ## Example template
 
-To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you to specify a resource group that is different the resource group used by the parent template. All the resource groups must exist before running the deployment. The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group named `differentResourceGroup`:
+To target a different resource, you must use a nested or linked template during deployment. The `Microsoft.Resources/deployments` resource type provides a `resourceGroup` parameter that enables you to specify a different resource group for the nested deployment. All the resource groups must exist before running the deployment. The following example deploys two storage accounts - one in the resource group specified during deployment, and one in a resource group named `crossResourceGroupDeployment`:
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-05-01",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "properties": {}
+    "parameters": {
+        "StorageAccountName1": {
+            "type": "string"
         },
+        "StorageAccountName2": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
         {
             "apiVersion": "2017-05-10",
             "name": "nestedTemplate",
             "type": "Microsoft.Resources/deployments",
-            "resourceGroup": "differentResourceGroup",
+            "resourceGroup": "crossResourceGroupDeployment",
             "properties": {
-                "mode": "incremental",
+                "mode": "Incremental",
                 "template": {
-                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
                     "resources": [
                         {
-                            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
                             "type": "Microsoft.Storage/storageAccounts",
-                            "apiVersion": "2016-05-01",
-                            "sku": {
-                                "name": "Standard_LRS"
-                            },
-                            "kind": "Storage",
-                            "location": "[resourceGroup().location]",
-                            "tags": {},
-                            "properties": {}
+                            "name": "[parameters('StorageAccountName2')]",
+                            "apiVersion": "2015-06-15",
+                            "location": "West US",
+                            "properties": {
+                                "accountType": "Standard_LRS"
+                            }
                         }
-                    ],
-                    "outputs": {}
-                }
+                    ]
+                },
+                "parameters": {}
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[parameters('StorageAccountName1')]",
+            "apiVersion": "2015-06-15",
+            "location": "West US",
+            "properties": {
+                "accountType": "Standard_LRS"
             }
         }
-    ],
-    "outputs": {}
+    ]
 }
 ```
 
@@ -81,7 +85,7 @@ If you set `resourceGroup` to the name of a resource group that does not exist, 
 
 ## Deploy the template
 
-To deploy the example template, you can use either Azure PowerShell or Azure CLI. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
+To deploy the example template, you can use either Azure PowerShell or Azure CLI. You must use a release of Azure PowerShell or Azure CLI from May 2017 or later. The examples assume you have saved the template locally as a file named **crossrgdeployment.json**.
 
 For PowerShell:
 
@@ -89,7 +93,7 @@ For PowerShell:
 Login-AzureRmAccount
 
 New-AzureRmResourceGroup -Name mainResourceGroup -Location "South Central US"
-New-AzureRmResourceGroup -Name differentResourceGroup -Location "Central US"
+New-AzureRmResourceGroup -Name crossResourceGroupDeployment -Location "Central US"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName mainResourceGroup `
   -TemplateFile c:\MyTemplates\crossrgdeployment.json
 ```
@@ -100,7 +104,7 @@ For Azure CLI:
 az login
 
 az group create --name mainResourceGroup --location "South Central US"
-az group create --name differentResourceGroup --location "Central US"
+az group create --name crossResourceGroupDeployment --location "Central US"
 az group deployment create \
     --name ExampleDeployment \
     --resource-group mainResourceGroup \

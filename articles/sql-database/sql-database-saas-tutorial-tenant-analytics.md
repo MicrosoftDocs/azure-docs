@@ -1,6 +1,6 @@
 ---
-title: Run analytics queries against multiple tenants (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Run analytics queries against multiple tenants"
+title: Run analytics queries against multiple Azure SQL databases | Microsoft Docs 
+description: "Run distributed queries across multiple Azure SQL databases"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
-# Run analytics queries against multiple tenants
+# Run distributed queries across multiple Azure SQL databases
 
 In this tutorial, you run analytics queries against each tenant in the catalog. An elastic job is created that runs the queries. The job retrieves data and loads it into a separate analytics database created on the catalog server. This database can be queried to extract insights that are buried in the day-to-day operational data of all tenants. As an output of the job, a table is created from the result-returning queries inside the tenant analytics database.
 

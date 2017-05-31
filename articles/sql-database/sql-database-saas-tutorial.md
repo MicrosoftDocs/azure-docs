@@ -1,6 +1,6 @@
 ---
-title: Deploy and Explore the Wingtip Tickets Platform (WTP) application  (sample SaaS application using Azure SQL Database) | Microsoft Docs 
-description: "Deploy and explore a sample SaaS application that uses Azure SQL Database"
+title: Deploy and explore a SaaS application that uses Azure SQL Database | Microsoft Docs 
+description: "Deploy and explore the Azure SQL Database sample Wingtip Tickets (WTP) app"
 keywords: sql database tutorial
 services: sql-database
 documentationcenter: ''
@@ -19,11 +19,13 @@ ms.date: 05/10/2017
 ms.author: billgib; sstein
 
 ---
-# Deploy and explore a multi-tenant SaaS Application that uses Azure SQL Database
+# Deploy and explore a multi-tenant SaaS application that uses Azure SQL Database
 
 In this tutorial, you deploy and explore the Wingtip Tickets Platform (WTP) SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that enable SaaS scenarios, and SaaS design and management patterns.
 
 Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to inspect and work with the individual application components.
+
+Scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo.
 
 In this tutorial you learn:
 

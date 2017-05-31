@@ -4,7 +4,7 @@ description: How to collect log files for diagnostics in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: adshar
-manager: byronr
+manager:
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/14/2017
-ms.author: adshar;victorh
+ms.date: 5/11/2017
+ms.author: adshar
 
 ---
 # Azure Stack diagnostics tools

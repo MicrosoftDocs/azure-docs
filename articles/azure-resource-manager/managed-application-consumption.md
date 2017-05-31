@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/08/2017
+ms.date: 05/11/2017
 ms.author: gauravbh; tomfitz
 
 ---
 # Consume an Azure Managed Application
 
-As described in the Managed Application overview article here, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario and explains how an end customer can consume a managed application provided by an ISV.
+As described in the [Managed Application overview](managed-application-overview.md) article, there are two scenarios in the end to end experience. One is the publisher or ISV who wants to create a managed application for use by customers. The second is the end customer or the consumer of the managed application. This article covers the second scenario and explains how an end customer can consume a managed application provided by an ISV.
 
-Currently, you can use either Azure CLI or Azure portal to consume a Managed Application. 
+Currently, you can use either Azure CLI or Azure portal to consume a managed application. 
 
 ## Create the managed application using CLI 
 
@@ -64,10 +64,10 @@ After the deployment completes successfully, you see the appliance resource is c
 You can use the `az managedapp create` command to create a managed application from the managed application definition. 
 
 ```azurecli
-az managedapp create --name ravtestappliance401 --location "eastus2euap" 
+az managedapp create --name ravtestappliance401 --location "westcentralus" 
 	--kind "Servicecatalog" --resource-group "ravApplianceCustRG401" 
-   	--managedapp-definition-id "/subscriptions/78814224-3c2d-4932-9fe3-913da0f278ee/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
-   	--managed-rg-id "/subscriptions/78814224-3c2d-4932-9fe3-913da0f278ee/resourceGroups/ravApplianceCustManagedRG401" 
+   	--managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
+   	--managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
    	--parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
    	--debug
 ```
@@ -80,9 +80,9 @@ az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
 
 This command returns the appliance definition. You need the value of **Id** property.
 
-**managed-rg-id** - The name of the resource group where all the resources defined in the applianceMainTemplate.json are created. This resource group is the managedBy resource group, and is managed by the publisher. If it does not exist, it is created for you.
+**managed-rg-id** - The name of the resource group where all the resources defined in the applianceMainTemplate.json are created. This resource group is the managed resource group, and is managed by the publisher. If it does not exist, it is created for you.
 
-**rg-name** - The resource group where the appliance resource is created. The Microsoft.Solutions/appliance resource lives in this resource group. 
+**resource-group** - The resource group where the appliance resource is created. The Microsoft.Solutions/appliance resource lives in this resource group. 
 
 **parameters** - The parameters that are needed for the resources defined in the applianceMainTemplate.json.
 
@@ -102,10 +102,15 @@ After clicking create, provide the parameters required to provision the resource
 
 ![](./media/managed-application-consumption/input-parameters.png)
 
-Once all these have been provided, click OK. The template is validated against the inputs you provided. If validation succeeds, the template deployment starts. After the deployment has completed, the appropriate resources defined in the template are provisioned in the managed resource group you provided.
+After providing the values, click OK. The template is validated against the inputs you provided. If validation succeeds, the template deployment starts. After the deployment has completed, the appropriate resources defined in the template are provisioned in the managed resource group you provided.
 
+## Known issues
 
+This preview release includes the following issues:
 
+* If you get a 500 Internal Server Error during the creation of the appliance, it's likely an intermittent issue. Retry the operation if you run into this issue.
+* A new resource group is needed for the managed resource group. Using an existing resource group causes the deployment to fail.
+* The resource group that contains the Microsoft.Solutions/appliances resource should be created in **westcentralus** location.
 
 ## Next steps
 

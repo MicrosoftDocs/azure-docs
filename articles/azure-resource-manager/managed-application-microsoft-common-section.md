@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 
 ---
 # Microsoft.Common.Section UI element
-A control that groups one or more elements under a heading.
+A control that groups one or more elements under a heading. You use this element when [creating an Azure Managed Application](managed-application-publishing.md).
 
 ## UI sample
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -59,6 +59,7 @@ basics('section1').element1
 
 Elements of type `Microsoft.Common.Section` have no output values themselves.
 
-## Next Steps
+## Next steps
+* For an introduction to managed applications, see [Azure Managed Application overview](managed-application-overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](managed-application-createuidefinition-elements.md).

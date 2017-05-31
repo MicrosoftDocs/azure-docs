@@ -46,7 +46,7 @@ Three resources will be created on your behalf:
 2. Storage Account named: `cs-uniqueGuid`
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
-[Explore more about how Cloud Shell persists files] (persisting-shell-storage.md).
+[Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.] (persisting-shell-storage.md).
 
 ## Concepts
 * Cloud Shell runs on a temporary machine provided on a per-session, per-user basis

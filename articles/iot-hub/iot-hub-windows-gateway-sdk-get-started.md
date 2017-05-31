@@ -27,8 +27,8 @@ ms.custom: H1Hack27Feb2017
 Before you get started, you must [set up your development environment][lnk-setupdevbox] for working with the SDK on Windows.
 
 1. Open a **Developer Command Prompt for VS 2015** or **Developer Command Prompt for VS 2017** command prompt.
-1. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-1. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds the solution. You can find the Visual Studio solution in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository. Additional parameters can be given to the script to build and run unit and end-to-end tests. These parameters are **--run-unittests** and **--run-e2e-tests** respectively.
+1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+1. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds the solution. You can find the Visual Studio solution in the **build** folder in your local copy of the **iot-edge** repository. Additional parameters can be given to the script to build and run unit and end-to-end tests. These parameters are **--run-unittests** and **--run-e2e-tests** respectively.
 
 ## How to run the sample
 
@@ -73,7 +73,7 @@ Before you get started, you must [set up your development environment][lnk-setup
     }
     ```
 
-1. Navigate to the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
+1. Navigate to the root folder of your local copy of the **iot-edge** repository.
 
 1. Run the following command:
 
@@ -82,4 +82,4 @@ Before you get started, you must [set up your development environment][lnk-setup
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md

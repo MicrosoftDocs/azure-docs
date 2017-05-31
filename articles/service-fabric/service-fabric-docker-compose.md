@@ -18,7 +18,7 @@ ms.author: subramar
 ---
 
 
-# Docker Compose support in Service Fabric (Preview)
+# Compose Application support in Service Fabric (Preview)
 
 Docker uses the [docker-compose.yml](https://docs.docker.com/compose) file for defining multi-container applications. To make it easy for customers familiar with Docker to orchestrate existing container applications on Service Fabric, we've included preview support for Docker Compose natively in the platform. Service Fabric can accept version 3(+) of `docker-compose.yml` files. Since this support is in preview, only a subset of Compose directives are supported. For example, application upgrades aren't supported. However, you can always remove and deploy applications instead of upgrading them.  
 
@@ -32,7 +32,7 @@ To use this preview, you need to install the preview SDK (version 255.255.x.x) t
 Create a Service Fabric application from a docker-compose.yml file by running the following command in PS:
 
 ```powershell
-New-ServiceFabricDockerComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RepositoryUserName <>] [-RepositoryPassword <>] [-PasswordEnctypted]
+New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RepositoryUserName <>] [-RepositoryPassword <>] [-PasswordEnctypted]
 ```
 
 RepositoryUserName and RepoistoryPassword refer to the container registry user name and password.
@@ -47,7 +47,7 @@ These commands create a Service Fabric application (named `fabric:/TestContainer
 To delete the application through PS, use the following command:
 
 ```powershell
-	Remove-ServiceFabricDockerComposeApplication  -ApplicationName fabric:/TestContainerApp
+Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
 ```
 
 To delete the application through Azure CLI 2.0, use the following command:
@@ -56,10 +56,10 @@ To delete the application through Azure CLI 2.0, use the following command:
 az sf compose remove  --application-id TestContainerApp [ --timeout ]
 ```
 
-To get the status of the docker-compose application, use the following command in PS:
+To get the status of the compose application, use the following command in PS:
 
 ```powershell
-	Get-ServiceFabricDockerComposeApplicationStatus -ApplicationName fabric:/TestContainerApp
+Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp -GetAllPages
 ```
 
 For Azure CLI 2.0, use the following command:

@@ -31,8 +31,8 @@
     items:
     - name: Storage
       href: functions-integrate-storage-queue-output-binding.md
-#    - name: Cosmos DB
-#      href: functions-integrate-store-unstructured-data-cosmosdb.md
+    - name: Cosmos DB
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Samples
   items:
   - name: Azure CLI

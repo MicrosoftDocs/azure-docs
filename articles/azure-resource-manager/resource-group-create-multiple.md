@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 05/12/2017
 ms.author: tomfitz
 
 ---
 # Deploy multiple instances of a resource or property in Azure Resource Manager templates
-This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple values for a property on the resource.
+This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
 ## Resource iteration
-To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Sequential looping for Azure Resource Manager templates](resource-manager-sequential-loop.md). 
+To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Serial copy](#serial-copy). 
 
 The resource to create multiple times takes the following format:
 
@@ -105,114 +105,150 @@ Creates these names:
 * storagefabrikam
 * storagecoho
 
-## Property iteration
+## Serial copy
 
-To create multiple values for a property on a resource, add a `copies` array in the properties element. This array contains objects, and each object has the following properties:
+When you use the copy element to create multiple instances of a resource type, Resource Manager, by default, deploys those instances in parallel. However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
 
-* name - the name of the property to create multiple values for
-* count - the number of values to create
-* input - an object that contains the values to assign to the property  
-
-The following example shows how to apply `copies` to the dataDisks property on a virtual machine:
+Resource Manager provides properties on the copy element that enable you to serially deploy multiple instances. In the copy element, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it does not start one batch until the previous batch completes.
 
 ```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2016-04-30-preview",
-  "properties": {
-    "storageProfile": {
-      "copies": [{
-          "name": "dataDisks",
-          "count": 3,
-          "input": {
-              "lun": "[copyIndex('dataDisks')]",
-              "name": "[concat('myDataDisk', copyIndex('dataDisks',1))]",
-              "vhd": {
-                  "uri": "[concat('http://mystorage.blob.core.windows.net/vhds/mydatadisk',copyIndex('dataDisks', 1), '.vhd')]"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          }
-      }],
-      ...
+"copy": {
+    "name": "iterator",
+    "count": "[parameters('numberToDeploy')]",
+    "mode": "serial",
+    "batchSize": 2
+},
 ```
 
-Resource Manager expands the `copies` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
+The mode property also accepts **parallel**, which is the default value.
+
+To test serial copy without creating actual resources, use the following template that deploys empty nested templates:
 
 ```json
 {
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2016-04-30-preview",
-  "properties": {
-    "storageProfile": {
-      "dataDisks": [
-          {
-              "lun": 0,
-              "name": "myDataDisk1",
-              "vhd": {
-                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk1.vhd"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          },
-          {
-              "lun": 1,
-              "name": "myDataDisk2",
-              "vhd": {
-                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk2.vhd"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          },
-          {
-              "lun": 2,
-              "name": "myDataDisk3",
-              "vhd": {
-                  "uri": "http://mystorage.blob.core.windows.net/vhds/mydatadisk3.vhd"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
-          }
-      }],
-      ...
-```
-
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You do not have to provide the name when used with resource iteration.
-
-You can use resource and property iteration together. You reference either iteration by name.
-
-```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2016-04-30-preview",
-  "copy": {
-      "name": "vmcopy",
-      "count": 5
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "numberToDeploy": {
+      "type": "int",
+      "minValue": 2,
+      "defaultValue": 5
+    }
   },
-  "properties": {
-    "storageProfile": {
-      "copies": [{
-          "name": "dataDisks",
-          "count": 3,
-          "input": {
-              "lun": "[copyIndex('dataDisks')]",
-              "name": "[concat('vm', copyIndex('vmcopy',1),'myDataDisk', copyIndex('dataDisks',1))]",
-              "vhd": {
-                  "uri": "[concat('http://mystorage.blob.core.windows.net/vhds/vm', copyIndex('vmcopy',1), 'mydatadisk',copyIndex('dataDisks', 1), '.vhd')]"
-              },
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1
+  "resources": [
+    {
+      "apiVersion": "2015-01-01",
+      "type": "Microsoft.Resources/deployments",
+      "name": "[concat('loop-', copyIndex())]",
+      "copy": {
+        "name": "iterator",
+        "count": "[parameters('numberToDeploy')]",
+        "mode": "serial",
+        "batchSize": 1
+      },
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [],
+          "outputs": {
           }
-      }],
-      ...
+        }
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
+
+In the deployment history, notice that the nested deployments are processed in sequence.
+
+![serial deployment](./media/resource-group-create-multiple/serial-copy.png)
+
+For a more realistic scenario, the following example deploys two instances at a time of a Linux VM from a nested template:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "User name for the Virtual Machine."
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine."
+            }
+        },
+        "dnsLabelPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            }
+        },
+        "ubuntuOSVersion": {
+            "type": "string",
+            "defaultValue": "16.04.0-LTS",
+            "allowedValues": [
+                "12.04.5-LTS",
+                "14.04.5-LTS",
+                "15.10",
+                "16.04.0-LTS"
+            ],
+            "metadata": {
+                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+            }
+        }
+    },
+    "variables": {
+        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "[concat('nestedDeployment',copyIndex())]",
+            "type": "Microsoft.Resources/deployments",
+            "copy": {
+                "name": "myCopySet",
+                "count": 4,
+                "mode": "serial",
+                "batchSize": 2
+            },
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('templatelink')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "adminUsername": {
+                        "value": "[parameters('adminUsername')]"
+                    },
+                    "adminPassword": {
+                        "value": "[parameters('adminPassword')]"
+                    },
+                    "dnsLabelPrefix": {
+                        "value": "[parameters('dnsLabelPrefix')]"
+                    },
+                    "ubuntuOSVersion": {
+                        "value": "[parameters('ubuntuOSVersion')]"
+                    },
+                    "index":{
+                        "value": "[copyIndex()]"
+                    }
+                }
+            }
+        }
+    ]
+}
 ```
 
 ## Depend on resources in a loop
@@ -303,6 +339,5 @@ The following example shows the implementation:
 
 ## Next steps
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
-* To create iterated resources in sequence, see [Sequential looping for Azure Resource Manager templates](resource-manager-sequential-loop.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
 

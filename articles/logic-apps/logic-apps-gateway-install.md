@@ -57,6 +57,8 @@ For more information about supported connectors, see
 > running the latest installer. 
 > However, you can use the latest installer to set up 
 > a new gateway with the location that you want instead.
+> 
+> Also, the location for previously installed gateways installed 
 >
 > If you have a gateway installer that's earlier than 
 > version 14.16.6317.4, but you haven't installed 
@@ -101,6 +103,7 @@ the on-premises data gateway with an Azure subscription for an Azure AD-based ac
   > Or, if you signed up for an Office 365 offering and didn't supply your actual work email, 
   > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
 
+<a name="install-gateway"></a>
 ## Install the data gateway
 
 1.	[Download and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
@@ -287,6 +290,7 @@ and sends the query to the queue for the gateway to process.
 6. The results are sent from the data source, back to the gateway, and then to the gateway cloud service. 
 The gateway cloud service then uses the results.
 
+<a name="faq"></a>
 ## Frequently asked questions
 
 ### General
@@ -304,6 +308,16 @@ The gateway just needs the capability to connect to the server name that was pro
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's UPN matches the email address.
 
+**Q**: Where are my credentials stored? <br/>
+**A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 
+The credentials are decrypted at the on-premises data gateway.
+
+**Q**: Are there any requirements for network bandwidth? <br/>
+**A**: We recommend that your network connection has good throughput. 
+Every environment is different, and the amount of data being sent affects the results. 
+Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
+You can use the third-party tool Azure Speed Test app to help gauge your throughput.
+
 **Q**: What is the latency for running queries to a data source from the gateway? What is the best architecture? <br/>
 **A**: To reduce network latency, install the gateway as close to the data source as possible. 
 If you can install the gateway on the actual data source, this proximity minimizes the latency introduced. 
@@ -311,11 +325,14 @@ Consider the datacenters too. For example, if your service uses the West US data
 and you have SQL Server hosted in an Azure VM, your Azure VM should be in the West US too. 
 This proximity minimizes latency and avoids egress charges on the Azure VM.
 
-**Q**: Are there any requirements for network bandwidth? <br/>
-**A**: We recommend that your network connection has good throughput. 
-Every environment is different, and the amount of data being sent affects the results. 
-Using ExpressRoute could help to guarantee a level of throughput between on-premises and the Azure datacenters.
-You can use the third-party tool Azure Speed Test app to help gauge your throughput.
+**Q**: How are results sent back to the cloud? <br/>
+**A**: Results are sent through the Azure Service Bus.
+
+**Q**: Are there any inbound connections to the gateway from the cloud? <br/>
+**A**: No. The gateway uses outbound connections to Azure Service Bus.
+
+**Q**: What if I block outbound connections? What do I need to open? <br/>
+**A**: See the ports and hosts that the gateway uses.
 
 **Q**: What is the actual Windows service called?<br/>
 **A**: In Services, the gateway is called Power BI Enterprise Gateway Service.
@@ -324,23 +341,7 @@ You can use the third-party tool Azure Speed Test app to help gauge your through
 **A**: No. The Windows service must have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
-**Q**: Are there any inbound connections to the gateway from the cloud? <br/>
-**A**: No. The gateway uses outbound connections to Azure Service Bus.
-
-**Q**: What if I block outbound connections? What do I need to open? <br/>
-**A**: See the ports and hosts that the gateway uses.
-
-**Q**: How are results sent back to the cloud? <br/>
-**A**: Results are sent through the Azure Service Bus.
-
-**Q**: Where are my credentials stored? <br/>
-**A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 
-The credentials are decrypted at the on-premises gateway.
-
 ### High availability and disaster recovery
-
-**Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
-**A**: These scenarios are on the roadmap, but we don't have a timeline yet.
 
 **Q**: What options are available for disaster recovery? <br/>
 **A**: You can use the recovery key to restore or move a gateway. 
@@ -349,10 +350,12 @@ When you install the gateway, specify the recovery key.
 **Q**: What is the benefit of the recovery key? <br/>
 **A**: The recovery key provides a way to migrate or recover your gateway settings after a disaster.
 
+**Q**: Are there any plans for enabling high availability scenarios with the gateway? <br/>
+**A**: These scenarios are on the roadmap, but we don't have a timeline yet.
+
 ## Troubleshooting
 
-**Q**: Where are the gateway logs? <br/>
-**A**: See Tools later in this topic.
+[!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
 **Q**: How can I see what queries are being sent to the on-premises data source? <br/>
 **A**: You can enable query tracing, which includes the queries that are sent. 
@@ -361,6 +364,9 @@ Leaving query tracing turned on creates larger logs.
 
 You can also look at tools that your data source has for tracing queries. 
 For example, you can use Extended Events or SQL Profiler for SQL Server and Analysis Services.
+
+**Q**: Where are the gateway logs? <br/>
+**A**: See Tools later in this topic.
 
 ### Update to the latest version
 

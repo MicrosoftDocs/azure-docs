@@ -92,7 +92,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
     //Set the expiry time and permissions for the container.
     //In this case no start time is specified, so the shared access signature becomes valid immediately.
     SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
-    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+    sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24);
     sasConstraints.Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List;
 
     //Generate the shared access signature on the container, setting the constraints directly on the signature.
@@ -143,8 +143,8 @@ static string GetBlobSasUri(CloudBlobContainer container)
     //In this case the start time is specified as a few minutes in the past, to mitigate clock skew.
     //The shared access signature will be valid immediately.
     SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
-    sasConstraints.SharedAccessStartTime = DateTime.UtcNow.AddMinutes(-5);
-    sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+    sasConstraints.SharedAccessStartTime = DateTimeOffset.UtcNow.AddMinutes(-5);
+    sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24);
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
 
     //Generate the shared access signature on the blob, setting the constraints directly on the signature.
@@ -185,7 +185,7 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
     //Create a new shared access policy and define its constraints.
     SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
     {
-        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+        SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24),
         Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Read
     };
 

@@ -346,6 +346,10 @@ the trigger name, and the operation that's performed.
 So unless someone has access to the secret logic app key, 
 they cannot generate a valid signature.
 
+   > [!NOTE]
+   > For production/secure systems, we strongly recommend against calling your Logic App directly from the browser due to the shared access key being included in the URL, and the inability to manage secure content policies due to domains being shared across Logic App customers.
+
+
 #### Q: Can I configure HTTP endpoints further?
 
 A: Yes, HTTP endpoints support more advanced configuration 

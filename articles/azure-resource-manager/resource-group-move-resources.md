@@ -138,6 +138,7 @@ The services that currently do not enable moving a resource are:
 * Virtual Machines with Managed Disks
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Machines created from Marketplace resources - cannot be moved across subscriptions. Resource needs to be deprovisioned in the current subscription and deployed again in the new subscription
+* Managed Applications
 
 ## App Service limitations
 When working with App Service apps, you cannot move only an App Service plan. To move App Service apps, your options are:

@@ -14,12 +14,12 @@ ms.author: prrajan
 
 # Bing Text To Speech API
 
-## <a name="Introduction"> Introduction</a>
+## <a name="Introduction"></a> Introduction
 With the Bing Text to Speech API your application can send HTTP requests to a cloud server, where text is instantly synthesized into human sounding speech, and returned as an audio file.  The API can be used in many different contexts to provide real-time text to speech conversion in a variety of different voices and languages.  
 
-## <a name="VoiceSynReq"> Voice Synthesis Request</a>
+## <a name="VoiceSynReq"></a> Voice Synthesis Request
 
-### <a name="Subscription">Authorization Tokens</a>
+### <a name="Subscription"></a>Authorization Tokens
 Every request requires a JSON Web Token (JWT) access token. The JWT access token is passed through in the Speech request header. The token has an expiry time of 10 minutes. See [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview) for information about subscribing and obtaining API keys used to retrieve valid JWT access tokens.
 
 The API key is passed to the token service, for example:
@@ -46,7 +46,7 @@ Clients must use the following endpoint to access the text to speech service:
 >[!NOTE]
 >Until you have acquired an access token with your subscription key as described above this link will generate a 403 Response Error.
 
-### <a name="Http">HTTP Headers</a>
+### <a name="Http"></a>HTTP Headers
 HTTP headers for the request include:
 
 Header   |Value  |Comments 
@@ -58,13 +58,13 @@ X-Search-ClientID     |     A GUID (hex only, no dashes)    |    An ID that uniq
 User-Agent     |     Application name    |     Application name is required and must be less than 255 characters.
 Authorization | Authorization token |  As explained in <a href="#Subscription">Authorization Token</a> section above
 
-### <a name="InputParam">Input Parameters</a>
+### <a name="InputParam"></a>Input Parameters
 Requests to the Bing Text to Speech API are made using HTTP POST calls. The headers are specified above and the body contains Speech Synthesis Markup Language (SSML) representing the text to be synthesized. Refer to the [SSML W3C Specification](http://www.w3.org/TR/speech-synthesis/) for a description of the markup used to control aspects of speech such as the language and gender of the speaker.  
 
 >[!NOTE]
 >The maximum size of the SSML supported is 1024 characters including all markup tags.
 
-###  <a name="SampleVoiceOR">Example Voice Output Request</a>
+###  <a name="SampleVoiceOR"></a>Example Voice Output Request
 The following is an example of a voice output request:  
  
 ```
@@ -81,10 +81,10 @@ Authorization: Bearer [Base64 access_token]
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>Microsoft Bing Voice Output API</voice></speak>
 ```
  
-## <a name="VoiceOutResponse"> Voice Output Responses</a>
+## <a name="VoiceOutResponse"></a>Voice Output Responses
 The Bing Text to Speech API uses HTTP POST to send audio back to the client. The API response contains the audio stream and the codec and will match the requested output format. The maximum amount of audio returned for a given request must not exceed 15 seconds. 
  
-#### <a name="SuccessfulRecResponse"> Successful Synthesis Response</a>
+#### <a name="SuccessfulRecResponse"></a>Successful Synthesis Response
 Example JSON response for a successful voice synthesis request. The comments and formatting of the JSON below is for example reasons only. Indentation spaces, smart quotes, comments, etc. are omitted from the actual response. 
 ```
 HTTP/1.1 200 OK
@@ -94,7 +94,7 @@ Content-Type: audio/x-wav
 Response audio payload       
 ```
  
-#### <a name="RecFailure"> Synthesis Failure</a>
+#### <a name="RecFailure"></a>Synthesis Failure
 
 Example JSON response for a voice synthesis request failure.
 
@@ -104,7 +104,7 @@ Content-Type: text/xml
 Content-Length: 0
 ```
  
-### <a name="ErrorResponse"> Error Responses</a>
+### <a name="ErrorResponse"></a>Error Responses
 
 Error   | Description 
 ---------|---------
@@ -122,10 +122,10 @@ Content-Type: text/plain; charset=UTF-8
 Voice name not supported
 ```
 
-## <a name="SampleApp">Sample Application</a>
+## <a name="SampleApp"></a>Sample Application
 See the [Visual C#.NET Text to Speech sample application](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs) for implementation details.  
 
-## <a name="SupLocales">Supported Locales and Voice Fonts</a>
+## <a name="SupLocales"></a>Supported Locales and Voice Fonts
 
 Supported locales and related voice fonts include:
 
@@ -202,7 +202,7 @@ zh-TW | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS
 zh-TW | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" 
  *ar-EG supports Modern Standard Arabic (MSA)
 
-## <a name="TrouNSupport"> Troubleshooting and Support</a>
+## <a name="TrouNSupport"></a>Troubleshooting and Support
 
 Post all questions and issues to the [Bing Speech Service](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) MSDN Forum, with complete detail, such as: 
 * An example of the full request string.

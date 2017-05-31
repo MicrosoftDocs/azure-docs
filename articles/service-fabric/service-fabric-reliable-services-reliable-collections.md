@@ -58,12 +58,11 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * [Reliable State Manager and Collection Internals](service-fabric-reliable-services-reliable-collections-internals.md)
 * Managing Data
-  * [Back-up and Restore](service-fabric-reliable-services-backup-restore.md)
+  * [Backup and Restore](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)
   * [Reliable Collection serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
-(service-fabric-reliable-services-backup-restore.md)
 * Others
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
