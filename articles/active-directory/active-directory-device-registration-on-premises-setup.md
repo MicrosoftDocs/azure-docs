@@ -1,6 +1,6 @@
 ---
 title: Setting up on-premises conditional access using Azure Active Directory device registration | Microsoft Docs
-description: A step-by-step guide to enabling conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.
+description: A step-by-step guide to enabling conditional access to on-premises applications by using Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,11 +17,11 @@ ms.date: 05/04/2017
 ms.author: markvi
 
 ---
-# Setting up on-premises conditional access using Azure Active Directory device registration
-When you require users to workplace-join their personal devices to the Azure Active Directory device registration service, their devices can be marked as known to your organization. Following is a step-by-step guide for enabling conditional access to on-premises applications by using Active Directory Federation Service (AD FS) in Windows Server 2012 R2.
+# Setting up on-premises conditional access by using Azure Active Directory device registration
+When you require users to workplace-join their personal devices to the Azure Active Directory (Azure AD) device registration service, their devices can be marked as known to your organization. Following is a step-by-step guide for enabling conditional access to on-premises applications by using Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 
 > [!NOTE]
-> An Office 365 license or Azure AD Premium license is required when using devices that are registered in Azure Active Directory device registration service conditional access policies. These include policies that are enforced by Active Directory Federation Services (AD FS) in on-premises resources.
+> An Office 365 license or Azure AD Premium license is required when using devices that are registered in Azure Active Directory device registration service conditional access policies. These include policies that are enforced by AD FS in on-premises resources.
 > 
 > For more information about the conditional access scenarios for on-premises resources, see [Join to workplace from any device for SSO and seamless second-factor authentication across company applications](https://technet.microsoft.com/library/dn280945.aspx).
 
@@ -62,15 +62,15 @@ Use this guide to deploy and configure the Azure Active Directory device registr
 
 This guide assumes that you've configured Windows Server Active Directory and have subscribed to Microsoft Azure Active Directory. See the prerequisites described earlier.
 
-To deploy the Azure Active Directory device registration service with your Azure Active Directory tenant, complete the tasks in the following checklist in order. When a reference link takes you to a conceptual topic, return to this checklist afterwards, so that you can proceed with the remaining tasks. Some tasks include a scenario validation step that can help you confirm whether the step was completed successfully.
+To deploy the Azure Active Directory device registration service with your Azure Active Directory tenant, complete the tasks in the following checklist in order. When a reference link takes you to a conceptual topic, return to this checklist afterward, so that you can proceed with the remaining tasks. Some tasks include a scenario validation step that can help you confirm whether the step was completed successfully.
 
 ## Part 1: Enable Azure Active Directory device registration
 Follow the steps in the checklist to enable and configure the Azure Active Directory device registration service.
 
 | Task | Reference | 
 | --- | --- |
-| Enable device registration in your Azure Active Directory tenant to allow devices to join the workplace. By default, Multi-Factor Authentication is not enabled for the service. However, we recommend that you use Multi-Factor Authentication when you register a device. Before enabling Multi-Factor Authentication in Active Directory registration service, ensure that AD FS is configured for a Multi-Factor Authentication  provider. |[Enable Azure Active Directory Device Registration](active-directory-device-registration-get-started.md)| 
-|Devices discover your Azure Active Directory device registration service by looking for well-known DNS records. Configure your company DNS so that devices can discover your Azure Active Directory device registration service. |[Configure Azure Active Directory device registration discovery.](active-directory-device-registration-get-started.md)| 
+| Enable device registration in your Azure Active Directory tenant to allow devices to join the workplace. By default, Azure Multi-Factor Authentication is not enabled for the service. However, we recommend that you use Multi-Factor Authentication when you register a device. Before enabling Multi-Factor Authentication in Active Directory registration service, ensure that AD FS is configured for a Multi-Factor Authentication  provider. |[Enable Azure Active Directory device registration](active-directory-device-registration-get-started.md)| 
+|Devices discover your Azure Active Directory device registration service by looking for well-known DNS records. Configure your company DNS so that devices can discover your Azure Active Directory device registration service. |[Configure Azure Active Directory device registration discovery](active-directory-device-registration-get-started.md)| 
 
 
 ## Part 2: Deploy and configure Windows Server 2012 R2 Active Directory Federation Services and set up a federation relationship with Azure AD
@@ -83,10 +83,10 @@ Follow the steps in the checklist to enable and configure the Azure Active Direc
 ## Part 3: Enable device writeback in Azure AD
 | Task | Reference |
 | --- | --- |
-| Complete part two of Enabling device writeback in Azure AD Connect. After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Complete part two of "Enabling device writeback in Azure AD Connect." After you finish it, return to this guide. |[Enabling device writeback in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
-## [Optional] Part 4: Enable multi-factor authentication
-We strongly recommended that you configure one of the several options for Multi-Factor Authentication. If you want to require multi-factor authentication, see [Choose the Multi-Factor security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
+## [Optional] Part 4: Enable Multi-Factor Authentication
+We strongly recommended that you configure one of the several options for Multi-Factor Authentication. If you want to require Multi-Factor Authentication, see [Choose the Multi-Factor Authentication security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice.
 
 ## Part 5: Verification
 The deployment is now complete, and you can try out some scenarios. Use the following links to experiment with the service and become familiar with its features.
@@ -101,7 +101,7 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 ## Integrate Azure Active Directory with on-premises Active Directory
 This step helps you integrate your Azure AD tenant with your on-premises Active Directory by using Azure AD Connect. Although the steps are available in the Azure classic portal, make note of any special instructions that are listed in this section.
 
-1. Sign in to the Azure classic portal using an account that is a global administrator in Azure AD.
+1. Sign in to the Azure classic portal by using an account that is a global administrator in Azure AD.
 2. On the left pane, select **Active Directory**.
 3. On the **Directory** tab, select your directory.
 4. Select the **Directory Integration** tab.
@@ -111,7 +111,7 @@ This step helps you integrate your Azure AD tenant with your on-premises Active 
    2. Install and run Azure AD Connect by using the instructions at [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
    3. Verify and manage directory sync. Single sign-on instructions are available within this step.
    
-   In addition, configure Federation with AD FS as outlined in [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+   In addition, configure federation with AD FS as outlined in [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
 ## Upgrade your Active Directory Domain Services schema
 > [!NOTE]
@@ -120,13 +120,13 @@ This step helps you integrate your Azure AD tenant with your on-premises Active 
 
 1. Sign in to your domain controller with an account that has both enterprise administrator and schema administrator rights.
 
-2. Copy the **[media]\support\adprep** directory and sub-directories to one of your Active Directory domain controllers (where **[media]** is the path to the Windows Server 2012 R2 installation media).
+2. Copy the **[media]\support\adprep** directory and subdirectories to one of your Active Directory domain controllers (where **[media]** is the path to the Windows Server 2012 R2 installation media).
 
 4. From a command prompt, go to the **adprep** directory and run **adprep.exe /forestprep**. Follow the onscreen instructions to complete the schema upgrade.
 
 ## Prepare your Active Directory to support devices
 > [!NOTE]
-> This is a one-time operation that you must run to prepare your Active Directory forest to support devices. You must be signed in with enterprise administrator permissions and your Active Directory forest must have the Windows Server 2012 R2 schema to complete this procedure.
+> This is a one-time operation that you must run to prepare your Active Directory forest to support devices. To complete this procedure, you must be signed in with enterprise administrator permissions and your Active Directory forest must have the Windows Server 2012 R2 schema.
 > 
 
 
@@ -138,7 +138,7 @@ This step helps you integrate your Azure AD tenant with your on-premises Active 
 ### Enable device authentication in AD FS
 1. On your federation server, open the AD FS management console and go to **AD FS** > **Authentication Policies**.
 
-2. On the **Actions** pane, select **Edit Global Primary Authentication…**.
+2. On the **Actions** pane, select **Edit Global Primary Authentication**.
 
 3. Check **Enable device authentication**, and then select **OK**.
 
@@ -195,11 +195,11 @@ The following steps show you how to implement this scenario.
 > This section assumes that you have already configured a Relying Party Trust for your application in AD FS.
 > 
 
-1. Open the AD FS MMC tool, and then select **AD FS > Trust Relationships > Relying Party Trusts**.
+1. Open the AD FS MMC tool, and then select **AD FS** > **Trust Relationships** > **Relying Party Trusts**.
 
-2. Locate the application to which this new access rule applies. Right-click the application, and then select **Edit Claim Rules…**
+2. Locate the application to which this new access rule applies. Right-click the application, and then select **Edit Claim Rules**.
 
-3. Select the **Issuance Authorization Rules** tab, and then select **Add Rule…**
+3. Select the **Issuance Authorization Rules** tab, and then select **Add Rule**.
 
 4. From the **Claim rule** template drop-down list, select **Permit or Deny Users Based on an Incoming Claim**. Then select **Next**.
 
@@ -217,7 +217,7 @@ The following steps show you how to implement this scenario.
 
 Your application is now configured to allow access only when the user is coming from a device that they registered and joined to the workplace. For more advanced access polices, see [Manage Risk with Additional Multi-Factor Authentication for Sensitive Applications](https://technet.microsoft.com/library/dn280949.aspx).
 
-Next, you configure a custom error message for your application. The error message lets users know that they must join their device to the workplace before they can access the application. You can create a custom application access-denied message using custom HTML and PowerShell.
+Next, you configure a custom error message for your application. The error message lets users know that they must join their device to the workplace before they can access the application. You can create a custom application access-denied message by using custom HTML and PowerShell.
 
 On your federation server, open a PowerShell command window, and then type the following command. Replace portions of the command with items that are specific to your system:
 
@@ -232,9 +232,9 @@ Join this iOS device to your workplace.
 
 If you are using a Windows 8.1 device, you can join your device by selecting **PC Settings**> **Network** > **Workplace**.
 
-Where "**relying party trust name**" is the name of your application's Relying Party Trust object in AD FS.
-Where **yourdomain.com** is the domain name that you have configured with Azure Active Directory (for example, contoso.com).
-Be sure to remove any line breaks (if any) from the html content that you pass to the **Set-AdfsRelyingPartyWebContent** cmdlet.
+In the preceding commands, **relying party trust name** is the name of your application's Relying Party Trust object in AD FS.
+And **yourdomain.com** is the domain name that you have configured with Azure Active Directory (for example, contoso.com).
+Be sure to remove any line breaks (if any) from the HTML content that you pass to the **Set-AdfsRelyingPartyWebContent** cmdlet.
 
 Now when users access your application from a device that's not registered with the Azure Active Directory device registration service, they see a page that looks similar to the following screenshot.
 
