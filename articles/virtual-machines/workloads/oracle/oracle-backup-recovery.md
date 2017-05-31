@@ -335,7 +335,7 @@ Search for 'Public IP addresses' in search menu.
 
 ![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_00.png)
 
-Click Add button, enter the public ip name and select the exisiing resource group, click Create button.
+Click Add button, enter the public ip name and select the existing resource group, click Create button.
 
 ![Screenshot of the create ip page](./media/oracle-backup-recovery/create_ip_01.png)
 
