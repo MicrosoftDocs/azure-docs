@@ -50,44 +50,15 @@ Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. 
 Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in the API reference for more information.
 
 ### Speech Recognition Supported languages  
-The *Speech to Text* APIs support many spoken languages in multiple dialects. The languages and locales supported by the *Speech to Text* APIs include:    
-
-| language-Country | language-Country | language-Country | language-Country    
-|---------|----------|--------|--------------- 
-| ar-EG    |  en-NZ  | it-IT  |  ru-RU  
-| ca-ES    |  en-US  | ja-JP  |  sv-SE  
-| da-DK    |  es-ES  | ko-KR  |  zh-CN  
-| de-DE    |  es-MX  | nb-NO  |  zh-HK  
-| en-AU    |  fi-FI  | nl-NL  |  zh-TW  
-| en-CA    |  fr-CA  | pl-PL  |      
-| en-GB    |  fr-FR  | pt-BR  |        
-| en-IN    |  hi-IN  | pt-PT  |  
-
-Refer to [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages) 
+The *Speech to Text* APIs support many spoken languages in multiple dialects. Refer to 
+[Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages) 
 for the full list of supported languages for each recognition mode. 
 
 ## Text to Speech (Speech Synthesis)
-*Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide real-time text to speech conversion in a variety of different 
-voices and languages.
-
-### Supported languages  
-The languages and locales supported by *Text to Speech* API include:  
-
-| language-Country |language-Country | language-Country | language-Country  
-| ---------|----------|------------|------------  
-| ar-EG    |   en-GB  |   hi-IN  |   pt-PT  
-| ar-SA    |   en-IE  |   hu-HU  |   ro-RO  
-| ca-ES    |   en-IN  |   id-ID  |   ru-RU  
-| cs-CZ    |   en-US  |   it-IT  |   sk-SK  
-| da-DK    |   es-ES  |   ja-JP  |   sv-SE  
-| de-AT    |   es-MX  |   ko-KR  |   th-TH  
-| de-CH    |   fi-FI  |   nb-NO  |   tr-TR  
-| de-DE    |   fr-CA  |   nl-NL  |   zh-CN  
-| el-GR    |   fr-CH  |   pl-PL  |   zh-HK  
-| en-AU    |   fr-FR  |   pt-BR  |   zh-TW    
-
-Refer to [Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts) for 
-the full list of supported languages and voices.
+*Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide real-time text to speech 
+conversion in a variety of different voices and languages. Refer to 
+[Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts)
+for the full list of supported languages and voices.
 
 ### Text to Speech API 
 The maximum amount of audio returned for any single request is 15 seconds. 
