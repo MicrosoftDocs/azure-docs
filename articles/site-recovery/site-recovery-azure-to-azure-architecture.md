@@ -18,7 +18,7 @@ ms.author: sujayt
 
 ---
 
-# How does Azure VMs replication work in Site Recovery?
+# How does Azure VM replication work in Site Recovery?
 
 > [!div class="op_single_selector"]
 > * [Azure VM replication](site-recovery-azure-to-azure-architecture.md)
