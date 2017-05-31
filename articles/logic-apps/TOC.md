@@ -7,6 +7,7 @@
 ## [Create your first logic app](logic-apps-create-a-logic-app.md)
 ## [Templates for logic apps](logic-apps-use-logic-app-templates.md)
 ## [Create logic apps from templates](logic-apps-arm-provision.md)
+## [Move MABS apps to logic apps](logic-apps-move-from-mabs.md)
 
 # How To
 ## Build

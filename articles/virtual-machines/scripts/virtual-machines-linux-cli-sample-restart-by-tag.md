@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Restart VMs
