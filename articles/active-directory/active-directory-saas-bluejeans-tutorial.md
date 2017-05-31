@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 05/31/2017
 ms.author: jeedes
 
 ---
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [BlueJeans Client support team](https://support.bluejeans.com/contact) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
 
@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/tutorial_general_400.png)
 
-6. On the **BlueJeans Configuration** section, click **Configure BlueJeans** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **BlueJeans Configuration** section, click **Configure BlueJeans** to open **Configure sign-on** window. Copy the **Sign-Out URL, Change Password URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_configure.png) 
 
@@ -151,15 +151,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     c. Paste **Change Password URL** into the **Password Change URL** textbox.
    
-    d. paste **Sign-Out URL** into the **Logout URL** textbox.
+    d. Paste **Sign-Out URL** into the **Logout URL** textbox.
 
 11. Move on with the following steps:
 	
 	![Save Changes](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
 	
-	a. In the **User id** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+	a. In the **User id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
    
-    b. In the **Email** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    b. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
    
     c. Click **Save Changes**.
 
@@ -202,7 +202,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 To enable Azure AD users to log in to BlueJeans, they must be provisioned into BlueJeans.  
 
-* When BlueJeans, provisioning is a manual task.
+In case of BlueJeans, provisioning is a manual task.
 
 **To provision a user accounts, perform the following steps:**
 
@@ -219,19 +219,9 @@ To enable Azure AD users to log in to BlueJeans, they must be provisioned into B
 
 	![Add User](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Add User")
 	
-	a. Type a **BlueJeans Username** 
+	a. Type a **BlueJeans Username**, an **Email address**, a **BlueJeans Meeting ID**, a **Moderator Passcode**, a **Full Name**, the **Company** of a valid AAD account you want to provision into the related textboxes.
 	
-	b. Enter **Email address**
-	
-	c. Enter **BlueJeans Meeting ID**
-	
-	d. Enter **Moderator Passcode**
-	
-	e. Enter **Full Name**
-	
-	f. the **Company** of a valid AAD account you want to provision into the related textboxes.
-
-  4. Click **Add User**.
+	b. Click **Add User**.
 
 >[!NOTE]
 >You can use any other BlueJeans user account creation tools or APIs provided by BlueJeans to provision AAD user accounts. 
