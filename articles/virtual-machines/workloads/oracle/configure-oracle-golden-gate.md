@@ -347,33 +347,33 @@ To download and prepare the Oracle Golden Gate software, complete the following 
 
 #### 2.  After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM.
 
-    ```bash
-    scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
-    ```
+```bash
+$ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
+```
 
 #### 3.  Move the .zip files to the /opt folder. Then, change the owner of the files:
 
-    ```bash
-    $ sudo su -
-    # mv <folder>/*.zip /opt
-    ```
+```bash
+$ sudo su -
+# mv <folder>/*.zip /opt
+```
 
 #### 4.  Unzip the files (install the Linux unzip utility if it's not already installed):
 
-    ```bash
-    # yum install unzip
-    # cd /opt
-    # unzip fbo_ggs_Linux_x64_shiphome.zip
-    ```
+```bash
+# yum install unzip
+# cd /opt
+# unzip fbo_ggs_Linux_x64_shiphome.zip
+```
 
 #### 5.  Change permission:
 
-    ```bash
-    # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
-    ```
+```bash
+# chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
+```
 
-### Prepare the client and VM to run X11 (for Windows clients only)
-This is an optional step, You can skip this step if you are using a Linux client or already have X11 setup. 
+### Prepare the client and VM to run x11 (for Windows clients only)
+This is an optional step, You can skip this step if you are using a Linux client or already have x11 setup.
 
 #### 1.  Download PuTTY and Xming to your Windows computer:
 
@@ -393,11 +393,11 @@ This is an optional step, You can skip this step if you are using a Linux client
 
 #### 4.  In your VM, run these commands:
 
-  ```bash
-  # sudo su - oracle
-  $ mkdir .ssh (if not already created)
-  $ cd .ssh
-  ```
+```bash
+# sudo su - oracle
+$ mkdir .ssh (if not already created)
+$ cd .ssh
+```
 
 #### 5.  Create a file named authorized_keys. Paste the contents of the key in this file, and then save the file.
 
@@ -426,10 +426,10 @@ To install Oracle Golden Gate, complete the following steps:
   > [!NOTE]
   > Make sure that Xming is running before you begin the installation.
   >
-    ```bash
-    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
-    $ ./runInstaller
-    ```
+```bash
+$ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
+$ ./runInstaller
+```
 #### 2. Select 'Oracle GoldenGte for Oracle Database 12c', click Next to continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_01.png)
 
@@ -672,7 +672,6 @@ SQL> EXIT;
 ```
 
 #### 4. REPLICAT parameter file to replicate changes 
--- for TCUSTORD and TCUSTMER
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
