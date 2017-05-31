@@ -93,10 +93,9 @@ Key Vault needs permissions to list and regenerate keys for a storage account. S
 2. Assign “Storage Key Operator” role to Azure Key Vault Identity: 
 `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'` 
 
-For a classic account set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
-
 >[!NOTE]
->The Key Vault identity might be invisible in tenants that had vaults created before <date>. As a workaround, you can create a vault and delete it to make Key Vault’s identity visible in these tenants.
+> For a classic account set the role parameter to *"Classic Storage Account Key Operator Service Role"*. 
+
 
 ### Storage account onboarding 
 
