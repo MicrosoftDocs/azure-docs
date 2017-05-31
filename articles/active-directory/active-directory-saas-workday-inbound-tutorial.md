@@ -58,6 +58,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * For user provisioning to Active Directory, a domain-joined server running Windows Service 2012 or greater is required to host the [on-premises synchronization agent](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) for synchronizing between Active Directory and Azure AD
 
+> [!NOTE]
+> If your Azure AD tenant is located in Europe, please see the [Known issues] section below.
+
 
 ### Solution architecture
 
@@ -79,11 +82,12 @@ Azure Active Directory supports pre-integrated provisioning connectors for Workd
 
 A single provisioning connector interfaces with the API of a single source system, and helps provision data to a single target system. Most provisioning connectors that Azure AD supports are for a single source and target system (e.g. Azure AD to ServiceNow), and can be setup by simply adding the app in question from the Azure AD app gallery (e.g. ServiceNow). 
 
+There is a one-to-one relationship between provisioning connector instances and app instances in Azure AD:
+
 | Source System | Target System |
 | ---------- | ---------- | 
 | Azure AD tenant | SaaS application |
 
-There is a one-to-one relationship between provisioning connector instances and app instances in Azure AD.
 
 However, when working with Workday and Active Directory, there are multiple source and target systems to be considered:
 
@@ -93,7 +97,6 @@ However, when working with Workday and Active Directory, there are multiple sour
 | Workday | Azure AD tenant | As required for cloud-only users |
 | Active Directory Forest | Azure AD tenant | This flow is handled by AAD Connect today |
 | Azure AD tenant | Workday | For writeback of email addresses |
-| Azure AD tenant | Other SaaS apps | As required |
 
 To facilitate these multiple workflows to multiple source and target systems, Azure AD provides multiple provisioning connector apps that you can add from the Azure AD app gallery:
 
@@ -252,8 +255,7 @@ Follow these instructions to configure user account provisioning from Workday to
         endpoint for your tenant. This should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where contoso4 is replaced with your correct tenant name and
-        wd3-impl is replaced with the correct environment string (if
-        necessary).
+        wd3-impl is replaced with the correct environment string.
 
    * **Active Directory Forest -** The “Name” of your Active
         Directory forest, as returned by the Get-ADForest powershell
@@ -719,11 +721,15 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 5. One completed, it will write an audit summary report in the
     **Provisioning** tab, as shown below.
 
-## Additional Resources
+## Known issues
+
+* **Audit logs in European locales** - As of the release of this technical preview, there is a known issue with the (audit logs)[active-directory-saas-provisioning-reporting.md] for the Workday connector apps not appearing in the [Azure portal](https://portal.azure.com). A fix for this issue is forthcoming. Please check this space again in the near future for updates. 
+
+## Additional resources
 * [Tutorial: Configuring single sign-on between Workday and Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## Next Steps
+## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)
