@@ -88,7 +88,7 @@ If other Azure services, such as Azure Data Factory, or VMs connect to the Data 
 
 Like other Azure services, you can use Azure Role-Based Access Control (RBAC) to control how users interact with the service.
 
-The standard RBAC roles have the following capabilities with respect to Data Lake Analytics:
+The standard RBAC roles have the following capabilities for Data Lake Analytics:
 * **Owner**: You can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
 * **Contributor**: You can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
 * **Reader**: You can monitor jobs.
@@ -120,9 +120,7 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Submit a job
 
 1. Open the Data Lake Analytics account in the portal.
-2. Click **New Job**.
-   
-    For each job, you can configure:
+2. Click **New Job**. For each job, you can configure:
 
     * **Job Name**: The name of the job.
     * **Priority**: Lower numbers have higher priority. If two jobs are queued, the one with lower priority runs first.
