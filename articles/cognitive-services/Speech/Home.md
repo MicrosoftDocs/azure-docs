@@ -24,7 +24,7 @@ The *Speech to Text* APIs *transcribe* audio streams into text that your applica
 * A REST API, useful for apps that need to convert short spoken commands to text but do not need simultaneous user feedback. The REST API uses 
 [HTTP chunked-transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) to send the audio bytes to the service.
 * A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps that desire an
-improved user experience by leveraging the power of the full-duplex WebSocket connection through features like speech recognition hypotheses. Also useful for apps that need to transcribe longer audio passages.  
+improved user experience by using the power of the full-duplex WebSocket connection through features like speech recognition hypotheses. Also useful for apps that need to transcribe longer audio passages.  
 
 Both *Speech to Text* APIs can enrich the transcribed text results by adding capitalization and punctuation, masking profanity, and text normalization.
 
@@ -50,15 +50,13 @@ Microsoft's *Speech to Text* APIs support multiple modes of speech recognition. 
 Refer to [Recognition Modes](api-reference-rest/bingvoicerecognition.md#recognition-modes) in the API reference for more information.
 
 ### Speech Recognition Supported languages  
-The *Speech to Text* APIs support many spoken languages in multiple dialects. Refer to 
-[Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages) 
-for the full list of supported languages for each recognition mode. 
+The *Speech to Text* APIs support many spoken languages in multiple dialects. For the full list of supported languages in 
+each recognition mode, see [Recognition Languages](api-reference-rest/bingvoicerecognition.md#recognition-languages).
 
 ## Text to Speech (Speech Synthesis)
 *Text to Speech* APIs use REST to convert structured text to an audio stream. The APIs provide fast text to speech 
-conversion in various voices and languages. Refer to 
-[Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts)
-for the full list of supported languages and voices.
+conversion in various voices and languages. For the full list of supported languages and voices, see
+[Supported Locales and Voice Fonts](api-reference-rest/bingvoiceoutput.md#a-namesuplocalesasupported-locales-and-voice-fonts).
 
 ### Text to Speech API 
 The maximum amount of audio returned for any single request is 15 seconds. 
