@@ -23,7 +23,7 @@ ms.author: cfowler
 
 ![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once all the prerequisites are installed, it should take you only about 5 minutes to complete all of the steps.
+You can follow the steps below using a Mac, Windows, or Linux machine. Once all the prerequisites are installed, it should take you only about five minutes to complete all the steps.
 
 ## Prerequisites
 
@@ -141,13 +141,13 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure web app
 
-Go to the [Azure portal](https://portal.azure.com) to take a look at the web app you just created.
+Go to the [Azure portal](https://portal.azure.com) to look at the web app you created.
 
 From the left menu, click **App Services**, then click the name of your Azure web app.
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-You see your web app's Overview page . Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
 ![App Service blade in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
