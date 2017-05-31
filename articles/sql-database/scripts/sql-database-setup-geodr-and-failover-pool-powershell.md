@@ -27,7 +27,7 @@ This sample PowerShell script configures active geo-replication for a database i
 
 ## Sample scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Set up active geo-replication for elastic pool")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Set up active geo-replication for elastic pool")]
 
 ## Clean up deployment
 

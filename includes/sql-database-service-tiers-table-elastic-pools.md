@@ -15,9 +15,9 @@ sql-database-service-tiers.md
 | Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Max concurrent logins per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Min eDTUs per database | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} |
-| Max eDTUs per database | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} |
-| Max data storage per database | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB |
+| Min eDTUs per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Max eDTUs per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Max data storage per database | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 
 ||||||||
 
 ### Standard elastic pool limits
@@ -30,8 +30,8 @@ sql-database-service-tiers.md
 | Max concurrent workers (requests) per pool | 100 | 200 | 400 | 600 |  800 | 1600 |
 | Max concurrent logins per pool | 100 | 200 | 400 | 600 |  800 | 1600 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs per database | {0,10,20,<br>50} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
-| Max eDTUs per database | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
+| Min eDTUs per database | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Max eDTUs per database | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
 | Max data storage per database | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB |
 ||||||||
 
@@ -41,13 +41,13 @@ sql-database-service-tiers.md
 |:---|---:|---:|---:| ---: | ---: |
 | Max data storage per pool* | 1.2 TB | 1.6 TB | 2 TB | 2.4 TB | 2.9 TB | 
 | Max In-Memory OLTP storage per pool | N/A | N/A | N/A | N/A | N/A | 
-| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 500 |
+| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 
 | Max concurrent workers (requests) per pool |  2400 | 3200 | 4000 | 5000 | 6000 |
 | Max concurrent logins per pool |  2400 | 3200 | 4000 | 5000 | 6000 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs per database | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
-| Max eDTUs per database | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
-| Max data storage per database | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB |
+| Min eDTUs per database | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Max eDTUs per database | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Max data storage per database | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 
 ||||||||
 
 ### Premium elastic pool limits
@@ -60,9 +60,9 @@ sql-database-service-tiers.md
 | Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 |  2400 | 
 | Max concurrent logins per pool | 200 | 400 | 800 | 1600 |  2400 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs per database | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} | {0,25,50,75,<br>125,250,500,<br>1000,1500} | 
-| Max eDTUs per database | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |
-| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
+| Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
+| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
 ### Premium elastic pool limits (continued) 
@@ -75,9 +75,9 @@ sql-database-service-tiers.md
 | Max concurrent workers (requests) per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Max concurrent logins per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Min eDTUs per database | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} |  {0,25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
-| Max eDTUs per database | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
-| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
+| Min eDTUs per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 |  0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Max eDTUs per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
 ### Premium RS elastic pool limits
@@ -90,9 +90,9 @@ sql-database-service-tiers.md
 | Max concurrent workers (requests) per pool | 200 | 400 | 800 | 1600 |
 | Max concurrent logins per pool | 200 | 400 | 800 | 1600 |
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs per database | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} |
-| Max eDTUs per database | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | 
-| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
+| Min eDTUs per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
+| Max eDTUs per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
+| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
 > [!IMPORTANT]

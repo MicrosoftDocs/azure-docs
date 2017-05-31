@@ -27,7 +27,7 @@ This sample PowerShell script configures SQL Database auditing and threat detect
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1 "Configure auditing and threat detection")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configure auditing and threat detection")]
 
 ## Clean up deployment
 

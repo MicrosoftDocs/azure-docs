@@ -1,4 +1,4 @@
 ---
-redirect_url: https://docs.microsoft.com/en-us/azure/documentdb/documentdb-faq#moving-to-cosmos-db
+redirect_url: https://docs.microsoft.com/en-us/azure/cosmos-db/faq#moving-to-cosmos-db
 ROBOTS: NOINDEX, NOFOLLOW
 ---
