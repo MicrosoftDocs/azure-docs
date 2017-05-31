@@ -1,6 +1,6 @@
 ---
-title: Upgrade Azure Backup Server to v.2 | Microsoft Docs
-description: Learn about the new features when you upgrade to Azure Backup Server v.2. This article provides instruction on upgrading your Azure Backup Server installation.
+title: Install Azure Backup Server v2 | Microsoft Docs
+description: Azure Backup Server v2 provides enhanced backup capabilities for protecting VMs, files and folders, workloads and more. This article provides instruction on installing, or upgrading, to Azure Backup Server v2.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -17,15 +17,16 @@ ms.date: 05/15/2017
 ms.author: masaran;markgal
 ---
 
-# Install Azure Backup Server v.2
+# Install Azure Backup Server v2
 
+Azure Backup Server protects your virtual machines (VMs), workloads, files and folders, and more. Azure Backup Server v2 builds on top of Azure Backup Server v1, that is, Azure Backup Server v2 enables additional features, not available in v1. For a comparison of features between v1 and v2, see the article, [Azure Backup Server protection matrix](backup-mabs-protection-matrix.md). The additional features in Azure Backup Server v2 are an upgrade from Azure Backup Server v1. However, Azure Backup Server v1 is not a prerequisite for Azure Backup Server v2. If you want to upgrade Azure Backup Server v1 to Azure Backup Server v2, install Azure Backup Server v2 on the Azure Backup Server protection server. Your existing Azure Backup Server settings remain.
 
-You can install Azure Backup Server v.2 on Windows Server 2012 R2, or on Windows Server 2016. However to take advantage of Modern Backup Storage, Azure Backup Server v.2 must be installed on Windows Server 2016. Before you upgrade or install Azure Backup Server v.2, please read the [Installation prerequisites](http://docs.microsoft.com/system-center/dpm/install-dpm.md#setup-prerequisites).
+You can install Azure Backup Server v2 on Windows Server 2012 R2 or on Windows Server 2016. However to take advantage of new features such as Modern Backup Storage, you must install Azure Backup Server v2 on Windows Server 2016. Before you upgrade or install Azure Backup Server v2, please read the [Installation prerequisites](http://docs.microsoft.com/system-center/dpm/install-dpm.md#setup-prerequisites).
 
 > Are DPM's prerequisites followed?
 
 > [!NOTE]
-> Azure Backup Server is based on the same code base as System Center Data Protection Manager (DPM). Azure Backup Server v.1 is equivalent to DPM 2012 R2, and Azure Backup Server is equivalent to DPM 2016. This documentation occasionally references the DPM documentation.
+> Azure Backup Server is based on the same code base as System Center Data Protection Manager (DPM). Azure Backup Server v1 is equivalent to DPM 2012 R2, and Azure Backup Server is equivalent to DPM 2016. This documentation occasionally references the DPM documentation.
 >
 >
 
@@ -76,11 +77,9 @@ To upgrade Azure Backup Server v.1 to v.2, make sure your installation has the n
 
   ![setup installer](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
-9.
+9. To finish the setup wizard, click **Finish**.
 
   ![setup installer](./media/backup-mabs-upgrade-to-v2/run-setup.png)
-
-
 
 
 
@@ -93,19 +92,19 @@ If you run Azure Backup Server v2 on Windows Server 2016, you can use volumes to
 
 To add a volume in the administrator console:
 
-1. In the DPM Administrator console, select the **Management** feature > **Disk Storage** > **Add**.
+1. In the Azure Backup Server Administrator console, select the **Management** feature > **Disk Storage** > **Add**.
 
 2. In the **Add Disk Storage** dialog, select an available volume > click **Add** > type a friendly name for the volume ** > click **OK**.
 
       ![Add volume](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-volume.png)
 
-If you want to add a disk, it must belong to a protection group with legacy storage. Those disks can only be used for those protection groups. If the DPM server doesn't have sources with legacy protection, the disk won't appear.
+If you want to add a disk, it must belong to a protection group with legacy storage. Those disks can only be used for those protection groups. If the Azure Backup Server doesn't have sources with legacy protection, the disk won't appear.
 See the topic, [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage), for more information on adding disks. You can't give disks a friendly name.
 
 
 ### Assign Workloads to Volumes
 
-DPM 2016 allows the user to specify which kinds of workloads should be assigned to which volumes. For example, expensive volumes that support high IOPS can be configured to store only the workloads that require frequent, high-volume backups like SQL with Transaction Logs.
+With Azure Backup Server, you specify which workloads are assigned to which volumes. For example, expensive volumes, that support high IOPS, can be configured to store only workloads that require frequent, high-volume backups like SQL with Transaction Logs.
 To update the properties of a volume in the storage pool on a DPM server, use the PowerShell cmdlet, Update-DPMDiskStorage.
 
 **Update-DPMDiskStorage**
@@ -118,7 +117,7 @@ To update the properties of a volume in the storage pool on a DPM server, use th
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 
-The changes made through PowerShell are reflected in the UI.
+All changes made using PowerShell reflected in the UI.
 
 
 ## Protecting Data Sources
@@ -126,46 +125,46 @@ To begin protecting data sources, create a Protection Group. The following proce
 
 To create a Protection Group:
 
-1. In the DPM Administrator Console, select the **Protection** feature.
+1. In the Azure Backup Server Administrator console, select the **Protection** feature.
 
 2. On the tool ribbon, click **New**.
 
     The **Create new Protection Group** wizard opens.
 
-  ![Create protection group](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-protection-wiz.png)
+  ![Create protection group](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
 3. Click **Next** to advance the wizard to the **Select Protection Group Type** screen.
 4. On the **Select Protection Group Type** screen, select the type of Protection Group to be created and then click **Next**.
 
-  ![Choose server or client](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-protection-group-screen2.png)
+  ![Choose server or client](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. On the **Select Group Members** screen, in the **Available members** pane, DPM lists the members with protection agents. For the purposes of this example, select volume D:\ and E:\ to add them to the **Selected members** pane. Once you have chosen the members for the protection group, click **Next**.
+5. On the **Select Group Members** screen, in the **Available members** pane, Azure Backup Server lists the members with protection agents. For the purposes of this example, select volume D:\ and E:\ to add them to the **Selected members** pane. Once you have chosen the members for the protection group, click **Next**.
 
-  ![Select group members for protection group](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-protection-screen3.png)
+  ![Select group members for protection group](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
 6. On the **Select Data Protection Method** screen, type a name for the **Protection group**, select the protection method(s) and click **Next**.
     If you want short term protection, you must use Disk backup.
 
-  ![Select data protection method](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-protection-screen4.png)
+  ![Select data protection method](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
 
 7. On the **Specify Short-Term Goals** screen specify the details for **Retention Range** and **Synchronization Frequency**, and click **Next**. If desired, click **Modify** to change the schedule when recovery points are taken.
 
-  ![Select data protection method](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-protection-screen5.png)
+  ![Select data protection method](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
 
 8. The **Review Disk Storage Allocation** screen provides details about the selected data sources, their size, the **Space to be Provisioned**, and **Target Storage Volume**.
 
-  ![Review Disk Storage Allocation](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-protection-screen6.png)
+  ![Review Disk Storage Allocation](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
   The storage volumes are determined based on the workload volume allocation (set using PowerShell) and the available storage. You can change the storage volumes by selecting other volumes from the drop-down menu. If you change the **Target Storage**, the **Available disk storage** dynamically changes to reflect the **Free Space** and **Underprovisioned Space**.
 
   The **Underprovisioned Space** column in **Available disk storage**, reflects the amount of additional storage needed if the data sources grow as planned. Use this value to help plan your storage needs to enable smooth backups. If the value is zero, then there are no potential problems with storage in the foreseeable future. If the value is a number other than zero, then you do not have sufficient storage allocated  - based on your protection policy and the data size of your protected members.
 
-  ![Underallocated disk storage](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-underprovision-storage.png)
+  ![Underallocated disk storage](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
 
-The remainder of the New Protection Group wizard is unchanged from DPM 2012 R2. Continue through the wizard to complete creation of your new protection group.
+   Continue through the wizard to complete creation of your new protection group.
 
 ## Migrating legacy storage to Modern Backup Storage
-After upgrading DPM 2012 R2 to DPM 2016 and the operating system to Windows Server 2016, you can update your existing protection groups to the new DPM 2016 features. By default, protection groups are not changed, and continue to function as they were configured in DPM 2012 R2. Updating protection groups to use Modern Backup Storage is optional. To update the protection group, stop protection of all data sources with Retain Data, and add the data sources to a new protection group. DPM begins protecting these data sources the new way.
+Once you upgrade or install Azure Backup Server v2 and the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups are not changed, and continue to function as they were configured. Updating protection groups to use Modern Backup Storage is optional. To update the protection group, stop protection of all data sources with Retain Data, and add the data sources to a new protection group.
 
 1. In the Administrator Console, select the **Protection** feature, and in the **Protection Group Member** list, right-click the member, and select **Stop protection of member...**.
 

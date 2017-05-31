@@ -1,6 +1,6 @@
 ---
-title: Silently Install Azure Backup Server v.2 | Microsoft Docs
-description: Use a PowerShell script to silently install Azure Backup Server v.2. This type of installation is also known as an unattended install.
+title: Silently Install Azure Backup Server v2 | Microsoft Docs
+description: Use a PowerShell script to silently install Azure Backup Server v2. This type of installation is also known as an unattended install.
 services: backup
 documentationcenter: ' '
 author: markgalioto
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/15/2017
+ms.date: 05/30/2017
 ms.author: markgal;masaran
 
 ---
-# Run an unattended installation for Azure Backup Server v.2
+# Run an unattended installation for Azure Backup Server v2
 
-This article explains how to run an unattended installation for Azure Backup Server v.2. You cannot use these steps to install Azure Backup Server v.1.
+This article explains how to run an unattended installation for Azure Backup Server v2. You cannot use these steps to install Azure Backup Server v1.
 
-## Installing Azure Backup Server v.2
+## Installing Azure Backup Server v2
 
-1. Create the MABSSetup.ini file and place it on the server that hosts Azure Backup Server v.2. You can create the file in Notepad or another text editor.
+1. Create the MABSSetup.ini file and place it on the server that hosts Azure Backup Server v2. You can create the file in Notepad or another text editor.
 
 2. Paste the following text into the file. When you're finished, save the file as MABSSetup.ini. In the following sample script, replace the text inside < > with values from your own environment. The text provided is an example.
 
@@ -53,11 +53,11 @@ This article explains how to run an unattended installation for Azure Backup Ser
   start /wait <cdlayout path>/Setup.exe /i  /f <ini file path>/setup.ini /L <log path>/setup.log
   ```
 
-The flags you can use for the installation are:
-**/f** - .ini file path
-**/l** - log path
-**/i** - installation path
-**/x** - uninstall path
+The flags you can use for the installation are:</br>
+**/f** - .ini file path,</br>
+**/l** - log path,</br>
+**/i** - installation path,</br>
+**/x** - uninstall path</br>
 
 ## Next steps
 After installing Azure Backup Server, use one of the following articles to either prepare your server, or begin protecting a workload:

@@ -1,6 +1,6 @@
 ---
 title:  What can Azure Backup Server back up | Microsoft Docs
-description: The protection support matrix listing all workloads, data types, and installations that Azure Backup Server v.2 protects.  
+description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v2 protects.  
 services: backup
 documentation center: ''
 author:  markgalioto
@@ -16,11 +16,11 @@ manager:  carmonm
 
 # Azure Backup Server protection matrix
 
-This article lists the various servers and workloads that you can protect with Azure Backup Server. The following matrix lists what can be protected with Azure Backup Server v.1 and v.2.
+This article lists the various servers and workloads that you can protect with Azure Backup Server. The following matrix lists what can be protected with Azure Backup Server v1 and v2.
 
 ## Protection support matrix
 
-|Workload|Version|Azure Backup Server</br> installation|Azure Backup</br> Server v.2|Azure Backup</br> Server v.1 |Protection and recovery|
+|Workload|Version|Azure Backup Server</br> installation|Azure Backup</br> Server v2|Azure Backup</br> Server v1 |Protection and recovery|
 |------------|-----------|--------------------|--------------------------------------------|--------------------------------|---------------------------|
 |System Center VMM|VMM 2016,<br/>VMM 2012, SP1, R2|Physical server<br /><br />Hyper-V virtual machine|Y|Y|All deployment scenarios: Database|
 |Client computers (64-bit and 32-bit)|Windows 10|Physical server<br /><br />Hyper-V virtual machine<br /><br />VMware virtual machine|Y|Y|Files<br /><br />Protected volumes must be NTFS. FAT and FAT32 aren't supported.<br /><br />Volumes must be at least 1 GB. DPM uses Volume Shadow Copy Service (VSS) to take the data snapshot and the snapshot only works if the volume is at least 1 GB.|
@@ -89,19 +89,19 @@ This article lists the various servers and workloads that you can protect with A
 |Linux|Linux running as Hyper-V guest|On-premises Hyper-V virtual machine|Y|Y|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine|
 
 ## Cluster support
-DPM can protect data in the following clustered applications:
+Azure Backup Server can protect data in the following clustered applications:
 
 -   File servers
 
 -   SQL Server
 
--   Hyper-V - But if you're protecting a Hyper-V cluster using scaled-out DPM protection, you can't add secondary protection for the protected Hyper-V workloads.
+-   Hyper-V - If you protect a Hyper-V cluster using scaled-out DPM protection, you can't add secondary protection for the protected Hyper-V workloads.
 
-    For Hyper-V running on Windows Server 2008 R2 make sure you have the updated described in KB [975354](https://support.microsoft.com/en-us/kb/975354) installed.
-    For Hyper-V running on Windows Server 2008 R2 in a cluster configuration make sure you have SP2 and KB [971394](https://support.microsoft.com/en-us/kb/971394) installed.
+    If you run Hyper-V on Windows Server 2008 R2, make sure to install the update described in KB [975354](https://support.microsoft.com/en-us/kb/975354).
+    If you run Hyper-V on Windows Server 2008 R2 in a cluster configuration, make sure you install SP2 and KB [971394](https://support.microsoft.com/en-us/kb/971394).
 
--   Exchange Server - DPM can protect non-shared disk clusters for supported Exchange Server versions (cluster continuous replication), and can also protect Exchange Server configured for local continuous replication.
+-   Exchange Server - Azure Backup Server can protect non-shared disk clusters for supported Exchange Server versions (cluster-continuous replication), and can also protect Exchange Server configured for local continuous replication.
 
--   SQL Server - Note that DPM doesn't support the protection of SQL Server databases hosted on cluster-shared volumes (CSVs).
+-   SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).
 
-DPM can protect cluster workloads that are located in the same domain as the DPM server, and in a child or trusted domain. If you want to protect data source in untrusted domains or workgroups you'll need to use NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.
+Azure Backup Server can protect cluster workloads that are located in the same domain as the DPM server, and in a child or trusted domain. If you want to protect data sources in untrusted domains or workgroups, use NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.
