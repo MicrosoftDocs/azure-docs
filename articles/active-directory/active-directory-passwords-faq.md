@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
+ms.editor: gahug
+ms.custom: it-pro
 
 ---
 # Password management frequently asked questions
