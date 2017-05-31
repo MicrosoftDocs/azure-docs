@@ -18,10 +18,10 @@ ms.author: raynew
 ---
 
 > [!div class="op_single_selector"]
-> * [Azure VM replication architecture](site-recovery-azure-to-azure-architecture.md)
-> * [VMware VM and physical server to Azure architecture](site-recovery-architecture-vmware-to-azure.md)
-> * [Hyper-V VM to Azure architecture](site-recovery-architecture-hyper-v-to-azure.md)
-> * [VMs and physical servers to secondary site architecture](site-recovery-architecture-to-secondary-site.md)
+> * [Azure VM replication](site-recovery-azure-to-azure-architecture.md)
+> * [VMware VM and physical server to Azure replication](site-recovery-architecture-vmware-to-azure.md)
+> * [Hyper-V VM to Azure replication](site-recovery-architecture-hyper-v-to-azure.md)
+> * [VMs and physical servers to secondary site replication](site-recovery-architecture-to-secondary-site.md)
 
 # How does VMware replication to Azure work in Site Recovery?
 
