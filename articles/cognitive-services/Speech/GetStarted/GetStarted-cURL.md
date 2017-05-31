@@ -56,7 +56,7 @@ Specify the *recognition mode* as part of the URL path for Microsoft Speech Serv
 | Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
 | Dictation | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR | 
 
-For questions, feedback, or suggestions about Microsoft Cognitive Services, feel free to reach out to us directly at [Cognitive Services UserVoice Forum](https://cognitive.uservoice.com/)
+For questions, feedback, or suggestions about Microsoft Cognitive Services, feel free to reach out to us directly at [Cognitive Services UserVoice Forum](https://cognitive.uservoice.com/).
 
 ### License
 
