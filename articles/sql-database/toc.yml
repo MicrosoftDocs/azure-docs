@@ -197,8 +197,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Perf guidance
       href: sql-database-performance-guidance.md
-    - name: Batching
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Extended events
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Compatibility levels
@@ -331,10 +329,6 @@
       href: sql-database-ssms-mfa-authentication-configure.md
   - name: Develop apps
     items:
-    - name: App design - SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Security - SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Ports - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
     - name: Authenticate App 
@@ -343,7 +337,13 @@
       href: sql-database-develop-error-messages.md
     - name: Dapper
       href: sql-database-elastic-scale-working-with-dapper.md
-    - name: Saas sample app tutorial  
+    - name: Batching for perf
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: SaaS app design
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: SaaS security
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: SaaS tutorial  
       items:
       - name: Sample SaaS app overview
         href: sql-database-wtp-overview.md
