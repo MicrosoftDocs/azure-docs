@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/08/2017
 ms.author: riande
-
+ms.custom: mvc
 ---
 # Create a static HTML web app in Azure in five minutes
 

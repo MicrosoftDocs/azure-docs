@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
+ms.custom: mvc
 ---
 
 # Create a CI/CD infrastructure on a Linux VM in Azure that uses Jenkins, GitHub, and Docker
