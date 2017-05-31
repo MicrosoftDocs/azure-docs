@@ -731,4 +731,4 @@ Once parts 1-2 have been completed, you can start the provisioning service.
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
