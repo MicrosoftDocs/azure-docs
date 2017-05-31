@@ -216,7 +216,7 @@ db: {
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because [Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> The `ssl=true` option is important because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
