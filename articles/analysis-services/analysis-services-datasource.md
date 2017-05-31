@@ -19,7 +19,7 @@ ms.author: owend
 
 ---
 # Data sources supported in Azure Analysis Services
-Azure Analysis Services servers support connecting to data sources in the clound and on-premises in your organization. 
+Azure Analysis Services servers support connecting to data sources in the cloud and on-premises in your organization. 
 
 The following data sources are currently supported:
 
