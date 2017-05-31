@@ -1,14 +1,14 @@
 ---
 title: 'Azure CosmosDB: Request units per minute (RU/m) | Microsoft Docs'
 description: Learn how to reduce cost by utilizing request units per minute.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arnomicrosoft
 manager: jhubbard
 editor: ''
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

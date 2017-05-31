@@ -2,7 +2,7 @@
 title: Azure Cosmos DB as a key value store – Cost overview | Microsoft Docs
 description: Learn about the low cost of using Azure Cosmos DB as a key value store.
 keywords: key value store
-services: cosmosdb
+services: cosmos-db
 author: ArnoMicrosoft
 manager: jhubbard
 editor: ''
@@ -10,7 +10,7 @@ tags: ''
 documentationcenter: ''
 
 ms.assetid: 7f765c17-8549-4509-9475-46394fc3a218
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
