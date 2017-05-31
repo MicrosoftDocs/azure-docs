@@ -33,13 +33,8 @@ To help address these and other similar challenges, Data Catalog includes a busi
 
 By using the Data Catalog business glossary, an organization can document key business terms and their definitions to create a common business vocabulary. This governance enables consistency in data usage across the organization. After a term is defined in the business glossary, it can be assigned to a data asset in the catalog. This approach, *governed tagging*, is the same approach as tagging.
 
-> [!NOTE]
-> The functionality described in this article is available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
->
->
-
 ## Glossary availability and privileges
-The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.
+The business glossary is available only in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary, and it does not provide capabilities for governed tagging.
 
 You can access the business glossary via the **Glossary** option in the Data Catalog portal's navigation menu.  
 
