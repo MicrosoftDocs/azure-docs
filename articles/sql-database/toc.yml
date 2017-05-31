@@ -35,7 +35,7 @@
   items:
   - name: 1 - Create/design new SQL DB
     href: sql-database-design-first-database.md
-  - name: 2 - Migrate existing SQL Server
+  - name: 2 - Migrate SQL Server DB
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Secure your SQL DB
     href: sql-database-security-tutorial.md
