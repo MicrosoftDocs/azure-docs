@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
+ms.custom: mvc
 ---
 # How to monitor a Linux virtual machine in Azure
 
