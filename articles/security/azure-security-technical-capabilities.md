@@ -30,11 +30,11 @@ Microsoft Azure is the only cloud computing provider that offers a secure, consi
 
 With Microsoft Azure, you can:
 
-- Accelerate innovation with the cloud
+- Accelerate innovation with the cloud.
 
-- Power business decisions & apps with insights
+- Power business decisions & apps with insights.
 
-- Build freely and deploy anywhere
+- Build freely and deploy anywhere.
 
 - Protect their business.
 
@@ -372,7 +372,7 @@ Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-ti
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) helps orchestrate replication, failover, and recovery of workloads and apps so that they are available from a secondary location if your primary location goes down.
 
-## Ensure compliance: cloud services due diligence checklist (protect)
+## Ensure compliance: Cloud services due diligence checklist (protect)
 
 Microsoft developed [the Cloud Services Due Diligence Checklist](https://aka.ms/cloudchecklist.download) to help organizations exercise due diligence as they consider a move to the cloud. It provides a structure for an organization of any size and type—private businesses and public-sector organizations, including government at all levels and nonprofits—to identify their own performance, service, data management, and governance objectives and requirements. This allows them to compare the offerings of different cloud service providers, ultimately forming the basis for a cloud service agreement.
 
