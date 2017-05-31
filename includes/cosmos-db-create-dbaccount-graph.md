@@ -1,7 +1,7 @@
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
 2. In the left pane, click **New**, click **Databases**, and then click **Azure Cosmos DB**.
    
-   ![Azure portal Databases pane](./media/cosmosdb-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
+   ![Azure portal Databases pane](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
@@ -11,7 +11,7 @@
 
     Complete the **New account** blade fields by using the information in the following screenshot as a guide. Choose unique values as you set up your account so that your values do not match those in the screenshot. 
  
-    ![The Azure Cosmos DB blade](./media/cosmosdb-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
+    ![The Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
     Setting|Suggested value|Description
     ---|---|---
