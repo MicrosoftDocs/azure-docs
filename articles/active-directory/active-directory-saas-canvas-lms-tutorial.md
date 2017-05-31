@@ -195,20 +195,24 @@ The objective of this section is to create a test user in the Azure portal calle
 
 To enable Azure AD users to log in to Canvas, they must be provisioned into Canvas.
 
-* When Canvas, provisioning is a manual task.
+In case of Canvas, user provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
 1. Log in to your **Canvas** tenant.
+
 2. Go to **Courses \> Managed Accounts \> Microsoft**.
    
    ![Canvas](./media/active-directory-saas-canvas-lms-tutorial/IC775990.png "Canvas")
+
 3. Click **Users**.
    
    ![Users](./media/active-directory-saas-canvas-lms-tutorial/IC775995.png "Users")
+
 4. Click **Add New User**.
    
    ![Users](./media/active-directory-saas-canvas-lms-tutorial/IC775996.png "Users")
+
 5. On the Add a New User dialog page, perform the following steps:
    
    ![Add User](./media/active-directory-saas-canvas-lms-tutorial/IC775997.png "Add User")
