@@ -262,6 +262,10 @@ Watching local files for changes...
 
 Whatever your chart's name is, you can now `curl http://gangly-bronco.squillace.io` to receive the reply, `Hello World!`.
 
+## Next steps
+
+Now that you have an ACS Kubernetes cluster, you can investigate using [Azure Container Registry](../container-registry-intro.md) to create more and different deployments of this scenario. For example, you can create a draft._basedomain.toplevel_ domain DNS record-set that controls things off of a deeper subdomain for specific ACS deployments.
+
 
 
 
