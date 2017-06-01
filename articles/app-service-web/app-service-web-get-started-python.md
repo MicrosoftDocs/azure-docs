@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-
+ms.custom: mvc
 ---
 # Create a Python application on Web App
 

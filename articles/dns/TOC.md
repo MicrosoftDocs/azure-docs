@@ -19,14 +19,16 @@
 # How to
 
 ## Manage DNS zones
+### [Portal](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI](dns-operations-dnszones-cli.md)
-
+### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 ## Manage DNS records
 ### [Portal](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
 ## Manage reverse DNS
 ### [Overview](dns-reverse-dns-overview.md)
