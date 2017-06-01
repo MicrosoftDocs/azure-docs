@@ -21,6 +21,9 @@ ms.author: douglasl
 # Getting Started with Azure SQL Data Sync (Preview)
 In this tutorial, you learn how to set up Azure SQL Data Sync.
 
+> [!IMPORTANT]
+> The Data Sync service update will be available for selected existing Data Sync customers starting June 1st. It will be available for all customers by June 15. Please [email us](mailto:DataSyncMigration@microsoft.com) with your subscription id for early access. For information about the original Data Sync service, please see the [technical documentation for the original service](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+
 This tutorial assumes that you have at least some prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid sync group that contains SQL Server and SQL Database instances. The new sync group is fully configured and synchronizing on the schedule you set.
 
 > [!NOTE]
