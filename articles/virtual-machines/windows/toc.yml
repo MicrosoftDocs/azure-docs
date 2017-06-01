@@ -129,6 +129,8 @@
     items:
     - name: VM creation overview
       href: creation-choices.md
+    - name: Create a VM from a specialized VHD
+      href: create-vm-specialized.md
     - name: Create VM with a template
       href: ps-template.md
     - name: Create VM with C#
@@ -158,8 +160,6 @@
       href: download-template.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
-    - name: Manage VMs using PowerShell
-      href: ps-manage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Manage VMs using CLI
@@ -216,20 +216,6 @@
       href: expand-data-disks.md
     - name: Use D as data disk
       href: change-drive-letter.md
-    - name: Create VMs using unmanaged disks
-      items:
-      - name: Upload a VHD
-        href: upload-image.md
-      - name: Create an unmanaged image
-        href: capture-image.md
-      - name: Create an unmanaged VM from a generalized VHD
-        href: create-vm-generalized.md
-      - name: Copy a VM
-        href: vhd-copy.md
-      - name: Create a VM from a specialized VHD
-        href: create-vm-specialized.md
-      - name: Attach an unmanaged data disk
-        href: attach-disk-portal.md
   - name: VM networking
     href: ps-common-network-ref.md
     items:
@@ -342,10 +328,8 @@
       items:
       - name: Migrate from Amazon Web Services (AWS) to Azure
         href: aws-to-azure.md
-    - name: Upload and create VM from generalized VHD
-      href: upload-generalized-managed.md
-    - name: Upload and create VM from specialized VHD
-      href: upload-specialized.md
+      - name: Upload and create VM from generalized VHD
+        href: upload-generalized-managed.md
     - name: Migrate from Classic to Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
@@ -372,6 +356,8 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
     - name: Restarting or resizing a VM
@@ -382,6 +368,8 @@
       href: allocation-failure.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk to troubleshooting VM
       items:
       - name: Azure PowerShell

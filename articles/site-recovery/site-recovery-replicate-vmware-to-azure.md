@@ -19,8 +19,11 @@ ms.author: asgang
 ---
 
 
-# Replicate applications
+# Replicate applications running on VMware VMs to Azure
 
+> [!div class="op_single_selector"]
+> * [Azure to Azure](site-recovery-replicate-azure-to-azure.md)
+> * [VMware to Azure](site-recovery-replicate-vmware-to-azure.md)
 
 This article describes how to set up replication of virtual machines running on VMware into Azure.
 ## Prerequisites
@@ -33,8 +36,9 @@ The article assumes that you have already
 
 ## Enable replication
 #### Before you start
-If you're replicating VMware virtual machines, note that:
+When replicating VMware virtual machines, note that:
 
+* Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
 * VMware VMs are discovered every 15 minutes. It might take 15 minutes or longer for them to appear in the portal after discovery. Likewise discovery can take 15 minutes or more when you add a new vCenter server or vSphere host.
 * Environment changes on the virtual machine (such as VMware tools installation) can take 15 minutes or more to be updated in the portal.
 * You can check the last discovered time for VMware VMs in the **Last Contact At** field for the vCenter server/vSphere host, on the **Configuration Servers** blade.
@@ -73,7 +77,7 @@ If you're replicating VMware virtual machines, note that:
 
 
 > [!NOTE]
-> By default all disks on a machine are replicated. You can [exclude disks from replication](site-recovery-exclude-disk.md). For example you 
+> By default all disks on a machine are replicated. You can [exclude disks from replication](site-recovery-exclude-disk.md). For example you
 might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).
 >
 
@@ -102,20 +106,20 @@ We recommend that you verify the properties of the source machine. Remember that
 ![Enable replication](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
 
 *Resource Group*
-   
-  * You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) of which machine will become part of  post fail over. You can change this setting any time before fail over. 
-  
+
+  * You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) of which machine will become part of  post fail over. You can change this setting any time before fail over.
+
 > [!NOTE]
 > Post fail over, if you migrate the machine to a different resource group then protection settings of a machine will break.
- 
+
 *Availability Sets*
 
-You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine required to be be a part of one post fail over. 
+You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine required to be be a part of one post fail over.
 While selecting availability set, please keep in mind that:
 
 * Only availability sets belonging to the specified resource group will be listed  
-* Machines with different virtual networks cannot be a part of same availability set 
-* Only virtual machines of same size can be a part of same availability set 
+* Machines with different virtual networks cannot be a part of same availability set
+* Only virtual machines of same size can be a part of same availability set
 
 *Network Properties*
 

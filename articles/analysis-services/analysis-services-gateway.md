@@ -14,12 +14,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/26/2017
 ms.author: owend
 
 ---
 # On-premises data gateway
 The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services server in the cloud.
+
+The latest version of the gateway supports tabular 1400 models connected to on-premises data sources by using Get Data and M queries in SSDT. 
+
+To learn more about supported data sources, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
 
 A gateway is installed on a computer in your network. One gateway must be installed for each Azure Analysis Services server you have in your Azure subscription. For example, if you have two servers in your Azure subscription that connect to on-premises data sources, a gateway must be installed on two separate computers in your network.
 
@@ -44,14 +48,6 @@ A gateway is installed on a computer in your network. One gateway must be instal
 * To change the server name for a gateway that has already been configured, you need to reinstall and configure a new gateway.
 * In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. To learn more, see [Datasource connections](analysis-services-datasource.md).
 
-## Supported on-premises data sources
-The gateway supports connections between your Azure Analysis Services server and the following on-premises data sources:
-
-* SQL Server
-* SQL Data Warehouse
-* APS
-* Oracle
-* Teradata
 
 ## Download
  [Download the gateway](https://aka.ms/azureasgateway)
