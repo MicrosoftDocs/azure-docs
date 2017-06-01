@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/31/2017
 ms.author: sngun;AlfredoPizzirani
 
 ---
@@ -56,10 +56,10 @@ At TP3, because Azure Stack resources are not charged, the price is shown as $0.
 ## Which Azure Stack instances are charged?
 At TP3, resource usage is free for Azure Stack POC and multi-node instances. 
 
-At general availability, Azure Stack multi-node systems will be charged whereas the single-node POC environment will continue to be available at no cost. For multi-node systems, workload VMs, Storage services, and App Services are charged. 
+At general availability, Azure Stack multi-node systems are charged whereas the single-node POC environment continues to be available at no cost. For multi-node systems, workload VMs, Storage services, and App Services are charged. 
 
 ## Are users charged for the infrastructure VMs?
-No, the usage data for Azure Stack infrastructure VMs, which are created during deployment is reported to Azure, but there are no charges for these VMs. The infrastructure VMs include the VMs that are created by the Azure Stack deployment script, and the VMs that are needed to run Microsoft first-party resource providers such as Compute, Storage, SQL etc.
+No, the usage data for Azure Stack infrastructure VMs, which are created during deployment is reported to Azure, but there are no charges for these VMs. The infrastructure VMs include the VMs that are created by the Azure Stack deployment script, and the VMs that run Microsoft first-party resource providers such as Compute, Storage, SQL.
 
 ## What Azure meters are used when reporting usage data?
 The following are the two sets of meters that are used in usage data reporting:  
