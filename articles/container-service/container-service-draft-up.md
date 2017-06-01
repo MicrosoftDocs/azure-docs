@@ -33,6 +33,8 @@ You can use Draft with any Docker image registry and any Kubernetes cluster, inc
 - [Wire up a deployment domain](#wire-up-deployment-domain)
 - [Build and deploy an application](#build-and-deploy-an-application)
 
+Once configured, however, developers simply use draft when they're ready to build applications. The Kubernetes infrastructure is already set up.
+
 ## Example of Draft workflow
 The following video shows how easy it is to develop iteratively and still get live building and deployment with no interaction with Docker or Kubernetes:
 
@@ -135,9 +137,9 @@ The installation instructions for Draft are in the [Draft repository](https://gi
 
 ## Wire up deployment domain
 
-Draft will create a new deployment for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. (In this example, we use `squillace.io` as the deployment domain.) To do this, you must create an A record for `'*'` in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
+Draft creates a release for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. (In this example, we use `squillace.io` as the deployment domain.) To enable this subdomain behavior, you must create an A record for `'*'` in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
 
-Your own domain provider will have their own way to do this; to [delegate your domain nameservers to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
+Your own domain provider has their own way to assign DNS servers; to [delegate your domain nameservers to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
 
 1. Create a resource group for your zone.
     ```azurecli
@@ -199,12 +201,12 @@ The output looks something like:
     }
     ```
 
-5. Configure Draft to use your registry and create subdomains for each Helm chart it creates. To do this, you need:
+5. Configure Draft to use your registry and create subdomains for each Helm chart it creates. To configure Draft, you need:
   - your Azure Container Registry name (in this example, `draftacs`)
   - your registry key, or password, from `az acr credential show -n $acrname --output tsv --query "passwords[0].value"`.
   - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `13.64.108.240`)
 
-  These enable you to create the base-64 encoded value of the configuration JSON string, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to do this is the following (but replace this example's values with your own).
+  With these values you can create the base-64 encoded value of the configuration JSON string, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to encode the value is the following (but replace this example's values with your own).
       ```bash
       acrname="draftacs"
       password=$(az acr credential show -n $acrname --output tsv --query "passwords[0].value")
@@ -224,7 +226,14 @@ Now you're ready to deploy an application.
 
 ## Build and deploy an application
 
-In the Draft repo are [six simple example applications](https://github.com/Azure/draft/tree/master/examples). Clone the repo and let's use the [Python example](https://github.com/Azure/draft/tree/master/examples/python). Change into the examples/Python directory, and type `draft up`. The output is extensive, but begins like the following:
+In the Draft repo are [six simple example applications](https://github.com/Azure/draft/tree/master/examples). Clone the repo and let's use the [Python example](https://github.com/Azure/draft/tree/master/examples/python). Change into the examples/Python directory, and type `draft create` to build the application. It should look like the following example.
+```bash
+$ draft create
+--> Python app detected
+--> Ready to sail
+```
+
+The output include a Dockerfile and a Helm chart. To build and deploy, you just type `draft up`. The output is extensive, but begins like the following example.
 ```
 draft up
 --> Building Dockerfile
@@ -235,10 +244,10 @@ fb5937da9414: Pulling fs layer
 9021b2326a1e: Pulling fs layer
 dbed9b09434e: Pulling fs layer
 ea8a37f15161: Pulling fs layer
-...
+<snip>
 ```
 
-and when succesful ends with something similar to the following.
+and when succesful ends with something similar to the following example.
 ```
 ab68189731eb: Pushed
 53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
