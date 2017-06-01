@@ -3,10 +3,10 @@
 ## [OMS architecture](operations-management-suite-architecture.md)
 
 # Get started
-### [Log Analytics](../log-analytics/log-analytics-get-started.md)
-### [Automation](../automation/automation-offering-get-started.md)
-### [Backup](../backup/backup-introduction-to-azure-backup.md)
-### [Site Recovery](../site-recovery/site-recovery-overview.md)
+## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Automation](../automation/automation-offering-get-started.md)
+## [Backup](../backup/backup-introduction-to-azure-backup.md)
+## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
 
 # How to
