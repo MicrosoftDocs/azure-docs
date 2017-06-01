@@ -32,7 +32,7 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
+>For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
 ### Linux (Ubuntu)
 
@@ -161,7 +161,7 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
+>For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
 For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 

@@ -65,7 +65,7 @@ Here are some of the features of Premium Storage:
 * **Premium storage account**
 
     To start using Premium Storage, create a premium storage account for unmanaged disks. In the [Azure portal](https://portal.azure.com), to create a premium storage account, choose the **Premium** performance tier. Select the **Locally-redundant storage (LRS)** replication option. You also can create a premium storage account by setting the type to **Premium_LRS** in one of the following locations:
-    * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
+    * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
     * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
     * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
     * [Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 or a later version)
@@ -220,7 +220,7 @@ To the Storage service, the VHD file is a page blob. You can take snapshots of p
 
 Create [incremental snapshots](storage-incremental-snapshots.md) for unmanaged premium disks the same way you use snapshots with standard storage. Premium Storage supports only locally redundant storage as the replication option. We recommend that you create snapshots, and then copy the snapshots to a geo-redundant standard storage account. For more information, see [Azure Storage redundancy options](storage-redundancy.md).
 
-If a disk is attached to a VM, some API operations on the disk are not permitted. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) operation on that blob if the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot Blob](/rest/api/storageservices/fileservices/Snapshot-Blob) REST API. Then, perform the [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob) of the snapshot to copy the attached disk. Alternatively, you can detach the disk, and then perform any necessary operations.
+If a disk is attached to a VM, some API operations on the disk are not permitted. For example, you cannot perform a [Copy Blob](/rest/api/storageservices/Copy-Blob) operation on that blob if the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot Blob](/rest/api/storageservices/Snapshot-Blob) REST API. Then, perform the [Copy Blob](/rest/api/storageservices/Copy-Blob) of the snapshot to copy the attached disk. Alternatively, you can detach the disk, and then perform any necessary operations.
 
 The following limits apply to premium storage blob snapshots:
 
@@ -230,7 +230,7 @@ The following limits apply to premium storage blob snapshots:
 | Storage account capacity for snapshots<br>(Includes data in snapshots only. Does not include data in base blob.) | 10 TB |
 | Minimum time between consecutive snapshots | 10 minutes |
 
-To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/fileservices/Copy-Blob).
+To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
 For detailed information about performing REST operations against page blobs in a premium storage account, see [Blob service operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
 
@@ -291,7 +291,7 @@ When you use Premium Storage, the following billing considerations apply:
 
 * **Premium unmanaged disks snapshots**
 
-    Snapshots on premium unmanaged disks are billed for the additional capacity used by the snapshots. For more information about snapshots, see [Create a snapshot of a blob](/rest/api/storageservices/fileservices/Snapshot-Blob).
+    Snapshots on premium unmanaged disks are billed for the additional capacity used by the snapshots. For more information about snapshots, see [Create a snapshot of a blob](/rest/api/storageservices/Snapshot-Blob).
 
 * **Premium managed disks snapshots**
 

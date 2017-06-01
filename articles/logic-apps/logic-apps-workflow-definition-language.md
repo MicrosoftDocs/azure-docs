@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: jehollan
+ms.author: LADocs; jehollan
 ---
 
 # Workflow Definition Language schema for Azure Logic Apps
@@ -151,7 +151,7 @@ that string must be escaped by using @@. The following examples show how express
 |" @"|A 2 character string that contains ' @' is returned.|  
   
 With *string interpolation*, expressions can also appear inside strings where expressions are wrapped in `@{ ... }`. 
-For example: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`
+For example: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 The result is always a string, which makes this feature similar to the `concat` function. 
 Suppose you defined `myNumber` as `42` and `myString` as `sampleString`:  

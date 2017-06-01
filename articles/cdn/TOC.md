@@ -29,12 +29,14 @@
 ### [Monitor resources](cdn-resource-health.md)
 ### [Override behavior with rules](cdn-rules-engine.md)
 ### [Get real-time alerts](cdn-real-time-alerts.md)
+### [HTTP/2 support](cdn-http2.md)
 
 ## Analyze
 ### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
 ### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
 ### [View real-time statistics](cdn-real-time-stats.md)
 ### [Analyze edge node performance](cdn-edge-performance.md)
+### [Export metrics with Diagnostics Logs](cdn-log-analysis.md)
 
 ## Develop
 ### [.NET](cdn-app-dev-net.md)
@@ -45,7 +47,7 @@
 ### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

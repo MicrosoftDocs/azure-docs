@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
 ## [Get started with Azure Automation](automation-offering-get-started.md)
@@ -41,6 +41,7 @@
 ### [Onboarding machines for management](automation-dsc-onboarding.md)
 ### [Compiling DSC configurations](automation-dsc-compile.md)
 ### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Manage automation assets
 ### [Certificates](automation-certificates.md)
 ### [Connections](automation-connections.md)
@@ -71,8 +72,8 @@
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
 ### [Troubleshoot Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [PowerShell](/powershell/module/azurerm.automation)
+## [PowerShell (Classic)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)

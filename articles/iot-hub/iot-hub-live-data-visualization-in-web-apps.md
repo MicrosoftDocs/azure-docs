@@ -20,7 +20,7 @@ ms.author: xshi
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Azure Web Apps
 
-![Connection between sensor, IoT device, IoT Hub and Azure web app](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/5.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -53,16 +53,7 @@ In this lesson, you learn how to visualize real-time sensor data that your Azure
 
    ![Create a Azure web app](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
-## Add a consumer group to your IoT hub
-
-Consumer groups are used by applications to pull data from Azure IoT Hub. In this lesson, you create a consumer group to be used by the web app to read data from your IoT hub.
-
-To add a consumer group to your IoT hub, follow these steps:
-
-1. In the [Azure portal](https://ms.portal.azure.com/), open your IoT hub.
-1. Click **Endpoints** on the left pane, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
-
-   ![Create consumer group in Azure IoT Hub](media/iot-hub-live-data-visualization-in-web-apps/3_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## Configure the web app to read data from your IoT hub
 
@@ -76,6 +67,10 @@ To add a consumer group to your IoT hub, follow these steps:
    | Azure.IoT.IoTHub.ConsumerGroup        | The name of the consumer group that you add to your IoT hub  |
 
    ![Add settings to Azure web app with key value pairs](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
+
+1. In **Application settings**, toggle the Web sockets option under General settings.
+
+   ![Toggle Web sockets option](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
 
 ## Upload a web application to be hosted by the web app
 

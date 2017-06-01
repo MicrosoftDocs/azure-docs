@@ -11,11 +11,12 @@ tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 
 # Scale a web app worldwide with a high-availability architecture
@@ -26,7 +27,7 @@ In this scenario you will create a resource group, two app service plans, two we
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Geographic Scale")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Geographic Scale")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

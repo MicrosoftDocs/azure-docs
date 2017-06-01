@@ -1,4 +1,4 @@
----
+﻿---
 title: Extend HDInsight with Virtual Network | Microsoft Docs
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/20/2017
+ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
@@ -34,7 +34,7 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 
 * Azure CLI 2.0: For more information, see [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-* Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > The steps in this document require the latest version of the Azure CLI and Azure PowerShell. If you are using an older version, the commands may be different. For best results, use the previous links to install the latest versions.
@@ -129,6 +129,9 @@ __If your region is not listed in the table__, allow traffic to port __443__ on 
 
 > [!IMPORTANT]
 > HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, __only use inbound rules__.
+
+> [!NOTE]
+> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This is the address of Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 ### Working with HDInsight in secured virtual networks
 

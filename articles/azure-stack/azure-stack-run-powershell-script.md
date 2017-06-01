@@ -52,7 +52,7 @@ To deploy the Azure Stack POC, you must complete the following steps:
 > 
 > 
 
-## Prepare the deployment machine
+## Prepare the POC host
 1. Make sure that you can physically connect to the POC host, or have physical console access (such as KVM). You will need such access after you reboot the POC host in step 9 below.
 2. Make sure the POC host meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm your requirements.
 3. Sign in as the Local Administrator to your POC host.

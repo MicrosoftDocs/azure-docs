@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 05/25/2017
 ms.author: markvi
 
 ---
@@ -49,3 +49,18 @@ The policy is currently not enforced for SharePoint guest users. The guest relat
 **A:** not yet. 
 
 ---
+
+## Q: What is the default exclusion policy for unsupported device platforms?
+
+**A:** At the present time, conditional access policies are selectively enforced on users on iOS and Android devices. Applications on other device platforms are, by default, unaffected by the conditional access policy for iOS and Android devices. Tenant admin may, however, choose to override the global policy to disallow access to users on unsupported platforms.
+
+---
+
+## Q: How do conditional access policies work for Microsoft Teams?  
+
+**A:** Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core productivity scenarios such as meetings, calendars, and files. Conditional access policies set up for these cloud apps apply to Teams during the sign-in experience.
+
+Microsoft Teams is also supported separately as a Cloud App in Azure AD Conditional Access policies and CA policy set up for this cloud app will apply to Teams during the sign-in experience. 
+Microsoft Teams desktop clients for Windows and Mac support modern authentication, which brings sign-on based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms. 
+
+--- 

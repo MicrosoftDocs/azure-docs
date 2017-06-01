@@ -1,4 +1,4 @@
----
+﻿---
 
   title: PowerShell examples for group-based licensing in Azure AD | Microsoft Docs
   description: PowerShell scenarios for Azure Active Directory group-based licensing
@@ -30,7 +30,7 @@ cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory)
 
 ## View product licenses assigned to a group
 The
-[Get-MsolGroup](https://docs.microsoft.com/powershell/msonline/v1/get-msolgroup)
+[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)
 cmdlet can be used to retrieve the group object and check the *Licenses*
 property: it lists all product licenses currently assigned to the group.
 ```

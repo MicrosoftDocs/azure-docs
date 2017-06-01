@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage VMs in a Virtual Machine Scale Set | Microsoft Docs
 description: Manage virtual machines in a virtual machine scale set using Azure PowerShell.
 services: virtual-machine-scale-sets
@@ -23,7 +23,7 @@ Use the tasks in this article to manage virtual machines in your virtual machine
 
 Most of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance ID of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
 
-See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Display information about a scale set
 You can get general information about a scale set, which is also referred to as the instance view. Or, you can get more specific information, such as information about the resources in the scale set.

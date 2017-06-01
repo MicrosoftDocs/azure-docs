@@ -12,18 +12,20 @@
 ### [Web apps already live](app-insights-monitor-performance-live-website-now.md)
 ### [Windows services](app-insights-windows-services.md)
 ### [Windows desktop](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Monitor Java apps
 ### [Web apps](app-insights-java-get-started.md)
 ### [Web apps - runtime](app-insights-java-live.md)
 ### [Docker apps](app-insights-docker.md)
 
+## Monitor Node.js apps
+### [Node.js](app-insights-nodejs.md)
 
 ## Monitor web pages
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Monitor other platforms
-### [Node.js apps](app-insights-nodejs.md)
 ### [SharePoint sites](app-insights-sharepoint.md)
 ### [More platforms](app-insights-platforms.md)
 
@@ -32,8 +34,8 @@
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
-### [Usage analysis with Application Insights](app-insights-web-track-usage.md)
-### [Separating Application Insights resources](app-insights-separate-resources.md)
+### [Separate development, test, and production](app-insights-separate-resources.md)
+### [Monitor apps with multiple components](app-insights-monitor-multi-role-apps.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
 
 
@@ -50,7 +52,7 @@
 #### [Dependencies](app-insights-asp-net-dependencies.md)
 #### [Release annotations](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [Snapshot Debugger](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Log traces](app-insights-java-trace-logs.md)
@@ -87,6 +89,11 @@
 #### [Trends](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
 
+### Usage
+#### [Overview](app-insights-usage-overview.md)
+#### [Retention](app-insights-usage-retention.md)
+#### [Users, Sessions, Events](app-insights-usage-segmentation.md)
+
 ### Analytics
 
 #### [Overview](app-insights-analytics.md)
@@ -107,10 +114,9 @@
 ### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
 ### [Filtering and preprocessing telemetry](app-insights-api-filtering-sampling.md)
 ### [Sampling](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Manage
-### [Manage pricing and quota](app-insights-pricing.md)
+### [Manage pricing and data volume](app-insights-pricing.md)
 ### [Application Performance Monitoring using Application Insights for SCOM](app-insights-scom.md)
 
 ## Export
@@ -133,7 +139,16 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [Data access API](https://dev.applicationinsights.io/)
+## [Data model](application-insights-data-model.md)
+### [Request](application-insights-data-model-request-telemetry.md)
+### [Dependency](application-insights-data-model-dependency-telemetry.md)
+### [Exception](application-insights-data-model-exception-telemetry.md)
+### [Trace](application-insights-data-model-trace-telemetry.md)
+### [Event](application-insights-data-model-event-telemetry.md)
+### [Metric](application-insights-data-model-metric-telemetry.md)
+### [Context](application-insights-data-model-context.md)
+## [Telemetry correlation](application-insights-correlation.md)
 
 # Resources
 
@@ -144,14 +159,14 @@
 ## News
 
 ### [Blog](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Service updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Service updates](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [SDK release notes](app-insights-release-notes.md)
 ### [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 
 ## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## Help
-### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [User Voice](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Support](https://azure.microsoft.com/support/)

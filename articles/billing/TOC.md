@@ -1,5 +1,6 @@
 # Get started
 ## [Prevent unexpected costs](billing-getting-started.md)
+## [Grant access to billing](billing-manage-access.md)
 ## [Sign up with Office 365 account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Sign up for Office 365 with Azure account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
@@ -32,7 +33,9 @@
 
 # Reference
 ## [API Overview](billing-usage-rate-card-overview.md)
-## [REST API reference](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+## [Enterprise Reporting API Overview](billing-enterprise-api.md)
+## [Invoice REST](/rest/api/billing)
+## [Usage and RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Partner solution: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [Partner solution: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 

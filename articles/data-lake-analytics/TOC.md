@@ -1,8 +1,7 @@
-# Overview
+﻿# Overview
 ## [What is Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Get started
-## [Interactive tutorial: Analyze website logs](data-lake-analytics-use-interactive-tutorials.md)
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
@@ -15,14 +14,20 @@
 
 # How to
 ## Develop
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL basics](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL catalog](data-lake-analytics-u-sql-catalog.md)
+### [U-SQL joins](data-lake-analytics-u-sql-combine-data-with-joins.md)
+### [U-SQL parameters](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL window functions](data-lake-analytics-use-window-functions.md)
 ### [U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python extensions](data-lake-analytics-u-sql-python-extensions.md)
-### [U-SQL Cognitive capabilities](data-lake-analytics-u-sql-cognitive.md)
+### [U-SQL R extensions](data-lake-analytics-u-sql-r-extensions.md)
+### [U-SQL Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 
 ## Create solutions
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
+### [Interactive tutorial: Analyze website logs](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Manage
 ### [Azure portal](data-lake-analytics-manage-use-portal.md)
@@ -40,7 +45,7 @@
 ### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)

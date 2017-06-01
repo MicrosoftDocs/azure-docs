@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 05/22/2017
 ms.author: kgremban
 
 ---
@@ -33,25 +33,25 @@ If your organization uses proxy servers to connect to the internet, read [Work w
 
 ## Open your ports
 
-If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high-level domains msappproxy.net and servicebus.windows.net. Make sure to open the following ports to **outbound** traffic:
+To prepare your environment for Azure AD Application Proxy, you first need to enable communication to Azure data centers. If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy. 
 
-| Port Number | Description |
-| --- | --- |
-| 80 |Enable outbound HTTP traffic for security validation. |
-| 443 |Enable user authentication against Azure AD (required only for the Connector registration process)<br>Enable the connector bootstrap sequence and automatic updates<br>Enable communication between the connector and the Azure service for incoming requests  |
-| 10100–10120 |Enable LOB HTTP responses sent back to the proxy |
-| 9350 |Optional, to enable better performance for incoming requests |
-| 8080 |Enable the connector bootstrap sequence and connector automatic update |
-| 9090 |Enable connector registration (required only for the connector registration process) |
-| 9091 |Enable connector trust certificate automatic renewal |
+1. Open the following ports to **outbound** traffic:
 
-> [!IMPORTANT]
-> The table reflects the port requirements for the most recent version of the connector. If you still have a connector that's older than version 1.5, you also need to enable 9350, 9352, and 5671. These ports enable communication between the older connectors and the Azure service for incoming requests. 
+   | Port number | How it's used |
+   | --- | --- |
+   | 80 | Downloading certificate revocation lists (CRLs) while validating the SSL certificate |
+   | 443 | All outbound communication with the Application Proxy service |
 
-If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service. Also, make sure to enable port 8080 for NT Authority\System.
+   If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service.
 
-Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
+   > [!IMPORTANT]
+   > The table reflects the port requirements for connector versions 1.5.132.0 and newer. If you still have an older connector version, you also need to enable the following ports: 5671, 8080, 9090, 9091, 9350, 9352, and 10100–10120.
+   >
+   >For information about updating your connectors to the newest version, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md#automatic-updates).
 
+2. If your firewall or proxy allows DNS whitelisting, you can whitelist connections to msappproxy.net and servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) which are updated each week.
+
+3. Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 
 ## Install and register a connector
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).

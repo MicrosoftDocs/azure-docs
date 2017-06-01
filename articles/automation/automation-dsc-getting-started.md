@@ -1,4 +1,4 @@
----
+﻿---
 title: Getting started with Azure Automation DSC | Microsoft Docs
 description: Explanation and examples of the most common tasks in Azure Automation Desired State Configuration (DSC)
 services: automation
@@ -233,6 +233,6 @@ If you no longer want a node to be managed by Azure Automation DSC, you can unre
 * [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 * [Windows PowerShell Desired State Configuration Overview](https://msdn.microsoft.com/powershell/dsc/overview)
-* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 

@@ -37,6 +37,10 @@ Azure DNS does not currently support purchasing of domain names. If you want to 
 
 DNS billing is based on the number of DNS zones hosted in Azure and by the number of DNS queries. To learn more about pricing visit [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 
+## FAQ
+
+For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.md).
+
 ## Next steps
 
 Learn about DNS zones and records by visiting: [DNS zones and records overview](dns-zones-records.md).

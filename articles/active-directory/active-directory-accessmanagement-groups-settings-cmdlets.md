@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure group settings using Azure Active Directory cmdlets | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets.
 services: active-directory
@@ -13,18 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: curtand
+ms.date: 05/04/2017
+ms.author: rodejo
 
 ---
 # Azure Active Directory cmdlets for configuring group settings
 
 > [!IMPORTANT]
-> This content applies only to Unified groups, also known as Office 365 groups. These cmdlets are in Public Preview at this moment.
+> This content applies only to Unified groups, also known as Office 365 groups. 
 
 Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure group settings for your directory, you will use the template named "Group.Unified". To configure group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to a group. 
 
-The cmdlets are part of the Azure Active Directory PowerShell V2 module. For more information about this module and for instructions how to download and install the module on your computer, please refer to [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Please note that since these cmdlets are in public preview right now you will need to install the preview release of the module, which can be found [here](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
+The cmdlets are part of the Azure Active Directory PowerShell V2 module. For more information about this module and for instructions how to download and install the module on your computer, please refer to [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). You can install the version 2 release of the module from [here](https://www.powershellgallery.com/packages/AzureAD/).
+
+## Retrieve a specific settings value
+If you know the name of the setting you want to retrieve, you can use the below cmdlet to retrieve the current setttings value. In this example we're retrieving the value for a setting named "UsageGuidelinesUrl". You can read more about directory settings and their names further down in this article.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## Create settings at the directory level
 These steps create settings at directory level, which apply to all Unified groups in the directory.
@@ -199,7 +206,7 @@ This step removes settings at directory level, which apply to all Office groups 
   ```
 
 ## Cmdlet syntax reference
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](https://docs.microsoft.com/powershell/azuread/).
+You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## Additional reading
 

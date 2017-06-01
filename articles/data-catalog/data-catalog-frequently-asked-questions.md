@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---
@@ -105,7 +105,7 @@ Please use the Azure Data Catalog forum to report problems, share information, a
 We’re actively working on adding more data sources to Azure Data Catalog. If there is a data source that you would like to see supported, please suggest it (or voice your support if it has already been suggested) in the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Q: How is Azure Data Catalog related to the Data Catalog in Power BI for Office 365?
-You can think of Azure Data Catalog as an evolution of the Data Catalog. Azure Data Catalog delivers similar capabilities for data source publishing and discovery, but is focused on broader scenarios and not dependent on Office 365. Shortly after the Azure Data Catalog becomes generally available the two catalogs will merge into a single service.
+You can think of Azure Data Catalog as an evolution of the Data Catalog in Power BI. Starting in spring 2017, Azure Data Catalog is used to enable the sharing and discovery of queries in Excel 2016 and Power Query for Excel. Data Catalog capabilities in Excel are available to users with Power BI Pro licenses.
 
 ## Q: What permissions does a user need to register assets with Azure Data Catalog?
 The user running the Azure Data Catalog registration tool needs permissions on the data source that will allow him to read the metadata from the source. If the user also selects to include a preview, then the user must also have permissions that allow him to read in the data from the objects being registered.

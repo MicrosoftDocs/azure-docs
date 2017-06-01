@@ -1,12 +1,12 @@
-## Displaying the Azure Explorer View
+## Display the Azure Explorer view
 
-If the **Azure Explorer** view is not visible in Eclipse, use the following steps to display it:
+If the **Azure Explorer** view is not visible in Eclipse, display it by doing the following:
 
-1. Click **Window**, then click **Show View**, and then click **Other**.
+1. Click **Window**, click **Show View**, and then click **Other**.
 
-   ![Show View Menu](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
+   ![Show View command](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
 
-2. When the **Show View** dialog box appears, select **Azure Explorer** and click **OK**.
+2. In the **Show View** dialog box, select **Azure Explorer**, and then click **OK**.
 
-   ![Show View Dialog Box](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
+   ![Show View dialog box](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
 

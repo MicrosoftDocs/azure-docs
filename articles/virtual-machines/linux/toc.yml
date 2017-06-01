@@ -1,10 +1,10 @@
 - name: Linux VMs Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Virtual Machines
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create VM - Azure CLI
@@ -31,6 +31,14 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
+  - name: 9 - Backup virtual machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Monitor virtual machines
+    href: tutorial-monitoring.md
+  - name: 11 - Manage VM security
+    href: tutorial-azure-security.md
+  - name: 12 - Jenkins CI/CD
+    href: tutorial-jenkins-github-docker-cicd.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -131,6 +139,14 @@
       href: move-vm.md
     - name: Create highly available VMs
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Install and configure
+        href: ansible-install-configure.md
+      - name: Create basic VM
+        href: ansible-create-vm.md
+      - name: Create complete VM
+        href: ansible-create-complete-vm.md
     - name: Deploy an app with VM template
       items:
       - name: Tutorial overview
@@ -185,7 +201,7 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
-    - name: Create Azure-endorsed images
+    - name: Create Azure images
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -197,6 +213,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Manage VM storage
     items:
     - name: Azure Managed Disks
@@ -288,6 +306,8 @@
       href: extensions-customscript.md
     - name: OMS Agent Extension
       href: extensions-oms.md
+    - name: Linux Diagnostic Extension
+      href: diagnostic-extension.md
   - name: Run applications
     items:
     - name: Cloud Foundry
@@ -345,19 +365,23 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot SSH connections
+    - name: SSH connections
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Troubleshoot access to applications
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
+    - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: Troubleshoot allocation failures
+    - name: Allocation failures
       href: allocation-failure.md
-    - name: Troubleshoot deployment issues
+    - name: Deployment issues
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk for troubleshooting
       items:
       - name: Azure CLI
@@ -375,9 +399,9 @@
   - name: Java
     href: /java/api
   - name: Node.js
-    href: https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html
+    href: https://azure.microsoft.com/develop/python/
   - name: REST
     href: /rest/api/compute
 - name: Resources

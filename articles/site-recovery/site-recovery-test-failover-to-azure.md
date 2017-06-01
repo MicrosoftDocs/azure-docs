@@ -68,6 +68,24 @@ When a test failover is triggered, it involves following steps:
 1. Failover: This step processes the data and makes it ready so that an Azure virtual machine can be created out of it. If you have chosen **Latest** recovery point, this step creates a recovery point from the data that has been sent to the service.
 1. Start: This step creates an Azure virtual machine using the data processed in the previous step.
 
+## Time taken for failover
+
+In certain cases, failover of virtual machines requires an extra intermediate step that usually takes around 8  to 10 minutes to complete. These cases are as following:
+
+* VMware virtual machines using mobility service of version older than 9.8
+* Physical servers 
+* VMware Linux virtual machines
+* Hyper-V virtual machines protected as physical servers
+* VMware virtual machines where following drivers are not present as boot drivers 
+	* storvsc 
+	* vmbus 
+	* storflt 
+	* intelide 
+	* atapi
+* VMware virtual machines that don't have DHCP service enabled irrespective of whether they are using DHCP or static IP addresses
+
+In all the other cases this intermediate step is not required and the time taken for the failover is significantly lower. 
+
 
 ## Creating a network for test failover
 It is recommended that when you are doing a test failover you choose a network that is isolated from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. By default when you create an Azure virtual network, it is isolated from other networks. This network should mimic your production network:
@@ -102,5 +120,5 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 
 
 
-## Next Steps
+## Next steps
 Once you have successfully tried a test failover you can try doing a [failover](site-recovery-failover.md).
