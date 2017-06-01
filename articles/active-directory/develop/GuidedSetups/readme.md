@@ -28,3 +28,12 @@
 - #### [ASP.NET Web App: Use](active-directory-serversidewebapp-aspnetwebappowin-use.md)
 - #### [ASP.NET Web App: Configure](active-directory-serversidewebapp-aspnetwebappowin-configure.md)
 - #### [ASP.NET Web App: Test](active-directory-serversidewebapp-aspnetwebappowin-test.md)
+
+
+## JavaScript SPA
+
+- ### [JavaScript SPA: Intro](active-directory-singlepageapp-javascriptspa-introduction.md)
+- #### [JavaScript SPA: Setup](active-directory-singlepageapp-javascriptspa-setup.md)
+- #### [JavaScript SPA: Use](active-directory-singlepageapp-javascriptspa-use.md)
+- #### [JavaScript SPA: Configure](active-directory-singlepageapp-javascriptspa-configure.md)
+- #### [JavaScript SPA: Test](active-directory-singlepageapp-javascriptspa-test.md)
