@@ -215,7 +215,7 @@ To create managed Availability Sets with VMs using Managed Disks, add the `sku` 
 
 To find full information on the REST API specifications, please review the [REST API documentation](/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and accpetable values that can be submitted to the API through template deployments. 
 
-## Next Steps
+## Next steps
 
 * For full templates that use managed disks visit the following Azure Quickstart Repo links.
     * [Windows VM with Managed Disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
