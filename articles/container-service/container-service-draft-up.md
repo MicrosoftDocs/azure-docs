@@ -204,20 +204,20 @@ The output looks something like:
   - your registry key, or password, from `az acr credential show -n $acrname --output tsv --query "passwords[0].value"`.
   - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `13.64.108.240`)
 
-    These enable you to create the base-64 encoded value of the configuration JSON string, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to do this is the following (but replace this example's values with your own).
-        ```bash
-        acrname="draftacs"
-        password=$(az acr credential show -n $acrname --output tsv --query "passwords[0].value")
-        authtoken=$(echo \{\"username\":\"$acrname\",\"password\":\"$password\",\"email\":\"rasquill@microsoft.com\"\} | base64)
-        ```
+  These enable you to create the base-64 encoded value of the configuration JSON string, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to do this is the following (but replace this example's values with your own).
+      ```bash
+      acrname="draftacs"
+      password=$(az acr credential show -n $acrname --output tsv --query "passwords[0].value")
+      authtoken=$(echo \{\"username\":\"$acrname\",\"password\":\"$password\",\"email\":\"rasquill@microsoft.com\"\} | base64)
+      ```
 
-    You can confirm that the JSON string is correct by typing `echo $authtoken | base64 -D` to display the unencoded result.
-    Now intialize Draft with this command and configuration argument for the `-set` option:
-        ```bash
-        draft init --set registry.url=$acrname.azurecr.io,registry.org=$acrname,registry.authtoken=$authtoken,basedomain=squillace.io
-        ```
-        > [!NOTE]
-        > It's easy to forget that the `basedomain` value is the base deployment domain that you control and have configured to point at the ingress external IP.
+  You can confirm that the JSON string is correct by typing `echo $authtoken | base64 -D` to display the unencoded result.
+  Now intialize Draft with this command and configuration argument for the `-set` option:
+      ```bash
+      draft init --set registry.url=$acrname.azurecr.io,registry.org=$acrname,registry.authtoken=$authtoken,basedomain=squillace.io
+      ```
+      > [!NOTE]
+      > It's easy to forget that the `basedomain` value is the base deployment domain that you control and have configured to point at the ingress external IP.
 
 Now you're ready to deploy an application.
 
