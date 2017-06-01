@@ -1,6 +1,6 @@
 ---
-title: Azure Government Image Gallery | Microsoft Docs
-description: This article provides an overview of the Azure Government Image Gallery and the images included
+title: Azure Government image gallery | Microsoft Docs
+description: This article provides an overview of the Azure Government image gallery and the images included
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -17,15 +17,13 @@ ms.date: 05/12/2017
 ms.author: brendal
 
 ---
-# Azure Government Marketplace Images
-## Overview
-The Microsoft Azure Government Marketplace is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
+# Azure Government Marketplace images
 
-## Variations
+The Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
 
-The below provides a list of available images within the Azure Government Marketplace.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
+The following table shows a list of available images within the Azure Government Marketplace.  Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see <a href="http://azure.microsoft.com/pricing/details/virtual-machines/">Virtual machine pricing</a>.
 
-## Images - Azure Resource Manager
+## Images: Azure Resource Manager
 |Publisher|Offer|SKU|
 | --- | --- | --- |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
@@ -364,11 +362,11 @@ The below provides a list of available images within the Azure Government Market
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
 
-## Quick Start Templates
+## Quickstart templates
 ### Step 1
-Go to Azure Quickstart Templates GitHub Repository and select from the list of Solution Templates below:
+Go to the GitHub repository for Azure Quickstart templates, and select from the following list of solution templates:
 
-| Quick Start Template |
+| Quickstart template |
 | --- |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/ethereum-consortium-blockchain-network"> Ethereum Consortium Blockchain Network </a> |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> |
@@ -377,34 +375,33 @@ Go to Azure Quickstart Templates GitHub Repository and select from the list of S
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> Cisco CSR1000v (4 NIC existing Vnet) </a> |
 
 ### Step 2
-In the Readme file, launch the template by clicking on "Deploy to Azure Government" button/link at the top of the page.
+In the readme file, open the template by clicking **Deploy to Azure Government** at the top of the page.
 
 ### Step 3
-A browser page will open the template deployment blade in the Azure Government portal. In the parameters blade, complete the required fields, and click "Okay."
+A browser page opens the **Template deployment** blade in the Azure Government portal. On the **Parameters** blade, complete the required fields, and click **Okay**.
 
 ### Step 4
-Accept legal terms and conditions, and checkmark the “Pin to dashboard” box, then click create.
+If you accept legal terms and conditions, select **Pin to dashboard**, and then click **create**.
 
 > [!NOTE]
-> You will need a valid Azure Government Account in order to continue. To experience the power of Azure Government for your organization, sign up for an [Azure Government Trial](https://azuregov.microsoft.com/trial/azuregovtrial).
+> You need a valid Azure Government account to continue. To use Azure Government in your organization, sign up for an [Azure Government trial](https://azuregov.microsoft.com/trial/azuregovtrial).
 > 
 > 
 
 ### Step 5
-The blades will close and it will go back to your portal dashboard view showing the image deployment. This will take several minutes. Once the VM solution is running, it will show up in your dashboard. If you did not select the “Pin to dashboard” option in step 4, you will need to search for the VM in your Resources.
+The blades close, and you return to your portal dashboard view, showing the image deployment. This takes several minutes. After the VM solution is running, it appears in your dashboard. If you did not select the **Pin to dashboard** option in step 4, you can search for the VM in your **Resources**.
 
 > [!NOTE]
-> Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and/or subscriptions running on Microsoft Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations.  These templates are provided "AS-IS" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
+> Solution templates are provided from Microsoft and third-party providers as a starting point only. You are solely responsible for developing, implementing, and managing your applications and subscriptions that run on Azure and Azure Government in compliance with applicable laws, regulations, and contractual obligations. These templates are provided "as-is" and without any warranty of any kind, whether in express, implied or statutory, and Microsoft expressly disclaims all warranties of merchantability, fitness for a particular purpose, or non-infringement.
 > 
 > 
 
 ## Next steps
-The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the [Azure Government Developer Guide](documentation-government-developer-guide.md) to uncover an programmatic differences with endpoints when working with Azure Government.
+The following resources provide more information on deploying from the image gallery or creating your own VHD. To uncover any programmatic differences with endpoints when you are working with Azure Government, see the [Azure Government developer guide](documentation-government-developer-guide.md).
 
-### Other Resources:
-* [Deploying a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Virtual Machine FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Capture Linux VM Image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Deploying a Windows virtual machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Virtual machine FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Capture Linux VM image](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
