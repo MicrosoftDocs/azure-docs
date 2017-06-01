@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 06/01/2017
 ms.author: jgao
 
 ---
@@ -53,7 +53,7 @@ Microsoft provides the following utilities to work with Azure Storage:
 | --- |:---:|:---:|:---:|
 | [Azure Command-Line Interface][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
-| [AzCopy][azure-azcopy] | | |✔ |
+| [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop command](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
@@ -137,6 +137,8 @@ The AzCopy syntax is:
 
 For more information, see [AzCopy - Uploading/Downloading files for Azure Blobs][azure-azcopy].
 
+Azcopy on Linux preview is available.  See [Announcing AzCopy on Linux Preview](https://blogs.msdn.microsoft.com/windowsazurestorage/2017/05/16/announcing-azcopy-on-linux-preview/).
+
 ### <a id="commandline"></a>Hadoop command line
 The Hadoop command line is only useful for storing data into blob storage when the data is already present on the cluster head node.
 
@@ -204,7 +206,7 @@ Before using the tool, you must know your Azure storage account name and account
 ## Mount Azure Storage as Local Drive
 See [Mount Azure Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
-## Services
+## Upload using services
 ### Azure Data Factory
 The Azure Data Factory service is a fully managed service for composing data storage, data processing, and data movement services into streamlined, scalable, and reliable data production pipelines.
 
