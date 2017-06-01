@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Microsoft Azure BizTalk Services (MABS) is being retired, and replaced with Azure Logic Apps. If you currently use MABS, then **insert jon's topic** provides some guidance on moving your integration solutions to Logic Apps. 
+> Microsoft Azure BizTalk Services (MABS) is being retired, and replaced with Azure Logic Apps. If you currently use MABS, then [Move from BizTalk Services to Logic Apps](../articles/logic-apps/logic-apps-move-from-mabs.md) provides some guidance on moving your integration solutions to Logic Apps. 
 > 
 > If you're brand new to Logic Apps, then we suggest getting started here: 
 > 
