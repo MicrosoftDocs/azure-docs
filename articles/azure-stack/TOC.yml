@@ -7,6 +7,8 @@
   items:
   - name: Deploy Azure Stack
     href: azure-stack-deploy-overview.md  
+  - name: Install and configure PowerShell
+    href: azure-stack-configure-ps-quickstart.md 
 - name: Tutorials
   items:
   - name: Enable Virtual Machines
