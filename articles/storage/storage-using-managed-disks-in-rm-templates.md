@@ -213,7 +213,7 @@ To create managed Availability Sets with VMs using Managed Disks, add the `sku` 
 ```
 ### Additional scenarios and customizations
 
-To find full information on the REST API specifications, please review the [REST API documentation](https://docs.microsoft.com/en-us/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and accpetable values that can be submitted to the API through template deployments. 
+To find full information on the REST API specifications, please review the [REST API documentation](/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and accpetable values that can be submitted to the API through template deployments. 
 
 ## Next Steps
 
@@ -221,7 +221,7 @@ To find full information on the REST API specifications, please review the [REST
     * [Windows VM with Managed Disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Linux VM with Managed Disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [Full list of Managed Disk templates](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-* Visit the [Managed Disks overview](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview) to learn more about Managed Disks.
-* Review the template reference documentation for [Virtual Machine](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines) resources.
-* Review the template reference documentation for [disk](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/disks) resources.
+* Visit the [Managed Disks overview](storage-managed-disks-overview.md) to learn more about Managed Disks.
+* Review the template reference documentation for [Virtual Machine](/templates/microsoft.compute/virtualmachines) resources.
+* Review the template reference documentation for [disk](/templates/microsoft.compute/disks) resources.
  
