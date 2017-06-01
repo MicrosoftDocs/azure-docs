@@ -396,23 +396,23 @@ Update the application to include an additional column in the todo list for what
 3. Update *src/main/java/com/example/fabrikam/TodoDemoController.java* with a line in the `updateTodo` method to set the timestamp:
 
    ```java
-        item.setComplete(requestItem.isComplete());
-        item.setId(requestItem.getId());
-        item.setTimeCreated(requestItem.getTimeCreated());
-        repository.save(item);
+   item.setComplete(requestItem.isComplete());
+   item.setId(requestItem.getId());
+   item.setTimeCreated(requestItem.getTimeCreated());
+   repository.save(item);
    ```
 
 4. Add support for the new field in the Thymeleaf template. Update *src/main/resources/templates/index.html* with a new table header for the timestamp, and a new field to display the value of the timestamp in each table data row.
 
    ```html
-            <th>Name</th>
-            <th>Category</th>
-            <th>Time Created</th>
-            <th>Complete</th>
-            ...
-            <td th:text="${item.category}">item_category</td><input type="hidden" th:field="*{todoList[__${i.index}__].category}"/>
-            <td th:text="${item.timeCreated}">item_time_created</td><input type="hidden" th:field="*{todoList[__${i.index}__].timeCreated}"/>
-            <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
+   <th>Name</th>
+   <th>Category</th>
+   <th>Time Created</th>
+   <th>Complete</th>
+   ...
+   <td th:text="${item.category}">item_category</td><input type="hidden" th:field="*{todoList[__${i.index}__].category}"/>
+   <td th:text="${item.timeCreated}">item_time_created</td><input type="hidden" th:field="*{todoList[__${i.index}__].timeCreated}"/>
+   <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
    ```
 
 5. Rebuild the application:
@@ -423,7 +423,7 @@ Update the application to include an additional column in the todo list for what
 
 6. FTP the updated .WAR as before, removing the existing *site/wwwroot/webapps/ROOT* directory and *ROOT.war*, then uploading the updated .WAR file as ROOT.war. 
 
-When you refresh your browser, a **Time Created** column is now visible. When you add a new task, the app will populate the timestamp automatically. Your existing tasks remain unchanged and work with the app even though the underlying database schema has changed. 
+When you refresh the app, a **Time Created** column is now visible. When you add a new task, the app will populate the timestamp automatically. Your existing tasks remain unchanged and work with the app even though the underlying data model has changed. 
 
 ![Java app updated with a new column](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
       
