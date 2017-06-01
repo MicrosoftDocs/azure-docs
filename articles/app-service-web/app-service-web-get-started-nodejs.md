@@ -22,7 +22,7 @@ ms.author: cfowler
 
 ![Sample app running in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.c
+You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.c
 
 ## Prerequisites
 
@@ -138,7 +138,7 @@ Using a text editor, open the `index.js` file in the Node.js app, and make a sma
 response.end("Hello Azure!");
 ```
 
-Commit your changes in Git,and then push the code changes to Azure.
+Commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"
