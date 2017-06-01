@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/02/2017
+ms.date: 06/01/2017
 ms.author: vturecek
 
 ---
@@ -214,10 +214,8 @@ The default ASP.NET Core web server, known as Kestrel, is [not currently support
 
 To learn more about Kestrel and WebListener in Service Fabric services, please refer to [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
 
-## Connecting to a Reliable Actors service
-This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. In fact, it is somewhat simpler.
-
-When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically. So you do not need to do anything that is equivalent to establishing a `ServiceRemotingListener` like you did for the stateful service in this tutorial.
+## Connecting to a Reliable Actor service
+This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. When you create a Reliable Actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically. So you do not need to do anything that is equivalent to establishing a `ServiceRemotingListener` like you did for the stateful service in this tutorial.
 
 ## How web services work on your local cluster
 In general, you can deploy exactly the same Service Fabric application to a multi-machine cluster that you deployed on your local cluster and be highly confident that it will work as you expect. This is because your local cluster is simply a five-node configuration that is collapsed to a single machine.
