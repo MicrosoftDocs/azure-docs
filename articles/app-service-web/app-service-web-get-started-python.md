@@ -23,7 +23,7 @@ ms.author: cfowler
 
 ![Sample app running in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
+You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 ## Prerequisites
 
 To complete this tutorial:
