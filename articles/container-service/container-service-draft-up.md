@@ -225,31 +225,31 @@ Now you're ready to deploy an application.
 ## Build and deploy an application
 
 In the Draft repo are [six simple example applications](https://github.com/Azure/draft/tree/master/examples). Clone the repo and let's use the [Python example](https://github.com/Azure/draft/tree/master/examples/python). Change into the examples/Python directory, and type `draft up`. The output is extensive, but begins like the following:
-    ```
-    draft up
-    --> Building Dockerfile
-    Step 1 : FROM python:onbuild
-    onbuild: Pulling from library/python
-    10a267c67f42: Pulling fs layer
-    fb5937da9414: Pulling fs layer
-    9021b2326a1e: Pulling fs layer
-    dbed9b09434e: Pulling fs layer
-    ea8a37f15161: Pulling fs layer
-    ...
-    ```
+```
+draft up
+--> Building Dockerfile
+Step 1 : FROM python:onbuild
+onbuild: Pulling from library/python
+10a267c67f42: Pulling fs layer
+fb5937da9414: Pulling fs layer
+9021b2326a1e: Pulling fs layer
+dbed9b09434e: Pulling fs layer
+ea8a37f15161: Pulling fs layer
+...
+```
 
 and when succesful ends with something similar to the following.
-    ```
-    ab68189731eb: Pushed
-    53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
-    --> Deploying to Kubernetes
-    --> Status: DEPLOYED
-    --> Notes:
+```
+ab68189731eb: Pushed
+53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
+--> Deploying to Kubernetes
+--> Status: DEPLOYED
+--> Notes:
 
-      http://gangly-bronco.squillace.io to access your application
+  http://gangly-bronco.squillace.io to access your application
 
-    Watching local files for changes...
-    ```
+Watching local files for changes...
+```
 
 Whatever your chart's name is, you can now `curl http://gangly-bronco.squillace.io` to receive the reply, `Hello World!`.
 
