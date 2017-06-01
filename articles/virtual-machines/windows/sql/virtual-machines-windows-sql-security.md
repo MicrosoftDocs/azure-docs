@@ -54,6 +54,9 @@ You don't want attackers to easily guess account names or passwords. Use the fol
 
 By default, SQL Server listens on a well-known port, 1433. For increased security, configure SQL Server to listen on a non-default port, such as 1401. If you provision a SQL Server gallery image in the Azure portal, you can specify this port in the **SQL Server settings** blade. To configure this after provisioning, see [Configure a Server to Listen on a Specific TCP Port](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port).
 
+> [!IMPORTANT]
+> Specifying a non-default port is a good idea if your SQL Server port is open to public internet connections.
+
 When SQL Server is listening on a non-default port, you must specify the port when you connect. For example, consider a scenario where the server IP address is 13.55.255.255 and SQL Server is listening on port 1401. To connect to SQL Server, you would specify `13.55.255.255,1401` in the connection string.
 
 ## Secure connections
