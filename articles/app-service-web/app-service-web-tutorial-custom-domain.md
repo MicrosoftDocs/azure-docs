@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Map an existing custom DNS name to Azure Web Apps
 
