@@ -65,7 +65,6 @@ az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cl
 The output when successful looks similar to the following.
 
 ```json
-az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
 waiting for AAD role to propagate.done
 {
   "id": "/subscriptions/<guid>/resourceGroups/draft/providers/Microsoft.Resources/deployments/azurecli14904.93snip09",
