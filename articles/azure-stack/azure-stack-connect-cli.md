@@ -39,51 +39,50 @@ Use the following steps to connect to Azure Stack:
 
    * If you are connecting from a windows-based computer:
    
-     ```azurecli
-     set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
-     set ADAL_PYTHON_SSL_NO_VERIFY=1
-     ```
+   ```azurecli
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    * If you are connecting from macOS:
    
-     ```azurecli
-     export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
-     export ADAL_PYTHON_SSL_NO_VERIFY=1
-     ```
+   ```azurecli
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
 
 2. Get your Azure Stack environment’s active directory resource Id endpoint by navigating to the following link in a browser: 
 
-   * For the **administrative** environment:    `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
+   a. For the **administrative** environment:    `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
-   * For the **user** environment:    
+   b. For the **user** environment:    
    `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
    When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the value assigned to the **audiences** parameter, you will use it in the next step. This parameter has the format- `https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>`. 
 
 3. Register your Azure Stack environment by running the following command:
 
-   * To register the **administrative** environment:
+   a. To register the **administrative** environment:
 
-     ```azurecli
-     az cloud register \
-       -n AzureStackAdmin \
-       --endpoint-resource-manager https://adminmanagement.local.azurestack.external/ \
-       --endpoint-active-directory https://login.windows.net/ \
-       --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2> \
-       --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
-       --suffix-storage-endpoint local.azurestack.external
-     ```
+   ```azurecli
+   az cloud register \
+     -n AzureStackAdmin \
+     --endpoint-resource-manager https://adminmanagement.local.azurestack.external/ \
+     --endpoint-active-directory https://login.windows.net/ \
+     --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2> \
+     --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
+     --suffix-storage-endpoint local.azurestack.external
+   ```
+   b. To register the **user** environment:
 
-   * To register the **user** environment:
-
-     ```azurecli
-     az cloud register \
-       -n AzureStackUser \
-       --endpoint-resource-manager https://management.local.azurestack.external/ \
-       --endpoint-active-directory https://login.windows.net/ \
-       --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2>  \
-       --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
-       --suffix-storage-endpoint local.azurestack.external 
-     ```
+   ```azurecli
+   az cloud register \
+     -n AzureStackUser \
+     --endpoint-resource-manager https://management.local.azurestack.external/ \
+     --endpoint-active-directory https://login.windows.net/ \
+     --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2>  \
+     --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
+     --suffix-storage-endpoint local.azurestack.external 
+   ```
 
 4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
@@ -94,25 +93,25 @@ Use the following steps to connect to Azure Stack:
 
 5. Set the active environment and sign in by using the following commands:
 
-   * For the **administrative** environment:
+   a. For the **administrative** environment:
 
-     ```azurecli
-     az cloud set \
-       -n AzureStackAdmin
+   ```azurecli
+   az cloud set \
+     -n AzureStackAdmin
 
-     az login \
-       -u <Active directory global administrator account. Example: username@<aadtenant>.onmicrosoft.com>
-     ```
+   az login \
+     -u <Active directory global administrator account. Example: username@<aadtenant>.onmicrosoft.com>
+   ```
 
-   * For the **user** environment:
+   b. For the **user** environment:
 
-     ```azurecli
-     az cloud set \
-       -n AzureStackUser
+   ```azurecli
+   az cloud set \
+     -n AzureStackUser
 
-     az login \
-       -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
-     ```
+   az login \
+     -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
+   ```
 
 ## Test the connectivity
 
