@@ -229,7 +229,7 @@ There are a few different ways to verify your VPN connection.
 
 [!INCLUDE [Verify connection](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="connectVM"></a>Connect to a virtual machine
+## <a name="connectVM"></a>To connect to a virtual machine
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
