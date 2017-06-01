@@ -129,6 +129,10 @@ Backup database using RMAN
 
 ### 4. Backup VM using Azure Recovery Service Vault
 
+> [!NOTE]
+> A new feature call [Application consistent backup for Linux VMs](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/) is just become available.
+>
+
 Log on to Azure portal and search for Recovery Service Vaults.
 ![Screenshot of the Recovery Service Vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
 
