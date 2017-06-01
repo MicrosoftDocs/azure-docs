@@ -13,7 +13,8 @@ ms.author: prrajan
 ---
 # Bing Speech API overview
 Microsoft’s *Speech to Text* and *Text to Speech* cloud offerings help you put speech to work in your application. Microsoft's
-Speech APIs can transcribe speech *to* text and can generate speech *from* text, enabling you to create powerful experiences that  delight your users.
+Speech APIs can transcribe speech *to* text and can generate speech *from* text. These
+APIs enable you to create powerful experiences that delight your users.
 
 * **Speech to Text** APIs convert human speech to text that can be used as input or commands to control your application.
 * **Text to Speech** APIs convert text to audio streams that can be played back to the user of your application.
@@ -23,10 +24,11 @@ The *Speech to Text* APIs *transcribe* audio streams into text that your applica
 
 * A REST API, useful for apps that need to convert short spoken commands to text but do not need simultaneous user feedback. The REST API uses 
 [HTTP chunked-transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) to send the audio bytes to the service.
-* A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps that desire an
-improved user experience by using the power of the full-duplex WebSocket connection through features like speech recognition hypotheses. Also useful for apps that need to transcribe longer audio passages.  
+* A [WebSocket](https://en.wikipedia.org/wiki/WebSocket) API, useful for apps need an
+improved user experience by using the power of the full-duplex WebSocket connection. Apps using this API
+get access to advanced features like speech recognition hypotheses. This API choice is also better for apps that need to transcribe longer audio passages.  
 
-Both *Speech to Text* APIs can enrich the transcribed text results by adding capitalization and punctuation, masking profanity, and text normalization.
+Both *Speech to Text* APIs enrich the transcribed text by adding capitalization and punctuation, masking profanity, and text normalization.
 
 ### Comparing API options for speech recognition
 
