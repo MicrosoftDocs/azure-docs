@@ -157,5 +157,7 @@ The left menu provides different pages for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [PHP with MySQL](app-service-web-tutorial-php-mysql.md)

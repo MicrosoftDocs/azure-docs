@@ -165,5 +165,7 @@ The left menu provides different pages for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [Node.js with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
