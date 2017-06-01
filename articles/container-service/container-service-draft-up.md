@@ -42,13 +42,11 @@ The following video shows how easy it is to develop iteratively and still get li
 You can easily [create a new Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), but the steps are as follows:
 
 1. Create a Azure resource group to managed your ACR registry and the Kubernetes cluster in ACS.
-
       ```azurecli
       az group create --name draft --location eastus
       ```
 
 2. Create an ACR image registry using [az acr create](/cli/azure/acr#create)
-
       ```azurecli
       az acr create -g draft -n draftacs --sku Basic --admin-enabled true -l eastus
       ```
@@ -57,7 +55,6 @@ You can easily [create a new Azure Container Registry](../container-registry/con
 ## Create an Azure Container Service with Kubernetes
 
 Now you're ready to use [az acs create](/cli/azure/acs#create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
-
   ```azurecli
   az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
   ```
@@ -65,51 +62,50 @@ Now you're ready to use [az acs create](/cli/azure/acs#create) to create an ACS 
     > Because Kubernetes is not the default orchestrator type, be sure you use the `--orchestrator-type kubernetes` switch.
 
 The output when successful looks similar to the following.
-
-```json
-az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
-waiting for AAD role to propagate.done
-{
-  "id": "/subscriptions/<guid>/resourceGroups/draft/providers/Microsoft.Resources/deployments/azurecli14904.93snip09",
-  "name": "azurecli1496227204.9323909",
-  "properties": {
-    "correlationId": "<guid>",
-    "debugSetting": null,
-    "dependencies": [],
-    "mode": "Incremental",
-    "outputs": null,
-    "parameters": {
-      "clientSecret": {
-        "type": "SecureString"
-      }
-    },
-    "parametersLink": null,
-    "providers": [
-      {
-        "id": null,
-        "namespace": "Microsoft.ContainerService",
-        "registrationState": null,
-        "resourceTypes": [
-          {
-            "aliases": null,
-            "apiVersions": null,
-            "locations": [
-              "westus"
-            ],
-            "properties": null,
-            "resourceType": "containerServices"
+    ```json
+    az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
+    waiting for AAD role to propagate.done
+    {
+      "id": "/subscriptions/<guid>/resourceGroups/draft/providers/Microsoft.Resources/deployments/azurecli14904.93snip09",
+      "name": "azurecli1496227204.9323909",
+      "properties": {
+        "correlationId": "<guid>",
+        "debugSetting": null,
+        "dependencies": [],
+        "mode": "Incremental",
+        "outputs": null,
+        "parameters": {
+          "clientSecret": {
+            "type": "SecureString"
           }
-        ]
-      }
-    ],
-    "provisioningState": "Succeeded",
-    "template": null,
-    "templateLink": null,
-    "timestamp": "2017-05-31T10:46:29.434095+00:00"
-  },
-  "resourceGroup": "draft"
-}
-```
+        },
+        "parametersLink": null,
+        "providers": [
+          {
+            "id": null,
+            "namespace": "Microsoft.ContainerService",
+            "registrationState": null,
+            "resourceTypes": [
+              {
+                "aliases": null,
+                "apiVersions": null,
+                "locations": [
+                  "westus"
+                ],
+                "properties": null,
+                "resourceType": "containerServices"
+              }
+            ]
+          }
+        ],
+        "provisioningState": "Succeeded",
+        "template": null,
+        "templateLink": null,
+        "timestamp": "2017-05-31T10:46:29.434095+00:00"
+      },
+      "resourceGroup": "draft"
+    }
+    ```
 
 Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
 
@@ -158,9 +154,7 @@ Your own domain provider will have their own way to do this; to [delegate your d
     ```
 
 2. Create a DNS zone for your domain.
-
 Use the [az network dns zone create](/cli/azure/network/dns/zone#create) command to obtain the nameservers to delegate DNS control to Azure DNS for your domain.
-
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -182,16 +176,11 @@ Use the [az network dns zone create](/cli/azure/network/dns/zone#create) command
     }
     ```
 3. Add the DNS servers you are given to the domain provider for your deployment domain, which enables you to use Azure DNS to repoint your domain as you want.
-
-
 4. Create an A record-set entry for your deployment domain mapping to the `ingress` IP from step 2 of the previous section.
-
     ```azurecli
     az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*' -g squillace.io -z squillace.io
     ```
-
 The output looks something like:
-
     ```json
     {
       "arecords": [
@@ -237,7 +226,6 @@ Now you're ready to deploy an application.
 ## Build and deploy an application
 
 In the Draft repo are [six simple example applications](https://github.com/Azure/draft/tree/master/examples). Clone the repo and let's use the [Python example](https://github.com/Azure/draft/tree/master/examples/python). Change into the examples/Python directory, and type `draft up`. The output is extensive, but begins like the following:
-
     ```
     draft up
     --> Building Dockerfile
@@ -252,7 +240,6 @@ In the Draft repo are [six simple example applications](https://github.com/Azure
     ```
 
 and when succesful ends with something similar to the following.
-
     ```
     ab68189731eb: Pushed
     53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
