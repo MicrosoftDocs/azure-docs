@@ -52,9 +52,10 @@ Use the following steps to connect to Azure Stack:
 
 2. Get your Azure Stack environment’s active directory resource Id endpoint by navigating to the following link in a browser: 
 
-   * For the **administrative** environment:  `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
+   * For the **administrative** environment:    `https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
-   * For the **User** environment:  `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
+   * For the **user** environment:    
+   `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
    When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the value assigned to the **audiences** parameter, you will use it in the next step. This parameter has the format- `https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>`. 
 
