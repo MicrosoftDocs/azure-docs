@@ -159,10 +159,10 @@ For more information about the three web hosting options, see [Introducing Azure
 
 To get started with the option(s) you choose for your application, see the following resources:
 
-* [Azure App Service](/documentation/services/app-service/)
-* [Azure Cloud Services](/documentation/services/cloud-services/)
-* [Azure Virtual Machines](/documentation/services/virtual-machines/)
-* [Service Fabric](/documentation/services/service-fabric)
+* [Azure App Service](/azure/app-service/)
+* [Azure Cloud Services](/azure/cloud-services/)
+* [Azure Virtual Machines](/azure/virtual-machines/)
+* [Service Fabric](/azure/service-fabric/)
 
 <!-- URL List -->
 
