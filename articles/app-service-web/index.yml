@@ -2,6 +2,7 @@
 documentType: LandingData
 title: Web Apps Documentation
 metadata:
+  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Azure Web Apps Documentation - Tutorials, API Reference
   meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
   services: app-service

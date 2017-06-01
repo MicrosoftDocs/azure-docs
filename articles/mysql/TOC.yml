@@ -39,9 +39,9 @@
       href: concepts-supported-versions.md
   - name: Resources
     items:
-    - name: Service tiers
+    - name: Pricing tiers
       href: concepts-service-tiers.md
-    - name: Compute units & Storage units
+    - name: Compute units
       href: concepts-compute-unit-and-storage.md
     - name: Limits
       href: concepts-limits.md
@@ -63,7 +63,7 @@
       href: concepts-migrate-dump-restore.md
     - name: Import & export
       href: concepts-migrate-import-export.md
-- name: How-to Guides
+- name: How-to guides
   items:
   - name: Manage a Server
     items:
@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
+    - name: Web App
+      href: howto-connect-webapp.md
 - name: Reference
   items:
   - name: Azure CLI

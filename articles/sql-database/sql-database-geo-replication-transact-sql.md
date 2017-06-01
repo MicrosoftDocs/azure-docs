@@ -1,6 +1,6 @@
 ---
-title: Configure Geo-Replication for Azure SQL Database with Transact-SQL | Microsoft Docs
-description: Configure Geo-Replication for Azure SQL Database using Transact-SQL
+title: Configure geo-replication for Azure SQL Database with Transact-SQL | Microsoft Docs
+description: Configure geo-replication for Azure SQL Database using Transact-SQL
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -25,17 +25,19 @@ This article shows you how to configure active geo-replication for an Azure SQL 
 To initiate failover using Transact-SQL, see [Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> When you use Active geo-replication (readable secondaries) for disaster recovery you should configure a failover group for all databases within an application to enable automatic and transparent failover. This feature is in preview. For more information see [Auto-failover groups and Geo-Replication](sql-database-geo-replication-overview.md).
+> When you use active geo-replication (readable secondaries) for disaster recovery you should configure a failover group for all databases within an application to enable automatic and transparent failover. This feature is in preview. For more information see [Auto-failover groups and geo-replication](sql-database-geo-replication-overview.md).
 > 
 > 
 
-To configure Active Geo-Replication using Transact-SQL, you need the following:
+To configure active geo-replication using Transact-SQL, you need the following:
 
-* An Azure subscription.
-* A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate.
-* One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases.
-* A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure Geo-Replication.
-* SQL Server Management Studio (SSMS)
+* An Azure subscription
+* A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate
+* One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases
+* A login that is DBManager on the primary
+* Have db_ownership of the local database that you will geo-replicate
+* Be DBManager on the partner server(s) to which you will configure geo-replication
+* The newest version of SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -44,7 +46,7 @@ To configure Active Geo-Replication using Transact-SQL, you need the following:
 
 ## Add secondary database
 You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or in an elastic pool. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
-After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure Geo-Replication using Management Studio. Steps to create non-readable and readable secondaries, either as a single database or in an elastic pool, are provided.
+After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure geo-replication using Management Studio. Steps to create non-readable and readable secondaries, either as a single database or in an elastic pool, are provided.
 
 > [!NOTE]
 > If a database exists on the specified partner server with the same name as the primary database the command will fail.
@@ -55,7 +57,7 @@ Use the following steps to create a readable secondary as a single database.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-3. Use the following **ALTER DATABASE** statement to make a local database into a Geo-Replication primary with a readable secondary database on a secondary server.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a readable secondary database on a secondary server.
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
@@ -66,7 +68,7 @@ Use the following steps to create a readable secondary in an elastic pool.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-3. Use the following **ALTER DATABASE** statement to make a local database into a Geo-Replication primary with a readable secondary database on a secondary server in an elastic pool.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a readable secondary database on a secondary server in an elastic pool.
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
@@ -76,7 +78,7 @@ Use the following steps to create a readable secondary in an elastic pool.
 ## Remove secondary database
 You can use the **ALTER DATABASE** statement to permanently terminate the replication partnership between a secondary database and its primary. This statement is executed on the master database on which the primary database resides. After the relationship termination, the secondary database becomes a regular read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
 
-Use the following steps to remove geo-replicated secondary from a Geo-Replication partnership.
+Use the following steps to remove geo-replicated secondary from a geo-replication partnership.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
@@ -88,13 +90,13 @@ Use the following steps to remove geo-replicated secondary from a Geo-Replicatio
 
 ## Monitor active geo-replication configuration and health
 
-Monitoring tasks include monitoring of the Geo-Replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_link_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
+Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_link_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
 
 Use the following steps to monitor an active geo-replication partnership.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-3. Use the following statement to show all databases with Geo-Replication links.
+3. Use the following statement to show all databases with geo-replication links.
    
         SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 4. Click **Execute** to run the query.
@@ -110,6 +112,6 @@ Use the following steps to monitor an active geo-replication partnership.
 9. Click **Execute** to run the query.
 
 ## Next steps
-* To learn more about active geo-replication, see - [Active geo-replication](sql-database-geo-replication-overview.md)
+* To learn more about active geo-replication, see - [active geo-replication](sql-database-geo-replication-overview.md)
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 

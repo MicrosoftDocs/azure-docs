@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Use a simulated gateway 
-#### [Simulation on Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Simulation on Windows](iot-hub-windows-gateway-sdk-get-started.md)
-
 ### Use a physical device
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -28,9 +24,11 @@
 #### [Adafruit Feather M0 with Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Use the IoT Gateway Starter Kit
-##### [Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Connect IoT gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Use IoT gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Set up Intel NUC as a gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Connect the gateway to IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Use the gateway for data conversion](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
 ## [Develop](iot-hub-how-to.md)
 ### [Developer guide](iot-hub-devguide.md)
-#### [Send and receive messages](iot-hub-devguide-messaging.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
 #### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
+#### [Send and receive messages](iot-hub-devguide-messaging.md)
+##### [Send device-to-cloud messages to IoT Hub](iot-hub-devguide-messages-d2c.md)
+##### [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md)
+##### [Use custom endpoints and routing rules for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md)
+##### [Send cloud-to-device messages from IoT Hub](iot-hub-devguide-messages-c2d.md)
+##### [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md)
 #### [Upload files from a device](iot-hub-devguide-file-upload.md)
 #### [Manage device identities](iot-hub-devguide-identity-registry.md)
 #### [Control access to IoT Hub](iot-hub-devguide-security.md)
 #### [Understand device twins](iot-hub-devguide-device-twins.md)
 #### [Invoke direct methods on a device](iot-hub-devguide-direct-methods.md)
 #### [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md)
+#### [Choose a communication protocol](iot-hub-devguide-protocols.md)
 #### [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
 #### [Query language](iot-hub-devguide-query-language.md)
 #### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
@@ -78,6 +82,7 @@
 ### Get started with device twins
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +90,7 @@
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -117,18 +123,22 @@
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 ## IoT Edge
+### Get started
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Simulate a device
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Use a real device](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Use a real device](iot-hub-iot-edge-physical-device.md)
 
 # Reference
-## [Azure CLI 2.0 Preview](/cli/azure/iot)
+## [Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
+## [Node.js SDKs](http://azure.github.io/azure-iot-sdk-node/)
+## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
@@ -154,3 +164,4 @@
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
+## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT)

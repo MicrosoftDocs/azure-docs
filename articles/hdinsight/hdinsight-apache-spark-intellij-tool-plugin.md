@@ -1,6 +1,6 @@
 ---
-title: Use Azure Toolkit for IntelliJ to create Scala applications for Spark | Microsoft Docs
-description: Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster.
+title: Azure Toolkit for IntelliJ - Create Scala applications for HDInsight Spark | Microsoft Docs
+description: Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -35,9 +35,11 @@ You can also follow a [video](https://mix.office.com/watch/1nqkqjt5xonza) to get
 > 
 
 ## Prerequisites
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
 * An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+
 * Oracle Java Development Kit. You can install it from the [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+
 * IntelliJ IDEA. This article uses version 15.0.1. You can install it from the [JetBrains website](https://www.jetbrains.com/idea/download/).
 
 ## Install Azure Toolkit for IntelliJ

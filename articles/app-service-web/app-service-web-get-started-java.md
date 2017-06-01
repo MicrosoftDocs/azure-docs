@@ -15,17 +15,17 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-
+ms.custom: mvc
 ---
 # Create your first Java web app in Azure in five minutes
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-This quickstart helps you deploy your first Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes. When you are finished with this tutorial, you'll have a simple Java-based web web app up and running in the cloud.
+This quickstart helps you deploy your first Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) in just a few minutes. When you are finished with this tutorial, you'll have a simple Java-based web app up and running in the cloud.
 
 ![Browse to Web App](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## Before you begin
+## Prerequisites
 
 This tutorial demonstrates how to use Eclipse IDE for Java EE Devlopers to build and deploy a Java web app to Azure. If you don't already have Eclipse installed, you can download it for free from http://www.eclipse.org/.
 
@@ -77,7 +77,7 @@ Save your changes to the page.
 
 In order to deploy your web app to Azure, you will take advantage of several features provided by the Azure Toolkit for Eclipse.
 
-To being the publishing process, use one of the following methods:
+To begin the publishing process, use one of the following methods:
 
 * Right-click your project in the Eclipse **Project Explorer**, then click **Azure**, and then click **Publish as Azure Web App**.
 
@@ -138,7 +138,7 @@ Lastly, click the **JDK** tab. There are several options listed which allow deve
 
 ![Create App Service Plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 
-The Azure Toolkit will begin creating your new app service and display a progress dialog box while it is processing.
+The Azure Toolkit begins to create your new app service and displays a progress dialog box while it is processing.
 
 ![Create App Service Progress Bar](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
@@ -150,7 +150,7 @@ After you have finished all of the preceding steps, click **Deploy** to publish 
 
 ![Deploy Web App to Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
 
-Congratulations! You have successfully deployed your web app to Azure! You can now preview your web app on the Azure website:
+Congratulations! You have successfully deployed your web app to Azure! You can now view your web app on the Azure website:
 
 ![Browse to Web App](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

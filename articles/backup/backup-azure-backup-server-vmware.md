@@ -257,7 +257,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
 ## Add the vCenter Server to Azure Backup Server
 
-To open the Production Server Addition wizard
+To open the Production Server Addition wizard:
 
 1. In the Azure Backup Server console, click **Management**, click **Production Server**, and then click **Add**.
 

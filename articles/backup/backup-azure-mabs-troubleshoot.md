@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/24/2017
+ms.date: 5/30/2017
 ms.author: pullabhk;markgal;
 
 ---
@@ -22,8 +22,13 @@ ms.author: pullabhk;markgal;
 
 You can troubleshoot errors encountered while using Azure Backup Server with information listed in the following table.
 
->
->
+
+## Installation issues
+
+| Operation | Error details | Workaround |
+|-----------|---------------|------------|
+|Installation | Setup could not update registry metadata. This update failure could lead to over usage of storage consumption. To avoid this please update the ReFS Trimming registry entry. | Adjust the registry key, SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim. Set the value Dword to 1. |
+|Installation | Setup could not update registry metadata. This update failure could lead to over usage of storage consumption. To avoid this please update the Volume SnapOptimization registry entry. | Create the registry key, SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds, with an empty string value. |
 
 ## Registration and Agent related issues
 | Operation | Error details | Workaround |
