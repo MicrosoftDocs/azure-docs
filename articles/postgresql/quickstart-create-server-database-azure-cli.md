@@ -5,7 +5,7 @@ services: postgresql
 author: sanagama
 ms.author: sanagama
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid: 
 ms.service: postgresql-database
 ms.custom: mvc
