@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 06/01/2017
 ms.author: jeedes
 
 ---
@@ -145,15 +145,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
    	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-   	a. Click **Add Attribute** to open the attribute dialog.
+   a. Click **Add Attribute** to open the **Add Attribute** dialog.
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
+   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/4.png)
    
-   	b. In the **Name** textbox, type the attribute name shown for that row.
+   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/5.png)
+   
+   b. In the **Name** textbox, type the attribute name shown for that row.
 	
-	c. From the **Value** list, type the attribute value shown for that row.
+   c. From the **Value** list, type the attribute value shown for that row.
 	
-	d. Click **Ok**
+   d. Click **Ok**
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
