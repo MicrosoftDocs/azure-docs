@@ -430,7 +430,7 @@ When you refresh your browser, a **Time Created** column is now visible. When yo
       
 ## Stream diagnostic logs 
 
-While your PHP application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
+While your Java application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
 To start log streaming, use the [az webapp log tail](/cli/azure/appservice/web/log#tail) command.
 
