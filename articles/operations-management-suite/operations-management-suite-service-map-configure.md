@@ -222,11 +222,9 @@ The Dependency Agent typically consumes 0.1% of system memory and 0.1% of system
 
 ## Supported Azure regions
 Service Map is currently available in the following Azure regions:
-| Region |
-|:--|
-| East US |
-| West Europe |
-| West Central US |
+- East US
+- West Europe
+- West Central US
 
 
 ## Supported operating systems
@@ -239,7 +237,7 @@ The following sections list the supported operating systems for the Dependency A
 - Windows Server 2008 R2 SP1
 
 ### Windows Desktop
-- WIndows 10
+- Windows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
