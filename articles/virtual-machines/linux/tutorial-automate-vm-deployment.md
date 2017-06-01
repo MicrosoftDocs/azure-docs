@@ -98,13 +98,13 @@ For more information about cloud-init configuration options, see [cloud-init con
 ## Create virtual machine
 Before you can create a VM, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroupAutomate* in the *eastus* location:
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
 Now create a VM with [az vm create](/cli/azure/vm#create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVM \
@@ -118,7 +118,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 
 To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
-```azurecli
+```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
@@ -143,7 +143,7 @@ The following steps show how you can:
 ### Create an Azure Key Vault
 First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
 
-```azurecli
+```azurecli-interactive 
 keyvault_name=<mykeyvault>
 az keyvault create \
     --resource-group myResourceGroupAutomate \
@@ -154,7 +154,7 @@ az keyvault create \
 ### Generate certificate and store in Key Vault
 For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](/cli/azure/certificate#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](/cli/azure/certificate#create) that uses the default certificate policy:
 
-```azurecli
+```azurecli-interactive 
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
@@ -165,7 +165,7 @@ az keyvault certificate create \
 ### Prepare certificate for use with VM
 To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Convert the certificate with [az vm format-secret](/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
-```azurecli
+```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
@@ -231,7 +231,7 @@ runcmd:
 ### Create secure VM
 Now create a VM with [az vm create](/cli/azure/vm#create). The certificate data is injected from Key Vault with the `--secrets` parameter. As in the previous example, you also pass in the cloud-init config with the `--custom-data` parameter:
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \
@@ -246,7 +246,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 
 To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
-```azurecli
+```azurecli-interactive 
 az vm open-port \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \

@@ -40,7 +40,7 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
