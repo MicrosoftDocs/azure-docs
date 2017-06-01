@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2017
+ms.date: 05/31/2017
 ms.author: sstein
 
 ---
@@ -23,9 +23,7 @@ ms.author: sstein
 
 In this tutorial, you deploy and explore the Wingtip SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
 
-Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to explore and work with the individual application components.
-
-Application source code and management scripts are available in the WingtipSaaS github repo.
+Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to explore and work with the individual application components. The application source code and management scripts are available in the WingtipSaaS github repo.
 
 
 In this tutorial you learn:
@@ -56,7 +54,7 @@ Deploy the Wingtip SaaS app:
 1. Enter required parameter values for the deployment:
 
     > [!IMPORTANT]
-    > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**, and do not use existing resource groups, servers, or pools, and do not use this application, or any resources it creates, for production. Delete this resource group when you are finished with the application to stop related billing.
+    > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**, and do not use existing resource groups, servers, or pools. Do not use this application, or any resources it creates, for production. Delete this resource group when you are finished with the application to stop related billing.
 
     * **Resource group** - Select **Create new** and provide a **Name** and **Location**.
     * **User** - Some resources require names that are unique across all Azure subscriptions. To ensure uniqueness, provide a value to differentiate resources you create, from resources created by other users deploying the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens (no spaces). The first and last character must be a letter or a number (all lowercase is recommended).
@@ -75,22 +73,31 @@ Deploy the Wingtip SaaS app:
 
 ## Download the Wingtip SaaS scripts
 
-While the application is deploying, lets download the source code and management scripts:
+While the application is deploying, download the source code and management scripts:
 
 1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
 1. Click **Clone or download**.
 1. Click **Download ZIP** and save the **WingtipSaaS-master.zip** file.
 
-**IMPORTANT**: Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. Unblock the .zip file before extracting to ensure the scripts are allowed to run:
+> [!IMPORTANT]
+> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. Unblock the .zip file before extracting to ensure the scripts are allowed to run:
 
 1. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
 1. Select **Unblock**, and click **Apply**.
 1. Click **OK**.
-1. You can now extract the files.
+1. Extract the files, now the scripts will not be blocked.
 
 Scripts are located in the *..\\WingtipSaaS-master\\Learning Modules* folder.
 
+## Update the configuration file for this deployment
 
+Because the scripts need to know the resource group and user values that you set during deployment, set these values in **UserConfig.psm1**.
+
+1. Open ...\\Learning Modules\\*UserConfig.psm1* in the *PowerShell ISE*
+1. Update *ResourceGroupName* and *Name* with the specific values for your deployment (on lines 10 and 11 only).
+1. Save the changes!
+
+Setting this here simply keeps us from having to update these deployment-specific values in every script.
 
 ## Run the application
 
@@ -98,7 +105,7 @@ The app showcases venues, such as concert halls, jazz clubs, sports clubs, that 
 
 A central **Events Hub** provides a list of tenant URLs specific to your deployment. All the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. 
 
-1. Open the _Events Hub_: http://events.wtp.&lt;USER&gt;.trafficmanager.net (replace with your User name):
+1. Open the _Events Hub_: http://events.wtp.&lt;USER&gt;.trafficmanager.net (replace with your deployment's user name):
 
     ![events hub](media/sql-database-saas-tutorial/events-hub.png)
 
@@ -107,29 +114,13 @@ A central **Events Hub** provides a list of tenant URLs specific to your deploym
    ![Events](./media/sql-database-saas-tutorial/fabrikam.png)
 
 
-For routing to the correct tenant, the app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to control the distribution of incoming traffic. The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database to provide the list of URLs.
+To control the distribution of incoming requests to the correct tenant, the app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview). The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database to provide the list of URLs.
 
 In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
 
-
-## Provision a new tenant
-
-The initial deployment creates three sample tenants, but we need to create more tenants for a better tutorial experience. In this step you quickly create a new tenant. Later you should dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it would be to implement a registration component into the application, and automatically provision tenants as customers sign up.
-
-1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE*.
-1. Press **F5** to run the script (leave the default values for now).
-
-   Many Wingtip SaaS scripts use *$PSScriptRoot* to allow navigating folders to call functions in other scripts. This variable is only evaluated when the script is executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running scripts.
-
-The new tenant is registered into the catalog, their database is created in a SQL elastic pool. After successful provisioning, the new tenant's ticket-selling *Events* site appears in your browser:
-
-![New tenant](./media/sql-database-saas-tutorial/red-maple-racing.png)
-
-Refresh the *Events Hub* and the new tenant now appears in the list.
-
 ## Start generating load on the tenant databases
 
-Now that we have some tenant databases, let’s put them to work! A PowerShell script is provided that simulates a workload running against all tenant databases. Wingtip is a SaaS app, and the real-world load on SaaS apps is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the pattern to emerge, so let the load generator run for about 5 minutes before monitoring the load in the following sections.
+Now that the app is deployed, let’s put it to work! The *Demo-LoadGenerator* PowerShell script simulates a workload running against all tenant databases. Wingtip is a SaaS app, and the real-world load on SaaS apps is typically sporadic and unpredictable. To simulate this type of load, the generator produces a randomized load distributed across all tenants. Because tenant databases won't start spiking all at once in a real-world environment, the load generator accounts for this. So, several minutes are needed for the load pattern to emerge, so let the generator run for several minutes before monitoring the load.
 
 1. Open ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* in the *PowerShell ISE*
 1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
@@ -137,17 +128,35 @@ Now that we have some tenant databases, let’s put them to work! A PowerShell s
 > [!IMPORTANT]
 > The load generator is running as a series of jobs in your local PowerShell session. Keep the *Demo-LoadGenerator.ps1* tab open! If you close the tab, or suspend your machine, the load generator stops.
 
-Initially, the load generator remains in a *job-invoking* state, where it generates load on any new tenants that are provisioned after the generator is started. Use *Ctrl-C* to stop invoking new jobs and exit the script. The load generator will continue to run, but only on existing tenants. For now, leave it in the job-invoking state and let it run. You can open another PS ISE window to run additional scripts if needed.
+Initially, the load generator remains in a *job-invoking* state, where it starts generating load on tenants that are provisioned after the generator is started. Use *Ctrl-C* to stop invoking new jobs and exit the script. The load generator continues to run, but only on existing tenants. For now, leave it in the job-invoking state and let it run. If needed, open another PS ISE window to run additional scripts.
+
+
+## Provision a new tenant
+
+The initial deployment creates three sample tenants, but we need to create more tenants for a better tutorial experience. The Wingtip SaaS provisioning-tenants workflow is detailed in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md). In this step, you quickly create a new tenant.
+
+1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE*.
+1. Press **F5** to run the script (leave the default values for now).
+
+   > [!NOTE]
+   > Many Wingtip SaaS scripts use *$PSScriptRoot* to allow navigating folders to call functions in other scripts. This variable is only evaluated when the script is executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running scripts.
+
+The new tenant is registered into the catalog. Their database is created in a SQL elastic pool. After successful provisioning, the new tenant's ticket-selling *Events* site appears in your browser:
+
+![New tenant](./media/sql-database-saas-tutorial/red-maple-racing.png)
+
+Refresh the *Events Hub* and the new tenant now appears in the list.
+
 
 ## Explore the servers, pools, and tenant databases
 
-Now that you've provisioned a new tenant, and started running a load against the collection of tenants, let’s look at some of the resources that were deployed.
+Now that you've started running a load against the collection of tenants, let’s look at some of the resources that were deployed:
 
 1. In the [Azure portal](http://portal.azure.com), open the **catalog-&lt;USER&gt;** server. The catalog server contains two databases. The **tenantcatalog**, and the **basetenantdb** (an empty *golden* db that is copied to create new tenants).
 
    ![databases](./media/sql-database-saas-tutorial/databases.png)
 
-1. Open the **tenants1-&lt;USER&gt;** server that holds the tenant databases. Note that each tenant database is an _Elastic Standard_ database in a 50 eDTU standard pool. Also notice there is a _Red Maple Racing_ database, the tenant that you provisioned previously.
+1. Open the **tenants1-&lt;USER&gt;** server that holds the tenant databases. Each tenant database is an _Elastic Standard_ database in a 50 eDTU standard pool. Also notice there is a _Red Maple Racing_ database, the tenant that you provisioned previously.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 
@@ -159,12 +168,7 @@ If the load generator has been running for several minutes, enough data should b
 
    ![monitor pool](./media/sql-database-saas-tutorial/monitor-pool.png)
 
-What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If each was provisioned as a standalone database, they would each need to be an S2 (50 DTU) to support the bursts, but the cost of 4 standalone S2 databases would be nearly 3 times the price of the pool. And the pool still has plenty of headroom for many more databases. In real-world situations, customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md).
-
-
-## Deleting the resources created with this tutorial
-
-When you are finished exploring and working with the app, browse to the application's resource group in the portal and delete it to stop all billing related to this deployment. If you have used any of the accompanying tutorials, any resources they created will also be deleted with the application.
+What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If each was provisioned as a standalone database, they would each need to be an S2 (50 DTU) to support the bursts. The cost of 4 standalone S2 databases would be nearly 3 times the price of the pool, and the pool still has plenty of headroom for many more databases. In real-world situations, customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md).
 
 
 ## Next steps
