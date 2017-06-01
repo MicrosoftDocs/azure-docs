@@ -1,6 +1,5 @@
 # Overview
 ## [Editions](biztalk-editions-feature-chart.md)
-## [About Hybrid Connections](integration-hybrid-connection-overview.md)
 
 # Get Started
 ## [Create BizTalk Services](biztalk-provision-services.md)
@@ -12,8 +11,6 @@
 ## Configure
 ### [Throttling](biztalk-throttling-thresholds.md)
 ### [Service settings and monitoring](biztalk-dashboard-monitor-scale-tabs.md)
-## Integrate
-### [Hybrid Connections](integration-hybrid-connection-create-manage.md)
 ## Migrate
 ### [BizTalk Server EDI solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
 ## Monitor
