@@ -1,6 +1,6 @@
 ﻿---
-title: Create a managed Azure VM from a generalized on-premises VHDs | Microsoft Docs
-description: Create a managed VM in Azure using VHDs uploaded from on-premises and use managed disks, in the Resource Manager deployment model.
+title: Create a managed Azure VM from a generalized on-premises VHD | Microsoft Docs
+description: Upload a generalized VHD to Azure and use it to create new VMs in Azure, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -18,7 +18,7 @@ ms.date: 05/19/2017
 ms.author: cynthn
 ---
 
-# Create a new VM from a generalized VHD uploaded to Azure using Managed Disks
+# Upload a generalized VHD and use it to create a new VMs in Azure
 
 This topic walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../../storage/storage-managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. 
 
