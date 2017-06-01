@@ -111,7 +111,7 @@ select * from todo_item;
 
 Stop the application by hitting `Ctrl`+`C` in the command prompt. 
 
-## Create an MySQL database in Azure
+## Create an Azure MySQL database
 
 In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You will configure the sample application to use this database in a later step in the tutorial.
 
@@ -158,7 +158,7 @@ az mysql server firewall-rule create --name allIPs \
 > [!NOTE]
 > Azure Database for MySQL (Preview) does not currently automatically enable connections from Azure services. As IP addresses in Azure are dynamically assigned, it is better to enable all IP addresses for now. As the service continues its preview, better methods for securing your database will be enabled.
 
-## Configure the MySQL database in Azure
+## Configure the Azure MySQL database
 
 In the terminal window on your computer, connect to the MySQL server in Azure. Use the value you specified previously for `<admin_user>` and `<mysql_server_name>`.
 
@@ -189,7 +189,7 @@ Exit your server connection by typing `quit`.
 quit
 ```
 
-## Deploy the app to Azure App Service
+## Deploy the sample to Azure App Service
 
 Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
 
@@ -324,7 +324,7 @@ rmdir ROOT/
 put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
 ```
 
-### Test the Azure web app
+### Test the web app
 
 Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list. 
 
@@ -333,18 +333,31 @@ Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list
 **Congratulations!** You're running a data-driven Java app in Azure appservice.
 To update the app, repeat the maven clean package command and redeploy the app via FTP.
 
+## Stream diagnostic logs 
+
+While your PHP application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
+
+To start log streaming, use the [az appservice web log tail](/cli/azure/appservice/web/log#tail) command.
+
+```azurecli 
+az appservice web log tail \
+    --name <app_name> \
+    --resource-group myResourceGroup 
+``` 
+
 ## Manage your Azure web app
-Go to the Azure portal to see the web app you created by signing in to [https://portal.azure.com](https://portal.azure.com).
 
-From the left menu, click **appservice**, then click the name of your Azure web app.
+Go to the Azure portal to see the web app you created.
 
-You should now be in your web app's _blade_ (a portal page that opens horizontally).
+To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
-By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
+From the left menu, click **App Service**, then click the name of your Azure web app.
 
-In the **Application Settings** page, 
+![Portal navigation to Azure web app](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-![Azure appservice Web App Application Settings](./media/app-service-web-tutorial-java-mysql/appservice-web-app-application-settings.png)
+By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform management tasks like stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
+
+![App Service blade in Azure portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 * Map a custom DNS name
@@ -353,7 +366,27 @@ These tabs in the blade show the many great features you can add to your web app
 * Scale up and out
 * Add user authentication
 
-## More resources
-- [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
-- [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
-- [Web apps CLI scripts](app-service-cli-samples.md)
+## Clean up resources
+
+If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
+  
+```azurecli 
+az group delete --name myResourceGroup 
+``` 
+
+<a name="next"></a>
+
+## Next steps
+
+> [!div class="checklist"]
+> * Create a MySQL database in Azure
+> * Connect a sample Java app to the MySQL
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Manage the app in the Azure portal
+
+Advance to the next tutorial to learn how to map a custom DNS name to the app.
+
+> [!div class="nextstepaction"] 
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
