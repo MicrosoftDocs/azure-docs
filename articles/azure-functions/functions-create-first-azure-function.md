@@ -16,6 +16,7 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2017
 ms.author: glenga
+ms.custom: mvc
 
 ---
 # Create your first function in the Azure portal
