@@ -42,23 +42,25 @@ The following video shows how easy it is to develop iteratively and still get li
 You can easily [create a new Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), but the steps are as follows:
 
 1. Create a Azure resource group to managed your ACR registry and the Kubernetes cluster in ACS.
-    ```azurecli
-    az group create --name draft --location eastus
-    ```
+
+      ```azurecli
+      az group create --name draft --location eastus
+      ```
+
 2. Create an ACR image registry using [az acr create](/cli/azure/acr#create)
-    ```azurecli
-    az acr create -g draft -n draftacs --sku Basic --admin-enabled true -l eastus
-    ```
+
+      ```azurecli
+      az acr create -g draft -n draftacs --sku Basic --admin-enabled true -l eastus
+      ```
 
 
 ## Create an Azure Container Service with Kubernetes
 
 Now you're ready to use [az acs create](/cli/azure/acs#create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
 
-    ```azurecli
-    az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
-    ```
-
+  ```azurecli
+  az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
+  ```
     > [!NOTE]
     > Because Kubernetes is not the default orchestrator type, be sure you use the `--orchestrator-type kubernetes` switch.
 
@@ -113,8 +115,9 @@ Now that you have a cluster, you can import the credentials by using the [az acs
 
 ## Install and configure draft
 The installation instructions for Draft are in the [Draft repository](https://github.com/Azure/draft/blob/master/docs/install.md). They are relatively simple, but do require some configuration, as it depends on [Helm](https://aka.ms/helm) to create and deploy a Helm chart into the Kubernetes cluster.
+
 1. [Download and install Helm](https://aka.ms/helm#install).
-2. Use Helm to search for an install `stable/traefik`, and ingress controller to enable inbound requests for your builds.
+2. Use Helm to search for and install `stable/traefik`, and ingress controller to enable inbound requests for your builds.
     ```bash
     $ helm search traefik
     NAME          	VERSION	DESCRIPTION
@@ -122,7 +125,7 @@ The installation instructions for Draft are in the [Draft repository](https://gi
 
     $ helm install stable/traefik --name ingress
     ```
-    Now set a watch on the the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one [mapped to your deployment domain](#wire-up-deployment-domain) in the next section.
+    Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one [mapped to your deployment domain](#wire-up-deployment-domain) in the next section.
 
     ```bash
     kubectl get svc -w
@@ -135,9 +138,9 @@ The installation instructions for Draft are in the [Draft repository](https://gi
 
 ## Wire up deployment domain
 
-Draft will create a new deployment for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. To do this, you must create an A record for `'*'` in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
+Draft will create a new deployment for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. (In this example, we use `squillace.io` as the deployment domain.) To do this, you must create an A record for `'*'` in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
 
-Your own domain provider will have their own way to do this; to [delegate your domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
+Your own domain provider will have their own way to do this; to [delegate your domain nameservers to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
 
 1. Create a resource group for your zone.
     ```azurecli
@@ -211,7 +214,7 @@ The output looks something like:
   - your registry key, or password, from `az acr credential show -n $acrname --output tsv --query "passwords[0].value"`.
   - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `13.64.108.240`)
 
-These enable you to create the base-64 encoded value of the configuration JSON string, `"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to do this is the following (but replace this example's values with your own).
+These enable you to create the base-64 encoded value of the configuration JSON string, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to do this is the following (but replace this example's values with your own).
 
     ```bash
     acrname="draftacs"
