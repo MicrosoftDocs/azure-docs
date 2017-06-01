@@ -32,11 +32,10 @@ You can update your existing Automation account from the portal or use PowerShel
 * An Automation account, which is referenced as the value for the *–AutomationAccountName* and *-ApplicationDisplayName* parameters in the following PowerShell script.
 
 To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountName*, which are required parameters for the script, do the following:
-1. In the Azure portal, select your Automation account on the **Automation account** blade, and then select **All settings**. 
-2. On the **All settings** blade, under **Account Settings**, select **Properties**. 
-3. Note the values on the **Properties** blade.
 
-![The Automation account "Properties" blade](media/automation-create-runas-account/automation-account-properties.png)  
+1. In the Azure portal, select your Automation account on the **Automation account** blade, and then select **All settings**.  
+2. On the **All settings** blade, under **Account Settings**, select **Properties**. 
+3. Note the values on the **Properties** blade.<br><br> ![The Automation account "Properties" blade](media/automation-create-runas-account/automation-account-properties.png)  
 
 ## Create Run As account from the portal
 In this section, perform the following steps to update your Azure Automation account from  the Azure portal.  You create the Run As and Classic Run As accounts individually, and if you don't need to manage resources in the classic Azure portal, you can just create the Azure Run As account.  
