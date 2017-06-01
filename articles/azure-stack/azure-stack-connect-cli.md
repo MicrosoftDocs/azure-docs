@@ -74,7 +74,7 @@ Use the following steps to connect to Azure Stack:
      az cloud register -n AzureStackUser --endpoint-resource-manager https://management.local.azurestack.external/ --endpoint-active-directory https://login.windows.net/ --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2>  --endpoint-active-directory-graph-resource-id https://graph.windows.net/ --suffix-storage-endpoint local.azurestack.external 
      ```
 
-4. Update your environment configuration to use the Azure Stack API version profile. Run the following command to update the configuration:
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
    ```
    az cloud update --profile 2017-03-09-profile-preview
    ```
@@ -97,7 +97,7 @@ Use the following steps to connect to Azure Stack:
 
 ## Test the connectivity
 
-Now that we've got everything set up, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named `MyResourceGroup`:
+Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named `MyResourceGroup`:
 
 ```
 az group create -n “MyResourceGroup” -l “local”
@@ -105,7 +105,7 @@ az group create -n “MyResourceGroup” -l “local”
 
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![RG create output](media/azure-stack-connect-cli/image1.png)
+![resource group create output](media/azure-stack-connect-cli/image1.png)
 
 There are some known issues when using CLI 2.0 in Azure Stack, to learn about them, see [Known issues in Azure Stack CLI topic](azure-stack-troubleshooting.md#cli). 
 
