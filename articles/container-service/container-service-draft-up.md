@@ -214,7 +214,6 @@ These enable you to create the base-64 encoded value of the configuration JSON s
 
 You can confirm that the JSON string is correct by typing `echo $authtoken | base64 -D` to display the unencoded result.
 Now intialize Draft with this command and configuration argument for the `-set` option:
-
     ```bash
     draft init --set registry.url=$acrname.azurecr.io,registry.org=$acrname,registry.authtoken=$authtoken,basedomain=squillace.io
     ```
