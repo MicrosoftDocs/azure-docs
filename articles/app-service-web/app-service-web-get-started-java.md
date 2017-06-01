@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-
+ms.custom: mvc
 ---
 # Create your first Java web app in Azure in five minutes
 

@@ -5,12 +5,13 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/31/2017
 ---
 # Limitations in Azure Database for PostgreSQL
 The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
@@ -55,7 +56,7 @@ When too many connections are reached, you may receive the following error:
 1.	Restoring to different service tier and/or Compute Units and Storage size is not allowed.
 2.	Restoring a dropped server is not supported.
 
-## Next Steps:
-- Understand [What’s available in each service tier](concepts-service-tiers.md)
+## Next steps:
+- Understand [What’s available in each pricing tier](concepts-service-tiers.md)
 - Understand [Supported PostgreSQL Database Versions](concepts-supported-versions.md)
 - Review [How To Back up and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md)

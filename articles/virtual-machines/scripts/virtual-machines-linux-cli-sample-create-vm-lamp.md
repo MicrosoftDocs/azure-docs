@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Deploy the LAMP stack in a load-balanced virtual machine scale set
@@ -42,7 +43,7 @@ Use this code to see how to connect to your VMs and your scale set.
 
 Run the following command to remove the resource group, the scale set and VMs, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 
