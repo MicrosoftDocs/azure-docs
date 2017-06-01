@@ -73,7 +73,7 @@ You have two options:
     The [Add Azure WebJob](#configure) dialog box appears, with the project selected in the **Project name** box.
 2. Complete the [Add Azure WebJob](#configure) dialog box, and then click **OK**.
    
-   The **Publish Web** wizard appears.  If you don't want to publish immediately, close the wizard. The settings that you've entered are saved for when you do want to [deploy the project](#deploy).
+   The **Publish Web** wizard appears.  If you do not want to publish immediately, close the wizard. The settings that you've entered are saved for when you do want to [deploy the project](#deploy).
 
 ## <a id="create"></a>Create a new WebJobs-enabled project
 To create a new WebJobs-enabled project, you can use the Console Application project template and enable WebJobs deployment as explained in [the previous section](#convert). As an alternative, you can use the WebJobs new-project template:
