@@ -356,6 +356,6 @@ namespace Driver
 }
 ```
 
-## Next Steps
+## Next steps
 - [Design your first Azure Database for PostgreSQL using the Azure portal](tutorial-design-database-using-azure-portal.md)
 - [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
