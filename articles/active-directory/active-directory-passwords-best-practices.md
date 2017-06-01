@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: joflore
+ms.editor: gahug
+ms.custom: it-pro
 
 ---
 # Roll out password reset for users

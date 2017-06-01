@@ -31,7 +31,7 @@ The [Azure CLI 2.0](/cli/azure/install-az-cli2) is available across platforms vi
     az group create --name myResourceGroup --location eastus
     ```
     
-  * Create a VM with [az vm create](/cli/azure/vm#create) named *myVM* using the latest *UbuntuLTS* image and generate SSH keys if they do already exist in *~/.ssh*:
+  * Create a VM with [az vm create](/cli/azure/vm#create) named *myVM* using the latest *UbuntuLTS* image and generate SSH keys if they do not already exist in *~/.ssh*:
 
     ```azurecli
     az vm create \

@@ -5,6 +5,7 @@
 # Quickstarts
 ## [Kubernetes cluster - Linux](container-service-kubernetes-walkthrough.md)
 ## [Kubernetes cluster - Windows](container-service-kubernetes-windows-walkthrough.md)
+## [Create DC/OS cluster](container-service-dcos-quickstart.md)
 
 # Tutorials
 ## [Deploy cluster - Portal](container-service-deployment.md)
@@ -12,11 +13,14 @@
 ## [CI/CD with Kubernetes and Jenkins](container-service-kubernetes-jenkins.md)
 ## [CI/CD with Docker Swarm and VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
+# Samples
+## [Azure CLI](cli-samples.md)
+
 # Concepts
 ## [Secure containers](container-service-security.md)
 ## [Service principal - Kubernetes](container-service-kubernetes-service-principal.md)
 
-# How To
+# How-to guides
 ## [Connect with an ACS cluster](container-service-connect.md)
 ## [Scale an ACS cluster](container-service-scale.md)
 ## Manage with DC/OS

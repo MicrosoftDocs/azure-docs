@@ -99,7 +99,7 @@ az dla account show --account "<Data Lake Analytics Account Name>"
 ## Upload data to Data Lake Store
 In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage.
 
-The Azure portal provides a user interface for copying some sample data files to the default Data Lake Store account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md#install-the-sample-data) to upload the data to the default Data Lake Store account.
+The Azure portal provides a user interface for copying some sample data files to the default Data Lake Store account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md) to upload the data to the default Data Lake Store account.
 
 To upload files using CLI 2,0, use the following commands:
 
