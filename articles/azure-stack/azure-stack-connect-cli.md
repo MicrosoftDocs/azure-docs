@@ -106,8 +106,7 @@ az group create -n “MyResourceGroup” -l “local”
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
 ![resource group create output](media/azure-stack-connect-cli/image1.png)
-
-There are some known issues when using CLI 2.0 in Azure Stack, to learn about them, see [Known issues in Azure Stack CLI topic](azure-stack-troubleshooting.md#cli). 
+ 
 
 ## Next steps
 
