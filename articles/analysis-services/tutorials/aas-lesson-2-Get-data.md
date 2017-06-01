@@ -132,7 +132,7 @@ Tables in the AdventureWorksDW2014 sample database have data that isn't necessar
       |**ShipDateKey**|   
   
 ## <a name="Import"></a>Import the selected tables and column data  
-Now that you've previewed and filtered out unnecessary data, you can import the rest of the data you do want. The wizard imports the table data along with any relationships between tables. New tables and columns are created in the model and data that you filtered out will not be imported.  
+Now that you've previewed and filtered out unnecessary data, you can import the rest of the data you do want. The wizard imports the table data along with any relationships between tables. New tables and columns are created in the model and data that you filtered out is not be imported.  
   
 #### To import the selected tables and column data  
   
