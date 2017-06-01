@@ -55,57 +55,59 @@ You can easily [create a new Azure Container Registry](../container-registry/con
 ## Create an Azure Container Service with Kubernetes
 
 Now you're ready to use [az acs create](/cli/azure/acs#create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
-  ```azurecli
-  az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
-  ```
-    > [!NOTE]
-    > Because Kubernetes is not the default orchestrator type, be sure you use the `--orchestrator-type kubernetes` switch.
+```azurecli
+az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
+```
+
+> [!NOTE]
+> Because Kubernetes is not the default orchestrator type, be sure you use the `--orchestrator-type kubernetes` switch.
 
 The output when successful looks similar to the following.
-    ```json
-    az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
-    waiting for AAD role to propagate.done
-    {
-      "id": "/subscriptions/<guid>/resourceGroups/draft/providers/Microsoft.Resources/deployments/azurecli14904.93snip09",
-      "name": "azurecli1496227204.9323909",
-      "properties": {
-        "correlationId": "<guid>",
-        "debugSetting": null,
-        "dependencies": [],
-        "mode": "Incremental",
-        "outputs": null,
-        "parameters": {
-          "clientSecret": {
-            "type": "SecureString"
-          }
-        },
-        "parametersLink": null,
-        "providers": [
+
+```json
+az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
+waiting for AAD role to propagate.done
+{
+  "id": "/subscriptions/<guid>/resourceGroups/draft/providers/Microsoft.Resources/deployments/azurecli14904.93snip09",
+  "name": "azurecli1496227204.9323909",
+  "properties": {
+    "correlationId": "<guid>",
+    "debugSetting": null,
+    "dependencies": [],
+    "mode": "Incremental",
+    "outputs": null,
+    "parameters": {
+      "clientSecret": {
+        "type": "SecureString"
+      }
+    },
+    "parametersLink": null,
+    "providers": [
+      {
+        "id": null,
+        "namespace": "Microsoft.ContainerService",
+        "registrationState": null,
+        "resourceTypes": [
           {
-            "id": null,
-            "namespace": "Microsoft.ContainerService",
-            "registrationState": null,
-            "resourceTypes": [
-              {
-                "aliases": null,
-                "apiVersions": null,
-                "locations": [
-                  "westus"
-                ],
-                "properties": null,
-                "resourceType": "containerServices"
-              }
-            ]
+            "aliases": null,
+            "apiVersions": null,
+            "locations": [
+              "westus"
+            ],
+            "properties": null,
+            "resourceType": "containerServices"
           }
-        ],
-        "provisioningState": "Succeeded",
-        "template": null,
-        "templateLink": null,
-        "timestamp": "2017-05-31T10:46:29.434095+00:00"
-      },
-      "resourceGroup": "draft"
-    }
-    ```
+        ]
+      }
+    ],
+    "provisioningState": "Succeeded",
+    "template": null,
+    "templateLink": null,
+    "timestamp": "2017-05-31T10:46:29.434095+00:00"
+  },
+  "resourceGroup": "draft"
+}
+```
 
 Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
 
