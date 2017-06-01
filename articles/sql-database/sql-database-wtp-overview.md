@@ -1,5 +1,5 @@
 ---
-title: Introduction to the Wingtip SaaS application that uses Azure SQL Database | Microsoft Docs 
+title: Introduction to a multi-tenant application that uses Azure SQL Database - Wingtip SaaS | Microsoft Docs 
 description: "Learn by using a sample multi-tenant application that uses Azure SQL Database, the Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database

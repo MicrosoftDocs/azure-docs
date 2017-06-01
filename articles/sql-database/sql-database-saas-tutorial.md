@@ -15,28 +15,29 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/30/2017
 ms.author: sstein
 
 ---
-# Deploy and explore the multi-tenant Wingtip SaaS application that uses Azure SQL Database
+# Deploy and explore a multi-tenant application that uses Azure SQL Database - Wingtip SaaS
 
 In this tutorial, you deploy and explore the Wingtip SaaS application. The application uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The application is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
 
 Five minutes after clicking the *Deploy to Azure* button below, you have a multi-tenant SaaS application, using SQL Database, up and running in the cloud. The application is deployed with three sample tenants, each with their own database, all deployed into a SQL Elastic pool. The app is deployed to your Azure subscription, giving you full access to explore and work with the individual application components.
 
-Scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo.
+Application source code and management scripts are available in the WingtipSaaS github repo.
+
 
 In this tutorial you learn:
 
 > [!div class="checklist"]
 
 > * How to deploy the Wingtip SaaS application
+> * Where to get the application source code, and management scripts
 > * About the servers, pools, and databases that make up the app
-> * Tenants are mapped to their data with the *catalog*
-> * How to provision new tenants
-> * How to view pool utilization to monitor tenant activity
-> * How to delete sample resources to stop related billing
+> * How tenants are mapped to their data with the *catalog*
+> * How to provision a new tenant
+> * How to view monitor tenant activity in the app
 
 To explore various SaaS design and management patterns, a [series of related tutorials](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) is available that build upon this initial deployment. While going through the tutorials, dive into the provided scripts, and examine how the different SaaS patterns are implemented. Step through the scripts in each tutorial to gain a deeper understanding how to implement the many SQL Database features that simplify developing SaaS applications.
 
@@ -44,9 +45,9 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## Deploy the Wingtip SaaS Application
+## Deploy the Wingtip SaaS application
 
-Deploy the Wingtip SaaS app in less than five minutes:
+Deploy the Wingtip SaaS app:
 
 1. Click to deploy:
 
@@ -58,7 +59,7 @@ Deploy the Wingtip SaaS app in less than five minutes:
     > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group**, and do not use existing resource groups, servers, or pools, and do not use this application, or any resources it creates, for production. Delete this resource group when you are finished with the application to stop related billing.
 
     * **Resource group** - Select **Create new** and provide a **Name** and **Location**.
-    * **User** - Some resources require names that are unique across all Azure subscriptions. To ensure uniqueness, provide a value to differentiate resources you create, from resources created by other users deploying the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens. The first and last character must be a letter or a number (all lowercase is recommended).
+    * **User** - Some resources require names that are unique across all Azure subscriptions. To ensure uniqueness, provide a value to differentiate resources you create, from resources created by other users deploying the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens (no spaces). The first and last character must be a letter or a number (all lowercase is recommended).
 
      ![template](./media/sql-database-saas-tutorial/template.png)
 
@@ -68,9 +69,28 @@ Deploy the Wingtip SaaS app in less than five minutes:
     * Select **Pin to dashboard**.
     * Click **Purchase**.
 
-1. Monitor deployment status by clicking **Notifications** (the bell icon right of the search box). Deploying the Wingtip SaaS app takes approximately four minutes.
+1. Monitor deployment status by clicking **Notifications** (the bell icon right of the search box). Deploying the Wingtip SaaS app takes approximately five minutes.
 
    ![deployment succeeded](media/sql-database-saas-tutorial/succeeded.png)
+
+## Download the Wingtip SaaS scripts
+
+While the application is deploying, lets download the source code and management scripts:
+
+1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
+1. Click **Clone or download**.
+1. Click **Download ZIP** and save the **WingtipSaaS-master.zip** file.
+
+**IMPORTANT**: Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. Unblock the .zip file before extracting to ensure the scripts are allowed to run:
+
+1. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
+1. Select **Unblock**, and click **Apply**.
+1. Click **OK**.
+1. You can now extract the files.
+
+Scripts are located in the *..\\WingtipSaaS-master\\Learning Modules* folder.
+
+
 
 ## Run the application
 
@@ -86,49 +106,42 @@ A central **Events Hub** provides a list of tenant URLs specific to your deploym
 
    ![Events](./media/sql-database-saas-tutorial/fabrikam.png)
 
-1. Click **Tickets** and explore ticket purchasing for an event.
 
-The app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to control the distribution of incoming traffic. The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database.
+For routing to the correct tenant, the app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) to control the distribution of incoming traffic. The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database to provide the list of URLs.
 
 In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
 
-## Get the Wingtip SaaS application scripts
-
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
-
-After you deploy the Wingtip SaaS app, you must update the user configuration file. Update the variables with the specific values from your deployment:
-
-   1. Open ...\\Learning Modules\\*UserConfig.psm1* in the *PowerShell ISE*
-   1. Modify _$userConfig.ResourceGroupName_ to the _resource group_ you set when you deployed the app.
-   1. Modify _$userConfig.Name_ to the _User_ name you set when you deployed the app.
 
 ## Provision a new tenant
 
-The initial deployment creates three sample tenants, but we need to create more tenants for the best tutorial experience. In this step you quickly create a new tenant. Later you should dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it would be to implement a registration component into the application, and automatically provision tenants as customers sign up.
+The initial deployment creates three sample tenants, but we need to create more tenants for a better tutorial experience. In this step you quickly create a new tenant. Later you should dive deeper into the details of provisioning new tenants in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md) where you can see how simple it would be to implement a registration component into the application, and automatically provision tenants as customers sign up.
 
 1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE*.
-1. Press **F5** to run the script (leave the script's default values for now).
+1. Press **F5** to run the script (leave the default values for now).
 
-The new tenant is registered into the catalog. Their database is created and added to a SQL elastic pool. After successful provisioning, the new tenant's ticket selling site appears in your browser:
+   Many Wingtip SaaS scripts use *$PSScriptRoot* to allow navigating folders to call functions in other scripts. This variable is only evaluated when the script is executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running scripts.
+
+The new tenant is registered into the catalog, their database is created in a SQL elastic pool. After successful provisioning, the new tenant's ticket-selling *Events* site appears in your browser:
 
 ![New tenant](./media/sql-database-saas-tutorial/red-maple-racing.png)
 
-Refresh the *Events Hub* and verify the new tenant appears in the list.
+Refresh the *Events Hub* and the new tenant now appears in the list.
 
 ## Start generating load on the tenant databases
 
-Now that we have several tenant databases, let’s put them to work! A PowerShell script is provided that simulates a workload running against all tenant databases. Wingtip is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the pattern to emerge, so let the load generator run for about 5-10 minutes before attempting to monitor the load in the following sections.
+Now that we have some tenant databases, let’s put them to work! A PowerShell script is provided that simulates a workload running against all tenant databases. Wingtip is a SaaS app, and the real-world load on SaaS apps is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the pattern to emerge, so let the load generator run for about 5 minutes before monitoring the load in the following sections.
 
-1. Open ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* in the **PowerShell ISE**
+1. Open ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* in the *PowerShell ISE*
 1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
 
 > [!IMPORTANT]
-> The load generator runs as a series of jobs in your local PowerShell session so keep the PowerShell session open! If you close PowerShell, or the tab the load generator was started in, or suspend your machine, the jobs will stop.
+> The load generator is running as a series of jobs in your local PowerShell session. Keep the *Demo-LoadGenerator.ps1* tab open! If you close the tab, or suspend your machine, the load generator stops.
 
+Initially, the load generator remains in a *job-invoking* state, where it generates load on any new tenants that are provisioned after the generator is started. Use *Ctrl-C* to stop invoking new jobs and exit the script. The load generator will continue to run, but only on existing tenants. For now, leave it in the job-invoking state and let it run. You can open another PS ISE window to run additional scripts if needed.
 
 ## Explore the servers, pools, and tenant databases
 
-Now that you have explored the application, provisioned a new tenant, and started running a load against the collection of tenants, let’s look at some of the resources that were deployed.
+Now that you've provisioned a new tenant, and started running a load against the collection of tenants, let’s look at some of the resources that were deployed.
 
 1. In the [Azure portal](http://portal.azure.com), open the **catalog-&lt;USER&gt;** server. The catalog server contains two databases. The **tenantcatalog**, and the **basetenantdb** (an empty *golden* db that is copied to create new tenants).
 
