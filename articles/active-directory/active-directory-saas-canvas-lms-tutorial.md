@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 06/01/2017
 ms.author: jeedes
 
 ---
@@ -217,11 +217,11 @@ In case of Canvas, user provisioning is a manual task.
    
    ![Add User](./media/active-directory-saas-canvas-lms-tutorial/IC775997.png "Add User")
    
-   a. In the **Full Name** textbox, type the user’s name.
+   a. In the **Full Name** textbox, enter the name of user like **BrittaSimon**.
 
-   b. In the **Email** textbox, type the user’s email address.
+   b. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
 
-   c. In the **Login** textbox, type the user’s Azure AD email address.
+   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon@contoso.com**.
 
    d. Select **Email the user about this account creation**.
 
