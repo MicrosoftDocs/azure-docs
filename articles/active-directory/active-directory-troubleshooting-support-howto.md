@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/19/2017
+ms.date: 05/31/2017
 ms.author: curtand
 
 ---
 # How to get support for Azure Active Directory
 
-Azure Active Directory (Azure AD) customer support is included in Microsoft Azure trial or paid subscriptions.
+
+Microsoft provides global technical, pre-sales, billing, and subscription support for Azure Active Directory (Azure AD). Support is available both online and by phone for Microsoft Azure paid and trial subscriptions. Phone support and online billing support are available in additional languages. 
 
 ## Find help without opening a support ticket
 
