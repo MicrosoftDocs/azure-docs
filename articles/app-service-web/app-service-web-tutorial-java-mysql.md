@@ -359,11 +359,75 @@ Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list
 
 **Congratulations!** You're running a data-driven Java app in Azure App Service.
 
-
 ## Update the app and redeploy
 
-Update the application to include an additional column in the todo list for when the todo item was created. On your local system, open up *src/main/java/
+Update the application to include an additional column in the todo list for what day the item was created. Spring Boot will handle updating the database schema for you as the data model changes without altering your existing database records.
 
+- On your local system, open up *src/main/java/com/example/fabrikam/TodoItem.java* and add the following imports to the class:
+
+```java
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+```
+
+Then add a new property `timeCreated`, initializing it with a timestamp at object creation. Also add getters/setters for the property:
+
+```java
+private String name;
+private boolean complete;
+private String timeCreated;
+...
+
+public TodoItem(String category, String name) {
+   this.category = category;
+   this.name = name;
+   this.complete = false;
+   this.timeCreated = new SimpleDateFormat("MMMM dd, YYYY").format(Calendar.getInstance().getTime());
+}
+...
+public void setTimeCreated(String timeCreated) {
+   this.timeCreated = timeCreated;
+}
+
+public String getTimeCreated() {
+    return timeCreated;
+}
+```
+
+- Update *src/main/java/com/example/fabrikam/TodoDemoController.java* with the following line in the `updateTodo` method:
+
+```java
+    item.setComplete(requestItem.isComplete());
+    item.setId(requestItem.getId());
+    item.setTimeCreated(requestItem.getTimeCreated());
+    repository.save(item);
+```
+
+- Add support for the new field in the Thymeleaf template. Update *src/main/resources/templates/index.html* with the following:
+
+```html
+            <th>Name</th>
+            <th>Category</th>
+            <th>Time Created</th>
+            <th>Complete</th>
+            ...
+            <td th:text="${item.category}">item_category</td><input type="hidden" th:field="*{todoList[__${i.index}__].category}"/>
+            <td th:text="${item.timeCreated}">item_time_created</td><input type="hidden" th:field="*{todoList[__${i.index}__].timeCreated}"/>
+            <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
+```
+
+Rebuild the application:
+
+```bash
+mvnw clean package 
+```
+
+Then FTP the updated .WAR as before, removing the existing *site/wwwroot/webapps/ROOT* directory and *ROOT.war*, then uploading the updated .WAR file as ROOT.war. 
+
+When you refresh your browser, a **Time Created** column is now visible. When you add a new task, it'll have the date populated for you. Your existing tasks remain unchanged and work with the app even though the underlying database schema has changed. 
+
+![Java app updated with a new column](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
+      
 ## Stream diagnostic logs 
 
 While your PHP application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
