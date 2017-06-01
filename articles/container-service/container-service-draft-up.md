@@ -28,7 +28,7 @@ ms.author: rasquill
 You can use Draft with any Docker image registry and any Kubernetes cluster, including locally. This article shows how to:
 
 - [Create an Azure Container Registry](#create-an-azure-container-registry)
-- [Create a Azure Container Service running Kubernetes](#create-an-azure-container-service-with-kubernetes)
+- [Create an Azure Container Service running Kubernetes](#create-an-azure-container-service-with-kubernetes)
 - [Install and configure Draft](#install-and-configure-draft)
 - [Wire up a deployment domain](#wire-up-deployment-domain)
 - [Build and deploy an application](#build-and-deploy-an-application)
@@ -43,7 +43,7 @@ The following video shows how easy it is to develop iteratively and still get li
 ## Create an Azure Container Registry
 You can easily [create a new Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), but the steps are as follows:
 
-1. Create a Azure resource group to managed your ACR registry and the Kubernetes cluster in ACS.
+1. Create a Azure resource group to manage your ACR registry and the Kubernetes cluster in ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -214,7 +214,7 @@ The output looks something like:
       ```
 
   You can confirm that the JSON string is correct by typing `echo $authtoken | base64 -D` to display the unencoded result.
-  Now intialize Draft with this command and configuration argument for the `-set` option:
+  Now initialize Draft with this command and configuration argument for the `-set` option:
       ```bash
       draft init --set registry.url=$acrname.azurecr.io,registry.org=$acrname,registry.authtoken=$authtoken,basedomain=squillace.io
       ```
@@ -233,7 +233,7 @@ $ draft create
 --> Ready to sail
 ```
 
-The output include a Dockerfile and a Helm chart. To build and deploy, you just type `draft up`. The output is extensive, but begins like the following example.
+The output includes a Dockerfile and a Helm chart. To build and deploy, you just type `draft up`. The output is extensive, but begins like the following example.
 ```
 draft up
 --> Building Dockerfile
@@ -247,7 +247,7 @@ ea8a37f15161: Pulling fs layer
 <snip>
 ```
 
-and when succesful ends with something similar to the following example.
+and when successful ends with something similar to the following example.
 ```
 ab68189731eb: Pushed
 53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
