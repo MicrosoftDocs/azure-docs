@@ -25,12 +25,12 @@ In this tutorial, you use Azure CLI (command-line interface) and other utilities
 > * Update data
 > * Restore data
 
-You may use the Azure Cloud Shell in the browser, or use [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
+You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 ## Log in to Azure
-If you are using the Azure Cloud Shell follow the on screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
+If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
 ```azurecli-interactive
 az login
 ```
