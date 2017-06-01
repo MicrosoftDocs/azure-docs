@@ -30,12 +30,10 @@ This binding creates API connections to SaaS providers, or uses existing API con
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[File System](https://docs.microsoft.com/azure/logic-apps/logic-apps-using-file-connector)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)||x|x|
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
