@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 04/09/2017
 ms.author: glenga
+ms.custom: mvc
 ---
 # Map a custom domain to a function app
 
