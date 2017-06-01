@@ -26,7 +26,7 @@ For more information, see [Azure IoT Hub commercial documentation](../iot-hub/in
 
 ### Variations
 
-The following URL for Azure IoT Hub are different in Azure Government:
+The following URL for Azure IoT Hub is different in Azure Government:
 
 | Azure Public        | Azure Government   | Notes                              |
 | ------------------- | ------------------ | ---------------------------------- |
