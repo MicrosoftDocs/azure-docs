@@ -13,6 +13,7 @@ ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/31/2017
+
 ---
 # Design your first Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:

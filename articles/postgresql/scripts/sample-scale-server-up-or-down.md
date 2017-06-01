@@ -10,7 +10,7 @@ ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.custom: mvc
-ms.topic: article
+ms.topic: sample
 ms.date: 05/31/2017
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
