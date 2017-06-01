@@ -272,7 +272,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td><font size=2></font></td>
     </tr>
     <tr>
-      <td>Ftp Directory</td>
+      <td>FTP directory</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
