@@ -57,14 +57,14 @@ The following table summarizes the network configuration for both POC environmen
 |External BGPNAT address     |         |         |
 
 > [!NOTE]
-> The external BGPNAT IP addresses in the example environment are 10.16.167.195 for POC1, and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your POC hosts, and then add them to the previous table.
+> The external BGPNAT IP addresses in the example environment are 10.16.167.195 for POC1, and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your POC hosts, and then add them to the previous network configuration table.
 
 
 ### Get the IP address of the external adapter of the NAT VM
-1. Log in to the Azure Stack physical machine for POC1.
-2. Edit the following Powershell code to replace your administrator password, and then run on the POC host:
+1. Sign in to the Azure Stack physical machine for POC1.
+2. Edit the following Powershell code to replace your administrator password, and then run the code on the POC host:
 
-   ```
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "<your administrator password>" `
@@ -74,52 +74,51 @@ The following table summarizes the network configuration for both POC environmen
     -HostComputer "mas-bgpnat01" `
     -Password $Password
    ```
-3. Record the IP address in the Network configuration table.
+3. Add the IP address to the network configuration table that appears in the previous section.
 
-Repeat this procedure on POC2.
+4. Repeat this procedure on POC2.
 
 ## Create the Network Resources in POC1
-Now you create the network resources you need to set up your gateways. These instructions show you how to create resources using the portal, but the same thing can be accomplished using PowerShell.
+Now you create the network resources that you need to set up your gateways. The following instructions show you how to create resources by using the portal. You can also use PowerShell code to create the resources.
 
-![](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
+![Workflow that is used to create resources](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
-### Log in as a tenant
-A service administrator can log in as a tenant to test the plans,
+### Sign in as a tenant
+A service administrator can sign in as a tenant to test the plans,
 offers, and subscriptions that their tenants might use. If you don’t
-already have one, [Create a tenant
+already have one, [create a tenant
 account](azure-stack-add-new-user-aad.md) before
-you log in.
+you sign in.
 
-### Create the virtual network & VM subnet
-1. Log in to the user portal using a tenant account.
+### Create the virtual network and VM subnet
+1. Use a tenant account to sign in to the user portal.
 2. In the portal, click **New**.
 
-    ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-3. Select **Networking** from the Marketplace menu.
-4. Click the **Virtual network** item on the menu.
-5. Use the network configuration table to fill in the values for the **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
+3. Go to **Marketplace**, and then select **Networking**.
+4. Select **Virtual network**.
+5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values that appear earlier in the network configuration table.
 
-6. You should see the Subscription you created earlier populated in the
-   **Subscription** field.
-7. For Resource Group, you can either create a Resource Group or if
+6. In
+   **Subscription**, the subscription that you created earlier appears.
+7. For **Resource Group**, you can either create a resource group or if
    you already have one, select **Use existing**.
 8. Verify the default location.
-9. Click **Pin to dashboard**.
-10. Click **Create**.
+9. Select **Pin to dashboard**.
+10. Select **Create**.
 
 ### Create the Gateway Subnet
-1. Open the Virtual Network resource you created (VNET-01) from
-   the dashboard.
+1. On the dashboard, open the VNET-01 virtual network resource that you created earlier.
 2. On the **Settings** blade, select **Subnets**.
-3. Click **Gateway Subnet** to add a gateway subnet to
-   the virtual network.
+3. To add a gateway subnet to
+   the virtual network, select **Gateway Subnet**.
    
-    ![](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
-4. The name of the subnet is set to **GatewaySubnet** by default.
+    ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+4. By default, the subnet name is set to **GatewaySubnet**.
    Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.0.11.0/24**.
-6. Click **OK** to create the gateway subnet.
+5. In **Address range**, verify that the address is **10.0.11.0/24**.
+6. Select **OK** to create the gateway subnet.
 
 ### Create the Virtual Network Gateway
 1. In the Azure portal, click **New**.
@@ -147,7 +146,7 @@ A way to think about this more generically is that the Local Network Gateway res
 
 
 ### Create the Local Network Gateway Resource
-1. Log in to the Azure Stack physical machine for POC1.
+1. Sign in to the Azure Stack physical machine for POC1.
 2. In the user portal, click **New**.
 3. Select **Networking** from the Marketplace menu.
 4. Select **local network gateway** from the list of resources.
@@ -182,7 +181,7 @@ POC1 now and put it on your VM subnet in your virtual network.
 2. Select **Virtual Machines** from the Marketplace menu.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** blade, in the **Name** field type **VM01**.
-5. Type a valid user name and password. You’ll use this account to log
+5. Type a valid user name and password. You’ll use this account to sign
    in to the VM after it has been created.
 6. Provide a **Subscription**, **Resource Group** and **Location** and
    then click **OK**.
@@ -196,16 +195,16 @@ POC1 now and put it on your VM subnet in your virtual network.
 
 
 ## Create the Network Resources in POC2
-### Log in as a tenant
-A service administrator can log in as a tenant to test the plans,
+### Sign in as a tenant
+A service administrator can sign in as a tenant to test the plans,
 offers, and subscriptions that their tenants might use. If you don’t
 already have one, [Create a tenant
 account](azure-stack-add-new-user-aad.md) before
-you log in.
+you sign in.
 
 ### Create the virtual network and VM subnet
 
-1. Log in using a tenant account.
+1. Sign in using a tenant account.
 2. In the user portal, click **New**.
 3. Select **Networking** from the Marketplace menu.
 4. Click the **Virtual network** item on the menu.
@@ -278,7 +277,7 @@ network.
 2. Select **Virtual Machines** from the Marketplace menu.
 3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
 4. On the **Basics** blade, in the **Name** field type **VM02**.
-5. Type a valid user name and password. You’ll use this account to log
+5. Type a valid user name and password. You’ll use this account to sign
    in to the virtual machine after it has been created.
 6. Provide a **Subscription**, **Resource Group** and **Location** and
    then click **OK**.
@@ -310,7 +309,7 @@ the site-to-site VPN connection to connect on both ends. To do this, you must cr
 
 1. Determine the **Internal IP address** to use in the following PowerShell script. Open the virtual network gateway (GW1 and GW2), on the **Overview** blade note the value for the **Public IP address**.
 ![The internal IP address](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
-2. Log in to the Azure Stack physical machine for POC1.
+2. Sign in to the Azure Stack physical machine for POC1.
 3. Copy and edit the following PowerShell script and run in an elevated Windows PowerShell ISE to configure the NAT on each POC. Edit the script to replace the **External BGPNAT address** and **Internal IP address**:
 
    ```
@@ -357,21 +356,20 @@ Repeat this procedure on POC2.
 
 ## Test the connection
 Now that the site-to-site connection has been established you should
-validate that you can get traffic flowing through it. This task is simple
-as it just involves logging in to one of the virtual machines you created in either POC
+validate that you can get traffic flowing through it. To validate, sign in to one of the virtual machines that you created in either POC
 environment to ping the virtual machine you created in the other environment. To
 ensure that you are sending the traffic through the site-to-site
 connection, you want to ensure you ping the Direct IP (DIP)
 address of the virtual machine on the remote subnet, not the VIP. To do this, you need to find and note the address on the other end of the connection.
 
-### Log in to the tenant VM in POC1
-1. Log in to the Azure Stack physical machine for POC1, and log in to the user portal using a tenant account.
+### Sign in to the tenant VM in POC1
+1. Sign in to the Azure Stack physical machine for POC1, and sign in to the user portal using a tenant account.
 2. Click **Virtual Machines** in the left navigation bar.
 3. Find **VM01** that you created previously in the list of VMs and click it.
 4. On the blade for the virtual machine click **Connect**, and open the VM01.rdp file.
    
      ![The Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
-5. Log in with the account you configured when you created the virtual machine.
+5. Sign in with the account you configured when you created the virtual machine.
 6. Open an elevated **Windows PowerShell** window.
 7. Type **ipconfig /all**.
 8. Find the **IPv4 Address** in the output and note it. This is
@@ -381,25 +379,25 @@ address of the virtual machine on the remote subnet, not the VIP. To do this, yo
    subnet that you created previously.
 9. Run the following PowerShell command to create a firewall rule that allows the virtual machine to respond to pings:
 
-   ```
+   ```powershell
    New-NetFirewallRule `
     –DisplayName “Allow ICMPv4-In” `
     –Protocol ICMPv4
    ```
 
-### Log in to the tenant VM in POC2
-1. Log in to the Azure Stack physical machine for POC2 and log in to the user portal using a tenant account.
+### Sign in to the tenant VM in POC2
+1. Sign in to the Azure Stack physical machine for POC2 and sign in to the user portal using a tenant account.
 2. Click **Virtual Machines** in the left navigation bar.
 3. Find **VM02** that you created previously in the list of virtual machines and click it.
 4. On the blade for the virtual machine click **Connect**.
-5. Log in with the account you configured when you created the virtual machine.
+5. Sign in with the account you configured when you created the virtual machine.
 6. Open an elevated **Windows PowerShell** window.
 7. Type **ipconfig /all**.
 8. You should see an IPv4 address that falls within **10.0.20.0/24**. In the example
    environment, the address is **10.0.20.4**, but yours might be different.
 9. Run the following PowerShell command to create a firewall rule that allows the virtual machine to respond to pings:
 
-   ```
+   ```powershell
    New-NetFirewallRule `
     –DisplayName “Allow ICMPv4-In” `
     –Protocol ICMPv4
@@ -421,8 +419,8 @@ connection, this information is available on the **Connection** blade. This test
 is also another good way to verify that the ping you just sent actually
 went through the VPN connection.
 
-1. While still logged in to tenant virtual machine in POC2, sign in to the
-   user portal using your tenant account.
+1. While you're signed in to the tenant virtual machine in POC2, sign in to the
+   user portal by using your tenant account.
 2. Click the **All resources** menu item and find the **POC2-POC1** connection and click it. **Connections**.
 4. On the **Connection** blade, you can see statistics for **Data in** and
    **Data out**. In the following screen shot you see some larger numbers than just
