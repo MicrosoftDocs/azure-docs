@@ -118,6 +118,7 @@ To see a list of the installation flags, run the installation program with the -
 
 | Flag | Description |
 |:--|:--|
+| -help | Get a list of the command line options. |
 | -s | Perform a silent installation with no user prompts. |
 | --check | Checks permissions and operating system but does not install the agent. |
 
@@ -131,6 +132,50 @@ Files for the Dependency Agent are placed in the following directories:
 | Service executables | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
+## Installation script examples
+To easily deploy the Dependency Agent on many servers at once, it helps to use a script.  The following script examples can be used to download and install the Dependency Agent on either Windows or Linux.
+
+### Powershell script for Windows
+```PowerShell
+Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+
+.\InstallDependencyAgent-Windows.exe /S
+```
+
+### Shell script for Linux
+```
+wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+sh InstallDependencyAgent-Linux64.bin -s
+```
+
+## Desired State Configuration
+To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
+```
+Import-DscResource -ModuleName xPSDesiredStateConfiguration
+
+$DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+
+
+# Download and install the Dependency Agent
+xRemoteFile DAPackage 
+{
+	Uri = "https://aka.ms/dependencyagentwindows"
+	DestinationPath = $DAPackageLocalPath
+	DependsOn = "[Package]OI"
+}
+
+xPackage DA
+{
+	Ensure="Present"
+	Name = "Dependency Agent"
+	Path = $DAPackageLocalPath
+	Arguments = '/S'
+	ProductId = ""
+	InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+	InstalledCheckRegValueName = "DisplayName"
+	InstalledCheckRegValueData = "Dependency Agent"
+}
+```
 
 ## Uninstallation
 ### Uninstalling the Dependency Agent on Windows
