@@ -1,5 +1,24 @@
-Install and configure PowerShell for Azure Stack - quickstart
+---
+title: Install and configure PowerShell for Azure Stack - quickstart  | Microsoft Docs
+description: Learn about installing and configuring PowerShell for Azure Stack.
+services: azure-stack
+documentationcenter: ''
+author: SnehaGunda
+manager: byronr
+editor: ''
 
+ms.assetid:
+ms.service: azure-stack
+ms.workload: na
+pms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/01/2017
+ms.author: sngun
+
+---
+
+# Install and configure PowerShell for Azure Stack - quickstart
 
 This topic is a quick start to install and configure PowerShell for Azure Stack. It combines the steps described in [Install PowerShell]( azure-stack-powershell-install.md), [Download tools]( azure-stack-powershell-download.md), [Configure PowerShell]( azure-stack-powershell-configure.md) articles. We have scoped the steps in this topic for Azure Stack administrator’s environment only, to learn about configuring PowerShell for user environment, see steps for user environment in [Configure PowerShell]( azure-stack-powershell-configure.md#configure-the-powershell-environment) topic.
 
