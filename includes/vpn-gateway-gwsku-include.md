@@ -1,4 +1,4 @@
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKUs that satisfy your requirements based on the types of workloads, throughputs, features, and SLAs. Azure offers the following VPN gateway SKUs:
+.mdWhen you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKUs that satisfy your requirements based on the types of workloads, throughputs, features, and SLAs. Azure offers the following VPN gateway SKUs:
 
 |**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connections** | **Aggregate<br>Throughput** |
 |---       | ---                             | ---                    | ---                         |
@@ -47,4 +47,4 @@ You cannot resize your Azure VPN gateways directly between the old (Basic/Standa
 
 1. [Delete the old gateway](../articles/vpn-gateway/vpn-gateway-delete-vnet-gateway-portal.md)
 2. [Create the new gateway] (../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-3. Update your [on-premises VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices) with the new Azure VPN gateway public IP address
+3. Update your [on-premises VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) with the new Azure VPN gateway public IP address
