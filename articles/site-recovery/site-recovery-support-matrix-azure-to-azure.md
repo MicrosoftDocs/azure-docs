@@ -79,6 +79,21 @@ The below support is applicable for any workload running on the mentioned OS.
 * Volume manager : LVM2
 * Multipath software : Device Mapper
 
+## Region support
+
+You can replicate and recover VMs between any two regions within the same geographic cluster.
+
+**Geographic cluster** | **Azure regions**
+-- | --
+America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
+Europe | UK West, UK South, North Europe, West Europe
+Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West
+Australia	| Australia East, Australia Southeast
+
+>[!NOTE]
+>
+> For Brazil South region, you can only replicate and failover to one of South Central US, West Central US, East US, East US 2, West US, West US 2 and North Central US regions and fail back.
+
 
 ## Support for Compute configuration
 
@@ -101,6 +116,7 @@ Maximum OS disk size | Maximum OS disk size supported by Azure| Refer to [Disks 
 Maximum data disk size | Maximum data disk size supported by Azure| Refer to [Disks used by VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
 Number of data disks | Upto 64 as supported by a specific Azure VM size | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
 Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) for more details.
+Data change rate on the disk | Maximum of 6 Mbps per disk | If the average data change rate on the disk is beyond 6 Mbps continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 6 Mbps for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.
 Disks on standard storage accounts | Supported |
 Disks on premium storage accounts | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk to ensure you have the same storage configuration in target region
 Standard Managed disks | Not supported |  

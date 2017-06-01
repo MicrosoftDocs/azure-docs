@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: joflore
 ms.custom: end-user
+ms.editor: gahug
 
 ---
 # Help I forgot my Azure AD password
@@ -36,6 +37,7 @@ If you unable to access your account because of one of the following:
 Follow the steps that follow to access Azure AD self-service password reset, SSPR as we like to call it, and get back into your account.
 
 1. From any work or school sign-in page, click the **Can't access your account?** link then click **Work or school account** or go directly to the [password reset page](https://passwordreset.microsoftonline.com/).
+
     ![Can't access your account?][Login]
 
 2. Enter your work or school **User ID**, prove you aren't a robot by entering the characters you see on the screen, then click **Next**.

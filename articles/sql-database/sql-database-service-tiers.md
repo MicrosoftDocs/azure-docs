@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/14/2017
+wms.date: 05/31/2017
 ms.author: janeng
 
 ---
@@ -49,7 +49,7 @@ First decide if you want to run a single database with a defined amount of dedic
 | Maximum database size in an elastic pool | 2 GB | 250 GB | 500 GB | 500 GB |
 | Maximum number of databases per pool | 500  | 500 | 100 | 100 |
 | Maximum single database DTUs | 5 | 100 | 4000 | 1000 |
-| Maximum DTUs per database in an elastic pool | 5 | 100 | 4000 | 1000 |
+| Maximum DTUs per database in an elastic pool | 5 | 3000 | 4000 | 1000 |
 | Database backup retention period | 7 days | 35 days | 35 days | 35 days |
 ||||||
 

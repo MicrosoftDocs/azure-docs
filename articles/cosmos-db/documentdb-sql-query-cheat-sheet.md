@@ -2,14 +2,14 @@
 title: Azure Cosmos DB SQL cheat sheet PDF | Microsoft Docs
 description: Printable SQL cheat sheet PDF that helps you use Azure Cosmos DB's SQL syntax to query JSON documents in its database - SQL quick reference
 keywords: sql cheat sheet, sql cheat sheet pdf, sql query cheat sheet
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: mimig1
 manager: jhubbard
 editor: monicar
 
 ms.assetid: fdbdbc39-5a46-4129-b4ed-b049d1c9ccab
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

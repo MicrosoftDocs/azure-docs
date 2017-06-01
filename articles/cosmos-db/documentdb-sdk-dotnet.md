@@ -1,20 +1,20 @@
 ---
 title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: rnagpal
+ms.author: khdang
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -47,6 +47,9 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+
+### <a name="1.14.1"/>1.14.1
+*	Fixed an issue in the native assembly which affected x64 machines that don’t support SSE4 instruction.
 
 ### <a name="1.14.0"/>1.14.0
 *	Added support for Request Unit per Minute (RU/m) feature.
@@ -236,6 +239,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.14.1](#1.14.1) |May 23, 2017 |--- |
 | [1.14.0](#1.14.0) |May 10, 2017 |--- |
 | [1.13.4](#1.13.4) |May 09, 2017 |--- |
 | [1.13.3](#1.13.3) |May 06, 2017 |--- |
