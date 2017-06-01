@@ -54,7 +54,7 @@ To implement dynamic security for this Adventure Works scenario, you must add tw
 9. After the table has been imported successfully, click **Close**.  
 
 ## Add a table with user name data  
-The DimEmployee table in the AdventureWorksDW sample database contains users from the AdventureWorks domain. Those user names do not exist in your own environment. You must create a table in your model that contains a small sample (three) of actual users from your organization. You then add these users as members to the new role. You do not need the passwords for the sample user names, but you do need actual Windows user names from your own domain.  
+The DimEmployee table in the AdventureWorksDW sample database contains users from the AdventureWorks domain. Those user names do not exist in your own environment. You must create a table in your model that contains a small sample (at least three) of actual users from your organization. You then add these users as members to the new role. You do not need the passwords for the sample user names, but you do need actual Windows user names from your own domain.  
   
 #### To add an EmployeeSecurity table  
   
@@ -177,7 +177,7 @@ In this task, you use the Analyze in Excel feature in SSDT to test the efficacy 
   
 6.  Select the **SalesTerritoryId** column from the **DimSalesTerritory** table. The column is entered into the **Row Labels** fields.  
   
-    Notice Internet sales figures appear only for the one region to which the effective user name you used belongs. If you select another column. For example, City, from the DimGeography table as Row Label field, only cities in the sales territory to which the effective user belongs are displayed.  
+    Notice Internet sales figures appear only for the one region to which the effective user name you used belongs. If you select another column, like City from the DimGeography table as Row Label field, only cities in the sales territory to which the effective user belongs are displayed.  
   
     This user cannot browse or query any Internet sales data for territories other than the one they belong to. This restriction is because the row filter defined for the DimSalesTerritory table, in the Sales Employees by Territory user role, secures data for all data related to other sales territories.  
   
