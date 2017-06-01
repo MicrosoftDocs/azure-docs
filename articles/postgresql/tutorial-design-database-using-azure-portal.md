@@ -8,10 +8,10 @@ manager: jhubbard
 editor: jasonh
 ms.assetid: 
 ms.service: postgresql-database
-ms.custom: tutorial
+ms.custom: tutorial, mvc
 ms.tgt_pltfrm: portal
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ---
 # Design your first Azure Database for PostgreSQL using the Azure portal
