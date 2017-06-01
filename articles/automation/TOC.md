@@ -11,7 +11,7 @@
 ### [Create standalone Automation account](automation-create-standalone-account.md)
 ### [Create Azure AD User account](automation-create-aduser-account.md)
 ### [Configure Authentication with AWS](automation-config-aws-account.md)
-### [Create Azure Run As account with PowerShell](automation-update-account-powershell.md)
+### [Create Automation Run As account](automation-create-runas-account.md)
 ### [Validate Automation account config](automation-verify-runas-authentication.md)
 ### [Manage role-based access control](automation-role-based-access-control.md)
 ### [Manage Automation account](automation-manage-account.md)
