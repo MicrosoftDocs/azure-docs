@@ -12,6 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
 ms.date: 05/23/2017
+ms.custom: mvc
 ---
 
 # Design your first Azure Database for MySQL database
