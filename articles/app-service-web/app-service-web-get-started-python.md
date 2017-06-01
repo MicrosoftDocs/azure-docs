@@ -57,7 +57,6 @@ python main.py
 ```
 
 Open a web browser, and navigate to the sample app at http://localhost:5000.
-```
 
 You can see the **Hello World** message from the sample app displayed in the page.
 
@@ -69,7 +68,11 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-[!INCLUDE [Create resource group, Create app service plan, Create web app](../../includes/app-service-web-quickstart1.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
 

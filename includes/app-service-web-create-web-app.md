@@ -1,49 +1,3 @@
-## Create a resource group
-
-Create a resource group with the [az group create](/cli/azure/group#create) command.
-
-[!INCLUDE [resource group intro text](resource-group.md)]
-
-The following example creates a resource group named *myResourceGroup* in the *westeurope* location.
-
-```azurecli
-az group create --name myResourceGroup --location westeurope
-```
-
-To see the available locations, run the `az appservice list-locations` command. You generally create resources in a region near you.
-
-## Create an Azure App Service plan
-
-Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
-
-[!INCLUDE [app-service-plan](app-service-plan.md)]
-
-The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
-
-```azurecli
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
-```
-
-When the App Service plan has been created, the Azure CLI shows information similar to the following example:
-
-```json
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
-  "kind": "app",
-  "location": "West Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-} 
-```
-
 ## Create a Web App
 
 Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az appservice web create](/cli/azure/appservice/web#create) command. 
@@ -91,4 +45,3 @@ Browse to the site to see your newly created web app.
 ```bash
 http://<app_name>.azurewebsites.net
 ```
-

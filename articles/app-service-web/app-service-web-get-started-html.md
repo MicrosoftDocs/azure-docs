@@ -52,7 +52,11 @@ Navigate to the directory that contains the sample HTML. Open the *index.html* f
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-[!INCLUDE [Create resource group, Create app service plan, Create web app](../../includes/app-service-web-quickstart1.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Empty web app page](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
