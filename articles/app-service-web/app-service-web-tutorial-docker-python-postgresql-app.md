@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: beverst
-
+ms.custom: mvc
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
 This tutorial shows you how to create a basic Docker Python web app in Azure. You will also connect this app to a PostgreSQL database. When you are done, you will have a Python Flask application running within a Docker container on [Azure App Service Web Apps](app-service-web-overview.md).

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: joflore
 ms.custom: end-user
+ms.editor: gahug
 
 ---
 # Help I forgot my Azure AD password

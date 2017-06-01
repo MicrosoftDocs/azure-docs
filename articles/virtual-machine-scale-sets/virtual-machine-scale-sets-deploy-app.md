@@ -1,6 +1,6 @@
 ---
-title: Deploy an App on Virtual Machine Scale Sets| Microsoft Docs
-description: Use extentions to depoy an app on Azure Virtual Machine Scale Sets.
+title: Deploy an app on virtual machine scale sets
+description: Use extensions to depoy an app on Azure Virtual Machine Scale Sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: thraka
@@ -18,7 +18,7 @@ ms.date: 05/26/2017
 ms.author: adegeo
 ---
 
-# Deploy an App on Virtual Machine Scale Sets
+# Deploy your application on virtual machine scale sets
 
 This article describes different ways of how to install software at the time the scale set is provisioned.
 
