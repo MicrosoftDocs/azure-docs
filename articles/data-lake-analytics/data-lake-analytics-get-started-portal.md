@@ -27,9 +27,9 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 
 Before you begin this tutorial, you must have an **Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## Create Data Lake Analytics account
+## Create a Data Lake Analytics account
 
-Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes about 60 to finish.
+Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes about 60 seconds to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
@@ -60,12 +60,12 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-This U-SQL script defines a RowSet called `@a` and then writes that RowSet to csv file.
+This U-SQL script defines a RowSet called `@a` and then writes that RowSet to a csv file.
 
-1. Click **Submit Job**.   
-2. Wait until the job status is changed to **Succeeded**.
-3. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-4. Click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. 
+3. Click **Submit Job**.   
+4. Wait until the job status is changed to **Succeeded**.
+5. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. Click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. 
 
 ## See also
 
