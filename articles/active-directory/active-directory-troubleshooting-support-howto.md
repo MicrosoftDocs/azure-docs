@@ -35,7 +35,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 If you are unable to find answers by using self-help resources, you can open an online support ticket. Please limit each support ticket to a single issue so that we can connect you to support engineers who are the subject matter experts for your issue. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
 
-### How to open a support ticket
+### How to open a support ticket for Azure AD in the Azure portal
 
 1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
 2. Scroll down to **Troubleshooting + Support** and select **New support request**
@@ -46,6 +46,19 @@ If you are unable to find answers by using self-help resources, you can open an 
 7. Add the rest of your problem information and click **Next**.
 8. Provide your contact information and select **Create**.
   ![problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+
+### How to open a support ticket for Azure AD in the Office 365 portal
+
+1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
+2. Scroll down to **Troubleshooting + Support** and select **New support request**
+3. On the **Basics** blade, for **Issue type**, select **Technical**.
+4. For **Service**, select **Azure Active Directory**, and then select **Next**.
+5. On the **Problem** blade, select a Severity (linked to [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/)).
+6. Select a **Problem type**, and then select a **Category** for that type. At this point, you'll also be offered self-help information for your problem category.
+7. Add the rest of your problem information and click **Next**.
+8. Provide your contact information and select **Create**.
+  ![problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
+
 
 ##  Next steps
 
