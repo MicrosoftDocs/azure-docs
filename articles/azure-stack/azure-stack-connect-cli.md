@@ -56,7 +56,7 @@ Use the following steps to connect to Azure Stack:
 
    * For the **User** environment: `https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01`
 
-   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the value assigned to the **audiences** parameter, you will use it in the next step. This parameter has the format- "https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>". 
+   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the value assigned to the **audiences** parameter, you will use it in the next step. This parameter has the format- `https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>`. 
 
 3. Register your Azure Stack environment by running the following command:
 
@@ -119,7 +119,7 @@ Now that we've got everything setup, let's use CLI to create resources within Az
 
 ```azurecli
 az group create \
-  -n “MyResourceGroup” -l “local”
+  -n MyResourceGroup -l local
 ```
 
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
