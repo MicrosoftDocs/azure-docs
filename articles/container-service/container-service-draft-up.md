@@ -210,13 +210,62 @@ The output looks something like:
   - your Azure Container Registry name (in this example, `draftacs`)
   - your registry key, or password, from `az acr credential show -n $acrname --output tsv --query "passwords[0].value"`.
   - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `13.64.108.240`)
-  -
 
+These enable you to create the base-64 encoded value of the configuration JSON string, `"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to do this is the following (but replace this example's values with your own).
+
+    ```bash
+    acrname="draftacs"
+    password=$(az acr credential show -n $acrname --output tsv --query "passwords[0].value")
+    authtoken=$(echo \{\"username\":\"$acrname\",\"password\":\"$password\",\"email\":\"rasquill@microsoft.com\"\} | base64)
+    ```
+
+You can confirm that the JSON string is correct by typing `echo $authtoken | base64 -D` to display the unencoded result.
+Now intialize Draft with this command and configuration argument for the `-set` option:
+
+    ```bash
+    draft init --set registry.url=$acrname.azurecr.io,registry.org=$acrname,registry.authtoken=$authtoken,basedomain=squillace.io
+    ```
+    > [!NOTE]
+    > It's easy to forget that the `basedomain` value is the base deployment domain that you control and have configured to point at the ingress external IP.
+
+Now you're ready to deploy an application.
 
 
 ## Build and deploy an application
 
+In the Draft repo are [six simple example applications](https://github.com/Azure/draft/tree/master/examples). Clone the repo and let's use the [Python example](https://github.com/Azure/draft/tree/master/examples/python). Change into the examples/Python directory, and type `draft up`. The output is extensive, but begins like the following:
+
+    ```
+    draft up
+    --> Building Dockerfile
+    Step 1 : FROM python:onbuild
+    onbuild: Pulling from library/python
+    10a267c67f42: Pulling fs layer
+    fb5937da9414: Pulling fs layer
+    9021b2326a1e: Pulling fs layer
+    dbed9b09434e: Pulling fs layer
+    ea8a37f15161: Pulling fs layer
+    ...
+    ```
+
+and when succesful ends with something similar to the following.
+
+    ```
+    ab68189731eb: Pushed
+    53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
+    --> Deploying to Kubernetes
+    --> Status: DEPLOYED
+    --> Notes:
+
+      http://gangly-bronco.squillace.io to access your application
+
+    Watching local files for changes...
+    ```
+
+Whatever your chart's name is, you can now `curl http://gangly-bronco.squillace.io` to receive the reply, `Hello World!`.
 
 
 
-Then install [Draft]()
+
+
+
