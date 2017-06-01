@@ -5,7 +5,7 @@ services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
