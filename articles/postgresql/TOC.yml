@@ -18,7 +18,7 @@
     - name: Python
       href: connect-python.md
     - name: .NET
-      href: connect-sharp.md
+      href: connect-csharp.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
