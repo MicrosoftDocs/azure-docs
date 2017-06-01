@@ -71,7 +71,7 @@ To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
 ## Scalability considerations
 
-You can scale a VM up or down by [changing the VM size](../articles/virtual-machines/virtual-machines-windows-sizes.md). To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
+You can scale a VM up or down by [changing the VM size](../articles/virtual-machines/windows/sizes.md). To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
 
 ## Availability considerations
 
@@ -151,7 +151,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 3. Wait for the deployment to complete.
 4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
-For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder]] Github folder.
+For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder]] GitHub folder.
 
 ## Customize the deployment
 If you need to change the deployment to match your needs, follow the instructions in the [readme][github-folder].
@@ -162,7 +162,7 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
+[availability-set]:../articles/virtual-machines/windows/create-availability-set.md
 [azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
@@ -172,40 +172,40 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-windows.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
-[fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
+[fqdn]:../articles/virtual-machines/windows/portal-create-fqdn.md
 [github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
-[manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
+[manage-vm-availability]:../articles/virtual-machines/windows/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
 [nsg]: ../articles/virtual-network/virtual-networks-nsg.md
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
-[planned-maintenance]: ../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md
+[planned-maintenance]:../articles/virtual-machines/windows/planned-maintenance.md
 [premium-storage]: ../articles/storage/storage-premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
-[resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
+[resize-os-disk]:../articles/virtual-machines/windows/expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
-[select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
+[select-vm-image]:../articles/virtual-machines/windows/cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Use Security Center]: ../articles/security-center/security-center-get-started.md#use-security-center
-[virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
+[virtual-machine-sizes]: ../articles/virtual-machines/windows/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
-[vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
+[vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
+[vm-size-tables]: ../articles/virtual-machines/windows/sizes.md
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks

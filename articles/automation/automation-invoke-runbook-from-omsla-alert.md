@@ -32,7 +32,7 @@ There are two options to call a runbook when configuring the alert.  Specificall
 
 ## Calling a runbook using a webhook
 
-A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#creating-alert-rules) to call the runbook using a webhook as an alert action, you will need to first create a webhook for the runbook that will be called using this method.  Review and follow the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article and remember to record the webhook URL so that you can reference it while configuring the alert rule.   
+A webhook allows you to start a particular runbook in Azure Automation through a single HTTP request.  Before configuring the [Log Analytics alert](../log-analytics/log-analytics-alerts.md#alert-rules) to call the runbook using a webhook as an alert action, you will need to first create a webhook for the runbook that will be called using this method.  Review and follow the steps in the [create a webhook](automation-webhooks.md#creating-a-webhook) article and remember to record the webhook URL so that you can reference it while configuring the alert rule.   
 
 ## Calling a runbook directly
 

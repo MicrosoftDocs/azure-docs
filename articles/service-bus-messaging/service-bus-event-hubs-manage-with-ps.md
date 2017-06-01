@@ -1,3 +1,3 @@
 ---
-redirect_url: /powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus
+redirect_url: /azure/service-bus-messaging/service-bus-manage-with-ps
 ---

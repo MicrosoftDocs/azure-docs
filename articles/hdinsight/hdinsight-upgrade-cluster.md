@@ -1,6 +1,6 @@
 ---
-title: Migrate from Windows-based HDInsight to Linux-based HDInsight -Azure | Microsoft Docs
-description: Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster.
+title: Upgrade HDInsight cluster to a newer version -Azure | Microsoft Docs
+description: Learn how to Upgrade HDInsight cluster to a newer version.
 services: hdinsight
 documentationcenter: ''
 author: bhanupr
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/11/2017
+ms.date: 04/04/2017
 ms.author: bhanupr
 
 ---
@@ -23,7 +23,7 @@ To take advantage of the latest HDInsight features, we recommend that HDInsight 
 Follow the below guidelines to upgrade your HDInsight cluster versions.
 
 > [!NOTE]
-> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> HDInsight clusters version 3.2 and 3.3 are nearing retirement date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 

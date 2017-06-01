@@ -104,7 +104,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Follow the instructions on [Updating Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:

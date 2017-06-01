@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 05/16/2017
 ms.author: jingwang
 
 ---
 # Move data From SAP Business Warehouse using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure Data Factory pipeline to move data to from SAP Business Warehouse to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations. Data factory currently supports only moving data from SAP Business Warehouse to other data stores, but not for moving data from other data stores to SAP Business Warehouse.
+This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises SAP Business Warehouse (BW). It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
+You can copy data from an on-premises SAP Business Warehouse data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from an SAP Business Warehouse to other data stores, but not for moving data from other data stores to an SAP Business Warehouse. 
 
 ## Supported versions and installation
 This connector supports SAP Business Warehouse version 7.x. It supports copying data from InfoCubes and QueryCubes (including BEx queries) using MDX queries.
@@ -27,18 +28,62 @@ To enable the connectivity to the SAP BW instance, install the following compone
 - **Data Management Gateway**: Data Factory service supports connecting to on-premises data stores (including SAP Business Warehouse) using a component called Data Management Gateway. To learn about Data Management Gateway and step-by-step instructions for setting up the gateway, see [Moving data between on-premises data store to cloud data store](data-factory-move-data-between-onprem-and-cloud.md) article. Gateway is required even if the SAP Business Warehouse is hosted in an Azure IaaS virtual machine (VM). You can install the gateway on the same VM as the data store or on a different VM as long as the gateway can connect to the database.
 - **SAP NetWeaver library** on the gateway machine. You can get the SAP Netweaver library from your SAP administrator, or directly from the [SAP Software Download Center](https://support.sap.com/swdc). Search for the **SAP Note #1025361** to get the download location for the most recent version. Make sure that the architecture for the SAP NetWeaver library (32-bit or 64-bit) matches your gateway installation. Then install all files included in the SAP NetWeaver RFC SDK according to the SAP Note. The SAP NetWeaver library is also included in the SAP Client Tools installation.
 
-## Supported sinks
-See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table for a list of data stores supported as sources or sinks by the Copy Activity. You can move data from SAP Business Warehouse to any supported sink data store. 
+> [!TIP]
+> Put the dlls extracted from the NetWeaver RFC SDK into system32 folder.
 
-## Copy data wizard
-The easiest way to create a pipeline that copies data from SAP Business Warehouse to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+## Getting started
+You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
 
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
+
+1. Create **linked services** to link input and output data stores to your data factory.
+2. Create **datasets** to represent input and output data for the copy operation. 
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises SAP Business Warehouse, see [JSON example: Copy data from SAP Business Warehouse to Azure Blob](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) section of this article. 
+
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to an SAP BW data store:
+
+## Linked service properties
+The following table provides description for JSON elements specific to SAP Business Warehouse (BW) linked service.
+
+Property | Description | Allowed values | Required
+-------- | ----------- | -------------- | --------
+server | Name of the server on which the SAP BW instance resides. | string | Yes
+systemNumber | System number of the SAP BW system. | Two-digit decimal number represented as a string. | Yes
+clientId | Client ID of the client in the SAP W system. | Three-digit decimal number represented as a string. | Yes
+username | Name of the user who has access to the SAP server | string | Yes
+password | Password for the user. | string | Yes
+gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises SAP BW instance. | string | Yes
+encryptedCredential | The encrypted credential string. | string | No
+
+## Dataset properties
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
+
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**. 
+
+
+## Copy activity properties
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, are policies are available for all types of activities.
+
+Whereas, properties available in the **typeProperties** section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
+
+When source in copy activity is of type **RelationalSource** (which includes SAP BW), the following properties are available in typeProperties section:
+
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
+| query | Specifies the MDX query to read data from the SAP BW instance. | MDX query. | Yes |
+
+
+## JSON example: Copy data from SAP Business Warehouse to Azure Blob
 The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). This sample shows how to copy data from an on-premises SAP Business Warehouse to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.
 
-## Sample: Copy data from SAP Business Warehouse to Azure Blob
 The sample has the following data factory entities:
 
 1. A linked service of type [SapBw](#linked-service-properties).
@@ -223,35 +268,6 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ```
 
 
-## Linked service properties
-The following table provides description for JSON elements specific to SAP Business Warehouse (BW) linked service.
-
-Property | Description | Allowed values | Required
--------- | ----------- | -------------- | --------
-server | Name of the server on which the SAP BW instance resides. | string | Yes
-systemNumber | System number of the SAP BW system. | Two-digit decimal number represented as a string. | Yes
-clientId | Client ID of the client in the SAP W system. | Three-digit decimal number represented as a string. | Yes
-username | Name of the user who has access to the SAP server | string | Yes
-password | Password for the user. | string | Yes
-gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises SAP BW instance. | string | Yes
-encryptedCredential | The encrypted credential string. | string | No
-
-## Dataset properties
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
-
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type-specific properties supported for the SAP BW dataset of type **RelationalTable**. 
-
-
-## Copy activity properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, are policies are available for all types of activities.
-
-Whereas, properties available in the **typeProperties** section of the activity vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
-
-When source in copy activity is of type **RelationalSource** (which includes SAP BW), the following properties are available in typeProperties section:
-
-| Property | Description | Allowed values | Required |
-| --- | --- | --- | --- |
-| query | Specifies the MDX query to read data from the SAP BW instance. | MDX query. | Yes |
 
 ### Type mapping for SAP BW
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach:
@@ -286,9 +302,15 @@ DATS | String
 NUMC | String
 TIMS | String
 
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-[!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+> [!NOTE]
+> To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+
+
+## Map source to sink columns
+To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
+
+## Repeatable read from relational sources
+When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

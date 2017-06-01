@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ The scenario outlined in this tutorial consists of the following building blocks
 
 ![Scenario](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Scenario")
 
-## Enabling the application integration for LogicMonitor
+## Enable the application integration for LogicMonitor
 The objective of this section is to outline how to enable the application integration for LogicMonitor.
 
 **To enable the application integration for LogicMonitor, perform the following steps:**
@@ -58,7 +58,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
    
-## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to LogicMonitor with their account in Azure AD using federation based on the SAML protocol.
 
@@ -95,7 +95,7 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure Single Sign-On](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configure Single Sign-On")
    
-## Configuring user provisioning
+## Configure user provisioning
 
 For AAD users to be able to sign in, they must be provisioned to the LogicMonitor application using their Azure Active Directory user names.
 
@@ -118,7 +118,7 @@ For AAD users to be able to sign in, they must be provisioned to the LogicMonito
 >You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to LogicMonitor, perform the following steps:**

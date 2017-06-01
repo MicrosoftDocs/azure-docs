@@ -23,16 +23,21 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 ## Before you begin
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher. The scenario also assumes that a Resource Group with a valid virtual machine exists to be used.
+
+## Register Insights provider
+
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. To register the provider, navigate to **Subscriptions**, select the subscription for which you want to enable flow logs. On the **Subscription** blade, select **Resource Providers**. Navigate the list of providers and verify that **microsoft.insights** provider is registered. If not then click **Register**.
+
+![view providers][providers]
 
 ## Enable flow logs
 
@@ -91,3 +96,4 @@ Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visuali
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
+[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png

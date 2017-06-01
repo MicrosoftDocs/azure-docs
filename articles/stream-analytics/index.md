@@ -10,7 +10,7 @@ ms.service: stream-analytics
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: carolz
 ---
 
@@ -56,7 +56,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </a>
     </li>
     <li>
-        <a href="/azure/Stream-Analytics/">
+        <a href="/azure/stream-analytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
+        <a href="/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
+        <a href="/azure/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -110,7 +110,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-machine-learning-integration-tutorial">
+        <a href="/azure/stream-analytics/stream-analytics-machine-learning-integration-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -151,7 +151,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.streamanalytics?view=azuremgmtstreamanalytics-1.8.3">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Query language</a></p>
                     </div>
                 </div>

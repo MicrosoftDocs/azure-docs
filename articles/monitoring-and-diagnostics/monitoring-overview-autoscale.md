@@ -38,9 +38,12 @@ When rule conditions are met, one or more autoscale actions are triggered. You c
 
 The following explanation applies to the pieces of the previous diagram.   
 
-## Resource metrics
-Resources emit metrics, which are later processed by rules. Metrics come via different methods.
+## Resource Metrics
+Resources emit metrics, these metrics are later processed by rules. Metrics come via different methods.
 Virtual machine scale sets use telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md).
+
+## Custom Metrics
+You can also leverage your own custom metrics that your application(s) may be emitting. If you have configured your application(s) to send metrics to Application Insights you can leverage those metrics to make decisions on whether to scale or not. 
 
 ## Time
 Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
@@ -90,7 +93,7 @@ Autoscale only scales horizontally, which is an increase ("out") or decrease ("i
 
 In contrast, vertical scaling is different. It keeps the same number of VMs, but makes the VMs more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a VM to stop and restart.
 
-For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Methods of access
 You can set up autoscale via

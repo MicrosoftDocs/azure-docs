@@ -1,5 +1,5 @@
 ---
-title: Manage resources for Apache Spark cluster on Azure HDInsight| Microsoft Docs
+title: Manage resources for Apache Spark cluster on Azure HDInsight | Microsoft Docs
 description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
@@ -34,7 +34,7 @@ You must have the following:
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
 2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
-    ![Launch Ambari](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Start Resource Manager")
+    ![Launch Ambari](./media/hdinsight-apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "Start Resource Manager")
 3. This should launch the Ambari Web UI, as shown below.
 
     ![Ambari Web UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
@@ -81,7 +81,7 @@ For applications running in the Jupyter notebook, you can use the `%%configure` 
 The snippet below shows how to change the configuration for an application running in Jupyter.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column.
 

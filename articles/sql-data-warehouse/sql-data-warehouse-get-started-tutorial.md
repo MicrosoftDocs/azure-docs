@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 
@@ -504,7 +505,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s

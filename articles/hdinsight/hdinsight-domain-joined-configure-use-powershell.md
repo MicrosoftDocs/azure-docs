@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Domain-joined HDInsight clusters using Azure PowerShell| Microsoft Docs
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure PowerShell
 services: hdinsight
@@ -52,7 +52,7 @@ You must have the following items to go through this tutorial:
 * Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 * Ensure that your subscription is whitelisted for this public preview. You can do so by sending an email to hdipreview@microsoft.com with your subscription ID.
 * An SSL certificate that is signed by a signing authority for your domain. The certificate is required by configuring secure LDAP. Self-signed certificates cannot be used.
-* Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Create an Azure classic VNet for your Azure AD.
 For the instructions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).

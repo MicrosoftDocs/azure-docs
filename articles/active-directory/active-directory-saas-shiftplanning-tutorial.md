@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with ShiftPlanning
-The objective of this tutorial is to show the integration of Azure and ShiftPlanning.  
+The objective of this tutorial is to show the integration of Azure and ShiftPlanning.
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
-* A ShiftPlanning single sign-on enabled subscription
+* A ShiftPlanning single sign-on (SSO) enabled subscription
 
 After completing this tutorial, the Azure AD users you have assigned to ShiftPlanning will be able to single sign into the application at your ShiftPlanning company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
 1. Enabling the application integration for ShiftPlanning
-2. Configuring single sign-on
+2. Configuring single sign-on (SSO)
 3. Configuring user provisioning
 4. Assigning users
 
 ![Scenario](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Scenario")
 
-## Enabling the application integration for ShiftPlanning
+## Enable the application integration for ShiftPlanning
 The objective of this section is to outline how to enable the application integration for ShiftPlanning.
 
-### To enable the application integration for ShiftPlanning, perform the following steps:
+**To enable the application integration for ShiftPlanning, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
@@ -64,13 +66,16 @@ The objective of this section is to outline how to enable the application integr
    
     ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
    
-## Configuring single sign-on
+## Configure single sign-on
 
-The objective of this section is to outline how to enable users to authenticate to ShiftPlanning with their account in Azure AD using federation based on the SAML protocol.  
+The objective of this section is to outline how to enable users to authenticate to ShiftPlanning with their account in Azure AD using federation based on the SAML protocol.
+
 As part of this procedure, you are required to create a base-64 encoded certificate file.  
+
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **ShiftPlanning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configure Single Sign-On")
@@ -100,66 +105,59 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
     ![Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Single Sign-On")
    
-    1. Select **SAML Enabled**.
-
-    2. Select **Allow Password Login**
-
-    3. In the Azure classic portal, on the **Configure single sign-on at ShiftPlanning** dialog page, copy the **Remote Login URL** value, and then paste it into the **SAML Issuer URL** textbox.
-
-    4. In the Azure classic portal, on the **Configure single sign-on at ShiftPlanning** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote Logout URL** textbox.
-
-    5. Create a **base-64 encoded** file from your downloaded certificate.  
+   1. Select **SAML Enabled**.
+   2. Select **Allow Password Login**.
+   3. In the Azure classic portal, on the **Configure single sign-on at ShiftPlanning** dialog page, copy the **Remote Login URL** value, and then paste it into the **SAML Issuer URL** textbox.
+   4. In the Azure classic portal, on the **Configure single sign-on at ShiftPlanning** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote Logout URL** textbox.
+   5. Create a **base-64 encoded** file from your downloaded certificate.  
        
-    > [!TIP]
-    > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    > 
-    > 
+     >[!TIP]
+     >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+     > 
+     > 
 
-    6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
-
-    7. Click **Save Settings**.
+   6. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox.
+   7. Click **Save Settings**.
 
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configure Single Sign-On")
    
-## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into ShiftPlanning, they must be provisioned into ShiftPlanning.  
+
 In the case of ShiftPlanning, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
-1. Log in to your **ShiftPlanning** company site as an administrator.
+**To provision a user accounts, perform the following steps:**
 
+1. Log in to your **ShiftPlanning** company site as an administrator.
 2. Click **Admin**.
    
     ![Admin](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
-
 3. Click **Staff**.
    
     ![Staff](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Staff")
-
 4. Under **Actions**, click **Add Employee**.
    
     ![Add Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Add Employees")
-
 5. In the **Add Employees** section, perform the following steps:
    
     ![Save Employees](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Save Employees")
    
-    1. Type the **First Name**, **Last Name** and **Email** of a valid AAD account you want to provision into the related textboxes.
+   1. Type the **First Name**, **Last Name** and **Email** of a valid AAD account you want to provision into the related textboxes.
+   2. Click **Save Employees**.
 
-    2. Click **Save Employees**.
-
-> [!NOTE]
-> You can use any other ShiftPlanning user account creation tools or APIs provided by ShiftPlanning to provision AAD user accounts.
+>[!NOTE]
+>You can use any other ShiftPlanning user account creation tools or APIs provided by ShiftPlanning to provision AAD user accounts.
 > 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to ShiftPlanning, perform the following steps:
+**To assign users to ShiftPlanning, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 
 2. On the **ShiftPlanning** application integration page, click **Assign users**.
