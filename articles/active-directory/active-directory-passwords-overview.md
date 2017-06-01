@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: joflore
+ms.editor: gahug
+ms.custom: it-pro
 
 ---
 # Azure AD self-service password reset for the IT professional
