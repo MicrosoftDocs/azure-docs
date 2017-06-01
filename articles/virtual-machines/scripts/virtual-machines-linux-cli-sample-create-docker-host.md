@@ -37,7 +37,7 @@ This script creates a virtual machine with Docker enabled and starts a Docker co
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: 'Reference a virtual network in an Azure scale set template | Microsoft Docs'
+title: 'Reference an existing virtual network in an Azure scale set template | Microsoft Docs'
 description: Learn how to add a virtual network to an existing Azure Virtual Machine Scale Set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 3/06/2017
 ms.author: negat
 ---
 
-# Add reference to a virtual network to an Azure scale set template
+# Add reference to an existing virtual network in an Azure scale set template
 
 This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy into an existing virtual network instead of creating a new one.
 
@@ -99,6 +99,6 @@ Finally, we pass in the `subnetId` parameter set by the user (instead of using `
 
 
 
-## Next Steps
+## Next steps
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
