@@ -1,5 +1,5 @@
 - name: SQL DB Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About SQL DB
@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Manage
+  - name: Connect and query
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-  - name: Connect
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,15 +35,22 @@
   items:
   - name: 1 - Create/design new SQL DB
     href: sql-database-design-first-database.md
-  - name: 2 - Migrate existing SQL Server
-    href: sql-database-migrate-your-sql-server-database.md 
+  - name: 2 - Migrate SQL Server DB
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: 3 - Secure your SQL DB
+    href: sql-database-security-tutorial.md
+  - name: 4 - Improve SQL DB performance
+    href: sql-database-performance-tutorial.md
+  - name: 5 - Implement multi-tenant app
+    href: sql-database-multi-tenant-application.md
+  - name: 6 - Implement a geo-distributed database
+    href: sql-database-implement-geo-distributed-database.md 
 - name: Samples
   items:
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: PowerShell
-    href: sql-database-powershell-samples.md
- 
+    href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
   - name: DBs and servers
@@ -120,7 +125,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditing
       href: sql-database-auditing.md
-    - name: Auditing and TDS
+    - name: Table auditing & TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Threat detection
       href: sql-database-threat-detection.md
@@ -140,7 +145,7 @@
       href: sql-database-long-term-retention.md
     - name: Database recovery
       href: sql-database-recovery-using-backups.md
-    - name: Geo-replication
+    - name: Auto failover and geo-replication
       href: sql-database-geo-replication-overview.md
     - name: Logins
       href: sql-database-geo-replication-security-config.md
@@ -150,24 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: App upgrades
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Development
+  - name: Database development
     items:
     - name: Overview
       href: sql-database-develop-overview.md
     - name: Connectivity
       href: sql-database-libraries.md
-    - name: App design - SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: Security - SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: Ports - ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Authenticate App 
-      href: sql-database-client-id-keys.md
-    - name: Error messages
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: JSON data
       href: sql-database-json-features.md
     - name: In-memory
@@ -204,8 +197,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Perf guidance
       href: sql-database-performance-guidance.md
-    - name: Batching
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Extended events
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Compatibility levels
@@ -326,6 +317,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: Extended events - ring buffer
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Diagnostic logging
+      href: sql-database-metrics-diag-logging.md
   - name: Manage
     items:
     - name: Azure Automation
@@ -334,6 +327,24 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Develop apps
+    items:
+    - name: Ports - ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: Authenticate App 
+      href: sql-database-client-id-keys.md
+    - name: Error messages
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Batching for perf
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: SaaS app design
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: SaaS app security
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: SaaS app tutorial
+      href: sql-database-wtp-overview.md
 - name: Reference
   items:
   - name: PowerShell
@@ -413,5 +424,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Elastic pool custom dashboard
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-

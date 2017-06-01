@@ -73,13 +73,19 @@ Use-AzureRmProfile -Profile 2017-03-09-profile
 
 Install-Module -Name AzureStack -RequiredVersion 1.2.9 -Force
 
-# Download the Azure Stack Tools from GitHub
+# Download the Azure Stack Tools from GitHub and set the environment
 cd c:\
 Invoke-Webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 Expand-Archive master.zip -DestinationPath . -Force
 
 Import-Module C:\AzureStack-Tools-master\Connect\AzureStack.Connect.psm1
-$aadTenant = Get-DirectoryTenantID -AADTenantName "<your directory name>"  
+Add-AzureStackAzureRmEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+
+# For AAD, use the following
+$tenantID = Get-DirectoryTenantID -AADTenantName "<your directory name>" -EnvironmentName AzureStackAdmin
+
+# For ADFS, replace the previous line with
+# $tenantID = Get-DirectoryTenantID -ADFS -EnvironmentName AzureStackAdmin
 
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
@@ -87,11 +93,13 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AdminPass)
 
-.\DeployMySQLProvider.ps1 -DirectoryTenantID $aadTenant -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "MySqlRG" -VmName "MySQLRP" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external" -AcceptLicense
+# Change directory to the folder where you extracted the installation files
+<extracted file directory>\DeployMySQLProvider.ps1 -DirectoryTenantID $tenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "MySqlRG" -VmName "MySQLRP" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external" -AcceptLicense
  ```
 
-### Parameters
+### DeployMySqlProvider.ps1 Parameters
 
+You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
@@ -102,7 +110,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 | **VMLocalCredential** | The local administrator account of the MySQL resource provider VM | _required_ |
 | **ResourceGroupName** | Resource Group for the items created by this script |  _required_ |
 | **VmName** | Name of the VM holding the resource provider |  _required_ |
-| **AcceptLicense** | Prompts to accept the GPL License Accept the terms of the GPL License (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
+| **AcceptLicense** | Skips the prompt to accept the GPL License  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 | **DependencyFilesLocalPath** | Path to a local share containing the MySQL files [mysql-5.7.17-winx64.zip](https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.17-winx64.zip) and [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi) | _leave blank to download from the internet_ |
 | **MaxRetryCount** | Each operation is retried if there is a failure | 2 |
 | **RetryDuration** | Timeout between retries, in seconds | 120 |
@@ -110,17 +118,17 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydom
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
 
-Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You may need to refresh the admin portal if the MySQLAdapter blade is not available.
+Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. You will need to refresh the admin portal if the MySQLAdapter blade is not available.
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
+> If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the MySQL RP.
 
 
 ## Provide capacity by connecting to a MySQL hosting server
 
 > [!NOTE]
-> After the installation script completes, you may need to refresh the portal before proceding to add a hosting server.
->
+>  After the installation script completes, you will need to refresh the portal to see the admin blade.
+
 
 1. Sign in to the Azure Stack POC portal as a service admin
 

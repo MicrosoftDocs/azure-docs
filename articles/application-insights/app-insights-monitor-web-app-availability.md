@@ -3,7 +3,7 @@ title: Monitor availability and responsiveness of any web site | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
@@ -12,25 +12,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
+ms.date: 05/25/2017
+ms.author: cfreeman
 
 ---
 # Monitor availability and responsiveness of any web site
-After you've deployed your web app or web site to any server, you can set up web tests to monitor its availability and responsiveness. [Azure Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
+After you've deployed your web app or web site to any server, you can set up tests to monitor its availability and responsiveness. [Azure Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
 
-![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to add anything to the web site you're testing. It doesn't even have to be your site: you could test a REST API service on which you depend.
 
-You can set up web tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to add anything to the web site you're testing. It doesn't even have to be your site: you could test a REST API service on which you depend.
-
-There are two types of web test:
+There are two types of availability tests:
 
 * [URL ping test](#create): a simple test that you can create in the Azure portal.
 * [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Enterprise and upload to the portal.
 
-You can create up to 10 web tests per application resource.
+You can create up to 25 availability tests per application resource.
 
-## <a name="create"></a>1. Open a resource for your web test reports
+## <a name="create"></a>1. Open a resource for your availability test reports
 
 **If you have already configured Application Insights** for your web app, open its Application Insights resource in the [Azure portal](https://portal.azure.com).
 
@@ -41,12 +39,12 @@ You can create up to 10 web tests per application resource.
 Click **All resources** to open the Overview blade for the new resource.
 
 ## <a name="setup"></a>2. Create a URL ping test
-Open the Availability blade and add a web test.
+Open the Availability blade and add a test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **The URL** can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
-* **Parse dependent requests**: If this option is checked, the test will request images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test. 
+* **The URL** can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
+* **Parse dependent requests**: If this option is checked, the test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test. 
 
     If the option is not checked, the test only requests the file at the URL you specified.
 * **Enable retries**:  If this option is checked, when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. We recommend this option. On average, about 80% of failures disappear on retry.
@@ -64,33 +62,41 @@ Open the Availability blade and add a web test.
     You can set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
 
 ### Test more URLs
-Add more tests. For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.
+Add more tests. For example, In addition to testing your home page, you can make sure your database is running by testing the URL for a search.
 
 
-## <a name="monitor"></a>3. See your web test results
+## <a name="monitor"></a>3. See your availability test results
 
-After 5 minutes, click **Refresh** to see test results. 
+After a few minutes, click **Refresh** to see test results. 
 
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-Click any bar on the summary chart for a more detailed view of that time period.
+The scatterplot shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test timestamp, test duration, location, and test name. Click through any dot in the scatter plot to see the details of the test result.  
+
+Select a particular test, location, or reduce the time period to see more results around the time period of interest. Use Search Explorer to see results from all executions, or use Analytics queries to run custom reports on this data.
+
+In addition to the raw results, there are two Availability metrics in Metrics Explorer: 
+
+1. Availability: Percentage of the tests that were successful, across all test executions. 
+2. Test Duration: Average test duration across all test executions.
+
+You can apply filters on the test name, location to analyze trends of a particular test and/or location.
 
 ## <a name="edit"></a> Inspect and edit tests
 
 From the summary page, select a specific test. There, you can see its specific results, and edit or temporarily disable it.
 
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-You might want to disable web tests while you are performing maintenance on your service.
-
+You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service. 
 
 ## <a name="failures"></a>If you see failures
 Click a red dot.
 
-![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-From a web test result, you can:
+From an availability test result, you can:
 
 * Inspect the response received from your server.
 * Open the telemetry sent by your server app while processing the failed request instance.
@@ -100,7 +106,7 @@ From a web test result, you can:
 
 *Looks OK but reported as a failure?* Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
 
-*No related items?* That may be because [sampling](app-insights-sampling.md) is in operation.
+*No related items?* If you have Application Insights set up for your server-side application, that may be because [sampling](app-insights-sampling.md) is in operation. 
 
 ## Multi-step web tests
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
@@ -145,7 +151,7 @@ Use Visual Studio Enterprise to record a web session.
     ![In Visual Studio, open the .webtest file and click Run.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### 2. Upload the web test to Application Insights
-1. In the Application Insights portal, create a new web test.
+1. In the Application Insights portal, create a web test.
 
     ![On the web tests blade, choose Add.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. Select multi-step test, and upload the .webtest file.
@@ -235,8 +241,15 @@ From the Overview blade, open **Settings**, **Performance Tests**. When you crea
 
 When the test is complete, you are shown response times and success rates.
 
+
+![Performance test](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> To observe the effects of a performance test, use [Live Stream](app-insights-live-stream.md) and [Profiler](app-insights-profiler.md).
+>
+
 ## Automation
-* [Use PowerShell scripts to set up a web test](app-insights-powershell.md#add-an-availability-test) automatically.
+* [Use PowerShell scripts to set up an availability test](app-insights-powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## <a name="qna"></a>Questions? Problems?
@@ -248,14 +261,14 @@ When the test is complete, you are shown response times and success rates.
     We support TLS 1.1 and TLS 1.2.
 * *Is there a difference between "web tests" and "availability tests"?*
 
-    We use the two terms interchangeably.
+    The two terms may be referenced interchangeably. Availability tests is a more generic term that includes the single URL ping tests in addition to the multi-step web tests.
 * *I'd like to use availability tests on our internal server that runs behind a firewall.*
 
     There are two possible solutions:
     
     * Configure your firewall to permit incoming requests from the [IP addresses
     of our web test agents](app-insights-ip-addresses.md).
-    * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will not appear in the availability web tests blades, but will appear as availability results in Analytics, Search, and Metric Explorer.
+    * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will not appear in the availability web tests blades, but appears as availability results in Analytics, Search, and Metric Explorer.
 * *Uploading a multi-step web test fails*
 
     There's a size limit of 300 K.

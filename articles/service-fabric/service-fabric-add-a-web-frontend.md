@@ -175,6 +175,7 @@ Our stateful service is now ready to receive traffic from other services over RP
    
     ```c#
     using MyStatefulService.Interface;
+    using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...

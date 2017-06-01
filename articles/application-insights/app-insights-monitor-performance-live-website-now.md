@@ -3,7 +3,7 @@ title: Monitor a live ASP.NET web app with Azure Application Insights  | Microso
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
+ms.date: 05/05/2017
+ms.author: cfreeman
 
 ---
 # Instrument web apps at runtime with Application Insights
@@ -56,6 +56,20 @@ If your application is running as an Azure web service, here's how to switch on 
     ![Click through to Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Monitoring Cloud and VM apps](app-insights-azure.md).
+
+### Enable client-side monitoring in Azure
+
+If you have enabled Application Insights in Azure, you can add page view and user telemetry.
+
+1. Select Settings > Application Settings
+2.  Under App Settings, add a new key value pair: 
+   
+    Key: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    Value: `true`
+3. **Save** the settings and **Restart** your app.
+
+The Application Insights JavaScript SDK is now injected into each web page.
 
 ## Monitor a live IIS web app
 

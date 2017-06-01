@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/23/2017
 ms.author: magoedte
 
 ---
@@ -46,7 +46,11 @@ You can deploy and install software updates on computers that require the update
 At the date and time specified in the update deployment, the target computers executes the deployment in parallel.  A scan is first performed to verify the updates are still required and installs them.  It is important to note for WSUS client computers, if the updates are not approved in WSUS, the update deployment will fail.  The results of the applied updates are forwarded to OMS to be processed and summarized in the dashboards or by the searching the events.     
 
 ## Prerequisites
-* The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2012 and higher.  Server Core and Nano Server installation options are not supported.
+* The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2008 R2 and higher.  Server Core and Nano Server installation options are not supported.
+
+    > [!NOTE]
+    > Support for deploying updates to Windows Server 2008 R2 requires .NET Framework 4.5 and WMF 5.0 or later.
+    >  
 * Windows client operating systems are not supported.  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
   
@@ -83,9 +87,14 @@ After you enable this solution, any Windows computer directly connected to your 
 You can however, add the Windows computers to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you are using the same account for both the solution and Hybrid Runbook Worker group membership.  This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.  
 
 ## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and confirm agents are reporting. Windows agents are added automatically with no additional configuration. 
+Perform the following steps to add the Update Management solution to your OMS workspace and confirm agents are reporting. Windows agents already connected to your workspace are added automatically with no additional configuration. 
 
-There are three different ways you can add this solution: from Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution, or from the OMS Solutions Gallery in your OMS workspace.  If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
+You can deploy the solution using the following methods:
+
+* From Azure Marketplace in the Azure portal by selecting either the Automation & Control offering or Update Management solution
+* From the OMS Solutions Gallery in your OMS workspace
+
+If you already have an Automation account and OMS workspace linked together in the same resource group and region, selecting Automation & Control will verify your configuration and only install the solution and configure it in both services.  Selecting the Update Management solution from Azure Marketplace delivers the same behavior.  If you do not have either services deployed in your subscription, follow the steps in the **Create new Solution** blade and confirm you want to install the other pre-selected recommended solutions.  Optionally, you can add the Update Management solution to your OMS workspace using the steps described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
 
 ### Confirm OMS agents and Operations Manager management group connected to OMS
 
@@ -140,7 +149,7 @@ Once updates have been assessed for all of the Linux and Windows computers in yo
 > [!NOTE]
 > Windows VMs deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service.  This behavior does not change after adding this solution or Windows VMs to your workspace.  If you do not actively managed updates with this solution, the default behavior (automatically apply updates) will apply.  
 
-For virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace, they are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/linux/update-infrastructure-redhat.md) deployed in Azure.  Any other Linux distribution must be updated from the distros online file repository following their supported methods.  
+For virtual machines created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace, they are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) deployed in Azure.  Any other Linux distribution must be updated from the distros online file repository following their supported methods.  
 
 ### Viewing update deployments
 Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

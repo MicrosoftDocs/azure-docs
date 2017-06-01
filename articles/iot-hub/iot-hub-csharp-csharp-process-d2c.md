@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
 
 ---
@@ -109,6 +109,9 @@ In this section, you:
 For more information about how to process messages from Service Bus queues, see [Get started with queues][Service Bus queue].
 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
+
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
     

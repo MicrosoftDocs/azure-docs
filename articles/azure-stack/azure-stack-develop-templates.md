@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/4/2016
+ms.date: 05/23/2016
 ms.author: helaw
 
 ---
@@ -32,13 +32,13 @@ Azure service versions may differ between Azure and Azure Stack. Each resource r
 
 | Resource Provider | apiVersion |
 | --- | --- |
-| Compute |'2015-06-15' |
-| Network |'2015-06-15', '2015-05-01-preview' |
-| Storage |'2016-01-01', '2015-06-15', '2015-05-01-preview' |
-| KeyVault | '2015-06-01' |
-| App Service |'2015-08-01' |
-| MySQL |'2015-09-01' |
-| SQL |'2014-04-01-preview' |
+| Compute |`'2015-06-15'` |
+| Network |`'2015-06-15'`, `'2015-05-01-preview'` |
+| Storage |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
+| KeyVault | `'2015-06-01'` |
+| App Service |`'2015-08-01'` |
+| MySQL |`'2015-09-01'` |
+| SQL |`'2014-04-01-preview'` |
 
 ## Template functions
 Resource Manager [functions](../azure-resource-manager/resource-group-template-functions.md) provide capabilities required to build dynamic templates. As an example, you can use functions for tasks like:

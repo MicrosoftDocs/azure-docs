@@ -12,6 +12,7 @@
 ## [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 ## [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
 ## [Set up Visual Studio for Azure Government](documentation-government-get-started-connect-with-vs.md)
+## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
 ## [Available services](documentation-government-services.md)
 
 # How To
