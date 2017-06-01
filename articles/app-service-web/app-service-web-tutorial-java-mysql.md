@@ -36,10 +36,10 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-1. [Git](https://git-scm.com/)
-1. [Java 7 JDK or above](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-1. [MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+1. [Download and install Git](https://git-scm.com/)
+1. [Download and install the Java 7 JDK or above](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+1. [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -55,9 +55,9 @@ Connect to your local MySQL server from the command line:
 mysql -u root -p
 ```
 
-If your command runs successfully, then your MySQL server is already running. If not, make sure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
-
 If you're prompted for a password, enter the password for the `root` account. If you don't remember your root account password, see [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+
+If your command runs successfully, then your MySQL server is already running. If not, make sure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
 ### Create a database 
 
@@ -75,7 +75,7 @@ quit
 
 ## Create and run the sample app 
 
-In this step, you clone sample app source code from a GitHub repo, configure the app to use the local MySQL database, and run the app on your computer. 
+In this step, you clone sample Spring boot app, configure it to use the local MySQL database, and run it on your computer. 
 
 ### Clone the sample
 
@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/spring-boot-mysql-todo
 
 ### Configure the app to use the MySQL database
 
-Update the `spring.datasource.password` value in *src/main/resources/application.properties* with the same password used to open the MySQL command prompt:
+Update the `spring.datasource.password` and  value in *spring-boot-mysql-todo/src/main/resources/application.properties* with the same root password used to open the MySQL command prompt:
 
 ```
 spring.datasource.password=mysqlpass
@@ -102,7 +102,7 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Open your browser to http://localhost:8080 to see in the sample in action. As you add tasks to the list, you can view the updates in the MySQL database  with the folloowing commands issued from the MySQL command prompt:
+Open your browser to http://localhost:8080 to see in the sample in action. As you add tasks to the list, you can view the updates in the MySQL database  with the following commands issued from the MySQL command prompt:
 
 ```SQL
 use testdb;
@@ -121,13 +121,19 @@ Use the Azure CLI 2.0 in a terminal window to create the resources needed to hos
 az login 
 ```   
 
+### Create a resource group
+
 Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container where related resources like web apps, databases, and storage accounts are deployed and managed. 
 
+The following example creates a resource group in the North Europe region:
+
 ```azurecli
-az group create \
---name myResourceGroup  \ 
---location "North Europe"
+az group create --name myResourceGroup --location "North Europe"
 ```    
+
+To see the possible values you can use for `--location`, use the [az appservice list-locations](/cli/azure/appservice#list-locations) command.
+
+### Create a MySQL server
 
 Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.    
 Substitute your own unique MySQL server name where you see the `<mysql_server_name>` placeholder. This name is part of your MySQL server's hostname, `<mysql_server_name>.mysql.database.azure.com`, so it needs to be globally unique. Also substitute `<admin_user>` and `<admin_password>` with your own values.
@@ -156,12 +162,14 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 }
 ```
 
+### Configure server firewall
+
 Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command. 
 
 ```azurecli
 az mysql server firewall-rule create \
 --name allIPs \
---server mysql_server_name  \ 
+--server <mysql_server_name>  \ 
 --resource-group myResourceGroup \ 
 --start-ip-address 0.0.0.0 \ 
 --end-ip-address 255.255.255.255
@@ -206,7 +214,10 @@ quit
 Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
 
 ```azurecli
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create \
+--name myAppServicePlan \ 
+--resource-group myResourceGroup \
+--sku FREE
 ```
 
 When the plan is ready, the Azure CLI will show similar information to the following example:
@@ -232,7 +243,10 @@ When the plan is ready, the Azure CLI will show similar information to the follo
  Use the [az webapp create](/cli/azure/appservice/web#create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
 
 ```azurecli
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create \
+--name <app_name> \ 
+--resource-group myResourceGroup \
+--plan myAppServicePlan
 ```
 
 Substitute the `<app_name>` placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can map a custom domain name entry to the web app before you expose it to your users.
@@ -254,36 +268,46 @@ When the web app definition is ready, the Azure CLI shows information similar to
 }
 ```
 
-### Configure Java runtime
+### Configure Java 
 
-Set the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#update) command.
+Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#update) command.
 
 The following commmand configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
 ```azurecli
-az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
+az webapp config set \ 
+--name <app_name> \
+--resource-group myResourceGroup \ 
+--java-version 1.8 \ 
+--java-container Tomcat \
+--java-container-version 8.0
 ```
 
 ### Configure the app to use the Azure SQL database
 
-Before running the sample app, you'll need to set properties on the web app to use the Azure MySQL database you created. These properties override the values set in the application.properties inside the packaged web app. Set the following using [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings):
+Before running the sample app, you'll need to set properties on the web app to use the Azure MySQL database you created. These properties are exposed to the web application as environment variables and  override the values set in the application.properties inside the packaged web app. 
+
+Set application settings using [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) in the CLI:
 
 ```azurecli
 az webapp config appsettings set --settings  \ 
 SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" \
---resource-group myResourceGroup --name app_name
+--resource-group myResourceGroup \
+--name app_name
 ```
 
 ```azurecli
 az webapp config appsettings set --settings  \ 
 SPRING_DATASOURCE_USERNAME=Javaapp_user@mysql_server_name  \
---resource-group myResourceGroup --name app_name
+--resource-group myResourceGroup \ 
+--name app_name
 ```
 
 ```azurecli
 az webapp config appsettings set --settings  \ 
 SPRING_DATASOURCE_URL=Javaapp_password   \
---resource-group myResourceGroup --name app_name
+--resource-group myResourceGroup \ 
+--name app_name
 ```
 
 ### Get FTP deployment credentials 
@@ -293,7 +317,11 @@ For this example, FTP to deploy the .WAR file built previously on your local mac
 To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command: 
 
 ```azurecli
-az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --o table
+az webapp deployment list-publishing-profiles \ 
+--name <app_name> \ 
+--resource-group myResourceGroup \
+--query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" \ 
+--output json
 ```
 
 ```JSON
@@ -334,6 +362,8 @@ Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list
 
 ## Update the app and redeploy
 
+Update the application to include an additional column in the todo list for when the todo item was created. On your local system, open up *src/main/java/
+
 ## Stream diagnostic logs 
 
 While your PHP application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
@@ -354,11 +384,11 @@ To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, click **App Service**, then click the name of your Azure web app.
 
-![Portal navigation to Azure web app](./media/app-service-web-tutorial-php-mysql/access-portal.png)
+![Portal navigation to Azure web app](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
 By default, your web app's blade shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform management tasks like stop, start, restart, and delete. The tabs on the left side of the blade show the different configuration pages you can open.
 
-![App Service blade in Azure portal](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
+![App Service blade in Azure portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
 These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
 * Map a custom DNS name
