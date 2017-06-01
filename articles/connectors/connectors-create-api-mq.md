@@ -36,7 +36,9 @@ The MQ connector includes the following actions. There are no triggers.
 
     > [!NOTE]
     > The server where the On-Premises Data Gateway is installed must also have .Net Framework 4.6 installed for the MQ Connector to function.
-    
+
+* Create the Azure resource for the on-premises data gateway - [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md).
+
 * Officially supported IBM WebSphere MQ versions:
    * MQ 7.5
    * MQ 8.0
