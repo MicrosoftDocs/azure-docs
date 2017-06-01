@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  integration
-ms.date: 05/24/2017
+ms.date: 06/01/2017
 ms.author: valthom; ladocs
 ---
 
@@ -33,8 +33,10 @@ The MQ connector includes the following actions. There are no triggers.
 ## Prerequisites
 
 * If using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. If the MQ Server is publicly available, or available within Azure, then the data gateway is not used or required.
-> [!NOTE]
-> The server where the On-Premises Data Gateway is installed must also have .Net Framework 4.6 installed for the MQ Connector to function.
+
+    > [!NOTE]
+    > The server where the On-Premises Data Gateway is installed must also have .Net Framework 4.6 installed for the MQ Connector to function.
+    
 * Officially supported IBM WebSphere MQ versions:
    * MQ 7.5
    * MQ 8.0
@@ -60,27 +62,29 @@ The MQ connector includes the following actions. There are no triggers.
 ![Browse message](media/connectors-create-api-mq/Browse_message.png)
 
 3. If there isn't an existing MQ connection, then create the connection:  
+
     1. Select **Connect via on-premise data gateway**, and enter the properties of your MQ server.  
     For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number. 
     2. The **gateway** dropdown lists any existing gateway connections that have been configured. Select your gateway.
     3. Select **Create** when finished. Your connection looks similar to the following:   
     ![Connection Properties](media/connectors-create-api-mq/Connection_Properties.png)
 
-4. There is an option to access a different queue name than what is defined in the connection. There are other 
-entries to browse for a message based on various MQ Message properties. The IncludeInfo option indicates whether 
-or not to include additional message information in the output. The Timeout value indicates how long to wait for
-a message to arrive in an empty queue.  If nothing is entered, the first message in the queue is retrieved, and there 
-is no time spent waiting for a message to appear.  
-![Browse Message Properties](media/connectors-create-api-mq/Browse_message_Props.png)
+4. In the action properties, you can:  
+
+    * Use the **Queue** property to access a different queue name than what is defined in the connection
+    * Use the **MessageId**, **CorrelationId**, **GroupId**, and other properties to browse for a message based on the different MQ message properties
+    * Set **IncludeInfo** to **True** to include additional message information in the output. Or, set it to **False** to not include additional message information in the output.
+    * Enter a **Timeout** value to determine how long to wait for a message to arrive in an empty queue. If nothing is entered, the first message in the queue is retrieved, and there is no time spent waiting for a message to appear.  
+    ![Browse Message Properties](media/connectors-create-api-mq/Browse_message_Props.png)
 
 5. **Save** your changes, and then **Run** your logic app:  
 ![Save and run](media/connectors-create-api-mq/Save_Run.png)
 
-6. After a few seconds, the steps of the run are shown, and you can look at the output. Select the green checkmark to see details of each step. Select **See raw outputs** to see additional details on the output data.
+6. After a few seconds, the steps of the run are shown, and you can look at the output. Select the green checkmark to see details of each step. Select **See raw outputs** to see additional details on the output data.  
 ![Browse message output](media/connectors-create-api-mq/Browse_message_output.png)  
 
-Raw output:  
-![Browse message raw output](media/connectors-create-api-mq/Browse_message_raw_output.png)
+    Raw output:  
+    ![Browse message raw output](media/connectors-create-api-mq/Browse_message_raw_output.png)
 
 7. When the **IncludeInfo** option is set to true, the following output is displayed:  
 ![Browse message include info](media/connectors-create-api-mq/Browse_message_Include_Info.png)
