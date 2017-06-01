@@ -103,6 +103,7 @@ In the following tables, services specified as Resource Manager enabled have res
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
+| [IoT Hub](documentation-government-services-iot-hub.md) | Yes | Yes |
 | Event Hubs | Yes | Yes |
 | Notification Hubs | No | No (Go to [Legacy portal](https://manage.windowsazure.us/)) |
 
