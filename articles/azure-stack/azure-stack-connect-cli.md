@@ -38,13 +38,13 @@ Use the following steps to connect to Azure Stack:
 1. Disable the SSL certificate validation by running the following commands:
 
    * If you are connecting from a windows-based computer:
-   
+
    ```azurecli
    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
-   * If you are connecting from macOS:
-   
+   * If you are connecting from a macOS:
+
    ```azurecli
    export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
    export ADAL_PYTHON_SSL_NO_VERIFY=1
