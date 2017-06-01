@@ -35,9 +35,9 @@ The following are specific requirements to connect Azure Stack and Azure using E
 * A router that has the ExpressRoute circuit connected to its WAN ports.
 * The LAN side of the router is linked to the Azure Stack Multitenant Gateway.
 * The router must support Site-to-Site VPN connections between its LAN interface and Azure Stack Multitenant Gateway.
-* The router must have the ability to create multiple VRFs (Virtual Routing and Forwarding) if more than one tenant is added in your Azure Stack deployment.
+* If more than one tenant is added in your Azure Stack deployment, the router must be able to create multiple VRFs (Virtual Routing and Forwarding) .
 
-The following conceptual diagram shows how this looks after you complete the configuration:
+The following diagram shows a conceptual networking view after you complete the configuration:
 
 ![Conceptual diagram](media/azure-stack-connect-expressroute/Conceptual.png)
 
@@ -50,7 +50,7 @@ The following architecture diagram shows how multiple tenants connect from the A
 
 **Diagram 2**
 
-The example shown in this article uses the same architecture to connect to Azure via ExpressRoute private peering. This is done using a Site-to-Site VPN connection from the virtual network gateway in Azure Stack to an ExpressRoute router. The following steps in this article show how to create an end-to-end connection between two VNets from two different tenants in Azure Stack to their respective VNets in Azure. You can choose to add as many tenant VNets and replicate the steps for each tenant or use this example to deploy just a single tenant VNet.
+The example shown in this article uses the same architecture to connect to Azure via ExpressRoute private peering. It is done using a Site-to-Site VPN connection from the virtual network gateway in Azure Stack to an ExpressRoute router. The following steps in this article show how to create an end-to-end connection between two VNets from two different tenants in Azure Stack to their respective VNets in Azure. You can choose to add as many tenant VNets and replicate the steps for each tenant or use this example to deploy just a single tenant VNet.
 
 ## Configure Azure Stack
 Now you create the resources you need to set up your Azure Stack environment as a tenant. The following steps illustrate what you need to do. These instructions show how to create resources using the Azure Stack portal, but you can also use PowerShell.
@@ -131,14 +131,14 @@ Use the following procedures to create the required network resources in Azure S
 
 #### Create the Local Network Gateway
 
-The purpose of the Local network gateway resource is to indicate the remote gateway at the other end of the VPN connection. For this example, the remote side is the LAN sub-interface of the ExpressRoute router. For Tenant 1 in this example, the remote address is 10.60.3.255 as shown in Diagram 2.
+The purpose of the Local network gateway resource is to indicate the remote gateway at the other end of the VPN connection. For this example, the remote side is the LAN subinterface of the ExpressRoute router. For Tenant 1 in this example, the remote address is 10.60.3.255 as shown in Diagram 2.
 
 1. Log in to the Azure Stack physical machine.
 2. Sign in to the user portal with your user account and click **New**.
 3. Select **Networking** from the Marketplace menu.
 4. Select **local network gateway** from the list of resources.
 5. In the **Name** field type **ER Router GW**.
-6. For the **IP address** field, refer to Diagram 2. The IP address of the ExpressRoute router's LAN sub-interface for Tenant 1 is 10.60.3.255. For your own environment, type the IP address of your router's corresponding interface.
+6. For the **IP address** field, refer to Diagram 2. The IP address of the ExpressRoute router's LAN subinterface for Tenant 1 is 10.60.3.255. For your own environment, type the IP address of your router's corresponding interface.
 7. In the **Address Space** field, type the address space of the VNets that you want to connect to in Azure. For this example, refer to Diagram 2. For Tenant 1, notice that the required subnets are **192.168.2.0/24** and **10.100.0.0/16**. Type the corresponding subnets for your own environment.
    > [!IMPORTANT]
    > This example assumes you are using static routes for the Site-to-Site VPN connection between the Azure Stack gateway and the ExpressRoute router.
@@ -157,10 +157,10 @@ The purpose of the Local network gateway resource is to indicate the remote gate
 6. In the **Settings** blade,  click **Virtual network gateway** click **GW1**.
 7. Click **Local network gateway**, and click **ER Router GW**.
 8. In the **Connection Name** field, type **ConnectToAzure**.
-9. In the **Shared key (PSK)** field type **abc123** and click **OK**.
+9. In the **Shared key (PSK)** field, type **abc123** and click **OK**.
 10. On the **Summary** blade, click **OK**.
 
-    After the connection is created, you can see the public IP address used by the virtual network gateway. To find this in the Azure Stack portal, browse to your Virtual network gateway. In **Overview**, find the **Public IP address**. Note this address; you will use it as the *Internal IP address* in the next section (if applicable for your deployment).
+    After the connection is created, you can see the public IP address used by the virtual network gateway. To find the address in the Azure Stack portal, browse to your Virtual network gateway. In **Overview**, find the **Public IP address**. Note this address; you will use it as the *Internal IP address* in the next section (if applicable for your deployment).
 
     ![](media/azure-stack-connect-expressroute/GWPublicIP.png)
 
@@ -174,7 +174,7 @@ need virtual machines to send and receive data in the Azure Stack Vnet. Create a
 4. On the **Basics** blade, in the **Name** field type **VM01**.
 5. Type a valid user name and password. You’ll use this account to log
    in to the VM after it has been created.
-6. Provide a **Subscription**, **Resource Group** and **Location** and
+6. Provide a **Subscription**, **Resource Group**, and **Location** and
    then click **OK**.
 7. On the **Size** blade, click a virtual machine size for this instance and then
    click **Select**.
@@ -183,20 +183,20 @@ need virtual machines to send and receive data in the Azure Stack Vnet. Create a
    set to **10.1.1.0/24**. Click **OK**.
 9. Review the settings on the **Summary** blade and click **OK**.
 
-Repeat the previous steps from **Create the virtual network and VM subnet** through **Create a virtual machine** sections for each tenant VNet you want to connect to their respective VNets in Azure using their dedicated ExpressRoute circuit.
+For each tenant VNet you want to connect, repeat the previous steps from **Create the virtual network and VM subnet** through **Create a virtual machine** sections.
 
 ### Configure the NAT virtual machine for gateway traversal
 > [!IMPORTANT]
 > This section is for Azure Stack POC deployments only. The NAT is not needed for multi-node deployments.
 
-Because the POC is designed to be self-contained and isolated from the
-network on which the physical host is deployed, the “External” VIP network
+The POC self-contained and isolated from the
+network on which the physical host is deployed. So, the “External” VIP network
 that the gateways are connected to is not external, but instead
-is hidden behind a router doing Network Address Translation (NAT). The
-router is a Windows Server virtual machine (**MAS-BGPNAT01**) running the
+is hidden behind a router doing Network Address Translation (NAT).
+ 
+The router is a Windows Server virtual machine (**MAS-BGPNAT01**) running the
 Routing and Remote Access Services (RRAS) role in the POC
-infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to allow
-the Site-to-Site VPN Connection to connect on both ends.
+infrastructure. You must configure NAT on the MAS-BGPNAT01 virtual machine to allow the Site-to-Site VPN Connection to connect on both ends.
 
 #### Configure the NAT
 
@@ -264,11 +264,11 @@ Now that you have completed the Azure Stack configuration, you need to deploy so
 
 **Diagram 3**
 
-In the example, a standard hub (192.168.1.x/24) and spoke (10.100.x.x./16) VNet model is used to deploy the workloads in the spoke Vnet and connect the ExpressRoute circuit in the hub VNet. The two VNets are linked using the VNet peering feature.
+In the example, a standard hub (192.168.2.x/24) and spoke (10.100.x.x./16) VNet model is used. The workloads are deployed in the spoke Vnet and the ExpressRoute circuit is connected to the hub VNet. The two VNets are linked using the VNet peering feature.
 
 ### Configure Vnets
 1. Sign in to the Azure portal with your Azure credentials.
-2. Follow the steps in [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to create VNets that you want. For this example, a Hub VNet with 192.168.2.X/24 address space and a Spoke VNet with a 10.100.x.x /16 address space is created.
+2. To create VNets that you want, follow the steps in [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). For this example, a Hub VNet with 192.168.2.X/24 address space and a Spoke VNet with a 10.100.x.x /16 address space is created.
 3. Peer the Hub and Spoke VNets using the steps in [Create a virtual network peering using the Azure portal](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). When configuring VNet peering, ensure you select the following options:
    * From hub to spoke: **Allow gateway transit**
    * From spoke to hub: **Use remote gateway**
@@ -280,7 +280,7 @@ In the example, a standard hub (192.168.1.x/24) and spoke (10.100.x.x./16) VNet 
 3. Share the service key from the previous step with your hoster/provider to provision your ExpressRoute circuit at their end.
 4. Follow the steps in [Create and modify peering for an ExpressRoute circuit](../expressroute/expressroute-howto-routing-portal-resource-manager.md) to configure private peering on the ExpressRoute circuit.
 5. Follow the steps in [Configure a virtual network gateway for ExpressRoute using PowerShell](../expressroute/expressroute-howto-add-gateway-resource-manager.md) to create a virtual network gateway for ExpressRoute in the hub VNet.
-6. Follow the steps in [Connect a virtual network to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) to link the ER circuit to the hub VNet.
+6. To link the ER circuit to the hub VNet, follow the steps in [Connect a virtual network to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 7. Deploy your workload virtual machines into the spoke VNet.
 
 Repeat these steps for any additional tenant VNets you want to connect in Azure through their respective ExpressRoute circuits.
@@ -293,7 +293,7 @@ You can use the following end-to-end infrastructure diagram to guide the configu
 
 **Diagram 4**
 
-You can use any router that supports IKEv2 VPN and BGP to terminate the Site-to-Site VPN connection from Azure Stack and use the same router to connect to Azure using an ExpressRoute circuit. 
+You can use any router that supports IKEv2 VPN and BGP to terminate the Site-to-Site VPN connection from Azure Stack. The same router is used to connect to Azure using an ExpressRoute circuit. 
 
 Here is a sample configuration from a Cisco ASR 1000 that supports the network infrastructure shown in Diagram 4:
 
@@ -516,9 +516,9 @@ route-map VNET-ONLY permit 10
 
 ## Test the connection
 
-You should test your connection after establishing the Site-to-Site connection and the ExpressRoute circuit. This task is simple.  Log on to one of the virtual machines you created in your Azure VNet and ping the virtual machine you created in the Azure Stack POC environment, or vice versa. 
+Test your connection after establishing the Site-to-Site connection and the ExpressRoute circuit. This task is simple.  Log on to one of the virtual machines you created in your Azure VNet and ping the virtual machine you created in the Azure Stack POC environment, or vice versa. 
 
-To ensure you are sending the traffic through the Site-to-Site and ExpressRoute connections, you must ping the dedicated IP (DIP) address of the virtual machine at both ends and not the VIP address of the virtual machine. To do this, you must find and note the address on the other end of the connection.
+To ensure you are sending the traffic through the Site-to-Site and ExpressRoute connections, you must ping the dedicated IP (DIP) address of the virtual machine at both ends and not the VIP address of the virtual machine. First, you must find and note the address on the other end of the connection.
 
 ### Log on to the tenant virtual machine in Azure Stack
 
