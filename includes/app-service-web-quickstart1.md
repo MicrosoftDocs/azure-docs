@@ -18,10 +18,10 @@ Create an App Service plan with the [az appservice plan create](/cli/azure/appse
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-The following example creates an App Service plan named `quickStartPlan` in the **Free** pricing tier:
+The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
@@ -29,14 +29,14 @@ When the App Service plan has been created, the Azure CLI shows information simi
 ```json
 { 
   "adminSiteName": null,
-  "appServicePlanName": "quickStartPlan",
+  "appServicePlanName": "myAppServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
   "kind": "app",
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
-  "name": "quickStartPlan",
+  "name": "myAppServicePlan",
   < JSON data removed for brevity. >
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
@@ -46,14 +46,14 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Create a Web App
 
-Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `quickStartPlan` App Service plan with the [az appservice web create](/cli/azure/appservice/web#create) command. 
+Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az appservice web create](/cli/azure/appservice/web#create) command. 
 
 The web app provides a hosting space for your code and provides a URL to view the deployed app.
 
 In the following command, replace *\<app_name>* with a unique name. If `<app_name>` is not unique, you get the error message "Website with given name <app_name> already exists." The default URL of the web app is `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
+az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
 When the web app has been created, the Azure CLI shows information similar to the following example:
