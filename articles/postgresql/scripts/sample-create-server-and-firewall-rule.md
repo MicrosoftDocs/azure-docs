@@ -9,9 +9,10 @@ editor: jasonh
 ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 05/31/2017
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
