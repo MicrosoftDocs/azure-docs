@@ -42,33 +42,25 @@ Now, you will create a Data Lake Analytics and a Data Lake Store account simulta
 4. Optionally, select a pricing tier for your Data Lake Analytics account.
 5. Click **Create**. 
 
-## Create and submit Data Lake Analytics jobs
-After you have prepared the source data, you can start developing a U-SQL script.  
+## Submit a U-SQL job
 
-**To submit a job**
-
-1. From the Data Lake analytics account, click **New Job**.
-2. Enter **Job Name**, and the following U-SQL script:
+1. From the Data Lake Analytics account, click **New Job**.
+2. Paste in the following U-SQL script:
 
 ```
-@searchlog =
-    EXTRACT UserId          int,
-            Start           DateTime,
-            Region          string,
-            Query           string,
-            Duration        int?,
-            Urls            string,
-            ClickedUrls     string
-    FROM "/Samples/Data/SearchLog.tsv"
-    USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-    TO "/Output/SearchLog-from-Data-Lake.csv"
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
     USING Outputters.Csv();
 ```
 
-
-This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
+This U-SQL script defines a RowSet called `@a` and then writes that RowSet to csv file.
 
 1. Click **Submit Job**.   
 2. Wait until the job status is changed to **Succeeded**.
