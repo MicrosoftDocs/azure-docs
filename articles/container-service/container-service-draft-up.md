@@ -204,7 +204,6 @@ The output looks something like:
   - the root deployment domain that you have configured to map to the Kubernetes ingress external IP address (here, `13.64.108.240`)
 
 These enable you to create the base-64 encoded value of the configuration JSON string, `{"username":"<user>","password":"<secret>","email":"email@example.com"}`. One way to do this is the following (but replace this example's values with your own).
-
     ```bash
     acrname="draftacs"
     password=$(az acr credential show -n $acrname --output tsv --query "passwords[0].value")
