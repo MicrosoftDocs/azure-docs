@@ -51,25 +51,25 @@ This tutorial assumes that you have at least some prior experience with SQL Serv
 
 2.  On the **Create Data Sync Group** blade, do the following things:
 
-    - In the **Sync Group Name** field, enter a name for the new sync group.
+    1.  In the **Sync Group Name** field, enter a name for the new sync group.
 
-    - In the **Sync Metadata Database** section, choose whether to create a new database (recommended) or to use an existing database.
+    2.  In the **Sync Metadata Database** section, choose whether to create a new database (recommended) or to use an existing database.
 
-    If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
+        If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
 
-    If you chose **Use existing database**, select the database from the list.
+        If you chose **Use existing database**, select the database from the list.
 
-    - In the **Automatic Sync** section, first select **On** or **Off**.
+    3.  In the **Automatic Sync** section, first select **On** or **Off**.
 
-    If you chose **On**, in the **Sync Frequency** section, enter a number and select Seconds, Minutes, Hours, or Days.
+        If you chose **On**, in the **Sync Frequency** section, enter a number and select Seconds, Minutes, Hours, or Days.
 
-    ![Specify sync frequency](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
+        ![Specify sync frequency](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
-    - In the **Conflict Resolution** section, select "Hub wins" or "Member wins."
+    4.  In the **Conflict Resolution** section, select "Hub wins" or "Member wins."
 
-    ![Specify how conflicts are resolved](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
+        ![Specify how conflicts are resolved](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
-    - Select **OK** and wait for the new sync group to be created and deployed.
+    5.  Select **OK** and wait for the new sync group to be created and deployed.
 
 ## Step 2 - Add sync members
 
@@ -95,7 +95,7 @@ On the **Configure Azure Database** blade, do the following things:
 
 5.  In the **Sync Directions** field, select Bi-directional Sync, To the Hub, or From the Hub.
 
-![Adding a new SQL Database sync member](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadding.png)
+    ![Adding a new SQL Database sync member](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadding.png)
 
 6.  In the **Username** and **Password** fields, enter the existing credentials for the SQL Database server on which the member database is located. Don't enter *new* credentials in this section.
 
@@ -139,9 +139,9 @@ On the **Configure On-Premises** blade, do the following things:
 
     8.  In the **Sync Metadata Database Configuration** dialog box, paste in the agent key copied from the Azure portal. Also provide the existing credentials for the Azure SQL Database server on which the metadata database is located. (If you created a new metadata database, this database is on the same server as the hub database.) Select **OK** and wait for the configuration to finish.
 
-    ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
+        ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
-    >   [!NOTE] 
+        >   [!NOTE] 
     >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as \<hub_database_name\>.database.windows.net. Follow the steps in the dialog box to configure the Azure firewall rule. Then return to the Client Sync Agent app.
 
     9.  In the Client Sync Agent app, click **Register** to register a SQL Server database with the agent. The **SQL Server Configuration** dialog box opens.
@@ -168,17 +168,17 @@ On the **Configure On-Premises** blade, do the following things:
 
 After the new sync group members are created and deployed, Step 3, **Configure sync group**, is highlighted in the **New sync group** blade.
 
-On the **Tables** blade, select a database from the list of sync group members, and then select **Refresh schema**.
+1.  On the **Tables** blade, select a database from the list of sync group members, and then select **Refresh schema**.
 
-From the list of available tables, select the tables that you want to sync.
+2.  From the list of available tables, select the tables that you want to sync.
 
-![Select tables to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
+    ![Select tables to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
-By default, all columns in the table are selected. If you don't want to sync all the columns, disable the checkbox for the columns that you don't want to sync.
+3.  By default, all columns in the table are selected. If you don't want to sync all the columns, disable the checkbox for the columns that you don't want to sync.
 
-![Select fields to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+    ![Select fields to sync](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
-Finally, select **Save**.
+4.  Finally, select **Save**.
 
 ## Next steps
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
