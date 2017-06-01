@@ -72,16 +72,11 @@
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
-<<<<<<< HEAD
 ## Troubleshoot
-### [Log collection](site-recovery-monitoring-and-troubleshooting.md)
-### [Protection errors](site-recovery-vmware-to-azure-protection-troubleshoot.md)
-=======
-## Monitor and troubleshoot
+### [Collect logs](site-recovery-monitoring-and-troubleshooting.md)
 ### [Azure VM replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [On-premises to Azure replication issues](site-recovery-monitoring-and-troubleshooting.md)
+### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
->>>>>>> c5bc7325a16268962bb56df6e8a597ab05448d68
 # Reference
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
 ## [PowerShell classic](/powershell/module/azure/?view=azuresmps-3.7.0)
