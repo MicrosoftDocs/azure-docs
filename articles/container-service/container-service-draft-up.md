@@ -137,7 +137,7 @@ The installation instructions for Draft are in the [Draft repository](https://gi
 
 ## Wire up deployment domain
 
-Draft creates a    for each Helm chart it creates -- each application. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. (In this example, we use `squillace.io` as the deployment domain.) To enable this subdomain behavior, you must create an A record for `'*'` in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
+Draft creates a release for each Helm chart it creates -- each application you are working on. Each one gets a generated name that is used by draft as a _subdomain_ on top of the root _deployment domain_ that you control. (In this example, we use `squillace.io` as the deployment domain.) To enable this subdomain behavior, you must create an A record for `'*'` in your DNS entries for your deployment domain, so that each generated subdomain is routed to the Kubernetes cluster's ingress controller.
 
 Your own domain provider has their own way to assign DNS servers; to [delegate your domain nameservers to Azure DNS](../dns/dns-delegate-domain-azure-dns.md), you take the following steps:
 
