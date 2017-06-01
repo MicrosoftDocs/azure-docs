@@ -19,7 +19,7 @@ ms.author: bbenz
 # Build a Java and MySQL web app in Azure
 
 This tutorial shows you how to create a Java web app in Azure and connect it to a MySQL database. 
-When you are finished, you will have a Spring Boot framework to-do list application storing data in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) running on [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
+When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) running on [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -115,17 +115,23 @@ Stop the application by hitting `Ctrl`+`C` in the command prompt.
 
 In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You will configure the sample application to use this database in a later step in the tutorial.
 
+Use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Java application in Azure appservice. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
-1. Use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Java application in Azure appservice. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
-   ```azurecli 
-   az login 
-   ```   
-2. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container where related resources like web apps, databases, and storage accounts are deployed and managed. 
-   ```azurecli
-   az group create --name myResourceGroup  --location "North Europe"
-   ```    
-3. Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.    
+```azurecli 
+az login 
+```   
+
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container where related resources like web apps, databases, and storage accounts are deployed and managed. 
+
+```azurecli
+az group create \
+--name myResourceGroup  \ 
+--location "North Europe"
+```    
+
+Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.    
 Substitute your own unique MySQL server name where you see the `<mysql_server_name>` placeholder. This name is part of your MySQL server's hostname, `<mysql_server_name>.mysql.database.azure.com`, so it needs to be globally unique. Also substitute `<admin_user>` and `<admin_password>` with your own values.
+
 ```azurecli
 az mysql server create --name <mysql_server_name> \ 
 --resource-group myResourceGroup \ 
@@ -133,7 +139,9 @@ az mysql server create --name <mysql_server_name> \
 --admin-user <admin_user> \ 
 --admin-password <admin_password>
 ```
+
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
+
 ```json
 {
   "administratorLogin": "admin_user",
@@ -144,11 +152,15 @@ When the MySQL server is created, the Azure CLI shows information similar to the
   "name": "mysql_server_name",
   "resourceGroup": "mysqlJavaResourceGroup",
   ...
+  < Output has been truncated for readability >
 }
 ```
-4. Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command. 
+
+Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command. 
+
 ```azurecli
-az mysql server firewall-rule create --name allIPs \ 
+az mysql server firewall-rule create \
+--name allIPs \
 --server mysql_server_name  \ 
 --resource-group myResourceGroup \ 
 --start-ip-address 0.0.0.0 \ 
@@ -210,10 +222,8 @@ When the plan is ready, the Azure CLI will show similar information to the follo
   "location": "North Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  <JSON data removed for brevity.>
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
+  ...
+  < Output has been truncated for readability >
 } 
 ``` 
 
@@ -239,27 +249,16 @@ When the web app definition is ready, the Azure CLI shows information similar to
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "<app_name>.azurewebsites.net",
   "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    <JSON data removed for brevity.>
+   ...
+  < Output has been truncated for readability >
 }
 ```
 
-### Set Java and Tomcat versions
+### Configure Java runtime
 
-Set the Java version, Java App Server (container) type, and container version by using the [az appservice web config update](/cli/azure/appservice/web/config#update) command.
+Set the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#update) command.
+
+The following commmand configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
 ```azurecli
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
@@ -309,7 +308,7 @@ az webapp deployment list-publishing-profiles --name <app_name> --resource-group
 
 ### Upload the app using FTP
 
-Use your favorite FTP method to deploy the .WAR file to the /site/wwwroot/webapps , removing the existing default (ROOT) application and replacing it with the sample.
+Use your favorite FTP method to deploy the .WAR file to the */site/wwwroot/webapps* , removing the existing default (ROOT) application directory and replacing the existing ROOT.war with the .WAR file you built in the previous step.
 
 ```bash
 ftp waws-prod-blu-069.ftp.azurewebsites.windows.net
@@ -330,8 +329,10 @@ Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
-**Congratulations!** You're running a data-driven Java app in Azure appservice.
-To update the app, repeat the maven clean package command and redeploy the app via FTP.
+**Congratulations!** You're running a data-driven Java app in Azure App Service.
+
+
+## Update the app and redeploy
 
 ## Stream diagnostic logs 
 
