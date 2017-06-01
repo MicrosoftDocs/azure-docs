@@ -10,12 +10,12 @@ manager: jhubbard
 editor: cgronlun
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 06/01/2017
 ms.author: jgao
 
 ---
@@ -122,7 +122,7 @@ There are a number of ways you can access the files in Data Lake Store from an H
 
 		/example/data/sample.log
 
-## Creating HDInsight clusters with access to Data Lake Store
+## Create HDInsight clusters with access to Data Lake Store
 
 Follow the links below for detailed instructions on how to create HDInsight clusters with access to Data Lake Store.
 
