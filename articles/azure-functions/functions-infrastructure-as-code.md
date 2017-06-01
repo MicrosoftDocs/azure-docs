@@ -1,6 +1,6 @@
 ---
-title: Automate resource deployment for an Azure Functions app | Microsoft Docs
-description: Learn how to build an Azure Resource Manager template that deploys your Azure Functions app.
+title: Automate resource deployment for a Function App in Azure Functions | Microsoft Docs
+description: Learn how to build an Azure Resource Manager template that deploys your Function App.
 services: Functions
 documtationcenter: na
 author: lindydonna
@@ -20,27 +20,27 @@ ms.author: donnam;glenga
 
 ---
 
-# Automate resource deployment for your Azure Functions app
+# Automate resource deployment for your Function App in Azure Functions
 
-You can use an Azure Resource Manager template to deploy an Azure Functions app. This article outlines the required resources and parameters for an Azure Functions app. You might need to deploy additional resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your Functions app.
+You can use an Azure Resource Manager template to deploy a Function App. This article outlines the required resources and parameters for doing so. You might need to deploy additional resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your Function App.
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 For sample templates, see:
-- [Functions app on Consumption plan]
-- [Functions app on App Service plan]
+- [Function App on Consumption plan]
+- [Function App on App Service plan]
 
 ## Required resources
 
-A Functions app requires these resources:
+A Function App requires these resources:
 
 * An [Azure Storage](../storage/index.md) account
 * A hosting plan (Consumption plan or App Service plan)
-* A Functions app 
+* A Function App 
 
 ### Storage account
 
-An Azure Storage account is required for a Functions app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).
+An Azure Storage account is required for a Function App. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).
 
 ```json
 {
@@ -75,9 +75,9 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 The definition of the hosting plan varies, depending on whether you use a Consumption or App Service plan. See [Deploy Function App on Consumption Plan](#consumption) and [Deploy Function App on App Service Plan](#app-service-plan).
 
-### Functions app
+### Function App
 
-The Functions app resource is defined by using a resource of type **Microsoft.Web/Site** and kind **functionapp**:
+The Function App resource is defined by using a resource of type **Microsoft.Web/Site** and kind **functionapp**:
 
 ```json
 {
@@ -94,9 +94,9 @@ The Functions app resource is defined by using a resource of type **Microsoft.We
 
 <a name="consumption"></a>
 
-## Deploy Functions app on the Consumption plan
+## Deploy Function App on the Consumption plan
 
-You can run Azure Functions in two different modes: the Consumption plan and the App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more about hosting plans, see [Azure Functions Consumption and App Service plans](functions-scale.md).
+You can run Function App in two different modes: the Consumption plan and the App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more about hosting plans, see [Azure Functions Consumption and App Service plans](functions-scale.md).
 
 For a sample Azure Resource Manager template, see [Function App on Consumption plan].
 
@@ -118,9 +118,9 @@ A Consumption plan is a special type of "serverfarm" resource. You specify it by
 }
 ```
 
-### Create a Functions app
+### Create a Function App
 
-In addition, a Consumption plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. These properties configure the storage account and file path where the Functions app code and configuration are stored.
+In addition, a Consumption plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. These properties configure the storage account and file path where the Function App code and configuration are stored.
 
 ```json
 {
@@ -165,11 +165,11 @@ In addition, a Consumption plan requires two additional settings in the site con
 
 <a name="app-service-plan"></a> 
 
-## Deploy Functions app on the App Service plan
+## Deploy Function App on the App Service plan
 
-In the App Service plan, your Functions app runs on dedicated VMs on Basic, Standard, and Premium SKUs, similar to web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+In the App Service plan, your Function App runs on dedicated VMs on Basic, Standard, and Premium SKUs, similar to web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-For a sample Azure Resource Manager template, see [Function App on App Service Plan].
+For a sample Azure Resource Manager template, see [Function App on App Service plan].
 
 ### Create an App Service plan
 
@@ -189,14 +189,14 @@ For a sample Azure Resource Manager template, see [Function App on App Service P
 }
 ```
 
-### Create a Functions app 
+### Create a Function App 
 
-After you've selected a scaling option, create a Functions app. The app is the container that holds all your functions.
+After you've selected a scaling option, create a Function App. The app is the container that holds all your functions.
 
-A Functions app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource, and use a different [deployment option](functions-continuous-deployment.md) instead.
+A Function App has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource, and use a different [deployment option](functions-continuous-deployment.md) instead.
 
 > [!IMPORTANT]
-> To successfully deploy your application using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied using **siteConfig**. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your Function app must be deployed *before* **config/appSettings** is applied. For example, when you are using functions with [Logic Apps](../logic-apps/index.md), your functions are a dependency of another resource.
+> To successfully deploy your application using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied using **siteConfig**. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your Function App must be deployed *before* **config/appSettings** is applied. For example, when you are using functions with [Logic Apps](../logic-apps/index.md), your functions are a dependency of another resource.
 
 ```json
 {
@@ -266,13 +266,13 @@ You can use any of the following ways to deploy your template:
 
 Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL-encoded](https://www.bing.com/search?q=url+encode) version of the raw path of your `azuredeploy.json` file in GitHub.
 
-#### Markdown
+Here is an example using markdown:
 
 ```markdown
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
-#### HTML
+Here is an example using HTML:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
@@ -288,5 +288,5 @@ Learn more about how to develop and configure Azure Functions.
 
 <!-- LINKS -->
 
-[Functions app on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Functions app on App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Function App on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[Function App on App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
