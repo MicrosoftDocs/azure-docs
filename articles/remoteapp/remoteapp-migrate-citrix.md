@@ -1,6 +1,6 @@
 ---
 
-title: How to migrate from Azure RemoteApp to Citrix XenApp Essentials | Microsoft Docs
+title: Migrate from Azure RemoteApp to Citrix XenApp Essentials | Microsoft Docs
 description: How to migrate from Azure RemoteApp to Citrix XenApp Essentials
 services: remoteapp
 documentationcenter: ''
@@ -20,12 +20,12 @@ ms.author: mbaldwin
 
 # Migrate from Azure RemoteApp to Citrix XenApp Essentials
 
-If you use Azure RemoteApp and you would like to migrate to Citrix XenApp Essentials, there are a few prerequisites to keep in mind. First, read Citrix's [step by step technical deployment guide for Citrix XenApp Essentials](https://docs.citrix.com/content/dam/docs/en-us/citrix-cloud/downloads/xenapp-essentials-deployment-guide.pdf), as well as their [online technical library](http://docs.citrix.com/en-us/citrix-cloud/xenapp-and-xendesktop-service/xenapp-essentials.html). 
+If you use Azure RemoteApp and you want to migrate to Citrix XenApp Essentials, there are a few prerequisites to keep in mind. First, read Citrix's [step by step technical deployment guide for Citrix XenApp Essentials](https://docs.citrix.com/content/dam/docs/en-us/citrix-cloud/downloads/xenapp-essentials-deployment-guide.pdf) and its [online technical library](http://docs.citrix.com/en-us/citrix-cloud/xenapp-and-xendesktop-service/xenapp-essentials.html). 
 
 ## Prerequisite steps for migration
 
 1. Create a new virtual network, or determine which Azure virtual network in Azure Resource Manager into which you'll deploy Citrix XenApp Essentials. Azure RemoteApp uses the Azure classic portal; Citrix XenApp Essentials only supports Azure Resource Manager.  
-2. Ensure that the virtual network you selected has networking access to your domain controller, as Citrix only supports hybrid deployments. If you are using a cloud deployment of Azure RemoteApp, ensure that your virtual network has networking access to an Active Directory domain controller. You can also use Azure Active Directory Domain Services (Azure AD DS). 
+2. Ensure that the virtual network you selected has networking access to your domain controller, because Citrix only supports hybrid deployments. If you are using a cloud deployment of Azure RemoteApp, ensure that your virtual network has networking access to an Active Directory domain controller. You can also use Azure Active Directory Domain Services (Azure AD DS). 
 3. Ensure that the DNS is properly configured for the virtual network, so that domain join is successful on your first attempt. You can create a virtual machine (VM) in the virtual network you selected, and perform a manual domain join to verify that the DNS and domain join works as expected. This ensures that you are successful the first time you deploy Citrix XenApp Essentials. 
 4. If needed, create a virtual network peering between an Azure classic portal virtual network you are using with Azure RemoteApp, and your Azure Resource Manager virtual network. This peering process works if the two networks reside in the same region. If they do not, use site-to-site VPN to connect the virtual networks for networking. 
 5. If needed, read [How to migrate data into and out of Azure RemoteApp](remoteapp-migrate.md). 
@@ -35,7 +35,7 @@ If you use Azure RemoteApp and you would like to migrate to Citrix XenApp Essent
 ## Other considerations
 
 Be aware of the following additional considerations when you migrate:
-- Citrix XenApp Essentials only supports hybrid deployments. In other words, it requires network access to a domain controller in order to perform domain join. If you are using a cloud deployment of Azure RemoteApp, either use Azure AD DS, or ensure that your virtual network has access to Active Directory for domain join. 
+- Citrix XenApp Essentials only supports hybrid deployments. In other words, it requires network access to a domain controller in order to perform domain join. If you are using a cloud deployment of Azure RemoteApp, either use Azure AD DS or ensure that your virtual network has access to Active Directory for domain join. 
 - To learn how to move user data to Citrix XenApp Essentials, see [How to migrate data into and out of Azure RemoteApp](remoteapp-migrate.md). 
 - Citrix XenApp Essentials only supports Active Directory accounts. It does not support Microsoft accounts (such as outlook.com, msn.com, or hotmail.com). 
 
@@ -49,4 +49,4 @@ For full details on pricing, see the [FAQ](https://www.citrix.com/global-partner
 
 If you still have questions, you can:
 - Email us at [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
-- [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Start by [opening an Azure support case](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to help with the steps 1-5 above. For steps 6-7, contact Citrix by opening a support ticket within the Citrix management portal. 
+- [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Start by [opening an Azure support case](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to help with prerequisite steps 1-5. For steps 6-7, contact Citrix by opening a support ticket within the Citrix management portal. 
