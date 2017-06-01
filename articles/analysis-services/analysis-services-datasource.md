@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 
 ---
 # Data sources supported in Azure Analysis Services
-Azure Analysis Services servers support connecting to data sources in the cloud and on-premises in your organization. 
+Azure Analysis Services servers support connecting to data sources in the cloud and on-premises in your organization. Additional supported data sources are being added all the time. Check back often. 
 
 The following data sources are currently supported:
 
@@ -45,10 +45,7 @@ The following data sources are currently supported:
 > [!IMPORTANT]
 > Connecting to on-premises data sources require an [On-premises data gateway](analysis-services-gateway.md) installed on a computer in your environment.
 
-> [!NOTE]
-> Additional supported data sources are being added all the time. Check back often. 
-
-## Datasource providers
+## Data providers
 
 Data models in Azure Analysis Services may require different data providers when connecting to certain data sources. In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error.
 

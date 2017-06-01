@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 
 ---
@@ -27,7 +27,7 @@ Backing up tabular model databases in Azure Analysis Services is much the same a
 > 
 > 
 
-Backups are saved with a .abf extension. For in-memory tabular models, both model data and metadata are stored. For Direct Query tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose. 
+Backups are saved with an .abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose. 
 
 
 
@@ -62,7 +62,7 @@ Before backing up, you need to configure storage settings for your server.
 
 2. In **Backup Database** > **Backup file**, click **Browse**.
 
-3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. By default, the file name is given a .abf extension. 
+3. In the **Save file as** dialog, verify the folder path, and then type a name for the backup file. By default, the file name is given an .abf extension. 
 
 4. In the **Backup Database** dialog, select options.
 
