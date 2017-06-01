@@ -42,23 +42,22 @@
 ### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
 ## Configure IPsec/IKE policies on connections
 ### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## Configure highly available active-active connections
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Configure BGP for a VPN gateway
 ### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
 ## Configure forced tunneling
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
-## Configure highly available active-active connections
-### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
-## Manage VPN gateways
-### [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
-### Delete a VPN gateway
-#### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-#### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-#### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## Modify local network gateway settings
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
+## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
+## Delete a VPN gateway
+### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
