@@ -156,24 +156,27 @@ Import-DscResource -ModuleName xPSDesiredStateConfiguration
 $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
 
-# Download and install the Dependency Agent
-xRemoteFile DAPackage 
-{
-	Uri = "https://aka.ms/dependencyagentwindows"
-	DestinationPath = $DAPackageLocalPath
-	DependsOn = "[Package]OI"
-}
+Node $NodeName 
+{ 
+	# Download and install the Dependency Agent
+	xRemoteFile DAPackage 
+	{
+		Uri = "https://aka.ms/dependencyagentwindows"
+		DestinationPath = $DAPackageLocalPath
+		DependsOn = "[Package]OI"
+	}
 
-xPackage DA
-{
-	Ensure="Present"
-	Name = "Dependency Agent"
-	Path = $DAPackageLocalPath
-	Arguments = '/S'
-	ProductId = ""
-	InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-	InstalledCheckRegValueName = "DisplayName"
-	InstalledCheckRegValueData = "Dependency Agent"
+	xPackage DA
+	{
+		Ensure="Present"
+		Name = "Dependency Agent"
+		Path = $DAPackageLocalPath
+		Arguments = '/S'
+		ProductId = ""
+		InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+		InstalledCheckRegValueName = "DisplayName"
+		InstalledCheckRegValueData = "Dependency Agent"
+	}
 }
 ```
 
@@ -233,6 +236,14 @@ Linux: /var/opt/microsoft/dependency-agent/log/service.log
 You can expect each agent to transmit roughly 25 MB per day, depending on how complex your system dependencies are.  Service Map dependency data is sent by each agent every 15 seconds.  
 
 The Dependency Agent typically consumes 0.1% of system memory and 0.1% of system CPU.
+
+## Supported Azure regions
+Service Map is currently available in the following Azure regions:
+| Region |
+|:--|
+| East US |
+| West Europe |
+| West Central US |
 
 
 ## Supported operating systems
