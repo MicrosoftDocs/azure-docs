@@ -22,7 +22,7 @@ ms.author: jgao
 ---
 # Upload data for Hadoop jobs in HDInsight
 
-Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enables the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight(hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight(hdinsight-hadoop-use-data-lake-store.md).
 
 **Prerequisites**
 
@@ -32,14 +32,14 @@ Note the following requirement before you begin:
 
 
 ### Directories
-Azure Storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. HDInsight sees these as if they are actual directories.
+Azure Storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. HDInsight sees these names as if they are actual directories.
 
 For example, a blob's key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path.
 
-Because of this, if you use Azure Explorer tools you may notice some 0 byte files. These files serve two purposes:
+Because of this reason, if you use Azure Explorer tools you may notice some 0 bytes files. These files serve two purposes:
 
-* If there are empty folders, they mark of the existence of the folder. Azure Storage is clever enough to know that if a blob called foo/bar exists, there is a folder called **foo**. But the only way to signify an empty folder called **foo** is by having this special 0 byte file in place.
-* They hold special metadata that is needed by the Hadoop file system, notably the permissions and owners for the folders.
+* If there are empty folders, they mark of the existence of the folder. Azure Storage is clever enough to know that if a blob called foo/bar exists, there is a folder called **foo**. But the only way to signify an empty folder called **foo** is by having this special 0 bytes file in place.
+* They hold special metadata that is needed by the Hadoop file system, notably the permissions, and owners for the folders.
 
 ## Find the default storage accounts for your cluster
 
@@ -57,7 +57,7 @@ Microsoft provides the following utilities to work with Azure Storage:
 | [Hadoop command](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster and only allows loading data from the local file system into Azure Storage.
+> While the Azure CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster. And the command only allows loading data from the local file system into Azure Storage.
 >
 >
 
@@ -66,7 +66,7 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Install and configure the Azure CLI for Mac, Linux and Windows](../cli-install-nodejs.md).
+1. [Install and configure the Azure CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
         azure login
@@ -79,7 +79,7 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
         azure storage account keys list <storage-account-name>
 
-    This should return **Primary** and **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
+    This command returns the **Primary** and the **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
 5. Use the following command to retrieve a list of blob containers within the storage account:
 
         azure storage container list -a <storage-account-name> -k <primary-key>
@@ -164,12 +164,12 @@ or
 For a list of other Hadoop commands that work with files, see [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-> On HBase clusters, the default block size used when writing data is 256KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12GB results in an error. See the [storage exception for write on blob](#storageexception) section below for more information.
+> On HBase clusters, the default block size used when writing data is 256 KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12 GB results in an error. For more information, see the [storage exception for write on blob](#storageexception) section in this article.
 >
 >
 
 ## Graphical clients
-There are also several applications that provide a graphical interface for working with Azure Storage. The following is a list of a few of these applications:
+There are also several applications that provide a graphical interface for working with Azure Storage. The following table is a list of a few of these applications:
 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
@@ -186,14 +186,14 @@ For more information, see [Navigate the linked resources](hdinsight-hadoop-visua
 ### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
 
-Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].
+Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy, and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].
 
-1. Run Azure Storage Explorer. If this is the first time you have run the Storage Explorer, you will be prompted for the **_Storage account name** and **Storage account key**. If you have run it before, use the **Add** button to add a new storage account name and key.
+1. Run Azure Storage Explorer. If it is the first time you have run the Storage Explorer, you are prompted for the **_Storage account name** and **Storage account key**. If you have run it before, use the **Add** button to add a new storage account name and key.
 
     Enter the name and key for the storage account used by your HDInsight cluster and then select **SAVE & OPEN**.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
-2. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, this is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
+2. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, it is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
 3. From the tool bar, select the upload icon.
 
     ![Tool bar with upload icon highlighted](./media/hdinsight-upload-data/toolbar.png)
@@ -233,7 +233,7 @@ For more information on installing the Azure SDKs, see [Azure downloads](https:/
 
 ## Troubleshooting
 ### <a id="storageexception"></a>Storage exception for write on blob
-**Symptoms**: When using the `hadoop` or `hdfs dfs` commands to write files that are ~12GB or larger on an HBase cluster, you may encounter the following error:
+**Symptoms**: When using the `hadoop` or `hdfs dfs` commands to write files that are ~12 GB or larger on an HBase cluster, you may encounter the following error:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
@@ -255,7 +255,7 @@ For more information on installing the Azure SDKs, see [Azure downloads](https:/
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**Cause**: HBase on HDInsight clusters default to a block size of 256KB when writing to Azure storage. While this works for HBase APIs or REST APIs, it will result in an error when using the `hadoop` or `hdfs dfs` command-line utilities.
+**Cause**: HBase on HDInsight clusters default to a block size of 256KB when writing to Azure storage. While it works for HBase APIs or REST APIs, it will result in an error when using the `hadoop` or `hdfs dfs` command-line utilities.
 
 **Resolution**: Use `fs.azure.write.request.size` to specify a larger block size. You can do this on a per-use basis by using the `-D` parameter. The following is an example using this parameter with the `hadoop` command:
 
