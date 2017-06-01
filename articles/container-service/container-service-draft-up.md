@@ -234,8 +234,8 @@ $ draft create
 ```
 
 The output includes a Dockerfile and a Helm chart. To build and deploy, you just type `draft up`. The output is extensive, but begins like the following example.
-```
-draft up
+```bash
+$ draft up
 --> Building Dockerfile
 Step 1 : FROM python:onbuild
 onbuild: Pulling from library/python
@@ -248,7 +248,7 @@ ea8a37f15161: Pulling fs layer
 ```
 
 and when successful ends with something similar to the following example.
-```
+```bash
 ab68189731eb: Pushed
 53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
 --> Deploying to Kubernetes
