@@ -79,7 +79,7 @@ For more information for creating service principal and grant access, see [Confi
 
 ## Use Data Lake Store as additional storage
 
-You can use Data Lake Store as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Storage Blob or an Data Lake Store account. If you are running HDInsight jobs against the data stored in Data Lake Store as additional storage, you must use the fully-qualified path to the files. For example:
+You can use Data Lake Store as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Storage Blob or a Data Lake Store account. If you are running HDInsight jobs against the data stored in Data Lake Store as additional storage, you must use the fully-qualified path to the files. For example:
 
 	adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -124,7 +124,7 @@ There are a number of ways you can access the files in Data Lake Store from an H
 
 ## Create HDInsight clusters with access to Data Lake Store
 
-Follow the links below for detailed instructions on how to create HDInsight clusters with access to Data Lake Store.
+Use the following links for detailed instructions on how to create HDInsight clusters with access to Data Lake Store.
 
 * [Using Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Using PowerShell (with Data Lake Store as default storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
