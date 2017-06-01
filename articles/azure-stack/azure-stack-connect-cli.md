@@ -24,7 +24,6 @@ In this document, we guide you through the process of using Azure Command-line I
 ## Install Azure Stack CLI
 
 Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) article. To verify if the installation was successful, open the command prompt and run the following command:
-
 ```
 az --version
 ```
@@ -38,11 +37,13 @@ Use the following steps to connect to Azure Stack:
 1. Disable the SSL certificate validation by running the following commands:
 
    * If you are connecting from a windows-based computer:
+   
      ```
      set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
      set ADAL_PYTHON_SSL_NO_VERIFY=1
      ```
    * If you are connecting from macOS:
+   
      ```
      export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
      export ADAL_PYTHON_SSL_NO_VERIFY=1
@@ -54,53 +55,70 @@ Use the following steps to connect to Azure Stack:
      ```
      https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01
      ```
-
    * For the **User** environment:
      ```
      https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01
      ```
 
-   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the value assigned to the **audiences** parameter, which is in the format: `https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>`. You will use this value in the next step.
+   When you navigate to the previous link, a file named **endpoints** is downloaded. Open this file and make a note of the value assigned to the **audiences** parameter, you will use it in the next step. This parameter has the format- "https://management.<aadtenant>.onmicrosoft.com/<active-directory-resource-id>". 
 
 3. Register your Azure Stack environment by running the following command:
 
    * To register the **administrative** environment:
      ```
-     az cloud register -n AzureStackAdmin --endpoint-resource-manager https://adminmanagement.local.azurestack.external/ --endpoint-active-directory https://login.windows.net/ --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2>  --endpoint-active-directory-graph-resource-id https://graph.windows.net/ --suffix-storage-endpoint local.azurestack.external
+     az cloud register \
+       -n AzureStackAdmin \
+       --endpoint-resource-manager https://adminmanagement.local.azurestack.external/ \
+       --endpoint-active-directory https://login.windows.net/ \
+       --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2> \
+       --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
+       --suffix-storage-endpoint local.azurestack.external
      ```
 
    * To register the **user** environment:
      ```
-     az cloud register -n AzureStackUser --endpoint-resource-manager https://management.local.azurestack.external/ --endpoint-active-directory https://login.windows.net/ --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2>  --endpoint-active-directory-graph-resource-id https://graph.windows.net/ --suffix-storage-endpoint local.azurestack.external 
+     az cloud register \
+       -n AzureStackUser \
+       --endpoint-resource-manager https://management.local.azurestack.external/ \
+       --endpoint-active-directory https://login.windows.net/ \
+       --endpoint-active-directory-resource-id <active-directory-resource-Id-endpoint that you retrieved in Step2>  \
+       --endpoint-active-directory-graph-resource-id https://graph.windows.net/ \
+       --suffix-storage-endpoint local.azurestack.external 
      ```
 
 4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
    ```
-   az cloud update --profile 2017-03-09-profile-preview
+   az cloud update \
+     --profile 2017-03-09-profile-preview
    ```
 
 5. Set the active environment and sign in by using the following commands:
 
    * For the **administrative** environment:
      ```
-     az cloud set -n AzureStackAdmin
+     az cloud set \
+       -n AzureStackAdmin
 
-     az login -u <Active directory global administrator account. Example: username@<aadtenant>.onmicrosoft.com>
+     az login \
+       -u <Active directory global administrator account. Example: username@<aadtenant>.onmicrosoft.com>
      ```
 
    * For the **user** environment:
      ```
-     az cloud set -n AzureStackUser
+     az cloud set \
+       -n AzureStackUser
 
-     az login -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
+     az login \
+       -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
      ```
 
 ## Test the connectivity
 
-Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named `MyResourceGroup`:
+Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
 
 ```
-az group create -n “MyResourceGroup” -l “local”
+az group create \
+  -n “MyResourceGroup” -l “local”
 ```
 
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
