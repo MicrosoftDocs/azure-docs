@@ -29,6 +29,7 @@ If you want to use a sample script, see [Sample script to upload a VHD to Azure 
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
 - Make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
     ```powershell
     Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     ```
