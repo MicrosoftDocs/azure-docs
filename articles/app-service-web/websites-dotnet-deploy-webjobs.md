@@ -66,7 +66,7 @@ You have two options:
 3. Complete the [Add Azure WebJob](#configure) dialog, and then click **OK**. 
 
 ### <a id="convertnolink"></a> Enable WebJobs deployment without a web project
-1. Right-click the Console Application project in **Solution Explorer**, and then click **Publish as Azure WebJob**. 
+1. Right-click the Console Application project in **Solution Explorer**, and then click **Publish as Azure WebJob...**. 
    
     ![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
    
@@ -91,7 +91,7 @@ To create a new WebJobs-enabled project, you can use the Console Application pro
 > 
 
 ### <a id="createnolink"></a> Use the WebJobs new-project template for an independent WebJob
-1. Click **File** > **New Project**, and then in the **New Project** dialog box click **Cloud** > **Microsoft Azure WebJob**.
+1. Click **File** > **New Project**, and then in the **New Project** dialog box click **Cloud** > **Azure WebJob (.NET Framework)**.
    
     ![New Project dialog showing WebJob template](./media/websites-dotnet-deploy-webjobs/np.png)
 2. Follow the directions shown earlier to [make the Console Application project an independent WebJobs project](#convertnolink).
@@ -135,7 +135,7 @@ and stores scheduling information in a *webjob-publish-settings.json* file in th
 You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
-When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a *webjobs-list.json* file in the web project's *Properties* folder. The list may contain multiple WebJobs projects, as shown in the following example:
+When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a *webjobs-list.json* file in the web project's *Properties* folder. The list might contain multiple WebJobs projects, as shown in the following example:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
@@ -154,7 +154,7 @@ You can edit this file directly, and Visual Studio provides IntelliSense. The fi
 ## <a id="deploy"></a>Deploy a WebJobs project
 A WebJobs project that you have linked to a web project deploys automatically with the web project. For information about web project deployment, see [How to deploy to Web Apps](web-sites-deploy.md).
 
-To deploy a WebJobs project by itself, right-click the project in **Solution Explorer**, and click **Publish as Azure WebJob**. 
+To deploy a WebJobs project by itself, right-click the project in **Solution Explorer** and click **Publish as Azure WebJob...**. 
 
 ![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
 
