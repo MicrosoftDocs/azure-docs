@@ -9,7 +9,7 @@
        
     In this quick-start article, we program against the Graph API, so choose **Gremlin (graph)** as you fill out the form. If you have document data from a catalog app, key/value (table) data, or data that's migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
 
-    Complete the **New account** blade fields by using the information in the following screenshot as a guide. Choose unique values as you set up your account so that your values do not match those in the screenshot. 
+    On the **New account** blade, complete the fields with the information in the following screenshot as a guide only. Because your own values will not match those in the screenshot, be sure to choose unique values as you set up your account. 
  
     ![The Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
