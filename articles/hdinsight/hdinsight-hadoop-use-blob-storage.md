@@ -186,28 +186,10 @@ The &lt;path&gt; is the file or directory HDFS path name. Because containers in 
 > 
 > 
 
-## Access blobs using Azure CLI
-Use the following command to list the blob-related commands:
+## Access blobs 
 
-    azure storage blob
 
-**Example of using Azure CLI to upload a file**
-
-    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Example of using Azure CLI to download a file**
-
-    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Example of using Azure CLI to delete a file**
-
-    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-**Example of using Azure CLI to list files**
-
-    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
-
-## Access blobs using Azure PowerShell
+### Use Azure PowerShell
 > [!NOTE]
 > The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
 > 
@@ -219,10 +201,10 @@ Use the following command to list the blob-related cmdlets:
 
 ![List of blob-related PowerShell cmdlets.][img-hdi-powershell-blobcommands]
 
-### Upload files
+#### Upload files
 See [Upload data to HDInsight][hdinsight-upload-data].
 
-### Download files
+#### Download files
 The following script downloads a block blob to the current folder. Before running the script, change the directory to a folder where you have write permissions.
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -259,13 +241,14 @@ Providing the resource group name and the cluster name, you can use the followin
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-### Delete files
+
+#### Delete files
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
-### List files
+#### List files
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-### Run Hive queries using an undefined storage account
+#### Run Hive queries using an undefined storage account
 This example shows how to list a folder from storage account that is not defined during the creating process.
     $clusterName = "<HDInsightClusterName>"
 
@@ -281,8 +264,28 @@ This example shows how to list a folder from storage account that is not defined
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
+### Use Azure CLI
+Use the following command to list the blob-related commands:
 
-## Using additional storage accounts
+    azure storage blob
+
+**Example of using Azure CLI to upload a file**
+
+    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Example of using Azure CLI to download a file**
+
+    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Example of using Azure CLI to delete a file**
+
+    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+**Example of using Azure CLI to list files**
+
+    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+
+## Use additional storage accounts
 
 While creating an HDInsight cluster you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
