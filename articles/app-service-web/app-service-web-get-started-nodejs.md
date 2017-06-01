@@ -78,7 +78,9 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 You’ve created an empty new web app in Azure.
 
-[!INCLUDE [Configure git, Push to Azure](../../includes/app-service-web-quickstart2.md)] 
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 23, done.

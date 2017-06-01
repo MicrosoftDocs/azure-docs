@@ -88,7 +88,9 @@ az appservice web config update --python-version 3.4 --name <app_name> --resourc
 
 Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) command.
 
-[!INCLUDE [Configure Git, Push to Azure](../../includes/app-service-web-quickstart2.md)] 
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
+
+[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
