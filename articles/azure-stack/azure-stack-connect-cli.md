@@ -24,7 +24,8 @@ In this document, we guide you through the process of using Azure Command-line I
 ## Install Azure Stack CLI
 
 Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) article. To verify if the installation was successful, open the command prompt and run the following command:
-```
+
+```azurecli
 az --version
 ```
 
@@ -38,13 +39,13 @@ Use the following steps to connect to Azure Stack:
 
    * If you are connecting from a windows-based computer:
    
-     ```
+     ```azurecli
      set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
      set ADAL_PYTHON_SSL_NO_VERIFY=1
      ```
    * If you are connecting from macOS:
    
-     ```
+     ```azurecli
      export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1  
      export ADAL_PYTHON_SSL_NO_VERIFY=1
      ```
@@ -52,10 +53,12 @@ Use the following steps to connect to Azure Stack:
 2. Get your Azure Stack environment’s active directory resource Id endpoint by navigating to the following link in a browser: 
 
    * For the **administrative** environment:
+
      ```
      https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=2015-01-01
      ```
    * For the **User** environment:
+   
      ```
      https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01
      ```
@@ -65,7 +68,8 @@ Use the following steps to connect to Azure Stack:
 3. Register your Azure Stack environment by running the following command:
 
    * To register the **administrative** environment:
-     ```
+
+     ```azurecli
      az cloud register \
        -n AzureStackAdmin \
        --endpoint-resource-manager https://adminmanagement.local.azurestack.external/ \
@@ -76,7 +80,8 @@ Use the following steps to connect to Azure Stack:
      ```
 
    * To register the **user** environment:
-     ```
+
+     ```azurecli
      az cloud register \
        -n AzureStackUser \
        --endpoint-resource-manager https://management.local.azurestack.external/ \
@@ -87,7 +92,8 @@ Use the following steps to connect to Azure Stack:
      ```
 
 4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
-   ```
+
+   ```azurecli
    az cloud update \
      --profile 2017-03-09-profile-preview
    ```
@@ -95,7 +101,8 @@ Use the following steps to connect to Azure Stack:
 5. Set the active environment and sign in by using the following commands:
 
    * For the **administrative** environment:
-     ```
+
+     ```azurecli
      az cloud set \
        -n AzureStackAdmin
 
@@ -104,7 +111,8 @@ Use the following steps to connect to Azure Stack:
      ```
 
    * For the **user** environment:
-     ```
+
+     ```azurecli
      az cloud set \
        -n AzureStackUser
 
@@ -116,7 +124,7 @@ Use the following steps to connect to Azure Stack:
 
 Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
 
-```
+```azurecli
 az group create \
   -n “MyResourceGroup” -l “local”
 ```
