@@ -67,7 +67,7 @@
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ## Troubleshoot
 ### [Log collection](site-recovery-monitoring-and-troubleshooting.md)
-### [Protection errors](site-recovery-v2a-protection-troubleshoot.md)
+### [Protection errors](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 # Reference
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
 ## [PowerShell classic](/powershell/module/azure/?view=azuresmps-3.7.0)

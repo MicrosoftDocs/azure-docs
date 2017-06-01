@@ -1,5 +1,5 @@
 ---
-title: troubleshoot protection failures VMware/Physical to Azure | Microsoft Docs
+title: Troubleshoot protection failures VMware/Physical to Azure | Microsoft Docs
 description: This article describes the common VMware machine replication failures and how to troubleshoot them
 services: site-recovery
 documentationcenter: ''
@@ -74,7 +74,8 @@ If you are unable to connect, then check if the access issue is due to firewall 
 
 * **Check if IP address-based firewall on Process server are not blocking access**: If you are using an IP address-based firewall rules on the server, then download the complete list of Microsoft Azure Datacenter IP Ranges from [here](https://www.microsoft.com/download/details.aspx?id=41653) and add them to your firewall configuration to ensure they allow communication to Azure (and the HTTPS (443) port).  Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).
 
-* **Check if URL-based firewall on Process server is not blocking access**:  If you are using a URL based firewall rules on the server, ensure the following URLs are added to firewall configuration.      
+* **Check if URL-based firewall on Process server is not blocking access**:  If you are using a URL based firewall rules on the server, ensure the following URLs are added to firewall configuration. 
+     
   `*.accesscontrol.windows.net:` Used for access control and identity management
 
   `*.backup.windowsazure.com:` Used for replication data transfer and orchestration
@@ -84,12 +85,16 @@ If you are unable to connect, then check if the access issue is due to firewall 
   `*.hypervrecoverymanager.windowsazure.com:` Used for replication management operations and orchestration
 
   `time.nist.gov` and `time.windows.com`: Used to check time synchronization between system and global time.
+
 URLs for **Azure Government Cloud**:
 
-* .ugv.hypervrecoverymanager.windowsazure.us
-* .ugv.backup.windowsazure.us
-* .ugi.hypervrecoverymanager.windowsazure.us
-* .ugi.backup.windowsazure.us 
+`* .ugv.hypervrecoverymanager.windowsazure.us`
+
+`* .ugv.backup.windowsazure.us`
+
+`* .ugi.hypervrecoverymanager.windowsazure.us`
+
+`* .ugi.backup.windowsazure.us` 
 
 * **Check if Proxy Settings on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
 To check what you have provided at the time of Configuration Server setup. Go to registry key
