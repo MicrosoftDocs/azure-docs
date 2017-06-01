@@ -112,62 +112,25 @@ or Atom). For this article, I will use Gogland editor.
 language](http://golang.org/) that implements a rich and well tested selection
 of features under a very simple API following standard Go idioms.
 
-Azure Cosmos DB uses latest version of MongoDB v3.2.0. with SSL enabled.
+Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled
+MongoDB, we need to define the **DialServer** function in
+[mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo), and make use of the
+[tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) to perform the connection.
 
-To check MongoDb version go to Azure portal and get MongoDB Shell Tab and copy
-mongo command
-
-![](https://cdn-images-1.medium.com/max/800/1*voTl_TbS7Wuld2Q4CBLFXQ.png)
-<span class="figcaption_hack">Azure Cosmos MongoDB Shell</span>
-
-Open command prompt and run command. Once the connection is established, run
-below command to check database version.
-
-    db.version()
-
-![](https://cdn-images-1.medium.com/max/800/1*OJwDs_lG45z_K3rzw2_RuQ.png)
-
-Officially, mgo does not support MongoDB 3.2 version. There is solution to
-ignore server certificate validation by mgo. Please refer blog [Connect to
-MongoDB 3.2 on Compose from
-Golang](https://www.compose.com/articles/connect-to-mongo-3-2-on-compose-from-golang/)
-by [Hays Hutton](about:invalid#zSoyz)
-
-To get started we have to configure transport layer security (tls). We have to
-make sure that client Certificate Authority ignore SSL validation. While this
-does open up some attack vectors, it is is better than no SSL. Here are the
-comments directly from the source code of the **tls.Config** struct for the
-particular boolean we need to set:
-
-
-The following code snippet to connect with MongoDB with GO app. DialInfo holds
-options for establishing a session with a MongoDB cluster.
+The following code Golang code snippet connects Go app with Azure  MongoDB. 
+*DialInfo* holds options for establishing a session with a MongoDB cluster.
 
 ```go
-tlsConfig := &tls.Config{}
-
-// InsecureSkipVerify controls whether a client verifies the
-// server's certificate chain and host name.
-// If InsecureSkipVerify is true, TLS accepts any certificate
-// presented by the server and any host name in that certificate.
-// In this mode, TLS is susceptible to man-in-the-middle attacks.
-// This should be used only for testing.
-tlsConfig.InsecureSkipVerify = true
-
 // DialInfo holds options for establishing a session with a MongoDB cluster.
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
-    Database: "golang-couch", // It can be anything
-    Username: "golang-couch", // Username
-    Password: "Password from MongoDB Setting in azure portal", // PASSWORD
-}
-
-dialInfo.DialServer = func(serverAddress *mgo.ServerAddr) (net.Conn, error) {
-    fmt.Println(serverAddress.String());
-    connection, err := tls.Dial("tcp", serverAddress.String(), tlsConfig)
-    return connection, err
-
+    Database: "golang-coach",                                                                             // It can be anything
+    Username: "golang-coach",                                                                             // Username
+    Password: "Azure database connect password from Azure Portal", // PASSWORD
+    DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
+        return tls.Dial("tcp", addr.String(), &tls.Config{})
+    },
 }
 
 // Create a session which maintains a pool of socket connections
