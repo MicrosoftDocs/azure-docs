@@ -83,7 +83,7 @@ Because current xrdp could not support the Gnome Desktop from Ubuntu version lat
 
 Install `xfce`, use:
 
-    #sudo apt-get install xubuntu-desktop
+    #sudo apt-get install xfce4
 
 Then enable `xfce`, use:
 
@@ -93,7 +93,7 @@ Edit the config file `/etc/xrdp/startwm.sh`, use:
 
     #sudo vi /etc/xrdp/startwm.sh   
 
-Add line `xfce4-session` before the line `/etc/X11/Xsession`.
+Add line `startxfce4` before the line `/etc/X11/Xsession`.
 
 Restart xrdp service, use:
 
