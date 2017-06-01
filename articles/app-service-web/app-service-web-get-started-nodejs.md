@@ -22,7 +22,7 @@ ms.author: cfowler
 
 ![Sample app running in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once all the prerequisites are installed, it should take you only about five minutes to complete all the steps.
+You can follow the steps below using a Mac, Windows, or Linux machine. You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.c
 
 ## Prerequisites
 
@@ -50,17 +50,13 @@ cd nodejs-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `npm start` script to launch the built in Node.js http server.
+Run the application locally by opening a terminal window and using the `npm start` script to launch the built in Node.js HTTP server.
 
 ```bash
 npm start
 ```
 
-Open a web browser, and navigate to the sample:
-
-```bash
-http://localhost:1337
-```
+Open a web browser, and navigate to the sample app at http://localhost:1337.
 
 You see the **Hello World** message from the sample app displayed in the page.
 
@@ -76,7 +72,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-You’ve now created an empty new web app in Azure.
+You’ve created an empty new web app in Azure.
 
 [!INCLUDE [Configure git, Push to Azure](../../includes/app-service-web-quickstart2.md)] 
 
@@ -122,13 +118,13 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-This time, the page that displays the Hello World message is running the Node.js sample code in an Azure App Service web app.
+The Node.js sample code is running in an Azure App Service web app.
 
 ![Sample app running in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first PHP app to App Service.
 
-## Update and redeploy the Code
+## Update and redeploy the code
 
 Using a text editor, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
 
@@ -136,7 +132,7 @@ Using a text editor, open the `index.js` file in the Node.js app, and make a sma
 response.end("Hello Azure!");
 ```
 
-Commit your changes in Git, then push the code changes to Azure.
+Commit your changes in Git,and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"
@@ -149,9 +145,9 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure web app
 
-Go to the [Azure portal](https://portal.azure.com) to look at the web app you created.
+Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure web app.
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 

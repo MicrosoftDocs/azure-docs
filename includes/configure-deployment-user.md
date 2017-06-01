@@ -10,8 +10,8 @@ In the following command, replace *\<user-name>* and *\<password>* with a new us
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
-The user name must be unique and the password must be strong. If you get a ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
+The user name must be unique and cannot have an "@" character in it. The password must be at least 8 characters long, with two of the following three elements:  letters, numbers, symbols.  If you get a ` 'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password.
 
 You only need to create this deployment user once; you can use it for all your Azure deployments.
 
-Record the user name and password, as they are used in a later step when you deploy the app.
+Record the user name and password for use in later steps when you deploy the app.
