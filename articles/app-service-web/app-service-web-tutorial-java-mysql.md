@@ -102,7 +102,7 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Open your browser to http://localhost:8080 to see in the sample in action. As you add tasks to the list, you can view the updates in the MySQL database  with the following commands issued from the MySQL command prompt:
+Open your browser to http://localhost:8080 to see in the sample in action. As you add tasks to the list,  use the following SQL commands in the MySQL command prompt to view the data stored in MySQL.
 
 ```SQL
 use testdb;
@@ -113,7 +113,7 @@ Stop the application by hitting `Ctrl`+`C` in the command prompt.
 
 ## Create an Azure MySQL database
 
-In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You will configure the sample application to use this database in a later step in the tutorial.
+In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You configure the sample application to use this database later on in the tutorial.
 
 Use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Java application in Azure appservice. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
@@ -220,7 +220,7 @@ az appservice plan create \
 --sku FREE
 ```
 
-When the plan is ready, the Azure CLI will show similar information to the following example:
+When the plan is ready, the Azure CLI shows similar output to the following example:
 
 ```json
 { 
@@ -249,7 +249,7 @@ az webapp create \
 --plan myAppServicePlan
 ```
 
-Substitute the `<app_name>` placeholder with your own unique app name. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can map a custom domain name entry to the web app before you expose it to your users.
+Substitute the `<app_name>` placeholder with your own unique app name. This unique name is part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can map a custom domain name entry to the web app before you expose it to your users.
 
 When the web app definition is ready, the Azure CLI shows information similar to the following example: 
 
@@ -272,7 +272,7 @@ When the web app definition is ready, the Azure CLI shows information similar to
 
 Set up the Java runtime configuration that your app needs with the  [az appservice web config update](/cli/azure/appservice/web/config#update) command.
 
-The following commmand configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
 ```azurecli
 az webapp config set \ 
@@ -285,7 +285,7 @@ az webapp config set \
 
 ### Configure the app to use the Azure SQL database
 
-Before running the sample app, you'll need to set properties on the web app to use the Azure MySQL database you created. These properties are exposed to the web application as environment variables and  override the values set in the application.properties inside the packaged web app. 
+Before running the sample app, set application settings on the web app to use the Azure MySQL database you created in Azure. These properties are exposed to the web application as environment variables and override the values set in the application.properties inside the packaged web app. 
 
 Set application settings using [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) in the CLI:
 
@@ -336,7 +336,7 @@ az webapp deployment list-publishing-profiles \
 
 ### Upload the app using FTP
 
-Use your favorite FTP method to deploy the .WAR file to the */site/wwwroot/webapps* , removing the existing default (ROOT) application directory and replacing the existing ROOT.war with the .WAR file you built in the previous step.
+Use your favorite FTP tool to deploy the .WAR file to the */site/wwwroot/webapps* folder on the server address taken from the `URL` field in the previous command. Remove the existing default (ROOT) application directory and replace the existing ROOT.war with the .WAR file built in the earlier in the tutorial.
 
 ```bash
 ftp waws-prod-blu-069.ftp.azurewebsites.windows.net
@@ -361,7 +361,7 @@ Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list
 
 ## Update the app and redeploy
 
-Update the application to include an additional column in the todo list for what day the item was created. Spring Boot will handle updating the database schema for you as the data model changes without altering your existing database records.
+Update the application to include an additional column in the todo list for what day the item was created. Spring Boot handles updating the database schema for you as the data model changes without altering your existing database records.
 
 - On your local system, open up *src/main/java/com/example/fabrikam/TodoItem.java* and add the following imports to the class:
 
@@ -370,7 +370,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 ```
 
-Then add a new property `timeCreated`, initializing it with a timestamp at object creation. Also add getters/setters for the property:
+Then add a `String` property `timeCreated`, initializing it with a timestamp at object creation. Add getters/setters for the new `timeCreated` property while you are editing this file.
 
 ```java
 private String name;
@@ -394,7 +394,7 @@ public String getTimeCreated() {
 }
 ```
 
-- Update *src/main/java/com/example/fabrikam/TodoDemoController.java* with the following line in the `updateTodo` method:
+- Update *src/main/java/com/example/fabrikam/TodoDemoController.java* with a line in the `updateTodo` method to set the timestamp:
 
 ```java
     item.setComplete(requestItem.isComplete());
@@ -403,7 +403,7 @@ public String getTimeCreated() {
     repository.save(item);
 ```
 
-- Add support for the new field in the Thymeleaf template. Update *src/main/resources/templates/index.html* with the following:
+- Add support for the new field in the Thymeleaf template. Update *src/main/resources/templates/index.html* with a new table header for the timestamp, and a new field to display the value of the timestamp in each table data row.
 
 ```html
             <th>Name</th>
@@ -424,7 +424,7 @@ mvnw clean package
 
 Then FTP the updated .WAR as before, removing the existing *site/wwwroot/webapps/ROOT* directory and *ROOT.war*, then uploading the updated .WAR file as ROOT.war. 
 
-When you refresh your browser, a **Time Created** column is now visible. When you add a new task, it'll have the date populated for you. Your existing tasks remain unchanged and work with the app even though the underlying database schema has changed. 
+When you refresh your browser, a **Time Created** column is now visible. When you add a new task, the app will populate the timestamp automatically. Your existing tasks remain unchanged and work with the app even though the underlying database schema has changed. 
 
 ![Java app updated with a new column](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
       
@@ -432,10 +432,10 @@ When you refresh your browser, a **Time Created** column is now visible. When yo
 
 While your PHP application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [az appservice web log tail](/cli/azure/appservice/web/log#tail) command.
+To start log streaming, use the [az webapp log tail](/cli/azure/appservice/web/log#tail) command.
 
 ```azurecli 
-az appservice web log tail \
+az webapp log tail \
     --name <app_name> \
     --resource-group myResourceGroup 
 ``` 
