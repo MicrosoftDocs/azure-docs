@@ -1,4 +1,4 @@
-.mdWhen you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKUs that satisfy your requirements based on the types of workloads, throughputs, features, and SLAs. Azure offers the following VPN gateway SKUs:
+When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKUs that satisfy your requirements based on the types of workloads, throughputs, features, and SLAs. Azure offers the following VPN gateway SKUs:
 
 |**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connections** | **Aggregate<br>Throughput** |
 |---       | ---                             | ---                    | ---                         |
