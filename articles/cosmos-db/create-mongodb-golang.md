@@ -27,7 +27,7 @@ databases, all of which benefit from the global distribution and horizontal
 scale capabilities at the core of Azure Cosmos DB.
 
 This quick-start demonstrates how to use an existing
-[MongoDB](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-protocol-mongodb)
+[MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction)
 app written in Golang and connect it to your Azure Cosmos DB database, which
 supports MongoDB client connections.
 
@@ -78,14 +78,12 @@ guide . You will choose unique values as you set up your account so your values
 will not match the screenshot exactly
 
 ![](https://cdn-images-1.medium.com/max/800/1*XdFlpeNKLe7o3FOtCZ17AQ.png)
-<span class="figcaption_hack">Create Azure Cosmos DB Account</span>
 
 4. Click **Create** to create the account.
 
 5. On the toolbar, click **Notifications** to monitor the deployment process.
 
 ![](https://cdn-images-1.medium.com/max/800/1*WTGVkPwkSTxjUzKm2u09Eg.png)
-<span class="figcaption_hack">Check Progress of Azure Cosmos DB Deployment</span>
 
 6. Click on **golang-couch** resources.
 
@@ -93,7 +91,6 @@ will not match the screenshot exactly
 applications.
 
 ![](https://cdn-images-1.medium.com/max/800/1*XoslPMsWsv5vqK2vhYAJPw.png)
-<span class="figcaption_hack">Connection information of MongoDB</span>
 
 ### Setting up your application
 
@@ -125,8 +122,8 @@ The following code Golang code snippet connects Go app with Azure  MongoDB.
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.com:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
-    Database: "golang-coach",                                                                             // It can be anything
-    Username: "golang-coach",                                                                             // Username
+    Database: "golang-coach", // It can be anything
+    Username: "golang-coach", // Username
     Password: "Azure database connect password from Azure Portal", // PASSWORD
     DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
         return tls.Dial("tcp", addr.String(), &tls.Config{})
