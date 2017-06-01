@@ -75,7 +75,7 @@
 ## Troubleshoot
 ### [Collect logs](site-recovery-monitoring-and-troubleshooting.md)
 ### [Azure VM replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [On-premises to Azure replication issues](site-recovery-v2a-protection-troubleshoot.md)
+### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
