@@ -133,7 +133,7 @@ git push azure master
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
-![Updated sample app running in Azure](media/app-service-web-get-started-php/hello-azure-ain-browser.png)
+![Updated sample app running in Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
 ## Manage your new Azure web app
 
