@@ -57,7 +57,7 @@ The following table shows the properties returned when a connectivity test has f
 |Hops[].Issues | A collection of issues that were encountered during the test at that hop. If there were no issues the value is blank.|
 |Hops[].Issues[].Origin | At the current hop, where issue occurred. Possible values are **Inbound** or **Outbound**.|
 |Hops[].Issues[].Severity | The severity of the issue detected. Possible values are **Error** and **Warning**. |
-|Hops[].Issues[].Type |The type of issue found. Possible values are **Unknown**, **AgentStopped**,**GuestFirewall**,**DnsResolution**,**SocketBind**,**NetworkSecurityRule**,**UserDefinedRoute**,**PortThrottled**, and **Platform**. |
+|Hops[].Issues[].Type |The type of issue found. Possible values are: <br/>**Unknown**<br/>**AgentStopped**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**SocketBind**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute**<br/>**PortThrottled**<br/> **Platform** |
 |Hops[].Issues[].Context |Details in regards to the issue found.|
 |Hops[].Issues[].Context[].key |Key of the key value pair returned.|
 |Hops[].Issues[].Context[].value |Value of the key value pair returned.|
