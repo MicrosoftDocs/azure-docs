@@ -216,21 +216,15 @@ The value can be either a string or a JSON format object.
 
 You use property aliases to access specific properties for a resource type. 
 
-### Microsoft.Cache/Redis
+| Resource Type | Alias | Description |
+| ------------- | ----- | ----------- |
+| Microsoft.Cache/Redis | Microsoft.Cache/Redis/enableNonSslPort | Set whether the non-ssl Redis server port (6379) is enabled. |
+| Microsoft.Cache/Redis | Microsoft.Cache/Redis/shardCount | Set the number of shards to be created on a Premium Cluster Cache.  |
+| Microsoft.Cache/Redis | Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
+| Microsoft.Cache/Redis | Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
+| Microsoft.Cache/Redis | Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
+| Microsoft.Cdn/profiles | Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Set whether the non-ssl Redis server port (6379) is enabled. |
-| Microsoft.Cache/Redis/shardCount | Set the number of shards to be created on a Premium Cluster Cache.  |
-| Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
-| Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
-| Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
-
-### Microsoft.Cdn/profiles
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
 
 ### Microsoft.Compute/disks
 
@@ -261,9 +255,9 @@ You use property aliases to access specific properties for a resource type.
 
 | Alias | Description |
 | ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher |  |
-| Microsoft.Compute/virtualMachines/extensions/type |  |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion |  |
+| Microsoft.Compute/virtualMachines/extensions/publisher | Set the name of the extension’s publisher. |
+| Microsoft.Compute/virtualMachines/extensions/type | Set the type of extension. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Set the version of the extension. |
 
 ### Microsoft.Compute/virtualMachineScaleSets
 
