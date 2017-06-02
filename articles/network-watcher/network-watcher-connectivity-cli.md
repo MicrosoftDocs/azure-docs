@@ -25,7 +25,8 @@ ms.author: gwallace
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
 
-This article takes you through the different types of endpoints that can be tested with connectivity.
+
+This article takes you through the different types of tests that can be ran with connectivity.
 
 * [**Test virtual machine connectivity**](#test-virtual-machine-connectivity)
 * [**Test routing issues**](#test-routing-issues)

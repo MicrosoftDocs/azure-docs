@@ -25,7 +25,7 @@ ms.author: gwallace
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
 
-This article takes you through the different types of endpoints that can be tested with connectivity.
+This article takes you through the different types of tests that can be ran with connectivity.
 
 * [**Test virtual machine connectivity**](#test-virtual-machine-connectivity)
 * [**Test routing issues**](#test-routing-issues)
@@ -96,7 +96,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "http://bing.com"
+$destinationAddress = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/Database0"
 $destinationPort = "0"
 $requestBody = @"
 {
