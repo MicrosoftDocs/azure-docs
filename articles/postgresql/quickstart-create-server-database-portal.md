@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonh
 ms.assetid: 
 ms.service: postgresql-database
-ms.custom: quick start create
+ms.custom: quick start create, mvc
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article

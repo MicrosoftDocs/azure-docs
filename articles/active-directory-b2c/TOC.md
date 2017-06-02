@@ -67,6 +67,7 @@
 #### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
 ### Customize login
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Customize UI](active-directory-b2c-ui-customization-custom.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Troubleshooting
@@ -78,7 +79,6 @@
 ## Glossary
 ### [Types of applications](active-directory-b2c-apps.md)
 ### [Authentication protocols](active-directory-b2c-reference-protocols.md)
-### [Built-In policies](active-directory-b2c-reference-policies.md)
 ### [Tokens](active-directory-b2c-reference-tokens.md)
 ## [Region availability & data residency](active-directory-b2c-reference-tenant-type.md)
 ## [Enable billing](active-directory-b2c-how-to-enable-billing.md)

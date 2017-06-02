@@ -1,15 +1,15 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Table API | Microsoft Docs
 description: Get started with Azure Cosmos DB's Tables API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: ''
 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -32,11 +32,11 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Add a table
 
-[!INCLUDE [cosmosdb-create-table](../../includes/cosmosdb-create-table.md)]
+[!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
 ## Add sample data
 
@@ -137,7 +137,7 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 

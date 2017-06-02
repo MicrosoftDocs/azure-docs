@@ -37,7 +37,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
-| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
 | **South America** |Brazil South |Sao Paulo |
 | **Europe** |North Europe, West Europe, UK West, UK South |Amsterdam, Dublin, London, Newport(Wales), Paris |
 | **Asia** |East Asia, Southeast Asia |Hong Kong, Singapore |
@@ -77,7 +77,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supported |Supported |Amsterdam, Dublin, London, Tokyo |
 | **Comcast** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **Console**| Supported | Supported |Silicon Valley, Toronto |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Denver+, Los Angeles, New York |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Denver, Los Angeles, New York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Supported |Supported |Amsterdam |
 | **GÉANT** |Supported |Supported |Amsterdam |
