@@ -188,6 +188,7 @@
     - name: Configure In-Memory
       href: sql-database-in-memory-oltp-migration.md
   - name: Develop apps
+    items:
     - name: Overview
       href: sql-database-develop-overview.md
     - name: Connectivity
