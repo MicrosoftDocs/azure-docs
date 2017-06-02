@@ -1,4 +1,4 @@
-## Create a Web App
+## Create a web app
 
 Create a [web app](../articles/app-service-web/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az appservice web create](/cli/azure/appservice/web#create) command. 
 
