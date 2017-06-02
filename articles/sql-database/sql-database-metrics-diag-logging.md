@@ -98,7 +98,7 @@ To enable metrics and diagnostics logging using the Azure CLI, use the following
 
 - To enable storage of Diagnostic Logs in a Storage Account, use this command:
 
-   ```azurecli
+   ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
    ```
 
@@ -106,19 +106,19 @@ To enable metrics and diagnostics logging using the Azure CLI, use the following
 
 - To enable streaming of Diagnostic Logs to an Event Hub, use this command:
 
-   ```azurecli
+   ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
    ```
 
    The Service Bus Rule ID is a string with this format:
 
-   ```azurecli
+   ```azurecli-interactive
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
 - To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-   ```azurecli
+   ```azurecli-interactive
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
