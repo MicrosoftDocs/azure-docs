@@ -40,6 +40,8 @@ This article assumes you have the following resources:
 
 * Virtual machines to test connectivity with.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Test virtual machine connectivity
 
 This example tests connecting to a database server over port 80. Connectivity to a database server should be locked down to only ports that are required for SQL connectivity.

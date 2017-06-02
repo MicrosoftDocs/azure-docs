@@ -20,6 +20,8 @@ ms.author: gwallace
 
 The connectivity feature of Network Watcher provides the ability to test the connectivity of a direct TCP connection from a virtual machine to a remote endpoint. Networking resources are complex and have many parts, this includes Network Security Groups, firewalls, User defined routes, and more. With these resources traffic can be blocked at many different components in your network.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## Heuristics
 
 The connectivity test returns heuristics about the connection. The following table provides a list of the current heuristics ran and possible actions to take to resolve the issues found.
