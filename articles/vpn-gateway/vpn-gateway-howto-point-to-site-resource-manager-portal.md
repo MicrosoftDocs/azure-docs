@@ -109,10 +109,6 @@ Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPN
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-<<<<<<< HEAD
-1. To obtain a .cer file from the certificate, open **certmgr.msc**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**.
-=======
->>>>>>> 8b87473e014bc19cae03ceafc741d7be99fb18cb
 ### <a name="generateclientcert"></a>Step 2 - Generate a client certificate
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
@@ -177,19 +173,11 @@ If you want to create a P2S connection from a client computer other than the one
 3. Your connection is established.
 
   ![Connection established](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
-<<<<<<< HEAD
 
 If you are having trouble connecting, check the following items:
 
 - Open **Manage user certificates** and navigate to **Trusted Root Certification Authorities\Certificates**. Verify that the root certificate is listed. The root certificate must be present in order for authentication to work. When you export a client certificate .pfx using the default value 'Include all certificates in the certification path if possible', the root certificate information is also exported. When you install the client certificate, the root certificate is then also installed on the client computer. 
 
-=======
-
-If you are having trouble connecting, check the following items:
-
-- Open **Manage user certificates** and navigate to **Trusted Root Certification Authorities\Certificates**. Verify that the root certificate is listed. The root certificate must be present in order for authentication to work. When you export a client certificate .pfx using the default value 'Include all certificates in the certification path if possible', the root certificate information is also exported. When you install the client certificate, the root certificate is then also installed on the client computer. 
-
->>>>>>> 8b87473e014bc19cae03ceafc741d7be99fb18cb
 - If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, check the authentication order on the client certificate. You can check the authentication list order by double-clicking the client certificate, and going to **Details > Enhanced Key Usage**. Make sure the list shows 'Client Authentication' as the first item. If not, you need to issue a client certificate based on the User template that has Client Authentication as the first item in the list.
 
 
@@ -209,15 +197,8 @@ If you are having trouble connecting, check the following items:
             Default Gateway.................:
             NetBIOS over Tcpip..............: Enabled
 
-<<<<<<< HEAD
->[!Note]
->
->
-
-=======
 
 If you are having trouble connecting to a virtual machine over P2S, use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you are connecting. If the IP address is within the address range of the VNet that you are connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network. If your network address spaces don't overlap and you still can't connect to your VM, see [Troubleshoot Remote Desktop connections to a VM](../virtual-machines/windows/troubleshoot-rdp-connection.md).
->>>>>>> 8b87473e014bc19cae03ceafc741d7be99fb18cb
 
 ## <a name="connectVM"></a>Connect to a virtual machine
 
