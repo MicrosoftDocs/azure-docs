@@ -55,7 +55,7 @@ An Azure storage account is required for a function app. You need a general purp
 ```
 
 In addition, the properties `AzureWebJobsStorage` and `AzureWebJobsDashboard` must be specified as app settings in the site configuration. 
-The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues. The connection string `AzureWebJobsDashboard` is used to log to table storage and power the **Monitor** tab in the portal.
+The Azure Functions runtime uses the `AzureWebJobsStorage` connection string to create internal queues. The connection string `AzureWebJobsDashboard` is used to log to Table storage and power the **Monitor** tab in the portal.
 
 These properties are specified in the `appSettings` collection in the `siteConfig` object:
 
@@ -73,7 +73,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 ### Hosting plan
 
-The definition of the hosting plan varies, depending on whether you use a Consumption or App Service plan. See [Deploy function app on Consumption plan](#consumption) and [Deploy function app on App Service plan](#app-service-plan).
+The definition of the hosting plan varies, depending on whether you use a Consumption or App Service plan. See [Deploy a function app on the Consumption plan](#consumption) and [Deploy a function app on the App Service plan](#app-service-plan).
 
 ### Function app
 
