@@ -27,9 +27,9 @@ You must connect your B2C Tenant to an Azure account. You can create a free Azur
 
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
 
- [!NOTE]
-You will need to connect the B2C Tenant to your Azure subscription. To do so, follow the directions for [creating a B2C directory](active-directory-b2c-get-started.md), and after selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
-
+> [!NOTE]
+> 
+> You will need to connect the B2C Tenant to your Azure subscription. To do so, follow the directions for [creating a B2C directory](active-directory-b2c-get-started.md), and after selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
 
 ## Create and register an application
 
@@ -41,7 +41,7 @@ Next, you need to create a web app in your B2C directory. This gives Azure AD in
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-When you are dne you will have both an API and a native application in your application settings.
+When you are done you will have both an API and a native application in your application settings.
 
 ## Create your policies on your B2C tenant
 
@@ -82,7 +82,7 @@ From within visual studio, launch the app. Navigate to the To-Do List tab, and n
 https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
 
 ###use the app
-Sign up for the app by using yout email address or user name. Sign out, then sign in agian and edit the profile or reset the password.Sign out and sign in as a different user. 
+Sign up for the app by using your email address or user name. Sign out, then sign in again and edit the profile or reset the password.Sign out and sign in as a different user. 
 
 ## Next Steps -  Add social IDPs
 
