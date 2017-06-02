@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 11/18/2016
+ms.date: 6/2/2017
 ms.author: shigu;barbkess
 
 ---
 
 # Maximizing rowgroup quality for columnstore
 
-Rowgroup quality is determined by the number of rows in a row group. Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
+Rowgroup quality is determined by the number of rows in a rowgroup. Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 
 ## Why the rowgroup size matters
 Since a columnstore index scans a table by scanning column segments of individual rowgroups, maximizing the number of rows in each rowgroup enhances query performance. When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
@@ -62,13 +62,13 @@ JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_i
 JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
 JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
                                                                             AND rg.[pdw_node_id]   = nt.[pdw_node_id]
-																			AND rg.[distribution_id]    = nt.[distribution_id]						                  	
+									    AND rg.[distribution_id]    = nt.[distribution_id]						                  	
 )
 select *
 from cte;
 ```
 
-The trim_reason_desc tells whether or not the rowgroup was trimmed(trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons imply premature trimming of the rowgroup:
+The trim_reason_desc tells whether or not the rowgroup was trimmed(trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons indicate premature trimming of the rowgroup:
 - BULKLOAD: This is what trim reason is set to when the incoming batch of rows for the load had less than 1 million rows. The engine will create compressed row groups any time there are greater than 100,000 rows being inserted (as opposed to inserting into the delta store) but will set the trim reason to BULKLOAD. To get past this, consider increasing your batch load window to accumulate more rows. Also, re-evaluate your partitioning scheme to ensure it is not too granular as row groups cannot span partition boundaries.
 - MEMORY_LIMITATION: To create row groups with 1 million rows, a certain amount of working memory is required by the engine. When available memory of the loading session is less than the required working memory, row groups get prematurely trimmed. The sections below explain how to estimate memory required and allocate more memory.
 - DICTIONARY_SIZE: This indicates that row group trimming occurred because there was at least one string column with very wide and/or high cardinality strings. The dictionary size is limited to 16MB in memory and once this is reached the row group is compressed. If you do run into this situation, consider isolating the problematic column into a separate table.
