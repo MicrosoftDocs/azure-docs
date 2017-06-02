@@ -101,7 +101,7 @@ On the **Configure Azure Database** blade, do the following things:
 
 7.  Select **OK** and wait for the new sync member to be created and deployed.
 
-![New SQL Database sync member has been added](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
+    ![New SQL Database sync member has been added](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
 ## Add an on-premises SQL Server database
 
