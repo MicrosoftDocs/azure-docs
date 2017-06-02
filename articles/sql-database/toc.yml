@@ -229,7 +229,7 @@
   items:
   - name: Databases & servers
     items:
-    - name: Elastic pools - portal
+    - name: Elastic pools - Portal
       href: sql-database-elastic-pool-manage-portal.md
     - name: Elastic pools - PowerShell
       href: sql-database-elastic-pool-manage-powershell.md
