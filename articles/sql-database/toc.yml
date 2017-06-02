@@ -13,7 +13,7 @@
     href: sql-database-get-started-cli.md
   - name: Create DB - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Connect and query
+  - name: Connect & query
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
