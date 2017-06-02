@@ -34,7 +34,7 @@ Before running this sample, install the following prerequisites locally:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Test local PostgreSQL installation and create a database
 In this step, you make sure that your local PostgreSQL database is running.
