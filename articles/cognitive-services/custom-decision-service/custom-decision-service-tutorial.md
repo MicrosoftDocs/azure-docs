@@ -8,7 +8,7 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: slivkins
+ms.author: slivkins;marcozo;alekh
 ---
 
 # Tutorial for Custom Decision Service
@@ -47,7 +47,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
 1. Sign in with your [Microsoft account](https://account.microsoft.com/account). On the ribbon, click **My Portal**.
 
-2. To register a new application, click the **New App** button. 
+2. To register a new application, click the **New App** button.
 
     ![Custom Decision Service portal](./media/custom-decision-service-tutorial/portal.png)
 
@@ -153,3 +153,7 @@ The Y axis corresponds to rewards. Currently, a ranking is assigned reward 1 if 
 We also provide upper and lower confidence bounds for our counterfactual estimates. To see the upper and lower bounds, select the **bounds** check box in the upper-right corner.
 
 ![Dashboard with confidence bounds](./media/custom-decision-service-tutorial/dashboard-with-bounds.png)
+
+## Next steps
+
+* Consult the [API reference](custom-decision-service-api-reference.md) to learn more about the provided functionality.
