@@ -226,38 +226,38 @@ You use property aliases to access specific properties for a resource type.
 | Microsoft.Cdn/profiles | Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
 
 
-### Microsoft.Compute/disks
+* Microsoft.Compute/disks
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+  | Alias | Description |
+  | ----- | ----------- |
+  | Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
 
-### Microsoft.Compute/virtualMachines
+* Microsoft.Compute/virtualMachines
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine.  |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine.  |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
-| Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
+  | Alias | Description |
+  | ----- | ----------- |
+  | Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine.  |
+  | Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine.  |
+  | Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system.  |
+  | Microsoft.Compute/virtualMachines/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/virtualMachines/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/virtualMachines/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+  | Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
+  | Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
 
-### Microsoft.Compute/virtualMachines/extensions
+* Microsoft.Compute/virtualMachines/extensions
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | Set the name of the extension’s publisher. |
-| Microsoft.Compute/virtualMachines/extensions/type | Set the type of extension. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Set the version of the extension. |
+  | Alias | Description |
+  | ----- | ----------- |
+  | Microsoft.Compute/virtualMachines/extensions/publisher | Set the name of the extension’s publisher. |
+  | Microsoft.Compute/virtualMachines/extensions/type | Set the type of extension. |
+  | Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Set the version of the extension. |
 
 ### Microsoft.Compute/virtualMachineScaleSets
 
