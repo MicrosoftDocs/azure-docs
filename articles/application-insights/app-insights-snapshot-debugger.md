@@ -17,9 +17,7 @@ ms.author: cfreeman
 ---
 # Debug snapshots on exceptions in .NET apps
 
-*This feature is in preview.*
-
-Automatically collect a debug snapshot from your live web application when an exception occurs. The snapshot shows the state of source code and variables the moment the exception was thrown. The Snapshot Debugger in [Azure Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
 You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
@@ -27,7 +25,7 @@ Snapshot collection is available for ASP.NET web apps that run on .NET Framework
 
 ## Configure snapshot collection
 
-1. If you haven't done this yet, [enable Application Insights in your web app](app-insights-asp-net.md).
+1. [Enable Application Insights in your web app](app-insights-asp-net.md), if you haven't done it yet.
 
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app. 
 
