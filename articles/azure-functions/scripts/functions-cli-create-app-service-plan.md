@@ -24,6 +24,10 @@ This sample script creates an Azure Function App, which is a container for your 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 This script creates an Azure Function app using a dedicated [App Service plan](../functions-scale.md#app-service-plan).

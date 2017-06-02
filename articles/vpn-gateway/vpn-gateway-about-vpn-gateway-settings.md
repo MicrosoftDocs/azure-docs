@@ -38,9 +38,9 @@ Example:
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
     -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
     -VpnType RouteBased
-
-
+    
 ## <a name="gwsku"></a>Gateway SKUs
+
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-original-include.md)]
 
 ### Configuring the gateway SKU
