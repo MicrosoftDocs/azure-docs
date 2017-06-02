@@ -117,7 +117,7 @@ You cannot convert an unmanaged disk into a managed disk if the unmanaged disk i
 
 - Copy the virtual hard disk (VHD) with use [AzCopy](../../storage/storage-use-azcopy.md) to a storage account that has never been enabled for Azure Storage Service Encryption.
 - Create a VM that uses managed disks and specify that VHD file during creation with `New-AzureRmVm`, or
-- Attach the copied VHD with `*Add-AzureRmVmDataDisk` to a running VM with managed disks.
+- Attach the copied VHD with `Add-AzureRmVmDataDisk` to a running VM with managed disks.
 
 ## Next steps
 
