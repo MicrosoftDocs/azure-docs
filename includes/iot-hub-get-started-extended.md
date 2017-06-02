@@ -16,11 +16,11 @@ When you have connected your device to IoT Hub, you can explore additional scena
 When you have completed these tutorials, you can further explore the capabilities of IoT Hub in the [Developer guide][lnk-dev-guide]. You can find additional tutorials in the [How To][lnk-how-to] section.
 
 
-[Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
-[Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
-[Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md
-[Vis_Data]: iot-hub-live-data-visualization-in-power-bi.md
-[Weather_Forecast]: iot-hub-weather-forecast-machine-learning.md
-[Anomaly_Detect]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-dev-guide]: iot-hub-devguide.md
-[lnk-how-to]: iot-hub-how-to.md
+[Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
+[Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iothub-explorer.md
+[Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
+[Vis_Data]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md
+[Weather_Forecast]: ../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md
+[Anomaly_Detect]: ../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-dev-guide]: ../articles/iot-hub/iot-hub-devguide.md
+[lnk-how-to]: ../articles/iot-hub/iot-hub-how-to.md
