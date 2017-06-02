@@ -60,7 +60,7 @@ npm start
 
 ## Log in to Azure
 
-If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
+If you are using the Azure Cloud Shell, click **Try It** in the code block below, follow the on-screen prompts to log in, then proceed to the next command. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
 ```azurecli-interactive
 az login 
