@@ -331,7 +331,7 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-    - name: Create DB with C #
+    - name: Create DB with C#
       href: sql-database-get-started-csharp.md
     - name: SaaS app tutorial
       href: sql-database-wtp-overview.md
