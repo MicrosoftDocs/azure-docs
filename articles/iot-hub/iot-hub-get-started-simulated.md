@@ -19,13 +19,6 @@ ms.author: dobett
 ---
 # Azure IoT Hub get started with simulated devices tutorials
 
-You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Things (IoT) solutions.
-
-* Azure IoT Hub is a fully managed service in the cloud that securely connects, monitors, and manages your IoT devices. Use the Azure IoT Device SDKs to implement your IoT devices.
-* Use an IoT gateway in more complex IoT scenarios where you need to consider factors such as legacy devices, bandwidth costs, security and privacy policies, or edge data processing. In these scenarios, you use Azure IoT Edge to implement a gateway that connects devices to your IoT hub.
-
-## What the tutorials cover
-
 These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorials cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The tutorials also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. The tutorials listed in the following table show you how to create simulated IoT devices.
 
 | Programming language |
