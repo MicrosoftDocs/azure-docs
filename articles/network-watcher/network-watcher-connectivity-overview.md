@@ -48,7 +48,7 @@ The following table shows the properties returned when connectivity test is comp
 |ProbesSent     | Number of probes sent during the check. Max value is 100.        |
 |ProbesFailed     | Number of probes that failed during the check. Max value is 100.        |
 |Hops     | A collection of hops taken to attempt to connect to the resource.        |
-|Hops[].Type     | Type of resource. Possible values are Source, VirtualAppliance, VnetLocal, and Internet.        |
+|Hops[].Type     | Type of resource. Possible values are **Source**, **VirtualAppliance**, **VnetLocal**, and **Internet**.        |
 |Hops[].Id | Unique identifier of the hop.|
 |Hops[].Address | IP address of the hop.|
 |Hops[].ResourceId | ResourceID of the hop if the hop is an Azure resource. If it is an internet resource ResourceID is **Internet** |
