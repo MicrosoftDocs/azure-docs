@@ -8,7 +8,7 @@ git remote add azure <URI from previous step>
 
 Push to the Azure remote to deploy your app. You are prompted for the password you created earlier when you created the deployment user. Make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
 
-```azurecli
+```azurecli-interactive
 git push azure master
 ```
 

@@ -34,6 +34,8 @@ To complete this quickstart:
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## Download the sample
 
 In a terminal window, run the following command to clone the sample app repository to your local machine.

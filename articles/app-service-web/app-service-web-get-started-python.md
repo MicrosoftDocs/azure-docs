@@ -34,6 +34,8 @@ To complete this tutorial:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## Download the sample
 
 In a terminal window, run the following command to clone the sample app repository to your local machine.
@@ -82,7 +84,7 @@ You’ve created an empty new web app in Azure.
 
 Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Python version `3.4`.
 
-```azurecli
+```azurecli-interactive
 az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
