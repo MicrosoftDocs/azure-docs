@@ -17,7 +17,7 @@ ms.date: 06/02/2017
 ms.author: bharaths
 
 ROBOTS: NOINDEX, NOFOLLOW
-redirect_url: ./machine-learning-gallery-experiments#contribute
+redirect_url: machine-learning-gallery-experiments#contribute
 
 ---
 # (deprecated) Publish Azure Machine Learning Web Service to the Azure Marketplace
