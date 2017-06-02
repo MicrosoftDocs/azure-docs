@@ -255,7 +255,7 @@
     items:
     - name: Configure vault - backups
       href: sql-database-long-term-backup-retention-configure.md
-    - name: Geo-replicate - portal
+    - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
     - name: Geo-replicate- T-SQL - Configure
       href: sql-database-geo-replication-transact-sql.md
