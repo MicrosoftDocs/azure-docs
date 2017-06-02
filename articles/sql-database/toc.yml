@@ -225,7 +225,6 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Ports - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
-
 - name: How-to guides
   items:
   - name: Databases & servers
