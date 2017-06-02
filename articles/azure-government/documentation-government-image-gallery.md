@@ -27,8 +27,7 @@ The following table shows a list of available images within the Azure Government
 |Publisher|Offer|SKU|
 | --- | --- | --- |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
-| a10networks | a10-vthunder-adc | vthunder_byol |
-| ACEPublishing | f5-big-ip | f5-bigip-virtual-edition-best-byol |
+| a10networks | a10-vthunder-adc | vthunder_byol 
 | akumina | akumina-interchange | akam101 |
 | alertlogic | alert-logic-tm | 20215000100-tmpbyol |
 | barracudanetworks | barracuda-email-security-gateway | byol |
