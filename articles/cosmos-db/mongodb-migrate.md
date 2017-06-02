@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
-
+ms.custom: mvc
 ---
 
 # Azure Cosmos DB: How to import MongoDB data? 
