@@ -1,6 +1,6 @@
 ---
 title: Connect your Linux Computers to Operations Management Suite (OMS) | Microsoft Docs
-description: This article describes how to connect Linux computers hosted in your on-premises infrastructure to OMS using the OMS Agent for Linux.
+description: This article describes how to connect Linux computers hosted in Azure, other cloud, or on-premises to OMS using the OMS Agent for Linux.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
