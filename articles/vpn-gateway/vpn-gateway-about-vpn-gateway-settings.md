@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 06/02/2017
 ms.author: cherylmc
 
 ---
@@ -41,7 +41,7 @@ Example:
 
 
 ## <a name="gwsku"></a>Gateway SKUs
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-original-include.md)]
 
 ### Configuring the gateway SKU
 ####Specifying the gateway SKU in the Azure portal
