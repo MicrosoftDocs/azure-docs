@@ -22,14 +22,14 @@ ms.author: edmaca
 
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure PowerShell. To see management topics using other tools, click the tab select above.
 
-**Prerequisites**
+## Prerequisites
 
 To create a Data Lake Analytics account, you first need to define:
 
 * **Azure Resource Group**: A Data Lake Analytics account must be created within an Azure Resource group.
 * **Data Lake Analytics account name**: The Data Lake account name must only contain lowercase letters and numbers.
-* **Location**: one of the Azure data centers that supports Data Lake Analytics.
-* **Default Data Lake Store account**: each Data Lake Analytics account has a default Data Lake Store account. These accounts must be in the same location.
+* **Location**: One of the Azure data centers that supports Data Lake Analytics.
+* **Default Data Lake Store account**: Each Data Lake Analytics account has a default Data Lake Store account. These accounts must be in the same location.
 
 The PowerShell snippets in this tutorial use these variables to store this information
 
@@ -90,7 +90,7 @@ Submit the script.
 Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
 ```
 
-## Monitor U-SQL Jobs
+## Monitor U-SQL jobs
 
 List all the jobs in the account. The output includes the currently running jobs and those jobs that have recently completed.
 
@@ -128,7 +128,7 @@ Test-AdlStoreItem -Account $adls -Path "/data.csv"
 Stop-AdlJob -Account $dataLakeAnalyticAccountName -JobID $jobID
 ```
 
-## Upload and Download files
+## Upload and download files
 
 Download the output of the U-SQL script.
 
@@ -227,38 +227,25 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 ## Manage catalog items
 The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
 
-### List catalog items
-    #List databases
-    Get-AdlCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Database
+### List databases
 
+    Get-AdlCatalogItem -Account $adla -ItemType Database
 
+### List tables in a schema
 
-    #List tables
-    Get-AdlCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Table `
-        -Path "master.dbo"
+    Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master.dbo"
 
-### Get catalog item details
-    #Get a database
-    Get-AdlCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Database `
-        -Path "master"
+### Get details of a database
 
-    #Get a table
-    Get-AdlCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Table `
-        -Path "master.dbo.mytable"
+    Get-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 
-### Test existence of  catalog item
-    Test-AdlCatalogItem  `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Database `
-        -Path "master"
+### Get details of a table in a database
+
+    Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
+
+### Test existence of a database
+
+    Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

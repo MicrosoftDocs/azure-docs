@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 
 ---
@@ -52,7 +52,7 @@ In this article, to create a Spark streaming example, perform the following step
 
 ## Create an Azure Event Hub
 
-1. Log on to the [Azure Portal](https://manage.windowsazure.com), and click **New** at the top left of the screen.
+1. Log on to the [Azure Portal](https://ms.portal.azure.com), and click **New** at the top left of the screen.
 
 2. Click **Internet of Things**, then click **Event Hubs**.
 
@@ -456,5 +456,4 @@ You should see output similar to the following:
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/

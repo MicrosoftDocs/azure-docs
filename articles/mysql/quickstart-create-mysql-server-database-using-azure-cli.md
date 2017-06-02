@@ -13,6 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.workload:
 ms.date: 05/24/2017
+ms.custom: mvc
 ---
 
 # Create an Azure Database for MySQL server using Azure CLI
