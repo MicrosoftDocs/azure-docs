@@ -39,7 +39,7 @@ Example:
     -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
     -VpnType RouteBased
     
-### Gateway SKUs
+## <a name="gwsku"></a>Gateway SKUs
 
 ### Configuring the gateway SKU
 ####Specifying the gateway SKU in the Azure portal
