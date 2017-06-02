@@ -4,7 +4,7 @@ description: Instructions for how to properly configure Azure Database for MySQL
 services: mysql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
 ms.assetid: 
 ms.service: mysql-database
