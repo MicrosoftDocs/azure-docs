@@ -126,7 +126,7 @@ If the resource group is created successfully, the previous command outputs the 
 
 ![resource group create output](media/azure-stack-connect-cli/image1.png)
 
-There are some known issues when using CLI 2.0 in Azure Stack, to learn about these issues, see the [Known issues in Azure Stack CLI](azure-stack-troubleshooting.md) topic. 
+There are some known issues when using CLI 2.0 in Azure Stack, to learn about these issues, see the [Known issues in Azure Stack CLI](azure-stack-troubleshooting.md#cli) topic. 
 
 
 ## Next steps
