@@ -8,7 +8,7 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: slivkins
+ms.author: slivkins;marcozo;alekh
 ---
 
 # Tutorial for Custom Decision Service
@@ -47,7 +47,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
 1. Sign in with your [Microsoft account](https://account.microsoft.com/account). On the ribbon, click **My Portal**.
 
-2. To register a new application, click the **New App** button. 
+2. To register a new application, click the **New App** button.
 
     ![Custom Decision Service portal](./media/custom-decision-service-tutorial/portal.png)
 
