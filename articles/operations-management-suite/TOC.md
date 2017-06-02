@@ -41,7 +41,7 @@
 ##### [Walkthrough](operations-management-suite-walkthrough-servicemap.md)
 ##### [Use](operations-management-suite-service-map.md)
 ##### [Configure](operations-management-suite-service-map-configure.md)
-##### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault Analytics](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Network Performance Monitor](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
