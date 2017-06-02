@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 06/02/2017
 ms.author: jeedes
 
 ---
@@ -104,14 +104,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_samlbase.png)
 
-3. On the **Convercent Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, perform the following steps:
+3. On the **Convercent Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, perform the following step:
 
 	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_url.png)
 
-	* In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.convercent.com/`
-
-	> [!NOTE] 
-	> These values are not the real values. Update these values with the actual Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Convercent Client support team](http://support.convercent.com) to get these values. 
+	In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.convercent.com/`
  
 4. If you wish to configure the application in **SP initiated mode**, on the **Convercent Domain and URLs** section perform the following steps:
 	
@@ -124,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      c. In the **Relay State** textbox, type the value using the following pattern: `https://<instancename>.convercent.com/`
 
 	> [!NOTE] 
-	> These values are not the real values. Update these values with the actual Sign On URL and Relay State. Here we suggest you to use the unique value of string in Sign On URL and Rely Url. Contact [Convercent Client support team](http://support.convercent.com) to get these values.
+	> These values are not the real values. Update these values with the actual Identifier, Sign On URL and Relay State. Contact [Convercent Client support team](http://support.convercent.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
@@ -138,7 +135,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -210,6 +206,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Convercent tile in the Access Panel, you should get automatically signed-on to your Convercent application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
