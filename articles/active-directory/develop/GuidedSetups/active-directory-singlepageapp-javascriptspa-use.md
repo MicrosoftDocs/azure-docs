@@ -75,12 +75,17 @@ ms.author: andret
         userAgentApplication.acquireTokenSilent(scope)
             .then(function (token) {
                 callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
-            }, function () {
-                userAgentApplication.acquireTokenPopup(scope).then(function (token) {
-                    callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
-                }, function (error) {
+            }, function (error) {
+                if (error.indexOf("interaction_required" != -1)) {
+                    userAgentApplication.acquireTokenPopup(scope).then(function(token) {
+                            callWebApiWithToken(endpoint, token, responseElement, errorElement, showTokenElement);
+                        },
+                        function(error) {
+                            showError(endpoint, error, errorElement);
+                        });
+                } else {
                     showError(endpoint, error, errorElement);
-                });
+                }
             });
     }
 
