@@ -63,7 +63,7 @@ Open a web browser, and navigate to the sample.
 http://localhost:8080
 ```
 
-You can see the **Hello World** message from the sample app displayed in the page.
+You can see the **Hello World!** message from the sample app displayed in the page.
 
 ![localhost-hello-world-in-browser](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
