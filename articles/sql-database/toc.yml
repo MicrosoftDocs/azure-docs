@@ -233,7 +233,7 @@
       href: sql-database-elastic-pool-manage-portal.md
     - name: Elastic pools - PowerShell
       href: sql-database-elastic-pool-manage-powershell.md
-    - name: Elastic pools - Transact-SQL
+    - name: Elastic pools - T-SQL
       href: sql-database-elastic-pool-manage-tsql.md
     - name: Elastic pools - C#
       href: sql-database-elastic-pool-manage-csharp.md
