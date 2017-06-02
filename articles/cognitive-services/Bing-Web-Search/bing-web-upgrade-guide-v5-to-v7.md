@@ -71,6 +71,10 @@ Blocked|InvalidRequest.Blocked
 
 ## Non-breaking changes  
 
+### Headers
+
+- Added the optional [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) request header. By default, Bing returns cached content, if available. To prevent Bing from returning cached content, set the Pragma header to no-cache (for example, Pragma: no-cache).
+
 ### Query parameters
 
 - Added the [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) query parameter. Use this parameter to specify the number of answers that you want the response to include. The answers are chosen based on ranking. For example, if you set this parameter to three (3), the response includes the top three ranked answers.  

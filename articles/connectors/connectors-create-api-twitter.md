@@ -96,8 +96,9 @@ In the next step, you will add a Twitter action that will post a tweet using som
 7. Save your work and send a tweet with the #Seattle hashtag to activate your workflow.  
 
 
-## View the swagger
-See the [swagger details](/connectors/twitterconnector/). 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/twitterconnector/). 
 
 ## Next steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
