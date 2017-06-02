@@ -95,7 +95,7 @@ Resource groups are collections of resources, services, and applications—and e
 ### Azure Resource Manager templates
 With Azure Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
 
-## Resource providers (RPs)—Network RP, Compute RP, Storage RP
+## Resource providers (RPs)
 Resource providers are web services that form the foundation for all Azure-based IaaS and PaaS services. Azure Resource Manager relies on different RPs to provide access to services.
 
 There are four foundational RPs: Network, Storage, Compute and KeyVault. Each of these RPs helps you configure and control its respective resources. Service administrators can also add new custom resource providers.
@@ -120,7 +120,7 @@ Table storage is Microsoft’s NoSQL key/attribute store – it has a design wit
 #### Queue Storage
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
 
-## KeyVault
+### KeyVault
 The KeyVault RP provides management and auditing of secrets, such as passwords and certificates. As an example, a tenant can use the KeyVault RP to provide administrator passwords or keys during VM deployment.
 
 ## Role Based Access Control (RBAC)
