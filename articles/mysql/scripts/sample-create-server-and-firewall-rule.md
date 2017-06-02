@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
 ms.custom: mvc
-ms.topic: article
+ms.topic: sample
 ms.date: 05/31/2017
 ---
 

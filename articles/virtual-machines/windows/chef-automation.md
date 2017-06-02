@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2015
+ms.date: 05/30/2017
 ms.author: diviso
 
 ---
@@ -55,7 +55,8 @@ Then create a second directory called c:\chef\cookbooks.
 
 We now need to download our Azure settings file so Chef can communicate with our Azure subscription.
 
-Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).
+<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
+Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
 
 Save the publish settings file in C:\chef.
 
@@ -217,7 +218,7 @@ Once the deployment is complete, we should be able to connect to the web service
 
 As you can see, I got creative with my HTML code.
 
-Don’t forget we can also connect through an RDP session from the Azure classic portal via port 3389.
+Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.
 
 I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
 
