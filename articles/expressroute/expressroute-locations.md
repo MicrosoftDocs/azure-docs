@@ -207,8 +207,8 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Provider**|
 | --- |
 | **AARNET**| 
-| **GARR, through GÉANT**|
 | **DeIC, through GÉANT**|
+| **GARR, through GÉANT**|
 | **GÉANT**|
 | **HEAnet, through GÉANT**|
 | **JISC**|
