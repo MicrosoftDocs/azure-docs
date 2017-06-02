@@ -68,7 +68,7 @@ carthage update
 5.	Go to `Build Phases` tab, and click `+` icon, choose `New Run Script Phase`
 6.	Add the following contents to the *script area*:
 
-```
+```text
 /usr/local/bin/carthage copy-frameworks
 ```
 
@@ -79,7 +79,7 @@ Add the following to `Input Files` by clicking `+`:
 </li>
 </ol>
 
-```
+```text
 $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
