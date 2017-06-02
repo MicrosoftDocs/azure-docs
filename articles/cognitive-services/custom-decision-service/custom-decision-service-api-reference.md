@@ -8,7 +8,7 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: slivkins
+ms.author: slivkins;marcozo;alekh
 ---
 
 # Custom Decision Service API reference
@@ -182,4 +182,3 @@ The Atom feed version uses the same XML syntax and conventions.
 
 > [!TIP]
 > If your system uses its own article IDs, they can be passed into the callback function by using `<guid>`.
-
