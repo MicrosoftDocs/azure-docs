@@ -18,7 +18,7 @@ ms.author: gwallace
 
 # Introduction to connectivity in Azure Network Watcher
 
-The connectivity feature of Network Watcher provides the ability to test the connectivity of a direct TCP connection from a virtual machine to a remote endpoint. Networking resources are complex and have many parts, this includes Network Security Groups, firewalls, User defined routes, and more. With these resources traffic can be blocked at many different components in your network.
+The connectivity feature of Network Watcher provides the ability to test the connectivity of a direct TCP connection from a virtual machine to a remote endpoint. Networking resources are complex and can have Network Security Groups, firewalls, User defined routes, and more that can making troubleshooting connection issues tough. Network Watcher helps reduce the amount of time to find and detect mis-configurations and connectivity issues.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -38,14 +38,14 @@ The connectivity test returns heuristics about the connection. The following tab
 
 ## Results
 
-The following table shows the properties returned when connectivity test is complete.
+The following table shows the properties returned when a connectivity test has finished running.
 
 |Property  |Description  |
 |---------|---------|
 |ConnectionStatus     | The status of the connectivity check. Possible results are **Reachable** and **Unreachable**.        |
-|AvgLatencyInMs     | Average latency during the connectivity test in milliseconds.        |
-|MinLatencyInMs     | Minimum latency during the connectivity test in milliseconds.        |
-|MaxLatencyInMs     | Maximum latency during the connectivity test in milliseconds.        |
+|AvgLatencyInMs     | Average latency during the connectivity test in milliseconds. (Only shown if test is successful)        |
+|MinLatencyInMs     | Minimum latency during the connectivity test in milliseconds. (Only shown if test is successful)        |
+|MaxLatencyInMs     | Maximum latency during the connectivity test in milliseconds. (Only shown if test is successful)        |
 |ProbesSent     | Number of probes sent during the check. Max value is 100.        |
 |ProbesFailed     | Number of probes that failed during the check. Max value is 100.        |
 |Hops     | A collection of hops taken to attempt to connect to the resource.        |
