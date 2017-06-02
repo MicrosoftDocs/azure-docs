@@ -1,4 +1,4 @@
-﻿# Overview
+# Overview
 ## [What is Azure Automation?](automation-intro.md)
 # Get started
 ## [Get started with Azure Automation](automation-offering-get-started.md)
@@ -11,7 +11,7 @@
 ### [Create standalone Automation account](automation-create-standalone-account.md)
 ### [Create Azure AD User account](automation-create-aduser-account.md)
 ### [Configure Authentication with AWS](automation-config-aws-account.md)
-### [Create Azure Run As account with PowerShell](automation-update-account-powershell.md)
+### [Create Automation Run As account](automation-create-runas-account.md)
 ### [Validate Automation account config](automation-verify-runas-authentication.md)
 ### [Manage role-based access control](automation-role-based-access-control.md)
 ### [Manage Automation account](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Remediate Azure VM alert](automation-azure-vm-alert-integration.md)
 ### [Start/stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
-### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Solutions
 ### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 ### [Update Management](../operations-management-suite/oms-solution-update-management.md)
+### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)
