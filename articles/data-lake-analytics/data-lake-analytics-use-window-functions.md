@@ -653,7 +653,7 @@ PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - whic
 
 ## See also
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Learn about the U-SQL language](usql.io)
+* [Learn about the U-SQL language](http://usql.io)
 * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 
 
