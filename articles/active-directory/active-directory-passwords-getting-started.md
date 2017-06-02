@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/12/2017
 ms.author: joflore
+ms.editor: gahug
+ms.custom: it-pro
 
 ---
 # Quick Start: Azure AD self-service password reset

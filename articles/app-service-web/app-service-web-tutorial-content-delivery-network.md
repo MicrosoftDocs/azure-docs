@@ -1,13 +1,15 @@
 ---
 title: Add a Content Delivery Network (CDN) to an Azure App Service | Microsoft Docs
 description: Add a Content Delivery Network (CDN) to an Azure App Service to cache and deliver your static files from servers close to your customers around the world.
-services: app-service
+services: app-service\web
 author: syntaxc4
 ms.author: cfowler
 ms.date: 05/01/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: app-service-web
 manager: erikre
+ms.workload: web
+ms.custom: mvc
 ---
 # Add a Content Delivery Network (CDN) to an Azure App Service
 
