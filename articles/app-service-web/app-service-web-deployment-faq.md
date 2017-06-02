@@ -18,7 +18,7 @@ ms.date: 5/16/2017
 ms.author: v-six
 
 ---
-# Deployment FAQs for App Service web apps
+# Deployment FAQs for Web Apps in Azure
 
 This article has answers to frequently asked questions (FAQs) about deployment issues for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
@@ -28,15 +28,16 @@ This article has answers to frequently asked questions (FAQs) about deployment i
 
 Here are some options for publishing your web app code:
 
-*   If you have the Visual Studio solution,  right-click the web application project, and then click **Publish**.
-*   You can deploy by using an FTP client. In the Azure portal, download the publish profile for the web app that you want to deploy your code to. Then, upload the files to the \site\wwwroot location by using the same publish profile FTP credentials.
+*   Deploy by using Visual Studio. If you have the Visual Studio solution, right-click the web application project, and then select **Publish**.
+*   Deploy by using an FTP client. In the Azure portal, download the publish profile for the web app that you want to deploy your code to. Then, upload the files to \site\wwwroot by using the same publish profile FTP credentials.
 
 For more information, see [Deploy your app to App Service](web-sites-deploy.md).
 
-## I am seeing an error message when I try to deploy from Visual Studio. How can I resolve this?
+## I see an error message when I try to deploy from Visual Studio. How can I resolve this?
 
-If you are seeing the following message, you might be using an older version of the SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Please re-register for this provider in order to have access to this location.” 
-To resolve this error, upgrade to the [latest SDK](https://azure.microsoft.com/downloads/). If you continue to see the message after you upgrade to the latest SDK, create a support incident.
+If you see the following message, you might be using an older version of the SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Please re-register for this provider in order to have access to this location.” 
+
+To resolve this error, upgrade to the [latest SDK](https://azure.microsoft.com/downloads/). If you see this message and you have the latest SDK, submit a support request.
 
 ## How do I deploy an ASP.NET application from Visual Studio to App Service?
 <a id="deployasp"></a>
@@ -49,47 +50,49 @@ App Service supports two types of credentials for local Git deployment and FTP/S
 
 ## What is the file or directory structure of my App Service web app?
 
-For information about the the file structure for your App Service apps, see [File structure on Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
+For information about the file structure of your App Service apps, see [File structure in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
 
-## How do I resolve "FTP Error 550: There is not enough space on the disk" when I try to FTP my files?
+## How do I resolve "FTP Error 550 - There is not enough space on the disk" when I try to FTP my files?
 
-It's likely that you're running into a disk quota on the pricing tier for your web app. You might need to scale up to a higher pricing tier based on your disk space needs. For more information about pricing tiers and resource limits, see [App Service pricing ](https://azure.microsoft.com/pricing/details/app-service/).
+If you see this message, it's likely that you are running into a disk quota on the pricing tier for your web app. You might need to scale up to a higher pricing tier based on your disk space needs. For more information about pricing tiers and resource limits, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## How do I set up continuous deployment for my App Service web app?
 
-You can set up continuous deployment from several resources, including Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](app-service-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment..
+You can set up continuous deployment from several resources, including Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](app-service-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment.
 
 ## How do I troubleshoot issues with continuous deployment from GitHub and Bitbucket?
 
-For help with investigating issues with continuous deployment from GitHub or Bitbucket, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
+For help investigating issues with continuous deployment from GitHub or Bitbucket, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
 ## I can't FTP to my site and publish my code. How can I resolve the issue?
 
+To resolve FTP issues:
+
 1. Verify that you are entering the correct host name and credentials. For detailed information about different types of credentials and how to use them, see [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Verify that the FTP ports are not blocked by a firewall. The ports should have these settings:
- * FTP control connection port: 21
- * FTP data connection port: 989, 10001-10300
+    * FTP control connection port: 21
+    * FTP data connection port: 989, 10001-10300
 
 ## How do I publish my code to App Service?
 
-The Quickstart experience is designed to help you deploy your app by using the deployment stack and method of your choice. To use the Quickstart, in the Azure portal, go to **Settings** > **App Deployment**.
+The Azure Quickstart is designed to help you deploy your app by using the deployment stack and method of your choice. To use the Quickstart, in the Azure portal, go to **Settings** > **App Deployment**.
 
-## Why does my application sometimes restart after deployment to App Service?
+## Why does my app sometimes restart after deployment to App Service?
 
-[Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts") shows you the circumstances under which an application deployment might result in a restart. App Service deploys files into the wwwroot folder. It never directly does anything to restart the app.
+To learn about the circumstances under which an application deployment might result in a restart, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). As the article describes, App Service deploys files to the wwwroot folder. It never directly does anything to restart your app.
 
 ## How can I integrate Visual Studio Team Services code with App Service?
 
-You have two options for using continuous deployment with Visual Studio Team Services.
+You have two options for using continuous deployment with Visual Studio Team Services:
 
 *   Use a Git project. Connect via App Service by using the deployment options to that repo.
 *   Use a Team Foundation Version Control (TFVC) project. Deploy by using the build agent to App Service.
 
-Continuous code deployment for both options depend on the existing developer workflow and check-in procedures. For more information, see: 
+Continuous code deployment for both these options depends on existing developer workflows and check-in procedures. For more information, see these articles: 
 
 *   [Implement continuous deployment of your app to an Azure website](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Sett up a Visual Studio Team Services account so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Set up a Visual Studio Team Services account so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
 ## How do I use FTP or FTPS to deploy my app to App Service?
 
-For detailed guidance about using FTP or FTPS to deploy your web app to App Service, see [Deploy your app to App Service by using FTP/S](app-service-deploy-ftp.md).
+For information about using FTP or FTPS to deploy your web app to App Service, see [Deploy your app to App Service by using FTP/S](app-service-deploy-ftp.md).
