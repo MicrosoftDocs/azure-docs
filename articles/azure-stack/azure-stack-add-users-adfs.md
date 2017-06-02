@@ -24,7 +24,6 @@ To add additional users to the POC deployment, you must add them to the Azure St
 3.	Select **Active Directory Users and Computers** > **AzureStack.local** > **Users**.
 4.	Click **Action** > **New** > **User**.
 5.	In the New Object – User window, provide and confirm a password
-6.	To avoid requirements to change the password for the user you just created, uncheck **User must change password at next logon** and check **Password never expires**.
-7.	Click **Next** to finalize the values and click Finish to create the user.
+6.	Click **Next** to finalize the values and click Finish to create the user.
 
 
