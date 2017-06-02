@@ -8,10 +8,20 @@
 ## [Create DC/OS cluster](container-service-dcos-quickstart.md)
 
 # Tutorials
-## [Deploy cluster - Portal](container-service-deployment.md)
-## [Deploy cluster - Azure CLI](container-service-create-acs-cluster-cli.md)
-## [CI/CD with Kubernetes and Jenkins](container-service-kubernetes-jenkins.md)
-## [CI/CD with Docker Swarm and VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## Kubernetes
+### [Create / manage cluster](container-service-deployment.md)
+### [Create / manage data volumes](container-service-dcos-fileshare.md)
+### [Load balance applications](container-service-kubernetes-load-balancing.md)
+### [Integrate with ACR](container-service-kubernetes-jenkins.md)
+### [Use Kubernetes secrets](container-service-kubernetes-jenkins.md)
+### [Monitor cluster with OMS](container-service-kubernetes-oms.md)
+## DC/OS
+### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
+### [Create / manage data volumes](container-service-dcos-fileshare.md)
+### [Load balance applications](container-service-load-balancing.md)
+### [Integrate with ACR](container-service-dcos-acr.md)
+### [Use DC/OS secrets](container-service-kubernetes-jenkins.md)
+### [Monitor cluster with OMS](container-service-monitoring-oms.md)
 
 # Samples
 ## [Azure CLI](cli-samples.md)
