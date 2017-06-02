@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/2/2017
+ms.date: 06/3/2017
 ms.author: jeedes
 
 ---
@@ -76,7 +76,7 @@ To configure the integration of Cimpl into Azure AD, you need to add Cimpl from 
 	![Creating an Azure AD test user](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Cimpl based on a test user called "Britta Simon."
+In this section, you configure and test Azure AD single sign-on with Cimpl based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Cimpl is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Cimpl needs to be established.
 
@@ -108,15 +108,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sso.etelesolv.com/<TENANTNAME>`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://login.bws.cimpl.com/SAMLSSO/Service.aspx?cimpl.idpid=\<TENANT ID PID>`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://sso.etelesolv.com/<TENANTNAME>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact Cimpl team at **+1 866-982-8250** to get these values. 
  
-
-
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-cimpl-tutorial/tutorial_cimpl_certificate.png) 
@@ -170,9 +168,6 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating a Cimpl test user
 
 The objective of this section is to create a user called Britta Simon in Cimpl. Work with Cimpl support at **+1 866-982-8250** to add the users in the Cimpl account. 
-
->[!NOTE]
->If you need to create a user manually, you need to contact the Cimpl support at **+1 866-982-8250**.
 
 ### Assigning the Azure AD test user
 
