@@ -229,8 +229,7 @@ The objective of this section is to create a test user in the Azure portal calle
    
      >[!IMPORTANT]
      >**Password Disabled** must be selected to enable a user to log in via an Identity provider. 
-     > 
-
+     
 6. Go to **Role**, and then perform the following steps:
    
     ![Partner Roles](./media/active-directory-saas-sprinklr-tutorial/IC782917.png "Partner Roles")
@@ -241,7 +240,6 @@ The objective of this section is to create a test user in the Azure portal calle
 
 >[!NOTE]
 >You can use any other Sprinklr user account creation tools or APIs provided by Sprinklr to provision Azure AD user accounts. 
-> 
 
 ### Assigning the Azure AD test user
 
