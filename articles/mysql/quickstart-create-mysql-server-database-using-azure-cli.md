@@ -12,31 +12,37 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.workload:
-ms.date: 05/24/2017
+ms.date: 06/01/2017
 ms.custom: mvc
 ---
 
 # Create an Azure Database for MySQL server using Azure CLI
 This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about five minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
-To complete this quickstart, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+You may use the Azure Cloud Shell in the browser to run these Azure CLI commands, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer. 
+
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to Azure
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli
+If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
+```azurecli-interactive
 az login
 ```
-Follow the command prompt instructions to open https://aka.ms/devicelog in your browser, and then enter the code generated in the **command prompt**.
+
+If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
+```
+Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the command prompt.
 
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `mycliresource` in the `westus` location.
 
-```azurecli
+```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
@@ -45,7 +51,7 @@ Create an Azure Database for MySQL server with the **az mysql server create** co
 
 The following example creates an Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
-```azurecli
+```azurecli-interactive
 az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
@@ -56,7 +62,7 @@ Create an Azure Database for MySQL server-level firewall rule using the **az mys
 
 The following example creates a firewall rule for a predefined address range, which in this example is the entire possible range of IP addresses.
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 ## Configure SSL settings
@@ -64,7 +70,7 @@ By default, SSL connections between your server and client applications are enfo
 
 The following example disables enforcing SSL on your MySQL server.
  
- ```azurecli
+ ```azurecli-interactive
  az mysql server update --resource-group mycliresource --name mycliserver -g -n --ssl-enforcement Disabled
  ```
 
@@ -72,7 +78,7 @@ The following example disables enforcing SSL on your MySQL server.
 
 To connect to your server, you need to provide host information and access credentials.
 
-```azurecli
+```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
@@ -183,7 +189,7 @@ Now, you can click the connection just created to successfully connect to the se
 
 If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following: 
 
-```azurecli
+```azurecli-interactive
 az group delete --name mycliresource
 ```
 
