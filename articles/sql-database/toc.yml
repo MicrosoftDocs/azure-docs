@@ -53,7 +53,7 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: DBs and servers
+  - name: Databases & servers
     items:
     - name: Databases
       href: sql-database-overview.md
@@ -113,7 +113,7 @@
       href: sql-database-recovery-using-backups.md
     - name: Failover groups
       href: sql-database-geo-replication-overview.md
-  - name: Load and move data
+  - name: Load & move data
     items:
     - name: Migrate SQL Server DB
       href: sql-database-cloud-migrate.md
@@ -195,7 +195,7 @@
       href: sql-database-libraries.md
 - name: How-to guides
   items:
-  - name: DBs & servers
+  - name: Databases & servers
     items:
     - name: Elastic pools - portal
       href: sql-database-elastic-pool-manage-portal.md
