@@ -68,11 +68,9 @@ az login
    
 ### Add the Azure Cosmos DB module
 
-To use Azure Cosmos DB commands, add the Azure Cosmos DB module. 
+If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. 
 
-```azurecli-interactive
-az component update --add cosmosdb
-```
+If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
