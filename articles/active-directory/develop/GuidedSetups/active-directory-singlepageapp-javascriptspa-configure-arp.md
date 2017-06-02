@@ -31,12 +31,14 @@ Configure the `Redirect URL` field above with the URL for your index.html page b
 > 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
 > 2.	Change `SSL Enabled` to `True`:<br/>
 ![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
-> 3.	Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:
+> 3.	Copy the value from `SSL URL` above, go `Project` menu and select `{Project} Properties...` (where *{Project}* is the name of your project)
+> 4.	Also paste the value in the `Redirect URL` field on the top of this page, then click *Update*:
+
 
 ### Configure your JavaScript SPA application
 
 1.	Create a `config.js` file containing the application registration information. If you are using Visual Studio, follow the steps below to create config.js:
-a.	Select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`. Name it `config.js`.
+a.	Select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`. Name it `msalconfig.js`.
 2.	Add the following code to your `msalconfig.js` file:
 
 ```javascript

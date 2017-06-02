@@ -41,7 +41,9 @@ Add the URL for your index.html page based on your web server, then click *Save*
 > If you are using Visual Studio, configure your project to use SSL, and then use the SSL URL to configure your application’s registration information using below instructions:
 > 1.	In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
 > 2.	Change `SSL Enabled` to `True`:<br/> ![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
-> 3.	Copy the value from `SSL URL` above, paste in a `Redirect URLs` field, and click ‘Save’
+> 3.	Copy the value from `SSL URL` above, go `Project` menu and select `{Project} Properties...` (where {Project} is the name of your project)
+> 4.	Paste the value of `SSL URL` in the Project Url field
+> 5.	Go back to Application Registration Portal, paste the same value of `SSL URL` in *Redirect URLs* field of your app's registration information and click *Save*
 
 ### Configure your JavaScript SPA application
 
