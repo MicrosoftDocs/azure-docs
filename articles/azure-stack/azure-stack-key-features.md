@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/1/2017
+ms.date: 6/1/2017
 ms.author: helaw
 
 ---
@@ -34,7 +34,7 @@ The primary methods of interacting with Microsoft Azure Stack are the administra
 The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud administrator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
 
 ## Identity 
-Azure Stack can use either Azure Active Directory (AAD) or Active Directory Federation Services (AD FS) as an identity provider.  
+Azure Stack uses either Azure Active Directory (AAD) or Active Directory Federation Services (AD FS) as an identity provider.  
 
 ### Azure Active Directory
 Azure Active Directory is Microsoft's cloud-based, multi-tenant identity provider.  For most hybrid scenarios, you will use Azure Active Directory as the identity store for Azure Stack POC.
@@ -92,7 +92,6 @@ By using Azure Resource Manager, you can work with your infrastructure resources
 ### Resource groups
 Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
  
-
 ### Azure Resource Manager templates
 With Azure Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
 

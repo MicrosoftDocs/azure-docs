@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/1/2017
+ms.date: 06/1/2017
 ms.author: helaw
 
 ---
@@ -22,10 +22,7 @@ Azure Resource Manager templates deploy and provision all of the resources for y
 
 These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
 
->[!VIDEO https://channel9.msdn.com/Blogs/azurestack/Microsoft-Azure-Stack-TP1--Foundational-Skills-1-Deploying-JSON-Templates/player]
-
-
-The following templates are available on [GitHub](http://aka.ms/azurestackgithub):
+The following quickstart templates are available on [GitHub](http://aka.ms/azurestackgithub):
 
 ## Deploy SharePoint (non-high availability)
 Use the PowerShell DSC extension to create a SharePoint 2013 farm that includes the following:
