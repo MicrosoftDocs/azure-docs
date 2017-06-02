@@ -129,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ------------------- | -------------------- |    
 	| personalimmutableid | user.extensionattribute2 |
 	| email 			  | user.mail |
-	| userid              | user.userprincipalname |	
+	| userid              | user.userprincipalname|	
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
