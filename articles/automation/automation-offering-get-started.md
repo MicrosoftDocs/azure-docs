@@ -1,6 +1,6 @@
 --- 
 title:  Get Started with Azure Automation | Microsoft Docs
-description: This article provides an overview of Azure Automation service by reviewing the core concepts and implementation details in preparation to onboard the offering from Auzre Marketplace. 
+description: This article provides an overview of Azure Automation service by reviewing the core concepts and implementation details in preparation to onboard the offering from Azure Marketplace. 
 services: automation
 documentationcenter: ''
 author: mgoedtel
