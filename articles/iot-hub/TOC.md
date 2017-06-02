@@ -6,13 +6,13 @@
 # [Get Started](iot-hub-get-started.md)
 
 ## Setup your device
-### Use a simulated device
+### [Use a simulated device](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Use a physical device
+### [Use a physical device](iot-hub-get-started-physical.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -132,7 +132,7 @@
 ### [Use a real device](iot-hub-iot-edge-physical-device.md)
 
 # Reference
-## [Azure CLI 2.0](/cli/azure/iot)
+## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
