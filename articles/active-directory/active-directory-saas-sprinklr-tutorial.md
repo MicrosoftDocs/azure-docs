@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/02/2017
 ms.author: jeedes
 
 ---
@@ -165,7 +165,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -222,9 +221,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     b. Select **Password Disabled**.
 
-    c. Select a **Language**.
+    c. Select **Language**.
 
-    d. Select a **User Type**.
+    d. Select **User Type**.
 
     e. Click **Update**.
    
@@ -276,7 +275,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your SSO settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the Sprinklr tile in the Access Panel, you should get automatically signed-on to your Sprinklr application
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
