@@ -91,10 +91,10 @@ See the following articles for detailed information about Data Management Gatewa
 
 ## 2.1.6040.
 
-*  DB2 driver is included in the gateway installation package now. You do not need to install it separately.
-*  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows).
-*  Supports using DocumentDB as a source or destination for on-premises data stores
-*  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account.
+*  DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
+*  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 
+*  Supports using Azure Cosmos DB as a source or destination for on-premises data stores
+*  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account. 
 *  Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
 
 ## 2.0.6013.1

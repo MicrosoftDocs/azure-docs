@@ -22,6 +22,9 @@ ms.author: dobett
 
 The steps in this article show you how to deploy a gateway using Docker on either Windows or Linux. The gateway enables connectivity to the connected factory preconfigured solution.
 
+> [!NOTE]
+> The gateway software that runs in the Docker container is [Azure IoT Edge].
+
 ## Windows deployment
 
 > [!NOTE]
@@ -145,3 +148,4 @@ To learn more about the architecture of the connected factory preconfigured solu
 [open-source OPC UA client]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Install Docker]: https://www.docker.com/community-edition#/download
 [lnk-walkthrough]: iot-suite-overview.md
+[Azure IoT Edge]: https://github.com/Azure/iot-edge

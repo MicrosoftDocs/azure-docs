@@ -10,6 +10,7 @@
 | Resource Manager API Reads |15000 per hour |15000 per hour |
 | Resource Manager API Writes |1200 per hour |1200 per hour |
 | Resource Manager API request size |4194304 bytes |4194304 bytes |
+| Tags per subscription |10000 |10000 |
 | [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |Not Applicable<sup>3</sup> |Not Applicable<sup>3</sup> |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |Not Applicable<sup>3</sup> |Not Applicable<sup>3</sup> |
 

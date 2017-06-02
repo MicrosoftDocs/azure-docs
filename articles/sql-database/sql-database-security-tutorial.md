@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: tutorial-secure, mvc
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -20,6 +20,8 @@ ms.author: daredis
 
 ---
 # Secure your Azure SQL Database
+
+SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking.
 
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to: 
 
@@ -106,7 +108,7 @@ Follow these steps to create a user using SQL Authentication:
 3. In the query window, enter the following query:
 
     ```sql
-    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. On the toolbar, click **Execute** to create the user.
@@ -114,8 +116,8 @@ Follow these steps to create a user using SQL Authentication:
 5. By default, the user can connect to the database, but has no permissions to read or write data. To grant these permissions to the newly created user, execute the following two commands in a new query window
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
-    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
     ```
 
 It is best practice to create these non-administrator accounts at the database level to connect to your database unless you need to execute administrator tasks like creating new users. Please review the [Azure Active Directory tutorial](./sql-database-aad-authentication-configure.md) on how to authenticate using Azure Active Directory.
@@ -223,5 +225,6 @@ You can improve the protection of your database against malicious users or unaut
 > * Enable SQL Database auditing
 > * Enable SQL Database threat detection
 
-* [SQL Database Security Overview](sql-database-security-overview.md).
+> [!div class="nextstepaction"]
+>[Improve SQL Database performance](sql-database-performance-tutorial.md)
 

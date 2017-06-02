@@ -1,6 +1,6 @@
 ---
-title: Apache Storm topologies with Visual Studio and C#  | Microsoft Docs
-description: Learn how to create Storm topologies in C# by creating a simple word count topology in Visual Studio using the HDInsight Tools for Visual Studio.
+title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight | Microsoft Docs
+description: Learn how to create Storm topologies in C# by creating a simple word count topology in Visual Studio using the Hadoop tools for Visual Studio.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,60 +15,101 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 05/23/2017
 ms.author: larryfr
 
 ---
-# Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
+# Develop C# topologies for Apache Storm using Data Lake tools for Visual Studio
 
-Learn how to create a C# Storm topology by using the HDInsight tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
+Learn how to create a C# Storm topology by using the Data Lake (Hadoop) Tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
 
 You also learn how to create hybrid topologies that use C# and Java components.
 
-> [!IMPORTANT]
+> [!NOTE]
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies__.
->
-> To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
->
+
+To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight.
+
+| HDInsight version | Storm version | SCP.NET version | Default Mono version |
+|:-----------------:|:-------------:|:---------------:|:--------------------:|
+| 3.3 |0.10.x |0.10.x.x</br>(Only on Windows-based HDInsight) | NA |
+| 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
+| 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
+| 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
+
+> [!IMPORTANT]
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
+## Install Visual Studio
 
-## Prerequisites
+You can develop C# topologies with SCP.NET by using one of the following versions of Visual Studio:
 
-* [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
+* Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-  * The **JAVA_HOME** environment variable must point to the directory that contains Java.
-  * The **%JAVA_HOME%/bin** directory must be in the path
+* Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-* One of the following versions of Visual Studio:
+* Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
-  * Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
-  * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
-  * Visual Studio 2017 (any edition)
+* Visual Studio 2017 (any edition)
 
-* Azure SDK 2.9.5 or later
+## Install Data Lake tools for Visual Studio
 
-* HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
+To install Data Lake tools for Visual Studio, follow the steps in the  [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) document.
 
-  > [!NOTE]
-  > HDInsight Tools for Visual Studio are not supported on Visual Studio Express
+## Install Java
 
-* Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
+When submitting a Storm topology from Visual Studio, SCP.NET generates a zip file containing the topology and dependencies. Java is used to create these zip files, as it uses a format that is more compatible with Linux-based clusters.
 
-  > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+1. Install the Java Developer Kit (JDK) 7 or greater on your development environment. You can get the Oracle JDK from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html). You can also use other Java distributions, such as [http://openjdk.java.net/](http://openjdk.java.net/).
 
-## Templates
+2. The `JAVA_HOME` environment variable must point to the directory that contains Java.
 
-The HDInsight Tools for Visual Studio provide the following templates:
+3. The `PATH` environment variable must include the `%JAVA_HOME%\bin` directory.
+
+You can use the following C# console application to verify that Java and the JDK is correctly installed:
+
+```csharp
+using System;
+using System.IO;
+namespace ConsoleApplication2
+{
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable(“JAVA_HOME”);
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @”\bin”, “jar.exe”);
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine(“JAVA Is Installed properly”);
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine(“A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.”);
+               }
+           }
+           else
+           {
+             Console.WriteLine(“A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.”);
+           }
+       }  
+   }
+}
+```
+
+## Storm templates
+
+The Data Lake Tools for Visual Studio provide the following templates:
 
 | Project type | Demonstrates |
 | --- | --- |
 | Storm Application |An empty Storm topology project |
 | Storm Azure SQL Writer Sample |How to write to Azure SQL Database |
-| Storm DocumentDB Reader Sample |How to read from Azure DocumentDB |
-| Storm DocumentDB Writer Sample |How to write to Azure DocumentDB |
+| Storm Azure Cosmos DB Reader Sample |How to read from Azure Cosmos DB |
+| Storm Azure Cosmos DB Writer Sample |How to write to Azure Cosmos DB |
 | Storm EventHub Reader Sample |How to read from Azure Event Hubs |
 | Storm EventHub Writer Sample |How to write to Azure Event Hubs |
 | Storm HBase Reader Sample |How to read from HBase on HDInsight clusters |
@@ -85,21 +126,19 @@ The HBase reader and writer templates use the HBase REST API to communicate with
 ### EventHub templates notes
 
 > [!IMPORTANT]
-> The Java-based EventHub spout component included with the EventHub Reader template does not work with Storm on HDInsight version 3.5. Instead, use the EventHub spout component from [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar).
+> The Java-based EventHub spout component included with the EventHub Reader template may not work with Storm on HDInsight version 3.5 or greater. An updated version of this component is available at [https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 For an example topology that uses this component and works with Storm on HDInsight 3.5, see [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
 ## Create a C# topology
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Open Visual Studio, select **File** > **New**, and then **Project**.
 
-2. Open Visual Studio, select **File** > **New**, and then **Project**.
-
-3. From the **New Project** screen, expand **Installed** > **Templates**, and select **Azure Data Lake**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
+2. From the **New Project** screen, expand **Installed** > **Templates**, and select **Azure Data Lake**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
 
     ![image](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 
-4. After the project has been created, you should have the following files:
+3. After the project has been created, you should have the following files:
 
    * **Program.cs**: This file defines the topology for your project. A default topology that consists of one spout and one bolt is created by default.
 
@@ -110,8 +149,6 @@ For an example topology that uses this component and works with Storm on HDInsig
      As part of project creation, the latest [SCP.NET package](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) is downloaded from NuGet.
 
      [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
-
-In the next sections, you modify the project into a basic WordCount application.
 
 ### Implement the spout
 
@@ -183,8 +220,6 @@ In the next sections, you modify the project into a basic WordCount application.
     }
     ```
 
-    Take a moment to read through the comments to understand what this code does.
-
 ### Implement the bolts
 
 1. Delete the existing **Bolt.cs** file from the project.
@@ -246,8 +281,6 @@ In the next sections, you modify the project into a basic WordCount application.
     }
     ```
 
-    Take a moment to read through the comments to understand what this code does.
-
 5. Open **Counter.cs** and replace the class contents with the following:
 
     ```csharp
@@ -301,8 +334,6 @@ In the next sections, you modify the project into a basic WordCount application.
         Context.Logger.Info("Execute exit");
     }
     ```
-
-    Take a moment to read through the comments to understand what this code does.
 
 ### Define the topology
 
@@ -373,8 +404,6 @@ topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
 return topologyBuilder;
 ```
 
-Take a moment to read through the comments to understand what this code does.
-
 ## Submit the topology
 
 1. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
@@ -416,9 +445,9 @@ Transactional topologies implement the following to support replay of data:
 
 As demonstrated in the **Storm Sample** project, whether a component is transactional can be set at run time, based on configuration.
 
-## Hybrid topology
+## Hybrid topology with C# and Java
 
-HDInsight tools for Visual Studio can also be used to create hybrid topologies, where some components are C# and others are Java.
+Data Lake Tools for Visual Studio can also be used to create hybrid topologies, where some components are C# and others are Java.
 
 For an example hybrid topology, create a project and select **Storm Hybrid Sample**. This sample type demonstrates the following concepts:
 
@@ -438,7 +467,6 @@ To switch between the topology that is used when the project is submitted, simpl
 
 > [!NOTE]
 > All the Java files that are required are provided as part of this project in the **JavaDependency** folder.
-
 
 Consider the following when creating and submitting a hybrid topology:
 
@@ -510,7 +538,7 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 > 1. In **Solution Explorer**, right-click the project and select **Manage NuGet Packages**.
 > 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
 
-## Troubleshooting
+## Troubleshooting common issues with topologies
 
 ### Null pointer exceptions
 
@@ -695,7 +723,19 @@ If you encounter errors submitting a topology to HDInsight, you can find logs fo
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
-Replace __sshuser__ with the SSH user account for the cluster. Replace __clustername__ with the name of the HDInsight cluster. If you used a password for the SSH account, you are prompted to enter it. The command downloads the file to the directory that the command is ran from.
+Replace __sshuser__ with the SSH user account for the cluster. Replace __clustername__ with the name of the HDInsight cluster. For more information on using `scp` and `ssh` with HDInsight, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+
+Submissions can fail for multiple reasons:
+
+* JDK is not installed or is not in the path
+* Required Java dependencies not included in the submission
+* Incompatible dependencies
+* Duplicate topology names
+
+If the `hdinsight-scpwebapi.out` log contains a `FileNotFoundException`, this might be caused by the following conditions:
+
+* The JDK is not in the path on the development environment. Verify that the JDK is installed in the development environment, and that `%JAVA_HOME%/bin` is in the path
+* You are missing a Java dependency. Make sure you are including any required .jar files as part of the submission.
 
 ## Next steps
 

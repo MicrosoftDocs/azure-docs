@@ -162,7 +162,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 The following example sets a server-level firewall rule using the Azure CLI: 
 
-```azurecli
+```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
 	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.1
 ```

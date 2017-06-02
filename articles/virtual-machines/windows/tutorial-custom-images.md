@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/08/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 
 # Create a custom image of an Azure VM using PowerShell
@@ -26,6 +27,8 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Sysprep and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -169,6 +172,25 @@ New-AzureRmVM `
     -VM $vmConfig
 ```
 
+## Image management 
+
+Here are some examples of common management image tasks and how to complete them using PowerShell.
+
+List all images by name.
+
+```powershell
+$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images.name
+```
+
+Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+
+```powershell
+Remove-AzureRmImage `
+    -ImageName myOldImage `
+	-ResourceGroupName myResourceGroup
+```
+
 ## Next steps
 
 In this tutorial, you created a custom VM image. You learned how to:
@@ -177,6 +199,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Sysprep and generalize VMs
 > * Create a custom image
 > * Create a VM from a custom image
+> * List all the images in your subscription
+> * Delete an image
 
 Advance to the next tutorial to learn about how highly available virtual machines.
 

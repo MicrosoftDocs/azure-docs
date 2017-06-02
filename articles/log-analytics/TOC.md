@@ -5,7 +5,6 @@
 # Get Started
 ## [Sign up for Log Analytics](log-analytics-get-started.md)
 ## [Manage access](log-analytics-manage-access.md)
-## [Proxy and firewall](log-analytics-proxy-firewall.md)
 ## [Usage data](log-analytics-usage.md)
 ## [Log Analytics FAQ](log-analytics-faq.md)
 ## [Service providers](log-analytics-service-providers.md)
@@ -36,7 +35,7 @@
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
 #### [Regular expressions](log-analytics-log-searches-regex.md)
-### [Take action from search results](log-analytics-log-search-takeaction.md) 
+### [Take action from search results](log-analytics-log-search-takeaction.md)
 ### [Computer groups](log-analytics-computer-groups.md)
 ## Analyze data
 ### [Dashboards](log-analytics-dashboards.md)
@@ -59,6 +58,7 @@
 ### [AD Replication Status](log-analytics-ad-replication-status.md)
 ### [Alert management](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
+### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Capacity and performance](log-analytics-capacity.md)
 ### [Change Tracking](log-analytics-change-tracking.md)
 ### [Containers](log-analytics-containers.md)

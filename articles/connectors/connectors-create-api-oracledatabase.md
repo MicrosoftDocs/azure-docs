@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia
+ms.author: mandia; ladocs
 
 ---
 # Get started with the Oracle Database connector
@@ -119,6 +119,9 @@ This topic shows you how to use the Oracle Database connector in a logic app.
 * Any table with composite keys
 * Nested object types in tables
  
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/oracle/). 
 
 ## Get some help
 

@@ -72,7 +72,8 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 >
 
 ### Hard disk drives
-Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 10 TB.
+Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A Single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
+
 For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS.
 
 > [!IMPORTANT]
@@ -493,9 +494,9 @@ Please note that the physical media that you are shipping may need to cross inte
 
 Some storage account locations are mapped to alternate shipping locations. Previously available shipping locations can also be temporarily mapped to alternate locations. Always check the shipping address provided during job creation before shipping your drives.
 
-**When shipping my drive, the carrier asks for the data center contact name and phone number. What should I provide?**
+**When shipping my drive, the carrier asks for the data center contact address and phone number. What should I provide?**
 
-The phone number is provided to you during job creation. If you need a contact name, please contact us at waimportexport@microsoft.com and we will provide you with that information.
+The phone number and DC address is provided as part of job creation.
 
 **Can I use the Azure Import/Export service to copy PST mailboxes and SharePoint data to O365?**
 
@@ -505,13 +506,13 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
-**What is the maximum numbers of HDD for in one shipment?
+**What is the maximum numbers of HDD for in one shipment?**
 
 Any number of HDDs can be in one shipment and if the disks belong to multiple jobs it is recommended to 
 a) Have the disks labeled with the corresponding job names. 
 b) Update the jobs with a tracking number suffixed with -1, -2 etc.
   
-**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?
+**What is the Maximum Block Blob and Page Blob Size supported by Disk Import/Export?**
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
 Max Page Blob size is 1TB.

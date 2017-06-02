@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2017
+ms.date: 05/09/2017
 ms.author: terrylan
 
 ---
@@ -106,7 +106,7 @@ After reviewing all recommendations, decide which one you should apply first. We
 
 In the table of recommendations above, select a recommendation and walk through it as an example of how to apply a recommendation.
 
-## See also
+## Next steps
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](security-center-policies.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
