@@ -43,7 +43,7 @@ You can configure auditing for different types of event categories, as explained
 Audit logs are written to Azure Blob storage on your Azure subscription.
 
 
-## <a id="subheading-8"></a>Server-level vs. database-level auditing policy
+## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
 An auditing policy can be defined for a specific database or as a default server policy.
 
@@ -109,7 +109,7 @@ There are several methods you can use to view blob auditing logs:
 
     ![Navigation Pane][8]
 
-* Use the **Merge Audit Files** feature in SQL Server Management Studio (starting with SSMS 17):  
+* Use the Merge Audit Files feature in SQL Server Management Studio (starting with SSMS 17):  
     - From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
 
         ![Navigation Pane][9]
@@ -120,14 +120,14 @@ There are several methods you can use to view blob auditing logs:
     - Once all the files you want to merge have been added, click **OK** to complete the merge operation.
     - The merged file opens in SSMS, where you'll be able to view and analyze it. You can also export the file to an XEL or CSV file or to a table.
 
-* Use the  [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS.
+* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS.
 
 * Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
     * Once you have downloaded a log file locally, you can double-click the file to open, view and analyze the logs in SSMS.
     * You can also download multiple files simultaneously via Azure Storage Explorer. Right-click a specific subfolder (for example, a subfolder that includes all log files for a specific date) and select **Save as** to save in a local folder.
 
 * Additional methods:
-   * After downloading several files (or a subfolder that includes log files for an entire day, as described in the previous step), you can merge them locally as described in the SSMS **Merge Audit Files** instructions described earlier.
+   * After downloading several files (or a subfolder that includes log files for an entire day, as described in the previous step), you can merge them locally as described in the SSMS Merge Audit Files instructions described earlier.
 
    * Programmatically:
 
@@ -137,21 +137,21 @@ There are several methods you can use to view blob auditing logs:
 
 
 
-## <a id="subheading-5"></a>Practices for usage in production
-<!--The description in this section refers to screen captures above.-->
+## <a id="subheading-5"></a>Production practices
+<!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Auditing geo-replicated databases</a>
 When you use geo-replicated databases, it is possible to set up auditing on either the primary database, the secondary database, or both, depending on the audit type.
 
 Follow these instructions (remember that blob auditing can be turned on or off only from the primary database auditing settings):
 
-1. **Primary database**. Turn on blob auditing, either on the server or on the database itself, as described in the [Set up auditing for your database](#subheading-2-1) section.
-2. **Secondary database**. Turn on blob auditing on the primary database, as described in the [Set up auditing for your database](#subheading-2-1) section. 
+* **Primary database**. Turn on blob auditing, either on the server or on the database itself, as described in the [Set up auditing for your database](#subheading-2-1) section.
+* **Secondary database**. Turn on blob auditing on the primary database, as described in the [Set up auditing for your database](#subheading-2-1) section. 
    * Blob auditing must be enabled on the *primary database itself*, not the server.
    * Once blob auditing is enabled on the primary database, it will also become enabled on the secondary database.
 
      >[!IMPORTANT]
-     >By default, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. You can avoid this by enabling blob auditing on the secondary server and configuring  local storage in the secondary server storage settings. This will override the storage location for the secondary database and result in each database saving its audit logs to local storage.  
+     >By default, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. You can avoid this by enabling blob auditing on the secondary server and configuring local storage in the secondary server storage settings. This will override the storage location for the secondary database and result in each database saving its audit logs to local storage.  
 <br>
 
 ### <a id="subheading-6">Storage key regeneration</a>
@@ -160,16 +160,16 @@ In production, you are likely to refresh your storage keys periodically. When re
 1. Open the **Storage Details** blade. In the **Storage Access Key** box, select **Secondary**, and click **OK**. Then click **Save** at the top of the auditing configuration blade.
 
     ![Navigation Pane][5]
-2. Go to the **storage configuration** blade and regenerate the primary access key.
+2. Go to the storage configuration blade and regenerate the primary access key.
 
     ![Navigation Pane][6]
-3. Go back to the **auditing configuration** blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the **auditing configuration** blade.
-4. Go back to the **storage configuration** blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
+3. Go back to the auditing configuration blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration blade.
+4. Go back to the storage configuration blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
 
 ## <a id="subheading-7"></a>Automation (PowerShell/REST API)
 You can also configure auditing in Azure SQL Database using the following automation tools:
 
-1. **PowerShell cmdlets**:
+* **PowerShell cmdlets**:
 
    * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
    * [Get-AzureRMSqlServerAuditingPolicy][102]
@@ -181,7 +181,7 @@ You can also configure auditing in Azure SQL Database using the following automa
 
    For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-2. **REST API - Blob auditing**:
+* **REST API - Blob auditing**:
 
    * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
    * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
