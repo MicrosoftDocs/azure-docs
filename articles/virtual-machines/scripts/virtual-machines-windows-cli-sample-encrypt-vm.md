@@ -30,7 +30,7 @@ This script creates a secure Azure Key Vault, encryption keys, Azure Active Dire
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/encrypt-disks/encrypt-windows-vm.sh "Encrypt VM disks")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/encrypt-disks/encrypt_windows_vm.sh "Encrypt VM disks")]
 
 ## Clean up deployment 
 
