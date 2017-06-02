@@ -2,9 +2,9 @@ When you create a virtual network gateway, you need to specify the gateway SKU t
 
 |**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br>Connections** | **Aggregate<br>Throughput** |
 |---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| Max. 30                         | Max. 256               | 500 Mbps                    |
-|**VpnGw2**| Max. 30                         | Max. 512               | 1 Gbps                      |
-|**VpnGw3**| Max. 30                         | Max. 512               | 1.25 Gbps                   |
+|**VpnGw1**| Max. 30                         | Max. 128               | 500 Mbps                    |
+|**VpnGw2**| Max. 30                         | Max. 128               | 1 Gbps                      |
+|**VpnGw3**| Max. 30                         | Max. 128               | 1.25 Gbps                   |
 |**Basic** | Max. 10                         | Max. 128               | 100 Mbps                    | 
 |          |                                 |                        |                             | 
 
