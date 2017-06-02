@@ -19,7 +19,7 @@ ms.author: vvasic
 
 ---
 # Azure SQL Database metrics and diagnostics logging 
-Azure SQL Database can emit metrics and diagnostic logs for easier monitoring. You can configure Azure SQL Database to store resource usage, workers and sessions and connectivity into one of these Azure resources:
+Azure SQL Database can emit metrics and diagnostic logs for easier monitoring. You can configure Azure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price
 - **Azure Event Hub**: For integrating Azure SQL Database telemetry with your custom monitoring solution or hot pipelines
 - **Azure Log Analytics**: For out of the box monitoring solution with reporting, alerting, and mitigating capabilities 
