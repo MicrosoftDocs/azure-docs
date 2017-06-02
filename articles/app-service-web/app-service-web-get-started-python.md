@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-
+ms.custom: mvc
 ---
 # Create a Python application on Web App
 
@@ -105,15 +105,7 @@ az group create --name myResourceGroup --location westeurope
 
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
 
-> [!NOTE]
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps.
->
-> App Service plans define:
-> * Region (North Europe, East US, Southeast Asia)
-> * Instance Size (Small, Medium, Large)
-> * Scale Count (one, two or three instances, etc.)
-> * SKU (Free, Shared, Basic, Standard, Premium)
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 The following example creates an App Service Plan named `quickStartPlan` using the **FREE** pricing tier.
 
