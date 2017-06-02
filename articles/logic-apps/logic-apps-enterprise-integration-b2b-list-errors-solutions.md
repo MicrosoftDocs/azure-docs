@@ -19,7 +19,7 @@ ms.author: LADocs; padmavc
 ---
 
 # Logic Apps B2B list of errors and solutions
-This article is intended to be a knowledge base of Logic Apps B2B errors and solutions.  It includes a description of the error and actions you can take an approprite action to help correct the error.
+This article is intended to be a knowledge base of Logic Apps B2B errors and solutions.  It includes a description of the error and actions you can take an appropriate action to help correct the error.
 
 ## Agreement Resolution
 
@@ -46,7 +46,7 @@ This article is intended to be a knowledge base of Logic Apps B2B errors and sol
 |   |   |  
 |---|---|
 | Error description| Invalid AS2 headers. One of 'AS2-To' or 'AS2-From' headers are empty| 
-| User action | An AS2 message was received that did not contain the AS2-From or AS2-To or both headers. Check AS2 message AS2-From and AS2-To headers and correct them based on agreement configuraitons |
+| User action | An AS2 message was received that did not contain the AS2-From or AS2-To or both headers. Check AS2 message AS2-From and AS2-To headers and correct them based on agreement configuration |
 |  |  | 
 
 
@@ -106,17 +106,17 @@ This article is intended to be a knowledge base of Logic Apps B2B errors and sol
 |   |   | 
 |---|---|
 | Error description | Error encountered during parsing. The Edifact transaction set with id '123456' contained in interchange (without group) with id '987654', with sender id 'Partner1', receiver id 'Partner2' is being suspended with following errors:\r\nError: 1 (Segment level error)\r\n\tSegmentID: CTA\r\n\tPosition in TS: 11\r\n\t45: Trailing separator found\r\n\r\nError: 2 (Segment level error)\r\n\tSegmentID: NAD\r\n\tPosition in TS: 12\r\n\t45: Trailing separator found\r\n\r\nError: 3 (Segment level error)\r\n\tSegmentID: RFF\r\n\tPosition in TS: 14\r\n\t45: Trailing separator found\r\n\r\nError: 4 (Segment level error)\r\n\tSegmentID: NAD\r\n\tPosition in TS: 17\r\n\t45: Leading Trailing separator found\r\n\r\nError: 5 (Segment level error)\r\n\tSegmentID: RFF\r\n\tPosition in TS: 19\r\n\t45: Trailing separator found\r\n\r\n |
-| User action | The agreement receive settings and send settings to be configured to allow leading and trailing space. Edit agreement settings to allow leading and trailing space |
+| User action | The agreement settings to be configured to allow leading and trailing space. Edit agreement settings to allow leading and trailing space |
 |   |   |
 
-![allowspace](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
+![allow space](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
 ### * Duplicate check has enabled in the agreement
 
 |   |   | 
 |---|---| 
 | Error description | (Miscellaneous error)\r\n\t25: Duplicate Control Number\r\n\r\nError: 2 (Field level error)\r\n\tSegmentID: \r\n\tPosition in TS: 1\r\n\tData Element ID: \r\n\tPosition in Segment: 13\r\n\tPosition in Field: 1\r\n\tData Value: 000056422\r\n\t25: Duplicate Control Number"
-| User action | This error indicates the received message has duplicate control numbers.  The message needs to be corrected for new control number |
+| User action | This error indicates the received message has duplicate control numbers.  correct the control number and resend the message |
 |   |   |
 
 ### * Missing schema in the agreement
@@ -131,7 +131,7 @@ This article is intended to be a knowledge base of Logic Apps B2B errors and sol
 
 |   |   | 
 |---|---| 
-| Error description | Error: 1 (Miscellaneous error)\r\n\t22: Invalid Control Structure\r\n\r\nError: 2 (Miscellaneous error)\r\n\t1: Control Number in ISA and IEA do not match\r\n\r\nError: 3 (Miscellaneous error)\r\n\t21: Number Of included groups do not match\r\n\r\nFunctional Group Error Information\r\n\r\nSequence No: 1\r\nFunctional Id: PO\r\nControl Number: 56397\r\n\r\n\r\n\r\nTransaction Set Errors\r\n\r\nSequence No: 1\r\nTS Id code: 850\r\nControl Number: 563970001\r\n\r\nError: 4 (Miscellaneous error)\r\n\t6: The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement. |
+| Error description | Error: 1 (Miscellaneous error)\r\n\t22: Invalid Control Structure\r\n\r\nError: 2 (Miscellaneous error)\r\n\t1: Control Number in ISA and IEA does not match\r\n\r\nError: 3 (Miscellaneous error)\r\n\t21: Number Of included groups do not match\r\n\r\nFunctional Group Error Information\r\n\r\nSequence No: 1\r\nFunctional Id: PO\r\nControl Number: 56397\r\n\r\n\r\n\r\nTransaction Set Errors\r\n\r\nSequence No: 1\r\nTS Id code: 850\r\nControl Number: 563970001\r\n\r\nError: 4 (Miscellaneous error)\r\n\t6: The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement. |
 | User action | Configure correct schema in the agreement settings  |
 |   |   |
 
