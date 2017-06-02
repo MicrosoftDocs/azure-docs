@@ -4,6 +4,7 @@
 # Quickstarts
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
+## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
 # Tutorials
 ## [Create .NET web app](active-directory-b2c-devquickstarts-web-dotnet.md)
