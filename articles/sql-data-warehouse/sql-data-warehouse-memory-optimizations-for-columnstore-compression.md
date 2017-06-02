@@ -41,7 +41,7 @@ For more information on bulk loading, see [Bulk load into a clustered columnstor
 
 ## How to monitor rowgroup quality
 
-There is a DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) that exposes useful information such as number of rows in rowgroups as well as the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
+There is a DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -68,10 +68,10 @@ select *
 from cte;
 ```
 
-The trim_reason_desc tells whether or not the rowgroup was trimmed(trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons indicate premature trimming of the rowgroup:
-- BULKLOAD: This is what trim reason is set to when the incoming batch of rows for the load had less than 1 million rows. The engine will create compressed row groups any time there are greater than 100,000 rows being inserted (as opposed to inserting into the delta store) but will set the trim reason to BULKLOAD. To get past this, consider increasing your batch load window to accumulate more rows. Also, re-evaluate your partitioning scheme to ensure it is not too granular as row groups cannot span partition boundaries.
-- MEMORY_LIMITATION: To create row groups with 1 million rows, a certain amount of working memory is required by the engine. When available memory of the loading session is less than the required working memory, row groups get prematurely trimmed. The sections below explain how to estimate memory required and allocate more memory.
-- DICTIONARY_SIZE: This indicates that row group trimming occurred because there was at least one string column with very wide and/or high cardinality strings. The dictionary size is limited to 16MB in memory and once this is reached the row group is compressed. If you do run into this situation, consider isolating the problematic column into a separate table.
+The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons indicate premature trimming of the rowgroup:
+- BULKLOAD: This trim reason is used when the incoming batch of rows for the load had less than 1 million rows. The engine will create compressed row groups if there are greater than 100,000 rows being inserted (as opposed to inserting into the delta store) but sets the trim reason to BULKLOAD. In this scenario, consider increasing your batch load window to accumulate more rows. Also, reevaluate your partitioning scheme to ensure it is not too granular as row groups cannot span partition boundaries.
+- MEMORY_LIMITATION: To create row groups with 1 million rows, a certain amount of working memory is required by the engine. When available memory of the loading session is less than the required working memory, row groups get prematurely trimmed. The following sections explain how to estimate memory required and allocate more memory.
+- DICTIONARY_SIZE: This trim reason indicates that rowgroup trimming occurred because there was at least one string column with wide and/or high cardinality strings. The dictionary size is limited to 16 MB in memory and once this limit is reached the row group is compressed. If you do run into this situation, consider isolating the problematic column into a separate table.
 
 ## How to estimate memory requirements
 
