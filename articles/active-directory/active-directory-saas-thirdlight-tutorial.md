@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 06/02/2017
 ms.author: jeedes
 
 ---
@@ -120,16 +120,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/tutorial_general_400.png)
-<CS>
+
 6. In a different web browser window, log in to your ThirdLight company site as an administrator.
 
 7. Go to **Configuration \> System Administration**, and then click **SAML2**.
    
-    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "System Administration")
+    ![System Administration](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "System Administration")
 
 8. In the SAML2 configuration section, perform the following steps:
    
-    ![SAML Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "SAML Single Sign-On")   
+    ![SAML Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/ic805844.png "SAML Single Sign-On")   
 
 	 a. Select **Enable SAML2 Single Sign-On**.
  
@@ -139,10 +139,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      into the **IdP Metadata XML** textbox. 
 	 
      d. Click **Save SAML2 settings**.
-<CE>
+
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -178,7 +177,7 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating a ThirdLight test user
 
 To enable Azure AD users to log in to ThirdLight, they must be provisioned into ThirdLight.  
-When ThirdLight, provisioning is a manual task.
+In the case of ThirdLight, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -231,7 +230,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+When you click the ThirdLight tile in the Access Panel, you should get automatically signed-on to your ThirdLight application.
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
