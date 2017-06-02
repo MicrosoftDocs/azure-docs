@@ -127,6 +127,8 @@
       href: sql-database-export.md
   - name: Monitor & manage
     items:
+    - name: Automatic tuning
+      href: sql-database-automatic-tuning.md
     - name: Single databases
       href: sql-database-single-database-monitor.md
     - name: Database advisor
