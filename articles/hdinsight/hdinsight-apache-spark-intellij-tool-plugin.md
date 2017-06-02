@@ -40,7 +40,7 @@ You can also follow a [video](https://mix.office.com/watch/1nqkqjt5xonza) to get
 
 * Oracle Java Development Kit. You can install it from the [Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-* IntelliJ IDEA. This article uses version 15.0.1. You can install it from the [JetBrains website](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA. This article uses version 2017.1. You can install it from the [JetBrains website](https://www.jetbrains.com/idea/download/).
 
 ## Install Azure Toolkit for IntelliJ
 For installation instructions, see [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
@@ -70,31 +70,28 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
    * In the right pane, select **Spark on HDInsight (Scala)**.
    
     ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
-2. In the next window, provide the following project details, and then click **Finish**.
+2. The Scala project creation wizard detect automatically whether you installed Scala IDE or not. Touch **click** the bellow to choose scala plugin.
+
+    ![scala check](./media/hdinsight-apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
+3. Click **OK** to download it. After these, remember to restart Intellij.
+
+   ![Scala installation](./media/hdinsight-apache-spark-intellij-tool-plugin/Choose-Scala-Plugin.PNG)
+
+4. In the next window, provide the following project details, and then click **Finish**.
    
    * Provide a project name and project location.
    * For **Project SDK**, use Java 1.8 for a Spark 1.6 or Spark 2.0 cluster.
-   * For **Scala SDK**, click **Create**, click **Download**, and then select the version of Scala to use.
-     * Choose **JDK 1.8 and Scala 2.11.x** if you're willing to submit the job to a Spark 2.0 cluster.
-     * Choose **JDK 1.8(language level 7) and Scala 2.10.x** if you're willing to submit the job to a Spark 1.6 cluster.
-
-        ![Selecting Scala version](./media/hdinsight-apache-spark-intellij-tool-plugin/show-scala2.11.x-select.png)
-   * For **Spark SDK**, download and use the SDK from [GitHub] (http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Note that spark-assembly-2.0.0-hadoop2.7.0-SNAPSHOT.jar is for a Spark 2.0 cluster, and spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar is for a Spark 1.6 cluster. 
-
-     You can use the [Spark Maven repository](http://mvnrepository.com/search?q=spark) instead, but make sure that you have the right Maven repository installed to develop your Spark applications. For example, make sure that you have the Spark Streaming part installed if you're using Spark Streaming. Also make sure that you're using the repository marked as Scala 2.10 for a Spark 1.6 cluster and marked as Scala 2.11 for a Spark 2.0 cluster.
-     
-       ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
-3. The Spark project automatically creates an artifact for you. To see the artifact, follow these steps:
+   * For **Spark Version**, Scala project creation wizard integrate proper vertion for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, please choose spark 1.x . Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
+        
+       ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-new-project.PNG)
+5. The Spark project automatically creates an artifact for you. To see the artifact, follow these steps:
    
    1. On the **File** menu, click **Project Structure**.
    2. In the **Project Structure** dialog box, click **Artifacts** to see the default artifact that is created. You can also create your own artifact by clicking the **+** icon.
       
        ![Artifact info in the dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
       
-4. In the **Project Structure** dialog box, click **Project**. If **Project SDK** is set to 1.8, make sure that **Project language level** is set to **7 - Diamonds, ARM, multi-catch, etc**. (It's optional for a Spark 2.0 cluster.)
-   
-    ![Setting the project language level](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
-5. Add your application source code.
+6. Add your application source code.
    
    1. In Project Explorer, right-click **src**, point to **New**, and then click **Scala Class**.
       
@@ -122,7 +119,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 
             }
 
-6. Run the application on an HDInsight Spark cluster.
+7. Run the application on an HDInsight Spark cluster.
    
    1. In Project Explorer, right-click the project name, and then select **Submit Spark Application to HDInsight**.
       
@@ -199,12 +196,9 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
    
    * Provide a project name and project location.
    * For **Project SDK**, make sure that you provide a Java version later than 7.
-   * For **Scala SDK**, click **Create**, click **Download**, and then select the version of Scala to use: Scala 2.11.x for Spark 2.0, and Scala 2.10.x for Spark 1.6.
-     
-       ![Selecting Scala version](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
-   * For **Spark SDK**, download and use the SDK from [GitHub](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). You can use the [Spark Maven repository](http://mvnrepository.com/search?q=spark) instead, but make sure that you have the right Maven repository installed to develop your Spark applications. For example, make sure that you have the Spark Streaming part installed if you're using Spark Streaming. Also make sure that you're using the repository marked as Scala 2.10 for a Spark 1.6 cluster and marked as Scala 2.11 for a Spark 2.0 cluster.
-     
-       ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-create-project.png)
+   * For **Spark Version**,  select the version of Scala to use: Scala 2.11.x for Spark 2.0, and Scala 2.10.x for Spark 1.6.
+    
+       ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/Create-local-project.PNG)
 3. The template adds a sample code (**LogQuery**) under the **src** folder that you can run locally on your computer.
    
     ![Location of LogQuery](./media/hdinsight-apache-spark-intellij-tool-plugin/local-app.png)
