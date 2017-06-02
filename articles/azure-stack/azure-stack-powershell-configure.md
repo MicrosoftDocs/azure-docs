@@ -99,7 +99,7 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
 
    ```PowerShell
    $UserName='<Azure Active Directory service administrator or user account name>'
-   $Password='<Azure Active Directory service administrator's or user's password>'| `
+   $Password='<Azure Active Directory service administrator or user password>'| `
      ConvertTo-SecureString -Force -AsPlainText
    $Credential= New-Object PSCredential($UserName,$Password)
    ```
