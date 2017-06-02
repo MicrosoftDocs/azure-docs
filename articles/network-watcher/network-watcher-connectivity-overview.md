@@ -34,7 +34,6 @@ The connectivity test returns heuristics about the connection. The following tab
 |IP Flow Verify Heuristic     | Check NSG applied on all VMs in the path from source to destination (Nic & Subnet)        |Check/Change the NSG Rules or Configuration|
 |Next Hop Heuristic|Check UDR applied on all VMs in the path from source to destination to check if packets are getting blackholed|Check/Change the applied User Defined Routes|
 
-
 ## Results
 
 The following table shows the properties returned when connectivity test is complete.
