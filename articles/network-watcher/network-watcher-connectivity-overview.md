@@ -18,7 +18,7 @@ ms.author: gwallace
 
 # Introduction to connectivity in Azure Network Watcher
 
-The connectivity feature of Network Watcher provides the ability to test the connectivity of a direct TCP connection from a virtual machine to a remote endpoint. Networking resources are complex and can have Network Security Groups, firewalls, User defined routes, and more that can making troubleshooting connection issues tough. Network Watcher helps reduce the amount of time to find and detect mis-configurations and connectivity issues.
+The connectivity feature of Network Watcher provides the capability to test a direct TCP connection from a virtual machine to a remote endpoint. Networking resources are complex and can have Network Security Groups, firewalls, User-defined routes, and more that make troubleshooting connection issues tough. Network Watcher helps reduce the amount of time to find and detect mis-configurations and connectivity issues.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -34,7 +34,7 @@ The connectivity test returns heuristics about the connection. The following tab
 |NIC DNS Resolution     | Source VM failed to resolve destination address        |Investigate DNS configuration on source VM|
 |VFP Port Counter     | Returns if packets get dropped due to throttling in past 30 mins. (Any Packets, not restricted to Source/Destination)        | Increase VM size to higher network or reduce network load|
 |IP Flow Verify Heuristic     | Check NSG applied on all VMs in the path from source to destination (Nic & Subnet)        |Check/Change the NSG Rules or Configuration|
-|Next Hop Heuristic|Check UDR applied on all VMs in the path from source to destination to check if packets are getting blackholed|Check/Change the applied User Defined Routes|
+|Next Hop Heuristic|Check UDR applied on all VMs in the path from source to destination to check if packets are getting blackholed|Check/Change the applied User-Defined Routes|
 
 ## Results
 
@@ -52,13 +52,13 @@ The following table shows the properties returned when a connectivity test has f
 |Hops[].Type     | Type of resource. Possible values are **Source**, **VirtualAppliance**, **VnetLocal**, and **Internet**.        |
 |Hops[].Id | Unique identifier of the hop.|
 |Hops[].Address | IP address of the hop.|
-|Hops[].ResourceId | ResourceID of the hop if the hop is an Azure resource. If it is an internet resource ResourceID is **Internet** |
+|Hops[].ResourceId | ResourceID of the hop if the hop is an Azure resource. If it is an internet resource, ResourceID is **Internet** |
 |Hops[].NextHopIds | The unique identifier of the next hop taken.|
-|Hops[].Issues | A collection of issues that were encountered during the test at that hop. If there were no issues the value is blank.|
+|Hops[].Issues | A collection of issues that were encountered during the test at that hop. If there were no issues, the value is blank.|
 |Hops[].Issues[].Origin | At the current hop, where issue occurred. Possible values are **Inbound** or **Outbound**.|
 |Hops[].Issues[].Severity | The severity of the issue detected. Possible values are **Error** and **Warning**. |
 |Hops[].Issues[].Type |The type of issue found. Possible values are: <br/>**Unknown**<br/>**AgentStopped**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**SocketBind**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute**<br/>**PortThrottled**<br/> **Platform** |
-|Hops[].Issues[].Context |Details in regards to the issue found.|
+|Hops[].Issues[].Context |Details regarding the issue found.|
 |Hops[].Issues[].Context[].key |Key of the key value pair returned.|
 |Hops[].Issues[].Context[].value |Value of the key value pair returned.|
 

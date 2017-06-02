@@ -55,7 +55,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### Response
 
-The following response is from the previous example.  In this response the `connectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
+The following response is from the previous example.  In this response, the `connectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
 
 ```json
 {
@@ -136,7 +136,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### Response
 
-In the following example the `connectionStatus` is shown as **Unreachable**. In the `hops` details you can see under `issues` that the traffic was blocked due to a `UserDefinedRoute`.
+In the following example, the `connectionStatus` is shown as **Unreachable**. In the `hops` details, you can see under `issues` that the traffic was blocked due to a `UserDefinedRoute`.
 
 ```json
 {
@@ -194,7 +194,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### Response
 
-In the following response, you can see the `connectionStatus` shows as **Reachable**. When a connection is successful latency values are provided.
+In the following response, you can see the `connectionStatus` shows as **Reachable**. When a connection is successful, latency values are provided.
 
 ```json
 {
@@ -240,7 +240,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### Response
 
-The following is the example response from running the previous cmdlet. As the test was successful the `connectionStatus` property shows as **Reachable**.  You are provided the details in regards to the number of hops required to reach the storage blob as well as latency.
+The following is the example response from running the previous cmdlet. As the test was successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 {
@@ -277,7 +277,7 @@ The following is the example response from running the previous cmdlet. As the t
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in orr out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 
 <!-- Image references -->
 

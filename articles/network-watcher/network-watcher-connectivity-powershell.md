@@ -67,7 +67,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### Response
 
-The following response is from the previous example.  In this response the `ConnectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
+The following response is from the previous example.  In this response, the `ConnectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
 
 ```
 ConnectionStatus : Unreachable
@@ -160,7 +160,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### Response
 
-In the following example the `ConnectionStatus` is shown as **Unreachable**. In the `Hops` details you can see under `Issues` that the traffic was blocked due to a `UserDefinedRoute`. 
+In the following example, the `ConnectionStatus` is shown as **Unreachable**. In the `Hops` details, you can see under `Issues` that the traffic was blocked due to a `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -225,7 +225,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### Response
 
-In the following response, you can see the `ConnectionStatus` shows as **Reachable**. When a connection is successful latency values are provided.
+In the following response, you can see the `ConnectionStatus` shows as **Reachable**. When a connection is successful, latency values are provided.
 
 ```
 ConnectionStatus : Reachable
@@ -278,7 +278,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### Response
 
-The following is the example response from running the previous cmdlet. As the test was successful the `ConnectionStatus` property shows as "Reachable".  You are provided the details in regards to the number of hops required to reach the storage blob as well as latency.
+The following is the example response from running the previous cmdlet. As the test was successful, the `ConnectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```
 ConnectionStatus : Reachable
@@ -311,7 +311,7 @@ Hops             : [
 
 ## Next steps
 
-Find if certain traffic is allowed in orr out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 
 If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that are defined.
 
