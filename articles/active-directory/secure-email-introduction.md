@@ -53,7 +53,7 @@ The following diagram illustrates a typical SSO authentication flow:
 
 To begin authentication, the client submits credentials (such as username and password) and/or any SSO artifacts obtained in the past to Azure AD. An SSO artifact can be a session token for browser or a refresh token for rich applications. 
 
-Azure AD verifies the credentials and/or SSO artifact and evaluates all applicable policies. Then it issues an access token for the refile:///C:/Users/v-losch/Documents/GitHub/azure-docs-pr-laschultz/articles/active-directory/media/secure-email/typical-authentication-flow.pngsource provider (Exchange Online in the diagram). Azure AD also issues an SSO artifact, as part of the response to allow the client to achieve SSO in future requests. 
+Azure AD verifies the credentials and/or SSO artifact and evaluates all applicable policies. Then it issues an access token for the resource provider (Exchange Online in the diagram). Azure AD also issues an SSO artifact, as part of the response to allow the client to achieve SSO in future requests. 
 
 The client stores the SSO artifact and submits the access token as a proof of identity to the resource provider. After Exchange Online verifies the access token and performs necessary checks, it grants the client access to the email messages.
 
