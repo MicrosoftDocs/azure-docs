@@ -8,7 +8,7 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: slivkins
+ms.author: slivkins,marcozo,alekh
 ---
 
 # Get started with Custom Decision Service (browser version)
@@ -23,7 +23,7 @@ This article explains how to get started with some basic options. The example he
 
     If you are not already signed in, the portal prompts you to sign in with your [Microsoft account](https://account.microsoft.com/account). After you have signed in, the portal displays your Microsoft account in the upper-right corner of the page.
 
-2. To register your application, click the **New App** button. In this example, you register an application in the **pooled learning mode** as described in the [overview](custom-decision-service-overview.md#pooled-learning-mode). 
+2. To register your application, click the **New App** button. In this example, you register an application in the **pooled learning mode** as described in the [overview](custom-decision-service-overview.md#pooled-learning-mode).
 
     ![Custom Decision Service portal](./media/custom-decision-service-get-started-browser/portal.png)
 
