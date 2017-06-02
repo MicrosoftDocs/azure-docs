@@ -46,7 +46,6 @@ Now, you will create a Data Lake Analytics and a Data Lake Store account simulta
 
 1. From the Data Lake Analytics account, click **New Job**.
 2. Paste in the following U-SQL script:
-
 ```
 @a  = 
     SELECT * FROM 
@@ -59,9 +58,6 @@ OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
 ```
-
-This U-SQL script defines a RowSet called `@a` and then writes that RowSet to a csv file.
-
 3. Click **Submit Job**.   
 4. Wait until the job status is changed to **Succeeded**.
 5. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
