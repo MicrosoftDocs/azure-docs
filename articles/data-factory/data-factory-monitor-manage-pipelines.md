@@ -163,7 +163,7 @@ You can reset the slice to go back from the **Ready** or **Failed** state to the
 ## Pause and resume pipelines
 You can manage your pipelines by using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets. 
 
-> [!NOTE} 
+> [!NOTE] 
 > The diagram view does not support pausing and resuming pipelines. If you want to use an user interface, use the monitoring and managing application. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
 You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed. 
