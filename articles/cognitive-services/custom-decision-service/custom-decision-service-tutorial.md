@@ -153,3 +153,7 @@ The Y axis corresponds to rewards. Currently, a ranking is assigned reward 1 if 
 We also provide upper and lower confidence bounds for our counterfactual estimates. To see the upper and lower bounds, select the **bounds** check box in the upper-right corner.
 
 ![Dashboard with confidence bounds](./media/custom-decision-service-tutorial/dashboard-with-bounds.png)
+
+## Next steps
+
+* Consult the [API reference](custom-decision-service-api-reference.md) to learn more about the provided functionality.
