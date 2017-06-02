@@ -25,12 +25,6 @@ Auditing can help you maintain regulatory compliance, understand database activi
 
 Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-This article contains the following sections:
-
-* [Azure SQL database auditing overview]
-* [Set up auditing for your database]
-* [Analyze audit logs and reports]
-
 ## <a id="subheading-1"></a>Azure SQL database auditing overview
 SQL database auditing allows you to:
 
