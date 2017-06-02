@@ -76,14 +76,14 @@ For more information on the feed format, see the [API reference](custom-decision
 Custom Decision Service serves rankings of articles via the Ranking API. To invoke this API, insert the following code into the HTML head of the front page:
 
 ```html
-// Define the "callback function" to render UI
+<!-- Define the "callback function" to render UI -->
 <script> function callback(data) { … } </script>
 
-// call Ranking API after callback() is defined, separately for each app
-<script src="https://ds.microsoft.com/app-politics/rank/feed-politics" async></script>
-<script src="https://ds.microsoft.com/app-sports/rank/feed-sports" async></script>
-<script src="https://ds.microsoft.com/app-recent/rank/feed-politics/feed-sports" async></script>
-// NB: action feeds for 'app-recent' are listed one after another.
+<!--  call Ranking API after callback() is defined, separately for each app -->
+<script src="https://ds.microsoft.com/api/v2/app-politics/rank/feed-politics" async></script>
+<script src="https://ds.microsoft.com/api/v2/app-sports/rank/feed-sports" async></script>
+<script src="https://ds.microsoft.com/api/v2/app-recent/rank/feed-politics/feed-sports" async></script>
+<!-- NB: action feeds for 'app-recent' are listed one after another. -->
 ```
 
 The HTTP response from the Ranking API is a JSONP-formatted string. For app-politics, for example, the string looks like this:
@@ -108,7 +108,7 @@ Clicks on the top article are returned by calling the Reward API. When a click o
 ```javascript
 $.ajax({
     type: "POST",
-    url: '//ds.microsoft.com/<appId>/reward/<eventId>',
+    url: '//ds.microsoft.com/api/v2/<appId>/reward/<eventId>',
     contentType: "application/json" })
 ```
 
@@ -124,7 +124,7 @@ function callback(data) {
                    function() {
                        $.ajax({
                        type: "POST",
-                       url: '//ds.microsoft.com/' + data.appId + '/reward/' + data.eventId,
+                       url: '//ds.microsoft.com/api/v2/' + data.appId + '/reward/' + data.eventId,
                        contentType: "application/json" })}
                 });
 }}
