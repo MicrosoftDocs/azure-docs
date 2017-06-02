@@ -151,7 +151,8 @@ Imagine you have accidentally deleted this table. This is something you cannot e
 -	Target server: Provide a new server name you want to restore to.
 -	Location: You cannot select the region, by default it is same as the source server.
 -	Pricing tier: You cannot change this value when restoring a server. It is same as the source server.
-![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
+
+   ![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
 
 3- Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
