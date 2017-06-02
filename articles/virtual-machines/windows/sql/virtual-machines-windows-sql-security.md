@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2017
+ms.date: 06/02/2017
 ms.author: jroth
 
 ---
@@ -22,19 +22,16 @@ ms.author: jroth
 
 This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure virtual machine (VM).
 
-> [!NOTE] 
-> Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a virtual machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
+Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a virtual machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
-
-The following is a list of security recommendations to consider when configuring and connecting to the instance of SQL Server in an Azure VM.
 
 ## Control access to the SQL VM
 
 When you create your SQL Server virtual machine, consider how to carefully control who has access to the machine and to SQL Server. In general, you should do the following:
 
 - Restrict access to SQL Server to only the applications and clients that need it.
-- Manage user accounts and passwords.
+- Follow best practices for managing user accounts and passwords.
 
 The following sections provide suggestions on thinking through these points.
 
@@ -44,9 +41,11 @@ When you create a SQL Server virtual machine with a gallery image, the **SQL Ser
 
 ![SQL Server connectivity](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-For the best security, choose the most restrictive option for your scenario. For example, if you are running an application that accesses SQL Server on the same VM, then **Local** is the most secure choice. If you are running an Azure application that requires access to the SQL Server, then **Private** secures communication to SQL Server only within the specified [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). If you require **Public** access to the SQL Server VM, then make sure to follow other best practices in this topic to reduce your attack surface area.
+For the best security, choose the most restrictive option for your scenario. For example, if you are running an application that accesses SQL Server on the same VM, then **Local** is the most secure choice. If you are running an Azure application that requires access to the SQL Server, then **Private** secures communication to SQL Server only within the specified [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). If you require **Public** (internest) access to the SQL Server VM, then make sure to follow other best practices in this topic to reduce your attack surface area.
 
-The selected options in the portal use Inbound security rules on the VMs [Network Security Group](../../../virtual-network/virtual-networks-nsg.md) (NSG) to allow or deny network traffic to your virtual machine. You can modify or create new inbound NSG rules to allow traffic to the SQL Server port (default 1433). You can also specify specific IP addresses that are allowed to communicate over this port.
+The selected options in the portal use inbound security rules on the VMs [Network Security Group](../../../virtual-network/virtual-networks-nsg.md) (NSG) to allow or deny network traffic to your virtual machine. You can modify or create new inbound NSG rules to allow traffic to the SQL Server port (default 1433). You can also specify specific IP addresses that are allowed to communicate over this port.
+
+![Network security group rules](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 
 In addition to NSG rules to restrict network traffic, you can also use the Windows Firewall on the virtual machine.
 
