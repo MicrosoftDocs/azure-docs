@@ -183,4 +183,3 @@ The Atom feed version uses the same XML syntax and conventions.
 
 > [!TIP]
 > If your system uses its own article IDs, they can be passed into the callback function by using `<guid>`.
-
