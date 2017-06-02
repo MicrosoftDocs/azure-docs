@@ -1,6 +1,6 @@
 ---
 title: Design your first Azure Database for MySQL database - Azure CLI | Microsoft Docs
-description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0.
+description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI 2.0 from the command line.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -8,7 +8,6 @@ manager: jhubbard
 editor: jasonwhowell
 ms.assetid:
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
 ms.date: 06/01/2017

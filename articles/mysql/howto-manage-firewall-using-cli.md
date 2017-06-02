@@ -1,6 +1,6 @@
 ---
 title: Create and manage Azure Database for MySQL firewall rules using Azure CLI | Microsoft Docs
-description: Describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI.
+description: This article describes how to create and manage Azure Database for MySQL firewall rules using Azure CLI command line.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.assetid:
 ms.service: mysql-database
 ms.tgt_pltfrm: portal
-ms.devlang: azurecli
+ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/01/2017
 ---

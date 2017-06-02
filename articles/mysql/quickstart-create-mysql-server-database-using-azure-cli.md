@@ -5,13 +5,11 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid: 
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
-ms.workload:
 ms.date: 06/01/2017
 ms.custom: mvc
 ---
