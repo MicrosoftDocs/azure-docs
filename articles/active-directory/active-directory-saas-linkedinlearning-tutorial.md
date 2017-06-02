@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/02/2017
 ms.author: jeedes
 
 ---
@@ -150,19 +150,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
 
-10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+10. Perform the following steps on two attributes i.e. **name** and **email**-
+
+	a. Click on the attribute to open the **Edit Attribute** window.
+
+	![Configure Single Sign-On](./media/active-directory-saas-linkedinLearning-tutorial/url_update.png)
+
+	b. Delete the URL value from the **namespace**.
+	
+	c. Click **Ok** to save the setting.
+
+11. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
 
-11. Click **Save**.
+12. Click **Save**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
 
-12. Go to **LinkedIn Admin Settings** section. Upload the XML file you downloaded from the Azure portal by clicking the Upload XML file option.
+13. Go to **LinkedIn Admin Settings** section. Upload the XML file you downloaded from the Azure portal by clicking the Upload XML file option.
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
+14. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
