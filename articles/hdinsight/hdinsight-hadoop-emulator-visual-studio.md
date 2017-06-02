@@ -1,6 +1,6 @@
 ---
-title: Data Lake Tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight | Microsoft Docs
-description: Learn how to use the Azure Data Lake Tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history.
+title: Data Lake tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight | Microsoft Docs
+description: Learn how to use the Azure Data Lake tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox, and view job output and history.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -18,63 +18,60 @@ ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
-# Use the Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox
+# Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox
 
-Learn how to use the Data Lake tools for Visual Studio with the Hortonworks Sandbox.
-
-The Data Lake Tools include tools for working with generic Hadoop clusters, in addition to tools for working with Azure Data Lake and HDInsight. This document provides the steps needed to use the Azure Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
+Azure Data Lake includes tools for working with generic Hadoop clusters, in addition to tools for working with Azure Data Lake and HDInsight. This document provides the steps needed to use the Azure Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
 
 Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. Once you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
 
 ## Prerequisites
 
-* The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md) document.
+* The Hortonworks Sandbox, running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox. This was set up by using the information in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md).
 
-* Visual Studio 2013, 2015, or 2017 any edition.
+* Visual Studio 2013, Visual Studio 2015, or Visual Studio 2017 (any edition).
 
-* The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or higher.
+* The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or later.
 
-* [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
+* The [Azure Data Lake tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
 ## Configure passwords for the sandbox
 
-Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when connecting to the sandbox from Visual Studio.
+Make sure that the Hortonworks Sandbox is running. Then follow the steps in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when you connect to the sandbox from Visual Studio.
 
 ## Connect the tools to the sandbox
 
-1. Open Visual Studio, and select **View**, then **Server Explorer**.
+1. Open Visual Studio, select **View**, and then select **Server Explorer**.
 
 2. From **Server Explorer**, right-click the **HDInsight** entry, and then select **Connect to HDInsight Emulator**.
 
-    ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
+    ![Screenshot of Server Explorer, with Connect to HDInsight Emulator highlighted](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
 
-3. From the **Connect to HDInsight Emulator** dialog, enter the password that you configured for Ambari.
+3. From the **Connect to HDInsight Emulator** dialog box, enter the password that you configured for Ambari.
 
-    ![Enter Ambari password](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    ![Screenshot of dialog box, with password text box highlighted](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Select **Next** to continue.
 
 4. Use the **Password** field to enter the password you configured for the `root` account. Leave the other fields at the default value.
 
-    ![Enter root password](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    ![Screenshot of dialog box, with password text box highlighted](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
     Select **Next** to continue.
 
-5. Wait for validation of the services to complete. In some cases, validation may fail and prompt you to update the configuration. If validation fails, select the **update** button and wait for the configuration and verification for the service to complete.
+5. Wait for validation of the services to complete. In some cases, validation may fail and prompt you to update the configuration. If validation fails, select **Update**, and wait for the configuration and verification for the service to complete.
 
-    ![Errors and update button](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
+    ![Screenshot of dialog box, with Update button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
     > [!NOTE]
     > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Azure Data Lake tools for Visual Studio.
 
-    Once validation has completed, select **Finish** to complete configuration.
+ 6.  Once validation has completed, select **Finish** to complete configuration.
+    ![Screenshot of dialog box, with Finish button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-    ![Finish connecting](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
+     >[!NOTE]
+     > Depending on the speed of your development environment, and the amount of memory allocated to the virtual machine, it can take several minutes to configure and validate the services.
 
-    > [!NOTE]
-    > Depending on the speed of your development environment, and the amount of memory allocated to the virtual machine, it can take several minutes to configure and validate the services.
-
-After following these steps, you now have an "HDInsight local cluster" entry in Server Explorer under the HDInsight section.
+After following these steps, you now have an **HDInsight local cluster** entry in Server Explorer, under the **HDInsight** section.
 
 ## Write a Hive query
 
