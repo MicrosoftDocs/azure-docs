@@ -1,4 +1,4 @@
-## Push to Azure from git
+## Push to Azure from Git
 
 Add an Azure remote to your local Git repository.
 
