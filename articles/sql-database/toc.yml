@@ -117,9 +117,9 @@
       href: sql-database-geo-replication-security-config.md
     - name: App design & recovery
       href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-    - name: App design and pools
+    - name: App design & pools
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-    - name: App design and upgrades
+    - name: App design & app upgrades
       href: sql-database-manage-application-rolling-upgrade.md
     - name: Recover from outage
       href: sql-database-disaster-recovery.md
