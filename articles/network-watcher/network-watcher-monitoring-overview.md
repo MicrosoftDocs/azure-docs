@@ -43,7 +43,7 @@ Network Watcher currently has the following capabilities:
 * **[Virtual Network Gateway and Connection troubleshooting](network-watcher-troubleshoot-manage-rest.md)** - Provides the ability to troubleshoot Virtual Network Gateways and Connections.
 * **[Network subscription limits](#network-subscription-limits)** - Enables you to view network resource usage against limits.
 * **[Configuring Diagnostics Log](#diagnostic-logs)** – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
-* **[Connectivity (Preview)](#network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint.
+* **[Connectivity (Preview)](network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint.
 
 ### Role-based Access Control (RBAC) in Network Watcher
 
