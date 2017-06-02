@@ -53,7 +53,7 @@ As you build your templates, some functions are not available in Azure Stack TP3
 * Take
 
 ## Resource location
-Resource Manager templates use a location attribute to place resources during deployment. In Azure, locations refer to a region like West US or South America. In Azure Stack, locations are different because Azure Stack is in your datacenter.  To ensure templates are transferrable between Azure and Azure Stack, you should reference the resource group location as you deploy individual resources. You can do this using `[resourceGroup().Location]`(https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L54) to ensure all resources inherit the resource group location.  The following Resource Manager template excerpt is an example of using this function while deploying a storage account:
+Resource Manager templates use a location attribute to place resources during deployment. In Azure, locations refer to a region like West US or South America. In Azure Stack, locations are different because Azure Stack is in your datacenter.  To ensure templates are transferrable between Azure and Azure Stack, you should reference the resource group location as you deploy individual resources. You can do this using `[resourceGroup().Location]` to ensure all resources inherit the resource group location.  The following Resource Manager template excerpt is an example of using this function while deploying a storage account:
 
     "resources": [
     {
