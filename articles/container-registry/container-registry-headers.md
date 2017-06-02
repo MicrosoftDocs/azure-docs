@@ -45,11 +45,11 @@ The key-value pairs we are encouraging ACR partners to use are below:
 | App Service - Logic Apps  | azure/app-service/logic-apps          |
 | Batch                     | azure/compute/batch                   |
 | Cloud Console             | azure/cloud-console                   |
-| C-Series                  | azure/compute/c-series                |
 | Functions                 | azure/compute/functions               |
 | Internet of Things - Hub  | azure/iot/hub                         |
 | HDInsight                 | azure/data/hdinsight                  |
 | Jenkins                   | azure/jenkins                         |
+| Machine Learning          | azure/data/machile-learning           |
 | Service Fabric            | azure/compute/service-fabric          |
 | VSTS                      | azure/vsts                            |
 
