@@ -9,18 +9,13 @@
 
 # Tutorials
 ## Kubernetes
-### [Create / manage cluster](container-service-deployment.md)
-### [Create / manage data volumes](container-service-dcos-fileshare.md)
 ### [Load balance applications](container-service-kubernetes-load-balancing.md)
-### [Integrate with ACR](container-service-kubernetes-jenkins.md)
-### [Use Kubernetes secrets](container-service-kubernetes-jenkins.md)
 ### [Monitor cluster with OMS](container-service-kubernetes-oms.md)
 ## DC/OS
 ### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
 ### [Create / manage data volumes](container-service-dcos-fileshare.md)
 ### [Load balance applications](container-service-load-balancing.md)
 ### [Integrate with ACR](container-service-dcos-acr.md)
-### [Use DC/OS secrets](container-service-kubernetes-jenkins.md)
 ### [Monitor cluster with OMS](container-service-monitoring-oms.md)
 
 # Samples
@@ -38,23 +33,18 @@
 ### [Container management - DC/OS REST API](container-service-mesos-marathon-rest.md)
 ### [DC/OS agent pools](container-service-dcos-agents.md)
 ### [Enable DC/OS public access](container-service-enable-public-access.md)
-### [Load balance DC/OS containers](container-service-load-balancing.md)
 ### [App/user-specific orchestrator in DC/OS](container-service-application-specific-marathon.md)
 ### [Add a file share](container-service-dcos-fileshare.md)
-### [Use an Azure container registry](container-service-dcos-acr.md)
 ### [Canary release with Vamp](container-service-dcos-vamp-canary-release.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
-#### [Monitor with OMS](container-service-monitoring-oms.md)
 #### [Monitor with Datadog](container-service-monitoring.md)
 #### [Monitor with Sysdig](container-service-monitoring-sysdig.md)
 #### [Monitor with Dynatrace](container-service-monitoring-dynatrace.md)
 ## Manage with Kubernetes
 ### [Container management - Kubernetes UI](container-service-kubernetes-ui.md)
-### [Load balance Kubernetes containers](container-service-kubernetes-load-balancing.md)
 ### [Deploy Helm charts](container-service-kubernetes-helm.md)
 ### Monitor Kubernetes
-#### [Monitor with OMS](container-service-kubernetes-oms.md)
 #### [Monitor with Datadog](container-service-kubernetes-datadog.md)
 #### [Monitor with Sysdig](container-service-kubernetes-sysdig.md)
 #### [Monitor with CoScale](container-service-kubernetes-coscale.md)
