@@ -29,7 +29,7 @@ You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Thi
 
 These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorials cover common IoT scenarios to demonstrate the capabilities of IoT Hub. The tutorials also illustrate how to combine IoT Hub with other Azure services and tools to build more powerful IoT solutions. In the tutorials you can choose to use either simulated or real IoT devices. In addition, you can learn how to use a gateway to enable devices to connect to your IoT hub.
 
-## Device setup scenario: Connect IoT device or gateway to Azure IoT Hub
+## Setup your device: Connect IoT device or gateway to Azure IoT Hub
 
 You can choose your real or simulated device to get started.
 
