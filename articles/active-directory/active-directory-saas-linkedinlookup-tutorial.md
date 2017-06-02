@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/02/2017
 ms.author: jeedes
 
 ---
@@ -143,19 +143,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| firstname| user.givenname |
 	| lastname| user.surname |
 
-   	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-   a. Click **Add Attribute** to open the **Add Attribute** dialog.
+	a. Click **Add Attribute** to open the **Add Attribute** dialog.
 
-   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/4.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/4.png)
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/5.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/5.png)
    
-   b. In the **Name** textbox, type the attribute name shown for that row.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 	
-   c. From the **Value** list, type the attribute value shown for that row.
+    c. From the **Value** list, type the attribute value shown for that row.
 	
-   d. Click **Ok**
+    d. Click **Ok**
+
+10. Perform the following steps on two attributes i.e. **name** and **email**-
+
+	a. Click on the attribute to open the **Edit Attribute** window.
+
+	![Configure Single Sign-On](./media/active-directory-saas-LinkedInlookup-tutorial/url_update.png)
+
+	b. Delete the URL value from the **namespace**.
+	
+	c. Click **Ok** to save the setting.
 
 10. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
