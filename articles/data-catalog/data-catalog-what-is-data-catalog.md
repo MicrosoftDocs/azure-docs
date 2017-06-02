@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure Data Catalog | Microsoft Docs
-description: This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources.
+description: This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it addresses. Data Catalog enables any user to register, discover, understand, and consume data sources.
 services: data-catalog
 documentationcenter: ''
 author: steelanddata
@@ -21,7 +21,7 @@ ms.author: maroche
 # What is Azure Data Catalog?
 Azure Data Catalog is a fully managed cloud service whose users can discover the data sources they need and understand the data sources they find. At the same time, Data Catalog helps organizations get more value from their existing investments. 
 
-With Data Catalog, any user, from analysts to data scientists and developers, can discover, understand, and consume data sources. Data Catalog includes a crowdsourcing model of metadata and annotations. It is a single, central place for all of an organization's users to contribute their knowledge and build a community and culture of data.
+With Data Catalog, any user (from analysts to data scientists and developers) can discover, understand, and consume data sources. Data Catalog includes a crowdsourcing model of metadata and annotations. It is a single, central place for all of an organization's users to contribute their knowledge and build a community and culture of data.
 
 ## Discovery challenges for data consumers
 Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. For companies that want to get the most value from their information assets, this approach presents numerous challenges:
