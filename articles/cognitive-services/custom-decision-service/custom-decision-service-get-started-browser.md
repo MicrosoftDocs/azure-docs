@@ -42,7 +42,7 @@ The APIs are fairly easy to use. (See the API reference for additional options a
 <script> function callback(data) { … } </script>
 
 // call Ranking API, after callback() is defined
-<script src="https://ds.microsoft.com/<appId>/rank/<actionSetId>" async></script>
+<script src="https://ds.microsoft.com/api/v2/<appId>/rank/<actionSetId>" async></script>
 ```
 
 The `data` argument contains the ranking of URLs to be rendered. For more information, see the [API reference](custom-decision-service-api-reference.md).
@@ -53,7 +53,7 @@ To handle a click on the top article, invoke the following code on the front pag
 // call Reward API to report a click
 $.ajax({
     type: "POST",
-    url: '//ds.microsoft.com/<appId>/reward/' + data.eventId,,
+    url: '//ds.microsoft.com/api/v2/<appId>/reward/' + data.eventId,,
     contentType: "application/json" })
 ```
 

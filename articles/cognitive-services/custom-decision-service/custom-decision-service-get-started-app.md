@@ -55,7 +55,7 @@ Multiple action sets can be specified as follows:
 This JSON file is then sent as part of the ranking request:
 
 ```javascript
-curl -d @<request.json> -X POST https://ds.microsoft.com/<appId>/rank
+curl -d @<request.json> -X POST https://ds.microsoft.com/api/v2/<appId>/rank
 ```
 
 Here `<appId>` is the name of your application that you register on the portal. You should receive an ordered set of content items, which you can render in your application. A sample return looks like this:
@@ -73,7 +73,7 @@ The first part of the return contains a list of ordered actions, specified by th
 At a later point, you can specify whether you observed a click on the first content item from this event, which is `<actionId1>`. In this case, you can report a reward on this `<eventId>` to Custom Decision Service via the Reward API, with another request such as:
 
 ```javascript
-curl -v https://ds.microsoft.com/<appId>/reward/<eventId> -X POST
+curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST
 ```
 
 Finally, you need to provide the Action Set API, which returns the list of articles (actions) to be considered by Custom Decision Service. Implement this API as an RSS feed, as shown here:
