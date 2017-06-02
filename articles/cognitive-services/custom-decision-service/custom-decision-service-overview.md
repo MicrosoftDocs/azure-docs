@@ -7,8 +7,8 @@ manager: slivkins
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/03/2017
-ms.author: alekha;slivkins
+ms.date: 06/02/2017
+ms.author: slivkins;marcozo;alekh
 ---
 
 # Custom Decision Service
@@ -73,5 +73,6 @@ Several terms frequently occur in our documentation:
 
 ## Next steps
 
-* Get started with Custom Decision Service to optimize [a webpage](custom-decision-service-get-started-browser.md) or [a smartphone app](custom-decision-service-get-started-app.md).
+* [Register your application](custom-decision-service-get-started-register.md) with Custom Decision Service
+* Get started to optimize [a webpage](custom-decision-service-get-started-browser.md) or [a smartphone app](custom-decision-service-get-started-app.md).
 * Consult the [API reference](custom-decision-service-api-reference.md) to learn more about the provided functionality.

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 06/01/2017
 ms.author: cherylmc
 
 ---
@@ -40,7 +40,7 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 
 Verify that you have met the following criteria before beginning configuration:
 
-* Verify that you want to work with the Resource Manager deployment model. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* Verify that you want to work with the Resource Manager deployment model. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)] 
 * A compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * An externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to. 
@@ -181,6 +181,10 @@ After a short while, the connection will be established.
 [!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)] 
 
 If you want to use another method to verify your connection, see [Verify a VPN Gateway connection](vpn-gateway-verify-connection-resource-manager.md).
+
+## <a name="connectVM"></a>To connect to a virtual machine
+
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 ## Common tasks
 
