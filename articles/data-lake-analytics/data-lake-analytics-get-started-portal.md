@@ -23,15 +23,13 @@ ms.author: edmaca
 Learn how to use the Azure portal to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
-In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section. Once your first job succeeds, you can start to write more complex data transformations with U-SQL.
-
 ## Prerequisites
 
 Before you begin this tutorial, you must have an **Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## Create Data Lake Analytics account
+## Create a Data Lake Analytics account
 
-Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes about 60 to finish.
+Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes about 60 seconds to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
@@ -44,67 +42,26 @@ Now, you will create a Data Lake Analytics and a Data Lake Store account simulta
 4. Optionally, select a pricing tier for your Data Lake Analytics account.
 5. Click **Create**. 
 
-Your account will be ready in about 60 seconds.
+## Submit a U-SQL job
 
-## Install the sample data
-
-**Copy sample data files**
-
-1. From the [Azure portal](https://portal.azure.com), open your Data Lake Analytics account.  See [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md) to create one and open the account in the portal.
-2. Expand the **Essentials** pane, and then click **Explore sample scripts**. It opens another blade called **Sample
-   Scripts**.
-3. Click **Sample Data Missing** to copy the sample data files. When it is done, the portal shows **Sample data updated successfully**.
-4. From the Data Lake analytics account blade, click **Data Explorer** on the top. It opens two blades. One is **Data Explorer**, and the other is the default Data Lake Store account.
-5. In the default Data Lake Store account blade, click **Samples** to expand the folder, and the click **Data** to expand the folder. You shall see the following files and folders:
-
-``
-AmbulanceData/
-AdsLog.tsv
-SearchLog.tsv
-version.txt
-WebLog.log
-``
-
-This tutorial uses `SearchLog.tsv`.
-
-## Create and submit Data Lake Analytics jobs
-After you have prepared the source data, you can start developing a U-SQL script.  
-
-**To submit a job**
-
-1. From the Data Lake analytics account blade on the portal, click **New Job**.
-    If you don't see the blade, see [Open a Data Lake Analytics account from portal](data-lake-analytics-manage-use-portal.md).
-2. Enter **Job Name**, and the following U-SQL script:
-
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-
-    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
-
-    Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics creates the output folder if it doesn't exist.  In this case, we are using simple, relative paths.  
-
-    It is simpler to use relative paths for files stored in default Data Lake accounts. You can also use absolute paths.  For example
-
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-
-    For more about U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
-
-1. Click **Submit Job** from the top.   
-2. Wait until the job status is changed to **Succeeded**.
-3. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-4. Click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. 
+1. From the Data Lake Analytics account, click **New Job**.
+2. Paste in the following U-SQL script:
+```
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
+    USING Outputters.Csv();
+```
+3. Click **Submit Job**.   
+4. Wait until the job status is changed to **Succeeded**.
+5. If job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. Click the **Output** tab, and then click `SearchLog-from-Data-Lake.csv`. 
 
 ## See also
 

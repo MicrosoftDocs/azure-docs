@@ -42,8 +42,9 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 > [!INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
 
 
-## View the swagger
-View any triggers, actions, and limits in the [swagger details](/connectors/sharepoint/).
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sharepoint/).
 
 ## Next Steps
 [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)

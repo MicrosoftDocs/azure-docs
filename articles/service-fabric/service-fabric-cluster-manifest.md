@@ -1,6 +1,6 @@
 ---
-title: Configure your standalone cluster | Microsoft Docs
-description: This article describes how to configure your standalone or private Service Fabric cluster.
+title: Configure your Azure Service Fabric standalone cluster | Microsoft Docs
+description: Learn how to configure your standalone or private Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
 
 ---
@@ -33,7 +33,7 @@ This covers the broad cluster specific configurations, as shown in the JSON snip
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 You can give any friendly name to your Service Fabric cluster by assigning it to the **name** variable. The **clusterConfigurationVersion** is the version number of your cluster; you should increase it every time you upgrade your Service Fabric cluster. You should however leave the **apiVersion** to the default value.
 

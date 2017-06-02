@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 
 # Create a web app with continuous deployment from GitHub

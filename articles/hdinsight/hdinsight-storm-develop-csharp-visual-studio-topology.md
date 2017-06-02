@@ -64,7 +64,7 @@ When submitting a Storm topology from Visual Studio, SCP.NET generates a zip fil
 
 2. The `JAVA_HOME` environment variable must point to the directory that contains Java.
 
-3. The `PATH` environment variable must include the `%JAVA_HOME%/bin` directory.
+3. The `PATH` environment variable must include the `%JAVA_HOME%\bin` directory.
 
 You can use the following C# console application to verify that Java and the JDK is correctly installed:
 
