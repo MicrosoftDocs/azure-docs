@@ -65,7 +65,7 @@ The Azure Linux Agent includes functionality to automatically detect this name c
 ## Virtual Machine Image Capture
 Azure provides the ability to capture the state of an existing virtual machine into an image that can subsequently be used to deploy additional virtual machine instances. The Azure Linux Agent may be used to rollback some of the customization that was performed during the provisioning process. You may follow the steps below to capture a virtual machine as an image:
 
-1. Run **waagent -deprovision** to undo provisioning customization. Or **waagent -deprovision+user** to optionally, delete the user account specified during provisioning and all associated data.
+1. Run **waagent -deprovision** to undo provisioning customization. Or **waagent -deprovision+user** to optionally delete the user account specified during provisioning and all associated data.
 2. Shut down/power off the virtual machine.
 3. Click **Capture** in the Azure portal or use the PowerShell or CLI tools to capture the virtual machine as an image.
    
