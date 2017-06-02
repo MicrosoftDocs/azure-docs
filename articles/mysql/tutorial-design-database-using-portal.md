@@ -146,7 +146,6 @@ Imagine you have accidentally deleted this table. This is something you cannot e
 ![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
 2- Fill out the **Restore** form with the required information:
-
 -	Restore point: Select a point-in-time that occurs before the server was changed.
 -	Target server: Provide a new server name you want to restore to.
 -	Location: You cannot select the region, by default it is same as the source server.
