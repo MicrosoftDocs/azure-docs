@@ -64,12 +64,12 @@ Use the following steps to configure your Azure Stack environment:
     ```PowerShell
     # Use this command to get the GUID value in the administrator's environment. 
     $TenantID = Get-DirectoryTenantID `
-      -AADTenantName "<myaadtenant>.onmicrosoft.com" `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
       -EnvironmentName AzureStackAdmin
 
     # Use this command to get the GUID value in the user's environment. 
     $TenantID = Get-DirectoryTenantID `
-      -AADTenantName "<myaadtenant>.onmicrosoft.com" `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
       -EnvironmentName AzureStackUser
     ```
     b. **Active Directory Federation Services**, use one of the following cmdlets:

@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/05/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Build a PHP and MySQL web app in Azure
 This tutorial shows you how to create a PHP web app in Azure and connect it to a MySQL database. When you are finished, you'll have a [Laravel](https://laravel.com/) application running on [Azure App Service Web Apps](app-service-web-overview.md).
