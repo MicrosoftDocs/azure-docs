@@ -73,7 +73,3 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
   * [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
   * [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-* End-to-end tutorial
-
-  * [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
-  * [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)

@@ -131,7 +131,6 @@ No. You cannot update computer name property. New VM will inherit it from the pa
 ## Managed Disks and port 8443
 
 **Why do customers have to unblock outbound traffic on port 8443 for VMs using Azure Managed Disks?**
-
 The Azure VM Agent uses port 8443 to report the status of each VM extension to the Azure platform. Without this port being unblocked, the VM agent won't be able to report the status of any VM extension. For more information about the VM agent, please see [Azure Virtual Machine Agent overview](../virtual-machines/windows/agent-user-guide.md).
 
 **What happens if a VM is deployed with extensions and the port is not unblocked?**
@@ -168,7 +167,7 @@ No.
 
 **Is there an estimated date for this issue to be fixed so I no longer have to unblock port 8443?**
 
-Yes, by the end of May 2017.
+Yes, by the end of June 2017.
 
 ## Premium Disks – both managed and unmanaged
 
