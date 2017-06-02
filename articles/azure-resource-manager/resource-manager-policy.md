@@ -225,7 +225,6 @@ You use property aliases to access specific properties for a resource type.
 | Redis | Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
 | Redis | Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
 | Redis | Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
-| /profiles | Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
 
 **Microsoft.Cdn**
 
