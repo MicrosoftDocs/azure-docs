@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/02/2017
 ms.custom: mvc
 ---
 
@@ -168,4 +168,5 @@ In this tutorial, you use the Azure portal to learned how to:
 > * Update data
 > * Restore data
 
-[Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
+> [!div class="nextstepaction"]
+> [How to connect applications to Azure Database for MySQL](./howto-connection-string.md)
