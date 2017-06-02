@@ -66,7 +66,7 @@ If you are using the Azure Cloud Shell, click **Try It** in the code block below
 az login 
 ``` 
    
-### Add the Azure Cosmos DB module
+## Add the Azure Cosmos DB module
 
 If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. 
 
