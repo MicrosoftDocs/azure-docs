@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Bind a custom SSL certificate to a function app
 
-This sample script creates a function app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you will need:
+This sample script creates a function app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you need:
 
 * Access to your domain registrar's DNS configuration page.
 * A valid .PFX file and its password for the SSL certificate you want to upload and bind.
