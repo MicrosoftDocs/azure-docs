@@ -18,6 +18,9 @@
 ## Secure
 ### [Access control](biztalk-issuer-name-issuer-key.md)
 ## [Troubleshoot](biztalk-troubleshoot-using-ops-logs.md)
+## Hybrid connections
+### [Overview](integration-hybrid-connection-overview.md)
+### [Create and manage](integration-hybrid-connection-create-manage.md)
 
 # Resources
 ## [Release notes](biztalk-release-notes.md)
