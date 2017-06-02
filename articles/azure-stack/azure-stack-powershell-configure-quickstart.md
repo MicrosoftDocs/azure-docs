@@ -79,7 +79,8 @@ Add-AzureStackAzureRmEnvironment `
   -Name "AzureStackAdmin" `
   -ArmEndpoint https://adminmanagement.local.azurestack.external
 
-$Credential= Get-Credential -Message "Enter you Azure Active Directory service administrator's credentials. The username is in the format: user1@contoso.onmicrosoft.com"
+$Credential= Get-Credential `
+  -Message "Enter you Azure Active Directory service administrator's credentials. The username is in the format: user1@contoso.onmicrosoft.com"
  
 $TenantName = ($Credential.UserName.split("@"))[1]
 
