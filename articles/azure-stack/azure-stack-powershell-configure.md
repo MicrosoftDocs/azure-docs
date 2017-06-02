@@ -41,7 +41,6 @@ Use the following steps to configure your Azure Stack environment:
    a. To access the **administrative portal**
 
    ```PowerShell
-   # Use this command to access the administrative portal.
    Add-AzureStackAzureRmEnvironment `
      -Name "AzureStackAdmin" `
      -ArmEndpoint "https://adminmanagement.local.azurestack.external"
@@ -50,7 +49,6 @@ Use the following steps to configure your Azure Stack environment:
    b. To access the **user portal**
 
    ```PowerShell
-   # Use this command to access the user portal.
    Add-AzureStackAzureRmEnvironment `
      -Name "AzureStackUser" `
      -ArmEndpoint "https://management.local.azurestack.external" 
@@ -65,7 +63,6 @@ Use the following steps to configure your Azure Stack environment:
    
    * **Administrative environment**
      ```PowerShell
-     # Use this command to get the GUID value in the administrator's environment. 
      $TenantID = Get-DirectoryTenantID `
        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
        -EnvironmentName AzureStackAdmin
@@ -73,7 +70,6 @@ Use the following steps to configure your Azure Stack environment:
 
    * **User environemnt**
      ```PowerShell
-     # Use this command to get the GUID value in the user's environment. 
      $TenantID = Get-DirectoryTenantID `
        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
        -EnvironmentName AzureStackUser
@@ -83,14 +79,13 @@ Use the following steps to configure your Azure Stack environment:
    
    * **Administrative environment**
      ```PowerShell
-     # This command gets the GUID value in the administrator's environment.
      $TenantID = Get-DirectoryTenantID `
        -ADFS `
        -EnvironmentName AzureStackAdmin
      ```
 
    * **User environemnt**
-     # This command gets the GUID value in the user's environment. 
+     ```PowerShell 
      $TenantID = Get-DirectoryTenantID `
        -ADFS `
        -EnvironmentName AzureStackUser 
@@ -103,8 +98,8 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
 1. Store the administrator or user account's credentials in a variable:
 
    ```PowerShell
-   $UserName='<Username of the service administrator or user account>'
-   $Password='<administrator or user password>'| `
+   $UserName='<Azure Active Directory service administrator or user account name>'
+   $Password='<Azure Active Directory service administrator's or user's password>'| `
      ConvertTo-SecureString -Force -AsPlainText
    $Credential= New-Object PSCredential($UserName,$Password)
    ```
@@ -114,7 +109,6 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
    a. To sign in to the **administrative portal**
 
    ```powershell
-   # Use this command to sign in to the administrative portal.
    Login-AzureRmAccount `
      -EnvironmentName "AzureStackAdmin" `
      -TenantId $TenantID `
@@ -124,7 +118,6 @@ After the AzureRM environment is registered to target the Azure Stack instance, 
    b. To sign in to the **user portal**
 
    ```powershell
-   # Use this command to sign in to the user portal.
    Login-AzureRmAccount `
      -EnvironmentName "AzureStackUser" `
      -TenantId $TenantID `
