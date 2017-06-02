@@ -96,7 +96,7 @@ For SAP HANA 1.0 versions up to SPS12, these parameters can be set during the in
 
 You also can configure the parameters after the SAP HANA database installation by using the hdbparam framework. 
 
-With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result the parametesr must be set using SQL commands. For details, see [SAP Note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
+With SAP HANA 2.0, the hdbparam framework has been deprecated. As a result the parameters must be set using SQL commands. For details, see [SAP Note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
 
 ## Operating system
