@@ -8,7 +8,7 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: slivkins
+ms.author: slivkins;marcozo;alekh
 ---
 
 # Custom Decision Service API reference
