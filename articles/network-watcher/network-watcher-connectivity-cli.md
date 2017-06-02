@@ -1,0 +1,295 @@
+---
+title: Test connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
+description: This page explains how to test connectivity with Network Watcher using Azure CLI 2.0
+services: network-watcher
+documentationcenter: na
+author: georgewallace
+manager: timlt
+editor: 
+
+ms.service: network-watcher
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload:  infrastructure-services
+ms.date: 02/22/2017
+ms.author: gwallace
+---
+
+# Test connectivity with Azure Network Watcher using Azure CLI 2.0
+
+> [!div class="op_single_selector"]
+> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure REST API](network-watcher-connectivity-rest.md)
+
+Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
+
+This article takes you through the different types of endpoints that can be tested with connectivity.
+
+* [**Test virtual machine connectivity**](#test-virtual-machine-connectivity)
+* [**Test routing issues**](#test-routing-issues)
+* [**Test website latency**](#test-website-latency)
+* [**Test storage connectivity**](#test-storage-connectivity)
+
+## Before you begin
+
+This article assumes you have the following resources:
+
+* An instance of Network Watcher in the region you want to test connectivity.
+
+* Virtual machines to test connectivity with.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
+## Test virtual machine connectivity
+
+This example tests connecting to a database server over port 80. Connectivity to a database server should be locked down to only ports that are required for SQL connectivity.
+
+### Example
+
+```azurecli
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
+```
+
+### Response
+
+The following response is from the previous example.  In this response the `connectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
+
+```json
+{
+  "avgLatencyInMs": null,
+  "connectionStatus": "Unreachable",
+  "hops": [
+    {
+      "address": "10.1.1.4",
+      "id": "bb01d336-d881-4808-9fbc-72f091974d68",
+      "issues": [],
+      "nextHopIds": [
+        "f8b074e9-9980-496b-a35e-619f9bcbf648"
+      ],
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/ap
+pNic0/ipConfigurations/ipconfig1",
+      "type": "Source"
+    },
+    {
+      "address": "10.1.2.4",
+      "id": "f8b074e9-9980-496b-a35e-619f9bcbf648",
+      "issues": [],
+      "nextHopIds": [
+        "8a5857f3-6ab8-4b11-b9bf-a046d66b8696"
+      ],
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/fw
+Nic/ipConfigurations/ipconfig1",
+      "type": "VirtualAppliance"
+    },
+    {
+      "address": "10.1.3.4",
+      "id": "8a5857f3-6ab8-4b11-b9bf-a046d66b8696",
+      "issues": [
+        {
+          "context": [
+            {
+              "key": "RuleName",
+              "value": "UserRule_Port80"
+            }
+          ],
+          "origin": "Outbound",
+          "severity": "Error",
+          "type": "NetworkSecurityRule"
+        }
+      ],
+      "nextHopIds": [
+        "6ce2f7a2-ceb4-4145-80e8-5d9f661655d6"
+      ],
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/au
+Nic/ipConfigurations/ipconfig1",
+      "type": "VirtualAppliance"
+    },
+    {
+      "address": "10.1.4.4",
+      "id": "6ce2f7a2-ceb4-4145-80e8-5d9f661655d6",
+      "issues": [],
+      "nextHopIds": [],
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/db
+Nic0/ipConfigurations/ipconfig1",
+      "type": "VnetLocal"
+    }
+  ],
+  "maxLatencyInMs": null,
+  "minLatencyInMs": null,
+  "probesFailed": 100,
+  "probesSent": 100
+}
+```
+
+## Test routing issues
+
+The example tests connectivity between a virtual machine and a remote endpoint.
+
+### Example
+
+```azurecli
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
+```
+
+### Response
+
+In the following example the `connectionStatus` is shown as **Unreachable**. In the `hops` details you can see under `issues` that the traffic was blocked due to a `UserDefinedRoute`.
+
+```json
+{
+  "avgLatencyInMs": null,
+  "connectionStatus": "Unreachable",
+  "hops": [
+    {
+      "address": "10.1.1.4",
+      "id": "f2cb1868-2049-4839-b8ed-57a480d06f95",
+      "issues": [
+        {
+          "context": [
+            {
+              "key": "RouteType",
+              "value": "User"
+            }
+          ],
+          "origin": "Outbound",
+          "severity": "Error",
+          "type": "UserDefinedRoute"
+        }
+      ],
+      "nextHopIds": [
+        "da4022db-0ab0-48c4-a507-dd4c03561ca5"
+      ],
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/ap
+pNic0/ipConfigurations/ipconfig1",
+      "type": "Source"
+    },
+    {
+      "address": "13.107.21.200",
+      "id": "da4022db-0ab0-48c4-a507-dd4c03561ca5",
+      "issues": [],
+      "nextHopIds": [],
+      "resourceId": "Unknown",
+      "type": "Destination"
+    }
+  ],
+  "maxLatencyInMs": null,
+  "minLatencyInMs": null,
+  "probesFailed": 100,
+  "probesSent": 100
+}
+```
+
+## Test website latency
+
+The following example tests the connectivity to a website.
+
+### Example
+
+```azurecli
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
+```
+
+### Response
+
+In the following response, you can see the `connectionStatus` shows as **Reachable**. When a connection is successful latency values are provided.
+
+```json
+{
+  "avgLatencyInMs": 2,
+  "connectionStatus": "Reachable",
+  "hops": [
+    {
+      "address": "10.1.1.4",
+      "id": "639c2d19-e163-4dfd-8737-5018dd1168ae",
+      "issues": [],
+      "nextHopIds": [
+        "fd43a6e7-c758-4f48-90aa-8db99105a4a3"
+      ],
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/ap
+pNic0/ipConfigurations/ipconfig1",
+      "type": "Source"
+    },
+    {
+      "address": "204.79.197.200",
+      "id": "fd43a6e7-c758-4f48-90aa-8db99105a4a3",
+      "issues": [],
+      "nextHopIds": [],
+      "resourceId": "Internet",
+      "type": "Internet"
+    }
+  ],
+  "maxLatencyInMs": 7,
+  "minLatencyInMs": 0,
+  "probesFailed": 0,
+  "probesSent": 100
+}
+```
+
+## Test storage connectivity
+
+The following example tests the connectivity from a virtual machine to a blog storage account.
+
+### Example
+
+```azurecli
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
+```
+
+### Response
+
+The following is the example response from running the previous cmdlet. As the test was successful the `connectionStatus` property shows as **Reachable**.  You are provided the details in regards to the number of hops required to reach the storage blob as well as latency.
+
+```json
+{
+  "avgLatencyInMs": 1,
+  "connectionStatus": "Reachable",
+  "hops": [
+    {
+      "address": "10.1.1.4",
+      "id": "5136acff-bf26-4c93-9966-4edb7dd40353",
+      "issues": [],
+      "nextHopIds": [
+        "f8d958b7-3636-4d63-9441-602c1eb2fd56"
+      ],
+      "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurations/ipconfig1",
+      "type": "Source"
+    },
+    {
+      "address": "1.2.3.4",
+      "id": "f8d958b7-3636-4d63-9441-602c1eb2fd56",
+      "issues": [],
+      "nextHopIds": [],
+      "resourceId": "Internet",
+      "type": "Internet"
+    }
+  ],
+  "maxLatencyInMs": 7,
+  "minLatencyInMs": 0,
+  "probesFailed": 0,
+  "probesSent": 100
+}
+```
+
+## Next steps
+
+Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+
+Find if certain traffic is allowed in orr out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+
+<!-- Image references -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

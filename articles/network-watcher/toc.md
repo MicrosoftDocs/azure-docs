@@ -43,6 +43,9 @@
 ### [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
+## Test connectivity
+### [PowerShell](network-watcher-connectivity-powershell.md)
+### [CLI 2.0](network-watcher-connectivity-cli.md)
 ## Configure NSG flow logs
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
