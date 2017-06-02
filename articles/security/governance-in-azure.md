@@ -51,7 +51,7 @@ The following are main the governance issues discussed in this paper:
 
 - Alerting and Monitoring
 
-## Implementation of policies, processes and procedures as per organization goals
+## Implementation of policies, processes and procedures 
 
 Management has established roles and responsibilities to oversee implementation of the information security policy and operational continuity across Azure. Microsoft Azure management is responsible for overseeing security and continuity practices within their respective teams (including third parties), and facilitating compliance with security policies, processes and standards.
 
