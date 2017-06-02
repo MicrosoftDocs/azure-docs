@@ -72,7 +72,7 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][2]
 4. If you prefer to enable blob auditing on the database level (in addition to or instead of server-level auditing), for **Auditing**, select **ON**, and for **Auditing type**, select  **Blob**.
 
-   > If server blob auditing is enabled, the database-configured audit will exist side by side with the server blob audit.  
+    If server blob auditing is enabled, the database-configured audit will exist side by side with the server blob audit.  
 
     ![Navigation pane][3]
 5. To open the **Audit Logs Storage** blade, select **Storage Details**. Select the Azure storage account where logs will be saved, and then select the retention period, after which the old logs will be deleted. Then click **OK**. 
@@ -94,7 +94,7 @@ Audit logs are aggregated in the Azure storage account you chose during setup. Y
 
 Blob auditing logs are saved as a collection of blob files within a container named **sqldbauditlogs**.
 
-For further details about the hierarchy of the blob audit logs storage folder, blob naming conventions, and log format, see the [Blob Audit Log Format Reference (doc file download)](https://go.microsoft.com/fwlink/?linkid=829599).
+For further details about the hierarchy of the blob audit logs storage folder, blob naming conventions, and log format, see the [Blob Audit Log Format Reference (.docx file download)](https://go.microsoft.com/fwlink/?linkid=829599).
 
 There are several methods you can use to view blob auditing logs:
 
@@ -123,7 +123,7 @@ There are several methods you can use to view blob auditing logs:
 * Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS.
 
 * Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
-    * Once you have downloaded a log file locally, you can double-click the file to open, view and analyze the logs in SSMS.
+    * Once you have downloaded a log file locally, you can double-click the file to open, view, and analyze the logs in SSMS.
     * You can also download multiple files simultaneously via Azure Storage Explorer. Right-click a specific subfolder (for example, a subfolder that includes all log files for a specific date) and select **Save as** to save in a local folder.
 
 * Additional methods:
