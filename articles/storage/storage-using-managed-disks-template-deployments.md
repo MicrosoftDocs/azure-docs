@@ -212,6 +212,7 @@ To create managed availability sets with VMs using managed disks, add the `sku` 
     }
 }
 ```
+
 ### Additional scenarios and customizations
 
 To find full information on the REST API specifications, please review the [create a managed disk REST API documentation](/rest/api/manageddisks/disks/disks-create-or-update). You will find additional scenarios, as well as default and acceptable values that can be submitted to the API through template deployments. 
