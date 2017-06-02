@@ -47,6 +47,7 @@
 ## Test connectivity
 ### [PowerShell](network-watcher-connectivity-powershell.md)
 ### [CLI 2.0](network-watcher-connectivity-cli.md)
+### [REST](network-watcher-connectivity-rest.md)
 ## Configure NSG flow logs
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
