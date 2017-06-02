@@ -25,20 +25,16 @@ ms.author: rasquill
 
 [Draft](https://aka.ms/draft) is a new open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes -- or even installing them. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
 
-You can use Draft with any Docker image registry and any Kubernetes cluster, including locally. This article shows how to:
+You can use Draft with any Docker image registry and any Kubernetes cluster, including locally. This tutorial shows how to:
 
-- [Create an Azure Container Registry](#create-an-azure-container-registry)
-- [Create an Azure Container Service running Kubernetes](#create-an-azure-container-service-with-kubernetes)
-- [Install and configure Draft](#install-and-configure-draft)
-- [Wire up a deployment domain](#wire-up-deployment-domain)
-- [Build and deploy an application](#build-and-deploy-an-application)
+- Create an Azure Container Registry
+- Create an Azure Container Service running Kubernetes
+- Install and configure Draft
+- Wire up a deployment domain
+- Build and deploy an application
 
 Once configured, however, developers simply use draft when they're ready to build applications. The Kubernetes infrastructure is already set up.
 
-## Example of Draft workflow
-The following video shows how easy it is to develop iteratively and still get live building and deployment with no interaction with Docker or Kubernetes:
-
-![Draft animated gif](media/container-service-draft-up/draft.gif)
 
 ## Create an Azure Container Registry
 You can easily [create a new Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), but the steps are as follows:
