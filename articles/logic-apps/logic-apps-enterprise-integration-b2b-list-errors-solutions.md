@@ -19,7 +19,7 @@ ms.author: LADocs; padmavc
 ---
 
 # Logic Apps B2B list of errors and solutions
-This article is intended to be a knowledge base of Logic Apps B2B errors and solutions.  It includes a description of the error and actions you can take an appropriate action to help correct the error.
+This article is intended to be a knowledge base of Logic Apps B2B errors and solutions.  It includes a description of the error and an appropriate action to help correct the error.
 
 ## Agreement Resolution
 
