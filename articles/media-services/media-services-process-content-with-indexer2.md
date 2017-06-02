@@ -80,6 +80,7 @@ Azure Media Indexer 2 Preview supports speech-to-text for the following language
 * Portuguese  [PtBr]
 * Arabic (Egyptian) [ArEg]
 * Japanese [JaJp]
+* Russian [RuRu]
 
 ## Supported file types
 
