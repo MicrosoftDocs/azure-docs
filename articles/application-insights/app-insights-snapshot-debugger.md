@@ -31,29 +31,29 @@ Snapshot collection is available for ASP.NET web apps that run on .NET Framework
 
 3. Review the default options that the package added to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
-```xml
-  <TelemetryProcessors>
-    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-      <!-- The default is true, but you can disable Snapshot Debugging by setting it to false -->
-      <IsEnabled>true</IsEnabled>
-      <!-- Snapshot Debugging is usually disabled in developer mode, but you can enable it by setting this to true. -->
-      <!-- DeveloperMode is a property on the active TelemetryChannel. -->
-      <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
-      <!-- How many times we need to see an exception before we ask for snapshots. -->
-      <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
-      <!-- The maximum number of examples we create for a single problem. -->
-      <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
-      <!-- The maximum number of problems that we can be tracking at any time. -->
-      <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
-      <!-- How often to reset problem counters. -->
-      <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-      <!-- The maximum number of snapshots allowed in one minute. -->
-      <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
-      <!-- The maximum number of snapshots allowed per day. -->
-      <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
-    </Add>
-  </TelemetryProcessors>
-```
+    ```xml
+    <TelemetryProcessors>
+        <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+        <!-- The default is true, but you can disable Snapshot Debugging by setting it to false -->
+        <IsEnabled>true</IsEnabled>
+        <!-- Snapshot Debugging is usually disabled in developer mode, but you can enable it by setting this to true. -->
+        <!-- DeveloperMode is a property on the active TelemetryChannel. -->
+        <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
+        <!-- How many times we need to see an exception before we ask for snapshots. -->
+        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <!-- The maximum number of examples we create for a single problem. -->
+        <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
+        <!-- The maximum number of problems that we can be tracking at any time. -->
+        <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
+        <!-- How often to reset problem counters. -->
+        <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
+        <!-- The maximum number of snapshots allowed in one minute. -->
+        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
+        <!-- The maximum number of snapshots allowed per day. -->
+        <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
+        </Add>
+    </TelemetryProcessors>
+    ```
 
 ### Collect exceptions
 
@@ -70,7 +70,8 @@ To grant permission, assign the `Application Insights Snapshot Debugger` role to
 2. Click **Roles** > **Application Insights Snapshot Debugger**.
 3. Click **Add**, and then select a user.
 
->[!IMPORTANT] Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+    >[!IMPORTANT] 
+    Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal
 
