@@ -25,15 +25,15 @@ You’ll need to take care of a few things before you can set up Azure Data Cata
 ## Azure subscription
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-Azure subscriptions help you organize access to cloud-service resources such as Data Catalog. Subscriptions also help you control how resource usage is reported, billed, and paid for. Each subscription can have a separate billing and payment setup, so you can have subscriptions and plans that vary by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before you set up Data Catalog. To learn more, see [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-assign-admin-roles.md).
+Azure subscriptions help you organize access to cloud-service resources such as Data Catalog. Subscriptions also help you control how resource usage is reported, billed, and paid for. Each subscription can have a separate billing and payment setup, so you can have subscriptions and plans that vary by department, project, regional office, and so on. Every cloud service belongs to a subscription, and you need to have a subscription before you set up Data Catalog. To learn more, see [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-assign-admin-roles.md).
 
 ## Azure Active Directory
-To set up Data Catalog, you must be signed in with an Azure Active Directory user account.
+To set up Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account.
 
-Azure Active Directory (Azure AD) provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-in to any cloud and on-premises web application. Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
+Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account for single sign-in to any cloud and on-premises web application. Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory?](../active-directory/active-directory-whatis.md).
 
 > [!NOTE]
-> By using the [Azure portal](http://portal.azure.com/) you can sign in with either a personal Microsoft account or an Azure Active Directory work or school account. To set up Data Catalog by using either the Azure portal or the [Data Catalog portal](http://www.azuredatacatalog.com) you must be signed in with an Azure Active Directory account, not a personal account.
+> By using the [Azure portal](http://portal.azure.com/), you can sign in with either a personal Microsoft account or an Azure Active Directory work or school account. To set up Data Catalog by using either the Azure portal or the [Data Catalog portal](http://www.azuredatacatalog.com), you must be signed in with an Azure Active Directory account, not a personal account.
 >
 >
 
