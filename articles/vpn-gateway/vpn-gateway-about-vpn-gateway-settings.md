@@ -38,6 +38,8 @@ Example:
     New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
     -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
     -VpnType RouteBased
+    
+### Gateway SKUs
 
 ### Configuring the gateway SKU
 ####Specifying the gateway SKU in the Azure portal
