@@ -60,6 +60,9 @@ By default, SQL Server listens on a well-known port, 1433. For increased securit
 To configure this after provisioning, you have two options:
 
 - For Resource Manager VMs, you can select **SQL Server configuration** from the VM overview blade. This provides an option to change the port.
+
+  ![TCP port change in portal](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
+
 - For Classic VMs or for SQL Server VMs that were not provisioned with the portal, you can manually configure the port by connecting remotely to the VM. For the configuration steps, see [Configure a Server to Listen on a Specific TCP Port](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port). If you use this manual technique, you also need to add a Windows Firewall rule to allow incoming traffic on that TCP port.
 
 > [!IMPORTANT]
