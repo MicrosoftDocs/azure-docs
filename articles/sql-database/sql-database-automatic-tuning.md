@@ -44,7 +44,7 @@ workload and identify potential issues and improvements.
 This process enables Azure SQL Database to dynamically adapt to your workload by finding what indexes and plans might improve
 performance of your workloads and what indexes affect your workloads. Based on these findings, automatic
 tuning applies tuning actions that improve performance of your workload.
-In addition, Azure SQL Database will continuously monitor performance after any change made by automatic tuning to ensure that it improves
+In addition, Azure SQL Database continuously monitors performance after any change made by automatic tuning to ensure that it improves
 performance of your workload. Any action that didn’t improve performance is automatically reverted. This verification
 process is a key feature that ensures that any change made by automatic tuning does not decrease the performance
 of your workload.
@@ -97,9 +97,9 @@ has enough unused resources that can be used for the maintenance task.
 One important feature in automatic index management is a verification of the actions. When Azure SQL Database creates or
 drops index, a monitoring process analyzes performance of your workload to verify that the action improved the performance.
 If it didn’t bring significant improvement – the action is immediately reverted. This way, Azure SQL Database ensures that automatic
-actions will not negatively affect performance of your workload.
+actions do not negatively impact performance of your workload.
 Indexes created by automatic tuning are transparent for the maintenance operation on the underlying schema. Schema changes such as
-dropping or renaming columns will not be blocked by the presence of automatically created indexes. Indexes that are automatically
+dropping or renaming columns are not blocked by the presence of automatically created indexes. Indexes that are automatically
 created by Azure SQL Database are immediately dropped when related table or columns is dropped.
 
 ## Automatic plan choice correction
@@ -111,4 +111,4 @@ Find more information at [Automatic tuning in SQL Server 2017](https://docs.micr
 ## Next steps
 
 Enable automatic tuning in Azure SQL Database and let automatic tuning feature fully manage your workload. As an alternative, you can review
-[Tuning recommendations in Azure portal](sql-database-advisor-portal.md) and manually apply the ones that will improve performance of your queries.
+[Tuning recommendations in Azure portal](sql-database-advisor-portal.md) and manually apply the ones that improve performance of your queries.
