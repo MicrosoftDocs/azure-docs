@@ -65,7 +65,6 @@ In the C# program, you need to prepare the `/Samples/Data/SearchLog.tsv` file, a
    
         Install-Package Microsoft.Azure.Management.DataLake.Analytics -Pre
         Install-Package Microsoft.Azure.Management.DataLake.Store -Pre
-        Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
 4. In Program.cs, paste the following code:
@@ -77,7 +76,6 @@ In the C# program, you need to prepare the `/Samples/Data/SearchLog.tsv` file, a
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.StoreUploader;
         using Microsoft.Azure.Management.DataLake.Analytics;
         using Microsoft.Azure.Management.DataLake.Analytics.Models;
         using Microsoft.WindowsAzure.Storage.Blob;
@@ -149,10 +147,7 @@ In the C# program, you need to prepare the `/Samples/Data/SearchLog.tsv` file, a
 
             public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
             {
-                var parameters = new UploadParameters(srcFilePath, destFilePath, _adlsAccountName, isOverwrite: force);
-                var frontend = new DataLakeStoreFrontEndAdapter(_adlsAccountName, _adlsFileSystemClient);
-                var uploader = new DataLakeStoreUploader(parameters, frontend);
-                uploader.Execute();
+                _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite = force);
             }
 
             public static void DownloadFile(string srcPath, string destPath)

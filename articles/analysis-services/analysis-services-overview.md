@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/26/2017
 ms.author: owend
 
 ---
@@ -50,11 +50,9 @@ Azure Analysis Services supports tabular models at the 1200 and 1400 Preview com
 ## Data sources
 Data models deployed to servers in Azure support connecting to data sources on-premises in your organization or in the cloud. Combine data from both on-premises and cloud data sources for a hybrid BI solution.
 
-![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
+Because your server is in the cloud, connecting to cloud data sources is seamless. When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your server in the cloud.
 
-Because your server is in the cloud, connecting to cloud data sources is seamless. When connecting to on-premises data sources, the [On-premises data gateway](analysis-services-gateway.md) ensures fast, secure connections with your Analysis Services server in the cloud.
-
-\* Tabular 1400 models only.
+To learn more about which on-premises data sources are supported, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
 
 
 ## Explore your data from anywhere
@@ -81,7 +79,7 @@ Azure Analysis Services is governed by the [Microsoft Online Services Terms](htt
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
 ## Get help
-Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage a server here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services on MSDN](https://msdn.microsoft.com/library/bb522607.aspx).
+Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage a server here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 We also have a number of helpful videos at [Azure Analysis Services on Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
 
