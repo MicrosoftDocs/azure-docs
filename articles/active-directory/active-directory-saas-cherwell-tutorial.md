@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2017
+ms.date: 06/03/2017
 ms.author: jeedes
 
 ---
@@ -108,14 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.cherwellondemand.com/cherwellclient`
-
-    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.cherwellondemand.com` 
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.cherwellondemand.com/cherwellclient`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-on URL  and Identifier. Contact [Cherwell support team](https://csm.cherwell.com/contact) to get these values.
+	> This value is not real. Update this value with the actual Sign-on URL. Contact [Cherwell support team](https://csm.cherwell.com/contact) to get this value.
  
-
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/tutorial_cherwell_certificate.png) 
@@ -130,7 +127,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. To configure single sign-on on **Cherwell** side, you need to send the downloaded **Certificate (Base64)**, **SAML Single Sign-On Service URL**, and **SAML Entity ID** to [Cherwell support team](https://csm.cherwell.com/contact). 
 
-
+	>[!NOTE]
+    >Your Cherwell support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
+    > 
+	
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
@@ -207,9 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Cherwell tile in the Access Panel, you should get automatically signed-on to your Cherwell application.
+If you want to test your single sign-on settings, open the Access Panel. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
