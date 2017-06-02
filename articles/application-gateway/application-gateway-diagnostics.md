@@ -18,7 +18,7 @@ ms.date: 01/17/2017
 ms.author: amitsriva
 
 ---
-# Backend health, diagnostics logging and metrics for Application Gateway
+# Backend health, diagnostics logging, and metrics for Application Gateway
 
 Azure provides the capability to monitor resources with logging and metrics. Application Gateway provides these capabilities with backend health, logging, and metrics.
 
@@ -38,7 +38,7 @@ Application gateway provides the capability to monitor the health of individual 
 
 ### View backend health through the portal
 
-There is nothing that is needed to be done to view backend health. In an existing application gateway, navigate to **Monitoring** > **Backend health**. Each member in the backend pool is listed on this page (whether it is a NIC, IP or FQDN). Backend pool name, port, backend http settings name and health status are shown. Valid values for health status are "Healthy", "Unhealthy" and "Unknown".
+Backend health is provided automatically. In an existing application gateway, navigate to **Monitoring** > **Backend health**. Each member in the backend pool is listed on this page (whether it is a NIC, IP, or FQDN). Backend pool name, port, backend http settings name, and health status are shown. Valid values for health status are "Healthy", "Unhealthy" and "Unknown".
 
 > [!WARNING]
 > If you see a backend health status as **Unknown**, ensure that the access to backend is not blocked by a Network Security Group (NSG) rule, User defined route (UDR), or by a custom DNS in the VNet.
@@ -169,13 +169,13 @@ This log is only generated if you've enabled it on a per Application Gateway bas
 |clientPort     | Originating port for the request.       |
 |httpMethod     | The HTTP method used by the request.       |
 |requestUri     | URI of the request received.        |
-|RequestQuery     | **Server-Routed** - Backend pool instance that was sent the request </br> **X-AzureApplicationGateway-LOG-ID** - Correlation ID used for the request, can be used to troubleshoot traffic issues on the backend servers. </br>**SERVER-STATUS** - The HTTP response code APplication Gateway received from the backend.       |
+|RequestQuery     | **Server-Routed** - Backend pool instance that was sent the request </br> **X-AzureApplicationGateway-LOG-ID** - Correlation ID used for the request, can be used to troubleshoot traffic issues on the backend servers. </br>**SERVER-STATUS** - The HTTP response code Application Gateway received from the backend.       |
 |UserAgent     | User-agent from the HTTP request header.        |
 |httpStatus     | HTTP status code returned to the client from the Application Gateway.       |
 |httpVersion     | HTTP version of the request.        |
 |receivedBytes     | Size of packet received in bytes.        |
 | sentBytes|Size of packet sent in bytes.|
-|timeTaken|The length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as time interval from when Application Gateway receives the first byte of an HTTP request, to the time when response send operation completes. It is important to note that the Time-Taken field usually includes the time that the request and response packets are travelling over the network. |
+|timeTaken|The length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as time interval from when Application Gateway receives the first byte of an HTTP request, to the time when response send operation completes. It is important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
 |sslEnabled|Whether communication to the backend pools used SSL. Valid values are on or off.|
 ```json
 {
@@ -208,7 +208,7 @@ This log is only generated if you have enabled it on a per Application Gateway b
 
 |Value  |Description  |
 |---------|---------|
-|instanceId     |  Application Gateway instance for which performance data is being generated. For a multi-instance application gateway there will be 1 row per instance.        |
+|instanceId     |  Application Gateway instance for which performance data is being generated. For a multi-instance application gateway, there is 1 row per instance.        |
 |healthyHostCount     | Number of healthy hosts in the backend pool        |
 |unHealthyHostCount     | Number of unhealthy hosts in the backend pool.        |
 |requestCount     | Number of requests served.        |
@@ -245,7 +245,7 @@ This log is only generated if you have enabled it on a per application gateway b
 
 |Value  |Description  |
 |---------|---------|
-|instanceId     | Application Gateway instance for which firewall data is being generated. For a multi-instance application gateway there will be 1 row per instance.         |
+|instanceId     | Application Gateway instance for which firewall data is being generated. For a multi-instance application gateway, there is 1 row per instance.         |
 |clientIp     |   Originating IP for the request.      |
 |clientPort     |  Originating port for the request.       |
 |requestUri     | URL of the request received.       |
@@ -254,12 +254,12 @@ This log is only generated if you have enabled it on a per application gateway b
 |ruleId     | Rule ID of the triggering event.        |
 |message     | User friendly message for the triggering event. More details are provided in the details section.        |
 |action     |  Action taken on request Available values are Blocked or Allowed.      |
-|site     | The site for which the log was generated. Currently only Gloal is listed since rules are global.|
+|site     | The site for which the log was generated. Currently only Global is listed since rules are global.|
 |details     | Details of the triggering event.        |
 |details.message     | Description of the rule.        |
 |details.data     | Specific data found in request that matched the rule.         |
 |details.file     | The configuration file that contained the rule.        |
-|details.line     | The line numberin the configuration file that triggered the event.       |
+|details.line     | The line number in the configuration file that triggered the event.       |
 
 ```json
 {
