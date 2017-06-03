@@ -94,7 +94,7 @@ The The **Create App Service** dialog is displayed with default values. The numb
 
 In the **Create App Service** dialog:
 
-* Keep the generated name for the web app. This name must be unique across Azure. The name is part of the DNS address for your web app; for example: If your weab app name is **MyJavaWebApp**, the DNS is *myjavawebapp.azurewebsites.net*.
+* Keep the generated name for the web app. This name must be unique across Azure. The name is part of the DNS address for your web app; for example: If your web app name is **MyJavaWebApp**, the DNS is *myjavawebapp.azurewebsites.net*.
 * Keep the default web container.
 * Select an Azure subscription.
 * In the **App service plan** tab:
