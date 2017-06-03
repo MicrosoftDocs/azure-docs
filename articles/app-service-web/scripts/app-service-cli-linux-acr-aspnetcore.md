@@ -25,7 +25,7 @@ In this scenario you will learn how to create a resource group, Linux app servic
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## Create app sample
+## Sample script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Linux Azure Container Registry")]
 

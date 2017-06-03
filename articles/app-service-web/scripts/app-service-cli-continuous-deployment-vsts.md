@@ -27,7 +27,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## Create app sample
+## Sample script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
 
