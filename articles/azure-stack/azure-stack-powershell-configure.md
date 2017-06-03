@@ -63,14 +63,14 @@ Use the following steps to configure your Azure Stack environment:
 
    a. **Azure Active Directory**:
    
-      * To access the **Administrative environment**
+      * To access the **administrative environment**
         ```PowerShell
         $TenantID = Get-DirectoryTenantID `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
           -EnvironmentName AzureStackAdmin
         ```
 
-      * To access the **User environemnt**
+      * To access the **user environemnt**
         ```PowerShell
         $TenantID = Get-DirectoryTenantID `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -79,14 +79,14 @@ Use the following steps to configure your Azure Stack environment:
 
    b. **Active Directory Federation Services**:
    
-      * To access the **Administrative environment**
+      * To access the **administrative environment**
         ```PowerShell
         $TenantID = Get-DirectoryTenantID `
           -ADFS `
           -EnvironmentName AzureStackAdmin
         ```
 
-      * To access the **User environemnt**
+      * To access the **user environemnt**
         ```PowerShell 
         $TenantID = Get-DirectoryTenantID `
           -ADFS `
