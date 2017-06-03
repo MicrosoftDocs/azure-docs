@@ -46,7 +46,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 ```
 
 
-## <a name="Unsupported data types"></a>Use workarounds for unsupported data types
+## <a name="unsupported-data-types"></a>Use workarounds for unsupported data types
 
 The following list shows the data types that SQL Data Warehouse does not support and gives alternatives that you can use instead of the unsupported data types.
 
