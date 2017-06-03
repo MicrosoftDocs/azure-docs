@@ -19,8 +19,8 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL using
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
-- [Create an Azure Database for MySQL server using Azure portal](../quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Create an Azure Database for MySQL server using Azure CLI](../quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install PHP
 Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) that includes PHP.
@@ -225,4 +225,4 @@ mysqli_close($conn);
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Build a PHP and MySQL web app in Azure](../app-service-web/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+> [Build a PHP and MySQL web app in Azure](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
