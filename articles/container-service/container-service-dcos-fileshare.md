@@ -61,60 +61,82 @@ ssh azureuser@masterFQDN –A –p 22
 
 ### Set up scripts
 
-1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN`, where the masterFQDN is the fully qualified domain name of the master VM.
+First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN`, where the masterFQDN is the fully qualified domain name of the master VM.
 
-2. Copy your private key to the working directory (~) on master.
+```bash
+ssh userName@masterFQDN
+```
 
-3. Change the permissions on it with the following command: `chmod 600 yourPrivateKeyFile`.
+Copy your private key to the working directory (~) on master.
 
-4. Import your private key using the `ssh-add yourPrivateKeyFile` command. You may have to run `eval 'ssh-agent -s'` if it doesn't work the first time.
+```bash
+insert code
+```
 
-5. Create a file named **cifsMount.sh** and copy the following contents into it. This script will be used to mount the Azure file share in each node of the cluster. Update the variables with the correct information.   
+Change the permissions on it with the following command:
 
-  ```bash
-  #!/bin/bash
+ ```bash
+ chmod 600 yourPrivateKeyFile
+ ```
 
-  # Azure storage account name and access key
-  STORAGE_ACCT_NAME=mystorageaccount29940
-  ACCESS_KEY=3DogvPcYxEaa/OPyGw5lVJgmIxQzYPsgkjhowBFUKpBxMUHZl0GUcPPLthIEkYDqzSBgVgL01wFE9K3cUxhPYQ==
+Verify that the ssh agent is running.
 
-  # Install the cifs utils, should be already installed
-  sudo apt-get update && sudo apt-get -y install cifs-utils
+```bash
+eval 'ssh-agent -s'
+```
 
-  # Create the local folder that will contain our share
-  if [ ! -d "/mnt/share/dcosshare" ]; then sudo mkdir -p "/mnt/share/dcosshare" ; fi
+Import the private key file.
 
-  # Mount the share under the previous local folder created
-  sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
-  ```
+```bash
+ssh-add yourPrivateKeyFile
+```
 
-6. Create a second file named **mountShares.sh** and copy the following contents into the file. This script will discover all cluster nodes and run the script to mount the Azure file share on them. Update the variables with the correct information.   
+Create a file named **cifsMount.sh** and copy the following contents into it. This script will be used to mount the Azure file share in each node of the cluster. Update the variables with the correct information.   
 
-   ```bash
-  #!/bin/bash
+```bash
+#!/bin/bash
 
-  # Azure storage account name and access key
-  STORAGE_ACCT_NAME=mystorageaccount29940
-  ACCESS_KEY=3DogvPcYxEaa/OPyGw5lVJgmIxQzYPsgkjhowBFUKpBxMUHZl0GUcPPLthIEkYDqzSBgVgL01wFE9K3cUxhPYQ==
+# Azure storage account name and access key
+STORAGE_ACCT_NAME=mystorageaccount29940
+ACCESS_KEY=3DogvPcYxEaa/OPyGw5lVJgmIxQzYPsgkjhowBFUKpBxMUHZl0GUcPPLthIEkYDqzSBgVgL01wFE9K3cUxhPYQ==
 
-  # Install jq used for the next command
-  sudo apt-get install jq
+# Install the cifs utils, should be already installed
+sudo apt-get update && sudo apt-get -y install cifs-utils
 
-  # Create the local folder that will contain our share
-  if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
+# Create the local folder that will contain our share
+if [ ! -d "/mnt/share/dcosshare" ]; then sudo mkdir -p "/mnt/share/dcosshare" ; fi
 
-  # Mount the share on the current vm (master)
-  sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
+# Mount the share under the previous local folder created
+sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
+```
 
-  # Get the IP address of each node using the mesos API and store it inside a file called nodes
-  curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes
-    
-  # From the previous file created, run our script to mount our share on each node
-  cat nodes | while read line
-    do
-      ssh `whoami`@$line -o StrictHostKeyChecking=no -i yourPrivateKeyFile < ./cifsMount.sh
-      done
-  ```  
+Create a second file named **mountShares.sh** and copy the following contents into the file. This script will discover all cluster nodes and run the script to mount the Azure file share on them. Update the variables with the correct information.   
+
+```bash
+#!/bin/bash
+
+# Azure storage account name and access key
+STORAGE_ACCT_NAME=mystorageaccount29940
+ACCESS_KEY=3DogvPcYxEaa/OPyGw5lVJgmIxQzYPsgkjhowBFUKpBxMUHZl0GUcPPLthIEkYDqzSBgVgL01wFE9K3cUxhPYQ==
+
+# Install jq used for the next command
+sudo apt-get install jq
+
+# Create the local folder that will contain our share
+if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
+
+# Mount the share on the current vm (master)
+sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
+
+# Get the IP address of each node using the mesos API and store it inside a file called nodes
+curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes
+
+# From the previous file created, run our script to mount our share on each node
+cat nodes | while read line
+do
+  ssh `whoami`@$line -o StrictHostKeyChecking=no -i yourPrivateKeyFile < ./cifsMount.sh
+  done
+```  
 
 ### Run the scripts
 
