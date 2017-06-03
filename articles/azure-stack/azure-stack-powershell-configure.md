@@ -28,7 +28,7 @@ This article describes the steps required to connect to an Azure Stack POC insta
 
 ## Import the Connect PowerShell module
 
-After downloading the required tools, navigate to the downloaded folder and import the **Connect** PowerShell module. Run the following command in an elevated PowerShell session to import the Connect module: 
+After downloading the required tools, navigate to the downloaded folder and import the **Connect** PowerShell module. To import the Connect module, run the following command in an elevated PowerShell session:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
@@ -106,7 +106,7 @@ Use the following steps to sign in your Azure Stack environment:
    $Credential= New-Object PSCredential($UserName,$Password)
    ```
 
-2. Sign in to the Azure Stack environemnt by using one of the following two cmdlets:
+2. Sign in to the Azure Stack environment by using one of the following two cmdlets:
 
    a. To sign in to the **administrative portal**
 
@@ -137,7 +137,7 @@ After you sign in to the administrator or user portal, you can issue operations 
 
 ![unregistered PowerShell](media/azure-stack-powershell-configure/unregisteredrps.png)  
 
-You should manually register these resource providers in the user subscriptions before you can use them. To register providers on the current subscription, use the following command:
+You should explicitly register these resource providers in the user subscriptions before you can use them. To register providers on the current subscription, use the following command:
 
 ```PowerShell
 Register-AllAzureRmProviders
