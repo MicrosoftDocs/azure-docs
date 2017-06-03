@@ -42,24 +42,23 @@ In the **New Dynamic Web Project** dialog, name the project **MyFirstJavaOnAzure
 
 ### Add a new JSP page
 
+If **Project Explorer** is not displayed, restore it.
+
+![workspace - Java EE ](./media/app-service-web-get-started-java/pe.png)
+
 * Expand the **MyFirstJavaOnAzureWebApp** project in the Project Explorer.
-* Right-click **WebContent**, and then select ** > New > JSP File**.
+* Right-click **WebContent**, and then select **New > JSP File**.
 
 ![New JSP File Menu](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-* In the **New JSP File** dialog:
+In the **New JSP File** dialog:
 
-  * Name the file **index.jsp**
-  * keep the parent folder as **MyFirstJavaOnAzureWebApp/WebContent**
-  * Select **Next**. ---  **Finish**.
+* Name the file **index.jsp**
+* Select **Finish**.
 
 ![New JSP File dialog](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
-On the second page of the New JSP File dialog, keep the default **New JSP File (html)** template, and then click **Finish**.
-
-![New JSP File dialog](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-2.png)
-
-In the *NewFIle.jsp* file, replace the `<body></body>` section with the following code:
+In the *NewFIle.jsp* file, replace the `<body></body>` element with the following markup:
 
 ```jsp
 <body>
@@ -71,7 +70,7 @@ Save your changes.
 
 ## Publish your web app to Azure
 
-* Right-click your project in the Eclipse, and then select **Project Explorer > Azure > Publish as Azure Web App**.
+* In **Project Explorer**, right-click your project, and then select **Azure > Publish as Azure Web App**.
 
    ![Publish as Azure Web App Context Menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
@@ -123,7 +122,7 @@ The Azure Toolkit creates your new app service and displays a progress dialog bo
 
 ### The Deploy Web App dialog
 
-In the Deploy Web App dialog, check **Deploy to root*. If you have an app service at *wingtiptoys.azurewebsites.net* and you do not deploy to the root, your web app named **MyFirstJavaOnAzureWebApp** will be deployed to *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+In the Deploy Web App dialog, check **Deploy to root**. If you have an app service at *wingtiptoys.azurewebsites.net* and you do not deploy to the root, your web app named **MyFirstJavaOnAzureWebApp** will be deployed to *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Deploy Web App to Root](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
@@ -133,8 +132,6 @@ Click **Deploy** to publish your web app to Azure.
 
 When the publishing completes, click the **Published** link in the **Azure Activity Log**:
 
-![Deploy Web App to Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
-
 ![Azure Activity Log](./media/app-service-web-get-started-java/aal.png)
 
 Congratulations! You have successfully deployed your web app to Azure! 
@@ -143,7 +140,7 @@ Congratulations! You have successfully deployed your web app to Azure!
 
 ## Updating your web app
 
-* Change the sample JSP code to a different message.
+Change the sample JSP code to a different message.
 
 ```jsp
 <body>
@@ -151,8 +148,9 @@ Congratulations! You have successfully deployed your web app to Azure!
 </body>
 ```
 
-* Save your changes.
-* Right-click the project, and then select **Project Explorer > Azure > Publish as Azure Web App**.
+Save your changes.
+
+Right-click the project, and then select **Project Explorer > Azure > Publish as Azure Web App**.
 
 The **Deploy Web App** dialog is displayed showing the app service you previously created. 
 
@@ -162,8 +160,6 @@ The **Deploy Web App** dialog is displayed showing the app service you previousl
 >
 
 Select your app service and click **Deploy**, which publishs your changes.
-
-![Deploy Web App to Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
 
 When the **Publishing** link appears, click it to browse to your web app and see the changes.
 
