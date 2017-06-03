@@ -174,17 +174,17 @@ When the **Publishing** link appears, click it to browse to your web app and see
 Sign in to Azure portal with the following link: [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, select **Resource Groups**.
-![Portal navigation to Resource Groups](media/app-service-web-tutorial-dotnet-sqldatabase/rg.png)
+![Portal navigation to Resource Groups](media/app-service-web-get-started-java/rg.png)
 
 Select your resource group. The page shows the resources you created in this tutorial.
 
-![Resource Group myResourceGroup](media/app-service-web-tutorial-dotnet-sqldatabase/rg2.png)
+![Resource Group myResourceGroup](media/app-service-web-get-started-java/rg2.png)
 
 Select your App Service (**webapp-170602193915** in the preceding image).
 
 The **Overview** page is displayed. This page gives you a view of how your app is doing. Here, you can  perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configurations you can open. 
 
-![App Service blade in Azure portal](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
+![App Service blade in Azure portal](media/app-service-web-get-started-java/web-app-blade.png)
 
 The tabs expose the features you can add to your web app, such as:
 
