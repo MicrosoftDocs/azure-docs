@@ -40,7 +40,7 @@ In the **New Dynamic Web Project** dialog, name the project **MyFirstJavaOnAzure
    
 ![Dynamic Web Project dialog](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-### Add a new JSP page
+### Add a JSP page
 
 If **Project Explorer** is not displayed, restore it.
 
@@ -160,7 +160,7 @@ The **Deploy Web App** dialog is displayed showing the app service you previousl
 
 > [!NOTE]
 >
-> You must check **Deploy to root** each time you publish your changes.
+> Check **Deploy to root** each time you publish your changes.
 >
 
 Select your app service and click **Deploy**, which publishes your changes.
