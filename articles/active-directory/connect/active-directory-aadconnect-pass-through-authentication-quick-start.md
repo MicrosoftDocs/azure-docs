@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/03/2017
 ms.author: billmath
 ---
 
 # Quick Start: Azure Active Directory Pass-through Authentication
 
-Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. When users sign in using Azure AD, this feature validates users' passwords directly against your on-premises Active Directory.
+Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. It signs users in by validating their passwords directly against your on-premises Active Directory.
 
-To deploy Pass-through Authentication, you need to do the following steps:
-1. [Check prerequisites](#step-1:-check-prerequisites): Set up your tenant and on-premises environment correctly before you enable the feature.
-2. [Enable the feature](#step-2:-enable-the-feature): Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent.
-3. [Test the feature](#step-3:-test-the-feature): Test user sign-in using Pass-through Authentication.
-4. [Ensure high availablity](###step-4:-ensure-highly-availablity): Install a second standalone agent to provide high availability for sign-in requests.
+To deploy Pass-through Authentication, you need to follow these steps:
+1. [Check prerequisites](#step-1-check-prerequisites): Set up your tenant and on-premises environment correctly before you enable the feature.
+2. [Enable the feature](#step-2-enable-the-feature): Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent to handle password validation requests.
+3. [Test the feature](#step-3-test-the-feature): Test user sign-in using Pass-through Authentication.
+4. [Ensure high availablity](#step-4-ensure-high-availability): Install a second standalone agent to provide high availability for sign-in requests.
 
 ## Step 1: Check prerequisites
 
-Use the following checklist to ensure that all the correct prerequisites are in place:
+Ensure that all the following prerequisites are in place:
 
 1. Create a cloud-only Administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical to ensure that you don't get locked out of your tenant.
 2. Identify a server running Windows Server 2012 R2 or later on which to run Azure AD Connect. Add the server to the same AD forest as the users whose passwords need to be validated.

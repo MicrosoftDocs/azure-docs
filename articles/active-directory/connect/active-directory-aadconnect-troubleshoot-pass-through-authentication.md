@@ -34,7 +34,7 @@ A Pass-through Authentication agent cannot be installed on the same server as an
 
 ### Registration of the connecter failed due to blocked ports
 
-Ensure that the server on which the agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1:-check-prerequisites).
+Ensure that the server on which the agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
 
 ### Registration of the agent failed due to token or account authorization errors
 
@@ -50,7 +50,7 @@ Ensure that you use a cloud-only Global Administrator account for all Azure AD C
 
 If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it shows you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers."
 
-Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4:-ensure-highly-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
+Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-highly-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
 
 ## Issues with enabling the Pass-through Authentication feature
 
@@ -60,7 +60,7 @@ You need to have at least one active agent to enable Pass-through Authentication
 
 ### The enabling of the feature failed due to blocked ports
 
-Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1:-check-prerequisites).
+Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
 
 ### The enabling of the feature failed due to token or account authorization errors
 
