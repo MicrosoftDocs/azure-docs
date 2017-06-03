@@ -21,11 +21,11 @@ ms.author: shigu;barbkess
 # Guidance for defining data types for tables in SQL Data Warehouse
 Use these recommendations to define table data types that are compatible with SQL Data Warehouse. In addition to compatibility, minimizing the size of data types improves query performance.
 
-SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types see [data types](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) in the CREATE TABLE statement. 
+SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) in the CREATE TABLE statement. 
 
 
 ## Minimize row length
-Minimizing the size of data types shortens the row length which leads to better query performance. Use the smallest data type that works for your data. 
+Minimizing the size of data types shortens the row length, which leads to better query performance. Use the smallest data type that works for your data. 
 
 - Avoid defining character columns with a large default length. For example, if the longest value is 25 characters, then define your column as VARCHAR(25). 
 - Avoid using [NVARCHAR][NVARCHAR] when you only need VARCHAR.
@@ -34,7 +34,7 @@ Minimizing the size of data types shortens the row length which leads to better 
 If you are using Polybase to load your tables, the defined length of the table row cannot exceed 1 MB. When a row with variable-length data exceeds 1 MB, you can load the row with BCP, but not with PolyBase.
 
 ## Identify unsupported data types
-If you are migrating your database from another SQL database your data might use some data types that are not supported in SQL Data Warehouse. Use this query to discover unsupported data types in your existing SQL schema.
+If you are migrating your database from another SQL database, your might encounter data types that are not supported in SQL Data Warehouse. Use this query to discover unsupported data types in your existing SQL schema.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -47,7 +47,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## Use workarounds for unsupported data types
 
-The following list shows the data types that SQL Data Warehouse does not support and gives alternatives that you can use instead instead of the unsupported data types.
+The following list shows the data types that SQL Data Warehouse does not support and gives alternatives that you can use instead of the unsupported data types.
 
 | Unsupported data type | Workaround |
 | --- | --- |
@@ -59,14 +59,22 @@ The following list shows the data types that SQL Data Warehouse does not support
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Split column into several strongly typed columns. |
 | [table][table] |Convert to temporary tables. |
-| [timestamp][timestamp] |Rework code to use [datetime2][datetime2] and `CURRENT_TIMESTAMP` function.  Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column then use [BINARY][BINARY](8) or [VARBINARY][BINARY](8) for NOT NULL or NULL row version values. |
+| [timestamp][timestamp] |Rework code to use [datetime2][datetime2] and `CURRENT_TIMESTAMP` function.  Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column, then use [BINARY][BINARY](8) or [VARBINARY][BINARY](8) for NOT NULL or NULL row version values. |
 | [xml][xml] |[varchar][varchar] |
-| [user defined type][user defined types] |Convert back to the native data type when possible. |
+| [user-defined type][user defined types] |Convert back to the native data type when possible. |
 | default values | Default values support literals and constants only.  Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported. |
 
 
 ## Next steps
-To learn more, see the articles on [Table Overview][Overview], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+To learn more, see:
+
+- [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices]
+- [Table Overview][Overview]
+- [Distributing a Table][Distribute]
+- [Indexing a Table][Index]
+- [Partitioning a Table][Partition]
+- [Maintaining Table Statistics][Statistics]
+- [Temporary Tables][Temporary]
 
 <!--Image references-->
 
