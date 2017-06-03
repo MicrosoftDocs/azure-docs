@@ -20,19 +20,19 @@ ms.author: rclaus
 
 # Implement Oracle Golden Gate on Azure Linux VM
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy an Oracle 12c Database from the Marketplace gallery image. Once the Oracle database is created, this document shows you step-by-step how to install and configure Oracle Golden Gate on Azure VM.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 12c database from the Marketplace gallery image. 
+
+This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on Azure VM.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Prepare the environment
-### Assumptions
 
-To perform the Oracle Golden Gate install, you need to create two Azure VMs on the same availability set. The Marketplace image you use to create the VMs is "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
+To perform the Oracle Golden Gate installation, you need to create two Azure VMs on the same availability set. The Marketplace image you use to create the VMs is **Oracle:Oracle-Database-Ee:12.1.0.2:latest**.
 
-You are familiar with Unix editor vi and basic understanding of x11 (X Windows)
+You also need to be familiar with Unix editor vi and have a basic understanding of x11 (X Windows).
 
-
-> The following is a summary of the environment configuration:
+The following is a summary of the environment configuration:
 > 
 > |  | **Primary site** | **Replicate site** |
 > | --- | --- | --- |
@@ -45,17 +45,17 @@ You are familiar with Unix editor vi and basic understanding of x11 (X Windows)
 > | **Golden Gate process** |EXTORA |REPORA|
 
 
-### Log in to Azure 
+## Sign in to Azure 
 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+Sign in to your Azure subscription with the [az login](/cli/azure/#login) command. Then follow the on-screen directions.
 
 ```azurecli
 az login
 ```
 
-### Create a resource group
+## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
 
 The following example creates a resource group named `myResourceGroup` in the `westus` location.
 
@@ -63,9 +63,9 @@ The following example creates a resource group named `myResourceGroup` in the `w
 az group create --name myResourceGroup --location westus
 ```
 
-### Create availability set
+## Create availability set
 
-This step is optional, but is recommended. see [Azure availability sets guide](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) for more information.
+The following step is optional but recommended. For more information, see [Azure availability sets guide](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
 ```azurecli
 az vm availability-set create \
@@ -75,13 +75,13 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-### Create virtual machine
+## Create a virtual machine
 
 Create a VM with the [az vm create](/cli/azure/vm#create) command. 
 
-The following example creates 2 VMs named `myVM1` and `myVM2`. Creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
+The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 
-Create myVM1 (primary)
+Create myVM1 (primary):
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -92,7 +92,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Once the VM has been created, the Azure CLI shows information similar to the following example: Take note of the `publicIpAddress`. This address is used to access the VM.
+After the VM has been created, the Azure CLI shows information similar to the following example. (Take note of the `publicIpAddress`. This address is used to access the VM.)
 
 ```azurecli
 {
@@ -107,7 +107,7 @@ Once the VM has been created, the Azure CLI shows information similar to the fol
 }
 ```
 
-Create myVM2 (replicate)
+Create myVM2 (replicate):
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -118,13 +118,13 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Take note of the `publicIpAddress` as well once it created.
+Take note of the `publicIpAddress` as well after it has been created.
 
-### Open the TCP port for connectivity
+## Open the TCP port for connectivity
 
-The step is to configure external endpoints, which allows accessing the Oracle DB remotely, you execute the following command.
+The next step is to configure external endpoints,  which enable you to access the Oracle database remotely. To configure the external endpoints, run the following command.
 
-Open port for myVM1
+Open the port for myVM1:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -134,7 +134,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-Result should look similar to the following response:
+The results should look similar to the following response:
 
 ```bash
 {
@@ -155,7 +155,7 @@ Result should look similar to the following response:
 }
 ```
 
-Open port for myVM2
+Open port for myVM2:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -165,7 +165,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### Connect to virtual machine
+## Connect to the virtual machine
 
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` of your virtual machine.
 
@@ -173,15 +173,15 @@ Use the following command to create an SSH session with the virtual machine. Rep
 ssh <publicIpAddress>
 ```
 
-### Create database on myVM1 (Primary)
+## Create the database on myVM1 (Primary)
 
-The Oracle software is already installed on the Marketplace image, so the next step is to install the database. the first step is running as the 'oracle' superuser.
+The Oracle software is already installed on the Marketplace image, so the next step is to install the database. The first step is to run the sofware as the 'oracle' superuser:
 
 ```bash
 sudo su - oracle
 ```
 
-create the database:
+Next, create the database:
 
 ```bash
 $ dbca -silent \
@@ -231,10 +231,10 @@ Completing Database Creation
 Creating Pluggable Databases
 78% complete
 100% complete
-Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-Set the ORACLE_SID and ORACLE_HOME variables
+Set the ORACLE_SID and ORACLE_HOME variables:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -242,7 +242,7 @@ $ ORACLE_SID=gg1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
-Optionally, You can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future logins.
+Optionally, you can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future sign-ins:
 
 ```bash
 # add oracle home
@@ -253,7 +253,7 @@ export ORACLE_SID=gg1
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
-### Start Oracle listener
+## Start Oracle listener
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -263,7 +263,7 @@ $ lsnrctl start
 ```bash
 sudo su - oracle
 ```
-create the database:
+Create the database:
 
 ```bash
 $ dbca -silent \
@@ -284,7 +284,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Set the ORACLE_SID and ORACLE_HOME variables
+Set the ORACLE_SID and ORACLE_HOME variables:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -292,7 +292,7 @@ $ ORACLE_SID=cdb1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
-Optionally, You can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future logins.
+Optionally, you can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future sign-ins.
 
 ```bash
 # add oracle home
@@ -303,7 +303,7 @@ export ORACLE_SID=cdb1
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
-### Start Oracle listener
+## Start Oracle listener
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -311,7 +311,7 @@ $ lsnrctl start
 
 ## Golden Gate configurations
 
-### Enable archive log mode on myVM1 (primary)
+### Enable archive log mode on myVM1 (primary):
 
 ```bash
 $ sqlplus / as sysdba
@@ -326,7 +326,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
-Enable force logging, and make sure at least one logfile is present.
+Enable force logging, and make sure at least one log file is present.
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
@@ -341,24 +341,22 @@ SQL> EXIT;
 ### Download Golden Gate software
 To download and prepare the Oracle Golden Gate software, complete the following steps:
 
-#### 1.  Download fbo_ggs_Linux_x64_shiphome.zip file from the [Oracle Golden Gate download page](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). 
+1. Download the **fbo_ggs_Linux_x64_shiphome.zip** file from the [Oracle Golden Gate download page](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under the download title **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, there should be a set of .zip files to download.
 
-  Under the download title **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, there should be a zip files to download.
-
-#### 2.  After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM.
+ 2. After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM:
 
 ```bash
 $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
 ```
 
-#### 3.  Move the .zip files to the /opt folder. Then, change the owner of the files:
+3.  Move the .zip files to the **/opt** folder. Then change the owner of the files as follows:
 
 ```bash
 $ sudo su -
 # mv <folder>/*.zip /opt
 ```
 
-#### 4.  Unzip the files (install the Linux unzip utility if it's not already installed):
+4. Unzip the files (install the Linux unzip utility if it's not already installed):
 
 ```bash
 # yum install unzip
@@ -366,7 +364,7 @@ $ sudo su -
 # unzip fbo_ggs_Linux_x64_shiphome.zip
 ```
 
-#### 5.  Change permission:
+5.  Change permission:
 
 ```bash
 # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
@@ -375,14 +373,14 @@ $ sudo su -
 ### Prepare the client and VM to run x11 (for Windows clients only)
 This is an optional step, You can skip this step if you are using a Linux client or already have x11 setup.
 
-#### 1.  Download PuTTY and Xming to your Windows computer:
+1. Download PuTTY and Xming to your Windows computer:
 
   * [Download PuTTY](http://www.putty.org/)
   * [Download Xming](https://xming.en.softonic.com/)
 
-#### 2.  After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe (PuTTY Key Generator).
+2.  After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe (PuTTY Key Generator).
 
-#### 3.  In PuTTY Key Generator:
+3.  In PuTTY Key Generator:
 
 - To generate a key, select the **Generate** button.
 - Copy the contents of the key (Ctrl+C).
@@ -391,7 +389,7 @@ This is an optional step, You can skip this step if you are using a Linux client
 
   ![Screenshot of the PuTTY key generator page](./media/oracle-golden-gate/puttykeygen.png)
 
-#### 4.  In your VM, run these commands:
+4.  In your VM, run these commands:
 
 ```bash
 # sudo su - oracle
@@ -399,29 +397,29 @@ $ mkdir .ssh (if not already created)
 $ cd .ssh
 ```
 
-#### 5.  Create a file named authorized_keys. Paste the contents of the key in this file, and then save the file.
+5. Create a file named **authorized_keys**. Paste the contents of the key in this file, and then save the file.
 
 > [!NOTE]
 > The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
 >  
 
-#### 6.  Start PuTTY. In the **Category** pane, go to **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
+6. Start PuTTY. In the **Category** pane, select **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
 
   ![Screenshot of the Set Private Key page](./media/oracle-golden-gate/setprivatekey.png)
 
-#### 7.  In the **Category** pane, go to **Connection** > **SSH** > **X11**. Select the **Enable X11 forwarding** box.
+7. In the **Category** pane, select **Connection** > **SSH** > **X11**. Then select the **Enable X11 forwarding** box.
 
   ![Screenshot of the Enable X11 page](./media/oracle-golden-gate/enablex11.png)
 
-#### 8. In the **Category** pane, go to **Session**. Enter the host information, and then select **Open**.
+8. In the **Category** pane, go to **Session**. Enter the host information, and then select **Open**.
 
-  ![Screenshot of the Session page](./media/oracle-golden-gate/puttysession.png)
+  ![Screenshot of the session page](./media/oracle-golden-gate/puttysession.png)
 
 ### Install Golden Gate software
 
 To install Oracle Golden Gate, complete the following steps:
 
-#### 1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) 
+1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) 
 
 Make sure that Xming is running before you begin the installation.
  
@@ -429,27 +427,27 @@ Make sure that Xming is running before you begin the installation.
 $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
 $ ./runInstaller
 ```
-#### 2. Select 'Oracle GoldenGte for Oracle Database 12c', click Next to continue.
+2. Select 'Oracle GoldenGate for Oracle Database 12c'. Then select **Next** to continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-#### 3. Change the Software location and check the 'Start Manager' box, enter the Database location., Click Next to continue.
-  ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_02.png)
+3. Change the Software location. Then select  the 'Start Manager' box and enter the database location. Select **Next** to continue.
+  ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_02.png)
 
-#### 4. Change the Inventory Directory, click next to continue.
-  ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_03.png)
+4. Change the Inventory Directory, and then select **Next** to continue.
+  ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_03.png)
 
-#### 5. On Summary screen, Click Install to continue.
+5. On Summary screen, select **Install** to continue.
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_04.png)
 
-#### 6. You may be prompt to run a script as 'root', open a separate session and ssh to the VM, sudo to root and run the script, click OK continue.
-  ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_05.png)
+6. You might be prompted to run a script as 'root'. If so, open a separate session, ssh to the VM, sudo to root, and then run the script. Select **OK** continue.
+  ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_05.png)
 
-#### 7. When the Installation completed, click Close to complete the installation.
-  ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_06.png)
+7. When the installation has finished, select **Close** to complete the process.
+  ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### Service setup on myVM1 (primary)
 
-#### 1. Create or update tnsnames.ora file
+1. Create or update the tnsnames.ora file:
 
 ```bash
 $ cd $ORACLE_HOME/network/admin
@@ -482,10 +480,10 @@ pdb1=
   )
 ```
 
-#### 2. Create Golden Gate owner and user accounts
+2. Create the Golden Gate owner and user accounts
 
 > [!NOTE]
-> Owner account must have c## prefix.
+> The owner account must have C## prefix.
 >
 
 ```bash
@@ -498,7 +496,7 @@ SQL> ALTER SESSION SET CONTAINER=PDB1;
 SQL> EXIT;
 ```
 
-Create Golden Gate test user account
+Create the Golden Gate test user account:
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -512,9 +510,9 @@ SQL> @demo_ora_insert
 SQL> EXIT;
 ```
 
-#### 3. Configuring the Extract Parameter File
+3. Configure the extract parameter file
 
- Start the Golden gate Command Line Interface (ggsci)
+ Start the Golden gate command-line interface (ggsci):
 
 ```bash
 $ sudo su - oracle
@@ -528,7 +526,7 @@ GGSCI>  ADD SCHEMATRANDATA pdb1.test
 
 GGSCI> EDIT PARAMS EXTORA
 ```
-Added the followings to the EXTRACT parameter file (use vi commands), press Esc key, ':wq!' to save file. 
+Add the following to the EXTRACT parameter file (by using vi commands). Press Esc key, ':wq!' to save file. 
 
 ```bash
 EXTRACT EXTORA
@@ -542,7 +540,7 @@ UPDATERECORDFORMAT COMPACT
 TABLE pdb1.test.TCUSTMER;
 TABLE pdb1.test.TCUSTORD;
 ```
-#### 4. Registering Extract – Integrated Extract
+4. Register extract--integrated extract:
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -557,7 +555,7 @@ GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
 GGSCI> exit
 ```
-#### 5. Setting up Extract Checkpoints and Start Real-time Extract
+5. Set up extract checkpoints and start real-time extract:
 
 ```bash
 $ ./ggsci
@@ -579,7 +577,7 @@ Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 MANAGER     RUNNING
 EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
 ```
-This step is to find the starting SCN, will be use for later section
+In this step, you find the starting SCN, which will be used later, in a different section:
 
 
 ```bash
@@ -612,7 +610,7 @@ GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
 ### Service setup on myVM2 (replicate)
 
 
-#### 1. Create or update tnsnames.ora file
+1. Create or update the tnsnames.ora file
 
 ```bash
 $ cd $ORACLE_HOME/network/admin
@@ -645,7 +643,7 @@ pdb1=
   )
 ```
 
-#### 2. Create replicate account
+2. Create replicate account
 
 ```bash
 $ sqlplus / as sysdba
@@ -657,7 +655,7 @@ SQL> connect repuser/rep_pass@pdb1
 SQL> EXIT;
 ```
 
-#### 3. Create Golden Gate test user account
+3. Create a Golden Gate test user account:
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -670,7 +668,7 @@ SQL> @demo_ora_create
 SQL> EXIT;
 ```
 
-#### 4. REPLICAT parameter file to replicate changes 
+4. REPLICAT parameter file to replicate changes: 
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -690,7 +688,7 @@ USERID repuser@pdb1, PASSWORD rep_pass
 MAP pdb1.test.*, TARGET pdb1.test.*;
 ```
 
-#### 5. Setting up a Replicat Checkpoint
+5. Set up a replicat checkpoint
 ```bash
 GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
 GGSCI> EDIT PARAMS INITREP
@@ -708,16 +706,16 @@ MAP pdb1.test.*, TARGET pdb1.test.*;
 ```bash
 GGSCI> ADD REPLICAT INITREP, SPECIALRUN
 ```
-### Setting up the replication (myVM1 and myVM2)
+### Set up the replication (myVM1 and myVM2)
 
-#### 1. On myVM2 (replicate)
+1. Set up on the replication on myVM2 (replicate):
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
 $ ./ggsci
 GGSCI> EDIT PARAMS MGR
 ```
-Update file with the followings
+Update file with the following:
 
 ```bash
 PORT 7809
@@ -731,9 +729,9 @@ GGSCI> START MGR
 GGSCI> EXIT
 ```
 
-#### 2. On myVM1 (primary)
+#### 2. Set up on the replication on myVM1 (primary):
 
-Start the Initial Load and check for errors
+Start the initial load and check for errors:
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -743,38 +741,38 @@ GGSCI> VIEW REPORT INITEXT
 ```
 #### 3. On myVM2 (replicate)
 
-Change the SCN number with the number you obtained before
+Change the SCN number with the number you obtained before:
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
 $ ./ggsci
 START REPLICAT REPORA, AFTERCSN 1857887
 ```
-The replication have began, you can test it by inserting new records to TEST tables.
+The replication has begun, and you can test it by inserting new records to TEST tables.
 
 
 ### View job status and troubleshooting
 
-#### 1. View reports
-On myVM1, run the followings
+1. View reports:
+On myVM1, run the following commands:
 ```bash
 GGSCI> VIEW REPORT EXTORA 
 ```
  
-On myVM2, run the followings
+On myVM2, run the following commands:
 ```bash
 GGSCI> VIEW REPORT REPORA
 ```
 
-#### 2. View status and history
+2. View status and history:
 
-On myVM1, run the followings
+On myVM1, run the following commands:
 ```bash
 GGSCI> dblogin userid c##ggadmin, password ggadmin 
 GGSCI> INFO EXTRACT EXTORA, DETAIL
 ```
 
-On myVM2, run the followings
+On myVM2, run the following commands:
 ```bash
 GGSCI> dblogin userid repuser@pdb1 password rep_pass 
 GGSCI> INFO REP REPORA, DETAIL
@@ -784,7 +782,7 @@ This completed the installation and configuration of Golden Gate on Oracle linux
 
 ## Delete virtual machine
 
-When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
+When it's no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup
