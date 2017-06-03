@@ -67,7 +67,7 @@ ssh azureuser@masterFQDN –A –p 22
 
 3. Change the permissions on it with the following command: `chmod 600 yourPrivateKeyFile`.
 
-4. Import your private key using the `ssh-add yourPrivateKeyFile` command. You may have to run `eval ssh-agent -s` if it doesn't work the first time.
+4. Import your private key using the `ssh-add yourPrivateKeyFile` command. You may have to run `eval 'ssh-agent -s'` if it doesn't work the first time.
 
 5. Create a file named **cifsMount.sh** and copy the following contents into it. This script will be used to mount the Azure file share in each node of the cluster. Update the variables with the correct information.   
 
@@ -135,4 +135,4 @@ In this tutorial an Azure file share was made available to a DC/OS cluster using
 Advance to the next tutorial to learn about load balancing applications in an ACS DC/OS cluster.  
 
 > [!div class="nextstepaction"]
-> [Create and Manage VM disks](./container-service-load-balancing.md)
+> [Load balance applications](./container-service-load-balancing.md)

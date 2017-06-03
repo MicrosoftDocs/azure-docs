@@ -34,7 +34,6 @@
 ### [DC/OS agent pools](container-service-dcos-agents.md)
 ### [Enable DC/OS public access](container-service-enable-public-access.md)
 ### [App/user-specific orchestrator in DC/OS](container-service-application-specific-marathon.md)
-### [Add a file share](container-service-dcos-fileshare.md)
 ### [Canary release with Vamp](container-service-dcos-vamp-canary-release.md)
 ### Monitor DC/OS
 #### [Monitor with ELK](container-service-monitoring-elk.md)
