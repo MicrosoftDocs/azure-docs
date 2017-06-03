@@ -21,14 +21,14 @@ ms.custom: mvc
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-This quickstart helps you a deploy a Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) using the Eclipse IDE for Java EE Devlopers. When you are finished with this tutorial, you'll have a basic Java-based web app running in Azure.
+This quickstart helps you deploy a Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) using the Eclipse IDE for Java EE Developers. When you are finished with this tutorial, you have a basic Java-based web app running in Azure.
 
 ![Browse to Web App](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## Prerequisites
 
-* Install the free [Eclipse IDE for Java EE Devlopers](http://www.eclipse.org/)
-* Install the [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse).See [Installing the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* Install the free [Eclipse IDE for Java EE Developers](http://www.eclipse.org/)
+* Install the [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse). See [Installing the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,7 +75,7 @@ Save your changes.
    ![Publish as Azure Web App Context Menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
 * In the **Azure Sign In** dialog, keep the **Interactive** option, and then select **Sign in**.
-* Follow the sign in instructions.
+* Follow the sign-in instructions.
 
 ### The **Deploy Web App** dialog
 
@@ -87,18 +87,18 @@ Click **Create**.
 
 ### The **Create App Service** dialog
 
-The The **Create App Service** dialog is diplayed with default values. The number **170602185241** shown in the following image will be different in your dialog.
+The The **Create App Service** dialog is displayed with default values. The number **170602185241** shown in the following image is different in your dialog.
 
 ![Create App Service dialog](./media/app-service-web-get-started-java/cas1.png)
 
 In the **Create App Service** dialog:
 
 * Keep the generated name for the web app. This name must be unique across Azure. The name is part of the DNS address for your web app; for example: Entering **MyJavaWebApp**, the DNS is *myjavawebapp.azurewebsites.net*.
-* Keep the default web container your web app will use.
+* Keep the default web container your web app uses.
 * Select an Azure subscription.
 * In the **App service plan** tab:
 
-  * Keep the default for **Create new**. This is the name of the App Service Plan.
+  * Keep the default for **Create new**, which is the name of the App Service Plan.
   * Location: Select **West Europe** or a location near you.
   * Pricing tier: Select free. 
 
@@ -120,17 +120,17 @@ Click the **JDK** tab. Keep the default, and then click **Create**.
 
 ![Create App Service Plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 
-The Azure Toolkit creates your new app service and displays a progress dialog box.
+The Azure Toolkit creates your app service and displays a progress dialog box.
 
 ![Create App Service Progress Bar](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
 ### The Deploy Web App dialog
 
-In the Deploy Web App dialog, check **Deploy to root**. If you have an app service at *wingtiptoys.azurewebsites.net* and you do not deploy to the root, your web app named **MyFirstJavaOnAzureWebApp** will be deployed to *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+In the Deploy Web App dialog, check **Deploy to root**. If you have an app service at *wingtiptoys.azurewebsites.net* and you do not deploy to the root, your web app named **MyFirstJavaOnAzureWebApp** is deployed to *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Deploy Web App to Root](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-The dialog shows the Azure, JDK and Web container selections you have made.
+The dialog shows the Azure, JDK, and Web container selections you have made.
 
 Click **Deploy** to publish your web app to Azure.
 
@@ -160,10 +160,10 @@ The **Deploy Web App** dialog is displayed showing the app service you previousl
 
 > [!NOTE]
 >
-> You need to check **Deploy to root** each time that you publish your changes.
+> You must check **Deploy to root** each time you publish your changes.
 >
 
-Select your app service and click **Deploy**, which publishs your changes.
+Select your app service and click **Deploy**, which publishes your changes.
 
 When the **Publishing** link appears, click it to browse to your web app and see the changes.
 
@@ -197,7 +197,7 @@ The tabs expose the features you can add to your web app, such as:
 ### Clean up Resources
  
 * From the left menu, select **Resource Groups**, and then select your resource group.
-* Select **Delete**, which deletes all the resources you created in the tutorial..
+* Select **Delete**, which deletes all the resources you created in the tutorial.
 
 ## Next Steps
 
