@@ -117,9 +117,9 @@
       href: sql-database-geo-replication-security-config.md
     - name: App design & recovery
       href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-    - name: App design and pools
+    - name: App design & pools
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-    - name: App design and upgrades
+    - name: App design & app upgrades
       href: sql-database-manage-application-rolling-upgrade.md
     - name: Recover from outage
       href: sql-database-disaster-recovery.md
@@ -159,6 +159,8 @@
       href: sql-database-troubleshoot-performance.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
+    - name: Connectivity issues
+      href: sql-database-troubleshoot-common-connection-issues.md
   - name: Scale out apps
     items:
     - name: SaaS design patterns
@@ -221,19 +223,17 @@
       href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Connectivity guidance
       href: sql-database-connectivity-issues.md
-    - name: Connectivity issues
-      href: sql-database-troubleshoot-common-connection-issues.md
     - name: Ports - ADO.NET
       href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: How-to guides
   items:
   - name: Databases & servers
     items:
-    - name: Elastic pools - portal
+    - name: Elastic pools - Portal
       href: sql-database-elastic-pool-manage-portal.md
     - name: Elastic pools - PowerShell
       href: sql-database-elastic-pool-manage-powershell.md
-    - name: Elastic pools - Transact-SQL
+    - name: Elastic pools - T-SQL
       href: sql-database-elastic-pool-manage-tsql.md
     - name: Elastic pools - C#
       href: sql-database-elastic-pool-manage-csharp.md
@@ -255,7 +255,7 @@
     items:
     - name: Configure vault - backups
       href: sql-database-long-term-backup-retention-configure.md
-    - name: Geo-replicate - portal
+    - name: Geo-replicate - Portal
       href: sql-database-geo-replication-portal.md
     - name: Geo-replicate- T-SQL - Configure
       href: sql-database-geo-replication-transact-sql.md
@@ -331,7 +331,7 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-    - name: Create DB with C #
+    - name: Create DB with C#
       href: sql-database-get-started-csharp.md
     - name: SaaS app tutorial
       href: sql-database-wtp-overview.md
