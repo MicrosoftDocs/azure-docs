@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: python
 ms.topic: article
-ms.date: 08/04/2015
+ms.date: 05/31/2017
 ms.author: huvalo
 
 ---
@@ -51,12 +51,18 @@ A screenshot of the completed application appears next.
 1. Follow the instructions given [here](tutorial.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
 2. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
    
-   * Navigate to your newly created virtual machine in the Azure classic portal and click the **ENDPOINTS** tab.
-   * Click the **ADD** button at the bottom of the screen.
-     ![add endpoint](./media/python-django-web-app/django-helloworld-addendpoint.png)
-   * Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
-     ![][port80]
-3. From the **DASHBOARD** tab, click **CONNECT** to use **Remote Desktop** to remotely log into the newly created Azure virtual machine.  
+   * In the Azure portal, go to the dashboard and select your newly created virtual machine.
+   * Click **Endpoints** and then click **Add** at the top of the pane.
+
+     ![add endpoint](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
+
+   * For **Name**, enter `HTTP`. Set the public and private TCP ports to 80.
+
+     ![set port 80](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
+
+   * When you're done, click **OK** at the bottom of the pane.
+     
+3. In the dashboard, select your VM and click **Connect** at the top of the pane to use Remote Desktop to remotely log into the newly created Azure virtual machine.  
 
 **Important Note:** All instructions below assume you logged into the virtual machine correctly and are issuing commands there rather than your local machine.
 

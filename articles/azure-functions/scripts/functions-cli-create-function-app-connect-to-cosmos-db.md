@@ -15,12 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
+ms.custom: mvc
 ---
 # Create an Azure Function that connects to an Azure Cosmos DB
 
 This sample script creates an Azure Function App and connects to an Azure Cosmos DB database.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
