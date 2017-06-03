@@ -49,7 +49,7 @@ In the **New Dynamic Web Project** dialog, name the project **MyFirstJavaOnAzure
 
 * In the **New JSP File** dialog:
 
-  * Name the file **index.jsp**  ( Keep the default name).
+  * Name the file **index.jsp**
   * keep the parent folder as **MyFirstJavaOnAzureWebApp/WebContent**
   * Select **Next**. ---  **Finish**.
 
@@ -71,7 +71,7 @@ Save your changes.
 
 ## Publish your web app to Azure
 
-* Right-click your project in the Eclipse **Project Explorer > Azure* > Publish as Azure Web App**.
+* Right-click your project in the Eclipse, and then select **Project Explorer > Azure > Publish as Azure Web App**.
 
    ![Publish as Azure Web App Context Menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
@@ -137,74 +137,69 @@ When the publishing completes, click the **Published** link in the **Azure Activ
 
 ![Azure Activity Log](./media/app-service-web-get-started-java/aal.png)
 
-Congratulations! You have successfully deployed your web app to Azure! You can now view your web app on the Azure website:
+Congratulations! You have successfully deployed your web app to Azure! 
 
 ![Browse to Web App](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## Updating your web app
 
-Once you have successfully published your web app to Azure, updating your web app is a much simpler process, and the following steps will walk you through the process of publishing changes to your web app.
-
-First, change the sample JSP code from earlier so that the title is replaced by today's date:
+* Change the sample JSP code to a different message.
 
 ```jsp
-<%@ page
-    language="java"
-    contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    import="java.text.SimpleDateFormat"
-    import="java.util.Date" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<% SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd"); %>
-<title><% out.println(date.format(new Date())); %></title>
-</head>
 <body>
-<h1><% out.println("Hello Azure!"); %></h1>
+<h1><% out.println("Hello again Azure!"); %></h1>
 </body>
-</html>
 ```
 
-After you have saved your changes, right-click your project in the Eclipse **Project Explorer**, then click **Azure**, and then click **Publish as Azure Web App**.
+* Save your changes.
+* Right-click the project, and then select **Project Explorer > Azure > Publish as Azure Web App**.
 
-![Publish Updated Web App](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
-
-When the **Deploy Web App** dialog is displayed, your app service from earlier will be listed. To update your web app, all that you need to do is highlight your app service and click **Deploy** to publish your changes.
-
-![Deploy Web App to Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
+The **Deploy Web App** dialog is displayed showing the app service you previously created. 
 
 > [!NOTE]
 >
-> If you are deploying your web app to the root of your app service, you will need to recheck **Deploy to root** each time that you publish your changes.
+> You need to check **Deploy to root** each time that you publish your changes.
 >
 
-After you have published your changes, you will notice that the page title has changed to today's date in your browser.
+Select your app service and click **Deploy**, which publishs your changes.
+
+![Deploy Web App to Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
+
+When the **Publishing** link appears, click it to browse to your web app and see the changes.
 
 ![Browse to Web App](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## Clean up resources
+## Manage your Azure web app
 
-To delete the web app, use the **Azure Explorer** included with the Azure Toolkit. If the **Azure Explorer** view is not already visible in Eclipse, use the following steps to display it:
+Sign in to Azure portal with the following link: [https://portal.azure.com](https://portal.azure.com).
 
-1. Click **Window**, then click **Show View**, and then click **Other**.
+From the left menu, select **Resource Groups**.
+![Portal navigation to Resource Groups](media/app-service-web-tutorial-dotnet-sqldatabase/rg.png)
 
-   ![Show View Menu](./media/app-service-web-get-started-java/show-azure-explorer-view-1.png)
+Select your resource group. The page shows the resources you created in this tutorial.
 
-2. When the **Show View** dialog appears, select **Azure Explorer** and click **OK**.
+![Resource Group myResourceGroup](media/app-service-web-tutorial-dotnet-sqldatabase/rg2.png)
 
-   ![Show View dialog](./media/app-service-web-get-started-java/show-azure-explorer-view-2.png)
+Select your App Service (**webapp-170602193915** in the preceding image).
 
-To delete your web app from the Azure Explorer, you need expand the **Web Apps** node, then right-click your web app and select **Delete**.
+The **Overview** page is displayed. This page gives you a view of how your app is doing. Here, you can  perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configurations you can open. 
 
-![Delete Web App](./media/app-service-web-get-started-java/delete-web-app-context-menu.png)
+![App Service blade in Azure portal](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
-When prompted to delete your web app, click **OK**.
+The tabs expose the features you can add to your web app, such as:
+
+- Map a custom DNS name
+- Bind a custom SSL certificate
+- Configure continuous deployment
+- Scale up and out
+- Add user authentication
+
+### Clean up Resources
+ 
+* From the left menu, select **Resource Groups**, and then select your resource group.
+* Select **Delete**, which deletes all the resources you created in the tutorial..
 
 ## Next Steps
-
-Detailed instructions about **Interactive** and **Automated** sign-ins are available in the [Azure Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174) article.
 
 For more information about the Azure Toolkits for Java IDEs, see the following links:
 
@@ -216,5 +211,7 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
   * [What's New in the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-whats-new.md)
   * [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md)
   * [Sign In Instructions for the Azure Toolkit for IntelliJ](https://go.microsoft.com/fwlink/?linkid=846179)
+
+Detailed instructions about **Interactive** and **Automated** sign-ins are available in the [Azure Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174) article.
 
 For more information about using Azure with Java, see the [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) and the [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).
