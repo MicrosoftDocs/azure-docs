@@ -52,7 +52,7 @@ This tutorial assumes you already have:
 1. Click on the now available **Download Metadata** button and save the metadata file which you'll use in a later step.
 
 ## Add a SAML Signing certificate to Azure AD B2C
-You need to store upload a SAML certificate to your Azure AD B2C tenant to use when signing its SAML requests. To do this:
+You need to upload a SAML certificate to your Azure AD B2C tenant to use when signing its SAML requests. To do this:
 
 1. Navigate to your Azure AD B2C tenant and open B2C **Settings > Identity Experience Framework > Policy Keys**
 1. Click **+Add**
@@ -62,6 +62,7 @@ You need to store upload a SAML certificate to your Azure AD B2C tenant to use w
  * Use the **upload file control** to select your certificate and provide the certificate's password if applicable.
 1. Click **Create**
 1. Confirm you've created key: `B2C_1A_ContosoIdpSamlCert`
+
 
 ## Create the Salesforce SAML claims provider in your base policy
 
@@ -205,7 +206,7 @@ You’ll need to register Azure AD B2C as a Connected App in Salesforce.
 
     1. Enter the following URL in the **ACS URL** field, make sure your replace the `tenantName`. 
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase /samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
         ```
 
     1. Leave all other settings with their defaults

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/29/2017
 ms.author: v-jysur
 
 ---
@@ -49,6 +49,12 @@ IT Service Management Connector tile as you see in the Solutions gallery:
 After successful addition, you will see the IT Service Management Connector under **OMS** > **Settings** > **Connected Sources.**
 
 ![ITSMC Connected](./media/log-analytics-itsmc/itsmc-overview-solution-in-connected-sources.png)
+
+> [!NOTE]
+
+> By default, the IT Service Management Connector refreshes the connection's data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the refresh button displayed next to your connection.
+
+ ![ITSMC refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 ## Management packs
 This solution does not require any management packs.

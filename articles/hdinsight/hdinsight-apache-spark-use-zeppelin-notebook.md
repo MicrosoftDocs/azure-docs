@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 
 ---
@@ -57,42 +57,16 @@ For instructions on how to use HDInsight .NET SDK to run script action to instal
 * Set the cluster type you are creating to Spark.
 
 ### Using Azure PowerShell
-Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Depending on which version of Spark cluster you have, you must update the PowerShell snippet below to include the link to the corresponding custom script.
+
+The following example demonstrates how to configure Zeppelin using PowerShell:
 
 * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
 * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-zeppelin.ps1?range=59-83)]
 
-    Login-AzureRMAccount
-
-    # PROVIDE VALUES FOR THE VARIABLES
-    $clusterAdminUsername="admin"
-    $clusterAdminPassword="<<password>>"
-    $clusterSshUsername="adminssh"
-    $clusterSshPassword="<<password>>"
-    $clusterName="<<clustername>>"
-    $clusterContainerName=$clusterName
-    $resourceGroupName="<<resourceGroupName>>"
-    $location="<<region>>"
-    $storage1Name="<<storagename>>"
-    $storage1Key="<<storagekey>>"
-    $subscriptionId="<<subscriptionId>>"
-
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-
-    $passwordAsSecureString=ConvertTo-SecureString $clusterAdminPassword -AsPlainText -Force
-    $clusterCredential=New-Object System.Management.Automation.PSCredential ($clusterAdminUsername, $passwordAsSecureString)
-    $passwordAsSecureString=ConvertTo-SecureString $clusterSshPassword -AsPlainText -Force
-    $clusterSshCredential=New-Object System.Management.Automation.PSCredential ($clusterSshUsername, $passwordAsSecureString)
-
-    $azureHDInsightConfigs= New-AzureRmHDInsightClusterConfig -ClusterType Spark
-    $azureHDInsightConfigs.DefaultStorageAccountKey = $storage1Key
-    $azureHDInsightConfigs.DefaultStorageAccountName = "$storage1Name.blob.core.windows.net"
-
-    Add-AzureRMHDInsightScriptAction -Config $azureHDInsightConfigs -Name "Install Zeppelin" -NodeType HeadNode -Parameters "void" -Uri "https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh"
-
-    New-AzureRMHDInsightCluster -Config $azureHDInsightConfigs -OSType Linux -HeadNodeSize "Standard_D12" -WorkerNodeSize "Standard_D12" -ClusterSizeInNodes 2 -Location $location -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $clusterCredential -DefaultStorageContainer $clusterContainerName -SshCredential $clusterSshCredential -Version "3.3"
+> [!IMPORTANT]
+> This example is not a full script. It only demonstrates how to create a new configuration object that uses the script action to install Zeppelin. For a full example of creating an HDInsight cluster using PowerShell, see the [Create HDInsight using PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) document.
 
 ## Access the Zeppelin notebook
 
@@ -234,5 +208,4 @@ Once you have successfully installed Zeppelin using script action, you can use t
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md

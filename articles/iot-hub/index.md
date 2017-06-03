@@ -139,7 +139,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
+                        <p><a href="/cli/azure/iot">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -153,11 +153,10 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Service)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C device SDK</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Node (Service)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Node (Devices)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDKs</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">Node.js SDKs</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
@@ -172,6 +171,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (Resource Provider)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (Device Identities)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (Device Twins)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (Jobs)</a></p>
                     </div>
