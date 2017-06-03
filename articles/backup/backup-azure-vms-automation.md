@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/03/2017
+ms.date: 05/25/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 
@@ -365,7 +365,7 @@ After you have restored the disks, use these steps to create and configure the v
 3. Use the JSON configuration file to create the VM configuration.
 
     ```
-   PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile' -VMName "testrestore"
+   PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
     ```
 
 4. Attach the OS disk and data disks.
@@ -373,7 +373,7 @@ After you have restored the disks, use these steps to create and configure the v
   Use the following sample for non-managed, non-encrypted VM
 
     ```
-    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.VirtualHardDisk.Uri -CreateOption "Attach"
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
     PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
     PS C:\> foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
      {

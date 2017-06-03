@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/18/2017
 ---
 
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
@@ -117,7 +117,7 @@ The following examples show how to connect to your MySQL server through both the
 Using the MySQL command-line interface, execute the following command:
 
 ```dos
-mysql.exe -h yourserver. -uUsername@Servername -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
+mysql.exe -h mysqlserver4demo.mysql.database.azure.com -uUsername@mysqlserver4demo -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
 ```
 Execute the mysql **status** command to verify that you have connected to your MySQL server using SSL:
 
@@ -144,6 +144,11 @@ Uptime:                 1 day 19 hours 9 min 43 sec
 Threads: 4  Questions: 26082  Slow queries: 0  Opens: 112  Flush tables: 1  Open tables: 105  Queries per second avg: 0.167
 --------------
 ```
+
+> [!NOTE]
+> Currently, there is a known issue if you use "--ssl-mode=VERIFY_IDENTITY" option in your mysql.exe connection to the service, the connection will fail with the following error:
+> _ERROR 2026 (HY000): SSL connection error: SSL certificate validation failure_
+> Please downgrade to "--ssl-mode=VERIFY_CA" or lesser [SSL modes](https://dev.mysql.com/doc/refman/5.7/en/secure-connection-options.html#option_general_ssl-mode). If you require to use "--ssl-mode=VERIFY_IDENTITY", then you can ping your server name to resolve the regional server name, such as westeurope1-a.control.database.windows.net, and use that regional server name in the connection until this issue is resolved. We plan to remove this limitation in the future. 
 
 ### Connecting to server using the MySQL Workbench over SSL
 Configuring MySQL Workbench to connect securely over SSL requires you to navigate to the **SSL** tab in the MySQL Workbench Setup New Connection dialogue, and enter the file location of the **MyServerCACert.pem** in the **SSL CA File:** field.

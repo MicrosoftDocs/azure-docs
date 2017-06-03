@@ -1,6 +1,6 @@
 ﻿---
-title: Create a managed Azure VM from a generalized on-premises VHDs | Microsoft Docs
-description: Create a managed VM in Azure using VHDs uploaded from on-premises and use managed disks, in the Resource Manager deployment model.
+title: Create a managed Azure VM from a generalized on-premises VHD | Microsoft Docs
+description: Upload a generalized VHD to Azure and use it to create new VMs, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,32 +14,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/19/2017
 ms.author: cynthn
-
 ---
 
-# Create a new VM from a generalized VHD uploaded to Azure using Managed Disks
+# Upload a generalized VHD and use it to create new VMs in Azure
 
-You can create a new VM in Azure by uploading a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../../storage/storage-managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. If you are uploading a VHD that will be used to create multiple Azure VMs, you must first generalize VHD using [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sysprep removes any machine-specific information and personal account information from the VHD. 
+This topic walks you through using PowerShell to upload a VHD of a generalized VM to Azure, create an image from the VHD and create a new VM from that image. You can upload a VHD exported from an on-premises virtualization tool or from another cloud. Using [Managed Disks](../../storage/storage-managed-disks-overview.md) for the new VM simplifies the VM managment and provides better availability when the VM is placed in an availability set. 
 
-Azure managed disks removes the need of managing [storage accounts](../../storage/storage-introduction.md) for Azure VMs. You only have specify the type [Premium](../../storage/storage-premium-storage-performance.md) or [Standard](../../storage/storage-standard-storage.md) and size of disk you need, and Azure will create and manage the disk for you. 
-
-
-> [!IMPORTANT]
-> Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
->
-> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
->
->
+If you want to use a sample script, see [Sample script to upload a VHD to Azure and create a new VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 
 ## Before you begin
-If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
+- Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../../storage/storage-managed-disks-overview.md).
+- Make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+
+    ```powershell
+    Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+    ```
+    For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
 
 
 ## Generalize the Windows VM using Sysprep
@@ -77,7 +71,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Set the correct subscription using the subscription ID. Replace `<subscriptionID>` with the ID of the correct subscription.
+3. Set the correct subscription using the subscription ID. Replace *<subscriptionID>* with the ID of the correct subscription.
    
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
@@ -104,16 +98,16 @@ If you need to create a storage account, follow these steps:
     Get-AzureRmResourceGroup
     ```
 
-    To create a resource group named **myResourceGroup** in the **West US** region, type:
+    To create a resource group named **myResourceGroup** in the **East US** region, type:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup -Name myResourceGroup -Location "East US"
     ```
 
 2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "East US"`
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
@@ -127,7 +121,7 @@ If you need to create a storage account, follow these steps:
 
 ## Upload the VHD to your storage account
 
-Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the VHD to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the VHD to a container in your storage account. This example uploads the file *myVHD.vhd* from *"C:\Users\Public\Documents\Virtual hard disks\"* to a storage account named *mystorageaccount* in the *myResourceGroup* resource group. The file will be placed into the container named *mycontainer* and the new file name will be *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -156,63 +150,51 @@ Depending on your network connection and the size of your VHD file, this command
 Save the **Destination URI** path to use later if you are going to create a managed disk or a new VM using the uploaded VHD.
 
 ### Other options for uploading a VHD
-
+ 
+ 
 You can also upload a VHD to your storage account using one of the following:
 
--   [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-
--   [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
-
--   [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
-
-	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
-
+- [AzCopy](http://aka.ms/downloadazcopy)
+- [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+- [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
+-	We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit. 
 	Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
+
 
 ## Create a managed image from the uploaded VHD 
 
-Create a managed image using your generalized OS VHD.
+Create a managed image using your generalized OS VHD. Replace the values with your own information.
 
 
 1.  First, set the common parameters:
 
     ```powershell
-	$rgName = "myResourceGroupName"
 	$vmName = "myVM"
-	$location = "West Central US" 
+	$computerName = "myComputer"
+	$vmSize = "Standard_DS1_v2"
+	$location = "East US" 
 	$imageName = "yourImageName"
-	$osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
     ```
 
 4.  Create the image using your generalized OS VHD.
 
     ```powershell
 	$imageConfig = New-AzureRmImageConfig -Location $location
-	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+	$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
 	$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
-
-## Setup some variables for the image
-
-First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West Central US** location. 
-
-```powershell
-$rgName = "myResourceGroup"
-$location = "West Central US"
-$imageName = "myImage"
-$image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
-```
 
 ## Create a virtual network
 Create the vNet and subnet of the [virtual network](../../virtual-network/virtual-networks-overview.md).
 
-1. Create the subnet. This example creates a subnet named **mySubnet** with the address prefix of **10.0.0.0/24**.  
+1. Create the subnet. This example creates a subnet named *mySubnet* with the address prefix of *10.0.0.0/24*.  
    
     ```powershell
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Create the virtual network. This example creates a virtual network named **myVnet** with the address prefix of **10.0.0.0/16**.  
+2. Create the virtual network. This example creates a virtual network named *myVnet* with the address prefix of *10.0.0.0/16*.  
    
     ```powershell
     $vnetName = "myVnet"
@@ -224,7 +206,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
 
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
-1. Create a public IP address. This example creates a public IP address named **myPip**. 
+1. Create a public IP address. This example creates a public IP address named *myPip*. 
    
     ```powershell
     $ipName = "myPip"
@@ -243,7 +225,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 To be able to log in to your VM using RDP, you need to have a network security rule (NSG) that allows RDP access on port 3389. 
 
-This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This example creates an NSG named *myNsg* that contains a rule called *myRdpRule* that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -275,21 +257,7 @@ The following cmdlet will open a window where you will enter a new user name and
 $cred = Get-Credential
 ```
 
-## Set variables for the VM name, computer name and the size of the VM
-
-1. Create variables for the VM name and computer name. This example sets the VM name as **myVM** and the computer name as **myComputer**.
-
-    ```powershell
-    $vmName = "myVM"
-	$computerName = "myComputer"
-    ```
-2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) documentation for more information.
-
-    ```powershell
-    $vmSize = "Standard_DS1_v2"
-	```
-
-3. Add the VM name and size to the VM configuration.
+## Add the VM name and size to the VM configuration.
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
@@ -305,10 +273,10 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 
 ## Set the OS configuration and add the NIC.
 
-Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to **PremiumLRS**, the disk size to **128 GB** and disk caching to **ReadWrite**.
+Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to *PremiumLRS*, the disk size to *128 GB* and disk caching to *ReadWrite*.
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
+$vm = Set-AzureRmVMOSDisk -VM $vm -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
@@ -319,7 +287,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 ## Create the VM
 
-Create the new Vm using the configuration that we have built and stored in the **$vm** variable.
+Create the new VM using the configuration stored in the **$vm** variable.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location

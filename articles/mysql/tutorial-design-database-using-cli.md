@@ -11,7 +11,8 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/23/2017
+ms.custom: mvc
 ---
 
 # Design your first Azure Database for MySQL database
@@ -21,7 +22,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
@@ -36,7 +37,7 @@ Log in to your Azure subscription with the [az login](/cli/azure/#login) command
 ```azurecli
 az login
 ```
-Follow the command prompt instructions to open URL https://aka.ms/devicelog in your browser, and then enter the code generated in the **command prompt**.
+Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the **command prompt**.
 
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
@@ -164,7 +165,6 @@ For the Restore you need the following information:
 - Target server: Provide a new server name you want to restore to
 - Source server: Provide the name of the server you want to restore from
 - Location: You cannot select the region, by default it is same as the source server
-- Pricing tier: You cannot change this value when restoring a server. It is same as the source server. 
 
 ```azurecli
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
@@ -177,10 +177,10 @@ In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
 > * Restore data
 
-[Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)
+For additional CLI script samples, try [Azure Database for MySQL - Azure CLI samples](./sample-scripts-azure-cli.md)

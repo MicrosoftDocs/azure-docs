@@ -310,7 +310,7 @@ The gateway just needs the capability to connect to the server name that was pro
 **Q**: Why must I use an Azure work or school account to sign in? <br/>
 **A**: You can only associate the on-premises data gateway with an Azure work or school account. 
 Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
-Usually, your Azure AD account's UPN matches the email address.
+Usually, your Azure AD account's user principal name (UPN) matches the email address.
 
 **Q**: Where are my credentials stored? <br/>
 **A**: The credentials that you enter for a data source are encrypted and stored in the gateway cloud service. 

@@ -38,7 +38,7 @@ Get-PSRepository
 Before installing the required version, make sure that you uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command: 
 
 ```powershell
-Get-Module -ListAvailable | where-Object ($_.Name -like “Azure*”) | Uninstall-Module
+Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
 ```
 
 Now,use the following steps to install PowerShell for Azure Stack:  
@@ -59,7 +59,7 @@ command to install the AzureRM.Bootstrapper module:
 AzureRM modules for Compute, Storage, Network, Key Vault etc.  
 
   ```powershell
-  # Installs and imports the API Version Profile required by Azure Stack into the current PowerShell session.
+  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile
   ```
