@@ -46,8 +46,8 @@ If **Project Explorer** is not displayed, restore it.
 
 ![workspace - Java EE ](./media/app-service-web-get-started-java/pe.png)
 
-* Expand the **MyFirstJavaOnAzureWebApp** project in the Project Explorer.
-* Right-click **WebContent**, and then select **New > JSP File**.
+Expand the **MyFirstJavaOnAzureWebApp** project in the **Project Explorer**.
+Right-click **WebContent**, and then select **New > JSP File**.
 
 ![New JSP File Menu](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
@@ -56,7 +56,7 @@ In the **New JSP File** dialog:
 * Name the file **index.jsp**
 * Select **Finish**.
 
-![New JSP File dialog](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+  ![New JSP File dialog](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
 In the *NewFIle.jsp* file, replace the `<body></body>` element with the following markup:
 
@@ -70,12 +70,13 @@ Save your changes.
 
 ## Publish your web app to Azure
 
-* In **Project Explorer**, right-click your project, and then select **Azure > Publish as Azure Web App**.
+In **Project Explorer**, right-click your project, and then select **Azure > Publish as Azure Web App**.
 
-   ![Publish as Azure Web App Context Menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
+![Publish as Azure Web App Context Menu](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-* In the **Azure Sign In** dialog, keep the **Interactive** option, and then select **Sign in**.
-* Follow the sign-in instructions.
+In the **Azure Sign In** dialog, keep the **Interactive** option, and then select **Sign in**.
+
+Follow the sign-in instructions.
 
 ### The **Deploy Web App** dialog
 
@@ -93,14 +94,14 @@ The The **Create App Service** dialog is displayed with default values. The numb
 
 In the **Create App Service** dialog:
 
-* Keep the generated name for the web app. This name must be unique across Azure. The name is part of the DNS address for your web app; for example: Entering **MyJavaWebApp**, the DNS is *myjavawebapp.azurewebsites.net*.
-* Keep the default web container your web app uses.
+* Keep the generated name for the web app. This name must be unique across Azure. The name is part of the DNS address for your web app; for example: If your weab app name is **MyJavaWebApp**, the DNS is *myjavawebapp.azurewebsites.net*.
+* Keep the default web container.
 * Select an Azure subscription.
 * In the **App service plan** tab:
 
   * Keep the default for **Create new**, which is the name of the App Service Plan.
   * Location: Select **West Europe** or a location near you.
-  * Pricing tier: Select free. 
+  * Pricing tier: Select free. See [pricing tier](https://azure.microsoft.com/pricing/details/app-service/) for features.
 
    ![Create App Service dialog](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
@@ -167,13 +168,12 @@ Select your app service and click **Deploy**, which publishes your changes.
 
 When the **Publishing** link appears, click it to browse to your web app and see the changes.
 
-![Browse to Web App](./media/app-service-web-get-started-java/browse-web-app-2.png)
-
 ## Manage your Azure web app
 
 Sign in to Azure portal with the following link: [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, select **Resource Groups**.
+
 ![Portal navigation to Resource Groups](media/app-service-web-get-started-java/rg.png)
 
 Select your resource group. The page shows the resources you created in this tutorial.
