@@ -104,11 +104,15 @@ In the **Create App Service** dialog:
 
    ![Create App Service dialog](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+
 ### The Resource group tab
 
 Click the **Resource group** tab. Keep the default generated value for the resource group.
 
 ![Create App Service Plan](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
+
+[!INCLUDE [resource-group](../../includes/resource-group.md)]
 
 ### The JDK tab
 
