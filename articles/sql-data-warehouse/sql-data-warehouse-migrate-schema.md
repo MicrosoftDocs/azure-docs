@@ -44,7 +44,6 @@ For more about SQL Data Warehouse best practices, see the [best practices][best 
 [unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [data types]: ./sql-data-warehouse-tables-data-types.md
 [unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
-[data type best practices]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
 
 <!--MSDN references-->
 
