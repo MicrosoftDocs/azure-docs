@@ -58,7 +58,7 @@ In the **New JSP File** dialog:
 
   ![New JSP File dialog](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
-In the *NewFIle.jsp* file, replace the `<body></body>` element with the following markup:
+In the *index.jsp* file, replace the `<body></body>` element with the following markup:
 
 ```jsp
 <body>
@@ -82,7 +82,7 @@ Follow the sign-in instructions.
 
 Once you have been signed into your Azure account, the **Deploy Web App** dialog is displayed.
 
-Click **Create**.
+Select **Create**.
 
 ![Deploy Web App dialog](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
@@ -109,17 +109,21 @@ In the **Create App Service** dialog:
 
 ### The Resource group tab
 
-Click the **Resource group** tab. Keep the default generated value for the resource group.
+Select the **Resource group** tab. Keep the default generated value for the resource group.
 
 ![Create App Service Plan](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
+Select **Create**.
+
+<!--
 ### The JDK tab
 
-Click the **JDK** tab. Keep the default, and then click **Create**.
+Select the **JDK** tab. Keep the default, and then select **Create**.
 
 ![Create App Service Plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+-->
 
 The Azure Toolkit creates the app service and displays a progress dialog box.
 
@@ -131,11 +135,11 @@ In the Deploy Web App dialog, check **Deploy to root**. If you have an app servi
 
 ![Deploy Web App to Root](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-The dialog shows the Azure, JDK, and Web container selections you have made.
+The dialog shows the Azure, JDK, and Web container selections.
 
-Click **Deploy** to publish the web app to Azure.
+Select **Deploy** to publish the web app to Azure.
 
-When the publishing completes, click the **Published** link in the **Azure Activity Log**:
+When the publishing completes, select the **Published** link in the **Azure Activity Log**:
 
 ![Azure Activity Log](./media/app-service-web-get-started-java/aal.png)
 
@@ -164,9 +168,9 @@ The **Deploy Web App** dialog is displayed showing the app service you previousl
 > Check **Deploy to root** each time you publish.
 >
 
-Select the app service and click **Deploy**, which publishes the changes.
+Select the app service and select **Deploy**, which publishes the changes.
 
-When the **Publishing** link appears, click it to browse to the web app and see the changes.
+When the **Publishing** link appears, select it to browse to the web app and see the changes.
 
 ## Manage the Azure web app
 
