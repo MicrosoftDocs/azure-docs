@@ -209,7 +209,7 @@ For more information, see [Integrate an app with an Azure virtual network](web-s
 
 To provide fault tolerance, App Service Environment requires that each worker pool needs at least one additional compute resource. The additional compute resource cannot be assigned a workload.
 
-For more information, see [How to create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md#compute-resource-pools).
+For more information, see [How to create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
 
 ## Why do I see timeouts when I try to create an App Service Environment?
 
