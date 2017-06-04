@@ -18,16 +18,16 @@ ms.author: sujayt
 
 ---
 
-# How does Azure VMs replication work in Site Recovery?
+# How does Azure VM replication work in Site Recovery?
 
 > [!div class="op_single_selector"]
-> * [Azure VM replication architecture](site-recovery-azure-to-azure-architecture.md)
-> * [VMware VM and physical server to Azure architecture](site-recovery-architecture-vmware-to-azure.md)
-> * [Hyper-V VM to Azure architecture](site-recovery-architecture-hyper-v-to-azure.md)
-> * [VMs and physical servers to secondary site architecture](site-recovery-architecture-to-secondary-site.md)
+> * [Azure VM replication](site-recovery-azure-to-azure-architecture.md)
+> * [VMware VM and physical server to Azure replication](site-recovery-architecture-vmware-to-azure.md)
+> * [Hyper-V VM to Azure replication](site-recovery-architecture-hyper-v-to-azure.md)
+> * [VMs and physical servers to secondary site replication](site-recovery-architecture-to-secondary-site.md)
 
 
-This article describes the components and processes involved when replicating and recovering Azure virtual machines (VM) from one region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes the components and processes involved when replicating and recovering Azure virtual machines (VMs) from one region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
 >[!NOTE]
 >
@@ -39,10 +39,10 @@ Post any comments at the bottom of this article, or ask questions in the [Azure 
 
 ## Architectural components
 
-The following graphic provides a high-level view of your Azure VM environment in a specific region. For example the East US location.
+The following graphic provides a high-level view of your Azure VM environment in a specific region. For example, the East US location.
 
-- Apps can be running on VM with disks spread across storage accounts.
-- The VMs can be included in one or more subnets within a virtual network.
+- Apps can be running on VMs with disks spread across storage accounts.
+- The VMs can be included in one or more subnets, within a virtual network.
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
@@ -52,7 +52,7 @@ Learn about the deployment prerequisites and requirements in the [support matrix
 
 ### Step 1
 
-When you enable Azure VM replication Azure portal, the resources shown in the graphic and listed in the table are automatically created in the target region. By default, resources are created based on source region settings. You can customize the target settings as required. [Learn more](site-recovery-replicate-azure-to-azure.md).
+When you enable Azure VM replication in the Azure portal, the resources shown below in the graphic and table are automatically created in the target region. By default, resources are created based on source region settings. You can customize the target settings as required. [Learn more](site-recovery-replicate-azure-to-azure.md).
 
 ![enable-rep-1](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-1.png)
 

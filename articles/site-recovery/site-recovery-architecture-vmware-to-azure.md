@@ -17,13 +17,15 @@ ms.date: 05/29/2017
 ms.author: raynew
 ---
 
-> [!div class="op_single_selector"]
-> * [Azure VM replication architecture](site-recovery-azure-to-azure-architecture.md)
-> * [VMware VM and physical server to Azure architecture](site-recovery-architecture-vmware-to-azure.md)
-> * [Hyper-V VM to Azure architecture](site-recovery-architecture-hyper-v-to-azure.md)
-> * [VMs and physical servers to secondary site architecture](site-recovery-architecture-to-secondary-site.md)
+
 
 # How does VMware replication to Azure work in Site Recovery?
+
+> [!div class="op_single_selector"]
+> * [Azure VM replication](site-recovery-azure-to-azure-architecture.md)
+> * [VMware VM and physical server to Azure replication](site-recovery-architecture-vmware-to-azure.md)
+> * [Hyper-V VM to Azure replication](site-recovery-architecture-hyper-v-to-azure.md)
+> * [VMs and physical servers to secondary site replication](site-recovery-architecture-to-secondary-site.md)
 
 This article describes the components and processes involved when replicating on-premises VMware virtual machines, and Windows/Linux physical servers, to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -64,7 +66,7 @@ Learn about the deployment prerequisites and requirements for each of these comp
     - The configuration server orchestrates replication management with Azure over port HTTPS 443 outbound.
     - The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
     - If you enable multi-VM consistency, then machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This is useful if machines are running the same workload and need to be consistent.
-5. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings#public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+5. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 **Figure 2: VMware to Azure replication**
 
