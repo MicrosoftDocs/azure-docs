@@ -102,7 +102,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
 11. Sign in to the vCenter Server to confirm that your connection is secure.
 
-  If the certificate import is not successful, and you cannot establish a secure connection, consult the VMware vSphere documentation on [Obtaining Server Certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
+  If the certificate import is not successful, and you cannot establish a secure connection, consult the VMware vSphere documentation on [obtaining server certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
 
   If you have secure boundaries within your organization, and don't want to turn on the HTTPS protocol, use the following procedure to disable the secure communications.
 
@@ -228,7 +228,7 @@ After the role with privileges is set up, create a user account. The user accoun
 
 ## Establish vCenter Server credentials on Azure Backup Server
 
-Before you add the VMware server to Azure Backup Server, install [Update 1 for Microsoft Azure Backup Server](https://support.microsoft.com/help/3175529/update-1-for-microsoft-azure-backup-server).
+Before you add the VMware server to Azure Backup Server, install [Update 1 for Azure Backup Server](https://support.microsoft.com/help/3175529/update-1-for-microsoft-azure-backup-server).
 
 1. To open Azure Backup Server, double-click the icon on the Azure Backup Server desktop.
 
