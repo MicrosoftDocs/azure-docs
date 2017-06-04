@@ -36,8 +36,6 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
 1. In the browser on Azure Backup Server, enter the URL to the vSphere Web Client. The vSphere Web Client login page appears.
 
-  
-
     ![vSphere Web Client](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
 
     At the bottom of the information for administrators and developers, locate the **Download trusted root CA certificates** link.
@@ -68,7 +66,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![Rename root certificate ](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
-    Change the root certificate's extension to .crt. When you're asked if you're sure you want to change the extension, click **Yes** or **OK**. Otherwise, you'll change the file's intended function. The icon for the file changes to an icon that represents a root certificate.
+    Change the root certificate's extension to .crt. When you're asked if you're sure you want to change the extension, click **Yes** or **OK**. Otherwise, you change the file's intended function. The icon for the file changes to an icon that represents a root certificate.
 
 6. Right-click the root certificate and from the pop-up menu, select **Install Certificate**.
 
@@ -262,7 +260,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
 Production Server Addition Wizard is used to add the vCenter Server to Azure Backup Server.
 
-To open Production Server Addition Wizard, complete the following procedure.
+To open Production Server Addition Wizard, complete the following procedure:
 
 1. In the Azure Backup Server console, click **Management**, click **Production Servers**, and then click **Add**.
 
@@ -274,7 +272,7 @@ To open Production Server Addition Wizard, complete the following procedure.
 
 2. On the **Select Production Server type** screen, select **VMware Servers**, and then click **Next**.
 
-3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all of the ESXi servers are managed by the same vCenter, you can use the vCenter name.
+3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all the ESXi servers are managed by the same vCenter, you can use the vCenter name.
 
     ![Specify VMware server FQDN or IP address](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
@@ -336,10 +334,10 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 6. On the **Review Disk Allocation** screen, review and if necessary, modify the disk space for the VMs. The recommended disk allocations are based on the retention range that is specified in the **Specify Short-Term Goals** screen, the type of workload, and the size of the protected data (identified in step 3).  
 
   - **Data size:** Size of the data in the protection group.
-  - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source will grow.
+  - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
   - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
   - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, DPM tries to increase the disk size by 25 percent.
-  - **Storage pool details:** Shows the current status of the storage pool, including total and remaining disk size.
+  - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
     ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
@@ -361,7 +359,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
     Click **Next** to move to the next screen.
 
-9. On the **Specify Online Protection Data** screen, select the data source(s) that you want to protect. You can select the members individually, or click **Select All** to choose all members. After you choose the members, click **Next**.
+9. On the **Specify Online Protection Data** screen, select one or more data sources that you want to protect. You can select the members individually, or click **Select All** to choose all members. After you choose the members, click **Next**.
 
     ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
@@ -371,7 +369,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
 11. On the **Specify Online Retention Policy** screen, indicate how long you want to retain the backup data in Azure. After the policy is defined, click **Next**.
 
-    ![Specify online retentin policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
+    ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
     There is no time limit for how long you can keep data in Azure. When you store recovery point data in Azure, the only limit is that you cannot have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
 
