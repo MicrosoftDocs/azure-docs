@@ -85,14 +85,13 @@
 ### [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
-### [Edit replication settings](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
 ### [Manage process servers in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Manage the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ## Monitor and troubleshoot
-### [Monitor and troubleshoot on-premises replication](site-recovery-monitoring-and-troubleshooting.md)
+### [Troubleshoot on-premises machine replication](site-recovery-monitoring-and-troubleshooting.md)
 ### [Common Azure VM replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Common on-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
