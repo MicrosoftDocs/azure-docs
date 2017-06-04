@@ -49,4 +49,4 @@ To add an Azure AD tenant in the Azure classic portal, select the Azure Active D
 >
 
 ## Next steps
-For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active tenant licensing?](active-tenant-licensing-what-is.md)
+For a broad overview of Azure AD licensing issues and best practices, see [What is Azure Active tenant licensing?](active-directory-licensing-whatis-azure-portal.md)
