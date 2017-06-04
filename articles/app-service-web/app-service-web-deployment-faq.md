@@ -24,7 +24,7 @@ This article has answers to frequently asked questions (FAQs) about deployment i
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## I am just getting started with App Service web apps. How do I publish?
+## I am just getting started with App Service web apps. How do I publish my code?
 
 Here are some options for publishing your web app code:
 
@@ -33,7 +33,7 @@ Here are some options for publishing your web app code:
 
 For more information, see [Deploy your app to App Service](web-sites-deploy.md).
 
-## I see an error message when I try to deploy from Visual Studio. How can I resolve this?
+## I see an error message when I try to deploy from Visual Studio. How do I resolve this?
 
 If you see the following message, you might be using an older version of the SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Please re-register for this provider in order to have access to this location.” 
 
@@ -50,11 +50,11 @@ App Service supports two types of credentials for local Git deployment and FTP/S
 
 ## What is the file or directory structure of my App Service web app?
 
-For information about the file structure of your App Service apps, see [File structure in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
+For information about the file structure of your App Service app, see [File structure in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
 
 ## How do I resolve "FTP Error 550 - There is not enough space on the disk" when I try to FTP my files?
 
-If you see this message, it's likely that you are running into a disk quota on the pricing tier for your web app. You might need to scale up to a higher pricing tier based on your disk space needs. For more information about pricing tiers and resource limits, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+If you see this message, it's likely that you are running into a disk quota in the service plan for your web app. You might need to scale up to a higher service tier based on your disk space needs. For more information about pricing plans and resource limits, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## How do I set up continuous deployment for my App Service web app?
 
@@ -64,7 +64,7 @@ You can set up continuous deployment from several resources, including Visual St
 
 For help investigating issues with continuous deployment from GitHub or Bitbucket, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## I can't FTP to my site and publish my code. How can I resolve the issue?
+## I can't FTP to my site and publish my code. How do I resolve this?
 
 To resolve FTP issues:
 
@@ -79,14 +79,14 @@ The Azure Quickstart is designed to help you deploy your app by using the deploy
 
 ## Why does my app sometimes restart after deployment to App Service?
 
-To learn about the circumstances under which an application deployment might result in a restart, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). As the article describes, App Service deploys files to the wwwroot folder. It never directly does anything to restart your app.
+To learn about the circumstances under which an application deployment might result in a restart, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). As the article describes, App Service deploys files to the wwwroot folder. It never directly restarts your app.
 
-## How can I integrate Visual Studio Team Services code with App Service?
+## How do I integrate Visual Studio Team Services code with App Service?
 
 You have two options for using continuous deployment with Visual Studio Team Services:
 
-*   Use a Git project. Connect via App Service by using the deployment options to that repo.
-*   Use a Team Foundation Version Control (TFVC) project. Deploy by using the build agent to App Service.
+*   Use a Git project. Connect via App Service by using the deployment options for that repo.
+*   Use a Team Foundation Version Control (TFVC) project. Deploy by using the build agent for App Service.
 
 Continuous code deployment for both these options depends on existing developer workflows and check-in procedures. For more information, see these articles: 
 
