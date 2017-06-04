@@ -100,7 +100,7 @@ The portal provides a first-class experience for deploying an App Service certif
 For more information, see [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 
-## Why do I see the message "'Partially Succeeded" when I try to back up my web app?
+## Why do I see the message "Partially Succeeded" when I try to back up my web app?
 
 A common cause of backup failure is that some files are in use by the application. Files that are in use are locked while you perform the backup. This prevents these files from being backed up and might result in a "Partially Succeeded" status. You can potentially prevent this from occurring by excluding files from the backup process. You can choose to back up only what is needed. For more information, see [Backup just the important parts of your site with Azure web apps](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
@@ -126,7 +126,7 @@ For more information about using deployment slots, see [Set up a staging environ
 
 To review WebJob logs:
 
-1. Sign in to the [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Select the WebJob.
 3. Select the **Toggle Output** button.
 4. To download the output file, select the **Download** link.
@@ -168,7 +168,7 @@ In the App Service shared tenant environment, it is not possible to block specif
 
 In App Service Environment, you have full control over inbound  and outbound traffic. You can use Network Security Groups to restrict or block specific ports. For more information about App Service Environment, see [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
-## How do I capture as F12 trace?
+## How do I capture an F12 trace?
 
 You have two options for capturing an F12 trace:
 

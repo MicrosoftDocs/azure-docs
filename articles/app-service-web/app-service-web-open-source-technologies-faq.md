@@ -91,7 +91,7 @@ To change the version of the Node.js application, you can use one of the followi
     1. In the Azure portal, go to your web app.
     2. On the **Settings** blade, select **Application settings**.
     3. In **App settings**, you can include WEBSITE_NODE_DEFAULT_VERSION as the key, and the version of Node.js you want as the value.
-    4. Go to the [Kudu console](http://.scm.azurewebsites.net).
+    4. Go to your [Kudu console](https://*yourwebsitename*.scm.azurewebsites.net).
     5. To check the Node.js version, enter the following command:  
    ```
    node -v
@@ -126,7 +126,7 @@ If you see this error in your debug.log or php_errors.log files, your app is exc
 
 ## How do I debug a Node.js app that's hosted in App Service?
 
-1.  Go to your Kudu console (https://*Your_Webapp_name*.scm.azurewebsites.net/DebugConsole).
+1.  Go to your [Kudu console](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole).
 2.  Go to your application logs folder (D:\home\LogFiles\Application).
 3.  In the logging_errors.txt file, check for content.
 
