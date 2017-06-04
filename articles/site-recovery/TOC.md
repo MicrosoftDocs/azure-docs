@@ -26,22 +26,24 @@
 # How To
 ## Plan
 ### [Prerequisites for Azure replication](site-recovery-azure-to-azure-prereq.md)
-### [Plan networking for Azure to Azure replication (preview)](site-recovery-azure-to-azure-networking-guidance.md)
-### [Plan networking for on-premises machine replication](site-recovery-network-design.md)
-### [Plan network mapping for Azure VM replication](site-recovery-network-mapping-azure-to-azure.md)
-### [Plan network mapping for Hyper-V VM replication](site-recovery-network-mapping.md)
-### [Plan capacity and scale VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
-### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
-### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
+### Networking
+#### [Plan networking for Azure to Azure replication (preview)](site-recovery-azure-to-azure-networking-guidance.md)
+#### [Plan networking for on-premises machine replication](site-recovery-network-design.md)
+#### [Plan network mapping for Azure VM replication](site-recovery-network-mapping-azure-to-azure.md)
+#### [Plan network mapping for Hyper-V VM replication](site-recovery-network-mapping.md)
+### Plan capacity and scalability
+#### [Plan capacity for VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
+#### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
+#### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 ### [Control VM replication with role-based access](site-recovery-role-based-linked-access-control.md)
 
 ## Configure
 ### Set up the source environment
 #### [Source environment for VMware to Azure](site-recovery-set-up-vmware-to-azure.md)
-#### [Source environment for physical to Azure](site-recovery-set-up-vmware-to-azure.md)
+#### [Source environment for physical to Azure](site-recovery-set-up-physical-to-azure.md)
 ### Set up the target environment
-### [Target environment for VMware to Azure](site-recovery-prepare-target-vmware-to-azure.md)
-### [Target environment for physical to Azure](site-recovery-prepare-target-physical-to-azure.md)
+#### [Target environment for VMware to Azure](site-recovery-prepare-target-vmware-to-azure.md)
+#### [Target environment for physical to Azure](site-recovery-prepare-target-physical-to-azure.md)
 ### [Configure replication settings](site-recovery-setup-replication-settings-vmware.md)
 ### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
@@ -53,8 +55,8 @@
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
 ### Run a test failover
-### [Run a test failover to Azure](site-recovery-test-failover-to-azure.md)
-### [Run a test failover between VMM clouds](site-recovery-test-failover-vmm-to-vmm.md)
+#### [Run a test failover to Azure](site-recovery-test-failover-to-azure.md)
+#### [Run a test failover between VMM clouds](site-recovery-test-failover-vmm-to-vmm.md)
 ### [Fail over protected machines](site-recovery-failover.md)
 ### Reprotect machines after failover
 #### [Reprotect from an Azure secondary region to primary](site-recovery-how-to-reprotect-azure-to-azure.md)
