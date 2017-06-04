@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli
+```azurecli-interactive 
 az login
 ```
 
@@ -43,7 +43,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -54,7 +54,7 @@ The following example creates a cluster named *myK8sCluster* with one Linux mast
 
 
 
-```azurecli
+```azurecli-interactive 
 az acs create --orchestrator-type=kubernetes \
     --resource-group myResourceGroup \
     --name=myK8sCluster \
@@ -72,7 +72,7 @@ If you're using Azure CloudShell, `kubectl` is already installed. If you want to
 
 The following Azure CLI example installs `kubectl` to your system. If you are running the Azure CLI on macOS or Linux, you might need to run the command with `sudo`.
 
-```azurecli
+```azurecli-interactive 
 az acs kubernetes install-cli 
 ```
 
@@ -81,7 +81,7 @@ az acs kubernetes install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
 downloads the cluster configuration for your Kubernetes cluster.
 
-```azurecli
+```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
@@ -148,7 +148,7 @@ You can use a web browser of your choice to see the default NGINX welcome page a
 ## Delete cluster
 When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

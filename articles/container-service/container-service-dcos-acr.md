@@ -23,13 +23,33 @@ ms.author: juliens
 
 In this article, we'll explore how to use a private container register such as ACR (Azure Container Registry) with a DC/OS cluster. Using ACR allows you to store images privately and keep the control on it such as the versions and/or the updates for example.
 
-Before working through this example, you need: 
-* A DC/OS cluster that is configured in Azure Container Service. See [Deploy an Azure Container Service cluster](container-service-deployment.md).
-* A Azure Container Service deployed. See [Create a private Docker container registry using the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) or [Create a private Docker container registry using the Azure CLI 2.0](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
-* A File share that is configured inside your DC/OS cluster. See [Create and mount a file share to a DC/OS cluster](container-service-dcos-fileshare.md)
-* To understand how to deploy a Docker image in a DC/OS cluster by using the [Web UI](container-service-mesos-marathon-ui.md) or the [REST API](container-service-mesos-marathon-rest.md)
+> [!div class="checklist"]
+> * Deploy ACS cluster (if needed)
+> * Deploy Azure Container Registry (if needed)
+> * Configure ACR authentication on a DC/OS cluster
+> * Run a container image from ACR
 
-## Manage the authentication inside your cluster
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## Deploy ACS DC/OS cluster
+
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
+```
+
+```azurecli-interactive
+az acs create --resource-group myResourceGroup --name myDCOSCluster --orchestrator-type DCOS
+```
+
+## Deploy Azure Container Registry
+
+```azurecli-interactive
+az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
+```
+
+## Manage ACR authentication
 
 The conventional way to push and pull image from a private registry is to be, first, authenticated on it. To do it, you have to use the `docker login` command line on any docker client process who will need to use your private registry.
 When it comes to the production world, using DC/OS in our case, you want to make sure that you are able to pull images from any node. It means that you want to automate the authentication process, and don't run the command line on each machines, because as you can imagine, depending on the size of your cluster, it could be a problematic and heavy operation. 
@@ -79,40 +99,7 @@ tar czf docker.tar.gz .docker
 az storage file upload -s share --account-name anystorageaccountname --account-key aYGl6Nys4De5J3VPldT1rXxz2+VjgO7dgWytnoWClurZ/l8iO5c5N8xXNS6mpJhSc9xh+7zkT7Mr+xIT4OIVMg== --source %HOMEPATH%/docker.tar.gz
 ```
 
-### From the master [Not recommended Method]
-
-Executing operation from the master are not recommended to avoid mistakes and impact on the whole environments.
-
-1. First, SSH to the master (or the first master) of your DC/OS-based cluster. For example, `ssh userName@masterFQDN –A –p 22`, where the masterFQDN is the fully qualified domain name of the master VM. [More infos by clicking here](https://docs.microsoft.com/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
-
-2. Initiate the authentication to your ACR service by using the following command: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. You have to replace the `USERNAME`, `PASSWORD`and `ACR-REGISTRY-NAME` variables with the values provided on your Azure portal
-
-3. It is interesting to know that when you are doing a `docker login` operation, the values are stored locally on the machine under your home folder `~/.docker`. We will compress the contain of this folder by using the `tar czf` command.
-
-4. The final step is to copy the tar file that we just created, inside the file share. This operation will allow, at all the virtual machines inside our cluster, to use this credential and be authenticated on your Azure Container Registry.
-
-To wrap up, here is an example using the following setup:
-* ACR name: **`demodcos`**
-* Username: **`demodcos`**
-* Password: **`+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0`**
-* Mount point inside the cluster: **`/mnt/share`**
-
-```bash
-# Changing directory to the home folder of the default user
-cd ~
-
-# Authentication into my ACR
-sudo docker login --username=demodcos --password=+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0 demodcos.azurecr.io
-
-# Tar the contains of the .docker folder
-sudo tar czf docker.tar.gz .docker
-
-# Copy of the tar file in the file share of my cluster
-sudo cp docker.tar.gz /mnt/share
-```
-
-
-## Deploy an image from ACR with Marathon
+## Run an image from ACR
 
 Supposedly you already pushed the images that you want to deploy inside your container registry. See [Push your first image to a private Docker container registry using the Docker CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)
 
@@ -160,5 +147,16 @@ Let's say we want to deploy the **simple-web** image, with the **2.1** tag, from
 >
 
 ## Next steps
-* Read more about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
-* DC/OS container management through the [Marathon REST API](container-service-mesos-marathon-rest.md).
+
+In this tutorial you have configure DC/OS to use Azure Container Registry including the following tasks:
+
+> [!div class="checklist"]
+> * Deploy ACS cluster (if needed)
+> * Deploy Azure Container Registry (if needed)
+> * Configure ACR authentication on a DC/OS cluster
+> * Run a container image from ACR
+
+Advance to the next tutorial to learn how to monitor a DC/OS cluster with OMS.
+
+> [!div class="nextstepaction"]
+> [Create custom VM images](./container-service-monitoring-oms.md)

@@ -31,7 +31,7 @@ This quick start requires the Azure CLI version 2.0.4 or later. Run `az --versio
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli-interactive
+```azurecli-interactive -interactive -interactive
 az login
 ```
 
@@ -41,7 +41,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli
+```azurecli-interactive -interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -51,7 +51,7 @@ Create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli
+```azurecli-interactive -interactive 
 az acs create \
   --orchestrator-type dcos \
   --resource-group myResourceGroup \
@@ -65,7 +65,7 @@ After several minutes, the command completes, and returns information about the 
 
 Once a DC/OS cluster has been created, it can be accesses through an SSH tunnel. Run the following command to return the public IP address of the DC/OS master. This IP address is stored in a variable and used in the next step.
 
-```azurecli
+```azurecli-interactive -interactive 
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
@@ -83,7 +83,7 @@ The SSH tunnel can be tested by browsing to `http://localhost`. If a port other 
 
 Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
-```azurecli
+```azurecli-interactive -interactive 
 az acs dcos install-cli
 ```
 
@@ -129,7 +129,7 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli
+```azurecli-interactive -interactive 
 dcos marathon app add marathon-app.json
 ```
 
@@ -148,7 +148,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 Get the public IP address of the DC/OS cluster agents.
 
-```azurecli
+```azurecli-interactive -interactive 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -160,7 +160,7 @@ Browsing to this address returns the default NGINX site.
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
-```azurecli
+```azurecli-interactive -interactive 
 az group delete --name myResourceGroup --no-wait
 ```
 

@@ -26,15 +26,17 @@ In this article, we'll explore how to create a file share on Azure and mount it 
 > * Create storage account and file share
 > * Mount the share in the DC/OS cluster
 
+You will need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
+
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-You will need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a file share on Microsoft Azure
 
 Run the following script to create an Azure storage account and Azure file share. This file share will be mounted in each node of the DC/OS cluster.
 
-```azurecli
+```azurecli-interactive
 # Change these four parameters
 DCOS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 DCOS_PERS_RESOURCE_GROUP=myResourceGroup
@@ -57,7 +59,7 @@ Next, we need to mount this share on every virtual machine inside your cluster u
 
 First, get the FQDN of the DC/OS master and store it in a variable.
 
-```azurecli
+```azurecli-interactive
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsz)
 ```
 
