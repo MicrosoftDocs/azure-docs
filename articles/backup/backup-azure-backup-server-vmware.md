@@ -1,5 +1,5 @@
 ---
-title: Use Azure Backup Server to protect VMware server | Microsoft Docs
+title: Use Azure Backup Server to protect a VMware server workload | Microsoft Docs
 description: Back up a VMware server to Azure or disk, with Azure Backup Server. Use this article to protect your VMware workload.
 services: backup
 documentationcenter: ''
@@ -19,16 +19,16 @@ ms.author: markgal;
 ---
 # Back up VMware server to Azure
 
-This article explains how to configure Azure Backup Server to protect VMware server workload. This article assumes you already have Azure Backup Server installed. If you don't have Azure Backup Server installed, see [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+This article explains how to configure Azure Backup Server to protect VMware server workloads. This article assumes you already have Azure Backup Server installed. If you don't have Azure Backup Server installed, see [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-Azure Backup Server can back up, or protect, VMware vCenter server versions 6.0 and 5.5.
+Azure Backup Server can back up, or protect, VMware vCenter Server version 6.0 and 5.5.
 
 
 ## Create a secure connection to the vCenter Server
 
-By default, Azure Backup Server communicates with the vCenter servers via an HTTPS channel. To turn on the secure communication, we recommend that you install the VMware Certificate Authority (CA) certificate on Azure Backup Server. If you don't require secure communication, and would prefer to disable the HTTPS requirement, see [Disable secure communication protocol](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol). To create a secure connection between Azure Backup Server and the vCenter server, import the trusted certificate on Azure Backup Server.
+By default, Azure Backup Server communicates with each vCenter Server via an HTTPS channel. To turn on the secure communication, we recommend that you install the VMware Certificate Authority (CA) certificate on Azure Backup Server. If you don't require secure communication, and would prefer to disable the HTTPS requirement, see [Disable secure communication protocol](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol). To create a secure connection between Azure Backup Server and the vCenter Server, import the trusted certificate on Azure Backup Server.
 
-Typically, you use a browser on the Azure Backup Server machine to connect to the vCenter server via the vSphere Web Client. The first time you use the Azure Backup Server browser to connect to the vCenter server, the connection isn't secure. The following image shows the unsecured connection.
+Typically, you use a browser on the Azure Backup Server machine to connect to the vCenter Server via the vSphere Web Client. The first time you use the Azure Backup Server browser to connect to the vCenter Server, the connection isn't secure. The following image shows the unsecured connection.
 
 ![Example of unsecured connection to VMware server](./media/backup-azure-backup-server-vmware/unsecure-url.png)
 
@@ -48,7 +48,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
 2. Click **Download trusted root CA certificates**.
 
-    The vCenter server downloads a file to your local computer. The file's name is named **download**. Depending on your browser, you receive a message that asks whether to open or save the file.
+    The vCenter Server downloads a file to your local computer. The file's name is named **download**. Depending on your browser, you receive a message that asks whether to open or save the file.
 
     ![download message when certificates are downloaded](./media/backup-azure-backup-server-vmware/download-certs.png)
 
@@ -102,7 +102,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     A dialog box appears, the successful certificate import is confirmed.
 
-11. Sign in to the vCenter server to confirm that your connection is secure.
+11. Sign in to the vCenter Server to confirm that your connection is secure.
 
   If the certificate import is not successful, and you cannot establish a secure connection, consult the VMware vSphere documentation on [Obtaining Server Certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
 
@@ -129,11 +129,11 @@ If your organization doesn't require the HTTPS protocol, use the following steps
 
 On the vCenter Server, a role is a predefined set of privileges. A vCenter Server administrator creates the roles. To assign permissions, the administrator pairs user accounts with a role. To establish the necessary user credentials to back up the vCenter Server computer, create a role with specific privileges, and then associate the user account with the role.
 
-Azure Backup Server uses a username and password to authenticate with the vCenter server. Azure Backup Server uses these credentials as authentication for all backup operations.
+Azure Backup Server uses a username and password to authenticate with the vCenter Server. Azure Backup Server uses these credentials as authentication for all backup operations.
 
 To add a vCenter Server role and its privileges for a backup administrator:
 
-1. Sign in to the vCenter Server, and then in the vCenter Server Navigator panel, click **Administration**.
+1. Sign in to the vCenter Server, and then in the vCenter Server **Navigator** panel, click **Administration**.
 
     ![Administration option in vCenter Server Navigator panel](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
@@ -183,7 +183,7 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
 After the role with privileges is set up, create a user account. The user account has a name and password, which provides the credentials that are used for authentication.
 
-1. To create a user account, in the vCenter Server Navigator panel, click **Users and Groups**.
+1. To create a user account, in the vCenter Server **Navigator** panel, click **Users and Groups**.
 
     ![Users and Groups option](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
@@ -246,7 +246,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for M
 
     ![Azure Backup Server Manage Credentials dialog box](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-3. In the Manage Credentials dialog box, click **Add** to open the **Add Credential** dialog box.
+3. In the **Manage Credentials** dialog box, click **Add** to open the **Add Credential** dialog box.
 
 4. In the **Add Credential** dialog box, enter a name and a description for the new credential. Then specify the username and password. The *Contoso Vcenter credential* credential name is used to identify the credential in the next procedure. Use the same username and password that is used for the vCenter Server. If the vCenter Server and Azure Backup Server are not in the same domain, in **User name**, specify the domain.
 
@@ -268,7 +268,7 @@ To open Production Server Addition Wizard, complete the following procedure.
 
     ![Open Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-    The Production Server Addition Wizard dialog box appears.
+    The **Production Server Addition Wizard** dialog box appears.
 
     ![Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
@@ -296,7 +296,7 @@ To open Production Server Addition Wizard, complete the following procedure.
 
   ![Finish screen](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
-  To add multiple vCenter Servers to Azure Backup Server, repeat the previous steps in this section.
+  To add multiple instances of vCenter Server to Azure Backup Server, repeat the previous steps in this section.
 
 After you add the vCenter Server to Azure Backup Server, the next step is to create a protection group. The protection group specifies the various details for short or long-term retention, and it is where you define and apply the backup policy. The backup policy is the schedule for when backups occur, and what is backed up.
 
@@ -309,7 +309,7 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
     ![Open the Create New Protection Group wizard](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-    The Create New Protection Group wizard dialog box appears.
+    The **Create New Protection Group** wizard dialog box appears.
 
     ![Create New Protection Group wizard dialog box](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
