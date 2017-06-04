@@ -32,6 +32,8 @@
 #### [Seamless Single Sign-on](active-directory-aadconnect-sso.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
 #### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
+##### [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
+##### [Technical deep dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)

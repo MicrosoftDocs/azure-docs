@@ -30,18 +30,18 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-on](a
 
 ## Key benefits of using Azure AD Pass-through Authentication
 
-- Great user experience
+- *Great user experience*
   - Users use the same passwords to sign into both on-premises and cloud-based applications.
   - Users spend less time talking to the IT helpdesk resolving password-related issues.
-- Easy to deploy & administer
+- *Easy to deploy & administer*
   - No need for complex on-premises deployments or network configuration.
   - Needs just a lightweight agent to be installed on-premises.
   - No management overhead. The agent automatically receives improvements and bug fixes.
-- Secure
+- *Secure*
   - On-premises passwords are never stored in the cloud in any form.
   - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
   - Works seamlessly with Azure Multi-Factor Authentication (MFA).
-- Highly available
+- *Highly available*
   - Additional agents can be installed on multiple on-premises servers to provide high availability of sign-in requests.
 
 ## Feature highlights
@@ -71,7 +71,7 @@ The following scenarios are _not_ supported during preview:
 - Azure AD Join for Windows 10 devices.
 
 >[!IMPORTANT]
->As a workaround for scenarios not supported today, Password Hash Synchronization is also enabled by default when you enable Pass-through Authentication. Password Hash Synchronization acts as a fallback in these specific scenarios only. If you don't need these scenarios, you can turn off Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
+>As a workaround for scenarios not supported today, Password Hash Synchronization is also enabled by default when you enable Pass-through Authentication. Password Hash Synchronization acts as a fallback for the preceding scenarios _only_ (and _not_ as a generic fallback to Pass-through Authentication). If you don't need these scenarios, you can turn off Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
 
 ## Next steps
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.

@@ -21,10 +21,10 @@ ms.author: billmath
 Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. It signs users in by validating their passwords directly against your on-premises Active Directory.
 
 To deploy Pass-through Authentication, you need to follow these steps:
-1. [Check prerequisites](#step-1-check-prerequisites): Set up your tenant and on-premises environment correctly before you enable the feature.
-2. [Enable the feature](#step-2-enable-the-feature): Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent to handle password validation requests.
-3. [Test the feature](#step-3-test-the-feature): Test user sign-in using Pass-through Authentication.
-4. [Ensure high availablity](#step-4-ensure-high-availability): Install a second standalone agent to provide high availability for sign-in requests.
+1. [Check prerequisites](#step-1:-check-prerequisites): Set up your tenant and on-premises environment correctly before you enable the feature.
+2. [Enable the feature](#step-2:-enable-the-feature): Turn on Pass-through Authentication on your tenant and install a lightweight on-premises agent to handle password validation requests.
+3. [Test the feature](#step-3:-test-the-feature): Test user sign-in using Pass-through Authentication.
+4. [Ensure high availablity](#step-4:-ensure-high-availability): Install a second standalone agent to provide high availability for sign-in requests.
 
 ## Step 1: Check prerequisites
 
@@ -40,7 +40,7 @@ Ensure that all the following prerequisites are in place:
    - Verify direct IP connections: Ensure that the agents on your servers can make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
      >[!NOTE]
-     >Our recent improvements reduce the number of ports required by agents to communicate with our service. If you are running older versions of Azure AD Connect and/or standalone agents, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
+     >Our recent improvements reduced the number of ports required by agents to communicate with our service. If you are running older versions of Azure AD Connect and/or standalone agents, you should continue to keep those additional ports (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) open.
 
 ## Step 2: Enable the feature
 
@@ -86,7 +86,7 @@ AADApplicationProxyagentInstaller.exe REGISTERagent="false" /q
 
 ## Next steps
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
-- [**Advanced topics**]() - Advanced configuration of the feature.
+- [**Advanced topics**]() - Advanced topics about the feature.
 - [**Frequently Asked Questions**]() - Answers to most frequently asked questions.
 - [**Preview limitations**]() - Learn which scenarios are currently supported in preview and which ones are not.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
