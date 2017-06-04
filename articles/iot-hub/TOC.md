@@ -6,13 +6,13 @@
 # [Get Started](iot-hub-get-started.md)
 
 ## Setup your device
-### Use a simulated device
+### [Use a simulated device](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Use a physical device
+### [Use a physical device](iot-hub-get-started-physical.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -30,13 +30,14 @@
 
 ### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
-## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-## [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-## [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-## [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-## [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
-## [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## Extended IoT scenarios
+### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # How To
 ## Plan
@@ -46,9 +47,15 @@
 ### [Supporting additional protocols](iot-hub-protocol-gateway.md)
 ## [Develop](iot-hub-how-to.md)
 ### [Developer guide](iot-hub-devguide.md)
-#### [Send and receive messages](iot-hub-devguide-messaging.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
 #### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
+#### [Send and receive messages](iot-hub-devguide-messaging.md)
+##### [Send device-to-cloud messages to IoT Hub](iot-hub-devguide-messages-d2c.md)
+##### [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md)
+##### [Use custom endpoints and routing rules for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md)
+##### [Send cloud-to-device messages from IoT Hub](iot-hub-devguide-messages-c2d.md)
+##### [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md)
+##### [Choose a communication protocol](iot-hub-devguide-protocols.md)
 #### [Upload files from a device](iot-hub-devguide-file-upload.md)
 #### [Manage device identities](iot-hub-devguide-identity-registry.md)
 #### [Control access to IoT Hub](iot-hub-devguide-security.md)
@@ -126,12 +133,13 @@
 ### [Use a real device](iot-hub-iot-edge-physical-device.md)
 
 # Reference
-## [Azure CLI 2.0 Preview](/cli/azure/iot)
+## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
+## [Node.js SDKs](http://azure.github.io/azure-iot-sdk-node/)
+## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/deviceapi)

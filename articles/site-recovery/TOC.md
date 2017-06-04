@@ -67,10 +67,9 @@
 ### [Migrate between Azure regions](site-recovery-migrate-azure-to-azure.md)
 ### [Migrate AWS Windows instances to Azure](site-recovery-migrate-aws-to-azure.md)
 ### [Replicate migrated machines to another Azure region](site-recovery-azure-to-azure-after-migration.md)
-
 ## Workloads
 ### [Active Directory and DNS](site-recovery-active-directory.md)
-### [SQL Server](site-recovery-sql.md)
+### [Replicate SQL Server](site-recovery-sql.md)
 ### [SharePoint](site-recovery-sharepoint.md)
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
@@ -91,8 +90,9 @@
 ### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ## Monitor and troubleshoot
-### [Troubleshoot Azure VM replication](site-recovery-azure-to-azure-troubleshoot-errors.md)
-### [Troubleshoot on-premises replication](site-recovery-monitoring-and-troubleshooting.md)
+### [Monitor and troubleshoot on-premises replication](site-recovery-monitoring-and-troubleshooting.md)
+### [Common Azure VM replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Common on-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.siterecovery)
