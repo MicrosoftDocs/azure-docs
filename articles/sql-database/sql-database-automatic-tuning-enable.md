@@ -20,7 +20,7 @@ ms.author: vvasic
 ---
 # Enable Automatic tuning
 
-Azure SQL Database is an automatically managed data service that constantly monitors your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendation and manually apply them, or let Azure SQL Database automatically apply corrective actions, which is known as **automatic tuning mode**. Automatic tuning can be enabled at the server or the database level.
+Azure SQL Database is an automatically managed data service that constantly monitors your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendations and manually apply them, or let Azure SQL Database automatically apply corrective actions - this is known as **automatic tuning mode**. Automatic tuning can be enabled at the server or the database level.
 
 ## Enable automatic tuning on server
 
@@ -28,7 +28,7 @@ To enable automatic tuning on Azure SQL Database server, navigate to the server 
 
 ![Server](./media/sql-database-enable-automatic-tuning/server.png)
 
-Automatic tuning options on server are applied ti all databases on the server. By default, all databases inherit the configuration from their parent server, but this can be overridden and specified for each database individually.
+Automatic tuning options on server are applied to all databases on the server. By default, all databases inherit the configuration from their parent server, but this can be overridden and specified for each database individually.
 
 ## Configure Automatic tuning on database
 
@@ -42,7 +42,7 @@ To enable automatic tuning on a single database, navigate to the database in the
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
-Once you have selected appropriate configuration click on apply button.
+Once you have selected appropriate configuration, click *Apply*.
 
 ## Next steps
 * Read [Automatic tuning article](sql-database-automatic-tuning.md) to learn more about automatic tuning and how it can help you improve your performance
