@@ -5,10 +5,7 @@
 ## [SDKs and tools](../index.md#pivot=sdkstools)
 
 # Quickstart
-## Web hosting and mobile
-### [Web Apps](../app-service-web/web-sites-dotnet-get-started.md)
-### [Mobile Apps](../app-service-mobile/app-service-mobile-ios-get-started.md)
-### [API Apps](../app-service-api/app-service-api-dotnet-get-started.md)
+## [Web Apps](../app-service-web/web-sites-dotnet-get-started.md)
 ## Virtual machines
 ### [Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md)
 ### [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
