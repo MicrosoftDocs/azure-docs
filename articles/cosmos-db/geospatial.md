@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Working with geospatial and GeoJSON location data in Azure Cosmos DB
-This article is an introduction to the geospatial functionality in [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
+This article is an introduction to the geospatial functionality in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). After reading this, you will be able to answer the following questions:
 
 * How do I store spatial data in Azure Cosmos DB?
 * How can I query geospatial data in Azure Cosmos DB in SQL and LINQ?
