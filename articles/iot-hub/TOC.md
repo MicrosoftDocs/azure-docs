@@ -30,13 +30,14 @@
 
 ### [Use an online device simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
-## [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-## [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-## [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-## [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
-## [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
-## [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
-## [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## Extended IoT scenarios
+### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
+### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
+### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # How To
 ## Plan
@@ -122,7 +123,8 @@
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
-## IoT Edge
+## Azure IoT Edge
+### [Overview](iot-hub-iot-edge-overview.md)
 ### Get started
 #### [Linux](iot-hub-linux-iot-edge-get-started.md)
 #### [Windows](iot-hub-windows-iot-edge-get-started.md)
@@ -130,6 +132,19 @@
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Use a real device](iot-hub-iot-edge-physical-device.md)
+### Create a module
+#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
+#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+### Build
+#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
+#### [.NET Core module](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
+#### [.NET Core managed gateway](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
+#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
+#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
+#### [Add module dynamically](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
+#### [Out-of-process proxy module](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
+#### [Native module host](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Reference
 ## [Azure CLI](/cli/azure/iot)
