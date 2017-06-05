@@ -144,7 +144,7 @@ To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
 [http-requestdoc]: ./connectors-native-reqres.md "Add actions for HTTP requests and responses to your logic apps"
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "Make HTTP calls with HTTP + Swagger connector"
 [informixdoc]: ./connectors-create-api-informix.md "Connect to Informix in the cloud or on-premises. Read a row, list the tables, and more"
-[mqdoc]: ./connectors-create-api-mq.md "Connect to IBM Websphere MQ Servers in the cloud or on-premises"
+[mqdoc]: ./connectors-create-api-mq.md "Connect to an IBM Websphere MQ Server in the cloud or on-premises"
 [nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
 [office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account. Send and receive emails, manage your calendar and contacts, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database to add, insert, delete rows, and more"
