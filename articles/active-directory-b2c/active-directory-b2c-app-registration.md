@@ -73,7 +73,7 @@ You can also access the blade by clicking **More services** and then searching *
 2. Click **+Add** at the top of the blade.
 3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso B2C app".
 4. Toggle the **Include native client** switch to **Yes**.
-5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#choosing-a-redirect-uri).
+5. Enter a **Redirect URI** with a custom scheme. For example, com.onmicrosoft.contoso.appname://redirect/path. Make sure you choose a [good redirect URI](#choosing-a-redirect-uri). Remove any characters like underscores if they exist in the app name.
 6. Click **Save** to register your application.
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 8. If your native application will also be calling a web API secured by Azure AD B2C, you'll want to:
