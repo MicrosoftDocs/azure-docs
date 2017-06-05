@@ -68,26 +68,24 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
    - In the right pane, select **Spark on HDInsight (Scala)**.
    
     ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
-2. The Scala project creation wizard detects automatically whether you installed Scala plugin or not. Touch the bellow **click** to choose scala plugin.
+2. The Scala project creation wizard auto detects whether you installed Scala plugin or not. Click the **CLICK** link to install Scala plugin.
 
     ![scala check](./media/hdinsight-apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
-3. Click **OK** to download it. Then remember to restart IntelliJ.
+3. Click **OK** to download the Scala plugin. Follow the instructions to restart IntelliJ. 
 
    ![Scala installation](./media/hdinsight-apache-spark-intellij-tool-plugin/Choose-Scala-Plugin.PNG)
 
-4. In the next window, provide the following project details, and then click **Finish**.
-   
-   - Provide a project name and project location.
-   - For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
-   - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
-        
-       ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-new-project.PNG)
+4. In the next window, provide the following project details, and then click **Finish**.  
+- Provide a project name and project location.
+- For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
+- For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
+![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-new-project.png)
+
 5. The Spark project automatically creates an artifact for you. To see the artifact, follow these steps:
-   
+
    1. On the **File** menu, click **Project Structure**.
    2. In the **Project Structure** dialog box, click **Artifacts** to see the default artifact that is created. You can also create your own artifact by clicking the **+** icon.
-      
-       ![Artifact info in the dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
+             ![Artifact info in the dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
       
 6. Add your application source code.
    
@@ -124,11 +122,10 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
        ![Selecting Submit Spark Application to HDInsight](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
    2. You are prompted to enter your Azure subscription credentials. In the **Spark Submission** dialog box, provide the following values, and then click **Submit**.
       
-      * For **Spark clusters (Linux only)**, select the HDInsight Spark cluster on which you want to run your application.
-      * Select an artifact from the IntelliJ project, or select one from the hard drive.
-      * In the **Main class name** box, click the ellipsis (![ellipsis](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png)), select the main class in your application source code, and then click **OK**.
-        
-          ![Select Main Class dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
+      - For **Spark clusters (Linux only)**, select the HDInsight Spark cluster on which you want to run your application.
+      - Select an artifact from the IntelliJ project, or select one from the hard drive.
+      - In the **Main class name** box, click the ellipsis (![ellipsis](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png)), select the main class in your application source code, and then click **OK**.
+      ![Select Main Class dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
       * Because the application code in this example does not require any command-line arguments or reference JARs or files, you can leave the remaining boxes empty.
         After you provide all the inputs, the dialog box should resemble the following image.
         
