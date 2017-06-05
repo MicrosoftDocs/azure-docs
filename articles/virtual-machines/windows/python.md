@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/05/2017
 ms.author: davidmu
 ---
 
 # Create a Windows VM in Azure using Python
 
-An [Azure Virtual Machine](virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. In the steps in this article, you add code to create of each resource one at a time. Because it is important to manage costs in Azure, you have the opportunity at the end of running the application to delete all the resources that you created.
+An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. In the steps in this article, you add code to create of each resource one at a time. Because it is important to manage costs in Azure, you have the opportunity at the end of running the application to delete all the resources that you created.
 
 This article shows you how to create the resources using the Azure Python SDK. It's assumed that you know some basic aspects of the [Python programming language](http://python.org).
 
@@ -42,7 +42,7 @@ You should see in the output windows that the azure packages were successfully i
 
 ## Step 3: Add code to create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and collect the application ID, the authentication key, and the tenant ID for use in your application code.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you will use later in your application code.
 
 1. Open *myPythonProject.py* file that was created, and then add this code to enable your application to run:
 
@@ -82,7 +82,7 @@ Before you start this step, make sure that you have access to an [Active Directo
         return credentials
     ```
 
-    Replace **applicattion-id**, **authentication-key**, and **tenant-id** with the values that you previously collected when you created your Azure Active Directory service principal.
+    Replace **application-id**, **authentication-key**, and **tenant-id** with the values that you previously collected when you created your Azure Active Directory service principal.
 
 5. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
 
@@ -113,7 +113,7 @@ Management clients are needed to create and manage resources using the Python SD
 
 ### Create the VM and supporting resources
 
-All resources must be contained in a [Resource group](../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
 
 1. To create a resource group, add this function after the variables in the .py file:
 
@@ -161,7 +161,7 @@ All resources must be contained in a [Resource group](../azure-resource-manager/
     input('Availability set created. Press enter to continue...')
     ```
 
-A [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
+A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
 
 1. To create a public IP address for the virtual machine, add this function after the variables in the .py file:
 
@@ -189,7 +189,7 @@ A [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-a
     input('Press enter to continue...')
     ```
 
-A virtual machine must be in a subnet of a [Virtual network](../virtual-network/virtual-networks-overview.md).
+A virtual machine must be in a subnet of a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 1. To create a virtual network, add this function after the variables in the .py file:
 
@@ -338,7 +338,7 @@ Now that you created all the supporting resources, you can create a virtual mach
     ```
 
     > [!NOTE]
-    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -379,7 +379,7 @@ Because you are charged for resources used in Azure, it's always a good practice
 
 ## Next Steps
 
-- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
-- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
-- Take advantage of using a template to create a virtual machine by using the information in [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md)
+- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../resource-manager-troubleshoot-deployments-portal.md)
+- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md).
+- Take advantage of using a template to create a virtual machine by using the information in [Create a Windows virtual machine with a Resource Manager template](ps-template.md)
 

@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 06/05/2017
 ms.author: davidmu
 
 ---
 # Create a Windows VM in Azure using C# #
 
-An [Azure Virtual Machine](virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. In this article, you add code to create of each resource. Because it is important to manage costs in Azure, you have the opportunity at the end of running the application to delete all the resources that you created.
+An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. In this article, you add code to create of each resource. Because it is important to manage costs in Azure, you have the opportunity at the end of running the application to delete all the resources that you created.
 
 It takes about 20 minutes to do these steps.
 
@@ -44,7 +44,7 @@ Now you're ready to start using the libraries to create your application.
 
 ## Step 3: Add code to create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md). and collect the application ID, the authentication key, and the tenant ID for use in your application code.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you will use later in your application code.
 
 1. Open the Program.cs file that was created, and then add these using statements to the existing statements at the top of the file:
    
@@ -112,7 +112,7 @@ Management clients are needed to create and manage resources using the .NET SDK 
 
 ### Create the VM and supporting resources
 
-All resources must be contained in a [Resource group](../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
 
 1. To create the resource group, add this method to the Program class:
    
@@ -176,7 +176,7 @@ All resources must be contained in a [Resource group](../azure-resource-manager/
     Console.ReadLine();
     ```
 
-A [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
+A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
 
 1. To create the public IP address for the virtual machine, add this method to the Program class:
    
@@ -211,7 +211,7 @@ A [Public IP address](../virtual-network/virtual-network-ip-addresses-overview-a
     Console.ReadLine();
     ```
 
-A virtual machine must be in a subnet of a [Virtual network](../virtual-network/virtual-networks-overview.md).
+A virtual machine must be in a subnet of a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 1. To create a subnet and a virtual network, add this method to the Program class:
 
