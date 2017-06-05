@@ -56,6 +56,7 @@ az account set --subscription {your subscription id}
 ```azurecli-interactive
 az mysql server list --resource-group myResourceGroup
 ```
+
 Note the name attribute in the listing, which will be used to specify which MySQL server to work on. If needed, confirm the details for that server to using the name attribute to confirm name is correct:
 ```azurecli-interactive
 az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
@@ -109,4 +110,3 @@ Upon success, there is no output. Upon failure, the error message text will be r
 ## Next steps
 - Understand more about [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md)
 - [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
-- 
