@@ -37,10 +37,6 @@ Your organization may be subject to regulatory or other compliance requirements,
 
 We have done our best to account for a wide variety of organizational protection requirements. But, we cannot account for all possible requirements or for all the unique aspects of your organization. Use this document as a guide for how Microsoft and the secure productive enterprise team is thinking about how to correctly apply policy in your organization. 
 
->[!NOTE]
->For an overview of the core concepts necessary to understand the protection capabilities described in these recommendations, see [EMS and Office 365 Service Descriptions].
->
-
 ## Core concepts
 
 All the security measures in the world do not matter when users who experience unnecessary friction when trying to get their work done bypass your organizational security policies. Azure AD single-sign on (SSO) attempts to minimize the burden on users. This way users can remain productive while still conforming to the access control policies of the organization. 
@@ -107,7 +103,7 @@ Different authorities may have a slightly different interpretation of MFA, or st
 
 The combination of requiring a physical smartcard and the requirement to enter a PIN (secret) to use smartcard can be interpreted as MFA. Yet some others may choose to be more lenient in terms of how often more onerous authentication methods are required to be performed. So it considers normal authentications, that take place between stronger authentications, to be valid for resources that typically require strong authentication. For example, in some organizations it may be acceptable to require a user to do MFA every few hours or days. The time depends on the sensitivity of resources they are protecting and as long as the physical location of the user attempting to access a resource, does not change.
 
-Azure AD and ADFS use the MFA claim to indicate whether the authentication is performed with MFA. By default, Azure AD issues tokens with MFA claim when authentication is done with [Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud) or [Windows Hello for Business](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/hello-identity-verification). In federation scenario, Azure AD honors the MFA claim from federated identity providers such as ADFS and carries over the MFA claim in the tokens. 
+Azure AD and ADFS use the MFA claim to indicate whether the authentication is performed with MFA. By default, Azure AD issues tokens with MFA claim when authentication is done with [Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud) or [Windows Hello for Business](https://docs.microsoft.com/en-us/windows/access-protection/hello-for-business/hello-identity-verification). In federation scenario, Azure AD honors the MFA claim from federated identity providers such as ADFS and carries over the MFA claim in the tokens. 
 
 ### Security guidelines
 
@@ -134,5 +130,5 @@ Policy recommendations consider the privileges associated with an account. [Offi
 
 Use Azure AD Privileged Identity Management to reduce the number of persistent administrative accounts. In addition, we recommend that Office 365 administrators have a separate user account for regular non-administrative use. They only apply their administrative account when necessary to complete a task associated with their job function.
 
-## Next Steps
-[Recommended policies]
+## Next steps
+[Azure Active Directory Identity Protection](active-directory-identityprotection.md)
