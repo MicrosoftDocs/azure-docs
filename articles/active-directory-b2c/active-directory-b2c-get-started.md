@@ -28,7 +28,7 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
 ## Create an Azure AD B2C tenant
 
 > [!IMPORTANT]
-> B2C features can't be enabled in your existing tenants. You need to create a new Azure AD B2C tenant.
+> B2C features can't be enabled in your existing tenants. You need to create an Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. This account is the same you used to sign up for Azure.
 2. Click the **New** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
@@ -42,9 +42,9 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
 6. Enter an **Organization name, Domain name, and Country or Region** for your tenant.
 
    ![Screen shot of the form for creating a new tenant](./media/active-directory-b2c-get-started/create-new-b2c-tenant.png)
-7. Click the **Create** button to create your tenant. Creating the new tenant may take a few minutes. You are alerted in your notifications when it is complete.
+7. Click the **Create** button to create your tenant. Creating the tenant may take a few minutes. You are alerted in your notifications when it is complete.
 
-8. Congratulations, you have created a Azure Active Directory B2C tenant. To switch to your new tenant, click the *manage your new tenant link* in the blade.
+8. Congratulations, you have created an Azure Active Directory B2C tenant. To switch to your new tenant, click the *manage your new tenant link* in the blade.
 
    ![Manage your new tenant link](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 
@@ -52,7 +52,7 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
    > You are a Global Administrator of the tenant. You can add other Global Administrators as required.
    
    > [!IMPORTANT]
-   > If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-type.md). There are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You must create a B2C tenant with a different domain name.
+   > If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-type.md). There are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You need to create a B2C tenant with a different domain name.
    >
    >
 
@@ -75,7 +75,7 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
 
 ## Link your Azure AD B2C tenant to your Azure subscription
 
-If you are planning to use your B2C tenant for production apps, you need to link your Azure AD B2C tenant to your Azure subscription to pay for usage charges. Read [this article](active-directory-b2c-how-to-enable-billing.md) to learn more.
+If you are planning to use your B2C tenant for production apps, you need to link your Azure AD B2C tenant to your Azure subscription to pay for usage charges. To learn more, read [this article](active-directory-b2c-how-to-enable-billing.md).
 
    > [!IMPORTANT]
    > If you don't link your Azure AD B2C tenant to your Azure subscription, you see a warning message ("No Subscription linked to this B2C tenant or the Subscription needs your attention.") on the B2C features blade on the Azure portal. It is important that you take this step before you ship your apps into production.
