@@ -53,14 +53,16 @@ While the application is somewhat complete and compelling as a sample applicatio
 ## Download the Wingtip SaaS scripts
 
 1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
-1. Click **Clone or download**.
-1. Click **Download ZIP** and save the file.
+2. Click **Clone or download**.
+3. Click **Download ZIP** and save the file.
+
 > [!IMPORTANT]
-> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run:
-1. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
-1. Select **Unblock**, and click **Apply**.
-1. Click **OK**.
-1. You can now extract the files.
+> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run.
+
+4. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
+5. Select **Unblock**, and click **Apply**.
+6. Click **OK**.
+7. You can now extract the files.
 
 Scripts are located in the *...\\WingtipSaaS-master\\Learning Modules* folder.
 
