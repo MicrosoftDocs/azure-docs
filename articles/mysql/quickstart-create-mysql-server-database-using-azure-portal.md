@@ -12,6 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
+ms.custom: mvc
 ---
 
 # Create an Azure Database for MySQL server using Azure portal
