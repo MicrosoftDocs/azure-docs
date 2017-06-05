@@ -6,7 +6,7 @@ A deployment user is required for FTP and local Git deployment to a web app. The
 
 In the following command, replace *\<user-name>* and *\<password>* with a new user name and password.
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
