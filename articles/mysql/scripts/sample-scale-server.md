@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.custom: mvc
 ms.date: 05/31/2017
 ---

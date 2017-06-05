@@ -99,6 +99,6 @@ Finally, we pass in the `subnetId` parameter set by the user (instead of using `
 
 
 
-## Next Steps
+## Next steps
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
