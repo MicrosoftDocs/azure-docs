@@ -41,63 +41,63 @@ Service Map gets its data from the Microsoft Dependency Agent. The Dependency Ag
 
 Service Map supports only 64-bit platforms.
 
-On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Operations Management Suite to gather and send monitoring data. (This agent is called the SCOM Agent, Operations Management Suite Agent, Log Analytics Agent, MMA, or Direct Agent, depending on context.) System Center Operations Manager and Operations Management Suite provide different out of the box versions of MMA, but these versions can each report to System Center Operations Manager, to Operations Management Suite, or to both.  
+On Windows, the Microsoft Monitoring Agent is used by both System Center Operations Manager and Operations Management Suite to gather and send monitoring data. (This agent is called the System Center Operations Manager Agent, Operations Management Suite Agent, Log Analytics Agent, Microsoft Monitoring Agent, or Direct Agent, depending on the context.) System Center Operations Manager and Operations Management Suite provide different out-of-the box versions of the Microsoft Monitoring Agent, but these versions can each report to System Center Operations Manager, to Operations Management Suite, or to both.  
 
-On Linux, the Operations Management Suite Agent for Linux gathers and sends monitoring data to Operations Management Suite. You can use Service Map on servers with Operations Management Suite Direct Agents or on servers that are attached to Operations Management Suite via System Center Operations Manager Management Groups.  
+On Linux, the Operations Management Suite Agent for Linux gathers and sends monitoring data to Operations Management Suite. You can use Service Map on servers with Operations Management Suite Direct Agents or on servers that are attached to Operations Management Suite via System Center Operations Manager management groups.  
 
-In this documentation, we will refer to all agents – whether Linux or Windows, whether connected to a System Center Operations Manager MG or directly to Operations Management Suite – as the "Operations Management Suite Agent", unless the specific deployment name of the agent is needed for context.
+In this article, we'll refer to all agents--whether Linux or Windows, whether connected to a System Center Operations Manager management group or directly to Operations Management Suite--as the "Operations Management Suite Agent." We'll use the specific deployment name of the agent only if it's needed for context.
 
-The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. Service Map’s data is always transmitted by the Operations Management Suite Agent to Operations Management Suite, either directly or via the Operations Management Suite Gateway.
+The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Service Map is always transmitted by the Operations Management Suite Agent to Operations Management Suite, either directly or via the Operations Management Suite Gateway.
 
 ![Service Map agents](media/oms-service-map/agents.png)
 
-If you are a System Center Operations Manager customer with a Management Group connected to Operations Management Suite:
+If you are a System Center Operations Manager customer with a management group connected to Operations Management Suite:
 
-- If your System Center Operations Manager agents can access the internet to connect to Operations Management Suite, no additional configuration is required.  
-- If your System Center Operations Manager agents cannot access Operations Management Suite over the internet, you need to configure the Operations Management Suite Gateway to work with System Center Operations Manager.
+- If your System Center Operations Manager agents can access the Internet to connect to Operations Management Suite, no additional configuration is required.  
+- If your System Center Operations Manager agents cannot access Operations Management Suite over the Internet, you need to configure the Operations Management Suite Gateway to work with System Center Operations Manager.
   
-If you are using the Operations Management Suite Direct Agent, you need to configure the Operations Management Suite Agent itself to connect to Operations Management Suite or to your Operations Management Suite Gateway. The Operations Management Suite Gateway can be downloaded from [https://www.microsoft.com/download/details.aspx?id=52666](https://www.microsoft.com/download/details.aspx?id=52666).
+If you are using the Operations Management Suite Direct Agent, you need to configure the Operations Management Suite Agent itself to connect to Operations Management Suite or to your Operations Management Suite Gateway. The Operations Management Suite Gateway can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### Management packs
-When Service Map is activated in an Operations Management Suite workspace, a 300KB Management Pack is sent to all the Windows servers in that workspace. If you are using System Center Operations Manager agents in a [connected management group](../log-analytics/log-analytics-om-agents.md), the Service Map Management Pack will be deployed from System Center Operations Manager. If the agents are directly connected, the MP will be delivered by Operations Management Suite.
+When Service Map is activated in an Operations Management Suite workspace, a 300-KB management pack is sent to all the Windows servers in that workspace. If you are using System Center Operations Manager agents in a [connected management group](../log-analytics/log-analytics-om-agents.md), the Service Map management pack is deployed from System Center Operations Manager. If the agents are directly connected, Operations Management Suite delivers the management pack.
 
-The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. It is written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*. The data source used by the management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*.
+The management pack is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor. It's written to %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. The data source that the management pack uses is %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## Installation
-### Installing the Dependency Agent on Microsoft Windows
+### Install the Dependency Agent on Microsoft Windows
 Administrator privileges are required to install or uninstall the agent.
 
-The Dependency Agent is installed on Windows computers with InstallDependencyAgent-Windows.exe. If you run this executable without any options, then it will start a wizard that you can follow to install interactively.  
+The Dependency Agent is installed on Windows computers through InstallDependencyAgent-Windows.exe. If you run this executable file without any options, it starts a wizard that you can follow to install interactively.  
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Ensure that the Operations Management Suite Agent is installed using the instructions at Connect computers directly to Operations Management Suite.
-2.	Download the Windows agent and run it with the following command: <br>*InstallDependencyAgent-Windows.exe*
+1.	Install Operations Management Suite Agent by using the instructions at Connect computers directly to Operations Management Suite.
+2.	Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
 3.	Follow the wizard to install the agent.
-4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is *%Programfiles%\Microsoft Dependency Agent\logs*. 
+4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
 
 #### Windows command line
-Use options from the following table to install from a command line. To see a list of the installation flags run the installer with the /? flag as follows.
+Use options from the following table to install from a command line. To see a list of the installation flag, run the installer by using the /? flag as follows.
 
 	InstallDependencyAgent-Windows.exe /?
 
 | Flag | Description |
 |:--|:--|
-| /? | Get a list of the command line options. |
+| /? | Get a list of the command-line options. |
 | /S | Perform a silent installation with no user prompts. |
 
-Files for the Windows Dependency Agent are placed in *C:\Program Files\Microsoft Dependency Agent* by default.
+Files for the Windows Dependency Agent are placed in C:\Program Files\Microsoft Dependency Agent by default.
 
-### Installing the Dependency Agent on Linux
+### Install the Dependency Agent on Linux
 Root access is required to install or configure the agent.
 
-The Dependency Agent is installed on Linux computers with InstallDependencyAgent-Linux64.bin, a shell script with a self-extracting binary. You can run the file with sh or add execute permissions to the file itself.
+The Dependency Agent is installed on Linux computers through InstallDependencyAgent-Linux64.bin, a shell script with a self-extracting binary. You can run the file by using sh or add execute permissions to the file itself.
  
 Use the following steps to install the Dependency Agent on each Linux computer:
 
-1.	Ensure that the Operations Management Suite Agent is installed using the instructions at [Collect and manage data from Linux computers. The Operations Management Suite Agent needs to be installed before the Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
-2.	Install the Linux Dependency agent as root by using the following command:<br>*sh InstallDependencyAgent-Linux64.bin*.
-3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
+1.	Install the Operations Management Suite Agent by using the instructions at [Collect and manage data from Linux computers](https://technet.microsoft.com/library/mt622052.aspx).
+2.	Install the Linux Dependency agent as root by using the following command:<br>`sh InstallDependencyAgent-Linux64.bin`
+3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is /var/opt/microsoft/dependency-agent/log.
 
 To see a list of the installation flags, run the installation program with the -help flag as follows.
 
@@ -105,9 +105,9 @@ To see a list of the installation flags, run the installation program with the -
 
 | Flag | Description |
 |:--|:--|
-| -help | Get a list of the command line options. |
+| -help | Get a list of the command-line options. |
 | -s | Perform a silent installation with no user prompts. |
-| --check | Checks permissions and operating system but does not install the agent. |
+| --check | Check permissions and operating system but do not install the agent. |
 
 Files for the Dependency Agent are placed in the following directories:
 
@@ -116,13 +116,13 @@ Files for the Dependency Agent are placed in the following directories:
 | Core files | /opt/microsoft/dependency-agent |
 | Log files | /var/opt/microsoft/dependency-agent/log |
 | Config files | /etc/opt/microsoft/dependency-agent/config |
-| Service executables | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Service executable files | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
 
 ## Installation script examples
 To easily deploy the Dependency Agent on many servers at once, it helps to use a script. You can use the following script examples to download and install the Dependency Agent on either Windows or Linux.
 
-### Powershell script for Windows
+### PowerShell script for Windows
 ```PowerShell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
@@ -168,61 +168,61 @@ Node $NodeName
 ```
 
 ## Uninstallation
-### Uninstalling the Dependency Agent on Windows
-The Dependency Agent for Windows can be uninstalled by an administrator through Control Panel.
+### Uninstall the Dependency Agent on Windows
+An administrator can uninstall the Dependency Agent for Windows through Control Panel.
 
-An administrator can also run *%Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency Agent.
+An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency Agent.
 
-### Uninstalling the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the Connector, which is installed automatically with the agent. You can uninstall both with the following single command:
+### Uninstall the Dependency Agent on Linux
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
 
 	rpm -e dependency-agent dependency-agent-connector
 
 ## Troubleshooting
-If you run into any problems installing or running Service Map, this section can help you get up and running. If you still can't resolve your issue, please contact Microsoft Support.
+If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
 
-### Dependency Agent installation issues
+### Dependency Agent installation problems
 #### Installer asks for a reboot
-The Dependency Agent *generally* does not require a reboot upon installation or uninstallation. However, in certain rare cases, Windows Server will require a reboot to continue with an installation. This happens when a dependency, usually the Microsoft VC++ Redistributables, requires a reboot due to a locked file.
+The Dependency Agent *generally* does not require a reboot upon installation or uninstallation. However, in certain rare cases, Windows Server requires a reboot to continue with an installation. This happens when a dependency, usually the Microsoft Visual C++ Redistributable, requires a reboot because of a locked file.
 
-#### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = [code_number])."
+#### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = [code_number])" appears
 
-The Microsoft Dependency Agent is built upon the Microsoft Visual Studio Runtime Libraries. An issue was encountered while trying to install the libraries. The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file will be dd_vcredist_arch_yyyymmddhhmmss.log, where arch will be "x86" or "amd64" and yyyymmddhhmmss will be the date and time (24-hour clock) when the log was created. The log will provide details about the issue blocking installation.
+The Microsoft Dependency Agent is built on the Microsoft Visual Studio runtime libraries. You'll get a message if there's a problem during installation of the libraries. 
+
+The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file is dd_vcredist_arch_yyyymmddhhmmss.log, where *arch* is "x86" or "amd64" and *yyyymmddhhmmss* is the date and time (24-hour clock) when the log was created. The log provides details about the problem that's blocking installation.
 
 It might be useful to install the [latest runtime libraries](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) yourself first.
 
-Below are some code_numbers and suggested resolutions.
+The following table lists code numbers and suggested resolutions.
 
 | Code | Description | Resolution |
 |:--|:--|:--|
-| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log (see above).<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package.", then you do not have the necessary prerequisites installed to install KB2999226.  Follow the instructions in the prerequisites section in https://support.microsoft.com/kb/2999226.  Note that you may need to run Windows Update and reboot multiple times in order to install the necessary prerequisites.<br><br>Run the Microsoft Dependency Agent installer again. |
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log.<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package," you don't have the necessary prerequisites installed to install KB2999226. Follow the instructions in the prerequisites section in [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226). Note that you might need to run Windows Update and reboot multiple times in order to install the necessary prerequisites.<br><br>Run the Microsoft Dependency Agent installer again. |
 
-### Post-Installation issues
-#### Server doesn't show in Service Map
+### Post-installation issues
+#### Server doesn't appear in Service Map
 If your Dependency Agent installation succeeded, but you don't see your server in the Service Map solution:
-1. Is the Dependency Agent installed successfully? You can validate this by checking to see if the service is installed and running.<br><br>
-**Windows**: Look for the Service named "Microsoft Dependency Agent."<br>
+* Is the Dependency Agent installed successfully? You can validate this by checking to see if the service is installed and running.<br><br>
+**Windows**: Look for the service named "Microsoft Dependency Agent."<br>
 **Linux**: Look for the running process "microsoft-dependency-agent."
 
-2. Are you on the [Free Pricing Tier of Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? The Free plan allows for up to five unique Service Map servers. Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
+* Are you on the [Free pricing tier of Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? The Free plan allows for up to five unique Service Map servers. Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
 
-3. Is your server sending log and perf data to Operations Management Suite? Go to Log Search and run the following query for your computer: 
+* Is your server sending log and perf data to Operations Management Suite? Go to Log Search and run the following query for your computer: 
 
 		* Computer="<your computer name here>" | measure count() by Type
 		
-Did you get a variety of events in the results? Is the data recent? If so, your Operations Management Suite Agent is operating correctly and communicating to the Operations Management Suite service. If not, check the Operations Management Suite Agent on your server: [Operations Management Suite Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) or [Operations Management Suite Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Did you get a variety of events in the results? Is the data recent? If so, your Operations Management Suite Agent is operating correctly and communicating with the Operations Management Suite service. If not, check the Operations Management Suite Agent on your server: [Operations Management Suite Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) or [Operations Management Suite Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
-#### Server shows in Service Map, but has no processes
-If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load. To find out why your driver didn't load, check the wrapper.log file (Windows) or service.log file (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
+#### Server appears in Service Map but has no processes
+If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load. 
 
-Windows: C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log
-
-Linux: /var/opt/microsoft/dependency-agent/log/service.log
+Check the C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file (Windows) or /var/opt/microsoft/dependency-agent/log/service.log file (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 
 ## Data collection
-You can expect each agent to transmit roughly 25 MB per day, depending on how complex your system dependencies are. Service Map dependency data is sent by each agent every 15 seconds.  
+You can expect each agent to transmit roughly 25 MB per day, depending on how complex your system dependencies are. Each agent sends Service Map dependency data every 15 seconds.  
 
-The Dependency Agent typically consumes 0.1% of system memory and 0.1% of system CPU.
+The Dependency Agent typically consumes 0.1 percent of system memory and 0.1 percent of system CPU.
 
 ## Supported Azure regions
 Service Map is currently available in the following Azure regions:
@@ -248,10 +248,10 @@ The following sections list the supported operating systems for the Dependency A
 
 ### Red Hat Enterprise Linux, CentOS Linux, and Oracle Linux (with RHEL Kernel)
 - Only default and SMP Linux kernel releases are supported.
-- Non-standard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
-- Custom kernels, including recompiles of standard kernels, are not supported
-- Centos Plus kernel is not supported.
-- Oracle Unbreakable Kernel (UEK) is covered in a different section below.
+- Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
+- Custom kernels, including recompiles of standard kernels, are not supported.
+- CentOSPlus kernel is not supported.
+- Oracle Unbreakable Enterprise Kernel (UEK) is covered in a later section of this article.
 
 
 #### Red Hat Linux 7
@@ -283,7 +283,7 @@ The following sections list the supported operating systems for the Dependency A
 | 5.10 | 2.6.18-371 |
 | 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
 
-#### Oracle Enterprise Linux w/ Unbreakable Kernel (UEK)
+#### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
 
 #### Oracle Linux 6
 | OS version | Kernel version
@@ -320,7 +320,7 @@ The following sections list the supported operating systems for the Dependency A
 | 10 SP4 | 2.6.16.60 |
 
 ## Diagnostic and usage data
-Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security, and integrity of the Service Map service. Data includes information about the configuration of your software, like operating system and version. It also includes IP address, DNS name, and workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
+Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this data to provide and improve the quality, security, and integrity of the Service Map service. Data includes information about the configuration of your software, like operating system and version. It also includes IP address, DNS name, and workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
 
 For more information on data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
