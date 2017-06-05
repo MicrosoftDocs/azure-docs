@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 06/05/2017
 ms.author: magoedte
 
 ---
@@ -46,10 +46,10 @@ You can deploy and install software updates on computers that require the update
 At the date and time specified in the update deployment, the target computers executes the deployment in parallel.  A scan is first performed to verify the updates are still required and installs them.  It is important to note for WSUS client computers, if the updates are not approved in WSUS, the update deployment will fail.  The results of the applied updates are forwarded to OMS to be processed and summarized in the dashboards or by the searching the events.     
 
 ## Prerequisites
-* The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2008 R2 and higher.  Server Core and Nano Server installation options are not supported.
+* The solution supports performing update assessments against Windows Server 2008 and higher, and update deployments against Windows Server 2008 R2 SP1 and higher.  Server Core and Nano Server installation options are not supported.
 
     > [!NOTE]
-    > Support for deploying updates to Windows Server 2008 R2 requires .NET Framework 4.5 and WMF 5.0 or later.
+    > Support for deploying updates to Windows Server 2008 R2 SP1 requires .NET Framework 4.5 and WMF 5.0 or later.
     >  
 * Windows client operating systems are not supported.  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
@@ -61,6 +61,9 @@ At the date and time specified in the update deployment, the target computers ex
 * Red Hat Enterprise 6 (x86/x64), and 7 (x64)
 * SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)
 * Ubuntu 12.04 LTS and newer x86/x64  
+    > [!NOTE]  
+    > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure  Unattended-Upgrade package to disable automatic updates. For information on how to configure this, see [Automatic Updates](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
 * Linux agents must have access to an update repository.  
 
     > [!NOTE]
