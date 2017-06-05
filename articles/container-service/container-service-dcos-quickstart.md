@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 06/05/2017
 ms.author: nepeters
 ---
 
 # Azure Container Service Quickstart - Deploy DC/OS Cluster
 
-DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details basic steps needed to deploy a DC/OS cluster and run basic workload.
+DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -75,13 +75,17 @@ To create the SSH tunnel, run the following command and follow the on-screen ins
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-The SSH tunnel can be tested by browsing to `http://localhost`. If a port other that 80 has been used, adjust the location to match. If the SSH tunnel was successfully created, the DC/OS portal is returned.
+The SSH tunnel can be tested by browsing to `http://localhost`. If a port other that 80 has been used, adjust the location to match. 
+
+If the SSH tunnel was successfully created, the DC/OS portal is returned.
 
 ![DCOS UI](./media/container-service-dcos-quickstart/dcos-ui.png)
 
 ## Install DC/OS CLI
 
-Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
+The DC/OS command line interface is used to manage a DC/OS cluster from the command line. Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
+
+If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
 ```azurecli-interactive
 az acs dcos install-cli
@@ -95,7 +99,7 @@ dcos config set core.dcos_url http://localhost
 
 ## Run an application
 
-The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon is used to start an application and manage the state of the application on the DC/OS cluster. To schedule an application through Marathon, create a file named **marathon-app.json**, and copy the following contents into it. 
+The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon is used to start an application and manage the state of the application on the DC/OS cluster. To schedule an application through Marathon, create a file named *marathon-app.json*, and copy the following contents into it. 
 
 ```json
 {
