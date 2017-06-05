@@ -99,9 +99,7 @@ you sign in.
 3. Go to **Marketplace**, and then select **Networking**.
 4. Select **Virtual network**.
 5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values that appear earlier in the network configuration table.
-
-6. In
-   **Subscription**, the subscription that you created earlier appears.
+6. In **Subscription**, the subscription that you created earlier appears.
 7. For **Resource Group**, you can either create a resource group or if
    you already have one, select **Use existing**.
 8. Verify the default location.
@@ -115,14 +113,14 @@ you sign in.
    the virtual network, select **Gateway Subnet**.
    
     ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+
 4. By default, the subnet name is set to **GatewaySubnet**.
    Gateway subnets are special. To function properly, they must use the *GatewaySubnet* name.
 5. In **Address range**, verify that the address is **10.0.11.0/24**.
 6. Select **OK** to create the gateway subnet.
 
 ### Create the virtual network gateway
-1. In the Azure portal, select **New**.
-   
+1. In the Azure portal, select **New**. 
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of
    network resources, select **Virtual network gateway**.
@@ -209,7 +207,6 @@ you sign in.
 3. Go to **Marketplace**, and then select **Networking**.
 4. Select **Virtual network**.
 5. Use the information appearing earlier in the network configuration table to identify the values for the POC2 **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
-
 6. In **Subscription**, the subscription that you created earlier appears.
 7. For **Resource Group**, create a new resource group or, if you already have one, select **Use existing**.
 8. Verify the default **Location**.
@@ -228,8 +225,7 @@ you sign in.
 6. Select **OK** to create the gateway subnet.
 
 ### Create the virtual network gateway
-1. In the Azure portal, select **New**.
-   
+1. In the Azure portal, select **New**.  
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of network resources, select **Virtual network gateway**.
 4. In **Name**, enter **GW2**.
@@ -244,8 +240,7 @@ you sign in.
 
 ### Create the local network gateway resource
 
-1. In the POC2 user portal, select **New**.
-   
+1. In the POC2 user portal, select **New**. 
 4. Go to **Marketplace**, and then select **Networking**.
 5. From the list of resources, select **Local network gateway**.
 6. In **Name**, enter **POC1-GW**.
@@ -255,8 +250,7 @@ you sign in.
 9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
 
 ## Create the connection
-1. In the user portal, select **New**.
-   
+1. In the user portal, select **New**. 
 2. Go to **Marketplace**, and then select **Networking**.
 3. From the list of resources, select **Connection**.
 4. On the **Basic** settings blade, for the **Connection type**, choose **Site-to-site (IPSec)**.
