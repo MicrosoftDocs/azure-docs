@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 06/05/2017
 ms.author: mimig
 ---
 
@@ -25,7 +25,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 | |  |
 |---|---|
 |**Create Azure Cosmos DB account, database, and containers**||
-|[Create a Document, Graph, or Table API account](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB DocumentDB API account, database, and container. |
+|[Create a DocumentDB, Graph, or Table API account](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB API account, database, and container for use with the DocumentDB, Graph, or Table APIs. |
 | [Create a MongoDB API account](scripts/create-mongodb-database-account-cli.md) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
 |**Scale Azure Cosmos DB**||
 | [Scale container throughput](scripts/scale-collection-throughput-cli.md) | Changes the provisioned througput on a container.|
