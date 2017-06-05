@@ -13,9 +13,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 # Create a web app with continuous deployment from Visual Studio Team Services
 
@@ -26,9 +27,9 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## Create app sample
+## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

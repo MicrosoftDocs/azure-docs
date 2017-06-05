@@ -11,11 +11,12 @@ tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 
 # Create an ASP.NET Core web app in a Docker container from Azure Container Registry
@@ -24,9 +25,9 @@ In this scenario you will learn how to create a resource group, Linux app servic
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## Create app sample
+## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Linux Azure Container Registry")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Linux Azure Container Registry")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

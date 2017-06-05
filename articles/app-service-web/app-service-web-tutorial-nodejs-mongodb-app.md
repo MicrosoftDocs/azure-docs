@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Build a Node.js and MongoDB web app in Azure
 This tutorial shows you how to create a Node.js web app in Azure and connect it to a MongoDB database. When you are done, you will have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running on [Azure App Service Web Apps](app-service-web-overview.md). For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
@@ -216,7 +216,7 @@ db: {
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because [Cosmos DB requires SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> The `ssl=true` option is important because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -264,16 +264,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command. 
 
-> [!NOTE] 
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-> 
-> App Service plans define: 
-> 
-> * Region (North Europe, East US, Southeast Asia) 
-> * Instance Size (Small, Medium, Large) 
-> * Scale Count (one, two, or three instances, etc.) 
-> * SKU (Free, Shared, Basic, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
 

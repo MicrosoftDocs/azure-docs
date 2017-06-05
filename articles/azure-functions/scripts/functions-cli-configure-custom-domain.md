@@ -13,9 +13,10 @@ ms.service: functions
 ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/09/2017
+ms.topic: sample
+ms.date: 06/01/2017
 ms.author: glenga
+ms.custom: mvc
 ---
 # Map a custom domain to a function app
 
@@ -23,9 +24,13 @@ This sample script creates a function app with related resources, and then maps 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to a function app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to a function app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

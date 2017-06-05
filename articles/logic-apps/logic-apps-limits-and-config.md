@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: jehollan
+ms.author: LADocs; jehollan
 
 ---
 # Logic App limits and configuration
@@ -112,7 +112,8 @@ These are limits for artifacts added to integration Account
 |Schema|8MB|You can use [blob URI](logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB |
 |Map (XSLT file)|2MB| |
 |Runtime endpoint read calls per 5 minutes |60,000|Can distribute workload across multiple accounts as needed|
-|Runtime endpoint invoke calls per 5 minutes |90,000|Can distribute workload across multiple accounts as needed|
+|Runtime endpoint invoke calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
+|Runtime endpoint tracking calls per 5 minutes |45,000|Can distribute workload across multiple accounts as needed|
 |Runtime endpoint blocking concurrent calls |~1,000|Decrease number of concurrent requests or reduce the duration as needed|
 
 ### B2B protocols (AS2, X12, EDIFACT) message size

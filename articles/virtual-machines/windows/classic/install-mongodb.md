@@ -51,5 +51,3 @@ In this tutorial, you learned how to create a virtual machine running Windows Se
 [MongoDB]: http://www.mongodb.org/
 [AzurePortal]: https://portal.azure.com/
 
-<!-- Classic portal. Removed 03/07/2017 -->
-<!-- [AzurePortal]: http://manage.windowsazure.com  -->

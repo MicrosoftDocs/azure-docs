@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 
@@ -27,7 +27,7 @@ Learn how to use Apache Oozie to define a workflow and run the workflow on HDIns
 
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
-The workflow you will implement by following the instructions in this tutorial contains two actions:
+The workflow you implement by following the instructions in this tutorial contains two actions:
 
 ![Workflow diagram][img-workflow-diagram]
 
@@ -56,7 +56,7 @@ The workflow you will implement by following the instructions in this tutorial c
 > 
 
 ### Prerequisites
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following item:
 
 * **A workstation with Azure PowerShell**. 
   
@@ -65,7 +65,7 @@ Before you begin this tutorial, you must have the following:
   
 
 ## Define Oozie workflow and the related HiveQL script
-Oozie workflows definitions are written in hPDL (a XML Process Definition Language). The default workflow file name is *workflow.xml*. The following is the workflow file you will use in this tutorial.
+Oozie workflows definitions are written in hPDL (a XML Process Definition Language). The default workflow file name is *workflow.xml*. The following is the workflow file you use in this tutorial.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
@@ -124,13 +124,13 @@ Oozie workflows definitions are written in hPDL (a XML Process Definition Langua
 
 There are two actions defined in the workflow. The start-to action is *RunHiveScript*. If the action runs successfully, the next action is *RunSqoopExport*.
 
-The RunHiveScript has several variables. You will pass the values when you submit the Oozie job from your workstation by using Azure PowerShell.
+The RunHiveScript has several variables. You pass the values when you submit the Oozie job from your workstation by using Azure PowerShell.
 
 <table border = "1">
 <tr><th>Workflow variables</th><th>Description</th></tr>
 <tr><td>${jobTracker}</td><td>Specifies the URL of the Hadoop job tracker. Use <strong>jobtrackerhost:9010</strong> in HDInsight version 3.0 and 2.1.</td></tr>
 <tr><td>${nameNode}</td><td>Specifies the URL of the Hadoop name node. Use the default file system address, for example, <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Specifies the queue name that the job will be submitted to. Use the <strong>default</strong>.</td></tr>
+<tr><td>${queueName}</td><td>Specifies the queue name that the job is submitted to. Use the <strong>default</strong>.</td></tr>
 </table>
 
 <table border = "1">
@@ -143,7 +143,7 @@ The RunHiveScript has several variables. You will pass the values when you submi
 <table border = "1">
 <tr><th>Sqoop action variable</th><th>Description</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Specifies the Azure SQL database connection string.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Specifies the Azure SQL database table where the data will be exported to.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>Specifies the Azure SQL database table where the data is exported to.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Specifies the output folder for the Hive INSERT OVERWRITE statement. This is the same folder for the Sqoop export (export-dir).</td></tr>
 </table>
 
@@ -167,7 +167,7 @@ There are three variables used in the script:
 
 The workflow definition file (workflow.xml in this tutorial) passes these values to this HiveQL script at run time.
 
-Both the workflow file and the HiveQL file are stored in a blob container.  The PowerShell script you will use later in this tutorial will copy both files to the default Storage account. 
+Both the workflow file and the HiveQL file are stored in a blob container.  The PowerShell script you use later in this tutorial copies both files to the default Storage account. 
 
 ## Submit Oozie jobs using PowerShell
 Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).
@@ -577,7 +577,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
 
 **To re-run the tutorial**
 
-To re-run the workflow, you must delete the following:
+To re-run the workflow, you must delete the following items:
 
 * The Hive script output file
 * The data in the log4jLogsCount table

@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 05/24/2017
 ms.author: tomfitz
 
 ---
 # Deploy multiple instances of a resource or property in Azure Resource Manager templates
-This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
+This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple instances of a property on a resource.
+
+If you need to add logic to your template that enables you to specify whether a resource is deployed, see [Conditionally deploy resource](#conditionally-deploy-resource).
 
 ## Resource iteration
 To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Serial copy](#serial-copy). 
@@ -74,7 +76,7 @@ Creates these names:
 * storage2
 * storage3
 
-The copy operation is helpful when working with arrays because you can iterate through each element in the array. TUse the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array. So, the following example:
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array. So, the following example:
 
 ```json
 "parameters": { 
@@ -251,6 +253,101 @@ For a more realistic scenario, the following example deploys two instances at a 
 }
 ```
 
+## Property iteration
+
+To create multiple values for a property on a resource, add a `copy` array in the properties element. This array contains objects, and each object has the following properties:
+
+* name - the name of the property to create multiple values for
+* count - the number of values to create
+* input - an object that contains the values to assign to the property  
+
+The following example shows how to apply `copy` to the dataDisks property on a virtual machine:
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "copy": [{
+          "name": "dataDisks",
+          "count": 3,
+          "input": {
+              "lun": "[copyIndex('dataDisks')]",
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. You do not have to provide the name when used with resource iteration.
+
+Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "dataDisks": [
+          {
+              "lun": 0,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 1,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 2,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+You can use resource and property iteration together. Reference the property iteration by name.
+
+```json
+{
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[concat(parameters('vnetname'), copyIndex())]",
+    "apiVersion": "2016-06-01",
+    "copy":{
+        "count": 2,
+        "name": "vnetloop"
+    },
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "[parameters('addressPrefix')]"
+            ]
+        },
+        "copy": [
+            {
+                "name": "subnets",
+                "count": 2,
+                "input": {
+                    "name": "[concat('subnet-', copyIndex('subnets'))]",
+                    "properties": {
+                        "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+
 ## Depend on resources in a loop
 You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the Virtual Machine. The full Virtual Machine definition is not shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.
 
@@ -336,6 +433,29 @@ The following example shows the implementation:
     ...
 }]
 ```
+
+## Conditionally deploy resource
+
+To specify whether a resource is deployed, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is deployed. When the value is false, the resource is not deployed. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+For an example of using a new or existing resource, see [New or existing condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+
+For an example of using a password or SSH key to deploy virtual machine, see [Username or SSH condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
 
 ## Next steps
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).

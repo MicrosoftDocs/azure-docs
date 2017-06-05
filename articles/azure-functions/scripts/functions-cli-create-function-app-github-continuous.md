@@ -6,7 +6,8 @@ keywords:
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
-ms.topic: functions
+ms.topic: sample
+ms.custom: mvc
 ---
 # Create an App Service
 
@@ -17,11 +18,15 @@ This sample script creates a function app using the [consumption plan](../functi
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 This sample creates an Azure Function app and deploys function code from GitHub.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Azure Service")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-github-continuous/deploy-function-app-with-function-github-continuous.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
