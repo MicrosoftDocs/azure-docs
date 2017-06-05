@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 06/05/2017
 ms.author: danlep
 
 ---
@@ -51,13 +51,54 @@ Before you can create a container registry, create a resource group with [az gro
 az group create --name myRGRegistry --location eastus
 ```
 
-Now create a container registry with [az acr create](/cli/azure/acr#create). The following example creates a registry named *myRegistry*.
+Now create a container registry with [az acr create](/cli/azure/acr#create). The following example creates a registry named *myACRegistry*, and enables an admin user account for basic authentication. You specify the `Basic` SKU in this example.
 
 ```azurecli-interactive 
-az acr create --name myRGRegistry --location eastus
+az acr create --name myACRegistry --resource-group myRGRegistry --admin-enabled --sku Basic
+```
+
+## Get registry credentials
+To push and pull images from the Azure container registry, you can use the admin user name and password. The user name is the same as the registry name (*myACRegistry* in this example). Get a password by running the following command:
+
+```azurecli-interactive 
+az acr credential show --name myACRegistry --query passwords[0].value
 ```
 
 ## Push an image to the container registry
+
+Use the [Docker Command-Line Interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for login, push, pull, and other operations on your container registry. If you need to install Docker, download one of the [available editions](https://docs.docker.com/engine/installation/) for your platform. For this tutorial, you can use Docker Community Edition.
+
+Log in to your Azure container registry with the user name and password you obtained in the previous step:
+
+```bash 
+docker login myACRegistry.azurecr.io --username myACRegistry --password <yourPassword>
+```
+
+As an example, push an NGINX image to the registy. First pull the Docker official image locally:
+
+```bash
+docker pull nginx
+```
+Tag the image with a name in your registry, in this case in the `samples` namespace:
+
+```bash
+docker tag nginx myACRegistry.azurecr.io/samples/nginx
+```
+
+Now push the image to your registry:
+
+```bash
+docker push myACRegistry.azurecr.io/samples/nginx
+```
+
+To verify that the image is in your registry, start an NGINX container locally:
+
+```bash
+docker run -it --rm -p 8080:80 myACRegistry.azurecr.io/samples/nginx
+```
+Browse to http://localhost:8080 to view the running container.
+
+To stop the running container, press [CTRL]+[C].
 
 ## Create a Kubernetes cluster
 
@@ -68,7 +109,7 @@ If you used the Azure CLI 2.0 to create your Kubernetes cluster and its service 
 For example, to use `kubectl run` to deploy a Kubernetes container app from an Nginx image in an Azure container registry, specify the fully qualified image name, such as (`mycontainerreg.azurecr.io/samples/nginx`:
 
 ```bash
-kubectl run myimage --image mycontainerreg.azurecr.io/samples/nginx
+kubectl run myimage --image myacregistry.azurecr.io/samples/nginx
 ```
 
 Similarly, to deploy a Kubernetes object from a YAML or JSON [configuration file](https://kubernetes.io/docs/tutorials/object-management-kubectl/declarative-object-management-configuration/#how-to-create-objects), provide the fully qualified image name in the `containers:image` specification:
@@ -78,7 +119,7 @@ Similarly, to deploy a Kubernetes object from a YAML or JSON [configuration file
 spec:
   containers:
     - name: mynginx
-      image: mycontainerreg.azurecr.io/samples/nginx
+      image: myacregistry.azurecr.io/samples/nginx
 
 ...
 ```
