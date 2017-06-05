@@ -200,13 +200,13 @@
 #### [Delete](service-fabric-cluster-delete.md)
 
 ### Standalone clusters
-#### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Plan and prepare for your deployment](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Create
 ##### [Create on-premises](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Create on Azure virtual machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Secure using certs](service-fabric-windows-cluster-x509-security.md)  
 ##### [Secure using Windows security](service-fabric-windows-cluster-windows-security.md)
+##### [Contents of the standalone package](service-fabric-cluster-standalone-package-contents.md)
 #### [Scale](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-manifest.md)
