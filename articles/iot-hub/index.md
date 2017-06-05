@@ -37,7 +37,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
@@ -109,114 +109,6 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
         </a>
     </li>
-<!--    <li>
-        <a href="/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/raspberry-pi.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Hub using Raspberry Pi</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-intel-edison-kit-node-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/intel-edison.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Hub using Intel Edison</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/adafruit-feather-huzzah-esp8266.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Hub using Feather Huzzah ESP8266</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/adafruit-feather-m0.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Hub using Feather M0</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/sparkfun-thing-esp8266.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Hub using Sparkfun Thing Dev</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-gateway-kit-c-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/intel-gateway.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with IoT Hub using Intel NUC</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>  -->
 </ul>
 
 ---
