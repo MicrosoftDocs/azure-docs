@@ -11,6 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mahender
+ms.custom: mvc
 ---
 
 # Create a serverless API using Azure Functions
