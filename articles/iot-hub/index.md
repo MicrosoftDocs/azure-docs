@@ -44,7 +44,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="/media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -98,7 +98,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="/media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
