@@ -37,9 +37,9 @@ To use the Yammer connector, you first create a **connection** then provide the 
 > [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 > 
 
-## View the swagger
+## Connector-specific details
 
-View any triggers, actions, and limits in the [swagger details](/connectors/yammer/).
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/yammer/).
 
 ## More connectors
 Go back to the [APIs list](apis-list.md).

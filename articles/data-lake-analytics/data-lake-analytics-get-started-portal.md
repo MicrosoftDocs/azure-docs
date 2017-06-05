@@ -23,8 +23,7 @@ ms.author: edmaca
 Learn how to use the Azure portal to create Azure Data Lake Analytics accounts, define jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to the Data Lake Analytics service. For more
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
-In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma
-separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section. Once your first job succeeds, you can start to write more complex data transformations with U-SQL.
+In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section. Once your first job succeeds, you can start to write more complex data transformations with U-SQL.
 
 ## Prerequisites
 
@@ -32,7 +31,7 @@ Before you begin this tutorial, you must have an **Azure subscription**. See [Ge
 
 ## Create Data Lake Analytics account
 
-Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes aobut 60 to finish.
+Now, you will create a Data Lake Analytics and a Data Lake Store account simultaneously.  This step is simple and only takes about 60 to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Click **New** >  **Intelligence + analytics** > **Data Lake Analytics**.
@@ -54,26 +53,19 @@ Your account will be ready in about 60 seconds.
 1. From the [Azure portal](https://portal.azure.com), open your Data Lake Analytics account.  See [Manage Data Lake Analytics accounts](data-lake-analytics-get-started-portal.md) to create one and open the account in the portal.
 2. Expand the **Essentials** pane, and then click **Explore sample scripts**. It opens another blade called **Sample
    Scripts**.
-
-    ![Azure Data Lake Analytics portal sample script](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
 3. Click **Sample Data Missing** to copy the sample data files. When it is done, the portal shows **Sample data updated successfully**.
-4. From the Data Lake analytics account blade, click **Data Explorer** on the top.
-
-    ![Azure Data Lake Analytics data explorer button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-data-explorer-button.png)
-
-    It opens two blades. One is **Data Explorer**, and the other is the default Data Lake Store account.
+4. From the Data Lake analytics account blade, click **Data Explorer** on the top. It opens two blades. One is **Data Explorer**, and the other is the default Data Lake Store account.
 5. In the default Data Lake Store account blade, click **Samples** to expand the folder, and the click **Data** to expand the folder. You shall see the following files and folders:
 
-   * AmbulanceData/
-   * AdsLog.tsv
-   * SearchLog.tsv
-   * version.txt
-   * WebLog.log
+``
+AmbulanceData/
+AdsLog.tsv
+SearchLog.tsv
+version.txt
+WebLog.log
+``
 
-     In this tutorial, you use SearchLog.tsv.
-
-In practice, you either program your applications to write data into a linked storage accounts or upload data. For uploading files, see
-[Upload data to Data Lake Store](data-lake-analytics-manage-use-portal.md) or [Upload data to Blob storage](data-lake-analytics-manage-use-portal.md).
+This tutorial uses `SearchLog.tsv`.
 
 ## Create and submit Data Lake Analytics jobs
 After you have prepared the source data, you can start developing a U-SQL script.  
@@ -81,9 +73,6 @@ After you have prepared the source data, you can start developing a U-SQL script
 **To submit a job**
 
 1. From the Data Lake analytics account blade on the portal, click **New Job**.
-
-    ![Azure Data Lake Analytics new job button](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
-
     If you don't see the blade, see [Open a Data Lake Analytics account from portal](data-lake-analytics-manage-use-portal.md).
 2. Enter **Job Name**, and the following U-SQL script:
 

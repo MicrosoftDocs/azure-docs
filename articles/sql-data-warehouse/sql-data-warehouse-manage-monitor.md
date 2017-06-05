@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: joeyong;barbkess
 
 ---
 # Monitor your workload using DMVs
