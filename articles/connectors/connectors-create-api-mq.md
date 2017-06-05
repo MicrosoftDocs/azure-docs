@@ -19,7 +19,7 @@ ms.date: 06/01/2017
 ms.author: valthom; ladocs
 ---
 
-# Connect to a MQ server from logic apps using the MQ connector 
+# Connect to an MQ server from logic apps using the MQ connector 
 
 Microsoft Connector for MQ sends and retrieves messages stored in an MQ Server on-premises, or in Azure. This connector includes a Microsoft MQ client that communicates with a remote MQ server across a TCP/IP network. This document is a starter guide to use the MQ connector. We recommended you begin by browsing a single message on a queue, and then trying the other actions.    
 
@@ -125,9 +125,9 @@ An action is an operation carried out by the workflow defined in a Logic App. Th
 | Action | Description |
 | --- | --- |
 | [Browse Message](connectors-create-api-mq.md#browse-message-or-receive-message) |Non destructive retrieval of a single message from an MQ queue |
-| [Browse Messages](connectors-create-api-mq.md#browse-messages-or-receive-messages) |Non destructive retrieval of a several messages from an MQ queue |
+| [Browse Messages](connectors-create-api-mq.md#browse-messages-or-receive-messages) |Non destructive retrieval of several messages from an MQ queue |
 | [Receive Message](connectors-create-api-mq.md#browse-message-or-receive-message) |Destructive retrieval of a single message from an MQ queue |
-| [Receive Messages](connectors-create-api-mq.md#browse-messages-or-receive-messages) |Destructive retrieval of a several messages from an MQ queue |
+| [Receive Messages](connectors-create-api-mq.md#browse-messages-or-receive-messages) |Destructive retrieval of several messages from an MQ queue |
 | [Send Message](connectors-create-api-mq.md#send-message) |Sends a single message to an MQ queue |
 
 In this section, see the specific details about each action, including any required or optional input properties, and any corresponding
@@ -187,7 +187,7 @@ returned is an array of messages.
 | GroupId |GroupId |Base 64 string with the Group Id of the message to retrieve |
 | MessageId |MessageId |Base 64 string with the Message Id of the message to retrieve |
 | Queue |Queue | Override the queue name defined in the connection properties |
-| BatchSize |BatchSize | The maximum number of messages to retreive from the queue |
+| BatchSize |BatchSize | The maximum number of messages to retrieve from the queue |
 | IncludeInfo |IncludeInfo |A value of true or false indicating how many fields will be returned in the output |
 | LogicalSequenceNumber |LogicalSequenceNumber |The message sequence number in the queue |
 | MessageToken |MessageToken |Base 64 string with the Message Token of the message to retrieve |
