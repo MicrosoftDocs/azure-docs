@@ -109,14 +109,14 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 Management clients are needed to create and manage resources using the .NET SDK in Azure. To create the management clients, add this code to the Main method in the Program.cs file:
 
-  ```
-  var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-  var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-  var computeManagementClient = new ComputeManagementClient(credential)
-        { SubscriptionId = subscriptionId };           
-  ```
+```
+var resourceManagementClient = new ResourceManagementClient(credential)
+    { SubscriptionId = subscriptionId };
+var networkManagementClient = new NetworkManagementClient(credential)
+    { SubscriptionId = subscriptionId };
+var computeManagementClient = new ComputeManagementClient(credential)
+    { SubscriptionId = subscriptionId };
+```
 
 ### Create the VM and supporting resources
 
@@ -423,6 +423,8 @@ Because you are charged for resources used in Azure, it is always good practice 
       groupName);
     Console.ReadLine();
     ```
+
+3. Save the project.
 
 ## Run the application
 

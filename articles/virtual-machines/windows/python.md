@@ -125,9 +125,7 @@ All resources must be contained in a [Resource group](../../azure-resource-manag
 
     ```python
     def create_resource_group(resource_group_client):
-        resource_group_params = {
-            'location':LOCATION
-        }
+        resource_group_params = { 'location':LOCATION }
         resource_group_result = resource_group_client.resource_groups.create_or_update(
             GROUP_NAME, 
             resource_group_params
@@ -227,7 +225,7 @@ A virtual machine must be in a subnet of a [Virtual network](../../virtual-netwo
 3. To add a subnet to the virtual network, add this function after the variables in the .py file:
     
     ```python
-    def create_subnet
+    def create_subnet(network_client):
         subnet_params = {
             'address_prefix': '10.0.0.0/24'
         }
@@ -373,6 +371,8 @@ Because you are charged for resources used in Azure, it's always a good practice
     ```python
     delete_resources(resource_group_client)
     ```
+
+3. Save *myPythonProject.py*.
 
 ## Run the application
 
