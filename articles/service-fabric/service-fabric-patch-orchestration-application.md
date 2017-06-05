@@ -38,9 +38,9 @@ The patch orchestration app is composed of the following subcomponents:
 - **Node Agent Service**: This stateless service runs on all Service Fabric cluster nodes. The service is responsible for:
     - Bootstrapping the Node Agent NTService.
     - Monitoring the Node Agent NTService.
-- **Node Agent NTService**: This Windows NT service runs at higher privileges (SYSTEM). In contrast, Node Agent Service and the Coordinator Service run at a lower-level privilege (NETWORK SERVICE). The service is responsible for performing the following Windows Update jobs on all the cluster nodes:
+- **Node Agent NTService**: This Windows NT service runs at a higher-level privilege (SYSTEM). In contrast, Node Agent Service and the Coordinator Service run at a lower-level privilege (NETWORK SERVICE). The service is responsible for performing the following Windows Update jobs on all the cluster nodes:
     - Disabling automatic Windows Update on the node.
-    - Downloading and installing Windows updates per the policy the user has provided.
+    - Downloading and installing Windows Update per the policy the user has provided.
     - Restarting the machine post Windows Update installation.
     - Uploading the results of Windows updates to the Coordinator Service.
     - Reporting health reports in case an operation has failed after exhausting all retries.
@@ -161,7 +161,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
-|MaxResultsToCache    |Long                              | Maximum number of Windows Update result histories, which should be cached. <br>Default value is 3000 assuming the: <br> - Number of nodes is 20. <br> - Number of updates happening on a node per month is five. <br> - Number of results per operation can be 10. <br> - Results for the past three months should be stored. |
+|MaxResultsToCache    |Long                              | Maximum number of Windows Update results, which should be cached. <br>Default value is 3000 assuming the: <br> - Number of nodes is 20. <br> - Number of updates happening on a node per month is five. <br> - Number of results per operation can be 10. <br> - Results for the past three months should be stored. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)
 |LogsDiskQuotaInMB   |Long  <br> (Default: 1024)               |Maximum size of patch orchestration app logs in MB, which can be persisted locally on nodes.
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get Windows updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
@@ -323,7 +323,7 @@ Q. **Why does patching across clusters take so long to run?**
 A. The time needed by the patch orchestration app is mostly dependent on the following factors:
 
 - The policy of the Coordinator Service. 
-- The default policy of `NodeWise`, which results in patching only one node at a time. Especially in the case of bigger clusters, we recommend that you use the `UpgradeDomainWise` policy to achieve faster patching across clusters.
+  - The default policy, `NodeWise`, results in patching only one node at a time. Especially in the case of bigger clusters, we recommend that you use the `UpgradeDomainWise` policy to achieve faster patching across clusters.
 - The number of updates available for download and install. 
 - The average time needed to download and install an update, which should not exceed a couple of hours.
 - The performance of the VM and network bandwidth.
