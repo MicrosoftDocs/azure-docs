@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 06/05/2017
 ms.author: jeedes
 
 ---
@@ -113,9 +113,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.bridgeapp.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Bridge Client support team](https://bridgeapp.zendesk.com/hc/en-us/requests/new) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Bridge Client support team](https://community.bridgeapp.com/community/help) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-bridge-tutorial/tutorial_bridge_certificate.png) 
 
@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-bridge-tutorial/tutorial_bridge_configure.png) 
 
-7. To configure single sign-on on **Bridge** side, you need to send the downloaded **Certificate(Raw)** and **SAML Entity ID, SAML Single Sign-On Service URL, and Sign-Out URL** to [Bridge support team](https://bridgeapp.zendesk.com/hc/en-us/requests/new). 
+7. To configure single sign-on on **Bridge** side, you need to send the downloaded **Certificate(Raw)** and **SAML Entity ID, SAML Single Sign-On Service URL, and Sign-Out URL** to [Bridge support team](https://community.bridgeapp.com/community/help). 
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,7 +166,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Bridge test user
 
-In this section, you create a user called Britta Simon in Bridge. Work with [Bridge Client support team](https://bridgeapp.zendesk.com/hc/en-us/requests/new) to create a user in the platform. You can raise the support ticket with Bridge from <a href="https://bridgeapp.zendesk.com/hc/en-us/requests/new">here</a> to add the users in the Bridge platform.
+In this section, you create a user called Britta Simon in Bridge. Work with [Bridge Client support team](https://community.bridgeapp.com/community/help) to create a user in the platform. You can raise the support ticket with Bridge from <a href="https://community.bridgeapp.com/community/help">here</a> to add the users in the Bridge platform.
 
 ### Assigning the Azure AD test user
 
