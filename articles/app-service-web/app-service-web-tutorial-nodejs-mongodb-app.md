@@ -73,7 +73,7 @@ Run the following command to clone the sample repository.
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-This sample repository contains a copy of the [MEAN.js repository](https://github.com/meanjs/mean). It is minimally modified to run on App Service (for more information, see the MEAN.js repository [README file](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
+This sample repository contains a copy of the [MEAN.js repository](https://github.com/meanjs/mean). It is modified to run on App Service (for more information, see the MEAN.js repository [README file](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
 
 ### Run the application
 
@@ -337,7 +337,7 @@ Now, undo your changes to _config/env/production.js_ with the following command:
 git checkout -- .
 ```
 
-Open _config/env/production.js_ again. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you just created.
+Open _config/env/production.js_ again. Note that the default MEAN.js app is already configured to use the `MONGODB_URI` environment variable that you created.
 
 ```javascript
 db: {
@@ -437,7 +437,7 @@ Select **Admin > Manage Articles** to add some articles.
 
 ## Update data model and redeploy
 
-In this step, you make some changes to the `article` data model and publish your changes to Azure.
+In this step, you change the `article` data model and publish your change to Azure.
 
 ### Update the data model
 
@@ -537,7 +537,7 @@ NODE_ENV=production node server.js
 ```
 
 > [!NOTE]
-> Remember that your _config/env/production.js_ has been reverted, and the `MONGODB_URI` environment variable is only set in your Azure web app and not on your local machine. If you take a look at the config file, you find that the production configuration defaults to use a local MongoDB database. This makes sure that you don't touch production data when you test your code changes locally.
+> Remember that your _config/env/production.js_ has been reverted, and the `MONGODB_URI` environment variable is only set in your Azure web app and not on your local machine. If you look at the config file, you find that the production configuration defaults to use a local MongoDB database. This makes sure that you don't touch production data when you test your code changes locally.
 
 Navigate to `http://localhost:8443` in a browser and make sure that you're signed in.
 
