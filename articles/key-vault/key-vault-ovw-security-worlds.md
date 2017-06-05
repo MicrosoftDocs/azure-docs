@@ -13,14 +13,14 @@ Azure Key Vault is a multi-tenant service and uses a pool of Hardware Security M
 
 All HSMs at Azure locations in the same geographic region share the same cryptographic boundary (Thales Security World). For example, East US and West US share the same security world because they belong to the US geo location. Similarly, all Azure locations in Japan share the same security world and all Azure locations in Australia, India, and so on. 
 
-## Backup and restore behavior
+## Back up and restore behavior
 
 A backup taken of a key from a key vault in one Azure location can be restored to a key vault in another Azure location, as long as both of these conditions are true:
 
 - Both of the Azure locations belong to the same geographical location
 - Both of the key vaults belong to the same Azure subscription
 
-For example, a backup taken by a given subscription of a key in a key vault in West India, can only be restored to another key vault in the same subscription and geo location; West India, Central India or South India. 
+For example, a back up taken by a given subscription of a key in a key vault in West India, can only be restored to another key vault in the same subscription and geo location; West India, Central India or, South India. 
 
 ## Regions and products
 
@@ -34,6 +34,6 @@ In the products by region article, for example, the **Americas** tab contains EA
 >[!NOTE]
 >An exception is that US DOD EAST and US DOD CENTRAL have their own security worlds. 
 
-Similarly, on the **Europe** tab, NORTH EUROPE and WEST EUROPE both map to the Europe region. The same is also true or teh **Asia Pacific** tab.
+Similarly, on the **Europe** tab, NORTH EUROPE and WEST EUROPE both map to the Europe region. The same is also true or the **Asia Pacific** tab.
 
 
