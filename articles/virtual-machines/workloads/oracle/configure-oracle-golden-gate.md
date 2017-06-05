@@ -721,7 +721,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
-2. Update file with the following:
+2. Update the file with the following:
 
   ```bash
   PORT 7809
