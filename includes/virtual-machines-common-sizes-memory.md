@@ -1,4 +1,5 @@
 
+* The M-Series offers the highest CPU count (up to 128 vcpus) and largest memory (up to 3.5TB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high CPU counts and large amounts of memory.
 
 * Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
@@ -10,12 +11,13 @@ Dv2-series, a follow-on to the original D-series, features a more powerful CPU. 
 
 ACU: 160-180
 
-| SKUNAME         | CPUType | vCPUs | NUMA Nodes | Memory(TiB) | Avg ACU   | Min ACU/vCPU | Avg ACU/vCPU | Max ACU/vCPU | StdDev% | Var % | #Runs | #VMs |
-|-----------------|---------|-------|------------|-------------|-----------|--------------|--------------|--------------|---------|-------|-------|------|
-| Standard_M64ms  | 8890    | 64    | 2          | 1.0         | 11,460.27 | 174.45       | 179.07       | 184.09       | 1.34%   | 5.38% | 56    | 4    |
-| Standard_M128ms | 8890    | 128   | 4          | 3.0         | 20,816.15 | 159.28       | 162.63       | 166.10       | 1.02%   | 4.20% | 56    | 4    |
-| Standard_M128s  | 8890    | 128   | 4          | 2.0         | 20,748.84 | 158.88       | 162.10       | 165.63       | 1.05%   | 4.16% | 56    | 4    |
+| Size            | vCPU | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)                                                   | 40,000 / 1,000                            | 32 / extremely high          |
+| Standard_M128s* | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696)                                              | 80,000 / 2,000                            | 32 / extremely high          |
 
+
+*The only Guest OS Images that are supported for the M128s are:  Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux or CentOS 7.3 with LIS 4.2.1
 <br>
 
 ## GS-series*
