@@ -63,7 +63,7 @@ The following example creates a resource group named `myResourceGroup` in the `w
 az group create --name myResourceGroup --location westus
 ```
 
-## Create availability set
+## Create an availability set
 
 The following step is optional but recommended. For more information, see [Azure availability sets guide](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
@@ -155,7 +155,7 @@ The results should look similar to the following response:
 }
 ```
 
-Open port for myVM2:
+Open the port for myVM2:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -175,7 +175,7 @@ ssh <publicIpAddress>
 
 ## Create the database on myVM1 (Primary)
 
-The Oracle software is already installed on the Marketplace image, so the next step is to install the database. The first step is to run the sofware as the 'oracle' superuser:
+The Oracle software is already installed on the Marketplace image, so the next step is to install the database. The first step is to run the software as the 'oracle' superuser:
 
 ```bash
 sudo su - oracle
@@ -242,7 +242,7 @@ $ ORACLE_SID=gg1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
-Optionally, you can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future sign-ins:
+Optionally, you can add ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future sign-ins:
 
 ```bash
 # add oracle home
@@ -309,7 +309,7 @@ $ sudo su - oracle
 $ lsnrctl start
 ```
 
-## Golden Gate configurations
+## Configure Golden Gate 
 
 ### Enable archive log mode on myVM1 (primary):
 
@@ -343,35 +343,35 @@ To download and prepare the Oracle Golden Gate software, complete the following 
 
 1. Download the **fbo_ggs_Linux_x64_shiphome.zip** file from the [Oracle Golden Gate download page](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under the download title **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, there should be a set of .zip files to download.
 
- 2. After you download the .zip files to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM:
+2. After you download the .zip files to your client computer,  use Secure Copy Protocol (SCP) to copy the files to your VM:
 
-```bash
-$ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
-```
+  ```bash
+  $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
+  ```
 
-3.  Move the .zip files to the **/opt** folder. Then change the owner of the files as follows:
+3. Move the .zip files to the **/opt** folder. Then change the owner of the files as follows:
 
-```bash
-$ sudo su -
-# mv <folder>/*.zip /opt
-```
+  ```bash
+  $ sudo su -
+  # mv <folder>/*.zip /opt
+  ```
 
 4. Unzip the files (install the Linux unzip utility if it's not already installed):
 
-```bash
-# yum install unzip
-# cd /opt
-# unzip fbo_ggs_Linux_x64_shiphome.zip
-```
+  ```bash
+  # yum install unzip
+  # cd /opt
+  # unzip fbo_ggs_Linux_x64_shiphome.zip
+  ```
 
-5.  Change permission:
+5. Change permission:
 
-```bash
-# chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
-```
+  ```bash
+  # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
+  ```
 
 ### Prepare the client and VM to run x11 (for Windows clients only)
-This is an optional step, You can skip this step if you are using a Linux client or already have x11 setup.
+This is an optional step. You can skip this step if you are using a Linux client or already have x11 setup.
 
 1. Download PuTTY and Xming to your Windows computer:
 
@@ -382,12 +382,12 @@ This is an optional step, You can skip this step if you are using a Linux client
 
 3.  In PuTTY Key Generator:
 
-- To generate a key, select the **Generate** button.
-- Copy the contents of the key (**Ctrl+C**).
-- Select the **Save private key** button.
-- Ignore the warning that appears, and then select **OK**.
+  - To generate a key, select the **Generate** button.
+  - Copy the contents of the key (**Ctrl+C**).
+  - Select the **Save private key** button.
+  - Ignore the warning that appears, and then select **OK**.
 
-  ![Screenshot of the PuTTY key generator page](./media/oracle-golden-gate/puttykeygen.png)
+    ![Screenshot of the PuTTY key generator page](./media/oracle-golden-gate/puttykeygen.png)
 
 4.  In your VM, run these commands:
 
@@ -449,7 +449,7 @@ To install Oracle Golden Gate, complete the following steps:
 
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_06.png)
 
-### Service setup on myVM1 (primary)
+### Set up service on myVM1 (primary)
 
 1. Create or update the tnsnames.ora file:
 
@@ -550,15 +550,15 @@ To install Oracle Golden Gate, complete the following steps:
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ ./ggsci
 
-GGSCI> dblogin userid C##GGADMIN, password ggadmin
-Successfully logged into database CDB$ROOT.
+  GGSCI> dblogin userid C##GGADMIN, password ggadmin
+  Successfully logged into database CDB$ROOT.
 
-GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
+  GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
-2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
+  2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
 
-GGSCI> exit
-```
+  GGSCI> exit
+  ```
 7. Set up extract checkpoints and start real-time extract:
 
   ```bash
@@ -611,10 +611,10 @@ In this step, you find the starting SCN, which will be used later, in a differen
   GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
   ```
 
-### Service setup on myVM2 (replicate)
+### Set up service on myVM2 (replicate)
 
 
-1. Create or update the tnsnames.ora file
+1. Create or update the tnsnames.ora file:
 
   ```bash
   $ cd $ORACLE_HOME/network/admin
@@ -647,7 +647,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
     )
   ```
 
-2. Create replicate account
+2. Create replicate account:
 
   ```bash
   $ sqlplus / as sysdba
@@ -679,7 +679,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   $ ./ggsci
   GGSCI> EDIT PARAMS REPORA  
   ```
-  Content of REPORA parameter file
+  Content of REPORA parameter file:
 
   ```bash
   REPLICAT REPORA
@@ -692,7 +692,8 @@ In this step, you find the starting SCN, which will be used later, in a differen
   MAP pdb1.test.*, TARGET pdb1.test.*;
   ```
 
-5. Set up a replicat checkpoint
+5. Set up a replicat checkpoint:
+
   ```bash
   GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
   GGSCI> EDIT PARAMS INITREP
@@ -710,6 +711,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   ```bash
   GGSCI> ADD REPLICAT INITREP, SPECIALRUN
   ```
+
 ### Set up the replication (myVM1 and myVM2)
 
 1. Set up on the replication on myVM2 (replicate):
@@ -733,7 +735,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   GGSCI> EXIT
   ```
 
-#### 2. Set up on the replication on myVM1 (primary):
+### 2. Set up on the replication on myVM1 (primary):
 
 Start the initial load and check for errors:
 
@@ -743,7 +745,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-#### 3. Set up the replication on myVM2 (replicate)
+### 3. Set up the replication on myVM2 (replicate)
 
 Change the SCN number with the number you obtained before:
 
@@ -755,7 +757,7 @@ Change the SCN number with the number you obtained before:
 The replication has begun, and you can test it by inserting new records to TEST tables.
 
 
-#### View job status and troubleshooting
+### View job status and troubleshooting
 
 1. To view report, on myVM1, run the following commands:
 
