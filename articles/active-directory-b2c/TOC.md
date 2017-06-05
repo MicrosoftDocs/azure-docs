@@ -7,7 +7,7 @@
 ## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
 # Tutorials
-## [Create .NET web app](active-directory-b2c-tutorial-web-dotnet-susi.md)
+## [Create .NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ## [Create Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
 ## [Create iOS app](active-directory-b2c-devquickstarts-ios.md)
 ## [Create Android app](active-directory-b2c-devquickstarts-android.md)
