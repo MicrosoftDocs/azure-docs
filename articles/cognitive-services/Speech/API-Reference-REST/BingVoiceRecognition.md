@@ -91,8 +91,8 @@ The following characteristics are typical of dictation mode applications:
 > improve the user experience in these continuous recognition modes.
 
 ## Recognition language 
-The *recognition language* specifies the language that your application user will speak. You **must** specify the user's
-spoken language with the *language* URL query parameter on the connection. The value of the *language* query parameter **must** be one of the languages supported by the 
+The *recognition language* specifies the language that your application user speaks. Specify the  *recognition language* with the 
+*language* URL query parameter on the connection. The value of the *language* query parameter **must** be one of the languages supported by the 
 Microsoft Speech Service, specified in [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) format. The Microsoft Speech Service rejects 
 invalid connection requests with an ```HTTP 400 Bad Request``` response.
 An invalid request is one that:
@@ -100,10 +100,10 @@ An invalid request is one that:
 * includes a *language* query parameter that is not correctly formatted
 * includes a *language* query parameter that is not one of the support languages
 
-You may choose to build an application that restricts the user choice of language to a subset of those languages supported by the Microsoft Speech Service.
+You may choose to build an application that supports one or all of the languages supported by the Microsoft Speech Service.
 
 ### Example
-An application the employs *conversation* speech recognition being used by an US English speaker would make a connection at the URL below.
+In the example below, an application uses *conversation* speech recognition mode for a US English speaker.
 
 ```
 https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
