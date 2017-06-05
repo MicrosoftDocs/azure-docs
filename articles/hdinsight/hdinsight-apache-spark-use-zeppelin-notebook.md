@@ -1,6 +1,6 @@
 ---
-title: Use script action to install Zeppelin notebooks for Spark cluster on Azure HDInsight  | Microsoft Docs
-description: Step-by-step instructions on how to install and use Zeppelin notebooks with Spark clusters on HDInsight Linux.
+title: Use script action to install Zeppelin on Azure HDInsight Spark cluster | Microsoft Docs
+description: Step-by-step instructions on how to install and use Zeppelin notebooks with Spark clusters on Azure HDInsight Linux.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 
 ---
@@ -57,42 +57,16 @@ For instructions on how to use HDInsight .NET SDK to run script action to instal
 * Set the cluster type you are creating to Spark.
 
 ### Using Azure PowerShell
-Use the following PowerShell snippet to create a Spark cluster on HDInsight Linux with Zeppelin installed. Depending on which version of Spark cluster you have, you must update the PowerShell snippet below to include the link to the corresponding custom script.
+
+The following example demonstrates how to configure Zeppelin using PowerShell:
 
 * For Spark 1.6.0 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
 * For Spark 1.5.2 clusters - `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh`
 
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-zeppelin.ps1?range=59-83)]
 
-    Login-AzureRMAccount
-
-    # PROVIDE VALUES FOR THE VARIABLES
-    $clusterAdminUsername="admin"
-    $clusterAdminPassword="<<password>>"
-    $clusterSshUsername="adminssh"
-    $clusterSshPassword="<<password>>"
-    $clusterName="<<clustername>>"
-    $clusterContainerName=$clusterName
-    $resourceGroupName="<<resourceGroupName>>"
-    $location="<<region>>"
-    $storage1Name="<<storagename>>"
-    $storage1Key="<<storagekey>>"
-    $subscriptionId="<<subscriptionId>>"
-
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-
-    $passwordAsSecureString=ConvertTo-SecureString $clusterAdminPassword -AsPlainText -Force
-    $clusterCredential=New-Object System.Management.Automation.PSCredential ($clusterAdminUsername, $passwordAsSecureString)
-    $passwordAsSecureString=ConvertTo-SecureString $clusterSshPassword -AsPlainText -Force
-    $clusterSshCredential=New-Object System.Management.Automation.PSCredential ($clusterSshUsername, $passwordAsSecureString)
-
-    $azureHDInsightConfigs= New-AzureRmHDInsightClusterConfig -ClusterType Spark
-    $azureHDInsightConfigs.DefaultStorageAccountKey = $storage1Key
-    $azureHDInsightConfigs.DefaultStorageAccountName = "$storage1Name.blob.core.windows.net"
-
-    Add-AzureRMHDInsightScriptAction -Config $azureHDInsightConfigs -Name "Install Zeppelin" -NodeType HeadNode -Parameters "void" -Uri "https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh"
-
-    New-AzureRMHDInsightCluster -Config $azureHDInsightConfigs -OSType Linux -HeadNodeSize "Standard_D12" -WorkerNodeSize "Standard_D12" -ClusterSizeInNodes 2 -Location $location -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $clusterCredential -DefaultStorageContainer $clusterContainerName -SshCredential $clusterSshCredential -Version "3.3"
+> [!IMPORTANT]
+> This example is not a full script. It only demonstrates how to create a new configuration object that uses the script action to install Zeppelin. For a full example of creating an HDInsight cluster using PowerShell, see the [Create HDInsight using PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) document.
 
 ## Access the Zeppelin notebook
 
@@ -105,12 +79,12 @@ Once you have successfully installed Zeppelin using script action, you can use t
    
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
 
-    ![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Create a new Zeppelin notebook")
+    ![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdinsight-create-new-zeppelin.png "Create a new Zeppelin notebook")
 
     On the same page, under the **Notebook** heading, you should see a new notebook with the name starting with **Note XXXXXXXXX**. Click the new notebook.
 3. On the web page for the new notebook, click the heading, and change the name of the notebook if you want to. Press ENTER to save the name change. Also, make sure the notebook header shows a **Connected** status in the top-right corner.
 
-    ![Zeppelin notebook status](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Zeppelin notebook status")
+    ![Zeppelin notebook status](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin notebook status")
 
 ### Run SQL statements
 1. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\SensorSampleData\hvac**.
@@ -138,7 +112,7 @@ Once you have successfully installed Zeppelin using script action, you can use t
 
     Press **SHIFT + ENTER** or click the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following:
 
-    ![Create a temporary table from raw data](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Create a temporary table from raw data")
+    ![Create a temporary table from raw data](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Create a temporary table from raw data")
 
     You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
 2. You can now run Spark SQL statements on the **hvac** table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
@@ -152,7 +126,7 @@ Once you have successfully installed Zeppelin using script action, you can use t
 
     The following screenshot shows the output.
 
-    ![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Run a Spark SQL statement using the notebook")
+    ![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdinsight-zeppelin-spark-sql-query-1.png "Run a Spark SQL statement using the notebook")
 
      Click the display options (highlighted in rectangle) to switch between different representations for the same output. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key and the average of **temp_diff** as the value.
 3. You can also run Spark SQL statements using variables in the query. The next snippet shows how to define a variable, **Temp**, in the query with the possible values you want to query with. When you first run the query, a drop-down is automatically populated with the values you specified for the variable.
@@ -164,12 +138,12 @@ Once you have successfully installed Zeppelin using script action, you can use t
 
     Paste this snippet in a new paragraph and press **SHIFT + ENTER**. The following screenshot shows the output.
 
-    ![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Run a Spark SQL statement using the notebook")
+    ![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdinsight-zeppelin-spark-sql-query-2.png "Run a Spark SQL statement using the notebook")
 
     For subsequent queries, you can select a new value from the drop-down and run the query again. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key, the average of **temp_diff** as the value, and **targettemp** as the group.
 4. Restart the Spark SQL interpreter to exit the application. Click the **Interpreter** tab at the top, and for the Spark interpreter, click **Restart**.
 
-    ![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Restart the Zeppelin intepreter")
+    ![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin intepreter")
 
 ### Run hive statements
 1. From the Zeppelin notebook, click the **Interpreter** button.
@@ -234,5 +208,4 @@ Once you have successfully installed Zeppelin using script action, you can use t
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md

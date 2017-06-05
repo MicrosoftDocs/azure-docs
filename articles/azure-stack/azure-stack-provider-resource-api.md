@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 04/06/2016
 ms.author: alfredop
 
 ---
@@ -41,7 +41,7 @@ Owner, Contributor, or Reader role in the provider’s subscription.
 ### Arguments
 | **Argument** | **Description** |
 | --- | --- |
-| *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of ARM endpoint is in the format https://api.{domain-name}'. For example, if the domain name is local.azurestack.external, then the ARM endpoint will be https://api.local.azurestack.external |
+| *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of ARM endpoint is in the format `https://adminmanagement.{domain-name}`. For example, if the domain name is local.azurestack.external, then the Resource Manager endpoint will be `https://adminmanagement.local.azurestack.external`. |
 | *subId* |Subscription ID of the user who is making the call. |
 | *reportedStartTime* |Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly. |
 | *reportedEndTime* |End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future. |

@@ -1,6 +1,7 @@
----
+﻿---
 title: Upload data for Hadoop jobs in HDInsight | Microsoft Docs
 description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
+keywords: etl hadoop, getting data into hadoop, hadoop load data
 services: hdinsight,storage
 documentationcenter: ''
 tags: azure-portal
@@ -10,12 +11,12 @@ editor: cgronlun
 
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/12/2017
 ms.author: jgao
 
 ---
@@ -96,13 +97,13 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 >
 
 ### <a id="powershell"></a>Azure PowerShell
-Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **To upload a local file to Azure Blob storage**
 
-1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](/powershell/azure/overview).
 2. Set the values of the first five variables in the following script:
 
         $resourceGroupName = "<AzureResourceGroupName>"
@@ -183,7 +184,7 @@ Before using the tool, you must know your Azure storage account name and account
 
 1. Run Azure Storage Explorer. If this is the first time you have run the Storage Explorer, you will be prompted for the **_Storage account name** and **Storage account key**. If you have run it before, use the **Add** button to add a new storage account name and key.
 
-    Enter the name and key for the storage account used by your HDinsight cluster and then select **SAVE & OPEN**.
+    Enter the name and key for the storage account used by your HDInsight cluster and then select **SAVE & OPEN**.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, this is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
@@ -291,7 +292,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

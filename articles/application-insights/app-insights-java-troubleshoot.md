@@ -3,8 +3,8 @@ title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
 services: application-insights
 documentationcenter: java
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Troubleshooting and Q and A for Application Insights for Java
@@ -142,5 +142,5 @@ See [Data retention and privacy][data].
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

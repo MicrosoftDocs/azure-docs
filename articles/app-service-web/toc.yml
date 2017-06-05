@@ -1,12 +1,12 @@
 - name: Web Apps Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Web Apps
     href: app-service-web-overview.md
   - name: Compare hosting options
     href: choose-web-site-cloud-service-vm.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Create .NET app
@@ -21,18 +21,32 @@
     href: app-service-web-get-started-python.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
+- name: Tutorials
+  items:
+  - name: 1 - .NET with SQL DB
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: 1 - Node.js with MongoDB
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: 1 - PHP with MySQL
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: 1 - WordPress with MySQL
+    href: app-service-web-create-web-app-from-marketplace.md
+  - name: 1 - Python with PostgreSQL
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
+  - name: 2 - Map Custom Domain
+    href: app-service-web-tutorial-custom-domain.md
+  - name: 3 - Bind SSL Certificate
+    href: app-service-web-tutorial-custom-ssl.md
+  - name: 4 - Add Content Delivery Network
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
 - name: Samples
   items:
   - name: Azure CLI
     href: app-service-cli-samples.md
   - name: PowerShell
     href: app-service-powershell-samples.md
-- name: Tutorials
-  items:
-  - name: .NET with SQL Database
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: Node.js with MongoDB
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: Concepts
   items:
   - name: How App Service works
@@ -81,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
         href: web-sites-java-add-app.md
-      - name: Remote debug Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Remote debug IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Django app with MySQL
@@ -97,21 +107,39 @@
         href: web-sites-php-configure.md
       - name: Java
         href: web-sites-java-add-app.md
-      - name: Node.js on Linux
-        href: app-service-linux-using-nodejs-pm2.md
       - name: Python
         href: web-sites-python-configure.md
     - name: Configure application
       items:
       - name: Use app settings
         href: web-sites-configure.md
+    - name: Web App on Linux
+      items:
+      - name: Overview
+        href: app-service-linux-intro.md
+      - name: Create Web App on Linux
+        href: app-service-linux-how-to-create-web-app.md
+      - name: Ruby Web App on Linux
+        href: app-service-linux-ruby-get-started.md
+      - name: Node.js Web App on Linux
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: .NET Core Web App on Linux
+        href: app-service-linux-using-dotnetcore.md
+      - name: Custom Docker Web App on Linux
+        href: app-service-linux-using-custom-docker-image.md
+      - name: Connect via SSH
+        href: app-service-linux-ssh-support.md
+      - name: Continuous Deployment
+        href: app-service-linux-ci-cd.md
+      - name: Web App on Linux FAQ
+        href: app-service-linux-faq.md
   - name: Deploy to Azure
     href: web-sites-deploy.md
     items:
     - name: Deploy via FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Deploy via cloud sync
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Deploy continuously
       href: app-service-continuous-deployment.md
     - name: Deploy to staging
@@ -130,8 +158,6 @@
       items:
       - name: Buy domain
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Map 3rd-party domain
-        href: web-sites-custom-domain-name.md
       - name: Map domains with Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Map GoDaddy domains
@@ -172,12 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: App with a multi-tenant database
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Assign custom SSL
-      items:
-      - name: Buy SSL cert
-        href: web-sites-purchase-ssl-web-site.md
-      - name: Configure 3rd-party SSL cert
-        href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configure TLS mutual authentication
@@ -248,6 +268,16 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: FAQ
+      items:
+      - name: Availability, performance, and application FAQ
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Deployment FAQ
+        href: app-service-web-deployment-faq.md
+      - name: Open source technologies FAQ
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Configuration and management FAQ
+        href: app-service-web-configuration-and-management-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information

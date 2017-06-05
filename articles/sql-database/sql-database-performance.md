@@ -52,5 +52,5 @@ Clicking on **Overview** or on the **Performance** tile will take you to the per
 
 ## Additional resources
 * [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
-* [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md)
+* [When should an elastic pool be used?](sql-database-elastic-pool.md)
 

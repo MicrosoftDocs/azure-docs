@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure SQL Database by using .NET (C#) | Microsoft Docs
-description: Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database.
+description: Presents a .NET code sample you can use to connect to and query Azure SQL Database
 services: sql-database
 documentationcenter: ''
 author: ajlam
@@ -9,33 +9,36 @@ editor: ''
 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 
 ---
 # Azure SQL Database: Use .NET (C#) to connect and query data
 
-Use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to and query an Azure SQL database. This guide details using C# to connect to an Azure SQL database, and then execute query, insert, update, and delete statements.
+This quick start demonstrates how to use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to an Azure SQL database; then use Transact-SQL statements to query, insert, update, and delete data in the database from the Windows, Mac OS, and Ubuntu Linux platforms.
+
+## Prerequisites
 
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
-## Configure development environment
+## Install .NET
 
-The following sections detail configuring your existing Windows, Mac OS, and Linux(Ubuntu) development environments for working with Azure SQL Database.
+The steps in this section assume that you are familiar with developing using .NET and are new to working with Azure SQL Database. If you are new to developing with .NET, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) and select **C#** and then select your operating system.
 
 ### **Windows .NET framework and .NET core**
 
-Visual Studio 2017 Community is a fully-featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
+Visual Studio 2017 Community is a full featured, extensible, free IDE for creating modern applications for Android, iOS, Windows, as well as web & database applications and cloud services. You can install either the full .NET framework or just .NET core. The code snippets in the quick start work with either. If you already have Visual Studio installed on your machine, skip the next few steps.
 
-1. Download the [installer](https://go.microsoft.com/fwlink/?LinkId=691978). 
+1. Download the [Visual Studio 2017 installer](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Run the installer and follow the installation prompts to complete the installation.
 
 ### **Mac OS**
@@ -50,7 +53,7 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer will install the tools and put them on your PATH so you can run dotnet from the Console
+Install .NET Core on macOS. Download the [official installer](https://go.microsoft.com/fwlink/?linkid=843444). This installer installs the tools and put them on your PATH so you can run dotnet from the Console
 
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your .NET Core project. Enter the following commands to install **.NET Core**.
@@ -64,20 +67,22 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## Get connection information
 
-Get the connection string in the Azure portal. You use the connection string to connect to the Azure SQL database.
+Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane for your database, review the fully qualified server name. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
 
-    <img src="./media/sql-database-connect-query-dotnet/connection-strings.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Click **Show database connection strings**.
+4. If you forget your Azure SQL Database server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
 
-5. Review the complete**ADO.NET** connection string.
+5. Click **Show database connection strings**.
 
-    <img src="./media/sql-database-connect-query-dotnet/adonet-connection-string.png" alt="ADO.NET connection string" style="width: 780px;" />
-    
+6. Review the complete**ADO.NET** connection string.
+
+    ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+  
 ## Add System.Data.SqlClient
 When using .NET core, add System.Data.SqlClient to your project's ***csproj*** file as a dependency.
 
@@ -92,7 +97,7 @@ When using .NET core, add System.Data.SqlClient to your project's ***csproj*** f
 1. In your development environment, open a blank code file.
 2. Add ```using System.Data.SqlClient``` to your code file ([System.Data.SqlClient namespace](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. Use [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement, to query data in your Azure SQL database. Add the appropriate values for your server
+3. Use the following code to query for the top 20 products by category with the [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) command with a [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -149,7 +154,7 @@ namespace ConsoleApplication1
 
 ## Insert data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to insert data into your Azure SQL database.
+Use the following code to insert a new product into the SalesLT.Product table using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -204,7 +209,7 @@ namespace ConsoleApplication1
 
 ## Update data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update data in your Azure SQL database.
+Use the following code to update the new product that you previously added using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with an [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement. Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -254,7 +259,7 @@ namespace ConsoleApplication1
 
 ## Delete data
 
-Use [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement to delete data in your Azure SQL database.
+Use the following code to delete the new product that you previously added using the [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) with a [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement . Add the appropriate values for your server, database, user and password.
 
 ```csharp
 using System;
@@ -302,6 +307,8 @@ namespace ConsoleApplication1
 ```
 
 ## Next steps
+- [Design your first Azure SQL database](sql-database-design-first-database.md)
+- [.NET documentation](https://docs.microsoft.com/dotnet/).
+- [Connect and query with SSMS](sql-database-connect-query-ssms.md)
+- [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 
-- For .NET documentation, see [.NET documentation](https://docs.microsoft.com/dotnet/).
-- For information about querying and editing data using Visual Studio Code, see [Visual Studio Code](https://code.visualstudio.com/docs).

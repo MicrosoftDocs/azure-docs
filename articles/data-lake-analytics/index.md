@@ -91,24 +91,6 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
         </a>
     </li>
     <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-net-sdk">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using .NET SDK</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-java-sdk">
         <div class="cardSize">
             <div class="cardPadding">
@@ -211,6 +193,7 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
                     <div class="cardText">
                         <h3>Command-Line</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
+                        <p><a href="/cli/azure/dla">CLI 2.0</a></p>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Web Apps overview
 *App Service Web Apps* is a fully managed compute platform that is optimized for hosting websites and web applications. This [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.
@@ -58,12 +58,12 @@ Besides Web Apps in App Service, Azure offers other services that can be used fo
 To get started by deploying sample code to a new web app in App Service, follow one of the tutorials in the following dropdown box. You'll need a free Azure account.
 
 > [!div class="op_single_selector"]
-> * [Deploy your first HTML site to Azure in 5 minutes](app-service-web-get-started-html-cli-nodejs.md)
-> * [Deploy your first ASP.NET web app to Azure in 5 minutes](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Deploy your first PHP web app to Azure in 5 minutes](app-service-web-get-started-php-cli-nodejs.md)
-> * [Deploy your first Node.js web app to Azure in 5 minutes](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Deploy your first Python web app to Azure in 5 minutes](app-service-web-get-started-python-cli-nodejs.md)
+> * [Deploy your first ASP.NET web app to Azure in 5 minutes](app-service-web-get-started-dotnet.md)
+> * [Deploy your first PHP web app to Azure in 5 minutes](app-service-web-get-started-php.md)
+> * [Deploy your first Node.js web app to Azure in 5 minutes](app-service-web-get-started-nodejs.md)
 > * [Deploy your first Java web app to Azure in 5 minutes](app-service-web-get-started-java.md)
+> * [Deploy your first Python web app to Azure in 5 minutes](app-service-web-get-started-python.md)
+> * [Deploy your first HTML site to Azure in 5 minutes](app-service-web-get-started-html.md)
 > 
 > 
 

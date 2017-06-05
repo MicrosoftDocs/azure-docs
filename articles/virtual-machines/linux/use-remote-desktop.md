@@ -72,8 +72,8 @@ Exit the SSH session to your Linux VM. Use the Azure CLI on your local computer 
 az network nsg rule create --resource-group myResourceGroup \
     --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
     --protocol tcp --direction inbound --priority 1010 \
-    --source-address-prefix '*' --source-port-range '*' \
-    --destination-address-prefix '*' --destination-port-range 3389 \
+    --source-address-prefix * --source-port-range * \
+    --destination-address-prefix * --destination-port-range 3389 \
     --access allow
 ```
 

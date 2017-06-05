@@ -110,6 +110,10 @@ Use these steps to upgrade your cluster to a supported version if your cluster n
 >
 >
 
+#### Auto Provisioning vs Manual Provisioning
+To enable automatic downloading and registration for the latest code version, set up Service Fabric Update Service. Refer to the Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inside the [Standalone Package](service-fabric-cluster-standalone-package-contents.md) for instructions.
+For manual process, follow the instructions below.
+
 Modify your cluster configuration to set the following property to false before you start a configuration upgrade.
 
         "fabricClusterAutoupgradeEnabled": false,

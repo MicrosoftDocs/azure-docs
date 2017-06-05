@@ -42,10 +42,14 @@ To download the tools folder, run the following command:
 cd \
 
 # Download the tools archive
-invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  -OutFile master.zip
 
 # Expand the downloaded files
-expand-archive master.zip -DestinationPath . -Force
+expand-archive master.zip `
+  -DestinationPath . `
+  -Force
 
 # Change to the tools directory
 cd AzureStack-Tools-master

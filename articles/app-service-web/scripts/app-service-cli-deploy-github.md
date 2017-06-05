@@ -12,10 +12,11 @@ ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: sample
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cephalin
+ms.custom: mvc
 ---
 # Create a web app with deployment from GitHub
 
@@ -23,9 +24,9 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## Create app sample
+## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with deployment from GitHub")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with deployment from GitHub")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

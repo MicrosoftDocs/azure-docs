@@ -14,37 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: cherylmc
 
 ---
 # Connect a virtual network to an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Classic - PowerShell](expressroute-howto-linkvnet-classic.md)
-> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 >  
 
 This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription, or they can be part of another subscription.
 
-**About Azure deployment models**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-## Configuration prerequisites
-* Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
+## Before you begin
+* Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * You must have an active ExpressRoute circuit.
   
-  * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider.
+  * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider.
   * Ensure that you have Azure private peering configured for your circuit. See the [Configure routing](expressroute-howto-routing-portal-resource-manager.md) article for routing instructions.
   * Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
-  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) (follow only steps 1-5).
+  * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
 
 * You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
-
 * You can link a virtual network outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
+* You can [view a video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) before beginning to better understand the steps.
 
 ## Connect a virtual network in the same subscription to a circuit
 
@@ -83,14 +79,15 @@ You can share an ExpressRoute circuit across multiple subscriptions. The figure 
 	> 
 	>
 
-### Administration
-The 'circuit owner' is an authorized power user of the ExpressRoute circuit resource. The circuit owner can create authorizations that can be redeemed by 'circuit users'. Circuit users are owners of virtual network gateways (that are not within the same subscription as the ExpressRoute circuit). Circuit users can redeem authorizations (one authorization per virtual network).
+### Administration - circuit owners and circuit users
+
+The 'circuit owner' is an authorized Power User of the ExpressRoute circuit resource. The circuit owner can create authorizations that can be redeemed by 'circuit users'. Circuit users are owners of virtual network gateways that are not within the same subscription as the ExpressRoute circuit. Circuit users can redeem authorizations (one authorization per virtual network).
 
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
 ### Circuit owner operations
 
-#### Creating an authorization
+**To create a connection authorization**
 
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
@@ -102,32 +99,28 @@ The circuit owner creates an authorization. This results in the creation of an a
 
 	![Authorization key](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
-#### Deleting authorizations
+**To delete a connection authorization**
 
 You can delete a connection by selecting the **Delete** icon on the blade for your connection.
 
 ### Circuit user operations
 
-   > [!NOTE]
-   > The circuit user needs the resource ID and an authorization key from the circuit owner. 
+The circuit user needs the resource ID and an authorization key from the circuit owner. 
 
-#### Redeeming connection authorizations
+**To redeem a connection authorization**
 
-
-Fill in the details and click **OK** in the Basics tab.
-
-1.	Click on the **+New** button.
+1.	Click the **+New** button.
 
 	![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2.	Search for **"Connection"** in the Marketplace, select it and click **Create**.
+2.	Search for **"Connection"** in the Marketplace, select it, and click **Create**.
 
 	![Search for connection](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
 3.	Make sure the **Connection type** is set to "ExpressRoute".
 
 
-4.	Fill in the details and click **OK** in the Basics blade.
+4.	Fill in the details, then click **OK** in the Basics blade.
 
 	![Basics blade](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 
@@ -139,7 +132,8 @@ Fill in the details and click **OK** in the Basics tab.
 
 7. Review the information in the **Summary** blade and click **OK**.
 
-#### Releasing connection authorizations
+
+**To release a connection authorization**
 
 You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
 

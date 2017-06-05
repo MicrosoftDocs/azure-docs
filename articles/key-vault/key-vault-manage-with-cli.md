@@ -1,5 +1,5 @@
 ---
-title: Manage Key Vault using CLI | Microsoft Docs
+title: Manage Azure Key Vault using CLI | Microsoft Docs
 description: Use this tutorial to automate common tasks in Key Vault by using the CLI
 services: key-vault
 documentationcenter: ''
@@ -13,14 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/08/2017
 ms.author: bruceper
 
 ---
 # Manage Key Vault using CLI
+
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introduction
+
 Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure. It walks you through the process of using Azure Cross-Platform Command-Line Interface to create a vault that contains a key or password that you can then use with an Azure application. It then shows you how an application can then use that key or password.
 
 **Estimated time to complete:** 20 minutes
@@ -35,6 +37,7 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites
+
 To complete this tutorial, you must have the following:
 
 * A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
@@ -42,6 +45,7 @@ To complete this tutorial, you must have the following:
 * An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 ## Getting help with Azure Cross-Platform Command-Line Interface
+
 This tutorial assumes that you are familiar with the command-line interface (Bash, Terminal, Command prompt)
 
 The --help or -h parameter can be used to view help for specific commands. Alternately, The azure help [command] [options] format can also be used to return the same information. For example, the following commands all return the same information:
@@ -60,6 +64,7 @@ You can also read the following tutorials to get familiar with Azure Resource Ma
 * [Using Azure Cross-Platform Command-Line Interface with Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 
 ## Connect to your subscriptions
+
 To log in using an organizational account, use the following command:
 
     azure login -u username -p password
@@ -113,6 +118,7 @@ Make sure that Key Vault resource provider is registered in your subscription:
 This only needs to be done once per subscription.
 
 ## Create a key vault
+
 Use the `azure keyvault create` command to create a key vault. This script has three mandatory parameters: a resource group name, a key vault name, and the geographic location.
 
 For example, if you use the vault name of ContosoKeyVault, the resource group name of ContosoResourceGroup, and the location of East Asia, type:
@@ -127,6 +133,7 @@ The output of this command shows properties of the key vault that you've just cr
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
 ## Add a key or secret to the key vault
+
 If you want Azure Key Vault to create a software-protected key for you, use the `azure key create` command, and type the following:
 
     azure keyvault key create --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey' --destination software
@@ -149,6 +156,7 @@ Let's view the key or secret that you just created:
 * To view your secret, type: `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 ## Register an application with Azure Active Directory
+
 This step would usually be done by a developer, on a separate computer. It is not specific to Azure Key Vault but is included here, for completeness.
 
 > [!IMPORTANT]
@@ -163,7 +171,11 @@ Applications that use a key vault must authenticate by using a token from Azure 
 To register the application in Azure Active Directory:
 
 1. Sign in to the Azure portal.
-2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> Note: You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> 
+
+>[!NOTE] 
+> You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
 4. In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
 5. On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
@@ -178,7 +190,7 @@ To authorize the application to access the key or secret in the vault, use the `
 
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '[\"decrypt\",\"sign\"]'
 
 > [!NOTE]
 > If you are running on Windows command prompt, you should replace single quotes with double quotes, and also escape the internal double quotes. For example: "[\"decrypt\",\"sign\"]".
@@ -187,7 +199,7 @@ For example, if your vault name is ContosoKeyVault and the application you want 
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '[\"get\"]'
 
 ## If you want to use a hardware security module (HSM)
 For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).

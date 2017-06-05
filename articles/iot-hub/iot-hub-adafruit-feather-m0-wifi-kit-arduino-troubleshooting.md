@@ -8,6 +8,9 @@ manager: timtl
 tags: ''
 keywords: 'arduino troubleshooting'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
+
 ms.assetid: fdcc56ff-4420-463c-8a0e-5a1d215a874f
 ms.service: iot-hub
 ms.devlang: arduino

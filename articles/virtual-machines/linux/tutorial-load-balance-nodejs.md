@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -18,7 +18,7 @@ ms.date: 03/27/2017
 ms.author: iainfou
 ---
 
-# Build a highly available application on Linux virtual machines in Azure
+# Build a load balanced, highly available application on Linux virtual machines in Azure
 In this tutorial, you create a highly available application that is resilient to maintenance events. The app uses a load balancer, an availability set, and three Linux virtual machines (VMs). This tutorial builds a Node.js app, though you can use this tutorial to deploy a different application framework using the same high availability components and guidelines.
 
 ## Step 1 - Azure prerequisites
@@ -155,7 +155,7 @@ done
 
 
 ## Step 5 - Build your app
-**cloud-init** is a widely used approach to customizing a VM. You can use **cloud-init** to install packages and write files. As **cloud_init** runs during the initial deployment, there are no additional steps to get your app running. The load balancer starts to distribute traffic once the VM has finished deploying and the app is running. For more information about using **cloud-init**, see [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+**cloud-init** is a widely used approach to customizing a VM. You can use **cloud-init** to install packages and write files. As **cloud-init** runs during the initial deployment, there are no additional steps to get your app running. The load balancer starts to distribute traffic once the VM has finished deploying and the app is running. For more information about using **cloud-init**, see [Use cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The following **cloud-init** configuration installs **nodejs** and **npm**, then installs and configures **nginx** as a web proxy for your app. The configuration also creates a simple 'Hello World' Node.js app, then initializes and starts the app with **Express**. If you want to use a different application framework, adjust the packages and deployed application accordingly.
 
@@ -275,7 +275,9 @@ az network nic ip-config address-pool add \
 ```
 
 
-## Next Steps
+## Next steps
+This tutorial builds out a highly available application infrastructure using the individual Azure resources. You can also use Virtual Machine Scale Sets to automatically scale up or down the number of VMs running your app. Continue on to the next tutorial - [Create a highly available application on Linux with Virtual Machine Scale Sets](tutorial-convert-to-vmss.md).
+
 To learn more about some of the high availability features introduced in this tutorial, see the following information:
 
 - [Manage the availability of Linux virtual machines](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

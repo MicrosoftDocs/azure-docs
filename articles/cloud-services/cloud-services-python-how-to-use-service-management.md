@@ -13,16 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 05/30/2017
 ms.author: lmazuel
 
 ---
 # How to use Service Management from Python
-> [!NOTE]
-> Service Management API is being replaced with the new Resource Management API, currently available in a preview release.  See the [Azure Resource Management documentation](http://azure-sdk-for-python.readthedocs.org/) for details on using the new Resource Management API from Python.
-> 
-> 
-
 This guide shows you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) supports programmatic access to much of the service management-related functionality that is available in the [Azure classic portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services, and virtual machines**). This functionality can be useful in building applications that need programmatic access to service management.
 
 ## <a name="WhatIs"> </a>What is Service Management
@@ -34,15 +29,15 @@ To use the Service Management API, you need to [create an Azure account](https:/
 The Azure SDK for Python wraps the [Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
 ## <a name="Installation"> </a>Installation
-All the features described in this article are available in the `azure-servicemanagement-legacy` package, which you can install using pip. For more details about installation (for example, if you are new to Python), consult this article: [Installing Python and the Azure SDK](../python-how-to-install.md)
+All the features described in this article are available in the `azure-servicemanagement-legacy` package, which you can install using pip. For more information about installation (for example, if you are new to Python), see this article: [Installing Python and the Azure SDK](../python-how-to-install.md)
 
 ## <a name="Connect"> </a>How to: Connect to service management
 To connect to the Service Management endpoint, you need your Azure subscription ID and a valid management certificate. You can obtain your subscription ID through the [Azure classic portal][management-portal].
 
 > [!NOTE]
-> Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  It requires Python 2.7.4 or later. We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.
-> 
-> 
+> It is now possible to use certificates created with OpenSSL when running on Windows.  It requires Python 2.7.4 or later. We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.
+>
+>
 
 ### Management certificates on Windows/Mac/Linux (OpenSSL)
 You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute:
@@ -74,7 +69,7 @@ You can create a self-signed management certificate on your machine using `makec
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-The command creates the `.cer` file, and installs it in the **Personal** certificate store. For more details, see [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md).
+The command creates the `.cer` file, and installs it in the **Personal** certificate store. For more information, see [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md).
 
 After you have created the certificate, you need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [Azure classic portal][management-portal].
 
@@ -428,4 +423,3 @@ For more information, see the [Python Developer Center](/develop/python/).
 
 
 [cloud service]:/services/cloud-services/
-

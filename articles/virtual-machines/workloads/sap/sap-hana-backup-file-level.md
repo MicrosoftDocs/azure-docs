@@ -1,11 +1,11 @@
----
+﻿---
 title: SAP HANA Azure Backup on file level | Microsoft Docs
 description: There are two major backup possibilities for SAP HANA on Azure virtual machines, this article covers SAP HANA Azure Backup on file level
 services: virtual-machines-linux
 documentationcenter: 
-author: v-derekg
+author: hermanndms
 manager: timlt
-editor: v-derekg
+editor: 
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -100,7 +100,7 @@ Unlike the manual VM data disk backup, in this approach one does not back up all
 
 ![All VHDs involved were copied using the **start-azurestorageblobcopy** PowerShell command](media/sap-hana-backup-file-level/image031.png)
 
-After the backup to the local software RAID was completed, all VHDs involved were copied using the **start-azurestorageblobcopy** PowerShell command (see [Start-AzureStorageBlobCopy](/powershell/storage/azure.storage/v2.1.0/start-azurestorageblobcopy)). As it only affects the dedicated file system for keeping the backup files, there are no concerns about SAP HANA data or log file consistency on the disk. A benefit of this command is that it works while the VM stays online. To be certain that no process writes to the backup stripe set, be sure to unmount it before the blob copy, and mount it again afterwards. Or one could use an appropriate way to &quot;freeze&quot; the file system. For example, via xfs\_freeze for the XFS file system.
+After the backup to the local software RAID was completed, all VHDs involved were copied using the **start-azurestorageblobcopy** PowerShell command (see [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy)). As it only affects the dedicated file system for keeping the backup files, there are no concerns about SAP HANA data or log file consistency on the disk. A benefit of this command is that it works while the VM stays online. To be certain that no process writes to the backup stripe set, be sure to unmount it before the blob copy, and mount it again afterwards. Or one could use an appropriate way to &quot;freeze&quot; the file system. For example, via xfs\_freeze for the XFS file system.
 
 ![This screenshot shows the list of blobs in the vhds container on the Azure portal](media/sap-hana-backup-file-level/image032.png)
 

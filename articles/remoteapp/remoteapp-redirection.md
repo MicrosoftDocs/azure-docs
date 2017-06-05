@@ -1,4 +1,4 @@
----
+﻿---
 title: Using redirection in Azure RemoteApp | Microsoft Docs
 description: Learn how to configure and use redirection in RemoteApp
 services: remoteapp
@@ -11,7 +11,7 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 
 ---
@@ -44,7 +44,7 @@ Two redirection options are disabled by default:
 * USB redirection: You can use the USB devices attached to your local computer within the remote session.
 
 ## Change your redirection settings in RemoteApp
-You can change the device redirection settings for a collection by using the Microsoft Azure PowerShell with SDK. After you install the new PowerShell and SDK, first configure it to manage your subscription as described in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+You can change the device redirection settings for a collection by using the Microsoft Azure PowerShell with SDK. After you install the new PowerShell and SDK, first configure it to manage your subscription as described in [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 Then use a command similar to the following to set the custom RDP properties:
 
