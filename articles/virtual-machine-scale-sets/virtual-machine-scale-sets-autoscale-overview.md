@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 # How to use automatic scaling and Virtual Machine Scale Sets
 Automatic scaling of virtual machines in a scale set is the creation or deletion of machines in the set as needed to match performance requirements. As the volume of work grows, an application may require additional resources to enable it to effectively perform tasks.
 
-Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, you don't need to continually monitor system performance or decide how to manage resources. Scaling is an elastic process. More resources can be added as the load increases, but as demand decreases resources can be removed to minimize costs and maintain performance levels.
+Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, you don't need to continually monitor system performance or decide how to manage resources. Scaling is an elastic process. More resources can be added as the load increases. And as demand decreases, resources can be removed to minimize costs and maintain performance levels.
 
 Set up automatic scaling on a scale set by using an Azure Resource Manager template, Azure PowerShell, Azure CLI, or the Azure portal.
 
@@ -41,7 +41,7 @@ In the template, you specify the capacity element:
 
 Capacity identifies the number of virtual machines in the set. You can manually change the capacity by deploying a template with a different value. If you are deploying a template to only change the capacity, you can include only the SKU element with the updated capacity.
 
-Automatically change the capacity of your scale set by using the combination of the autoscaleSettings resource and the diagnostics extension.
+The capacity of your scale set can be automatically adjusted by using a combination of the **autoscaleSettings** resource and the diagnostics extension.
 
 ### Configure the Azure Diagnostics extension
 Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template.
@@ -58,7 +58,7 @@ This example shows the variables that are used in the template to configure the 
 "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 ```
 
-Parameters are provided when the template is deployed. In this example, the name of the storage account where data is stored and the name of the scale set from which data is collected are provided. Also in this Windows Server example, only the Thread Count performance counter is collected. All the available performance counters in Windows or Linux can be used to collect diagnostics information and can be included in the extension configuration.
+Parameters are provided when the template is deployed. In this example, the name of the storage account (where data is stored) and the name of the scale set (where data is collected) are provided. Also in this Windows Server example, only the Thread Count performance counter is collected. All the available performance counters in Windows or Linux can be used to collect diagnostics information and can be included in the extension configuration.
 
 This example shows the definition of the extension in the template:
 
@@ -87,7 +87,7 @@ This example shows the definition of the extension in the template:
 }
 ```
 
-When the diagnostics extension runs, the data is collected in a table that is located in the storage account that you specify. In the WADPerformanceCounters table, you can find the collected data:
+When the diagnostics extension runs, the data is stored and collected in a table, in the storage account that you specify. In the **WADPerformanceCounters** table, you can find the collected data:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
@@ -174,23 +174,23 @@ In the example above, two rules are created for defining the automatic scaling a
 | timeWindow        | This value is the range of time in which instance data is collected. It must be between 5 minutes and 12 hours. |
 | timeAggregation   | This value determines how the data that is collected should be combined over time. The default value is Average. The possible values are: Average, Minimum, Maximum, Last, Total, Count. |
 | operator          | This value is the operator that is used to compare the metric data and the threshold. The possible values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual. |
-| threshold         | This value is the value that triggers the scale action. Be sure to provide a sufficient difference between the threshold for the scale-out action and the threshold for the scale-in action. If you set the values to be the same, the system anticipates constant change, which prevents it from implementing a scaling action. For example, setting both to 600 threads in the preceding example doesn't work. |
+| threshold         | This value is the value that triggers the scale action. Be sure to provide a sufficient difference between the threshold values for the **scale-out** and **scale-in** actions. If you set the same values for both actions, the system anticipates constant change, which prevents it from implementing a scaling action. For example, setting both to 600 threads in the preceding example doesn't work. |
 | direction         | This value determines the action that is taken when the threshold value is achieved. The possible values are Increase or Decrease. |
 | type              | This value is the type of action that should occur and must be set to ChangeCount. |
 | value             | This value is the number of virtual machines that are added to or removed from the scale set. This value must be 1 or greater. |
 | cooldown          | This value is the amount of time to wait since the last scaling action before the next action occurs. This value must be between one minute and one week. |
 
-Depending on the performance counter you are using, some of the elements in the template configuration are used differently. In the preceding example, the performance counter is Thread Count, the threshold value is 650 for a scale-out action, and the threshold value is 550 for the scale-in action. If you use a counter such as %Processor Time, the threshold value is set to the percentage of CPU usage that determines a scaling action.
+Depending on the performance counter, you are using, some of the elements in the template configuration are used differently. In the preceding example, the performance counter is Thread Count, the threshold value is 650 for a scale-out action, and the threshold value is 550 for the scale-in action. If you use a counter such as %Processor Time, the threshold value is set to the percentage of CPU usage that determines a scaling action.
 
-When a load is created on the virtual machines that triggers a scaling action, the capacity of the set is increased based on the value in the template. For example, in a scale set where the capacity is set to 3 and the scale action value is set to 1:
+When a scaling action is triggered, such as a high load, the capacity of the set is increased based on the value in the template. For example, in a scale set where the capacity is set to 3 and the scale action value is set to 1:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
-When the load is created that causes the average thread count to go above the threshold of 650:
+When the current load causes the average thread count to go above the threshold of 650:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
 
-A scale-out action is triggered that causes the capacity of the set to be increased by one:
+A **scale-out** action is triggered that causes the capacity of the set to be increased by one:
 
 ```json
 "sku": {
@@ -200,7 +200,7 @@ A scale-out action is triggered that causes the capacity of the set to be increa
 },
 ```
 
-And a virtual machine is added to the scale set:
+The result is a virtual machine is added to the scale set:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
 
@@ -224,12 +224,12 @@ To see an example of using the Azure portal to set up autoscaling, look at [Crea
 You can currently get a limited amount of information using the portal.
 
 * **Azure Resource Explorer**  
-This tool is the best for exploring the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
-  Subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Compute > virtualMachineScaleSets > {your scale set} > virtualMachines
+This tool is the best for exploring the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:  
+**Subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Compute > virtualMachineScaleSets > {your scale set} > virtualMachines**
 
 * **Azure PowerShell**  
 Use this command to get some information:
-  
+
   ```powershell
   Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
   Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
