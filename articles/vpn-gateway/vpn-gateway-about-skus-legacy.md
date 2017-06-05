@@ -22,6 +22,8 @@ ms.author: cherylmc
 
 This article contains information about the old virtual network gateway SKUs. For information on the current SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
+## SKUs
+
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
 ## Estimated aggregate throughput by SKU
