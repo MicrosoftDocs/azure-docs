@@ -5,38 +5,42 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid: 
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
-ms.workload:
-ms.date: 05/10/2017
+ms.date: 06/01/2017
+ms.custom: mvc
 ---
 
 # Create an Azure Database for MySQL server using Azure CLI
 This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about five minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
-To complete this quickstart, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+You may use the Azure Cloud Shell in the browser to run these Azure CLI commands, or [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) on your own computer. 
+
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to Azure
-
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli
+If you are using the Azure Cloud Shell follow the on-screen prompts to log in. If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.  
+```azurecli-interactive
 az login
 ```
-Follow the command prompt instructions to open https://aka.ms/devicelog in your browser, and then enter the code generated in the **command prompt**.
+
+If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
+```
+Follow the command prompt instructions to open URL https://aka.ms/devicelogin in your browser, and then enter the code generated in the command prompt.
 
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `mycliresource` in the `westus` location.
 
-```azurecli
+```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
@@ -45,8 +49,8 @@ Create an Azure Database for MySQL server with the **az mysql server create** co
 
 The following example creates an Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
-```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+```azurecli-interactive
+az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ![Create an Azure Database for MySQL server using Azure CLI](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
@@ -56,7 +60,7 @@ Create an Azure Database for MySQL server-level firewall rule using the **az mys
 
 The following example creates a firewall rule for a predefined address range, which in this example is the entire possible range of IP addresses.
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 ## Configure SSL settings
@@ -64,7 +68,7 @@ By default, SSL connections between your server and client applications are enfo
 
 The following example disables enforcing SSL on your MySQL server.
  
- ```azurecli
+ ```azurecli-interactive
  az mysql server update --resource-group mycliresource --name mycliserver -g -n --ssl-enforcement Disabled
  ```
 
@@ -72,7 +76,7 @@ The following example disables enforcing SSL on your MySQL server.
 
 To connect to your server, you need to provide host information and access credentials.
 
-```azurecli
+```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
@@ -81,7 +85,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
+  "fullyQualifiedDomainName": "mycliserver.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
   "location": "westus",
   "name": "mycliserver",
@@ -108,7 +112,7 @@ Open the command prompt and enter the following:
 
 1. Connect to the server using **mysql** command-line tool:
 ```dos
- mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+ mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 ```
 
 2. View server status:
@@ -118,7 +122,7 @@ Open the command prompt and enter the following:
 If everything goes well, the command-line tool should output the following:
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+C:\Users\v-chenyh>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -143,7 +147,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mycliserver.database.windows.net via TCP/IP
+Connection:             mycliserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -169,26 +173,25 @@ mysql>
 |----------------|-----------------|
 |	*Connection Name* | specify a name for this connection (this can be anything) |
 | *Connection Method* | choose Standard (TCP/IP) |
-| *Hostname* | mycliserver.database.windows.net (SERVER NAME you note down previously) |
+| *Hostname* | mycliserver.mysql.database.azure.com (Server name you previously noted) |
 | *Port* | 3306 |
-| *Username* | myadmin@mycliserver (SERVER ADMIN LOGIN you note down previously) |
-| *Password* | you can store admin account password in vault |
+| *Username* | myadmin@mycliserver (Server admin login you previously noted) |
+| *Password* | Please store the admin account password |
 
-![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-3.	Click **Test Connection** to test if all parameters are correctly configured.
-
-4.	Now, you can click the connection just created to successfully connect to the server.
+Click **Test Connection** to test if all parameters are correctly configured.
+Now, you can click the connection just created to successfully connect to the server.
 
 ## Clean up resources
 
 If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following: 
 
-```azurecli
+```azurecli-interactive
 az group delete --name mycliresource
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design a MySQL Database with Azure CLI](./tutorial-design-database-using-cli.md).
+> [Design a MySQL Database with Azure CLI](./tutorial-design-database-using-cli.md)

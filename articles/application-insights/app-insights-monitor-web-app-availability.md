@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 
 ---
@@ -240,6 +240,13 @@ You can run a load test on your website. Like the availability test, you can sen
 From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create a Visual Studio Team Services account.
 
 When the test is complete, you are shown response times and success rates.
+
+
+![Performance test](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> To observe the effects of a performance test, use [Live Stream](app-insights-live-stream.md) and [Profiler](app-insights-profiler.md).
+>
 
 ## Automation
 * [Use PowerShell scripts to set up an availability test](app-insights-powershell.md#add-an-availability-test) automatically.

@@ -35,6 +35,7 @@ Navigate to the [Azure portal](https://portal.azure.com). Switch to the Azure AD
 
 ## Step 3 - Create a B2C Tenant resource in Azure Marketplace
 Open Marketplace by clicking the Marketplace icon, or selecting the green "+" in the upper left corner of the dashboard.  Search for and select Azure Active Directory B2C. Select Create.
+
 ![Select Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Search AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
