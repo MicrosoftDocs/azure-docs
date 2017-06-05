@@ -63,19 +63,35 @@ The diagnostic cmdlet performs the following diagnostics:
 
 Following diagram illustrate the output of the cmdlet for a single-forest/single-domain deployment:
 
-![Diagnostic cmdlet for password synchronization](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/diagnosticgeneral.png)  
+![Diagnostic cmdlet output for password synchronization](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-**Password synchronization feature isn't enabled**
+### How to interpret common issues detected by the cmdlet
 
-If you haven't enabled Password synchronization using Azure AD Connect wizard, the following error is returned. To enable password synchronization, 
+#### Password synchronization feature isn't enabled
+If you haven't enabled Password synchronization using Azure AD Connect wizard,  following error is returned:
 
-**Azure AD Connect server is in staging mode**
+![Password synchronization isn't enabled](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobaldisabled.png)
 
-Password synchronization is disabled when Azure AD Connect is in staging mode. To disable staging mode, 
+#### Azure AD Connect server is in staging mode
+If the Azure AD Connect is in staging mode, password synchronization is temporarily disabled and following error is returned:
 
-**No password synchronization heartbeat detected**
+![Azure AD Connect server is in staging mode](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalstaging.png)
 
+#### No password synchronization heartbeat events
 Each on-premises AD Connector a separate password synchronization channel is running and password synchronization heartbeat is a sign that the channel for a specific AD Connector is continuing to run. When the password synchronization cycles are not taking long time, heartbeats are supposed to be emitted every 30 minutes. If there is no heartbeat available for the AD Connector in the last 3 hours, it means that the channel stopped and passwords will not be synchronized for this AD Connector.
+
+![No password synchronization heart beat event](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectpermission.png)
+
+#### AD DS account does not have correct permissions
+If the AD DS account used by the on-premises AD Connector to synchronize password hashes does not have the appropriate permissions, following error is returned:
+
+![Incorrect credential](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
+
+#### Incorrect AD DS account username or password
+If the AD DS account used by the on-premises AD Connector to synchronize password hashes has incorrect username or password, following error is returned:
+
+![Incorrect credential](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
+
 
 ## One object is not synchronizing passwords - 524 or after
 Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synchronized:
