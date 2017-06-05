@@ -8,11 +8,12 @@ manager: ytkuo
 ms.service: cognitive-services 
 ms.technology: computer-vision 
 ms.topic: article 
-ms.date: 03/27/2017 
+ms.date: 05/22/2017 
 ms.author: juliakuz 
 --- 
 
 # Computer Vision Java Quick Starts
+
 This article provides information and code samples to help you quickly get started using Java and the Computer Vision API to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage)
 * [Use a Domain-Specific Model](#DomainSpecificModel)
@@ -21,23 +22,27 @@ This article provides information and code samples to help you quickly get start
 * [Detect and extract handwritten text from an image](#RecognizeText)
 
 ## Prerequisites
+
 * Get the Microsoft Computer Vision Android SDK [here](https://github.com/Microsoft/Cognitive-vision-android).
 * To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
 ## Analyze an Image With Computer Vision API Using Java <a name="AnalyzeImage"> </a>
-With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+
+With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 * A detailed list of tags related to the image content.
 * A description of image content in a complete sentence.
 * The coordinates, gender, and age of any faces contained in the image.
 * The ImageType (clip art or a line drawing).
 * The dominant color, the accent color, or whether an image is black & white.
-* Does the image contains adult or sexually suggestive content?
+* Does the image contain adult or sexually suggestive content?
 
 ### Analyze an Image Java Example Request
 
-```Java
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
+Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+```java
+// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 import java.net.URI;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -56,7 +61,10 @@ public class Main
 
         try
         {
-            URIBuilder builder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze");
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            URIBuilder builder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze");
 
             builder.setParameter("visualFeatures", "Categories");
             builder.setParameter("details", "Celebrities");
@@ -65,8 +73,10 @@ public class Main
             URI uri = builder.build();
             HttpPost request = new HttpPost(uri);
 
-            // Request headers - replace this example key with your valid subscription key.
+            // Request headers.
             request.setHeader("Content-Type", "application/json");
+
+            // NOTE: Replace the example key with a valid subscription key.
             request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request body. Replace the example URL with the URL for the JPEG image of a celebrity.
@@ -192,11 +202,14 @@ A successful response is returned in JSON. The following example shows a success
 ```
 
 ## Use a Domain-Specific Model <a name="DomainSpecificModel"> </a>
+
 The Domain-Specific Model is a model trained to identify a specific set of objects in an image. The two domain-specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
 
 ### Landmark Java Example Request
 
-```Java
+Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+```java
 // This sample uses the Apache HTTP client (org.apache.httpcomponents:httpclient:4.2.4)
 // and org.json (org.json:20160810).
 
@@ -221,8 +234,12 @@ public class Main
 
         try
         {
-            // Change "landmarks" to "celebrities" in the url to use the Celebrities model.
-            URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze");
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            //
+            // Also, change "landmarks" to "celebrities" in the URL to use the Celebrities model.
+            URIBuilder uriBuilder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/models/landmarks/analyze");
 
             // Change "landmarks" to "celebrities" to use the Celebrities model.
             uriBuilder.setParameter("model", "landmarks");
@@ -230,8 +247,10 @@ public class Main
             URI uri = uriBuilder.build();
             HttpPost request = new HttpPost(uri);
 
-            // Request headers. Replace the example key below with your valid subscription key.
+            // Request headers.
             request.setHeader("Content-Type", "application/json");
+
+            // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
             request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request body. Replace the example URL with the URL of a JPEG image containing text.
@@ -243,7 +262,7 @@ public class Main
 
             if (entity != null)
             {
-                // Output the JSON response
+                // Format and output the JSON response
                 String jsonString = EntityUtils.toString(entity);
                 JSONObject json = new JSONObject(jsonString);
                 System.out.println("REST Response:");
@@ -252,6 +271,7 @@ public class Main
         }
         catch (Exception e)
         {
+            // Display error message.
             System.out.println(e.getMessage());
         }
     }
@@ -259,6 +279,7 @@ public class Main
 ```
 
 ### Landmark Example Response
+
 A successful response is returned in JSON. Following is an example of a successful response:  
 
 ```json
@@ -278,11 +299,14 @@ REST Response:
 ```
 
 ## Get a Thumbnail with Computer Vision API Using Java <a name="GetThumbnail"> </a>
-Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
+
+Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
 
 ### Get a Thumbnail Java Example Request
 
-```Java
+Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+```java
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 import java.awt.*;
 import javax.swing.*;
@@ -306,7 +330,10 @@ public class Main
 
         try
         {
-            URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail");
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            URIBuilder uriBuilder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/generateThumbnail");
 
             uriBuilder.setParameter("width", "100");
             uriBuilder.setParameter("height", "150");
@@ -315,8 +342,10 @@ public class Main
             URI uri = uriBuilder.build();
             HttpPost request = new HttpPost(uri);
 
-            // Request headers - replace this example key with your valid subscription key.
+            // Request headers.
             request.setHeader("Content-Type", "application/json");
+            
+            // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
             request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request body. Replace the example URL with the URL for the JPEG image of a person.
@@ -362,15 +391,19 @@ public class Main
 ```
 
 ### Get a Thumbnail Response
+
 A successful response contains the thumbnail image binary. If the request fails, the response contains an error code and a message to help determine what went wrong.
 
-
 ## Optical Character Recognition (OCR) with Computer Vision API Using Java<a name="OCR"> </a>
-Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
+
+Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR Java Example Request
-```Java
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
+
+Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+```java
+// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 import java.net.URI;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -389,7 +422,10 @@ public class Main
 
         try
         {
-            URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr");
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            URIBuilder uriBuilder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/ocr");
 
             uriBuilder.setParameter("language", "unk");
             uriBuilder.setParameter("detectOrientation ", "true");
@@ -397,8 +433,10 @@ public class Main
             URI uri = uriBuilder.build();
             HttpPost request = new HttpPost(uri);
 
-            // Request headers - replace this example key with your valid subscription key.
+            // Request headers.
             request.setHeader("Content-Type", "application/json");
+
+            // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
             request.setHeader("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request body. Replace the example URL with the URL of a JPEG image containing text.
@@ -422,6 +460,7 @@ public class Main
 ```
 
 ### OCR Example Response
+
 Upon success, the OCR results returned include the detected text and bounding boxes for regions, lines, and words.
 
 ```json
@@ -492,11 +531,15 @@ Upon success, the OCR results returned include the detected text and bounding bo
 ```
 
 ## Text Recognition with Computer Vision API Using Java<a name="RecognizeText"> </a>
+
 Use the [RecognizeText method](https://ocr.portal.azure-api.net/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### Handwriting Recognition Java Example
-```Java
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
+
+Change the REST URL to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+
+```java
+// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 import java.net.URI;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -516,13 +559,17 @@ public class Main
         HttpClient textClient = new DefaultHttpClient();
         HttpClient resultClient = new DefaultHttpClient();
 
-        // Replace this example key with your valid subscription key.
+        // NOTE: Replace this example key with your valid subscription key.
         String subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
 
         try
         {
-            // For printed text, set "handwriting" to false.
-            URI uri = new URI("https://westus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true");
+            // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+            //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+            //   URL below with "westus".
+            //
+            // Also, for printed text, set "handwriting" to false.
+            URI uri = new URI("https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/recognizeText?handwriting=true");
             HttpPost textRequest = new HttpPost(uri);
 
             // Request headers. Another valid content type is "application/octet-stream".
@@ -551,7 +598,7 @@ public class Main
             HttpGet resultRequest = new HttpGet(operationLocation);
             resultRequest.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-            // Note: The response may not be immediately available. Handwriting recognition is an
+            // NOTE: The response may not be immediately available. Handwriting recognition is an
             // async operation that can take a variable amount of time depending on the length
             // of the text you want to recognize. You may need to wait or retry this operation.
             HttpResponse resultResponse = resultClient.execute(resultRequest);
