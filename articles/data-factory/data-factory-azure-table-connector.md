@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
@@ -455,7 +455,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
    }
 }
 ```
-### Type Mapping for Azure Table
+## Type Mapping for Azure Table
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach.
 
 1. Convert from native source types to .NET type
