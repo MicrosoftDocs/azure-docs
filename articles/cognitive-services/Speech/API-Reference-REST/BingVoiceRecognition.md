@@ -12,11 +12,13 @@ ms.date: 06/05/2017
 ms.author: jstock
 ---
 
-# API reference for speech to text conversion
-The API reference for converting speech to text using HTTP-based REST protocol or WebSocket-based protocol. 
+# Converting speech to text with Microsoft APIs
+You can choose to convert speech to text using either an [HTTP-based REST protocol](#REST_protocol) or a [WebSocket-based protocol](#WebSocket_protocol). 
+The protocol you select depends on the needs of your application.
 
-## REST
-Microsoft's REST Speech Recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. This API is most 
+## REST <a id="REST_protocol"></a>
+Microsoft's [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) Speech Recognition API is an HTTP 1.1 protocol definition for building 
+simple speech applications that perform speech recognition. This API is most 
 suitable for applications where continuous user feedback is not required or for platforms that do not support 
 the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
 
@@ -26,14 +28,15 @@ the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API
 * A single recognition phrase result is returned to the client only after the client stops writing to the request stream.
 * Continuous recognition is not supported. 
 
-If these features are important to your application's functionality, use the WebSocket API described in the following sections:
+If these features are important to your application's functionality, use the [WebSocket API](#WebSocket_protocol).
 
-## WebSocket
+## WebSocket <a id="WebSocket_protocol"></a>
 Microsoft's WebSocket Speech Recognition API is a service protocol definition that uses a [WebSocket](https://tools.ietf.org/html/rfc6455) for bi-direction communication.
 With this API, you can build full-featured speech applications that provide a rich user experience.
 
 A [Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of protocol. 
-SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](websocketprotocol.md).
+SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, you can create your own implementation 
+based on the [protocol documentation](websocketprotocol.md).
 
 ## Endpoints
 The API endpoints based on user scenario are highlighted here:
@@ -87,11 +90,27 @@ The following characteristics are typical of dictation mode applications:
 > phrase results after silence boundaries in the audio stream. Microsoft may enhance the speech protocol to
 > improve the user experience in these continuous recognition modes.
 
-## Recognition Languages
-The following locales are supported by the Speech Recognition API.
+## Recognition language 
+The *recognition language* specifies the language that your application user will speak. You **must** specify the user's
+spoken language with the *language* URL query parameter on the connection. The value of the *language* query parameter **must** be one of the languages supported by the 
+Microsoft Speech Service, specified in [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) format. The Microsoft Speech Service rejects 
+invalid connection requests with an ```HTTP 400 Bad Request``` response.
+An invalid request is one that:
+* does not include a *language* query parameter value
+* includes a *language* query parameter that is not correctly formatted
+* includes a *language* query parameter that is not one of the support languages
+
+You may choose to build an application that restricts the user choice of language to a subset of those languages supported by the Microsoft Speech Service.
+
+### Example
+An application the employs *conversation* speech recognition being used by an US English speaker would make a connection at the URL below.
+
+```
+https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+```
 
 ### Interactive and dictation mode
-These `locale` codes are supported in **interactive** and **dictation** mode.
+Microsoft's Speech Recognition API supports the following languages in **interactive** and **dictation** modes. 
 
 |Code |  | Code |  |
 |-----|-----|-----|-----|
@@ -112,7 +131,7 @@ These `locale` codes are supported in **interactive** and **dictation** mode.
 | fr-FR | French (France) | ||
 
 ### Conversational modeO
-These `locale` codes are supported in **conversational** mode.
+Microsoft's Speech Recognition API supports the following languages in **conversation** modes. 
 
 |Code||Code||
 |-----|-----|-----|-----|
@@ -124,8 +143,7 @@ These `locale` codes are supported in **conversational** mode.
  
 ## Output Format
 The Microsoft Speech Service can return different payload formats of recognition phrase results. All payloads are JSON structures. 
-
-Control the phrase result format by specifying the `format` URL query parameter. By default, the Microsoft Speech Service returns `simple` results. 
+You can control the phrase result format by specifying the `format` URL query parameter. By default, the Microsoft Speech Service returns `simple` results. 
 
 | Format | Description |
 |-----|-----|
@@ -143,14 +161,14 @@ applications that need unprocessed recognition words.
 Profanity is never masked in the lexical form.
 
 ### Inverse Text Normalization (ITN) form
-Text normalization is the process of converting text from one form into another "canonical" form. For example, the phone number `555-1212` might be converted to the canonical form `five five five one two one two`. *Inverse* text normalization (ITN) reverses this process, converting the words `five five five one two one two` to the inverted canonical form `555-1212`. Note that the ITN form of a recognition result does not include any capitalization or punctuation. 
+Text normalization is the process of converting text from one form into another "canonical" form. For example, the phone number `555-1212` might be converted to the canonical form `five five five one two one two`. *Inverse* text normalization (ITN) reverses this process, converting the words `five five five one two one two` to the inverted canonical form `555-1212`. The ITN form of a recognition result does not include any capitalization or punctuation. 
 
 The ITN form is most appropriate for applications that act on the recognized text. For example, an application that allows a user to speak search terms and then uses these terms in a web query would use the ITN form. Profanity is never masked in the ITN form; to mask profanity, use the **Masked ITN form**.
 
 ### Masked Inverse Text Normalization (ITN) Form
 Since profanity is naturally a part of spoken language, the Microsoft Speech Service recognizes these words and phrases when they are spoken. Profanity may not, however, be appropriate for all applications, especially those applications with a restricted, non-adult user audience.
 
-The masked ITN form applies profanity masking to the Inverse text normalization form. To mask profanity, set the value of the profanity parameter value to `masked`. When profanity is masked, words recognized as part of the language's profanity lexicon are replaced with asterisks. For example: `remind me to buy 5 **** pencils`. Note that the Masked ITN form of a recognition result does not include any capitalization or punctuation. 
+The masked ITN form applies profanity masking to the Inverse text normalization form. To mask profanity, set the value of the profanity parameter value to `masked`. When profanity is masked, words recognized as part of the language's profanity lexicon are replaced with asterisks. For example: `remind me to buy 5 **** pencils`. The Masked ITN form of a recognition result does not include any capitalization or punctuation. 
 
 > [!NOTE] 
 > If the profanity query parameter value is set to `raw`, the Masked ITN form is the same as the ITN form. Profanity is **not** masked. 
@@ -201,7 +219,7 @@ The payload format of the `detailed` phrase result:
 ## N-Best Values
 A listener, whether human or machine, can never be certain that they heard *exactly* what was spoken. A listener can only assign a *probability* to a particular interpretation of an utterance. 
 In normal conditions, when speaking to others with whom they frequently interact, people have a high probability of recognizing the words that were spoken. 
-Machine-based speech listeners strive to achieve similar accuracy levels and, under the right conditions, they can do as well as humans.
+Machine-based speech listeners strive to achieve similar accuracy levels and, under the right conditions, [they achieve parity with humans](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
 The algorithms used in speech recognition explore alternative interpretations of an utterance as part of normal processing. Usually, these alternatives are discarded 
 as the evidence in favor of a single interpretation becomes overwhelming. In less than optimal conditions, however, the speech recognizer finishes with a list of 
