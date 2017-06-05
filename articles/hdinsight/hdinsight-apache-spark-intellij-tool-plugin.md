@@ -21,7 +21,7 @@ ms.author: nitinme
 ---
 # Use Azure Toolkit for IntelliJ to create Spark applications for HDInsight cluster
 
-Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from them the IntelliJ IDE. You can use the plug-in in a few different ways:
+Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the IntelliJ IDE. You can use the plug-in in a few different ways:
 
 * To develop and submit a Scala Spark application on an HDInsight Spark cluster
 * To access your Azure HDInsight Spark cluster resources
@@ -68,7 +68,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
    - In the right pane, select **Spark on HDInsight (Scala)**.
    
     ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
-2. The Scala project creation wizard detect automatically whether you installed Scala IDE or not. Touch **click** the bellow to choose scala plugin.
+2. The Scala project creation wizard detect automatically whether you installed Scala plugin or not. Touch **click** the bellow to choose scala plugin.
 
     ![scala check](./media/hdinsight-apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
 3. Click **OK** to download it. After these, remember to restart Intellij.
@@ -78,7 +78,7 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 4. In the next window, provide the following project details, and then click **Finish**.
    
    - Provide a project name and project location.
-   - For **Project SDK**, use Java 1.8 for a Spark 1.6 or Spark 2.0 cluster.
+   - For **Project SDK**, use Java 1.8 for a Spark 1.6 or Spark 2.0 cluster. For spark 1.5 and spark 1.6, we recommend using Java 1.7.
    - For **Spark Version**, Scala project creation wizard integrate proper vertion for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, please choose spark 1.x . Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
         
        ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-new-project.PNG)
