@@ -60,7 +60,7 @@ ms.custom: H1Hack27Feb2017
 *	Made some performance improvements in the SDK.
 
 ### <a name="1.13.4"/>1.13.4
-* Functionally same as 1.13.4. Made some internal changes.
+* Functionally same as 1.13.3. Made some internal changes.
 
 ### <a name="1.13.3"/>1.13.3
 * Functionally same as 1.13.2. Made some internal changes.
