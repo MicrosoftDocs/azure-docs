@@ -40,7 +40,7 @@ An Azure Container registry is created with the [az acr create](/cli/azure/acr#c
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
-Get ACR credentials using the [az acr credential show] command. Note these down, they are needed in a later step.
+Get ACR credentials using the [az acr credential show](/cli/azure/acr/credential) command. Note these down, they are needed in a later step.
 
 ```azurecli-interactive
 az acr credential show --name myContainerRegistry2675
@@ -56,7 +56,7 @@ The conventional way to push and pull image from a private registry is to first 
 
 This process will use an Azure file share that has been mounted on each node in the cluster. If you have not already set up shared storage, see the [Setup a file share inside a DC/OS cluster](container-service-dcos-fileshare.md) 
 
-### From any client machine [Recommended Method]
+### Configure ACR authentication
 
 First, get the FQDN of the DC/OS master and store it in a variable.
 
@@ -70,23 +70,23 @@ Create an SSH connection with the master (or the first master) of your DC/OS-bas
 ssh azureuser@$FQDN
 ```
 
-Run the following command to log into the Azure Container Registry.
+Run the following command to log into the Azure Container Registry. This command will store the the authentication values locally under the `~/.docker` path.
 
 ```bash
 docker login --username=password --password=Pk===2Wwy=R++/7i+zSnf=KA6J=/NJpW mycontainerregistry2675.azurecr.io
 ```
 
+Create a compressed file that containers the container registry authentication values.
+
 ```bash
 tar czf docker.tar.gz .docker
 ```
 
+Copy this file to the cluster shred storge. This will make the fiel avaliable on all nodes of the DC/OS cluster.
+
 ```bash
-cp docker.tar.gz /mtn/share/dcoschare
+cp docker.tar.gz /mtn/share/dcos
 ```
-
-## Push an Image to ACR
-
-TODO
 
 ## Run an image from ACR
 
@@ -128,10 +128,6 @@ Let's say we want to deploy the **simple-web** image, with the **2.1** tag, from
    ]
 }
 ```
-
-> [!NOTE] 
-> As you can see, we are using the **uris** option to specify where are stored our credentials.
->
 
 ## Next steps
 

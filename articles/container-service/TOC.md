@@ -1,6 +1,5 @@
 # Overview
 ## [About Container Service](container-service-intro.md)
-## [Containers in Azure](../virtual-machines/linux/containers.md?toc=%2fazure%2fcontainer-service%2ftoc.json)
 
 # Quickstarts
 ## [Create cluster - Kubernetes](container-service-kubernetes-walkthrough.md)
@@ -16,7 +15,6 @@
 ### [Create / manage data volumes](container-service-dcos-fileshare.md)
 ### [Load balance applications](container-service-load-balancing.md)
 ### [Integrate with ACR](container-service-dcos-acr.md)
-### [Monitor cluster with OMS](container-service-monitoring-oms.md)
 
 # Samples
 ## [Azure CLI](cli-samples.md)
