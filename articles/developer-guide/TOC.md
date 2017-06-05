@@ -27,7 +27,7 @@
 ## [Create an Azure connected function](../azure-functions/functions-create-an-azure-connected-function.md)
 ## [Docker deploy web app on Linux](../app-service-web/app-service-linux-using-custom-docker-image.md) 
 
-# Examples
+# Samples
 ## Azure CLI
 ### [Web Apps](../app-service-web/app-service-cli-samples.md)
 ### [Virtual Machines](../virtual-machines/linux/cli-samples.md)
