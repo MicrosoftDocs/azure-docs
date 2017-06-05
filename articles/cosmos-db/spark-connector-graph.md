@@ -1,20 +1,20 @@
 ---
 title: 'Azure Cosmos DB: Perform graph analytics using Spark and Apache TinkerPops Gremlin | Microsoft Docs'
 description: Presents a set up instructions to set up and run graph analytics and parallel computation Azure Cosmos DB with Spark GraphX
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: khdang
 manager: shireest
 editor: ''
 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: hero-article
-ms.date: 05/21/2017
+ms.date: 06/05/2017
 ms.author: khdang
 
 ---
@@ -171,7 +171,7 @@ When we built TinkerPop3 in the previous step, it also pulled all jar dependenci
 
 ## Get the Cosmos DB Spark Connector
 
-1. Get the Cosmos DB Spark Connector `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` from [Azure Cosmos DB Spark Connector on Github](https://github.com/Azure/azure-documentdb-spark/tree/master/releases/azure-documentdb-spark-0.0.3_2.0.2_2.11)
+1. Get the Cosmos DB Spark Connector `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` from [Azure Cosmos DB Spark Connector on Github](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11)
 
 2. Alternatively, you can build it locally. Because the latest verion of Spark-Gremlin  was built with Spark 1.6.1 and not compatible with Spark 2.0.2 currently used in the Cosmos DB Spark Connector, you can build the latest TinkerPop3 code and install the jars manually.
 
@@ -193,7 +193,7 @@ When we built TinkerPop3 in the previous step, it also pulled all jar dependenci
     3. Build with Maven. The needed jars are placed in `target` and `target/alternateLocation`
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-spark.git
+    git clone https://github.com/Azure/azure-cosmosdb-spark.git
     cd azure-documentdb-spark
     mvn clean package
     ```

@@ -2,8 +2,8 @@
 title: Azure Data Lake Analytics Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn big data analysis with Data Lake Analytics. Tutorials show you how to run batch, real-time, and interactive analytics, and how to write U-SQL queries.
 services: data-lake-analytics
-author: carolz
-manager: carolz
+author: saveenr
+manager: saveenr
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics
@@ -91,42 +91,6 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
         </a>
     </li>
     <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-net-sdk">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using .NET SDK</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-java-sdk">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Java SDK</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started">
         <div class="cardSize">
             <div class="cardPadding">
@@ -156,42 +120,6 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
                     </div>
                     <div class="cardText">
                         <h3>Get started with Azure Data Lake Analytics using Azure CLI</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-rest-api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using REST APIs</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/python.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Azure Data Lake Store using Python</h3>
                     </div>
                 </div>
             </div>

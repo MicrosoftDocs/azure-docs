@@ -2,14 +2,14 @@
 title: Node.js tutorial for the DocumentDB API for Azure Cosmos DB | Microsoft Docs
 description: A Node.js tutorial that creates a Cosmos DB with the DocumentDB API. 
 keywords: node.js tutorial, node database
-services: cosmosdb
+services: cosmos-db
 documentationcenter: node.js
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
@@ -259,7 +259,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateColl"></a>Step 6: Create a collection
 > [!WARNING]
-> **CreateDocumentCollectionAsync** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionAsync** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
