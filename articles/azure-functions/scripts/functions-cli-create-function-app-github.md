@@ -16,6 +16,10 @@ This sample script creates a function app using the [consumption plan](../functi
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 This sample creates an Azure Function app and deploys function code from GitHub.
