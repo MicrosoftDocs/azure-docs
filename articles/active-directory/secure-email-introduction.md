@@ -1,5 +1,5 @@
 ---
-title: Secure email policies and configurations
+title: Azure AD secure email policies and configurations | Microsoft docs
 description:  Describes Microsoft recommendations and core concepts for deploying secure email policies and configurations.
 author: jeffgilb
 ms.service: guidance
