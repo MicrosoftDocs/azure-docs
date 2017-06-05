@@ -40,6 +40,7 @@ Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Managed
 ```
 
 ## Prepare VMs for conversion
+This section contains steps that need to be undertaken before VM can be converted to Managed Disks or if converting between different storage types.
 
 ### Deallocate the VM
 The conversion to Managed Disks is only supported after the VM is deallocated. In the steps show below, we use the `Stop-AzureRmVM` cmdlet to stop the VM.
@@ -61,7 +62,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 }
 ```
 
-## Convert VMs NOT in an availability set
+## Convert VMs Not in an availability set
 For a VM that is not in an availability set, you just need to deallocate the VM and then convert to managed disk.
 
 ```powershell
