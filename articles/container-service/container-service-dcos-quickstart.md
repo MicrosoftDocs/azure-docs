@@ -148,7 +148,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 Get the public IP address of the DC/OS cluster agents.
 
-```azurecli-interactive -interactive 
+```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
