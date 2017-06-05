@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 06/05/2017
 ms.author: jeedes
 
 ---
@@ -76,7 +76,7 @@ To configure the integration of Expensify into Azure AD, you need to add Expensi
 	![Creating an Azure AD test user](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Expensify based on a test user called "Britta Simon."
+In this section, you configure and test Azure AD single sign-on with Expensify based on a test user called "Britta Simon".
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Expensify is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Expensify needs to be established.
 
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.expensify.com/authentication/saml/login`
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Expensify Client support team](https://www.expensify.com/) to get this value. 
+	> This value is not real. Update this value with the actual Sign-On URL. Contact [Expensify Client support team](mailto:help@expensify.com) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_general_400.png)
 
-6. To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application. The steps are listed [here](http://help.expensify.com/domain-control). For additional support, you can contact the Expensify support via [help@expensify.com](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
+6. To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](http://help.expensify.com/domain-control). For additional support, Work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_51.png) 
 
@@ -174,11 +174,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an Expensify test user
 
-In this section, you create a user called Britta Simon in Expensify. Work with [Expensify Client support team](https://www.expensify.com/) to add the users in the Expensify platform.
-
->[!NOTE]
->If you need to create a user manually, you need to contact the [Expensify Client support team](https://www.expensify.com/). 
-> 
+In this section, you create a user called Britta Simon in Expensify. Work with [Expensify Client support team](mailto:help@expensify.com) to add the users in the Expensify platform.
 
 ### Assigning the Azure AD test user
 
