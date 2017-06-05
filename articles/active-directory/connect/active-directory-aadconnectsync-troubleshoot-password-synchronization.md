@@ -32,7 +32,7 @@ For Azure AD Connect deployment with version before 1.1.524.0:
 
 * If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords](#one-object-is-not-synchronizing-passwords).
 
-## No passwords are synchronized - build 524 or after
+## No passwords are synchronized (version 1.1.524.0 or after)
 Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with **Run as Administrator** option.
@@ -93,7 +93,7 @@ If the AD DS account used by the on-premises AD Connector to synchronize passwor
 ![Incorrect credential](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
 
-## One object is not synchronizing passwords - 524 or after
+## One object is not synchronizing passwords (version 1.1.524.0 or after)
 Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with **Run as Administrator** option.
@@ -134,7 +134,7 @@ By default, Azure AD Connect stores the results of password synchronization atte
 ![Diagnostic output for single object - no password sync history](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
 
 
-## No passwords are synchronized
+## No passwords are synchronized (version 1.1.486.0 or earlier)
 Follow these steps to figure out why no passwords are synchronized:
 
 1. Is the Connect server in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode)? A server in staging mode does not synchronize any passwords.
@@ -162,7 +162,7 @@ Follow these steps to figure out why no passwords are synchronized:
     Go back to **Synchronization Service Manager** and **Configure Directory Partition**. Select your domain in **Select directory partitions**, select the checkbox **Only use preferred domain controllers**, and click **Configure**. In the list, enter the domain controllers Connect should use for password sync. The same list is used for import and export as well. Do these steps for all your domains.
 4. If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
 
-## One object is not synchronizing passwords
+## One object is not synchronizing passwords (version 1.1.486.0 or earlier)
 You can easily troubleshoot password synchronization issues by reviewing the status of an object.
 
 1. Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.  
