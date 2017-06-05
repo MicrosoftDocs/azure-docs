@@ -139,6 +139,8 @@
       href: sql-database-export.md
   - name: Monitor & manage
     items:
+    - name: Automatic tuning
+      href: sql-database-automatic-tuning.md
     - name: Single databases
       href: sql-database-single-database-monitor.md
     - name: Database advisor
@@ -277,6 +279,8 @@
       href: sql-database-advisor-portal.md
     - name: Use QPI
       href: sql-database-performance.md
+    - name: Enable automatic tuning
+      href: sql-database-automatic-tuning-enable.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
     - name: Extended events - event file
