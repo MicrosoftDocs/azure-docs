@@ -74,7 +74,10 @@ Create an SSH connection with the master (or the first master) of your DC/OS-bas
 ssh azureuser@$FQDN
 ```
 
-Create a file named **cifsMount.sh** and copy the following contents into it. This script will be used to mount the Azure file share in each node of the cluster. Update the variables with the proper storage account name and storage access key. These can be found in the Azure portal.
+Create a file named **cifsMount.sh** and copy the following contents into it. This script will be used to mount the Azure file share in each node of the cluster. 
+
+Update the variables with the proper storage account name and storage access key. These can be found in the Azure portal.
+
 ```bash
 #!/bin/bash
 
@@ -122,8 +125,7 @@ Run the script to mount the Azure file share on all nodes of the cluster.
 sh ./mountShares.sh
 ```  
 
-> [!NOTE] 
-> This method is not recommended for scenarios that require high IOPS, but it is very useful to share documents and information across the cluster.
+The file share is now accessable at `/mnt/share/dcosshare` on each node of the cluster.
 
 ## Next steps
 

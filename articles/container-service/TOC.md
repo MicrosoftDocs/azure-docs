@@ -12,8 +12,8 @@
 ### [Monitor cluster with OMS](container-service-kubernetes-oms.md)
 ## DC/OS
 ### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
-### [Create / manage data volumes](container-service-dcos-fileshare.md)
 ### [Load balance applications](container-service-load-balancing.md)
+### [Create / manage data volumes](container-service-dcos-fileshare.md)
 ### [Integrate with ACR](container-service-dcos-acr.md)
 
 # Samples

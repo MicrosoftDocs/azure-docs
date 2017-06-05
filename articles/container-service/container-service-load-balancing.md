@@ -108,20 +108,6 @@ By default, Azure Load Balancer exposes ports 80, 8080, and 443. If you're using
 
 If you use a different port, you need to add a round-robin rule and a probe on the load balancer for the port that you used. You can do this from the [Azure CLI](../xplat-cli-azure-resource-manager.md), with the commands `azure network lb rule create` and `azure network lb probe create`.
 
-## Additional scenarios
-
-You could have a scenario where you use different domains to expose different services. For example:
-
-mydomain1.com -> Azure LB:80 -> marathon-lb:10001 -> mycontainer1:33292  
-mydomain2.com -> Azure LB:80 -> marathon-lb:10002 -> mycontainer2:22321
-
-To achieve this, check out [virtual hosts](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/), which provide a way to associate domains to specific marathon-lb paths.
-
-Alternatively, you could expose different ports and remap them to the correct service behind marathon-lb. For example:
-
-Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423  
-Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
-
 ## Next steps
 
 In this tutorial, you learned about load balancing in ACS with both the Marathon and Azure load balancers including the following actions:
