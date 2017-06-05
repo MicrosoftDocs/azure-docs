@@ -24,7 +24,7 @@ An access token (denoted as **access\_token**) is a form of security token that 
 This article discusses how to configure a client application and have it make a request to acquire an **access\_token** from the `authorize` and `token` endpoints.
 
 > [!NOTE]
-> Web API chains (On-Behalf-Of) is not supported by Azure AD B2C.
+> **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C.**
 >
 > Many architectures include a Web API that needs to call another downstream Web API, both secured by Azure AD B2C. This scenario is common in native clients that have a Web API back end, which in turn calls a Microsoft online service such as the Azure AD Graph API.
 >
