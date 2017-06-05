@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/02/2017
+ms.date: 06/05/2017
 ms.author: jovanpop
 
 ---
@@ -39,7 +40,7 @@ tuning feature.
 Azure SQL Database has a continuous performance monitoring and analysis process that constantly learns about the characteristic of your
 workload and identify potential issues and improvements.
 
-![Automatic tuning process](media/sq-database-automatic-tuning/tuning-process.png "Automatic tuning process")
+![Automatic tuning process](./media/sq-database-automatic-tuning/tuning-process.png "Automatic tuning process")
 
 This process enables Azure SQL Database to dynamically adapt to your workload by finding what indexes and plans might improve
 performance of your workloads and what indexes affect your workloads. Based on these findings, automatic
