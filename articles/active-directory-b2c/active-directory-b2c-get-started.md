@@ -17,7 +17,7 @@ ms.date: 05/26/2017
 ms.author: swkrish
 
 ---
-# Create an Azure AD B2C tenant
+# Create an Azure AD B2C Tenant
 
 This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant in just a few minutes. When you're finished, you'll have a B2C tenant to use and start registering applications.
 

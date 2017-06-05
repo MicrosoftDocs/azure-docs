@@ -2,12 +2,12 @@
 ## [About Azure AD B2C](active-directory-b2c-overview.md)
 
 # Quickstarts
-## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
+## [Create an Azure AD B2C Tenant](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
 ## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
 # Tutorials
-## [Create .NET web app](active-directory-b2c-devquickstarts-web-dotnet.md)
+## [Create .NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ## [Create Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
 ## [Create iOS app](active-directory-b2c-devquickstarts-ios.md)
 ## [Create Android app](active-directory-b2c-devquickstarts-android.md)
@@ -29,7 +29,6 @@
 ## [Sign-in for Single-Page Apps](active-directory-b2c-reference-spa.md)
 
 # How-To guides
-## [Add sign-in to .NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ## [Build .NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
 ## [Call a .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ## [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
