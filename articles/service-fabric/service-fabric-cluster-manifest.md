@@ -84,7 +84,7 @@ The **reliabilityLevel** section defines the number of copies of the system serv
 
 Note that since a primary node runs a single copy of the system services, you would need a minimum of 3 primary nodes for *Bronze*, 5 for *Silver*, 7 for *Gold* and 9 for *Platinum* reliability levels.
 
-If you don't specify the reliabilityLevel property in your clusterConfig.json, our system will calculate the most optimized reliabilityLevel for you based on the number of primary nodetype nodes that you have. For example, if you have 4 primary nodetype nodes, the reliabilityLevel will be set to Bronze, if you have 5 primary nodetype nodes, the reliabilityLevel will be Silver. In the near future, we will be removing the option to configure your reliability level, since the cluster will automatically detect and use the optimal reliability level.
+If you don't specify the reliabilityLevel property in your clusterConfig.json, our system will calculate the most optimized reliabilityLevel for you based on the number of "Primary NodeType" nodes that you have. For example, if you have 4 primary nodes, the reliabilityLevel will be set to Bronze, if you have 5 such nodes, the reliabilityLevel will be set to Silver. In the near future, we will be removing the option to configure your reliability level, since the cluster will automatically detect and use the optimal reliability level.
 
 ReliabilityLevel is upgradable. You can create a clusterConfig.json v2 and scale up and down by a [Standalone Cluster Configuration Upgrade](service-fabric-cluster-upgrade-windows-server.md). Your can also upgrade to a clusterConfig.json v2 in which it doesn't specify reliabilityLevel so that the reliabilityLevel will be automatically calculated. 
 
