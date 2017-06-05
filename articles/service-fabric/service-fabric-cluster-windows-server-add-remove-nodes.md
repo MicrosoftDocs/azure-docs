@@ -44,13 +44,13 @@ Once the script finishes running, you can check if the new node has been added b
             "upgradeDomain": "UD1"
         }
 ```
-8. Run [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) to begin the upgrade.
+8. Run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) to begin the upgrade.
 
 ```
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
-You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-​Service​Fabric​Cluster​Upgrade](powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-​Service​Fabric​Cluster​Upgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### Add nodes to clusters configured with Windows Security using gMSA
 For clusters configured with Group Managed Service Account(gMSA)(https://technet.microsoft.com/library/hh831782.aspx), a new node can be added using a configuration upgrade:
@@ -65,16 +65,16 @@ For clusters configured with Group Managed Service Account(gMSA)(https://technet
             "upgradeDomain": "UD1"
         }
 ```
-2. Run [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) to begin the upgrade.
+2. Run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) to begin the upgrade.
 
 ```
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
-You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-​Service​Fabric​Cluster​Upgrade](powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-​Service​Fabric​Cluster​Upgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### Add node types to your cluster
-In order to add a new node type, modify your configuration to include the new node type in "NodeTypes" section under "Properties" and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Once the upgrade completes, you can add new nodes to your cluster with this node type.
+In order to add a new node type, modify your configuration to include the new node type in "NodeTypes" section under "Properties" and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Once the upgrade completes, you can add new nodes to your cluster with this node type.
 
 ## Remove nodes from your cluster
 A node can be removed from a cluster using a configuration upgrade, in the following manner:
@@ -104,13 +104,13 @@ Add the "NodesToBeRemoved" parameter to "Setup" section inside "FabricSettings" 
         ]
 
 ```
-2. Run [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) to begin the upgrade.
+2. Run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) to begin the upgrade.
 
 ```
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
-You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-​Service​Fabric​Cluster​Upgrade](powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-​Service​Fabric​Cluster​Upgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 > [!NOTE]
 > Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using `Get-ServiceFabricClusterManifest`. Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of 3 primary node type nodes.
@@ -118,7 +118,7 @@ You can monitor the progress of the upgrade on Service Fabric Explorer. Alternat
 > 
 
 ### Remove node types from your cluster
-Before removing a node type, please double check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Before removing a node type, please double check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### Replace primary nodes of your cluster
