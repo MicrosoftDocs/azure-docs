@@ -81,7 +81,7 @@ Create a VM with the [az vm create](/cli/azure/vm#create) command.
 
 The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 
-Create myVM1 (primary):
+### Create myVM1 (primary):
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ After the VM has been created, the Azure CLI shows information similar to the fo
 }
 ```
 
-Create myVM2 (replicate):
+### Create myVM2 (replicate):
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -122,9 +122,9 @@ Take note of the `publicIpAddress` as well after it has been created.
 
 ## Open the TCP port for connectivity
 
-The next step is to configure external endpoints,  which enable you to access the Oracle database remotely. To configure the external endpoints, run the following command.
+The next step is to configure external endpoints,  which enable you to access the Oracle database remotely. To configure the external endpoints, run the following commands.
 
-Open the port for myVM1:
+### Open the port for myVM1:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -155,7 +155,7 @@ The results should look similar to the following response:
 }
 ```
 
-Open the port for myVM2:
+### Open the port for myVM2:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -175,13 +175,15 @@ ssh <publicIpAddress>
 
 ## Create the database on myVM1 (Primary)
 
-The Oracle software is already installed on the Marketplace image, so the next step is to install the database. The first step is to run the software as the 'oracle' superuser:
+The Oracle software is already installed on the Marketplace image, so the next step is to install the database. 
+
+### 1. Run the software as the 'oracle' superuser:
 
 ```bash
 sudo su - oracle
 ```
 
-Next, create the database:
+### 2. Create the database:
 
 ```bash
 $ dbca -silent \
@@ -234,7 +236,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-Set the ORACLE_SID and ORACLE_HOME variables:
+### Set the ORACLE_SID and ORACLE_HOME variables:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -253,7 +255,7 @@ export ORACLE_SID=gg1
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
-## Start Oracle listener
+### Start Oracle listener
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -303,7 +305,7 @@ export ORACLE_SID=cdb1
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
-## Start Oracle listener
+### Start Oracle listener
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -399,9 +401,9 @@ This is an optional step. You can skip this step if you are using a Linux client
 
 5. Create a file named **authorized_keys**. Paste the contents of the key in this file, and then save the file.
 
-> [!NOTE]
-> The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
->  
+  > [!NOTE]
+  > The key must contain the string `ssh-rsa`. Also, the contents of the key must be a single line of text.
+  >  
 
 6. Start PuTTY. In the **Category** pane, select **Connection** > **SSH** > **Auth**. In the **Private key file for authentication** box, browse to the key that you generated earlier.
 
@@ -714,7 +716,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
 
 ### Set up the replication (myVM1 and myVM2)
 
-1. Set up on the replication on myVM2 (replicate):
+1. Set up the replication on myVM2 (replicate):
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -735,7 +737,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   GGSCI> EXIT
   ```
 
-### 2. Set up on the replication on myVM1 (primary):
+### 2. Set up the replication on myVM1 (primary):
 
 Start the initial load and check for errors:
 
@@ -789,7 +791,7 @@ On myVM2, run the following commands:
 This completes the installation and configuration of Golden Gate on Oracle linux.
 
 
-## Delete virtual machine
+## Delete the virtual machine
 
 When it's no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
 
