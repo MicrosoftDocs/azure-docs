@@ -30,7 +30,7 @@ To enable automatic tuning on Azure SQL Database server, navigate to the server 
 
 Automatic tuning options on server are applied to all databases on the server. By default, all databases inherit the configuration from their parent server, but this can be overridden and specified for each database individually.
 
-## Configure Automatic tuning on database
+## Configure automatic tuning on database
 
 The Azure portal enables you to individually specify the automatic tuning configuration on each database.
 

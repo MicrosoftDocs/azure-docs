@@ -279,7 +279,7 @@
       href: sql-database-advisor-portal.md
     - name: Use QPI
       href: sql-database-performance.md
-    - name: Enable auto tuning
+    - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
