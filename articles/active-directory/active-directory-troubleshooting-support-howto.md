@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2017
+ms.date: 06/05/2017
 ms.author: curtand
 
 ---
@@ -49,16 +49,17 @@ If you are unable to find answers by using self-help resources, you can open an 
 
 ### How to open a support ticket for Azure AD in the Office 365 portal
 
-1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
-2. Scroll down to **Troubleshooting + Support** and select **New support request**
-3. On the **Basics** blade, for **Issue type**, select **Technical**.
-4. For **Service**, select **Azure Active Directory**, and then select **Next**.
-5. On the **Problem** blade, select a Severity (linked to [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/)).
-6. Select a **Problem type**, and then select a **Category** for that type. At this point, you'll also be offered self-help information for your problem category.
-7. Add the rest of your problem information and click **Next**.
-8. Provide your contact information and select **Create**.
-  ![problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
-
+1. Sign in to [the Office 365 admin center](https://portal.officee.com) with an account that has an Enterprise Mobility + Security (EMS) license.
+2. On the **Support** tile, select **New service request**:
+  ![Office 365 portal screenshot](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+3. On the **Support Overview** page, select **Identity management**:
+  ![identity management support request screenshot](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
+4. For **Feature**, select the Azure AD feature for which you want support.
+5. For **Symptom**, select an appropriate symptom, summarize your issue and provide relevant details, and then select **Next**.
+  ![feature and symptom self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
+6. Select one of the offered self-help resources, or select **Yes, continue** or **No, cancel request**.
+7. If you continue, you'l be asked for more details and you can attach any files you have that will help, and then select **Next**.
+8. Provide your contact information and select **Submit request**.
 
 ##  Next steps
 
