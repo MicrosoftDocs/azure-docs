@@ -102,20 +102,20 @@ Before you start this step, make sure that you have an [Active Directory service
 
 Management clients are needed to create and manage resources using the Python SDK in Azure. To create the management clients, add this code under the **if** statement at then end of the .py file:
 
-    ```python
-    resource_group_client = ResourceManagementClient(
-        credentials, 
-        SUBSCRIPTION_ID
-    )
-    network_client = NetworkManagementClient(
-        credentials, 
-        SUBSCRIPTION_ID
-    )
-    compute_client = ComputeManagementClient(
-        credentials, 
-        SUBSCRIPTION_ID
-    )
-    ```
+```python
+resource_group_client = ResourceManagementClient(
+    credentials, 
+    SUBSCRIPTION_ID
+)
+network_client = NetworkManagementClient(
+    credentials, 
+    SUBSCRIPTION_ID
+)
+compute_client = ComputeManagementClient(
+    credentials, 
+    SUBSCRIPTION_ID
+)
+```
 
 ### Create the VM and supporting resources
 
