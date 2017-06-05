@@ -101,7 +101,7 @@ You can experiment with your policies and observe the effect on your sample app.
 ## Sample code walk through
 The following shows you how the sample application code is configured. You may use this as a guide in your future app development.
 
-## Add authentication support
+### Add authentication support
 
 You can now configure your app to use Azure AD B2C. Your app communicates with Azure AD B2C by sending OpenID Connect authentication requests. The requests dictate the user experience your app wants to execute by specifying the policy. You can use Microsoft's OWIN library to send these requests, execute policies, manage user sessions, and more.
 
