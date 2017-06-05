@@ -63,9 +63,9 @@ The diagnostic cmdlet performs the following diagnostics:
 
 Following diagram illustrate the output of the cmdlet for a single-forest/single-domain deployment:
 
-![Diagnostic cmdlet output for password synchronization](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
+![Diagnostic output for password synchronization](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-### How to interpret common issues detected by the cmdlet
+### Interpret the results of the cmdlet
 
 #### Password synchronization feature isn't enabled
 If you haven't enabled Password synchronization using Azure AD Connect wizard,  following error is returned:
@@ -110,7 +110,29 @@ The diagnostic cmdlet performs the following diagnostics:
 
 2. Validates that there are both inbound and outbound synchronization rules with password synchronization enabled and apply to the AD object.
 
-3. 3.	Result of the last attempt to synchronize password for the object.
+3. Attempts to retrieve the results of the last attempt to synchronize password for the object.
+
+Following diagram illustrate the output of the cmdlet:
+
+![Diagnostic output for password synchronization - single object](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectgeneral.png)
+
+### Interpret the results of the cmdlet
+
+#### AD object isn't exported to Azure AD
+Password synchronization for this on-premises AD account fails because there is no corresponding object in the Azure AD tenant. Following error is returned:
+
+![Azure AD object is missing](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnotexported.png)
+
+#### Temporary password isn't exported
+Currently, Azure AD Connect does not support synchronizing temporary passwords to Azure AD. A password is considered to be temporary if the "Change password at next logon" option is set on the on-premises AD user. Following error is returned:
+
+![Temporary password is not exported](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjecttemporarypassword.png)
+
+#### Results of last attempt to synchronize password isn't available
+By default, Azure AD Connect stores the results of password synchronization attempts for 7 days. If there are no results available for the selected AD object, following warning is returned:
+
+![Diagnostic output for single object - no password sync history](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
+
 
 ## No passwords are synchronized
 Follow these steps to figure out why no passwords are synchronized:
