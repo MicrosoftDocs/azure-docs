@@ -41,7 +41,7 @@ Service Map gets its data from the Microsoft Dependency Agent. The Dependency Ag
 
 Service Map supports only 64-bit platforms.
 
-On Windows, the Microsoft Monitoring Agent is used by both System Center Operations Manager and Operations Management Suite to gather and send monitoring data. (This agent is called the System Center Operations Manager Agent, Operations Management Suite Agent, Log Analytics Agent, Microsoft Monitoring Agent, or Direct Agent, depending on the context.) System Center Operations Manager and Operations Management Suite provide different out-of-the box versions of the Microsoft Monitoring Agent, but these versions can each report to System Center Operations Manager, to Operations Management Suite, or to both.  
+On Windows, the Microsoft Monitoring Agent is used by both System Center Operations Manager and Operations Management Suite to gather and send monitoring data. (This agent is called the System Center Operations Manager Agent, Operations Management Suite Agent, Log Analytics Agent, Microsoft Monitoring Agent, or Direct Agent, depending on the context.) System Center Operations Manager and Operations Management Suite provide different out-of-the box versions of the Microsoft Monitoring Agent. These versions can each report to System Center Operations Manager, to Operations Management Suite, or to both.  
 
 On Linux, the Operations Management Suite Agent for Linux gathers and sends monitoring data to Operations Management Suite. You can use Service Map on servers with Operations Management Suite Direct Agents or on servers that are attached to Operations Management Suite via System Center Operations Manager management groups.  
 
@@ -197,7 +197,7 @@ The following table lists code numbers and suggested resolutions.
 
 | Code | Description | Resolution |
 |:--|:--|:--|
-| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log.<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package," you don't have the necessary prerequisites installed to install KB2999226. Follow the instructions in the prerequisites section in [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226). Note that you might need to run Windows Update and reboot multiple times in order to install the necessary prerequisites.<br><br>Run the Microsoft Dependency Agent installer again. |
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log.<br><br>If a reference to "Windows8.1-KB2999226-x64.msu" is followed by a line "Error 0x80240017: Failed to execute MSU package," you don't have the prerequisites to install KB2999226. Follow the instructions in the prerequisites section in [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226). You might need to run Windows Update and reboot multiple times in order to install the prerequisites.<br><br>Run the Microsoft Dependency Agent installer again. |
 
 ### Post-installation issues
 #### Server doesn't appear in Service Map
