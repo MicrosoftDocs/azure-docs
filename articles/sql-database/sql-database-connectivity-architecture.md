@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/30/2017
+ms.date: 06/05/2017
 ms.author: carlrab
 
 ---
 # Azure SQL Database Connectivity Architecture 
 
-Client applications connect to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) to the Azure SQL Database gateway. This gateway is responsible for establishing the connection to the database. This article explains how these connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
+This article explains the Azure SQL Database connectivity architecture and explains how the different components function to direct traffic to your instance of Azure SQL Database. These Azure SQL Database connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings. If there are any questions after reading this article, please contact Dhruv at dmalik@microsoft.com. 
 
 ## Connectivity architecture
 
@@ -57,8 +57,8 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 To change the Azure SQL Database connection policy for an Azure SQL Database server, use the [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
 
-- If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Direct**. 
-- If you connection policy is setting **Direct**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
+- If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**. 
+- If you connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
 
 ## Script to change connection settings
 
