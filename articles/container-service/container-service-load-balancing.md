@@ -91,7 +91,7 @@ Now that we have the marathon-lb package, we can deploy an application container
 The `HAPROXY_0_VHOST` label needs to be updated with the FQDN of the DC/OS cluster. This can be found using the [az acs list](/cli/azure/acs#list) command.
 
 ```azurecli-interactive
-az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv
+az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles.fqdn" --output tsv
 ```
 
 It is worth noting that by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the behavior we desire.
