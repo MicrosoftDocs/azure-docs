@@ -19,7 +19,7 @@ The recommendations in this document describe general Microsoft guidelines for a
 
 ### Intended audience
 
-This document is intended for enterprise infrastructure architects and IT Pros familiar with [Exchmedia/secure-ange Online](https://technet.microsoft.com/library/jj200580.aspx) (Office 365) and [Microsoft Enterprise Mobility + Security](http://microsoft.com/ems) products. These products include but are not limited to, Azure Active Directory (identity), Microsoft Intune (device management), and Azure Information Protection (data protection). 
+This document is intended for enterprise infrastructure architects and IT Pros familiar with [Exchange Online](https://technet.microsoft.com/library/jj200580.aspx) (Office 365) and [Microsoft Enterprise Mobility + Security](http://microsoft.com/ems) products. These products include but are not limited to, Azure Active Directory (identity), Microsoft Intune (device management), and Azure Information Protection (data protection). 
 
 ### Customer environment
 
