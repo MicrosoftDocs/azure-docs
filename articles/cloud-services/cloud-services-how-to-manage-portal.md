@@ -24,7 +24,7 @@ ms.author: adegeo
 >
 >
 
-Your cloud service is managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. Which includes updating, deleting, scaling, and promoting a staged deployment to production.
+In the **Cloud Services (classic)** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 More information about how to scale your cloud service is available [here](cloud-services-how-to-scale-portal.md).
 
