@@ -18,22 +18,22 @@ ms.author: chackdan
 
 ---
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server
-After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your business needs may change so that you might need to add or remove multiple nodes to your cluster. This article provides detailed steps to achieve this goal. Please note add/remove node is not supported for development clusters.
+After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your business needs may change and you might need to add or remove nodes to your cluster. This article provides detailed steps to achieve this. Please note that add/remove node functionality is not supported in local development clusters.
 
 ## Add nodes to your cluster
-1. Prepare the VM/machine you want to add to your cluster by following the steps mentioned in the [Prepare the machines to meet the prerequisites for cluster deployment](service-fabric-cluster-creation-for-windows-server.md) section.
-2. Plan which fault domain and upgrade domain you are going to add this VM/machine to.
-3. Remote desktop (RDP) into the VM/machine that you want to add to the cluster.
-4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) to this VM/machine and unzip the package.
-5. Run Powershell as an administrator, and navigate to the location of the unzipped package.
-6. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and fd:/dc1/r0. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
+1. Prepare the VM/machine you want to add to your cluster by following the steps mentioned in the [Prepare the machines to meet the prerequisites for cluster deployment](service-fabric-cluster-creation-for-windows-server.md) section
+2. Identify which fault domain and upgrade domain you are going to add this VM/machine to
+3. Remote desktop (RDP) into the VM/machine that you want to add to the cluster
+4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) to the VM/machine and unzip the package
+5. Run Powershell with elevated privileges, and navigate to the location of the unzipped package
+6. Run the *AddNode.ps1* script with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0 and IP address 182.17.34.52, into UD1 and fd:/dc1/r0. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster, which can be the IP address of *any* node in the cluster.
 
 ```
 .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
 
 ```
-You can check if the new node is added by running the cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
-7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and add the newly added node to "Nodes" section.
+Once the script finishes running, you can check if the new node has been added by running the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet.
+7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and add the newly added node to "Nodes" section. It is also recommended to always have the latest cluster configuration available in the case that you need to redploy a cluster with the same configuration.
 
 ```
         {
@@ -53,7 +53,7 @@ Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Confi
 You can monitor the progress of the upgrade on Service Fabric Explorer. Alternatively, you can run [Get-​Service​Fabric​Cluster​Upgrade](powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### Add nodes to clusters configured with Windows Security using gMSA
-For clusters configured with Group Managed Service Account(gMSA)(https://technet.microsoft.com/library/hh831782.aspx), a new node can be added using a simple configuration upgrade.
+For clusters configured with Group Managed Service Account(gMSA)(https://technet.microsoft.com/library/hh831782.aspx), a new node can be added using a configuration upgrade:
 1. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) on any of the existing nodes to get the latest configuration file and add details about the new node you want to add in the "Nodes" section. Make sure the new node is part of the same group managed account. This account should be an Administrator on all machines.
 
 ```
@@ -77,10 +77,10 @@ You can monitor the progress of the upgrade on Service Fabric Explorer. Alternat
 In order to add a new node type, modify your configuration to include the new node type in "NodeTypes" section under "Properties" and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps). Once the upgrade completes, you can add new nodes to your cluster with this node type.
 
 ## Remove nodes from your cluster
-A node can be removed from a cluster using a configuration upgrade.
+A node can be removed from a cluster using a configuration upgrade, in the following manner:
 
 1. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and *remove* the node from "Nodes" section.
-Add "NodesToBeRemoved" parameter to "Setup" section inside "FabricSettings" section. Value should be a comma separated list of node names that need to be removed.
+Add the "NodesToBeRemoved" parameter to "Setup" section inside "FabricSettings" section. The "value" should be a comma separated list of node names of nodes that need to be removed.
 
 ```
          "fabricSettings": [
@@ -118,7 +118,7 @@ You can monitor the progress of the upgrade on Service Fabric Explorer. Alternat
 > 
 
 ### Remove node types from your cluster
-Removing a node type requires extra caution. Before removing a node type, please double check if there is any node referencing the node type. Remove the node first before removing the corresponding node type. Once all corresponding nodes are removed, remove the NodeType from the existing configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Before removing a node type, please double check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### Replace primary nodes of your cluster
