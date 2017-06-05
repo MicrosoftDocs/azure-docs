@@ -70,7 +70,7 @@ Use the following steps to configure your Azure Stack environment:
           -EnvironmentName AzureStackAdmin
         ```
 
-      * To access the **user environemnt**
+      * To access the **user environment**
         ```PowerShell
         $TenantID = Get-DirectoryTenantID `
           -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -86,7 +86,7 @@ Use the following steps to configure your Azure Stack environment:
           -EnvironmentName AzureStackAdmin
         ```
 
-      * To access the **user environemnt**
+      * To access the **user environment**
         ```PowerShell 
         $TenantID = Get-DirectoryTenantID `
           -ADFS `
