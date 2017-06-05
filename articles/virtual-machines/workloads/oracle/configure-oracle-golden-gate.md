@@ -383,7 +383,7 @@ This is an optional step, You can skip this step if you are using a Linux client
 3.  In PuTTY Key Generator:
 
 - To generate a key, select the **Generate** button.
-- Copy the contents of the key (Ctrl+C).
+- Copy the contents of the key (**Ctrl+C**).
 - Select the **Save private key** button.
 - Ignore the warning that appears, and then select **OK**.
 
@@ -391,11 +391,11 @@ This is an optional step, You can skip this step if you are using a Linux client
 
 4.  In your VM, run these commands:
 
-```bash
-# sudo su - oracle
-$ mkdir .ssh (if not already created)
-$ cd .ssh
-```
+  ```bash
+  # sudo su - oracle
+  $ mkdir .ssh (if not already created)
+  $ cd .ssh
+  ```
 
 5. Create a file named **authorized_keys**. Paste the contents of the key in this file, and then save the file.
 
@@ -419,66 +419,70 @@ $ cd .ssh
 
 To install Oracle Golden Gate, complete the following steps:
 
-1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) 
-
-Make sure that Xming is running before you begin the installation.
+1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) Make sure that Xming is running before you begin the installation.
  
-```bash
-$ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
-$ ./runInstaller
-```
+  ```bash
+  $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
+  $ ./runInstaller
+  ```
 2. Select 'Oracle GoldenGate for Oracle Database 12c'. Then select **Next** to continue.
+
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Change the Software location. Then select  the 'Start Manager' box and enter the database location. Select **Next** to continue.
+3. Change the Software location. Then select  the **Start Manager** box and enter the database location. Select **Next** to continue.
+
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_02.png)
 
 4. Change the Inventory Directory, and then select **Next** to continue.
+
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. On Summary screen, select **Install** to continue.
+
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. You might be prompted to run a script as 'root'. If so, open a separate session, ssh to the VM, sudo to root, and then run the script. Select **OK** continue.
+
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. When the installation has finished, select **Close** to complete the process.
+
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### Service setup on myVM1 (primary)
 
 1. Create or update the tnsnames.ora file:
 
-```bash
-$ cd $ORACLE_HOME/network/admin
-$ vi tnsnames.ora
+  ```bash
+  $ cd $ORACLE_HOME/network/admin
+  $ vi tnsnames.ora
 
-cdb1=
-  (DESCRIPTION=
-    (ADDRESS=
-      (PROTOCOL=TCP)
-      (HOST=localhost)
-      (PORT=1521)
+  cdb1=
+    (DESCRIPTION=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=localhost)
+        (PORT=1521)
+      )
+      (CONNECT_DATA=
+        (SERVER=dedicated)
+        (SERVICE_NAME=cdb1)
+      )
     )
-    (CONNECT_DATA=
-      (SERVER=dedicated)
-      (SERVICE_NAME=cdb1)
-    )
-  )
 
-pdb1=
-  (DESCRIPTION=
-    (ADDRESS=
-      (PROTOCOL=TCP)
-      (HOST=localhost)
-      (PORT=1521)
+  pdb1=
+    (DESCRIPTION=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=localhost)
+        (PORT=1521)
+      )
+      (CONNECT_DATA=
+        (SERVER=dedicated)
+        (SERVICE_NAME=pdb1)
+      )
     )
-    (CONNECT_DATA=
-      (SERVER=dedicated)
-      (SERVICE_NAME=pdb1)
-    )
-  )
-```
+  ```
 
 2. Create the Golden Gate owner and user accounts
 
@@ -486,65 +490,65 @@ pdb1=
 > The owner account must have C## prefix.
 >
 
-```bash
-$ sqlplus / as sysdba
-SQL> CREATE USER C##GGADMIN identified by ggadmin;
-SQL> EXEC dbms_goldengate_auth.grant_admin_privilege('C##GGADMIN',container=>'ALL');
-SQL> GRANT DBA to C##GGADMIN container=all;
-SQL> connect C##GGADMIN/ggadmin
-SQL> ALTER SESSION SET CONTAINER=PDB1;
-SQL> EXIT;
-```
+  ```bash
+  $ sqlplus / as sysdba
+  SQL> CREATE USER C##GGADMIN identified by ggadmin;
+  SQL> EXEC dbms_goldengate_auth.grant_admin_privilege('C##GGADMIN',container=>'ALL');
+  SQL> GRANT DBA to C##GGADMIN container=all;
+  SQL> connect C##GGADMIN/ggadmin
+  SQL> ALTER SESSION SET CONTAINER=PDB1;
+  SQL> EXIT;
+  ```
 
-Create the Golden Gate test user account:
+3. Create the Golden Gate test user account:
 
-```bash
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ sqlplus system/OraPasswd1@pdb1
-SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-SQL> GRANT connect, resource, dba TO test;
-SQL> ALTER USER test QUOTA 100M on USERS;
-SQL> connect test/test@pdb1
-SQL> @demo_ora_create
-SQL> @demo_ora_insert
-SQL> EXIT;
-```
+  ```bash
+  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+  $ sqlplus system/OraPasswd1@pdb1
+  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+  SQL> GRANT connect, resource, dba TO test;
+  SQL> ALTER USER test QUOTA 100M on USERS;
+  SQL> connect test/test@pdb1
+  SQL> @demo_ora_create
+  SQL> @demo_ora_insert
+  SQL> EXIT;
+  ```
 
-3. Configure the extract parameter file
+4. Configure the extract parameter file
 
  Start the Golden gate command-line interface (ggsci):
 
-```bash
-$ sudo su - oracle
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ ./ggsci
-GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
-Successfully logged into database  pdb1
-GGSCI>  ADD SCHEMATRANDATA pdb1.test
-2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
-2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
+  ```bash
+  $ sudo su - oracle
+  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+  $ ./ggsci
+  GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
+  Successfully logged into database  pdb1
+  GGSCI>  ADD SCHEMATRANDATA pdb1.test
+  2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
+  2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
 
-GGSCI> EDIT PARAMS EXTORA
-```
-Add the following to the EXTRACT parameter file (by using vi commands). Press Esc key, ':wq!' to save file. 
+  GGSCI> EDIT PARAMS EXTORA
+  ```
+5. Add the following to the EXTRACT parameter file (by using vi commands). Press Esc key, ':wq!' to save file. 
 
-```bash
-EXTRACT EXTORA
-USERID C##GGADMIN, PASSWORD ggadmin
-RMTHOST 10.0.0.5, MGRPORT 7809
-RMTTRAIL ./dirdat/rt  
-DDL INCLUDE MAPPED
-DDLOPTIONS REPORT 
-LOGALLSUPCOLS
-UPDATERECORDFORMAT COMPACT
-TABLE pdb1.test.TCUSTMER;
-TABLE pdb1.test.TCUSTORD;
-```
-4. Register extract--integrated extract:
+  ```bash
+  EXTRACT EXTORA
+  USERID C##GGADMIN, PASSWORD ggadmin
+  RMTHOST 10.0.0.5, MGRPORT 7809
+  RMTTRAIL ./dirdat/rt  
+  DDL INCLUDE MAPPED
+  DDLOPTIONS REPORT 
+  LOGALLSUPCOLS
+  UPDATERECORDFORMAT COMPACT
+  TABLE pdb1.test.TCUSTMER;
+  TABLE pdb1.test.TCUSTORD;
+  ```
+6. Register extract--integrated extract:
 
-```bash
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ ./ggsci
+  ```bash
+  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+  $ ./ggsci
 
 GGSCI> dblogin userid C##GGADMIN, password ggadmin
 Successfully logged into database CDB$ROOT.
@@ -555,179 +559,179 @@ GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
 GGSCI> exit
 ```
-5. Set up extract checkpoints and start real-time extract:
+7. Set up extract checkpoints and start real-time extract:
 
-```bash
-$ ./ggsci
-GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
-EXTRACT (Integrated) added.
+  ```bash
+  $ ./ggsci
+  GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
+  EXTRACT (Integrated) added.
 
-GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
-RMTTRAIL added.
+  GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
+  RMTTRAIL added.
 
-GGSCI>  START EXTRACT EXTORA
+  GGSCI>  START EXTRACT EXTORA
 
-Sending START request to MANAGER ...
-EXTRACT EXTORA starting
+  Sending START request to MANAGER ...
+  EXTRACT EXTORA starting
 
-GGSCI > info all
+  GGSCI > info all
 
-Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+  Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
-MANAGER     RUNNING
-EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
-```
+  MANAGER     RUNNING
+  EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
+  ```
 In this step, you find the starting SCN, which will be used later, in a different section:
 
 
-```bash
-$ sqlplus / as sysdba
-SQL> alter session set container = pdb1;
-SQL> SELECT current_scn from v$database;
-CURRENT_SCN
------------
-    1857887
-SQL> EXIT;
-```
+  ```bash
+  $ sqlplus / as sysdba
+  SQL> alter session set container = pdb1;
+  SQL> SELECT current_scn from v$database;
+  CURRENT_SCN
+  -----------
+      1857887
+  SQL> EXIT;
+  ```
 
-```bash
-$ ./ggsci
-GGSCI> EDIT PARAMS INITEXT
-```
+  ```bash
+  $ ./ggsci
+  GGSCI> EDIT PARAMS INITEXT
+  ```
 
-```bash
-EXTRACT INITEXT
-USERID C##GGADMIN, PASSWORD ggadmin
-RMTHOST 10.0.0.5, MGRPORT 7809
-RMTTASK REPLICAT, GROUP INITREP
-TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
-```
+  ```bash
+  EXTRACT INITEXT
+  USERID C##GGADMIN, PASSWORD ggadmin
+  RMTHOST 10.0.0.5, MGRPORT 7809
+  RMTTASK REPLICAT, GROUP INITREP
+  TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
+  ```
 
-```bash
-GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
-```
+  ```bash
+  GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
+  ```
 
 ### Service setup on myVM2 (replicate)
 
 
 1. Create or update the tnsnames.ora file
 
-```bash
-$ cd $ORACLE_HOME/network/admin
-$ vi tnsnames.ora
+  ```bash
+  $ cd $ORACLE_HOME/network/admin
+  $ vi tnsnames.ora
 
-cdb1=
-  (DESCRIPTION=
-    (ADDRESS=
-      (PROTOCOL=TCP)
-      (HOST=localhost)
-      (PORT=1521)
+  cdb1=
+    (DESCRIPTION=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=localhost)
+        (PORT=1521)
+      )
+      (CONNECT_DATA=
+        (SERVER=dedicated)
+        (SERVICE_NAME=cdb1)
+      )
     )
-    (CONNECT_DATA=
-      (SERVER=dedicated)
-      (SERVICE_NAME=cdb1)
-    )
-  )
 
-pdb1=
-  (DESCRIPTION=
-    (ADDRESS=
-      (PROTOCOL=TCP)
-      (HOST=localhost)
-      (PORT=1521)
+  pdb1=
+    (DESCRIPTION=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=localhost)
+        (PORT=1521)
+      )
+      (CONNECT_DATA=
+        (SERVER=dedicated)
+        (SERVICE_NAME=pdb1)
+      )
     )
-    (CONNECT_DATA=
-      (SERVER=dedicated)
-      (SERVICE_NAME=pdb1)
-    )
-  )
-```
+  ```
 
 2. Create replicate account
 
-```bash
-$ sqlplus / as sysdba
-SQL> alter session set container = pdb1;
-SQL> create user repuser identified by rep_pass container=current;
-SQL> grant dba to repuser;
-SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
-SQL> connect repuser/rep_pass@pdb1 
-SQL> EXIT;
-```
+  ```bash
+  $ sqlplus / as sysdba
+  SQL> alter session set container = pdb1;
+  SQL> create user repuser identified by rep_pass container=current;
+  SQL> grant dba to repuser;
+  SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
+  SQL> connect repuser/rep_pass@pdb1 
+  SQL> EXIT;
+  ```
 
 3. Create a Golden Gate test user account:
 
-```bash
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ sqlplus system/OraPasswd1@pdb1
-SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-SQL> GRANT connect, resource, dba TO test;
-SQL> ALTER USER test QUOTA 100M on USERS;
-SQL> connect test/test@pdb1
-SQL> @demo_ora_create
-SQL> EXIT;
-```
+  ```bash
+  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+  $ sqlplus system/OraPasswd1@pdb1
+  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+  SQL> GRANT connect, resource, dba TO test;
+  SQL> ALTER USER test QUOTA 100M on USERS;
+  SQL> connect test/test@pdb1
+  SQL> @demo_ora_create
+  SQL> EXIT;
+  ```
 
 4. REPLICAT parameter file to replicate changes: 
 
-```bash
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ ./ggsci
-GGSCI> EDIT PARAMS REPORA  
-```
-Content of REPORA parameter file
+  ```bash
+  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+  $ ./ggsci
+  GGSCI> EDIT PARAMS REPORA  
+  ```
+  Content of REPORA parameter file
 
-```bash
-REPLICAT REPORA
-ASSUMETARGETDEFS
-DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
-DDL INCLUDE MAPPED
-DDLOPTIONS REPORT
-DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
-USERID repuser@pdb1, PASSWORD rep_pass
-MAP pdb1.test.*, TARGET pdb1.test.*;
-```
+  ```bash
+  REPLICAT REPORA
+  ASSUMETARGETDEFS
+  DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
+  DDL INCLUDE MAPPED
+  DDLOPTIONS REPORT
+  DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
+  USERID repuser@pdb1, PASSWORD rep_pass
+  MAP pdb1.test.*, TARGET pdb1.test.*;
+  ```
 
 5. Set up a replicat checkpoint
-```bash
-GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
-GGSCI> EDIT PARAMS INITREP
+  ```bash
+  GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
+  GGSCI> EDIT PARAMS INITREP
 
-```
+  ```
 
-```bash
-REPLICAT INITREP
-ASSUMETARGETDEFS
-DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
-USERID repuser@pdb1, PASSWORD rep_pass
-MAP pdb1.test.*, TARGET pdb1.test.*;   
-```
+  ```bash
+  REPLICAT INITREP
+  ASSUMETARGETDEFS
+  DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
+  USERID repuser@pdb1, PASSWORD rep_pass
+  MAP pdb1.test.*, TARGET pdb1.test.*;   
+  ```
 
-```bash
-GGSCI> ADD REPLICAT INITREP, SPECIALRUN
-```
+  ```bash
+  GGSCI> ADD REPLICAT INITREP, SPECIALRUN
+  ```
 ### Set up the replication (myVM1 and myVM2)
 
 1. Set up on the replication on myVM2 (replicate):
 
-```bash
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ ./ggsci
-GGSCI> EDIT PARAMS MGR
-```
-Update file with the following:
+  ```bash
+  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+  $ ./ggsci
+  GGSCI> EDIT PARAMS MGR
+  ```
+2. Update file with the following:
 
-```bash
-PORT 7809
-ACCESSRULE, PROG *, IPADDR *, ALLOW
-```
-Then restart the Manager service
+  ```bash
+  PORT 7809
+  ACCESSRULE, PROG *, IPADDR *, ALLOW
+  ```
+3. Then restart the Manager service:
 
-```bash
-GGSCI> STOP MGR
-GGSCI> START MGR
-GGSCI> EXIT
-```
+  ```bash
+  GGSCI> STOP MGR
+  GGSCI> START MGR
+  GGSCI> EXIT
+  ```
 
 #### 2. Set up on the replication on myVM1 (primary):
 
@@ -739,45 +743,48 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-#### 3. On myVM2 (replicate)
+#### 3. Set up the replication on myVM2 (replicate)
 
 Change the SCN number with the number you obtained before:
 
-```bash
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ ./ggsci
-START REPLICAT REPORA, AFTERCSN 1857887
-```
+  ```bash
+  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+  $ ./ggsci
+  START REPLICAT REPORA, AFTERCSN 1857887
+  ```
 The replication has begun, and you can test it by inserting new records to TEST tables.
 
 
-### View job status and troubleshooting
+#### View job status and troubleshooting
 
-1. View reports:
-On myVM1, run the following commands:
-```bash
-GGSCI> VIEW REPORT EXTORA 
-```
+1. To view report, on myVM1, run the following commands:
+
+  ```bash
+  GGSCI> VIEW REPORT EXTORA 
+  ```
  
-On myVM2, run the following commands:
-```bash
-GGSCI> VIEW REPORT REPORA
-```
+2. On myVM2, run the following commands:
 
-2. View status and history:
+  ```bash
+  GGSCI> VIEW REPORT REPORA
+  ```
+
+3. View status and history:
 
 On myVM1, run the following commands:
-```bash
-GGSCI> dblogin userid c##ggadmin, password ggadmin 
-GGSCI> INFO EXTRACT EXTORA, DETAIL
-```
+
+  ```bash
+  GGSCI> dblogin userid c##ggadmin, password ggadmin 
+  GGSCI> INFO EXTRACT EXTORA, DETAIL
+  ```
 
 On myVM2, run the following commands:
-```bash
-GGSCI> dblogin userid repuser@pdb1 password rep_pass 
-GGSCI> INFO REP REPORA, DETAIL
-```
-This completed the installation and configuration of Golden Gate on Oracle linux.
+
+  ```bash
+  GGSCI> dblogin userid repuser@pdb1 password rep_pass 
+  GGSCI> INFO REP REPORA, DETAIL
+  ```
+This completes the installation and configuration of Golden Gate on Oracle linux.
 
 
 ## Delete virtual machine
