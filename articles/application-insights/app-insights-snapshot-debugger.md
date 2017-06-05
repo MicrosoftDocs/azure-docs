@@ -112,7 +112,7 @@ The Snapshot Debugger requires symbol files on the production server to decode v
 For Azure Compute and other types, ensure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 ### Optimized builds
-In some cases, local variables cannot be viewed in release builds because of optimizations that are applied during the build process. This limitation will be fixed in a future release of the NuGet package.
+In some cases, local variables cannot be viewed in release builds because of optimizations that are applied during the build process.
 
 ## Troubleshooting
 
