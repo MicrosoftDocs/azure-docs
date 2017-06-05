@@ -79,7 +79,7 @@ Set the language mode is set to **SQL** in Visual Studio Code to enable mssql co
 
    ![SQL language mode](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## Connect to your database in the SQL Database logical server
+## Connect to your database
 
 Use Visual Studio Code to establish a connection to your Azure SQL Database server.
 
