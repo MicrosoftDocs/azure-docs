@@ -26,7 +26,7 @@ Azure SQL Database is an automatically managed data service that constantly moni
 
 To enable automatic tuning on Azure SQL Database server, navigate to the server in Azure portal and then select *Automatic tuning* in the menu. Select the automatic tuning options you want to enable and select *Apply*:
 
-![Server](./media/sql-database-enable-automatic-tuning/server.png)
+![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 Automatic tuning options on server are applied to all databases on the server. By default, all databases inherit the configuration from their parent server, but this can be overridden and specified for each database individually.
 
