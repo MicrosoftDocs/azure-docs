@@ -77,65 +77,65 @@ After following these steps, you now have an **HDInsight local cluster** entry i
 
 Hive provides a SQL-like query language (HiveQL) for working with structured data. Use the following steps to learn how to run ad-hoc queries against the local cluster.
 
-1. In **Server Explorer**, right-click on the entry for the local cluster that you added previously, and then select **Write a Hive query**.
+1. In **Server Explorer**, right-click on the entry for the local cluster that you added previously, and then select **Write a Hive Query**.
 
-    ![Write a hive query](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
+    ![Screenshot of Server Explorer, with Write a Hive Query highlighted](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    This opens a new query window that allows you to quickly type up and submit a query to the local cluster.
+    This opens a new query window that allows you to quickly write and submit a query to the local cluster.
 
 2. In the new query window, enter the following command:
 
         select count(*) from sample_08;
 
-    From the top of the query window, make sure that configuration for the local cluster is selected, and then select **Submit**. Leave the other values (**Batch** and server name) at the default values.
+    From the top of the query window, make sure that the configuration for the local cluster is selected, and then select **Submit**. Leave the other values (**Batch** and server name) at the default values.
 
-    ![query window and submit button](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
+    ![Screenshot of query window, with the Submit button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
-    You can also use the drop-down menu next to **Submit** to select **Advanced**. Advanced options allow you to provide additional options when submitting the job.
+    You can also use the drop-down menu next to **Submit** to select **Advanced**. Advanced options allow you to provide additional options when you submit the job.
 
-    ![advanced submit](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![Screenshot of Submit Script dialog box](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. Once you submit the query, the job status appears. The job status displays information on the job as it is processed by Hadoop. The **Job State** entry provides the status of the job. The state is updated periodically, or you can use the refresh icon to manually refresh the state.
+3. Once you submit the query, the job status appears. The job status displays information about the job as it is processed by Hadoop. **Job State** provides the status of the job. The state is updated periodically, or you can use the refresh icon to refresh the state manually.
 
-    ![Job state](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
+    ![Screenshot of Job View dialog box, with Job State highlighted](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Once the **Job Status** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez (the default execution engine for Hive on the local cluster.)
+    Once the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by the default execution engine for Hive on the local cluster (called Tez).
 
     > [!NOTE]
-    > Tez is also the default when using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight; to use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
+    > Tez is also the default when you are using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight. To use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
 
-    Use the **Job Output** link to view the output. In this case, it is **823**; the number of rows in the sample_08 table. You can view diagnostics information about the job by using the **Job Log** and **Download YARN Log** links.
+    Use the **Job Output** link to view the output. In this case, it is 823, the number of rows in the sample_08 table. You can view diagnostics information about the job by using the **Job Log** and **Download YARN Log** links.
 
-4. You can also run Hive jobs interactively by changing the **Batch** field to **Interactive**, and then select **Execute**.
+4. You can also run Hive jobs interactively by changing the **Batch** field to **Interactive**. Then select **Execute**.
 
-    ![Interactive query](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
+    ![Screenshot of Interactive and Execute buttons highlighted](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 
     An interactive query streams the output log generated during processing to the **HiveServer2 Output** window.
 
     > [!NOTE]
     > The information is the same that is available from the **Job Log** link after a job has completed.
 
-    ![HiveServer2 output](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
+    ![Screenshot of output log](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
 ## Create a Hive project
 
-You can also create a project that contains multiple Hive scripts. A project is useful when you have related scripts that you need to keep together, or maintain using a version control systems.
+You can also create a project that contains multiple Hive scripts. A project is useful when you have related scripts that you need to keep together, or maintain by using a version control system.
 
-1. In Visual Studio, select **File**, **New**, and then__Project__.
+1. In Visual Studio, select **File**, **New**, and then **Project**.
 
-2. From the list of projects, expand **Templates**, **Azure Data Lake** and then select **HIVE (HDInsight)**. From the list of templates, select **Hive Sample**. Enter a name and location, then select **OK**.
+2. From the list of projects, expand **Templates**, expand **Azure Data Lake**, and then select **HIVE (HDInsight)**. From the list of templates, select **Hive Sample**. Enter a name and location, and then select **OK**.
 
-    ![HIVE (HDInsight) template](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
+    ![Screenshot of New Project window, with Azure Data Lake, HIVE, Hive Sample, and OK highlighted](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
-The **Hive Sample** project contains two scripts, **WebLogAnalysis.hql** and **SensorDataAnalysis.hql**. You can submit these using the same **Submit** button at the top of the window.
+The **Hive Sample** project contains two scripts, **WebLogAnalysis.hql** and **SensorDataAnalysis.hql**. You can submit these by using the same **Submit** button at the top of the window.
 
 ## Create a Pig project
 
-While Hive provides a SQL-like language for working with structured data, Pig works by performing transformations on data. Pig provides a language (Pig Latin) that allows you to develop a pipeline of transformations. Use the following steps to use Pig with the local cluster:
+While Hive provides a SQL-like language for working with structured data, Pig works by performing transformations on data. Pig provides a language (Pig Latin) that allows you to develop a pipeline of transformations. To use Pig with the local cluster, follow these steps:
 
-1. Open Visual Studio and select **File**, **New**, and then **Project**. From the list of projects, expand **Templates**, **Azure Data Lake**, and then select **Pig (HDInsight)**. From the list of templates, select **Pig Application**. Enter a name, location, and then select **OK**.
+1. Open Visual Studio, and select **File**, **New**, and then **Project**. From the list of projects, expand **Templates**, expand **Azure Data Lake**, and then select **Pig (HDInsight)**. From the list of templates, select **Pig Application**. Enter a name, location, and then select **OK**.
 
-    ![Pig (HDInsight) project](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
+    ![Screenshot of New Project window, with Azure Data Lake, Pig, Pig Application, and OK highlighted](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
 2. Enter the following text as the contents of the **script.pig** file that was created with this project.
 
@@ -150,55 +150,55 @@ While Hive provides a SQL-like language for working with structured data, Pig wo
         c = GROUP b BY ip_address;
         DUMP c;
 
-    While Pig uses a different language than Hive, how you run the jobs is consistent between both languages through the **Submit** button. Selecting the drop-down beside **Submit** displays an advanced submit dialog for Pig.
+    While Pig uses a different language than Hive, how you run the jobs is consistent between both languages, through the **Submit** button. Selecting the drop-down beside **Submit** displays an advanced submit dialog box for Pig.
 
-    ![Pig advanced submit](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Screenshot of Submit Script dialog box](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
-3. The job status and output is also displayed the same as a Hive query.
+3. The job status and output is also displayed, the same as a Hive query.
 
-    ![image of a completed pig job](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
+    ![Screenshot of a completed Pig job](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
 
 ## View jobs
 
-Azure Data Lake Tools also allow you to easily view information about jobs that have been ran on Hadoop. Use the following steps to see the jobs that have been ran on the local cluster.
+Azure Data Lake tools also allow you to easily view information about jobs that have been run on Hadoop. Use the following steps to see the jobs that have been run on the local cluster.
 
 1. From **Server Explorer**, right-click on the local cluster, and then select **View Jobs**. A list of jobs that have been submitted to the cluster is displayed.
 
-    ![View jobs](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
+    ![Screenshot of Server Explorer, with View Jobs highlighted](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
 2. From the list of jobs, select one to view the job details.
 
-    ![select a job](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
+    ![Screenshot of Job Browser, with one of the jobs highlighted](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
 
-    The information displayed is similar to what you see after running a Hive or Pig query, complete with links to view the output and log information.
+    The information displayed is similar to what you see after running a Hive or Pig query, including links to view the output and log information.
 
 3. You can also modify and resubmit the job from here.
 
 ## View Hive databases
 
-1. In **Server Explorer**, expand the **HDInsight local cluster** entry, and then expand **Hive Databases**. The **Default** and **xademo** databases on the local cluster are displayed. Expanding a database reveals the tables within the database.
+1. In **Server Explorer**, expand the **HDInsight local cluster** entry, and then expand **Hive Databases**. The **Default** and **xademo** databases on the local cluster are displayed. Expanding a database shows the tables within the database.
 
-    ![expanded databases](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
+    ![Screenshot of Server Explorer, with databases expanded](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 
-2. Expanding a table displays the columns for that table. You can right-click a table and select **View Top 100 Rows** to quickly view the data.
+2. Expanding a table displays the columns for that table. To quickly view the data, right-click a table, and select **View Top 100 Rows**.
 
-    ![hive databases view](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
+    ![Screenshot of Server Explorer, with table expanded and View Top 100 Rows selected](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
 
-### Database and Table properties
+### Database and table properties
 
-You may have noticed that you can select to view **Properties** on a database or table. Selecting **Properties** displays details for the selected item in the properties window.
+You can view the properties of a database or table. Selecting **Properties** displays details for the selected item in the properties window. For example, see the information shown in the following screenshot.
 
-![Properties](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Screenshot of Properties window](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 
 ### Create a table
 
 To create a table, right-click a database, and then select **Create Table**.
 
-![Create table](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
+![Screenshot of Server Explorer, with Create Table highlighted](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
 
-You can then create the table using a form. You can see the raw HiveQL that is used to create the table at the bottom of this page.
+You can then create the table using a form. At the bottom of the following screenshot, you can see the raw HiveQL that is used to create the table.
 
-![create table form](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
+![Screenshot of the form used to create a table](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
 ## Next steps
 
