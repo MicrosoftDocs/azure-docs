@@ -18,4 +18,4 @@ ms.date: 06/05/2017
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8045/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
 
-In this video from the 2017 Microsoft //Build conference, learn about Microsoft’s managed MySQL offering in Azure. We walk through Microsoft’s strategy for supporting Open-Source database systems in Azure and what it means to you as a developer as you look to develop or deploy applications that use MySQL in Azure. An overview of the architecture of the service along with how Azure Database for MySQL is integrated with other Azure Services such as Web Apps will also be discussed and demo’d.
+In this video from the May 2017 Microsoft //Build conference, learn about Microsoft’s managed MySQL offering in Azure. We walk through Microsoft’s strategy for supporting Open-Source database systems in Azure. We discuss what it means to you as a developer to develop or deploy applications that use MySQL in Azure. We show an overview of the architecture of the service, and demonstrate Azure Database for MySQL is integrated with other Azure Services such as Web Apps.
