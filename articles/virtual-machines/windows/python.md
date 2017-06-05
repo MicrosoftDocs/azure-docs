@@ -20,19 +20,25 @@ ms.author: davidmu
 
 # Create a Windows VM in Azure using Python
 
-An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. In the steps in this article, you add code to create of each resource one at a time. Because it is important to manage costs in Azure, you have the opportunity at the end of running the application to delete all the resources that you created.
+An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating and deleting VM resources using Python. You learn how to:
 
-This article shows you how to create the resources using the Azure Python SDK. It's assumed that you know some basic aspects of the [Python programming language](http://python.org).
+> [!div class="checklist"]
+> * Create a Visual Studio project
+> * Install packages
+> * Add code to create credentials
+> * Add code to create resources
+> * Add code to delete resources
+> * Run the application
 
 It takes about 20 minutes to do these steps.
 
-## Step 1: Create a Visual Studio project
+## Create a Visual Studio project
 
 1. If you haven't already, install [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Select **Python development** on the Workloads page, and then click **Install**. In the summary, you can see that **Python 3 64-bit (3.6.0)** is automatically selected for you. If you have already installed Visual Studio, you can add the Python workload using the Visual Studio Launcher.
 2. After installing and starting Visual Studio, click **File** > **New** > **Project**.
-3. Click **Templates** > **Python** > **Python Application**, enter *myPythonProject* for the name or the project, select the location of the project, and then click **OK**.
+3. Click **Templates** > **Python** > **Python Application**, enter *myPythonProject* for the name of the project, select the location of the project, and then click **OK**.
 
-## Step 2: Install packages
+## Install packages
 
 1. In Solution Explorer, under *myPythonProject*, right-click **Python Environments**, and then select **Add virtual environment**.
 2. On the Add Virtual Environment screen, accept the default name of *env*, make sure that *Python 3.6 (64-bit)* is selected for the base interpreter, and then click **Create**.
@@ -40,9 +46,9 @@ It takes about 20 minutes to do these steps.
 
 You should see in the output windows that the azure packages were successfully installed. 
 
-## Step 3: Add code to create credentials
+## Add code to create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you will use later in your application code.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 1. Open *myPythonProject.py* file that was created, and then add this code to enable your application to run:
 
@@ -90,7 +96,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     credentials = get_credentials()
     ```
 
-## Step 4: Add code to create resources
+## Add code to create resources
  
 ### Initialize management clients
 
@@ -351,7 +357,7 @@ Now that you created all the supporting resources, you can create a virtual mach
     input('Press enter to continue...')
     ```
 
-## Step 5: Add code to delete resources
+## Add code to delete resources
 
 Because you are charged for resources used in Azure, it's always a good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
@@ -368,7 +374,7 @@ Because you are charged for resources used in Azure, it's always a good practice
     delete_resources(resource_group_client)
     ```
 
-## Step 6: Run the application
+## Run the application
 
 1. To run the console application, click **Start** in Visual Studio.
 

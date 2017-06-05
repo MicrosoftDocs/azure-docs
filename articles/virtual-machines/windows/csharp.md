@@ -20,17 +20,25 @@ ms.author: davidmu
 ---
 # Create a Windows VM in Azure using C# #
 
-An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. In this article, you add code to create of each resource. Because it is important to manage costs in Azure, you have the opportunity at the end of running the application to delete all the resources that you created.
+An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating and deleting VM resources using C#. You learn how to:
+
+> [!div class="checklist"]
+> * Create a Visual Studio project
+> * Install libraries
+> * Add code to create credentials
+> * Add code to create resources
+> * Add code to delete resources
+> * Run the application
 
 It takes about 20 minutes to do these steps.
 
-## Step 1: Create a Visual Studio project
+## Create a Visual Studio project
 
 1. If you haven't already, install [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Select **.NET desktop development** on the Workloads page, and then click **Install**. In the summary, you can see that **.NET Framework 4 - 4.6 development tools** is automatically selected for you. If you have already installed Visual Studio, you can add the .NET workload using the Visual Studio Launcher.
 2. In Visual Studio, click **File** > **New** > **Project**.
-3. In **Templates** > **Visual C#**, select **Console App (.NET Framework)**, enter *myDotnetProject* for the name or the project, select the location of the project, and then click **OK**.
+3. In **Templates** > **Visual C#**, select **Console App (.NET Framework)**, enter *myDotnetProject* for the name of the project, select the location of the project, and then click **OK**.
 
-## Step 2: Install libraries
+## Install libraries
 
 NuGet packages are the easiest way to install the libraries that you need to finish these steps. To get the libraries that you need in Visual Studio, do these steps:
 
@@ -42,7 +50,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 Now you're ready to start using the libraries to create your application.
 
-## Step 3: Add code to create credentials
+## Add code to create credentials
 
 Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you will use later in your application code.
 
@@ -95,7 +103,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     var credential = new TokenCredentials(token.Result.AccessToken);
     ```
 
-## Step 4: Add code to create resources
+## Add code to create resources
 
 ### Initialize management clients
 
@@ -391,7 +399,7 @@ Now that you created all the supporting resources, you can create a virtual mach
     Console.ReadLine();
     ```
 
-## Step 5: Add code to delete resources
+## Add code to delete resources
 
 Because you are charged for resources used in Azure, it is always good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.
 
@@ -416,7 +424,7 @@ Because you are charged for resources used in Azure, it is always good practice 
     Console.ReadLine();
     ```
 
-## Step 6: Run the application
+## Run the application
 
 1. To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
