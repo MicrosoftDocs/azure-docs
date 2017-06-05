@@ -37,11 +37,11 @@ To push and pull Docker images from your registry, install [Docker](https://docs
 
 ## Private registry overview
 
-Docker containers are built from images that are stored in one or more repositories. These repositories can belong to public or private container registries. While you might test with images from a public registry such as [Docker Hub](https://hub.docker.com/), for greater control over image versions, security, and updates, using a private registry is usually recommended. 
+Docker containers are built from images pulled from public or private container registries. While you might test with images from a public registry such as [Docker Hub](https://hub.docker.com/), for greater control over image versions, security, and updates, using a private registry is usually recommended. 
 
 An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), which can be installed on-premises or in a virtual private cloud. There are also cloud-based private container registry services including [Azure Container Registry](../container-registry/container-registry-intro.md).
 
-Using an Azure container registry with a Kubernetes cluster in Azure Container Service gives you the option to locate the registry close to your cluster. It also simplifies authentication to the registry from the cluster, because the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) configured for Kubernetes in Azure can authenticate automatically to the registry. However, you can use other private registries with Container Service, even one deployed on your container cluster. 
+Using an Azure container registry with a Kubernetes cluster in Azure Container Service gives you the option to locate the registry close to your cluster. It also simplifies authentication to the registry from the cluster, because the [Azure Active Directory service principal](container-service-kubernetes-service-principal.md) configured for Kubernetes in Azure can authenticate automatically to the registry. However, you can use other private registries with Container Service, even one deployed on your container cluster. (Additional configuration is required for using other private registries.)
 
 
 
@@ -59,8 +59,32 @@ Now create a container registry with [az acr create](/cli/azure/acr#create). The
 az acr create --name myACRegistry --resource-group myRGRegistry --admin-enabled --sku Basic
 ```
 
+Output similar to the following appears. Note the value of `loginServer`, which is the fully qualified name of the container registry. In this example, it is `myacregistry.azurecr.io`.
+
+```azurecli
+{
+  "adminUserEnabled": true,
+  "creationDate": "2017-06-05T23:28:03.266566+00:00",
+  "id": "/subscriptions/xxxxxx1c-c67e-4760-9ed6-xxxxxxxxecff/resourcegroups/myRGRegistry/providers/Microsoft.ContainerRe
+gistry/registries/myACRegistry",
+  "location": "eastus",
+  "loginServer": "myacregistry.azurecr.io",
+  "name": "myACRegistry",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "myacregistry1234567"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+
+```
 ## Get registry credentials
-To push and pull images from the Azure container registry, you can use the admin user name and password. The user name is the same as the registry name (*myACRegistry* in this example). Get the registry password by running the following command:
+To manage images in an Azure container registry, you can use the admin user name and password. The user name is the same as the registry name (*myACRegistry* in this example). Get the registry password by running the following command:
 
 ```azurecli-interactive 
 az acr credential show --name myACRegistry --query passwords[0].value
@@ -70,7 +94,7 @@ az acr credential show --name myACRegistry --query passwords[0].value
 
 Use the [Docker Command-Line Interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for login, push, pull, and other operations on your container registry. 
 
-Log in to your Azure container registry with the user name and password you obtained in the previous step. Use all lowercase letters for the fully qualified registry name *myacregistry.azurecr.io*.
+Log in to your Azure container registry with the user name and password you obtained in the previous step. Use all lowercase letters for the fully qualified registry name - in this example, *myacregistry.azurecr.io*.
 
 ```bash 
 docker login myacregistry.azurecr.io --username myACRegistry --password <yourPassword>
@@ -98,6 +122,7 @@ To verify that the image is in your registry, start an NGINX container locally:
 ```bash
 docker run -it --rm -p 8080:80 myacregistry.azurecr.io/samples/nginx
 ```
+
 Browse to http://localhost:8080 to view the running container.
 
 
