@@ -41,7 +41,7 @@ Azure Backup Server v.2 accepts storage volumes. When you add a volume, Azure Ba
 
 Using Azure Backup Server v.2 with volumes as disk storage, helps maintain control over the storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created using storage spaces. This helps if you want to expand the volume for backup storage. This section provides best practice for creating a volume with this configuration.
 
-First step is o create a Virtual Disk.  Through the File and Storage Services section of the Server Manager, create a Storage Pool, and add the available disks to it. Create a Virtual Disk from that Storage Pool with Simple Layout.
+First step is to create a Virtual Disk.  Through the File and Storage Services section of the Server Manager, create a Storage Pool, and add the available disks to it. Create a Virtual Disk from that Storage Pool with Simple Layout.
 
 Step 1: Add the disks to a Storage Pool and create a virtual disk with Simple Layout
 
