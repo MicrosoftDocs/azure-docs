@@ -233,8 +233,6 @@
 #### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
-### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
-
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
@@ -261,8 +259,9 @@
 # Reference
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Java API](/java/api/)
-## [.NET](/dotnet/api/)
+## [Azure CLI](/cli/azure/sf)
+## [Java API](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Resources
