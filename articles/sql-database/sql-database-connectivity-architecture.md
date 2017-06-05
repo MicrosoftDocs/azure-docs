@@ -99,3 +99,5 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 ## Next steps
 
 - For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
+- For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).
