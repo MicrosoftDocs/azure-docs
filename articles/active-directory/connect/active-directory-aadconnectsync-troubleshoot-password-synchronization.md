@@ -23,6 +23,63 @@ This topic provides steps for how to troubleshoot issues with password synchroni
 * If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized](#no-passwords-are-synchronized).
 * If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords](#one-object-is-not-synchronizing-passwords).
 
+## Troubleshoot issues where no passwords are synchronized (build 1.1.524.0 and after)
+Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synchronized:
+
+1. Open a new Windows PowerShell session on your Azure AD Connect server with **Run as Administrator** option.
+
+2. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
+
+3. Run `Import-Module ADSyncDiagnostics`.
+
+4. Run `Invoke-ADSyncDiagnostics -PasswordSync`.
+
+The diagnostic cmdlet performs the following diagnostics:
+
+1. Validates password synchronization is enabled for your Azure AD tenant.
+
+2. Validates the Azure AD Connect server is not in staging mode.
+
+2. For each existing on-premises AD Connector (which typically maps to an existing AD forest):
+
+   1. Validates password synchronization is enabled.
+   
+   2. Searches for corresponding heart beat event logs in the Windows Application Event logs.
+
+   3. For each AD domain under the same AD Connector, perform the following:
+
+      1. Validate that the domain is reachable.
+
+      2. Validate that the AD DS account used by the on-premises AD Connector has correct username, password and permissions required for password synchronization.
+
+### Password synchronization feature isn't enabled
+If you haven't enabled Password synchronization using Azure AD Connect wizard, the following error is returned. To enable password synchronization, 
+
+### Azure AD Connect server is in staging mode
+Password synchronization is disabled when Azure AD Connect is in staging mode. To disable staging mode, 
+
+### No password synchronization heartbeat detected
+Each on-premises AD Connector a separate password synchronization channel is running and password synchronization heartbeat is a sign that the channel for a specific AD Connector is continuing to run. When the password synchronization cycles are not taking long time, heartbeats are supposed to be emitted every 30 minutes. If there is no heartbeat available for the AD Connector in the last 3 hours, it means that the channel stopped and passwords will not be synchronized for this AD Connector.
+
+## Troubleshoot one object that is not syncing passwords (build 1.1.524.0 and after)
+Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synchronized:
+
+1. Open a new Windows PowerShell session on your Azure AD Connect server with **Run as Administrator** option.
+
+2. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
+
+3. Run `Import-Module ADSyncDiagnostics`.
+
+4. Run `Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <AD-Connector-Name> -DistinguishedName <DistinguishedName>`.
+
+The diagnostic cmdlet performs the following diagnostics:
+
+1. Examines the state of the AD object in the AD Connector space, Metaverse and Azure AD Connector space.
+
+2. Validates that there are both inbound and outbound synchronization rules with password synchronization enabled and apply to the AD object.
+
+3. 3.	Result of the last attempt to synchronize password for the object.
+
 ## No passwords are synchronized
 Follow these steps to figure out why no passwords are synchronized:
 
