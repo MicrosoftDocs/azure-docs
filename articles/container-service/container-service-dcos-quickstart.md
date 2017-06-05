@@ -160,7 +160,7 @@ Browsing to this address returns the default NGINX site.
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
-```azurecli-interactive -interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --no-wait
 ```
 
