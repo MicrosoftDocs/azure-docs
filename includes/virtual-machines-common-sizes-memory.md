@@ -1,5 +1,5 @@
 
-* The M-Series offers the highest CPU count (up to 128 vcpus) and largest memory (up to 3.5TB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high CPU counts and large amounts of memory.
+* The M-Series offers the highest CPU count (up to 128 vCPUs) and largest memory (up to 2.0 TiB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high CPU counts and large amounts of memory.
 
 * Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
@@ -13,11 +13,15 @@ ACU: 160-180
 
 | Size            | vCPU | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and local disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)                                                   | 40,000 / 1,000                            | 32 / extremely high          |
-| Standard_M128s* | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696)                                              | 80,000 / 2,000                            | 32 / extremely high          |
+| Standard_M64ms  | 64   | 1792        | 2048           | 32             | 80,000 / 800 (6348)                                                   | 40,000 / 1,000                            | 32 / extremely high          |
+| Standard_M128s** | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696)                                              | 80,000 / 2,000                            | 32 / extremely high          |
 
 
-*The only Guest OS Images that are supported for the M128s are:  Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux or CentOS 7.3 with LIS 4.2.1
+
+*M-series VM’s feature Intel® Hyper-Threading Technology
+
+**More than 64 vCPU’s require one of these supported guest OSes: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, and Red Hat Enterprise Linux or CentOS 7.3 with LIS 4.2.1 
+
 <br>
 
 ## GS-series*
