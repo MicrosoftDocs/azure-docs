@@ -22,18 +22,18 @@ This topic provides steps for how to troubleshoot issues with password synchroni
 
 For Azure AD Connect deployment with version 1.1.524.0 or after:
 
-* If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized - version 1.1.524.0 or after](#no-passwords-are-synchronized-build-524-or-after).
+* If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized (version 1.1.524.0 or after)](#no-passwords-are-synchronized-version-115240-or-after).
 
-* If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords - version 1.1.524.0 or after](#one-object-is-not-synchronizing-passwords-build-524-or-after).
+* If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords (version 1.1.524.0 or after)](#one-object-is-not-synchronizing-passwords-version-115240-or-after).
 
 For Azure AD Connect deployment with version before 1.1.524.0:
 
-* If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized](#no-passwords-are-synchronized).
+* If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized (version 1.1.486.0 or earlier)](#no-passwords-are-synchronized-version-114860-or-earlier).
 
-* If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords](#one-object-is-not-synchronizing-passwords).
+* If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords (version 1.1.486.0 or earlier)](#one-object-is-not-synchronizing-passwords-version-114860-or-earlier).
 
 ## No passwords are synchronized (version 1.1.524.0 or after)
-Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synchronized:
+Use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with **Run as Administrator** option.
 
