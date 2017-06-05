@@ -26,7 +26,7 @@ Developers sometimes make choices that work against their long-term best interes
 
 A multi-tenant application is an application hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data. An example is an SaaS application that provides services to tenants in a cloud-hosted environment.
 
-## multi-tenant applications
+## Multi-tenant applications
 In multi-tenant applications, data and workload can be easily partitioned. You can partition data and workload, for example, along tenant boundaries, because most requests occur within the confines of a tenant. That property is inherent in the data and the workload, and it favors the application patterns discussed in this article.
 
 Developers use this type of application across the whole spectrum of cloud-based applications, including:
@@ -44,7 +44,7 @@ Not all applications partition easily along a single property such as tenant, cu
 
 No single partition strategy can apply to all tables and work across an application's workload. This article focuses on multi-tenant applications that have easily partitionable data and workloads.
 
-## multi-tenant application design trade-offs
+## Multi-tenant application design trade-offs
 The design pattern that a multi-tenant application developer chooses typically is based on a consideration of the following factors:
 
 * **Tenant isolation**. The developer needs to ensure that no tenant has unwanted access to other tenants’ data. The isolation requirement extends to other properties, such as providing protection from noisy neighbors, being able to restore a tenant’s data, and implementing tenant-specific customizations.
@@ -58,7 +58,7 @@ A popular development pattern is to pack multiple tenants into one or a few data
 
 Tenant isolation often is a fundamental requirement in SaaS multi-tenant applications that cater to businesses and organizations. A developer might be tempted by perceived advantages in simplicity and cost over tenant isolation and scalability. This trade-off can prove complex and expensive as the service grows and tenant isolation requirements become more important and managed at the application layer. However, in multi-tenant applications that provide a direct, consumer-facing service to customers, tenant isolation might be a lower priority than optimizing for cloud resource cost.
 
-## multi-tenant data models
+## Multi-tenant data models
 Common design practices for placing tenant data follow three distinct models, shown in Figure 1.
 
 ![multi-tenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
@@ -101,12 +101,12 @@ These factors also influence the design pattern a customer chooses:
 
 Given the design trade-offs shown in Figure 2, an ideal multi-tenant model needs to incorporate good tenant isolation properties with optimal resource sharing among tenants. This model fits in the category described in the upper-right quadrant of Figure 2.
 
-## Multitenancy support in Azure SQL Database
+## Multi-tenancy support in Azure SQL Database
 Azure SQL Database supports all multi-tenant application patterns outlined in Figure 2. With elastic pools, it also supports an application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3). These tools can help you build and manage applications that use any of the multi-database patterns.
 
 ![Patterns in Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 
-Figure 3: multi-tenant application patterns in Azure SQL Database
+Figure 3: Multi-tenant application patterns in Azure SQL Database
 
 ## Database-per-tenant model with elastic pools and tools
 Elastic pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is a data tier solution for SaaS providers who build multi-tenant applications. The burden of resource sharing among tenants shifts from the application layer to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, elastic query, elastic transactions, and the elastic database client library.
@@ -138,7 +138,7 @@ Tenant isolation requirements are important for most SaaS multi-tenant applicati
 
 Although trade-offs might be major barriers with most cloud database service providers, Azure SQL Database eliminates the barriers with its elastic pool and elastic database capabilities. SaaS developers can combine the isolation characteristics of a database-per-tenant model and optimize resource sharing and the manageability improvements of many databases by using elastic pools and associated tools.
 
-multi-tenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multi-tenant applications.
+Multi-tenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multi-tenant applications.
 
 ## Next steps
 [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) with a sample app that demonstrates the client library.
