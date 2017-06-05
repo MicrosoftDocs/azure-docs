@@ -37,7 +37,7 @@ Service Map gets its data from the Microsoft Dependency Agent. The Dependency Ag
 | Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers. <br><br>In addition to the [Operations Management Suite Agent](../log-analytics/log-analytics-windows-agents.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | Service Map analyzes and collects data from Linux agent computers. <br><br>In addition to the [Operations Management Suite Agent](../log-analytics/log-analytics-linux-agents.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Operations Management Suite is required. Data is forwarded from the management group to the Operations Management Suite repository.|
-| Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure storage. |
+| Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
 Service Map supports only 64-bit platforms.
 
@@ -77,7 +77,7 @@ Use the following steps to install the Dependency Agent on each Windows computer
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
 
 #### Windows command line
-Use options from the following table to install from a command line. To see a list of the installation flag, run the installer by using the /? flag as follows.
+Use options from the following table to install from a command line. To see a list of the installation flags, run the installer by using the /? flag as follows.
 
 	InstallDependencyAgent-Windows.exe /?
 
@@ -107,7 +107,7 @@ To see a list of the installation flags, run the installation program with the -
 |:--|:--|
 | -help | Get a list of the command-line options. |
 | -s | Perform a silent installation with no user prompts. |
-| --check | Check permissions and operating system but do not install the agent. |
+| --check | Check permissions and the operating system but do not install the agent. |
 
 Files for the Dependency Agent are placed in the following directories:
 
