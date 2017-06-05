@@ -156,18 +156,28 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data from OData, the is used map OData types to .NET type.
+When moving data from OData, the following mappings are used from OData types to .NET type.
 
-| OData Data Type | .NET Type | Details |
-| --- | --- | --- |
-| Edm.Binary |byte[] |An array of bytes up to 64 KB. |
-| Edm.Boolean |bool |A Boolean value. |
-| Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC. The range ends at December 31, 9999. |
-| Edm.Double |double |A 64-bit floating point value. |
-| Edm.Guid |Guid |A 128-bit globally unique identifier. |
-| Edm.Int32 |Int32 or int |A 32-bit integer. |
-| Edm.Int64 |Int64 or long |A 64-bit integer. |
-| Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
+| OData Data Type | .NET Type |
+| --- | --- |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Bool |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |DateTime |
+| Edm.Decimal |Decimal |
+| Edm.Double |Double |
+| Edm.Single |Single |
+| Edm.Guid |Guid |
+| Edm.Int16 |Int16 |
+| Edm.Int32 |Int32 |
+| Edm.Int64 |Int64 |
+| Edm.SByte |Int16 |
+| Edm.String |String |
+| Edm.Time |TimeSpan |
+| Edm.DateTimeOffset |DateTimeOffset |
+
+> [!Note]
+> OData complex data types e.g. Object are not supported.
 
 ## JSON example: Copy data from OData source to Azure Blob
 This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from an OData source to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory. The sample has the following Data Factory entities:

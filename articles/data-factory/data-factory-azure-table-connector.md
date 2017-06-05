@@ -470,8 +470,8 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC. The range ends at December 31, 9999. |
 | Edm.Double |double |A 64-bit floating point value. |
 | Edm.Guid |Guid |A 128-bit globally unique identifier. |
-| Edm.Int32 |Int32 or int |A 32-bit integer. |
-| Edm.Int64 |Int64 or long |A 64-bit integer. |
+| Edm.Int32 |Int32 |A 32-bit integer. |
+| Edm.Int64 |Int64 |A 64-bit integer. |
 | Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
 
 ### Type Conversion Sample

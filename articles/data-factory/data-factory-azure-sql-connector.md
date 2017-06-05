@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
@@ -625,13 +625,13 @@ When copying data from relational data stores, keep repeatability in mind to avo
 ## Invoke stored procedure from SQL sink
 For an example of invoking a stored procedure from SQL sink in a copy activity of a pipeline, see [Invoke stored procedure for SQL sink in copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md) article. 
 
-## SQL Database to .NET type mapping
+## Type mapping for Azure SQL Database
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to and from Azure SQL, the following mappings are used from SQL type to .NET type and vice versa. The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
+When moving data to and from Azure SQL Database, the following mappings are used from SQL type to .NET type and vice versa. The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 | SQL Server Database Engine type | .NET Framework type |
 | --- | --- |
