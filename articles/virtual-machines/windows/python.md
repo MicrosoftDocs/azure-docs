@@ -48,7 +48,7 @@ You should see in the output windows that the azure packages were successfully i
 
 ## Add code to create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 1. Open *myPythonProject.py* file that was created, and then add this code to enable your application to run:
 
