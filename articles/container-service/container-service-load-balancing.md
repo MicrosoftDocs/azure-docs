@@ -30,9 +30,7 @@ advantage of the public and private agent clusters by placing your load balancer
 
 You will need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+This quick start requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
 
 ## Load balancing overview
 
@@ -45,19 +43,7 @@ There are two load-balancing layers in the Container Service cluster we will bui
 
 Marathon Load Balancer dynamically reconfigures itself based on the containers that you've deployed. It's also resilient to the loss of a container or an agent - if this occurs, Apache Mesos will simply restart the container elsewhere and marathon-lb will adapt.
 
-To install the Marathon Load Balancer, you can use either the DC/OS web UI or the command line.
-
-### Install Marathon-LB using DC/OS Web UI
-
-1. Click 'Universe' and 'Packages'
-2. Search for 'Marathon-LB'
-3. Click 'Install'
-
-![Installing marathon-lb via the DC/OS Web Interface](./media/dcos/marathon-lb-install.png)
-
-### Install Marathon-LB using the DC/OS CLI
-
-After installing the DC/OS CLI and ensuring you can connect to your cluster, run the following command from your client machine:
+Run the following command to install the marathon load balancer.
 
 ```bash
 dcos package install marathon-lb
@@ -113,15 +99,6 @@ Now that we have the marathon-lb package, we can deploy an application container
 | instances | The number of instances you want to create.
 
 It is worth noting that by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the behavior we desire.
-
-### Deploy using the DC/OS Web UI
-
-1. Visit the Marathon page at http://localhost/marathon (after setting up your [SSH tunnel](container-service-connect.md)) and click `Create Application`
-2. In the `New Application` dialog click `JSON Mode` in the upper right corner
-3. Paste the above JSON into the editor
-4. Click `Create Application`
-
-### Deploy using the DC/OS CLI
 
 To deploy this application with the DC/OS CLI simply copy the above JSON into a file called `hello-web.json`, and run:
 
