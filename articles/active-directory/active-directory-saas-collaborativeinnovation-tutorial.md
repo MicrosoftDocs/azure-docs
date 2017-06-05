@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 06/05/2017
 ms.author: jeedes
 
 ---
@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-collaborativeinnovation-tutorial/tutorial_collaborativeinnovation_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.foundry.unilever.com/`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.foundry.comanyname.com/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.foundry.unilever.com/`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<instancename>.foundry.comanyname.com/`
 	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Collaborative Innovation Client support team](https://www.unilever.com/contact/) to get these values.  
