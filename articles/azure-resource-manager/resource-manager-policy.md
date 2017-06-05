@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 06/05/2017
 ms.author: tomfitz
 
 ---
@@ -216,21 +216,21 @@ The value can be either a string or a JSON format object.
 
 You use property aliases to access specific properties for a resource type. 
 
-**Microsoft.Cache**
+**Microsoft.Cache/Redis**
 
-| Resource Type | Alias | Description |
-| ------------- | ----- | ----------- |
-| Redis | Microsoft.Cache/Redis/enableNonSslPort | Set whether the non-ssl Redis server port (6379) is enabled. |
-| Redis | Microsoft.Cache/Redis/shardCount | Set the number of shards to be created on a Premium Cluster Cache.  |
-| Redis | Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
-| Redis | Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
-| Redis | Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | Set whether the non-ssl Redis server port (6379) is enabled. |
+| Microsoft.Cache/Redis/shardCount | Set the number of shards to be created on a Premium Cluster Cache.  |
+| Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
+| Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
+| Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
 
-**Microsoft.Cdn**
+**Microsoft.Cdn/profiles**
 
-| Resource Type | Alias | Description |
-| ------------- | ----- | ----------- |
-| profiles | Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
 
 **Microsoft.Compute**
 
@@ -265,13 +265,18 @@ You use property aliases to access specific properties for a resource type.
 | virtualMachineScaleSets | Microsoft.Compute/VirtualMachineScaleSets/sku.name | Set the size of virtual machines in a scale set. |
 | virtualMachineScaleSets | Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Set the tier of virtual machines in a scale set. |
   
-**Microsoft.Network**
+**Microsoft.Network/applicationGateways**
 
-| Resource Type | Alias | Description |
-| ------------- | ----- | ----------- |
-| applicationGateways | Microsoft.Network/applicationGateways/sku.name | Set the size of the gateway. |
-| virtualNetworkGateways | Microsoft.Network/virtualNetworkGateways/gatewayType | Set the type of this virtual network gateway. |
-| virtualNetworkGateways | Microsoft.Network/virtualNetworkGateways/sku.name | Set the gateway SKU name. |
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | Set the size of the gateway. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | Description |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | Set the type of this virtual network gateway. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | Set the gateway SKU name. |
 
 **Microsoft.Sql**
 
