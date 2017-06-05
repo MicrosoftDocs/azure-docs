@@ -12,6 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
+ms.custom: mvc
 ---
 
 # Create an Azure Database for MySQL server using Azure portal
@@ -22,8 +23,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Log in to Azure
 Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to log in to the portal. The default view is your service dashboard.
-
-![Azure portal - login and dashboard](./media/quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
 
 ## Create Azure Database for MySQL server
 

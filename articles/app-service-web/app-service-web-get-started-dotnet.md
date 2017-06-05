@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Create your first ASP.NET web app in Azure in five minutes
 
@@ -82,27 +82,15 @@ Name your resource group **myResourceGroup** and click **OK**.
 
 ## Create an App Service plan
 
-Your Azure web app also needs an _App Service plan_. 
-
-> [!NOTE]
-> An App Service plan represents the collection of physical resources used to host your apps. All apps assigned to an App Service plan share the resources defined by it, which enables you to save cost when hosting multiple apps. 
->
-> App Service plans define:
->
-> - Region (North Europe, East US, Southeast Asia)
-> - Instance Size (Small, Medium, Large)
-> - Scale Count (one, two, or three instances, etc.) 
-> - SKU (Free, Shared, Basic, Standard, Premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 Next to **App Service Plan**, click **New**. 
 
 In the **Configure App Service Plan** dialog, configure the new App Service plan with the following settings:
 
 - **App Service Plan**: Type **myAppServicePlan**. 
-- **Location**: Choose **West Europe**, or any other region you like.
-- **Size**: Choose **Free**, or any other [pricing tier](https://azure.microsoft.com/pricing/details/app-service/) you like.
+- **Location**: Choose **West Europe**, or a region near you.
+- **Size**: Choose **Free**, or another [pricing tier](https://azure.microsoft.com/pricing/details/app-service/).
 
 Click **OK**.
 

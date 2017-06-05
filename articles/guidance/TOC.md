@@ -64,7 +64,6 @@
 ### [Microsoft cloud services and network security](..\best-practices-network-security.md)
 ### [Patterns for designing Azure Resource Manager templates](..\best-practices-resource-manager-design-templates.md)
 ### [Recommended naming conventions for Azure resources](guidance-naming-conventions.md)
-### [Security considerations for Azure Resource Manager](..\best-practices-resource-manager-security.md)
 ### [Sharing state in Azure Resource Manager templates](..\best-practices-resource-manager-state.md)
 ### [Retry general guidance](..\best-practices-retry-general.md)
 ### [Retry service specific guidance](..\best-practices-retry-service-specific.md)

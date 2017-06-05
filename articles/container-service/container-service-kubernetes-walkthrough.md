@@ -74,7 +74,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 After several minutes, the command completes, and you should have a working Kubernetes cluster.
 
 > [!IMPORTANT]
-> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to **Insufficient privileges to complete the operation**. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 > 
 
 

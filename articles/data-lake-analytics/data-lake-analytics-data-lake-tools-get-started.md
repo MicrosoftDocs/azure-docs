@@ -33,12 +33,12 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 
 * **Data Lake Analytics account and sample data**
 The Data Lake Tools do not support creating Data Lake Analytics accounts. Create an account using the Azure portal, Azure PowerShell, .NET SDK or Azure CLI.
-For your convenience, a PowerShell script for creating a Data Lake Analytics service and uploading the source data file can be found in [Appx-A PowerShell sample for preparing the tutorial](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
+For your convenience, a PowerShell script for creating a Data Lake Analytics service and uploading the source data file can be found in [Appx-A PowerShell sample for preparing the tutorial](data-lake-analytics-data-lake-tools-get-started.md).
 
     Optionally, you can go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md) to create your account and upload data manually:
 
-    1. [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-    2. [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#prepare-source-data).
+    1. [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md).
+    2. [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md).
 
 ## Connect to Azure
 **Connect to Data Lake Analytics**
@@ -195,7 +195,7 @@ Data Lake Tools for Visual Studio provides user-selectable color-overlays on job
 
 ## Run U-SQL locally
 
-You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs. 
+You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs.
 
 * [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
@@ -218,7 +218,7 @@ To see more development topics:
 * [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ## Appx-A PowerShell sample for preparing the tutorial
-The following PowerShell script prepares an Azure Data Lake Analytics account and the source data for you, So you can skip to [Develop U-SQL scripts](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+The following PowerShell script prepares an Azure Data Lake Analytics account and the source data for you, So you can skip to [Develop U-SQL scripts](data-lake-analytics-data-lake-tools-get-started.md).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"

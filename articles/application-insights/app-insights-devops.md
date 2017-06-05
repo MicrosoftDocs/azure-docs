@@ -3,7 +3,7 @@ title: Web application performance monitoring - Azure Application Insights | Mic
 description: How Application Insights fits into the devOps cycle
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3

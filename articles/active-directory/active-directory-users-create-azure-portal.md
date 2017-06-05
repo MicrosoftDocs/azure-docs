@@ -30,7 +30,7 @@ This article explains how to add new users in your organization in the Azure Act
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-   ![Opening user management](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
+   ![Opening users and groups](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 3. On the **Users and groups** blade, select **All users**, and then select **Add**.
 
    ![Selecting the Add command](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
