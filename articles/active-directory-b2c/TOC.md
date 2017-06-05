@@ -8,10 +8,14 @@
 
 # Tutorials
 ## [Create .NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+## [Build .NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
+## [Call a .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ## [Create Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
+## [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
 ## [Create iOS app](active-directory-b2c-devquickstarts-ios.md)
 ## [Create Android app](active-directory-b2c-devquickstarts-android.md)
 ## [Create Windows desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
+
 
 # Samples
 ## [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
@@ -29,9 +33,6 @@
 ## [Sign-in for Single-Page Apps](active-directory-b2c-reference-spa.md)
 
 # How-To guides
-## [Build .NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-## [Call a .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
-## [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
 ## Configure identity providers
 ### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
 ### [Facebook](active-directory-b2c-setup-fb-app.md)
