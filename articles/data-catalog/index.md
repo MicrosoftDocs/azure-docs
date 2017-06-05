@@ -67,6 +67,7 @@ Learn how to use Data Catalog to help your organization and team discover, under
                     <div class="cardText">
                         <h3>REST</h3>
                         <p><a href="/rest/api/datacatalog/">REST API</a></p>
+                        <p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Search syntax reference</a></p>
                     </div>
                 </div>
             </div>

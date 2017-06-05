@@ -159,7 +159,7 @@ In .NET, you can bind to any of the types in the list below. If used as an input
 * `CloudPageBlob` (requires "inout" binding direction)
 * `CloudAppendBlob` (requires "inout" binding direction)
 
-If text blobs are expected, you can also bind to a .NET `string` type. This is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlobBlob` type.
+If text blobs are expected, you can also bind to a .NET `string` type. This is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type.
 
 ## Trigger sample
 Suppose you have the following function.json that defines a blob storage trigger:

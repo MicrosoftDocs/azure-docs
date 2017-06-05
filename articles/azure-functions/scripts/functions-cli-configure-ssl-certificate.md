@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
+ms.custom: mvc
 ---
 # Bind a custom SSL certificate to a function app
 
-This sample script creates a function app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you will need:
+This sample script creates a function app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you need:
 
 * Access to your domain registrar's DNS configuration page.
 * A valid .PFX file and its password for the SSL certificate you want to upload and bind.
@@ -27,6 +28,10 @@ This sample script creates a function app in App Service with its related resour
 To bind an SSL certificate, your function app must be created in an App Service plan and not in a consumption plan.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
