@@ -26,16 +26,14 @@ ms.author: carolz
         <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> on a Linux Azure VM -- TODO: Solution Template
     </div>
     <div class="ico48Link">
-        <a href="/azure/app-service-web/app-service-web-intellij-create-hello-world-web-app">
-            <img src="../media/index/VirtualMachine.svg" alt="">
-            <span>Windows</span>
-        </a>
+        <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">TODO: 5 minute quick start #2</a>
     </div>
 </div>
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>In-depth guides to use Jenkins to build and deploy Azure apps.</p>
 <ol>
+    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Jenkins integration</a> with <a href="/azure/container-service/container-service-kubernetes-walkthrough">Azure Container Service and Kubernetes.</a></li>
     <li>Set up a Jenkins environment in Azure on <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Windows VMs</a> or <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Linux VMs</a>.</li>
     <li>Build and test your Azure <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">.NET</a> or <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Java</a> app with Jenkins.
     <li>Deploy with Jenkins to <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">virtual machines</a>, <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Azure App Service</a>, and <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Docker containers</a>.</li>
@@ -44,10 +42,10 @@ ms.author: carolz
 </ol>
 
 <h2>Sample code</h2>
-Sample configurations and pipelines as code.
+Sample scripts.
 <ul>
-    <li><a href="java-samples-services-data.md">Jenkinsfiles</a></li>
-    <li><a href="java-samples-services-storage.md">Pipelines</a></li>
+    <li><a href="java-samples-services-data.md">TODO - public Java samples once they go public?</a></li>
+    <li><a href="java-samples-services-storage.md">TODO - public Java samples once they go public?</a></li>
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
