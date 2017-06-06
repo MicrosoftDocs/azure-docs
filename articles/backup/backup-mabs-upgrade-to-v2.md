@@ -23,7 +23,7 @@ Azure Backup Server protects your virtual machines (VMs), workloads, files and f
 
 The additional features in Backup Server version 2 are an upgrade from Backup Server version 1. However, Backup Server version 1 is not a prerequisite for installing Backup Server version 2. If you want to upgrade from Backup Server version 1 to Backup Server version 2, install Backup Server version 2 on the Backup Server protection server. Your existing Backup Server settings remain intact.
 
-You can install Backup Server version 2 on Windows Server 2012 R2 or Windows Server 2016. To take advantage of new features like System Center 2016 Data Protection Manager Modern Backup Storage, you must install Backup Server version 2 on Windows Server 2016. Before you upgrade to or install Backup Server version 2, read about the [installation prerequisites](http://docs.microsoft.com/system-center/dpm/install-dpm.md#setup-prerequisites).
+You can install Backup Server version 2 on Windows Server 2012 R2 or Windows Server 2016. To take advantage of new features like System Center 2016 Data Protection Manager Modern Backup Storage, you must install Backup Server version 2 on Windows Server 2016. Before you upgrade to or install Backup Server version 2, read about the [installation prerequisites](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
 > Azure Backup Server has the same code base as System Center Data Protection Manager. Backup Server version 1 is equivalent to Data Protection Manager 2012 R2, and Backup Server version 2 is equivalent to Data Protection Manager 2016. This article occasionally references the Data Protection Manager documentation.
@@ -59,23 +59,23 @@ To upgrade from Backup Server version 1 to Backup Server version 2, make sure yo
 
   ![Setup installer - Prerequisite Checks page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
-6. Your environment must pass the prerequisite checks. If your environment doesn't pass the checks, note the issues and fix them. Then, click **Check Again**. After you pass the prerequisite checks, click **Next**.
+6. Your environment must pass the prerequisite checks. If your environment doesn't pass the checks, note the issues and fix them. Then, select **Check Again**. After you pass the prerequisite checks, select **Next**.
 
   ![Setup installer - Check Again button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s4-pass-checks.png)
 
-7. On the **SQL Settings** page, select the relevant option for your SQL installation, and then click **Check and Install**.
+7. On the **SQL Settings** page, select the relevant option for your SQL installation, and then select **Check and Install**.
 
   ![Setup installer - SQL Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
-  The checks might take a few minutes. When the checks are finished, click **Next**.
+  The checks might take a few minutes. When the checks are finished, select **Next**.
 
   ![Setup installer - SQL Settings Check and Install button](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. On the **Installation Settings** page, make any changes to the location where Backup Server is installed, or to the Scratch Location. Then, click **Next**.
+8. On the **Installation Settings** page, make any changes to the location where Backup Server is installed, or to the Scratch Location. Select **Next**.
 
   ![Setup installer - Installation Settings page](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
-9. To finish the setup wizard, click **Finish**.
+9. To finish the setup wizard, select **Finish**.
 
   ![Setup installer - Finish](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
@@ -90,9 +90,9 @@ If you run Backup Server version 2 on Windows Server 2016, you can use volumes t
 
 When you add a volume to Backup Server, you can give the volume a friendly name. Click the **Friendly Name** column of the volume you want to name. You can change the name later, if necessary. You also can use PowerShell to add or change friendly names for volumes.
 
-To add a volume in the Administrator console:
+To add a volume in the Administrator Console:
 
-1. In the Azure Backup Server Administrator console, select **Management** > **Disk Storage** > **Add**.
+1. In the Azure Backup Server Administrator Console, select **Management** > **Disk Storage** > **Add**.
 
     ![Open the Add Disk Storage wizard](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
 
@@ -105,7 +105,7 @@ To add a volume in the Administrator console:
 
   If you want to add a disk, the disk must belong to a protection group that has legacy storage. These disks can only be used for these protection groups. If Backup Server doesn't have sources that have legacy protection, the disk isn't listed.
 
-  For more information about adding disks, see [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
+  For more information about adding disks, see [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
 
 
 ### Assign workloads to volumes
@@ -116,7 +116,7 @@ In Backup Server, you specify which workloads are assigned to which volumes. For
 
 To update the properties of a volume in the storage pool in Backup Server, use the PowerShell cmdlet Update-DPMDiskStorage.
 
-**Syntax**
+Syntax:
 
 `Parameter Set: Volume`
 
@@ -149,11 +149,11 @@ To create a protection group:
 
   ![Select Group Members page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
-6. On the **Select Data Protection Method** page, enter a **Protection group name**, select the protection method, and then click **Next**. If you want short-term protection, you must select the **Disk** backup method.
+6. On the **Select Data Protection Method** page, enter a **Protection group name**, select the protection method, and then select **Next**. If you want short-term protection, you must select the **Disk** backup method.
 
   ![Select Data Protection Method page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
 
-7. On the **Specify Short-Term Goals** page, select the details for **Retention range** and **Synchronization frequency**. Then, click **Next**. Optionally, to change the schedule for when recovery points are taken, click **Modify**.
+7. On the **Specify Short-Term Goals** page, select the details for **Retention range** and **Synchronization frequency**. Then, select **Next**. Optionally, to change the schedule for when recovery points are taken, select **Modify**.
 
   ![Specify Short-Term Goals page](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
 
@@ -178,11 +178,11 @@ Updating protection groups to use Modern Backup Storage is optional. To update t
 
   ![Stop protection of member](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
- 2. In the **Remove from Group** dialog, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Click **OK**.
+2. In the **Remove from Group** dialog, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Click **OK**.
 
-    If you want to immediately return the used disk space to the free storage pool, select the **Delete replica on disk** check box to delete the backup data (and recovery points) associated with that member.
+  If you want to immediately return the used disk space to the free storage pool, select the **Delete replica on disk** check box to delete the backup data (and recovery points) associated with that member.
 
-    ![Remove from Group dialog](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Remove from Group dialog](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Create a protection group that uses Modern Backup Storage. Include the unprotected data sources.
 
@@ -193,15 +193,13 @@ If you want to use legacy storage with Backup Server, you might need to add disk
 
 To add disk storage:
 
-1. In the Administrator console, select **Management** > **Disk Storage** > **Add**.
+1. In the Administrator Console, select **Management** > **Disk Storage** > **Add**.
 
     ![Add Disk Storage dialog](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. In the **Add Disk Storage** dialog, click **Add disks**.
+4. In the **Add Disk Storage** dialog, select **Add disks**.
 
-    The dialog shows a list of available disks.
-
-5. Select the disks you want to add, select **Add**, and then select **OK**.
+5. In the list of available disks, select the disks you want to add, select **Add**, and then select **OK**.
 
 ## Update the Data Protection Manager protection agent
 
@@ -220,7 +218,7 @@ The following sections describe how to update protection agents for client compu
   >
   >
 
-3. To install updated protection agents on the selected computers, in the **Actions** pane, click **Update**.
+3. To install updated protection agents on the selected computers, in the **Actions** pane, select **Update**.
 
 ### Update a protection agent on a client computer that is not connected
 
@@ -233,7 +231,7 @@ The following sections describe how to update protection agents for client compu
   >
   >
 
-3. To install updated protection agents on the selected computers, click **Update**.
+3. To install updated protection agents on the selected computers, select **Update**.
 
 4. For a client computer that is not connected to the network, until the computer is connected to the network, the **Agent Status** column shows a status of **Update Pending**.
 
@@ -242,14 +240,14 @@ The following sections describe how to update protection agents for client compu
 ## New PowerShell cmdlets in version 2
 
 When you install Azure Backup Server version 2, two new cmdlets are available: 
-* [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx).
-* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx).
+* [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
+* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
 ## Next steps
 
 Learn how to prepare your server or begin protecting a workload:
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md).
 - [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
-- [Use Backup Server to back up SQL](backup-azure-sql-mabs.md).
+- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md).
 - [Use Modern Backup Storage with Backup Server](backup-mabs-add-storage.md).
 
