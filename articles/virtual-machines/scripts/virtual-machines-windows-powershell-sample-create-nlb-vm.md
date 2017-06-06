@@ -29,7 +29,7 @@ This script sample creates everything needed to run several Windows Server 2016 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-vm-nlb.ps1 "Create VM NLB")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Create VM NLB")]
 
 ## Clean up deployment 
 
