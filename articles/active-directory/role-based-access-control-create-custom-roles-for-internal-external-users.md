@@ -120,6 +120,7 @@ In the **Users** view in both portals the external users can be recognized by:
 * The different sourcing point in the classic portal
 
 However, granting **Owner** or **Contributor** access to an external user at the **Subscription** scope, does not allow the access to the admin user's directory, unless the **Global Admin** allows it. In the user proprieties,  the **User Type** which has two common parameters, **Member** and **Guest** can be identified. A member is a user which is registered in the directory while a guest is a user invited to the directory from an external source. For more information, see [How do Azure Active Directory admins add B2B collaboration users](/active-directory/active-directory-b2b-admin-add-users).
+<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > Make sure that after entering the credentials in the portal, the external user selects the correct directory to sign-in to. The same user can have access to multiple directories and can select either one of  them by clicking the username in the top right-hand side in the Azure portal and then choose the appropriate directory from the dropdown list.
