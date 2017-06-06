@@ -19,9 +19,8 @@ ms.author: carolz
             <p>Jenkins, a popular open source automation server, is <a href="https://jenkins.io/blog/2016/05/18/announcing-azure-partnership/">partnering with Azure</a> to enable powerful DevOps scenarios.  Start with the quickstarts for quickly installing and configuring Jenkins on Azure.  Use the tutorials for step by step guidance for CI/CD scenarios.  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins">Meet Jenkins</a> to learn more about Jenkins basics.</p>
         </div>
     </div>
-<h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Learn how to quickly get started with Jenkins on Azure.</p>
-
+<h2 style="margin-top: 36px">5-Minute Quickstarts</h2>
+<p>Learn how to quickly get started with Jenkins on Azure.</p>
  
 <ol>
   <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace-- TODO: Solution Template</li>
@@ -38,14 +37,15 @@ ms.author: carolz
     <li>Execute Azure CLI <a href="/azure/container-service/container-service-kubernetes-jenkins"> with Jenkins.</a> -- TODO</li>
 </ol>
 
-<h2>Samples</h2>
-
+<h2 style="margin-top: 36px">Samples</h2>
+<p>Sample code and tooling</p>
 <ul>
     <li><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/201-jenkins-acr">Jenkins to Azure Container Registry</a></li>
     <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Windows+Azure+Storage+Plugin">Jenkins Azure storage plugin</a></li>
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
+<p>Additional references for further learning</p>
 <ul>
   <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
   <li>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins.</a></li>
