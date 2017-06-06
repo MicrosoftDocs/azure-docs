@@ -155,10 +155,13 @@ kubectl get nodes
 ```
 
 `kubectl` lists the master and agent nodes.
+
+```bash
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
 k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
+```
 
 ## Pull from Azure container registry to Kubernetes
 
