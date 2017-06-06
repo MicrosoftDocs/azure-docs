@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB DocumentDB API account, database, and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Cosmos DB DocumentDB API account, database, and collection
+title: Azure CLI Script-Create an Azure Cosmos DB account, database, and collection | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB account, database, and collection
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -10,30 +10,30 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: cosmos-db
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 06/05/2017
 ms.author: mimig
 ---
 
-# Azure Cosmos DB: Create an DocumentDB API account using CLI
+# Azure Cosmos DB: Create an Azure Cosmos DB account by using CLI
 
-This sample CLI script creates an Azure Cosmos DB DocumentDB API account, database, and collection.  
+This sample CLI script creates an Azure Cosmos DB account, database, and container for use with the DocumentDB, Table, or Graph APIs.  
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB account, database, and container")]
 
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
