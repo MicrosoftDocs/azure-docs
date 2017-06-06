@@ -1,5 +1,5 @@
 ---
-title: Deploying recommended policies
+title: Deploying recommended policies for Azure AD Secure email | Microsoft Docs
 description: Describes deploying Microsoft recommendations about how to apply email policies and configurations.
 author: jeffgilb
 ms.service: guidance
