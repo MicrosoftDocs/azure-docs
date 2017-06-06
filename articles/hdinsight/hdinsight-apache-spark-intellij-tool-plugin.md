@@ -45,12 +45,11 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
 
 ## Sign in to your Azure subscription
 1. Start the IntelliJ IDE and open Azure Explorer. On the **View** menu, click **Tool Windows**, and then click **Azure Explorer**.
-   
-    ![Selected commands on the View menu](./media/hdinsight-apache-spark-intellij-tool-plugin/show-azure-explorer.png)
+       
+   ![Selected commands on the View menu](./media/hdinsight-apache-spark-intellij-tool-plugin/show-azure-explorer.png)
 2. Right-click the **Azure** node, and then click **Sign In**.
 3. In the **Azure Sign In** dialog box, click **Sign in** and enter your Azure credentials.
-   
-    ![Azure Sign In dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-2.png)
+![Azure Sign In dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-2.png)
 4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** to close the dialog box.
 
     ![Select Subscriptions dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
@@ -62,12 +61,10 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
     ![Expanding a cluster name to see resources](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
 ## Run a Spark Scala application on an HDInsight Spark cluster
-1. Start IntelliJ IDEA and create a project. In the **New Project** dialog box, make the following choices, and then click **Next**.
-   
+1. Start IntelliJ IDEA and create a project. In the **New Project** dialog box, make the following choices, and then click **Next**. 
+![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
    - In the left pane, select **HDInsight**.
    - In the right pane, select **Spark on HDInsight (Scala)**.
-   
-    ![New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 2. The Scala project creation wizard auto detects whether you installed Scala plugin or not. Click the **CLICK** link to install Scala plugin.
 
     ![scala check](./media/hdinsight-apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
@@ -76,10 +73,10 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
    ![Scala installation](./media/hdinsight-apache-spark-intellij-tool-plugin/Choose-Scala-Plugin.PNG)
 
 4. In the next window, provide the following project details, and then click **Finish**.  
-- Provide a project name and project location.
-- For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
-- For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
 ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-new-project.png)
+   - Provide a project name and project location.
+   - For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
+   - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This example uses Spark2.0.2(Scala 2.11.8).
 
 5. The Spark project automatically creates an artifact for you. To see the artifact, follow these steps:
 
@@ -88,7 +85,6 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
              ![Artifact info in the dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
       
 6. Add your application source code.
-   
    1. In Project Explorer, right-click **src**, point to **New**, and then click **Scala Class**.
       
        ![Commands for creating a Scala class from Project Explorer](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
@@ -116,7 +112,6 @@ For installation instructions, see [Installing the Azure Toolkit for IntelliJ](.
             }
 
 7. Run the application on an HDInsight Spark cluster.
-   
    1. In Project Explorer, right-click the project name, and then select **Submit Spark Application to HDInsight**.
       
        ![Selecting Submit Spark Application to HDInsight](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
@@ -151,8 +146,7 @@ You can perform various operations by using Azure Toolkit for IntelliJ.
 ### Access the job view
 1. In Azure Explorer, expand **HDInsight**, expand the Spark cluster name, and then click **Jobs**.
 2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the cluster. Click the name of the application for which you want to see more details.
-   
-    ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
+       ![Application details](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
 
 The boxes for **Error**, **Driver Log**, **OutPut**, **Livy Log** are populated based on the application that you select.
 
@@ -183,17 +177,15 @@ To resolve this error, you must [download the executable](http://public-repo-1.h
 ### Run a local Spark Scala application
 1. Start IntelliJ IDEA and create a project. In the **New Project** dialog box, make the following choices, and then click **Next**.
    
-   * In the left pane, select **HDInsight**.
-   * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
-   
+    - In the left pane, select **HDInsight**.
+    - In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
     ![Selections in New Project dialog box](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
 2. In the next window, provide the following project details, and then click **Finish**.
    
-   * Provide a project name and project location.
-   * For **Project SDK**, make sure that you provide a Java version later than 7.
-   * For **Spark Version**,  select the version of Scala to use: Scala 2.11.x for Spark 2.0, and Scala 2.10.x for Spark 1.6.
-    
-       ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/Create-local-project.PNG)
+    - Provide a project name and project location.
+    - For **Project SDK**, make sure that you provide a Java version later than 7.
+    - For **Spark Version**,  select the version of Scala to use: Scala 2.11.x for Spark 2.0, and Scala 2.10.x for Spark 1.6.
+![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-plugin/Create-local-project.PNG)
 3. The template adds a sample code (**LogQuery**) under the **src** folder that you can run locally on your computer.
    
     ![Location of LogQuery](./media/hdinsight-apache-spark-intellij-tool-plugin/local-app.png)
