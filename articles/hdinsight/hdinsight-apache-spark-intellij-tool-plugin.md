@@ -27,7 +27,7 @@ Use the Azure Toolkit for IntelliJ plug-in to develop Spark applications written
 * To access your Azure HDInsight Spark cluster resources
 * To develop and run a Scala Spark application locally
 
-You can also follow a [video](https://mix.office.com/watch/1nqkqjt5xonza) to get you started.
+You can follow a [video](https://www.youtube.com/watch?v=YTZzYVgut6c) to create your project.
 
 > [!IMPORTANT]
 > This plug-in can be used to create and submit applications only for an HDInsight Spark cluster on Linux.
@@ -245,6 +245,10 @@ If you have any suggestions or feedback, or if you encounter any problems when u
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+
+### Demo
+* Create Scala Project (Video): [Create Spark Scala Applications](https://www.youtube.com/watch?v=YTZzYVgut6c)
+* Remote Debug (Video): [Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster](https://www.youtube.com/watch?v=wQtj_wjn1Ac)
 
 ### Scenarios
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
