@@ -23,7 +23,7 @@ ms.author: nitinme
 HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
 
 > [!NOTE]
-> Zeppelin notebooks are available only for Spark 1.6.2 on HDInsight 3.5 and Spark 2.0.1 on HDInsight 3.6.
+> Zeppelin notebooks are available only for Spark 1.6.3 on HDInsight 3.5 and Spark 2.1.0 on HDInsight 3.6.
 >
 
 **Prerequisites:**
