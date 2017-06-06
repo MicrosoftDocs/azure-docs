@@ -21,14 +21,14 @@ ms.author: carolz
     </div>
 <h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Learn how to quickly get started with Jenkins on Azure.</p>
-<div class="ico48Case">
-   <div class="ico48Link">
+
+   <div>
 	<ol>
        <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace-- TODO: Solution Template</li>
        <li><a href="https://TODO">TODO - Create a Jenkins workflow.</a></li>    	
 	</ol>
    </div>
-</div>
+
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>In-depth guides to use Jenkins to build and deploy Azure apps.</p>
