@@ -27,7 +27,7 @@ For example, a backup taken by a given subscription of a key in a key vault in W
 - [Azure regions](https://azure.microsoft.com/regions/)
 - [Microsoft products by region](https://azure.microsoft.com/regions/services/)
 
-Regions are mapped to security worlds, shown as major headings in the tables:
+Regions are mapped to security worlds, shown as major headings in the preceeding linked articles.
 
 In the products by region article, for example, the **Americas** tab contains EAST US, CENTRAL US, WEST US all mapping to the Americas region. 
 
