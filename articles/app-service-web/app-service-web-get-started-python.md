@@ -32,9 +32,11 @@ To complete this tutorial:
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
 
