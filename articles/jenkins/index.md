@@ -14,8 +14,7 @@ ms.author: carolz
 ---
 <div class="content">
     <h1>Jenkins in Azure</h1>
- 	 <img src="media/Jenkins.png" alt="">
-	  <div class="introHolder" style="justify-content: space-between;">
+    <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
             <p>Learn how to build and deploy apps in Azure with Jenkins. Start with one of the quickstarts and then go into the tutorials to learn about setting up continuous integration and deployment automation with Jenkins.</p>
         </div>
@@ -24,13 +23,11 @@ ms.author: carolz
 <p style="margin-top: 6px; margin-bottom: 6px;">Learn how to quickly get started with Jenkins on Azure.</p>
 <div class="ico48Case">
    <div class="ico48Link">
-     <div class="ico48Link">
-        <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins"">
+          <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins"">
           <span>Install Jenkins</span>
-        </a> on a Linux Azure VM
+        </a> on a Linux Azure VM -- TODO: Solution Template
     </div>
-		TODO: Solution Template
-	<div>
+		
 </div>
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
