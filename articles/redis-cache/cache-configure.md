@@ -490,13 +490,13 @@ To access the Redis Console, click **Console** from the **Redis Cache** blade.
 
 ![Redis console](./media/cache-configure/redis-console-menu.png)
 
-To issue commands against your cache instance, simply type in the desired command into the console.
+To issue commands against your cache instance, simply type the desired command into the console.
 
 ![Redis console](./media/cache-configure/redis-console.png)
 
 ### Using Redis console with a premium clustered cache
 
-When using the Redis console with a premium cache with clustering enabled, you can issue commands to a single shard of the cache.To issue a command to a specific shard, first select the desired shard by clicking it on the shard picker.
+When using the Redis console with a premium cache with clustering enabled, you can issue commands to a single shard of the cache. To issue a command to a specific shard, first select the desired shard by clicking it on the shard picker.
 
 ![Redis console](./media/cache-configure/redis-console-premium-cluster.png)
 
