@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/30/2017
+ms.date: 06/06/2017
 ms.author: sdanie
 
 ---
@@ -494,7 +494,26 @@ To issue commands against your cache instance, simply type in the desired comman
 
 ![Redis console](./media/cache-configure/redis-console.png)
 
-For list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands). 
+### Using Redis console with a premium cache with clustering
+
+When using the Redis console with a premium cache with clustering enabled, you can issue commands to a single shard of the cache.To issue a command to a specific shard, first select the desired shard by clicking it on the shard picker.
+
+![Redis console](./media/cache-configure/redis-console-premium-cluster.png)
+
+If you attempt to access a key that is stored in a different shard than the selected shard, you receive an error message similar to the following message.
+
+```
+shard1>get myKey
+(error) MOVED 866 13.90.202.154:13000 (shard 0)
+```
+
+In the previous example, shard 1 is the selected shard, but `myKey` is located in shard 0, as indicated by the `(shard 0)` portion of the error message. In this example, to access `myKey`, select shard 0 using the shard picker, and then issue the desired command.
+
+
+>[!NOTE]
+>Not all Redis commands are supported in Azure Redis Cache. For list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands). 
+>
+>
 
 ## Move your cache to a new subscription
 You can move your cache to a new subscription by clicking **Move**.
