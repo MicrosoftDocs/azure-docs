@@ -16,15 +16,18 @@ ms.author: carolz
     <h1>Jenkins on Azure</h1> <img src="media/Jenkins.png" alt="Jenkins Logo">
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-            <p>Jenkins, a popular open source automation server, is <a href="https://jenkins.io/blog/2016/05/18/announcing-azure-partnership/">partnering with Azure</a> to enable powerful DevOps scenarios.  Learn how to install Jenkins on Azure and enable CI/CD for your solutions. Start with one of the quickstarts and then go into the tutorials for step by step guidance for more complex scenarios.</p>
+            <p>Jenkins, a popular open source automation server, is <a href="https://jenkins.io/blog/2016/05/18/announcing-azure-partnership/">partnering with Azure</a> to enable powerful DevOps scenarios.  Learn how to install Jenkins on Azure and enable CI/CD for your solutions. Start with one of the quickstarts and then go into the tutorials for step by step guidance for more complex scenarios.  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins">Meet Jenkins</a> to learn Jenkins basics.</p>
         </div>
     </div>
 <h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Learn how to quickly get started with Jenkins on Azure.</p>
 <div class="ico48Case">
    <div class="ico48Link">
-        <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace-- TODO: Solution Template
-    </div>
+	<ol>
+       <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace-- TODO: Solution Template</li>
+       <li><a href="TODO">Create a Jenkins workflow.</a>--TODO</li>    	
+	</ol>
+   </div>
 </div>
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
