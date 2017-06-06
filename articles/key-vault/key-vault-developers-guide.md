@@ -130,7 +130,6 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault security worlds](key-vault-ovw-security-worlds.md) and geographic boundaries details how all HSMs at Azure locations in the same geographic region share the same cryptographic boundary (Thales Security World).
 - [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 
 
