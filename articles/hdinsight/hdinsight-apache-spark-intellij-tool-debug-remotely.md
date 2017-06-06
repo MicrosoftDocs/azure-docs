@@ -95,13 +95,13 @@ For the code example below, an exception is thrown because the target file alrea
              var target="wasb:///HVACout2_testdebug1";
              rdd1.saveAsTextFile(target);
            }
-      catch{
+       catch{
               case ex: Exception => {
                 throw ex;
                };
-           }
+             }
+          }
         }
-      }
 
 1. Set up two breaking points and click **Debug** icon to start remote debug.
 2. The code stops at the first breaking point, the parameter and variable information are shown in the Variable window. 
