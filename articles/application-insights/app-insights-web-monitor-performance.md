@@ -25,8 +25,8 @@ Application Insights can monitor both Java and ASP.NET web applications and serv
 
 On the client side, Application Insights can take telemetry from web pages and a wide variety of devices including iOS, Android and Windows Store apps.
 
->![Note]
-> We have made a new experience available for finding slow performing pages in your web application. If you don't have access to it, enable it by configuring your preview options with the Preview blade.
+>[!Note]
+> We have made a new experience available for finding slow performing pages in your web application. If you don't have access to it, enable it by configuring your preview options with the Preview blade. Read about this new experience in [Find and fix performance bottlenecks with the Interactive Performance blade](Find-and-fix-performance-bottlenecks-with-the-Interactive-Performance-blade).
 
 ## <a name="setup"></a>Set up performance monitoring
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
@@ -129,7 +129,7 @@ Once you have a snapshot of your app's performance, you can get more details on 
 
 ![Application Insights Search blade](./media/app-insights-web-monitor-performance/performance2.png)
 
-## Drill down on specific operations
+### Drill down on specific operations
 
 After you have identified a point in time to investigate, drill-down even further to look at the specific operations that might have caused the performance slow-down. When you click on an operations from the Search blade you open a blade with the details of the operations as shown below. In this example you can see that the operation failed, and Application Insights has provided the details of the exception the application threw. Again, you can easily create a TFS work item from this blade.
 
