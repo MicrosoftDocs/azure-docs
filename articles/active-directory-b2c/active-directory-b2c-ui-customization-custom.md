@@ -20,17 +20,17 @@ ms.author: saeeda
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After you complete this article, you will have a sign-up and sign-in custom policy with your brand and appearance. With Azure Active Directory B2C (Azure AD B2C), you get nearly full control of the HTML and CSS that are presented to users. When you use a custom policy, you configure UI customization in XML instead of using controls in the Azure portal. 
+After you complete this article, you will have a sign-up and sign-in custom policy with your brand and appearance. With Azure Active Directory B2C (Azure AD B2C), you get nearly full control of the HTML and CSS content that's presented to users. When you use a custom policy, you configure UI customization in XML instead of using controls in the Azure portal. 
 
 ## Prerequisites
 
 Before you begin, complete [Getting started with custom policies](active-directory-b2c-get-started-custom.md). You should have a working custom policy for sign-up and sign-in with local accounts.
 
-## The page UI customization feature
+## Page UI customization
 
-With the page UI customization feature, you can customize the look and feel of any custom policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
+By using the page UI customization feature, you can customize the look and feel of any custom policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
 
-Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). First, you specify a URL in the custom policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to your consumer.
+Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). First, you specify a URL in the custom policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
 
 ## Create your HTML5 content
 
@@ -58,12 +58,12 @@ Create HTML content with your product's brand name in the title.
 ## Create an Azure Blob storage account
 
 >[!NOTE]
-> In this article, we use Azure Blob storage to host our content. You can also host your content on a web server, but you must [enable Cross-Origin Resource Sharing (CORS) on your web server](https://enable-cors.org/server.html).
+> In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable Cross-Origin Resource Sharing (CORS) on your web server](https://enable-cors.org/server.html).
 
 To host this HTML content in Blob storage, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **New** > **Storage** > **Storage account**.
+2. On the **Hub** menu, select **New** > **Storage** > **Storage account**.
 3. Enter a unique **Name** for your storage account.
 4. **Deployment model** can remain **Resource Manager**.
 5. Change **Account Kind** to **Blob storage**.
@@ -88,7 +88,7 @@ To create a public container in Blob storage, do the following:
 5. Click **$root** to open the new container.
 6. Click **Upload**.
 7. Click the folder icon next to **Select a file**.
-8. Go to **customize-ui.html**, which you created earlier in the ["The page UI customization feature"](#the-page-ui-customization-feature) section.
+8. Go to **customize-ui.html**, which you created earlier in the ["Page UI customization"](#the-page-ui-customization-feature) section.
 9. Click **Upload**.
 10. Select the customize-ui.html blob that you uploaded.
 11. Next to **URL**, click **Copy**.
@@ -103,10 +103,10 @@ Configure Blob storage for Cross-Origin Resource Sharing (CORS) by doing the fol
 
 1. On the **Storage** blade, under **Settings**, open **CORS**.
 2. Click **Add**.
-3. Set **Allowed origins** to **\***.
+3. Set **Allowed origins** to ** \***.
 4. In the **Allowed verbs** drop-down list, select both **GET** and **OPTIONS**.
-5. Set **Allowed headers** to **\***.
-6. Set **Exposed headers** to **\***.
+5. Set **Allowed headers** to **\* **.
+6. Set **Exposed headers** to ** \* **.
 7. Set **Maximum age (seconds)** to **200**.
 8. Click **Add**.
 
@@ -116,11 +116,11 @@ Validate that you're ready by doing the following:
 
 1. Go to the [test-cors.org](http://test-cors.org/) website, and then paste the URL in the **Remote URL** box.
 2. Click **Send Request**.  
-    If you receive an error, make sure your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
+    If you receive an error, make sure that your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
 ## Modify your sign-up or sign-in custom policy
 
-Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingBlocks\>* tag. Within the *\<BuildingBlocks\>* tags, add a *\<ContentDefinitions\>* tag by copying the following example. Replace *{your_storage_account}* with the name of your storage account.
+Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingBlocks\>* tag. Within the *\<BuildingBlocks\>* tags, add a *\<ContentDefinitions\>* tag by copying the following example. Replace *your_storage_account* with the name of your storage account.
 
   ```xml
   <BuildingBlocks>
@@ -134,7 +134,7 @@ Under the top-level *\<TrustFrameworkPolicy\>* tag, you should find *\<BuildingB
 
 ## Upload your updated custom policy
 
-1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md) and open the Azure AD B2C blade.
+1. In the [Azure portal](https://portal.azure.com), [switch into the context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then open the **Azure AD B2C** blade.
 2. Click **All Policies**.
 3. Click **Upload Policy**.
 4. Upload `SignUpOrSignin.xml` with the *\<ContentDefinitions\>* tag that you added previously.
@@ -157,13 +157,13 @@ The sample_templates/wingtip folder contains the following HTML files:
 
 | HTML5 template | Description |
 |----------------|-------------|
-| *phonefactor.html* | This page can be used as a template for a multi-factor authentication page. |
-| *resetpassword.html* | This page can be used as a template for a forgot password page. |
-| *selfasserted.html* | This page can be used as a template for a social account sign-up page, a local account sign-up page, or a local account sign-in page. |
-| *unified.html* | This page can be used as a template for a unified sign-up or sign-in page. |
-| *updateprofile.html* | This page can be used as a template for a profile update page. |
+| *phonefactor.html* | Use this file as a template for a multi-factor authentication page. |
+| *resetpassword.html* | Use this file as a template for a forgot password page. |
+| *selfasserted.html* | Use this file as a template for a social account sign-up page, a local account sign-up page, or a local account sign-in page. |
+| *unified.html* | Use this file as a template for a unified sign-up or sign-in page. |
+| *updateprofile.html* | Use this file as a template for a profile update page. |
 
-In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-up-or-sign-in-custom-policy), you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and how each page is used is described in the following table:
+In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-up-or-sign-in-custom-policy), you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and its description are in the following table:
 
 | Content definition ID | Description | 
 |-----------------------|-------------|
@@ -172,11 +172,11 @@ In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-
 | *api.idpselections.signup* | **Identity provider selection for sign-up**. This page contains a list of identity providers that the user can choose from during sign-up. These options are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
 | *api.localaccountpasswordreset* | **Forgot password page**. This page contains a form that the user must complete to initiate a password reset.  |
 | *api.localaccountsignin* | **Local account sign-in page**. This page contains a sign-in form for signing in with a local account that is based on an email address or a user name. The form can contain a text input box and password entry box. |
-| *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign-up form for signing up for a local account that is based on an email address or a user name. The form can contain various input controls, such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes. |
+| *api.localaccountsignup* | **Local account sign-up page**. This page contains a sign-up form for signing up for a local account that is based on an email address or a user name. The form can contain various input controls, such as a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. |
 | *api.phonefactor* | **Multi-factor authentication page**. On this page, users can verify their phone numbers (using text or voice) during sign-up or sign-in. |
-| *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that the user has to fill in when signing up using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the preceding social account sign-up page, except for the password entry fields. |
-| *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that users can use to update their profile. This page is similar to the social account sign-up page except for the password entry fields. |
-| *api.signuporsignin* | **Unified sign-up or sign-in page**. This page handles both sign-up and sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
+| *api.selfasserted* | **Social account sign-up page**. This page contains a sign-up form that users must complete when they sign up by using an existing account from a social identity provider such as Facebook or Google+. This page is similar to the preceding social account sign-up page, except for the password entry fields. |
+| *api.selfasserted.profileupdate* | **Profile update page**. This page contains a form that users can use to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. |
+| *api.signuporsignin* | **Unified sign-up or sign-in page**. This page handles both the sign-up and sign-in of users, who can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts.  |
 
 ## Next steps
 
