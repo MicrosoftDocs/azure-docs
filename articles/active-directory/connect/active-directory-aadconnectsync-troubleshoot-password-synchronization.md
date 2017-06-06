@@ -32,8 +32,11 @@ For Azure AD Connect deployment with older versions, you need to manually troubl
 
 * If you have an issue with individual objects, refer to section [Troubleshoot one object that is not synchronizing passwords using manual steps](#troubleshoot-one-object-that-is-not-synchronizing-passwords-using-manual-steps).
 
-## Troubleshoot issues where no passwords are synchronized using diagnostic cmdlet
-Use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why no passwords are synchronized:
+## No passwords are synchronized - Troubleshoot using diagnostic cmdlet
+With Azure AD Connect version 1.1.5.240.0 and after, you can use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why no passwords are synchronized.
+
+### How to run the diagnostics cmdlet
+To troubleshoot issues where no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with **Run as Administrator** option.
 
@@ -43,32 +46,33 @@ Use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why no passwords are s
 
 4. Run `Invoke-ADSyncDiagnostics -PasswordSync`.
 
-The diagnostic cmdlet performs the following diagnostics:
+### Understand the results of the cmdlet
+The diagnostic cmdlet performs the following checks:
 
-1. Validates password synchronization is enabled for your Azure AD tenant.
+1. Validates password synchronization feature is enabled for your Azure AD tenant.
 
 2. Validates the Azure AD Connect server is not in staging mode.
 
-2. For each existing on-premises AD Connector (which typically maps to an existing AD forest):
+3. For each existing on-premises AD Connector (which corresponds to an existing AD forest):
 
-   1. Validates password synchronization is enabled.
+   1. Validates password synchronization feature is enabled.
    
-   2. Searches for corresponding heart beat event logs in the Windows Application Event logs.
+   2. Searches for password synchronization heartbeat events in the Windows Application Event logs.
 
-   3. For each AD domain under the same AD Connector, perform the following:
+   3. For each AD domain under the on-premises AD Connector:
 
-      1. Validate that the domain is reachable.
+      1. Validate that the domain is reachable from the Azure AD Connect server.
 
       2. Validate that the AD DS account used by the on-premises AD Connector has correct username, password and permissions required for password synchronization.
 
-Following diagram illustrate the output of the cmdlet for a single-forest/single-domain deployment:
+Following diagram illustrates the results of the cmdlet for a single-domain on-premises AD topology:
 
-![Diagnostic output for password synchronization](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
+![Diagnosticoutputforpasswordsynchronization](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-### Interpret the results of the cmdlet
+The rest of this section describes specific results returned by the cmdlet and corresponding issues.
 
 #### Password synchronization feature isn't enabled
-If you haven't enabled Password synchronization using Azure AD Connect wizard,  following error is returned:
+If you haven't enabled Password synchronization using Azure AD Connect wizard, following error is returned:
 
 ![Password synchronization isn't enabled](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobaldisabled.png)
 
