@@ -59,6 +59,7 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [Gateway SKUs (old)](vpn-gateway-about-skus-legacy.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 
