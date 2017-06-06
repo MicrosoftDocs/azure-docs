@@ -99,6 +99,8 @@
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Videos
+    href: videos.md    
   - name: Feedback forum
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Region availability
