@@ -11,7 +11,7 @@ ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
@@ -20,26 +20,45 @@ ms.author: rachelap
 # Build a Node.js RESTful API and deploy it to an API app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). You can use any operating system that can run Node.js, and you'll do all your work using command line tools such as cmd.exe or bash.
+This quickstart shows how to create a simple [Node.js](http://nodejs.org) REST API using the [Express](http://expressjs.com/) framework from a [Swagger](http://swagger.io/) definintion and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You'll create the app using the command line and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) and deploy the app from a local [Git](http://git-scm.com) repo. 
 
 ## Prerequisites
-1. Microsoft Azure account ([open a free account here](https://azure.microsoft.com/pricing/free-trial/))
-2. [Node.js](http://nodejs.org) installed (this sample assumes that you have Node.js version 4.2.2)
-3. [Git](https://git-scm.com/) installed
-4. [GitHub](https://github.com/) account
 
-While App Service supports many ways to deploy your code to an API app, this tutorial shows the Git method and assumes that you have basic knowledge of how to work with Git. For information about other deployment methods, see [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md).
+To complete this quickstart:
 
-## Get the sample code
-1. Open a command line interface that can run Node.js and Git commands.
-2. Navigate to a folder that you can use for a local Git repository, and clone the [GitHub repository containing the sample code](https://github.com/Azure-Samples/app-service-api-node-contact-list).
-   
-        git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
-   
-    The sample API provides two endpoints: a Get request to `/contacts` returns a list of names and email addresses in JSON format, while `/contacts/{id}` returns only the selected contact.
+* [Install Git](https://git-scm.com/)
+* [Install Node.js and NPM](https://nodejs.org/)
+* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-## Scaffold (auto-generate) Node.js code based on Swagger metadata
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Prepare your environment
+
+1. In a terminal window , run the following command to clone the sample to your local machine.
+
+    ```bash
+    git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
+    ```
+
+2. Change to the directory that contains the sample code.
+
+    ```bash
+    cd app-serfvice-api-node-contact-list
+    ```
+
+3. Install [Swaggerize](https://www.npmjs.com/package/swaggerize-express) on your local machine.
+
+    Swaggerize is a tool that generates Node.js code for your REST API from a Swagger definition.
+
+    ```bash
+    npm install -g yo
+    npm install -g generator-swaggerize
+    ```
+
+## Generate Node.js code from a Swagger definition
+
 [Swagger](http://swagger.io/) is a file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md). This section of the tutorial models an API development workflow in which you create Swagger metadata first and use that to scaffold (auto-generate) server code for the API. 
 
 > [!NOTE]
