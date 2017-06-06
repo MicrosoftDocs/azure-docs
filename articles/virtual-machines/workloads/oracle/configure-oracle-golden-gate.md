@@ -236,7 +236,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-### Set the ORACLE_SID and ORACLE_HOME variables:
+### Set the ORACLE_SID and ORACLE_HOME variables
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -287,7 +287,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-### Set the ORACLE_SID and ORACLE_HOME variables:
+### Set the ORACLE_SID and ORACLE_HOME variables
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -718,20 +718,20 @@ In this step, you find the starting SCN, which will be used later, in a differen
 
 ### Set up the replication (myVM1 and myVM2)
 
-1. Set up the replication on myVM2 (replicate):
+#### 1. Set up the replication on myVM2 (replicate):
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
-2. Update the file with the following:
+Update the file with the following:
 
   ```bash
   PORT 7809
   ACCESSRULE, PROG *, IPADDR *, ALLOW
   ```
-3. Then restart the Manager service:
+Then restart the Manager service:
 
   ```bash
   GGSCI> STOP MGR
@@ -739,7 +739,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   GGSCI> EXIT
   ```
 
-### 2. Set up the replication on myVM1 (primary):
+#### 2. Set up the replication on myVM1 (primary):
 
 Start the initial load and check for errors:
 
@@ -763,6 +763,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
 
 ### View job status and troubleshooting
 
+#### View reports
 To view reports on myVM1, run the following commands:
 
   ```bash
@@ -775,6 +776,7 @@ To view reports on myVM2, run the following commands:
   GGSCI> VIEW REPORT REPORA
   ```
 
+#### View status and history
 To view status and history on myVM1, run the following commands:
 
   ```bash
