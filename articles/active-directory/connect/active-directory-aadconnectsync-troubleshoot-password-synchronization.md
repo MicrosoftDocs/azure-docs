@@ -31,7 +31,10 @@ For older versions of Azure AD Connect deployment:
 * If you have an issue with individual objects, refer to section [One object is not synchronizing passwords - Manual troubleshooting steps](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps).
 
 ## No passwords are synchronized - Troubleshoot using diagnostic cmdlet
-With Azure AD Connect version 1.1.5.240.0 and after, you can use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why no passwords are synchronized.
+You can use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why no passwords are synchronized.
+
+> [!NOTE]
+> The **Invoke-ADSyncDiagnostics** cmdlet is only available for Azure AD Connect version 1.1.524.0 and after.
 
 ### How to run the diagnostics cmdlet
 To troubleshoot issues where no passwords are synchronized:
@@ -95,7 +98,10 @@ If the AD DS account used by the on-premises AD Connector to synchronize passwor
 ![Incorrect credential](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
 ## One object is not synchronizing passwords - Troubleshoot using diagnostic cmdlet
-With Azure AD Connect version 1.1.5.240.0 and after, you can use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why one object is not synchronizing passwords.
+You can use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why one object is not synchronizing passwords.
+
+> [!NOTE]
+> The **Invoke-ADSyncDiagnostics** cmdlet is only available for Azure AD Connect version 1.1.524.0 and after.
 
 ### How to run the diagnostics cmdlet
 To troubleshoot issues where no passwords are synchronized:
