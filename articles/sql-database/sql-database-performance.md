@@ -18,18 +18,22 @@ ms.date: 07/19/2016
 ms.author: sstein
 
 ---
-# SQL Database Performance Insight
-Azure SQL Database helps you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. To review your database performance, you have few options:
+# Monitor and improve performance
+Azure SQL Database identifies potential problems in your database and recommend actions that can improve performance of your workload by providing intelligent tuning actions and recommendations.
 
-1. Click **Performance overview** or click **Performance tile** to get the performance overview page. 
-2. Click **Performance recommendations** to open the [SQL Database Advisor](#sql-database-advisor).
-3. Click **Queries** to open [Query Performance Insight](#query-performance-insight).
-4. Click **Automatic tuning** to open [Automatic tuning page](#sql-database-automatic-tuning).
-   
+To review your database performance, use the **Performance** tile on the Overview page, or navigate down to "Support + troubleshooting" section:
+
     ![View Performance](./media/sql-database-performance/entries.png)
 
+In the "Support + troubleshooting" you can find the following pages:
+
+1. **Performance overview** to the overview of database performance. 
+2. [Performance recommendations](#sql-database-advisor) to find performance recommendations that can improve performance of your workload.
+3. [Query Performance Insight](#query-performance-insight) to find top resource consuming queries.
+4. [Automatic tuning](#sql-database-automatic-tuning) to let Azure SQL Database automatically optimize your database.
+
 ## Performance Overview
-Clicking **Overview** or on the **Performance** tile takes you to the performance dashboard for your database. This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
+This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
 
 ![Performance](./media/sql-database-performance/performance.png)
 
