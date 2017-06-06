@@ -27,22 +27,32 @@ Acronyms and initialisms in file names - specific guidelines:
 ## Pattern
 Here's the general pattern:
 
- **service-platform-language-content-product-version.md**
+ **platform-language-content-product-version.md**
 
 Use the parts of the pattern that apply, and review the list of articles in the repository to get an idea of existing names. Names that don't start with a dev platform or a service name are probably suspect and slipped through.
 
-## Standard examples
-Here are a few examples of valid names that follow the pattern. :
+>NOTE
+> Service names are in the URL path element following the brand, and aren't necessary in the filename. 
+> Example: /azure/**mobile-services**/dotnet-backend-get-started-settings-sync
 
-* cloud-services-dotnet-continuous-delivery.md
-* mobile-services-ios-get-started.md
-* documentdb-manage-account.md
-* mobile-services-dotnet-backend-get-started-settings-sync.md
-* active-directory-java-authenticate-users-access-control-eclipse.md
-* virtual-machines-install-windows-server-2008r2.md
-* cache-aspnet-session-state-provider
-* azure-sdk-dotnet-release-notes-2-8
-* storsimple-disaster-recovery-using-azure-site-recovery
+## Standard examples
+Here are a few examples of valid names that follow the pattern:
+
+* dotnet-continuous-delivery.md
+* ios-get-started.md
+* manage-account.md
+* dotnet-backend-get-started-settings-sync.md
+* java-authenticate-users-access-control-eclipse.md
+* install-windows-server-2008r2.md
+* aspnet-session-state-provider.md
+* azure-sdk-dotnet-release-notes-2-8.md
+* disaster-recovery-using-azure-site-recovery.md
+
+The service names aren't in the filename example, but are an element in the URL path:
+
+* https://docs.microsoft.com/azure/**cloud-service**/dotnet-continuous-delivery
+* https://docs.microsoft.com/azure/**mobile-services**/ios-get-started
+* https://docs.microsoft.com/azure/**documentdb**/manage-account
 
 ## A/B testing
 
