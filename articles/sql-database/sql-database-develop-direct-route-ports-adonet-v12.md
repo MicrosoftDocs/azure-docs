@@ -21,7 +21,7 @@ ms.author: sstein
 # Ports beyond 1433 for ADO.NET 4.5
 This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version. 
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > For information about connectivity architecture, see [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md).
 >
 
