@@ -60,9 +60,7 @@ The flags you can use for the installation are:</br>
 **/x** - uninstall path</br>
 
 ## Next steps
-Learn how to prepare your server or begin protecting a workload:
-
-- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md).
-- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
-- [Use Backup Server to back up SQL](backup-azure-sql-mabs.md).
-- [Use Modern Backup Storage with Backup Server](backup-mabs-add-storage.md).
+After installing Azure Backup Server, use one of the following articles to either prepare your server, or begin protecting a workload:
+- [Prepare Azure Backup Server workloads](backup-azure-microsoft-azure-backup.md)
+- [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+- [Use Azure Backup Server to back up SQL](backup-azure-sql-mabs.md)
