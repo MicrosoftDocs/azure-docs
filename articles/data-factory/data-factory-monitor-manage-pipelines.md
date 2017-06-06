@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
 
 ---
@@ -23,15 +23,11 @@ ms.author: spelluru
 > * [Using Monitoring and Management app](data-factory-monitor-manage-app.md)
 
 
-Azure Data Factory provides a reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard that you can use to:
+> [!IMPORTANT]
+> The monitoring & management application provides a better support for monitoring and managing your data pipelines, and troubleshooting any issues. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md). 
 
-* Quickly assess end-to-end data pipeline health.
-* Identify issues, and take corrective action if needed.
-* Track data lineage.
-* Track relationships between your data across any of your sources.
-* View full historical accounting of job execution, system health, and dependencies.
 
-This article describes how to monitor, manage, and debug your pipelines. It also provides information on how to create alerts and get notified about failures.
+This article describes how to monitor, manage, and debug your pipelines by using Azure portal and PowerShell. The article also provides information on how to create alerts and get notified about failures.
 
 ## Understand pipelines and activity states
 By using the Azure portal, you can:
@@ -40,15 +36,13 @@ By using the Azure portal, you can:
 * View activities in a pipeline.
 * View input and output datasets.
 
-This section also describes how a slice transitions from one state to another state.   
+This section also describes how a dataset slice transitions from one state to another state.   
 
 ### Navigate to your data factory
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Data factories** on the menu on the left. If you don't see it, click **More services >**, and then click **Data factories** under the **INTELLIGENCE + ANALYTICS** category.
 
    ![Browse all > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-
-   You should see all the data factories on the **Data factories** blade.
 3. On the **Data factories** blade, select the data factory that you're interested in.
 
     ![Select data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
@@ -58,19 +52,17 @@ This section also describes how a slice transitions from one state to another st
    ![Data factory blade](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### Diagram view of your data factory
-The **Diagram** view of a data factory provides a single pane of glass to monitor and manage the data factory and its assets.
-
-To see the **Diagram** view of your data factory, click **Diagram** on the home page for the data factory.
+The **Diagram** view of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. To see the **Diagram** view of your data factory, click **Diagram** on the home page for the data factory.
 
 ![Diagram view](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, and automatically position pipelines and tables. You can also see the data lineage information (that is, show upstream and downstream items of selected items).
+You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, and automatically position pipelines and datasets. You can also see the data lineage information (that is, show upstream and downstream items of selected items).
 
 ### Activities inside a pipeline
 1. Right-click the pipeline, and then click **Open pipeline** to see all activities in the pipeline, along with input and output datasets for the activities. This feature is useful when your pipeline includes more than one activity and you want to understand the operational lineage of a single pipeline.
 
     ![Open pipeline menu](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. In the following example, you see two activities in the pipeline with their inputs and outputs. The activity titled **JoinData** of type HDInsight Hive Activity and **EgressDataAzure** of type Copy Activity are in this sample pipeline.
+2. In the following example, you see a copy activity in the pipeline with an input and an output. 
 
     ![Activities inside a pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. You can navigate back to the home page of the data factory by clicking the **Data factory** link in the breadcrumb at the top-left corner.
@@ -80,11 +72,9 @@ You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the dia
 ### View the state of each activity inside a pipeline
 You can view the current state of an activity by viewing the status of any of the datasets that are produced by the activity.
 
-In the following example, the **BlobPartitionHiveActivity** ran successfully and produced a dataset named **PartitionedProductsUsageTable**, which is in the **Ready** state.
+By double-clicking the **OutputBlobTable** in the **Diagram**, you can see all the slices that are produced by different activity runs inside a pipeline. You can see that the copy activity ran successfully for the last eight hours and produced the slices in the **Ready** state.  
 
 ![State of the pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
-
-By double-clicking the **PartitionedProductsUsageTable** in the **Diagram**, you can see all the slices that are produced by different activity runs inside a pipeline. You can see that the **BlobPartitionHiveActivity** ran successfully every month for the last eight months and produced the slices in the **Ready** state.
 
 The dataset slices in the data factory can have one of the following statuses:
 
@@ -170,17 +160,13 @@ The slice starts in a **Waiting** state, waiting for preconditions to be met bef
 
 You can reset the slice to go back from the **Ready** or **Failed** state to the **Waiting** state. You can also mark the slice state to **Skip**, which prevents the activity from executing and not processing the slice.
 
-## Manage pipelines
-You can manage your pipelines by using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets.
+## Pause and resume pipelines
+You can manage your pipelines by using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets. 
 
-### Pause and resume pipelines
-You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed.
+> [!NOTE] 
+> The diagram view does not support pausing and resuming pipelines. If you want to use an user interface, use the monitoring and managing application. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
-For example, in the following screenshot, an issue has been identified with the **PartitionProductsUsagePipeline** in the **productrecgamalbox1dev** data factory, and we want to suspend the pipeline.
-
-![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
-
-To suspend a pipeline, run the following PowerShell command:
+You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -191,7 +177,7 @@ For example:
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-After the issue has been fixed with the **PartitionProductsUsagePipeline**, you can resume the suspended pipeline by running the following PowerShell command:
+After the issue has been fixed with the pipeline, you can resume the suspended pipeline by running the following PowerShell command:
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -201,8 +187,12 @@ For example:
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
+
 ## Debug pipelines
 Azure Data Factory provides rich capabilities for you to debug and troubleshoot pipelines by using the Azure portal and Azure PowerShell.
+
+> [!NOTE} 
+> It is much easier to troubleshot errors using the Monitoring & Management App. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
 ### Find errors in a pipeline
 If the activity run fails in a pipeline, the dataset that is produced by the pipeline is in an error state because of the failure. You can debug and troubleshoot errors in Azure Data Factory by using the following methods.
@@ -219,7 +209,7 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
    ![Activity run details blade with error](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### Use PowerShell to debug an error
-1. Start **Azure PowerShell**.
+1. Launch **PowerShell**.
 2. Run the **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status of **Failed**.        
 
 	```powershell   
@@ -231,7 +221,7 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 	Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 	```
 
-   Replace **StartDateTime** with the the StartDateTime value that you specified for the Set-AzureRmDataFactoryPipelineActivePeriod.
+   Replace **StartDateTime** with start time of your pipeline. 
 3. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about the activity run for the slice.
 
 	```powershell   
@@ -277,12 +267,17 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 	```
 
 ## Rerun failures in a pipeline
+
+> [!IMPORTANT]
+> It's easier to troubleshoot errors and rerun failed slices by using the Monitoring & Management App. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md). 
+
 ### Use the Azure portal
 After you troubleshoot and debug failures in a pipeline, you can rerun failures by navigating to the error slice and clicking the **Run** button on the command bar.
 
 ![Rerun a failed slice](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
 In case the slice has failed validation because of a policy failure (for example, if data isn't available), you can fix the failure and validate again by clicking the **Validate** button on the command bar.
+
 ![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Use Azure PowerShell

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/2/2017
 ms.author: billmath
 
 ---
@@ -117,6 +117,7 @@ This page allows you to configure anchor and DN attribute for each detected obje
 * Multi-valued and Boolean attributes are not listed.
 * Same attribute cannot use for DN and anchor, unless **DN is Anchor** is selected on the Connectivity page.
 * If **DN is Anchor** is selected on the Connectivity page, this page requires only the DN attribute. This attribute would also be used as the anchor attribute.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### Schema 4 (Define attribute type, reference, and direction)
@@ -126,7 +127,8 @@ This page allows you to configure the attribute type, such as integer, binary, o
 
 * **DataType**: Used to map the attribute type to those types known by the sync engine. The default is to use the same type as detected in the SQL schema, but DateTime and Reference are not easily detectable. For those, you need to specify **DateTime** or **Reference**.
 * **Direction**: You can set the attribute direction to Import, Export, or ImportExport. ImportExport is default.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Notes:
 
@@ -146,6 +148,12 @@ Starting in the March 2017 update there is now an option for "*" When this optio
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ As of May 2017 the “*” aka **any option** has been changed to support import and export flow. If you want to use this option your multi-valued table/view should have an attribute that contains the object type.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> If "*" is selected then the name of the column with the object type must also be specified.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 After import you will see something similar to the image below:
 
@@ -158,8 +166,7 @@ The Global Parameters page is used to configure Delta Import, Date/Time format, 
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- “*” aka **any option** cannot be used during export/delete operations.
+
 
 The Generic SQL Connector supports the following methods for Delta Import:
 

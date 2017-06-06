@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
+title: 'Azure Active Directory B2C: SPA Using Implicit Flow | Microsoft Docs'
 description: How to build single-page apps directly by using implicit flow.
 services: active-directory-b2c
 documentationcenter: ''

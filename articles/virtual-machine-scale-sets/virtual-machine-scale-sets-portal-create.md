@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 05/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
 

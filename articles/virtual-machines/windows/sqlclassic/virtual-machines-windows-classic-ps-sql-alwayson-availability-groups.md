@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure the Always On availability group on an Azure VM by using PowerShell | Microsoft Docs
 description: This tutorial uses resources that were created with the classic deployment model. You use PowerShell to create an Always On availability group in Azure.
 services: virtual-machines-windows
@@ -24,10 +24,10 @@ ms.author: mikeray
 > * [Classic: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
+Before you begin, consider that you can now complete this task in Azure resource manager model. We recommend Azure resource manager model for new deployments. See [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+
 > [!IMPORTANT]
 > We recommend that most new deployments use the Resource Manager model. Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model.
-
-To complete this task with the Azure Resource Manager model, see [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 Azure virtual machines (VMs) can help database administrators to lower the cost of a high-availability SQL Server system. This tutorial shows you how to implement an availability group by using SQL Server Always On end-to-end inside an Azure environment. At the end of the tutorial, your SQL Server Always On solution in Azure will consist of the following elements:
 
@@ -42,7 +42,7 @@ This scenario is a good choice for its simplicity on Azure, not for its cost-eff
 This tutorial is intended to show you the steps that are required to set up the described solution above, without elaborating on the details of each step. Therefore, instead of providing the GUI configuration steps, it uses PowerShell scripting to take you quickly through each step. This tutorial assumes the following:
 
 * You already have an Azure account with the virtual machine subscription.
-* You've installed the [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs).
+* You've installed the [Azure PowerShell cmdlets](/powershell/azure/overview).
 * You already have a solid understanding of Always On availability groups for on-premises solutions. For more information, see [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Connect to your Azure subscription and create the virtual network

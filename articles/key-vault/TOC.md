@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Key Vault?](key-vault-whatis.md)
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
 
@@ -24,15 +24,16 @@
 
 ## Automate
 ### [Azure automation](automation-manage-key-vault.md)
-### [Create and manage using CLI](key-vault-manage-with-cli.md)
 ### [Create and manage using CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Azure CLI 2.0](/cli/azure/keyvault)
+## [PowerShell](/powershell/module/azurerm.keyvault)
+## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Vault contents management](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
 # Related

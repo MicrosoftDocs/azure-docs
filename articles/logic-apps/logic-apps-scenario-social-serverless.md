@@ -31,17 +31,17 @@ Functions provide serverless compute in the cloud.  In this scenario, we will us
 
 The entire solution can be [build in Visual Studio](logic-apps-deploy-from-vs.md) and [deployed as part of a resource template](logic-apps-create-deploy-template.md).  There is also video walkthrough of the scenario [on Channel 9](http://aka.ms/logicappsdemo).
 
-## Building the logic app to trigger on customer data
+## Build the logic app to trigger on customer data
 
 After [creating a logic app](logic-apps-create-a-logic-app.md) in Visual Studio or the Azure portal:
 
 1. Add a trigger for **On New Tweets** from Twitter
-1. Configure the trigger to listen to tweets on a keyword or hashtag.
+2. Configure the trigger to listen to tweets on a keyword or hashtag.
 
-> [!NOTE]
-> The recurrence property on the trigger will determine how frequently the logic app checks for new items on polling-based triggers
+   > [!NOTE]
+   > The recurrence property on the trigger will determine how frequently the logic app checks for new items on polling-based triggers
 
-![Example of Twitter trigger][1]
+   ![Example of Twitter trigger][1]
 
 This app will now fire on all new tweets.  We can then take that tweet data and understand more of the sentiment expressed.  For this we use the [Azure Cognitive Service](https://azure.microsoft.com/services/cognitive-services/) to detect sentiment of text.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Add Azure automation runbooks to recovery plans in the classic portal | Microsoft Docs
 description: This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure
 services: site-recovery
@@ -109,7 +109,7 @@ Now both these settings are available in your assets.
 
 More information about how to connect to your subscription via
 PowerShell is given
-[here](/powershell/azureps-cmdlets-docs).
+[here](/powershell/azure/overview).
 
 Next, you will create a runbook in Azure Automation that can add an
 endpoint for the front-end virtual machine after failover.

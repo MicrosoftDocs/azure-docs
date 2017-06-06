@@ -1,9 +1,9 @@
----
+﻿---
 title: Visualizing your cluster using Service Fabric Explorer | Microsoft Docs
 description: Service Fabric Explorer is a web-based tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-ms.author: seanmck
+ms.date: 06/02/2017
+ms.author: ryanwi
 
 ---
 # Visualize your cluster with Service Fabric Explorer
@@ -84,7 +84,7 @@ The following table lists the actions available for each entity:
 | Node | Deactivate (restart) | Safely move all in-memory services off a node and close persistent services. Typically used when the host processes or machine need to be restarted. | |
 | Node | Deactivate (remove data) | Safely close all services running on the node after building sufficient spare replicas. Typically used when a node (or at least its storage) is being permanently taken out of commission. | |
 | Node | Remove node state | Remove knowledge of a node's replicas from the cluster. Typically used when an already failed node is deemed unrecoverable. | |
-| Node | Restart | Simulate a node failure by restarting the node. More information [here](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
+| Node | Restart | Simulate a node failure by restarting the node. More information [here](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
 
 Since many actions are destructive, you may be asked to confirm your intent before the action is completed.
 

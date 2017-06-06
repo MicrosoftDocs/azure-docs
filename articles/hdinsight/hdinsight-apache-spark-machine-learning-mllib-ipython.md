@@ -1,5 +1,5 @@
 ---
-title: Use MLlib library in Spark to build machine learning applications on Azure HDInsight | Microsoft Docs
+title: Use Spark MLlib to build machine learning applications on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to use MLlib library in Apache Spark to build machine learning applications
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
@@ -61,10 +61,10 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
    >
 1. Create a new notebook. Click **New**, and then click **PySpark**.
 
-    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-create-jupyter.png "Create a new Jupyter notebook")
 1. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
-    ![Provide a name for the notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Provide a name for the notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "Provide a name for the notebook")
 1. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start building your machine learning application by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
         from pyspark.ml import Pipeline
@@ -177,7 +177,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
     You should see an output like the following:
 
-    ![SQL query output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL query output")
+    ![SQL query output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL query output")
 
     For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 1. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This ensures that the code is run locally on the Jupyter server.
@@ -194,7 +194,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
     You should see an output like the following:
 
-    ![Result output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
+    ![Spark machine learning result output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark machine learning result output")
 1. You can see that there are 5 distinct results that an inspection can have:
 
    * Business not located
@@ -326,7 +326,7 @@ We can now construct a final visualization to help us reason about the results o
 
     You should see the following output.
 
-    ![Prediction output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
+    ![Spark machine learning result output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning result output")
 
     In this chart, a "positive" result refers to the failed food inspection, while a negative result refers to a passed inspection.
 
@@ -349,7 +349,7 @@ After you have finished running the application, you should shutdown the noteboo
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

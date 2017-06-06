@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/3/2017
+ms.date: 4/12/2017
 ms.author: helaw
 
 ---
@@ -27,37 +27,24 @@ The recommendations for troubleshooting issues that are described in this sectio
 Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may notice deployment taking longer than previous releases.
-* You may experience a deployment failure, with an error indicating date or time problems.  If you receive this, wait one minute and use the *-rerun* option to start your deployment again.   
-* You will see an error when signing in to a deployment with ADFS.  The text will read "Sorry, we had some trouble signing you in.  Click 'Try again' to try again."  This is a known error, and clicking Try Again will take you to the portal.  You can also add *https://*.local.azurestack.external* to the "Local Intranet" trusted sites in Internet Explorer. 
+* You may notice deployment taking longer than previous releases. 
 * Logging out of portal in AD FS deployment will result in an error message.
 * You may see incorrect cores/minute usage information for Windows and Linux VMs.
-* The "Get started" tile on the dashboard references Azure specific information.
-* The reclaim storage procedure may take time to complete.
-* Opening Storage Explorer from the storage account blade will result in an error.  This is expected behavior for TP3.
-* Attempting to delegate or assign an offer to a user will result in a “No results” error appearing in the Directory Tenants selection blade. The workaround is to make the offer public, and then have tenants add a subscription based on the public offer. 
-* Using the Marketplace Item to create a VM with guest OS diagnostics enabled will receive an error that the VM extension failed.  To workaround, enable the Guest OS diagnostics after VM deployment. 
-* There are known issues with VM resizing and this scenario shouldn't be validated at this time.
-* You will see virtual machines reboot after configuration changes.
-* You may see an error after applying a change to an existing VM, like VM extensions or adding additional resources such as data disks. 
+* Opening Storage Explorer from the storage account blade will result in an error.
 * Deploying Azure Stack with ADFS and without internet access will result in licensing error messages and the host will expire after 10 days.  We advise having internet connectivity during deployment, and then testing disconnected scenarios once deployment is complete.
 * Key Vault services must be created from the tenant portal or tenant API.  If you are logged in as an administrator, make sure to use the tenant portal to create new Key Vault vaults, secrets, and keys.
 * There is no marketplace experience for creating VM Scale Sets, though they can be created via template.
-* You will see the "Get subscription" tile is missing from the tenant dashboard.  To sign-up for a subscription, use the subscription list to select a subscription.
-* You will see the DNS namespaces have changed for Azure Stack, and also now include the region name.  Example:  *https://portal.local.azurestack.external*  
-* As a result of the Azure Stack deployment processes several alerts are generated and remain active.  These can be viewed by the Azure Stack administrator and can be closed manually.  If the issue persists the alert will reactivate. The titles of these alerts are:
-    * Service Fabric Application fabric:/(appname)
-    * Service Fabric Cluster is unhealthy
-    * Additional alerts that may generate and automatically close during deployment are the following:
-        * A health system component is not operating correctly
-        * Template for FaultType Microsoft.Health.FaultType.VirtualDisks.NeedsRepair is missing
-* All Infrastructure Roles will display with a known health state, however the health state is not accurate for roles outside of Compute Controller and Health Controller
-* Some alerts may recommend a “Restart” action on a specific infrastructure role.  The restart action for infrastructure roles is not available in Azure Stack TP3.
+* All Infrastructure Roles will display with a known health state, however the health state is not accurate for roles outside of Compute controller and Health controller.
+* The restart action on Compute controller infrastructure role (MAS-XRP01 instance) should not be used.  
 * You will see an HSM option when creating Key Vault vaults through the portal.  HSM backed vaults are not supported in Azure Stack TP3.
+* VM Availability sets can only be configured with a fault domain of one and an update domain of one.  
+* You should avoid restarting the one-node environment because Azure Stack infrastructure services do not start in the proper order.
+* You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
+* VM Scale Set scale-in operations may fail.
+* VM Scale Set resize operations fail to complete. As an example, scaling out a VM Scale Set and resizing from A1 to D2 VMs will fail.
+* You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB.
+* You may see a blank dashboard in the portal.  If this happens, recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
  
- 
-
-   
 
 ## Deployment
 ### Deployment failure
@@ -108,13 +95,24 @@ You can read more about configuring the retention threshold and on-demand reclam
 
 ## Storage
 ### Storage reclamation
-It may take up to two hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
+It may take up to fourteen hours for reclaimed capacity to show up in the portal. Space reclamation depends on various factors including usage percentage of internal container files in block blob store. Therefore, depending on how much data is deleted, there is no guarantee on the amount of space that could be reclaimed when garbage collector runs.
 
 ## PowerShell
 ### Resource Providers not registered
 When connecting to tenant subscriptions with PowerShell, you will notice that the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
        Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
+
+## CLI
+
+* The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
+
+* To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
+
+* Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. And this URNmust match the image specifications as derived from the `az vm images list` command.
+
+* By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
+
 
 ## Windows Azure Pack Connector
 * If you change the password of the azurestackadmin account after you deploy Azure Stack TP3, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.

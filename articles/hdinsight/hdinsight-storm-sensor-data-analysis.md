@@ -27,7 +27,7 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 > [!NOTE]
 > The information in this document and example in this document require HDInsight version 3.5.
 >
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Prerequisites
 
