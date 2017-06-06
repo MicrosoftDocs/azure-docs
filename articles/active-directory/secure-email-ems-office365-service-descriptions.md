@@ -1,5 +1,5 @@
 ---
-title: EMS and Office 365 service descriptions
+title: Azure AD secure email EMS and Office 365 service descriptions | Microsoft Docs
 description: Describes EMS and Office 365 Microsoft recommendations about how to apply email policies and configurations.
 author: jeffgilb
 ms.service: guidance
