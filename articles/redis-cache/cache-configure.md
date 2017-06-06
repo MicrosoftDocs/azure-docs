@@ -494,7 +494,7 @@ To issue commands against your cache instance, simply type in the desired comman
 
 ![Redis console](./media/cache-configure/redis-console.png)
 
-### Using Redis console with a premium cache with clustering
+### Using Redis console with a premium clustered cache
 
 When using the Redis console with a premium cache with clustering enabled, you can issue commands to a single shard of the cache.To issue a command to a specific shard, first select the desired shard by clicking it on the shard picker.
 
