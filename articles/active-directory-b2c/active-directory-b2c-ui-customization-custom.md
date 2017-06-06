@@ -103,11 +103,11 @@ Configure Blob storage for Cross-Origin Resource Sharing (CORS) by doing the fol
 
 1. On the **Storage** blade, under **Settings**, open **CORS**.
 2. Click **Add**.
-3. Set **Allowed origins** to ** \***.
+3. For **Allowed origins**, type an asterisk (\*).
 4. In the **Allowed verbs** drop-down list, select both **GET** and **OPTIONS**.
-5. Set **Allowed headers** to **\* **.
-6. Set **Exposed headers** to ** \* **.
-7. Set **Maximum age (seconds)** to **200**.
+5. For **Allowed headers**, type an asterisk (\*).
+6. For **Exposed headers**, type an asterisk (\*).
+7. For **Maximum age (seconds)**, type **200**.
 8. Click **Add**.
 
 ## Test CORS
