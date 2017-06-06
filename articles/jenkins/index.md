@@ -24,7 +24,7 @@ ms.author: carolz
  
 <ol>
   <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace-- TODO: Solution Template</li>
-  <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Create a Jenkins workflow.</a> --TODO</li>    	
+  <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Create a Jenkins pipeline.</a> --TODO</li>    	
 </ol>
    
 
