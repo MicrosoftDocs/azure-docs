@@ -60,6 +60,10 @@ If you are unable to find answers by using self-help resources, you can open an 
 
 ### How to open a support ticket for Azure AD in the Office 365 portal
 
+> [!NOTE]
+> Support for Azure AD in the Office 365 admin center is offered for administrators only.
+> 
+
 1. Sign in to [the Office 365 admin center](https://portal.office.com) with an account that has an Enterprise Mobility + Security (EMS) license.
 
 2. On the **Support** tile, select **New service request**:
