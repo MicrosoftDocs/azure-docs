@@ -3,7 +3,7 @@ title: Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HD
 description: step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug it remotely on HDInsight Cluster
 services: hdinsight
 documentationcenter: ''
-author: Jenny Jiang
+author:
 manager: DJ
 editor: Jenny Jiang
 tags: azure-portal
@@ -102,7 +102,7 @@ For the code example below, an exception is thrown because the target file alrea
            }
         }
       }
-      
+
 1. Set up two breaking points and click **Debug** icon to start remote debug.
 2. The code stops at the first breaking point, the parameter and variable information are shown in the Variable window. 
 3. Click **Resume Program** icon to continue and stops at the second point. The exception is being caught as expected.
