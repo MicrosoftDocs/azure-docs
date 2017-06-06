@@ -23,7 +23,7 @@ In this tutorial, you use the Azure portal to learn how to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to create a database
+> * Use mysql command line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data
@@ -55,9 +55,6 @@ In our example, fill out the Azure Database for MySQL form with the following in
 | *Configure performance* | Basic, 50 compute units, 50 GB  | Choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**. |
 | *Pin to Dashboard* | Check | Recommended to check this box so you may find the server easily later on |
 Then, click **Create**. In a minute or two, you will have a new Azure Database for MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
-
-> [!TIP]
-> We recommend that you put Azure services in the same region and select the location closest to you. In addition, you can check the **Pin to dashboard** option to allow easy tracking of your deployments.
 
 ## Configure firewall
 Azure Databases for MySQL are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Before connecting to Azure Database for MySQL from your client for the first time, you must configure the firewall and add the client’s public network IP address (or IP address range) to the whitelist.
@@ -157,7 +154,7 @@ In this tutorial, you use the Azure portal to learned how to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to create a database
+> * Use mysql command line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data
