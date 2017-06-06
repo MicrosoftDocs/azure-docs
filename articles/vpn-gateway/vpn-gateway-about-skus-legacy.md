@@ -1,5 +1,5 @@
 ---
-title: Legacy virtual network gateway SKUs | Microsoft Docs
+title: Legacy Azure virtual network gateway SKUs | Microsoft Docs
 description: Old virtual network gateway SKUs.
 services: vpn-gateway
 documentationcenter: na
