@@ -26,7 +26,7 @@ This article provides information about functions and variables supported by Azu
 | WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li> |
 | WindowEnd |End of time interval for current activity run window |activity |same as WindowStart. |
 | SliceStart |Start of time interval for data  slice being produced |activity<br/>dataset |<ol><li>Specify dynamic folder paths and file names while working with [Azure Blob](data-factory-azure-blob-connector.md) and [File System datasets](data-factory-onprem-file-system-connector.md).</li><li>Specify input dependencies with data factory functions in activity inputs collection.</li></ol> |
-| SliceEnd |End of time interval for current data slice being produced |activity<br/>dataset |same as SliceStart. |
+| SliceEnd |End of time interval for current data slice. |activity<br/>dataset |same as SliceStart. |
 
 > [!NOTE]
 > Currently data factory requires that the schedule specified in the activity exactly matches the schedule specified in availability of the output dataset. Therefore, WindowStart, WindowEnd, and SliceStart and SliceEnd always map to the same time period and a single output slice.

@@ -97,7 +97,7 @@ When source is of type **RelationalSource** (which includes PostgreSQL), the fol
 
 **Example:**
 
- "query": "select * from \"MySchema\".\"MyTable\""
+ `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## JSON example: Copy data from PostgreSQL to Azure Blob
 This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from PostgreSQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
