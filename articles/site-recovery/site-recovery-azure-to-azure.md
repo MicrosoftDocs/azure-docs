@@ -22,11 +22,11 @@ ms.author: raynew
 
 >[!NOTE]
 >
-> Site Recovery replication for Azure virtual machines is currently in preview.
+> Azure Site Recovery replication for Azure virtual machines (VMs) is currently in preview.
 
-This article describes how to replicate Azure virtual machines (VMs) between Azure regions by using the [Azure Site Recovery Preview](site-recovery-overview.md) service in the Azure portal.
+This article describes how to replicate Azure VMs between Azure regions by using the [Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
-Post comments and questions at the bottom of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post comments and questions at the bottom of this article or on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Disaster recovery in Azure
 
@@ -37,7 +37,7 @@ Built-in Azure infrastructure capabilities and features contribute to a robust a
 - You need to test failover and recovery in accordance with your business and compliance needs, with no effect on production.
 - You need to fail over to the recovery region in the event of a disaster and fail back to the original source region seamlessly.
 
-Azure to Azure VM replication by using Site Recovery helps you to do all these tasks.
+Use Site Recovery for Azure-to-Azure VM replication to help you do all these tasks.
 
 
 ## Why use Site Recovery?      
@@ -72,7 +72,7 @@ Here's a summary of what you need to do to set up replication of VMs between Azu
 ### Before you start
 
 * Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of an Azure virtual machine.
-* Your Azure subscription should be enabled to create VMs in the target location that you want to use as the DR region. You can contact support to enable the required quota.
+* Your Azure subscription should be enabled to create VMs in the target location that you want to use as the disaster recovery region. You can contact support to enable the required quota.
 
 ## Create a Recovery Services vault
 
@@ -86,16 +86,16 @@ Here's a summary of what you need to do to set up replication of VMs between Azu
 
 In **Recovery Services vaults**, click the vault name. In the vault, click the **+Replicate** button.
 
-### Configure the source
+### Step 1. Configure the source
 1. In **Source**, select **Azure - PREVIEW**.
 
 2. In **Source location**, select the source Azure region where your VMs are currently running.
 3. Select the deployment model of your VMs: **Resource Manager** or **Classic**.
 4. Select the **Source resource group** for Resource Manager VMs or **cloud service** for classic VMs.
 
-    ![Source](./media/site-recovery-azure-to-azure/source.png)
+    ![Configure the source](./media/site-recovery-azure-to-azure/source.png)
 
-### Select the virtual machines
+### Step 2. Select the virtual machines
 
 1. Site Recovery retrieves VMs in the resource group or the cloud service.
 
@@ -103,13 +103,13 @@ In **Recovery Services vaults**, click the vault name. In the vault, click the *
 
     ![Select VMs](./media/site-recovery-azure-to-azure/vms.png)
 
-### Configure the settings
+### Step 3. Configure the settings
 
 By default, Site Recovery automatically creates settings in the target location by using settings that are configured in the source location. Source location settings include a target resource group, storage accounts, virtual network, and availability sets. (All the settings are created with the suffix asr.)
 
-1. Click **Customize** to override the default target settings and specify the settings of your choice. For more information, see [Customize settings](site-recovery-replicate-azure-to-azure.md##customize-target-resources).
+1. To override the default target settings and specify the settings of your choice, click **Customize**. For more information, see [Customize target resources](site-recovery-replicate-azure-to-azure.md##customize-target-resources).
 
-    ![Settings](./media/site-recovery-azure-to-azure/settings.png)
+    ![Configure settings](./media/site-recovery-azure-to-azure/settings.png)
 
 
 2. By default, Site Recovery creates a replication policy that takes app-consistent snapshots every 4 hours and retains recovery points for 24 hours. To create a policy with different settings, click **Customize** next to **Replication Policy**.
@@ -122,7 +122,7 @@ By default, Site Recovery automatically creates settings in the target location 
 
 5. You can track progress of the **Enable protection** job in **Settings** **Jobs** > **Site Recovery Jobs**.
 
-6. In **Settings** > **Replicated Items**, you can view the status of VMs and initial replication progress. Click the VM to drill down into its settings.
+6. In **Settings** > **Replicated Items**, you can view the status of VMs and the initial replication progress. Click the VM to drill down into its settings.
 
 ## Run a test failover
 
@@ -132,11 +132,11 @@ After you've set everything up, run a test failover to make sure everything's wo
 
 2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md). 
 
-3. In **Test Failover**, select the target Azure virtual network to which Azure VMs will be connected after failover occurs.
+3. In **Test Failover**, select the target Azure virtual network to which Azure VMs will be connected after the failover occurs.
 
 4. To start the failover, click **OK**. To track progress, click the VM to open its properties. Or you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
 
-5. After the failover completes, the replica Azure machine appears in the Azure portal > **Virtual Machines**. Make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+5. After the failover finishes, the replica Azure machine appears in the Azure portal > **Virtual Machines**. Make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 
 6. To delete the VMs that were created during the test failover, click **Cleanup test failover** on the replicated item or the recovery plan. In **Notes**, record and save any observations associated with the test failover. 
 
