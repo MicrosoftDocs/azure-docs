@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Patch Orchestration Application | Microsoft Docs
+title: Azure Service Fabric patch orchestration application | Microsoft Docs
 description: Application to automate operating system patching on a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
@@ -20,7 +20,7 @@ ms.author: nachandr
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-The patch orchestration application is a Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime. Support for running the patch orchestration app on a standalone cluster is coming later.
+The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. Support for running the patch orchestration app on a standalone cluster is coming later.
 
 The patch orchestration app provides the following:
 
@@ -38,9 +38,9 @@ The patch orchestration app is composed of the following subcomponents:
 - **Node Agent Service**: This stateless service runs on all Service Fabric cluster nodes. The service is responsible for:
     - Bootstrapping the Node Agent NTService.
     - Monitoring the Node Agent NTService.
-- **Node Agent NTService**: This Windows NT service runs at a higher-level privilege (SYSTEM). In contrast, Node Agent Service and the Coordinator Service run at a lower-level privilege (NETWORK SERVICE). The service is responsible for performing the following Windows Update jobs on all the cluster nodes:
+- **Node Agent NTService**: This Windows NT service runs at a higher-level privilege (SYSTEM). In contrast, the Node Agent Service and the Coordinator Service run at a lower-level privilege (NETWORK SERVICE). The service is responsible for performing the following Windows Update jobs on all the cluster nodes:
     - Disabling automatic Windows Update on the node.
-    - Downloading and installing Windows Update per the policy the user has provided.
+    - Downloading and installing Windows Update according to the policy the user has provided.
     - Restarting the machine post Windows Update installation.
     - Uploading the results of Windows updates to the Coordinator Service.
     - Reporting health reports in case an operation has failed after exhausting all retries.
@@ -78,7 +78,7 @@ To enable the repair manager service:
     }
     ```
 
-2. Now enable the repair manager service by adding the following `addonFeatures` section after the `fabricSettings` section, as shown:
+2. Now enable the repair manager service by adding the following `addonFeatures` section after the `fabricSettings` section:
 
     ```json
     "fabricSettings": [
@@ -89,7 +89,7 @@ To enable the repair manager service:
         ],
     ```
 
-3. After you have updated your cluster template with these changes, apply them and let the upgrade complete. You can now see the repair manager system service running in your cluster. It is called `fabric:/System/RepairManagerService` in the system services section in the Service Fabric Explorer. 
+3. After you have updated your cluster template with these changes, apply them and let the upgrade finish. You can now see the repair manager system service running in your cluster. It is called `fabric:/System/RepairManagerService` in the system services section in the Service Fabric Explorer. 
 
 ### Standalone on-premises clusters
 
@@ -100,11 +100,11 @@ To enable the repair manager service:
 
 Automatic Windows updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
 
-### Optional: Enable Windows Azure Diagnostics
+### Optional: Enable Azure Diagnostics
 
-Logs for the patch orchestration app collect locally on each of the cluster nodes. We recommend that you configure Windows Azure Diagnostics (WAD) to upload logs from all nodes to a central location.
+Logs for the patch orchestration app collect locally on each of the cluster nodes. We recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
 
-For information on enabling Windows Azure Diagnostics, see [Collect logs by using Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
+For information on enabling Azure Diagnostics, see [Collect logs by using Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
 Logs for the patch orchestration app are generated on the following fixed provider IDs:
 
@@ -170,7 +170,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 | WURescheduleCount     | Int <br> (Default: 5)                  | The maximum number of times the service reschedules the Windows update in case an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: 30) | The interval at which the service reschedules the Windows update in case failure persists. |
 | WUFrequency           | Comma-separated string (Default: "Weekly, Wednesday, 7:00:00")     | The frequency for installing Windows Update. The format and possible values are: <br>-   Monthly, DD,HH:MM:SS, for example, Monthly, 5,12:22:32. <br> -   Weekly, DAY,HH:MM:SS, for example, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, for example, Daily, 12:22:32.  <br> -  None indicates that Windows Update shouldn't be done.  <br><br> Note that all the times are in UTC.|
-| AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, the application accepts the EULA for Windows Update on behalf of the owner of the machine.              |
+| AcceptWindowsUpdateEula | Bool <br>(Default: true) | By setting this flag, the application accepts the End-User License Agreement for Windows Update on behalf of the owner of the machine.              |
 
 > [!TIP]
 > If you want Windows Update to happen immediately, set `WUFrequency` relative to the application deployment time. For example, suppose that you have a five-node test cluster and plan to deploy the app at around 5:00 PM UTC. If you assume that the application upgrade or deployment takes 30 minutes at the maximum, set the WUFrequency as "Daily, 17:30:00."
@@ -206,7 +206,7 @@ For your convenience, we've provided the script Undeploy.ps1 along with the appl
 
 ## View the Windows Update results
 
-The patch orchestration app exposes REST APIs to display the historical results to the user. An example of the result json:
+The patch orchestration app exposes REST APIs to display the historical results to the user. An example of the result JSON:
 ```json
 [
   {
@@ -234,9 +234,9 @@ The patch orchestration app exposes REST APIs to display the historical results 
   ...
 ]
 ```
-If no update is scheduled yet, the result json is empty.
+If no update is scheduled yet, the result JSON is empty.
 
-Windows Update results can be queried by logging in to the cluster. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
+Log in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 The REST endpoint for the Coordinator Service has a dynamic port. To check the exact URL, refer to the Service Fabric Explorer. For example, the results are available at
@@ -259,18 +259,18 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ### Collect patch orchestration app logs
 
-Patch orchestration app logs collect as part of Service Fabric logs. Until that time, logs can be collected by using one of the following methods:
+Patch orchestration app logs collect as part of Service Fabric logs. Until that time, logs can be collected by using one of the following methods.
 
 #### Locally on each node
 
 Logs are collected locally on each Service Fabric cluster node. The location to access the logs is
-*\[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs*.
+\[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
 
-For example, if Service Fabric is installed on drive D, the path is *D:\\PatchOrchestrationApplication\\logs*.
+For example, if Service Fabric is installed on drive D, the path is D:\\PatchOrchestrationApplication\\logs.
 
 #### Central location
 
-If Windows Azure Diagnostics is configured as part of prerequisite steps, logs for the patch orchestration app are available in Azure Storage.
+If Azure Diagnostics is configured as part of prerequisite steps, logs for the patch orchestration app are available in Azure Storage.
 
 ### Health reports
 
@@ -324,13 +324,13 @@ A. The time needed by the patch orchestration app is mostly dependent on the fol
 
 - The policy of the Coordinator Service. 
   - The default policy, `NodeWise`, results in patching only one node at a time. Especially in the case of bigger clusters, we recommend that you use the `UpgradeDomainWise` policy to achieve faster patching across clusters.
-- The number of updates available for download and install. 
+- The number of updates available for download and installation. 
 - The average time needed to download and install an update, which should not exceed a couple of hours.
 - The performance of the VM and network bandwidth.
 
 ## Disclaimers
 
-- The patch orchestration app accepts the EULA of Windows Update on behalf of the user. Optionally, the setting can be turned off in the configuration of the application.
+- The patch orchestration app accepts the End-User License Agreement of Windows Update on behalf of the user. Optionally, the setting can be turned off in the configuration of the application.
 
 - The patch orchestration app collects telemetry to track usage and performance. The application’s telemetry follows the setting of the Service Fabric runtime’s telemetry setting (which is on by default).
 
@@ -356,7 +356,7 @@ A safety check is pending. To remedy this situation, ensure that enough nodes ar
 
 ### Updates were skipped on some nodes
 
-The patch orchestration app tries to install a Windows update per the rescheduling policy. The service tries to recover the node and skip the update per the application policy.
+The patch orchestration app tries to install a Windows update according to the rescheduling policy. The service tries to recover the node and skip the update according to the application policy.
 
 In such a case, a warning-level health report is generated against the Node Agent Service. The result for Windows Update also contains the possible reason for the failure.
 
