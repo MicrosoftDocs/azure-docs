@@ -160,7 +160,6 @@ The goal for these device and app management policies is to protect data loss in
 #For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
-
 * When requesting authentication tokens for Exchange Online:
   * Users will be asked to MFA whenever a low or above sign-in risk is detected and users has not yet performed MFA in their current sessions.  
   * Users will be required to either use email apps that support the Intune App Protection SDK or access emails from Intune compliant or AD domain-joined devices. 
@@ -203,4 +202,4 @@ For most organizations, it is important to be able to set expectations for users
   * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
  
  ## Next steps
- [Deploy recommended policies](secure-email-deploy-recommended-policies.md]
+ [Deploy recommended policies](secure-email-deploy-recommended-policies.md)
