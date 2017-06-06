@@ -13,7 +13,7 @@ ms.date: 04/25/2017
 ms.author: carolz
 ---
 <div class="content">
-    <h1>Jenkins on Azure </h1> <img src="media/Jenkins.png" alt="Jenkins Logo">
+    <h1><a href="https://jenkins.io/blog/2016/05/18/announcing-azure-partnership/">Jenkins on Azure</a></h1> <img src="media/Jenkins.png" alt="Jenkins Logo">
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
             <p>Learn how to build and deploy apps in Azure with Jenkins. Start with one of the quickstarts and then go into the tutorials to learn about setting up continuous integration and deployment automation with Jenkins.</p>
