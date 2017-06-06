@@ -23,7 +23,7 @@ Azure SQL Database identifies potential problems in your database and recommend 
 
 To review your database performance, use the **Performance** tile on the Overview page, or navigate down to "Support + troubleshooting" section:
 
-    ![View Performance](./media/sql-database-performance/entries.png)
+   ![View Performance](./media/sql-database-performance/entries.png)
 
 In the "Support + troubleshooting" you can find the following pages:
 
