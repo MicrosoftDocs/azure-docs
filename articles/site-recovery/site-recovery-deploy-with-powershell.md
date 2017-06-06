@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate Hyper-V VMs to Azure in the classic portal with PowerShell | Microsoft Docs
 description: Automate the replication of Hyper-V virtual machines in VMM clouds using Site Recovery and PowerShell in the classic portal
 services: site-recovery
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/31/2017
 ms.author: bsiva
 
 ---

@@ -78,14 +78,18 @@ An Azure storage account provides resources for storing queue and blob data in t
 In a real-world application, you typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial you'll use just one account.
 
 1. Open the **Server Explorer** window in Visual Studio.
-2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure**.
+2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure Subscription...**.
+   
    ![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+
 3. Sign in using your Azure credentials.
 4. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
+   
    ![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+   
 5. In the **Create Storage Account** dialog, enter a name for the storage account.
 
-    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use you'll get a chance to change it.
+    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use, you'll get a chance to change it.
 
     The URL to access your storage account will be *{name}*.core.windows.net.
 6. Set the **Region or Affinity Group** drop-down list to the region closest to you.
@@ -127,7 +131,7 @@ In a real-world application, you typically create separate accounts for applicat
     ![Click Storage Account Properties](./media/websites-dotnet-webjobs-sdk-get-started/storppty.png)
 3. In the **Properties** window, click **Storage Account Keys**, and then click the ellipsis.
 
-    ![New storage account](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
+    ![Storage account keys](./media/websites-dotnet-webjobs-sdk-get-started/stor-account-keys.png)
 4. Copy the **Connection String**.
 
     ![Storage Account Keys dialog](./media/websites-dotnet-webjobs-sdk-get-started/cpak.png)
@@ -163,7 +167,7 @@ In a real-world application, you typically create separate accounts for applicat
 
     ![Console application window showing that the backend is running](./media/websites-dotnet-webjobs-sdk-get-started/backendrunning.png)
 3. In your browser, click  **Create an Ad**.
-4. Enter some test data and select an image to upload, and then click **Create**.
+4. Enter some test data, select an image to upload, and then click **Create**.
 
     ![Create page](./media/websites-dotnet-webjobs-sdk-get-started/create.png)
 
@@ -191,7 +195,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 ### Deploy to Web Apps
 1. Close the browser and the console application window.
-2. In **Solution Explorer**, right-click the ContosoAdsWeb project, and then click **Publish**.
+2. In **Solution Explorer**, right-click the ContosoAdsWeb project and then click **Publish**.
 3. In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure web apps**.
 
     ![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)

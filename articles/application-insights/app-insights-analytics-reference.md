@@ -3,7 +3,7 @@ title: Reference for Analytics in Azure Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Reference for Analytics
@@ -3113,7 +3113,7 @@ To create a dynamic literal, use `parsejson` (alias `todynamic`) with a JSON str
 * `parsejson('21')` - a single value of dynamic type containing a number
 * `parsejson('"21"')` - a single value of dynamic type containing a string
 
-> ![NOTE]
+> [!NOTE]
 > Double-quotes (`"`) must be used to enclose labels and string values in JSON. Therefore, it is generally easier to quote a JSON-encoded string literals using single-quotes (`'`).
 > 
 
@@ -3310,7 +3310,7 @@ customEvents
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
-> ![NOTE]
+> [!NOTE]
 > Double-quote characters must be used to enclose labels and string values in JSON. 
 >
 

@@ -233,6 +233,7 @@ When you click the LinkedIn Learning tile in the Access Panel, you should get th
 
 ## Additional resources
 
+* [Tutorial: Configuring LinkedIn Learning for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinlearning-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

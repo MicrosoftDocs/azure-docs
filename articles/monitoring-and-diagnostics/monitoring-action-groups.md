@@ -1,5 +1,5 @@
 ---
-title: Create and Manager Action Groups in Azure Portal | Microsoft Docs
+title: Create and Manage Action Groups in Azure Portal | Microsoft Docs
 description:
 author: anirudhcavale
 manager: carmonm
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/15/2017
 ms.author: ancav
 
 ---
