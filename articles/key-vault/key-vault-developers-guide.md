@@ -132,6 +132,7 @@ These articles are about other scenarios and services that use or integrate with
 
 - [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 - [Key Vault storage account keys overview](key-vault-ovw-storage-keys.md) describes the Key Vault integration Azure Storage Accounts keys.
+- [Key Vault security worlds](key-vault-ovw-security worlds.md) describes the relationships between regions and security areas.
 
 
 ## Social
