@@ -35,14 +35,13 @@ Both SQL Database and SQL Data Warehouse support Microsoft Conditional Access. T
 
 4.	Select **Cloud apps** -> click **Select apps**. You see all apps available for conditional access -> Select **Azure SQL Database** -> click **Select** button at the bottom -> click **Done** button.  
   ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
-
-If you can’t find **Azure SQL Database** listed in the following third screen shot, complete the following steps:   
+  If you can’t find **Azure SQL Database** listed in the following third screen shot, complete the following steps:   
   - Login to your Azure SQL DB/DW instance using SSMS with an AAD admin account.  
   - Execute `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
   - Login to AAD and verify that Azure SQL Database and Data Warehouse are listed in the applications in your AAD.  
 
 5.	Set **Access controls** -> select **Grant** -> check the policy you want to apply. For this example, we select **Require multi-factor authentication**.  
-  ![select grant access](./media/sql-database-conditional-access/select-grant-access.png)  
+  ![select grant access](./media/sql-database-conditional-access/grant-access.png)  
 
 ## Summary  
 The selected application (Azure SQL Database) allowing to connect to Azure SQL DB/DW using Azure AD Premium, now enforces the selected Conditional Access policy, **Required multi-factor authentication.**  
