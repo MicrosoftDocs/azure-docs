@@ -1,6 +1,6 @@
 ---
 title: Create your first Java web app in Azure
-description: Learn how easy it is to run web apps in App Service by deploying a basic Java app. 
+description: Learn how to run web apps in App Service by deploying a basic Java app. 
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
@@ -19,16 +19,16 @@ ms.custom: mvc
 ---
 # Create your first Java web app in Azure
 
-This quickstart helps you deploy a Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) using the [Eclipse IDE for Java EE Developers](http://www.eclipse.org/). When you are finished, you have a basic Java-based web app running in Azure.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) using the [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
 
 ![Browse to Web App](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## Prerequisites
 
-To complete this quickstart:
+To complete this quickstart, install:
 
-* Install the free [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Neon.
-* Install the [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse). See [Installing the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* The free [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Neon.
+* The [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ To complete this quickstart:
 
 In Eclipse, select **File > New > Dynamic Web Project**.
 
-In the **New Dynamic Web Project** dialog, name the project **MyFirstJavaOnAzureWebApp** and select **Finish**.
+In the **New Dynamic Web Project** dialog, name the project **MyFirstJavaOnAzureWebApp**, and select **Finish**.
    
 ![Dynamic Web Project dialog](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -80,7 +80,7 @@ Follow the sign-in instructions.
 
 ### The **Deploy Web App** dialog
 
-Once you have been signed into your Azure account, the **Deploy Web App** dialog is displayed.
+Once you have signed into your Azure account, the **Deploy Web App** dialog is displayed.
 
 Select **Create**.
 
@@ -94,7 +94,7 @@ The The **Create App Service** dialog is displayed with default values. The numb
 
 In the **Create App Service** dialog:
 
-* Keep the generated name for the web app. This name must be unique across Azure. The name is part of the DNS address for the web app; for example: If the web app name is **MyJavaWebApp**, the DNS is *myjavawebapp.azurewebsites.net*.
+* Keep the generated name for the web app. This name must be unique across Azure. The name is part of the URL address for the web app; for example: If the web app name is **MyJavaWebApp**, the URL is *myjavawebapp.azurewebsites.net*.
 * Keep the default web container.
 * Select an Azure subscription.
 * In the **App service plan** tab:
@@ -125,13 +125,13 @@ Select the **JDK** tab. Keep the default, and then select **Create**.
 ![Create App Service Plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 -->
 
-The Azure Toolkit creates the app service and displays a progress dialog box.
+The Azure Toolkit creates the web app and displays a progress dialog box.
 
 ![Create App Service Progress Bar](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
 ### The Deploy Web App dialog
 
-In the Deploy Web App dialog, check **Deploy to root**. If you have an app service at *wingtiptoys.azurewebsites.net* and you do not deploy to the root, the web app named **MyFirstJavaOnAzureWebApp** is deployed to *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+In the **Deploy Web App** dialog, check **Deploy to root**. If you have an app service at *wingtiptoys.azurewebsites.net* and you do not deploy to the root, the web app named **MyFirstJavaOnAzureWebApp** is deployed to *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Deploy Web App to Root](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
@@ -159,22 +159,22 @@ Change the sample JSP code to a different message.
 
 Save the changes.
 
-Right-click the project, and then select **Project Explorer > Azure > Publish as Azure Web App**.
+In **Project Explorer**, right-click the project, and then select **Azure > Publish as Azure Web App**.
 
 The **Deploy Web App** dialog is displayed showing the app service you previously created. 
 
 > [!NOTE]
 >
-> Check **Deploy to root** each time you publish.
+> Select **Deploy to root** each time you publish.
 >
 
-Select the app service and select **Deploy**, which publishes the changes.
+Select the web app and select **Deploy**, which publishes the changes.
 
 When the **Publishing** link appears, select it to browse to the web app and see the changes.
 
 ## Manage the Azure web app
 
-Sign in to Azure portal with the following link: [https://portal.azure.com](https://portal.azure.com).
+Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
 
 From the left menu, select **Resource Groups**.
 
@@ -184,19 +184,11 @@ Select the resource group. The page shows the resources you created in this quic
 
 ![Resource Group myResourceGroup](media/app-service-web-get-started-java/rg2.png)
 
-Select the App Service (**webapp-170602193915** in the preceding image).
+Select the web app (**webapp-170602193915** in the preceding image).
 
 The **Overview** page is displayed. This page gives you a view of how the app is doing. Here, you can  perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configurations you can open. 
 
-![App Service blade in Azure portal](media/app-service-web-get-started-java/web-app-blade.png)
-
-The tabs expose the features you can add to the web app, such as:
-
-- Map a custom DNS name
-- Bind a custom SSL certificate
-- Configure continuous deployment
-- Scale up and out
-- Add user authentication
+![App Service page in Azure portal](media/app-service-web-get-started-java/web-app-blade.png)
 
 ### Clean up Resources
  
