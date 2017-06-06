@@ -53,7 +53,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 2. On the **Support** tile, select **New service request**:
   ![Office 365 portal screenshot](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 3. On the **Support Overview** page, select **Identity management**:
-  ![identity management support request screenshot](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
+  ![identity management support request screenshot](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 4. For **Feature**, select the Azure AD feature for which you want support.
 5. For **Symptom**, select an appropriate symptom, summarize your issue and provide relevant details, and then select **Next**.
   ![feature and symptom self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
