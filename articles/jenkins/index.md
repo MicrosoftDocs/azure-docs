@@ -38,14 +38,13 @@ ms.author: carolz
 </ol>
 
 <h2 style="margin-top: 36px">Samples</h2>
-<p>Sample code and tooling</p>
+<p>Sample templates and plugins to use with your scenarios.</p>
 <ul>
     <li><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/201-jenkins-acr">Jenkins to Azure Container Registry</a></li>
     <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Windows+Azure+Storage+Plugin">Jenkins Azure storage plugin</a></li>
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
-<p>Additional references for further learning</p>
 <ul>
   <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
   <li>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins.</a></li>
