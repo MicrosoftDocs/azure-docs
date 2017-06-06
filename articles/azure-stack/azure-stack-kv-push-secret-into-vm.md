@@ -43,113 +43,60 @@ Here is a quick overview of the process:
 * Upload the certificate as a secret.
 
 ## Deploying VMs
+
 This sample script creates a key vault, and then stores a
 certificate stored in the .pfx file in a local directory, to the key
 vault as a secret.
 
-    $vaultName = "contosovault"
-    $resourceGroup = "contosovaultrg"
-    $location = "local"
-    $secretName = "servicecert"
-    $fileName = "keyvault.pfx"
-    $certPassword = "abcd1234"
+```powershell
 
-    # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Create a certificate in the .pfx format
+New-SelfSignedCertificate -certstorelocation cert:\LocalMachine\My -dnsname contoso.microsoft.com
+$pwd = ConvertTo-SecureString -String "<Password used to export the certificate>" -Force -AsPlainText
+Export-PfxCertificate -cert "cert:\localMachine\my\<Your certificate Thumbprint>" -FilePath "<Fully qualified path to the certificate>" -Password $pwd
 
-    $fileContentBytes = get-content $fileName -Encoding Byte
+# Upload the certificate into the Key Vault as a secret
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "servicecert"
+$fileName = "<Fully qualified path to the certificate>"
+$certPassword = "<Password used to export the certificate>"
 
-    $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-    $jsonObject = @"
-    {
-    "data": "$filecontentencoded",
-    "dataType" :"pfx",
-    "password": "$certPassword"
-    }
-    "@
-    $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-    $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-    Switch-AzureMode -Name AzureResourceManager
-    New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroup -Location $location -sku standard -EnabledForDeployment
-    $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName $vaultName -Name $secretName -SecretValue $secret
+$fileContentBytes = get-content $fileName -Encoding Byte
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$jsonObject = @"
+{
+"data": "$filecontentencoded",
+"dataType" :"pfx",
+"password": "$certPassword"
+}
+"@
+$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
-The first part of the script reads the .pfx file, and then stores it as a
-JSON object with the file content base64 encoded. Then the JSON object
-is also base64 encoded.
+# Create a Key Vault and upload a secret to it
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroup -Location $location -sku standard -EnabledForDeployment
+$secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+Set-AzureKeyVaultSecret -VaultName $vaultName -Name $secretName -SecretValue $secret
 
-Next, it creates a new resource group and then creates a key vault. Note
-the last parameter to the New-AzureKeyVault command,
-'-EnabledForDeployment', which grants access to Azure (specifically to the Microsoft.Compute
-resource provider) to read secrets from
-the key vault for deployments.
+```
 
-The last command simply stores the base64 encoded JSON object in the key vault as a secret.
-
-Here's sample output from the preceding script:
-
-    VERBOSE:  – Created resource group 'contosovaultrg' in
-    location
-    'eastus'
-    ResourceGroupName : contosovaultrg
-    Location          : eastus
-    ProvisioningState : Succeeded
-    Tags              :
-    Permissions       :
-                        Actions NotActions
-                        ======= ==========
-                        \*
-    ResourceId        :
-    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56/re
-    sourceGroups/contosovaultrg
-    VaultUri             : https://contosovault.vault.azure.net
-    TenantId             : xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
-    TenantName           : xxxxxxxx
-    Sku                  : standard
-    EnabledForDeployment : True
-    AccessPolicies       : {xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47}
-    AccessPoliciesText   :
-                           Tenant ID              :
-                           xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
-                           Object ID              :
-                           xxxxxxxx-xxxx-xxxx-xxxx-b092cebf0c80
-                           Application ID         :
-                           Display Name           : Derick Developer  (derick@contoso.com)
-                           Permissions to Keys    : get, create, delete,
-                           list, update, import, backup, restore
-                           Permissions to Secrets : all
-    OriginalVault        : Microsoft.Azure.Management.KeyVault.Vault
-    ResourceId           :
-    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56                 
-    /resourceGroups/contosovaultrg/providers/Microsoft.KeyV
-                           ault/vaults/contosovault
-    VaultName            : contosovault
-    ResourceGroupName    : contosovaultrg
-    Location             : eastus
-    Tags                 : {}
-    TagsTable            :
-    SecretValue     : System.Security.SecureString
-    SecretValueText :
-    ew0KImRhdGEiOiAiTUlJSkN3SUJBekNDQ01jR0NTcUdTSWIzRFFFSEFh
-    Q0NDTGdFZ2dpME1JSUlzRENDQmdnR0NTcUdTSWIzRFFFSEFhQ0NCZmtF           
-    Z2dYMU1JSUY4VENDQmUwR0N5cUdTSWIzRFFFTUNnRUNvSUlFL2pDQ0JQ
-    &lt;&lt;&lt; Output truncated… &gt;&gt;&gt;
-    Attributes      :
-    Microsoft.Azure.Commands.KeyVault.Models.SecretAttributes
-    VaultName       : contosovault
-    Name            : servicecert
-    Version         : e3391a126b65414f93f6f9806743a1f7
-    Id              :
-    https://contosovault.vault.azure.net:443/secrets/servicecert
-                      /e3391a126b65414f93f6f9806743a1f7
-
-Now we are ready to deploy a VM template. Note the URI of the
-secret from the output.
+The first part of the script creates the .pfx file, and then stores it as a
+JSON object with the file content base64 encoded. Next, it creates a key vault with the `-EnabledForDeployment` option, which will make sure that the key vault can be referenced from Resource Manager templates. It also grants access to the Microsoft.Compute
+resource provider to read secrets from the key vault for deployments. After the key vault is created, the script also adds a secret to the key vault. Note the URI of the secret from the output.
 
 You'll need a template located [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows). The parameters of special interest
 (besides the usual VM parameters) are the vault name, the vault resource
 group, and the secret URI. Of course, you can
 also download it from GitHub and modify as needed.
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name KVDeployment -ResourceGroupName $resourceGroup `
+  -TemplateFile C:\Users\AzureStackAdmin\Desktop\Test\azuredeploy.json `
+  -TemplateParameterFile C:\Users\AzureStackAdmin\Desktop\Test\azuredeploy.parameters.json
+```
 
 When this VM is deployed, Azure injects the certificate into the VM.
 On Windows, certificates in the .pfx file are added with the private key not
