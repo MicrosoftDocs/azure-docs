@@ -23,9 +23,7 @@ ms.author: carolz
 <p style="margin-top: 6px; margin-bottom: 6px;">Learn how to quickly get started with Jenkins on Azure.</p>
 <div class="ico48Case">
    <div class="ico48Link">
-          <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins"">
-          <span>Install Jenkins</span>
-        </a> on a Linux Azure VM -- TODO: Solution Template
+          <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> on a Linux Azure VM -- TODO: Solution Template
     </div>
 		
 </div>
@@ -83,4 +81,5 @@ Sample scripts.
     </li>
 </ul>
 </div>
+
 
