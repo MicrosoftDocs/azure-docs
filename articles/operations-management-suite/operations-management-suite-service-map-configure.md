@@ -71,7 +71,7 @@ The Dependency Agent is installed on Windows computers through InstallDependency
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Install Operations Management Suite Agent by using the instructions at Connect computers directly to Operations Management Suite.
+1.	Install the Operations Management Suite Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md).
 2.	Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
 3.	Follow the wizard to install the agent.
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
