@@ -18,19 +18,17 @@ ms.author: billmath
 
 ---
 # Troubleshoot password synchronization with Azure AD Connect sync
-This topic provides steps for how to troubleshoot issues with password synchronization. If passwords are not synchronizing as expected, it can either be for a subset of users or for all users.
+This topic provides steps for how to troubleshoot issues with password synchronization. If passwords are not synchronizing as expected, it can either be for a subset of users or for all users. For Azure AD Connect deployment with **version 1.1.524.0 and after**, there is now a diagnostic cmdlet that can be used to troubleshoot password synchronization issues:
 
-For Azure AD Connect deployment with **version 1.1.524.0 or after**, there is a diagnostic cmdlet that can be used to troubleshoot password synchronization issues:
+* If you have an issue where no passwords are synchronized, refer to section [No passwords are synchronized - Troubleshoot using diagnostic cmdlet](#no-passwords-are-synchronized-troubleshoot-using-diagnostic-cmdlet).
 
-* If you have an issue where no passwords are synchronized, refer to section [Troubleshoot issues where no passwords are synchronized using diagnostic cmdlet](#troubleshoot-issues-where-no-passwords-are-synchronized-using-diagnostic-cmdlet).
+* If you have an issue with individual objects, refer to section [One object is not synchronizing passwords - Troubleshoot using diagnostic cmdlet](#one-object-is-not-synchronizing-passwords-troubleshoot-using-diagnostic-cmdlet).
 
-* If you have an issue with individual objects, refer to section [Troubleshoot one object that is not synchronizing passwords using diagnostic cmdlet](#troubleshoot-one-object-that-is-not-synchronizing-passwords-using-diagnostic-cmdlet).
+For older versions of Azure AD Connect deployment:
 
-For Azure AD Connect deployment with older versions, you need to manually troubleshoot password synchronization issues:
+* If you have an issue where no passwords are synchronized, refer to section [No passwords are synchronized - Manual troubleshooting steps](#no-passwords-are-synchronized-manual-troubleshooting-steps).
 
-* If you have an issue where no passwords are synchronized, refer to section [Troubleshoot issues where no passwords are synchronized using manual steps](#troubleshoot-issues-where-no-passwords-are-synchronized-using-manual-steps).
-
-* If you have an issue with individual objects, refer to section [Troubleshoot one object that is not synchronizing passwords using manual steps](#troubleshoot-one-object-that-is-not-synchronizing-passwords-using-manual-steps).
+* If you have an issue with individual objects, refer to section [One object is not synchronizing passwords - Manual troubleshooting steps](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps).
 
 ## No passwords are synchronized - Troubleshoot using diagnostic cmdlet
 With Azure AD Connect version 1.1.5.240.0 and after, you can use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why no passwords are synchronized.
@@ -82,7 +80,7 @@ If the Azure AD Connect is in staging mode, password synchronization is temporar
 ![Azure AD Connect server is in staging mode](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalstaging.png)
 
 #### No password synchronization heartbeat events
-Each on-premises AD Connector a separate password synchronization channel is running and password synchronization heartbeat is a sign that the channel for a specific AD Connector is continuing to run. When the password synchronization cycles are not taking long time, heartbeats are supposed to be emitted every 30 minutes. If there is no heartbeat available for the AD Connector in the last 3 hours, it means that the channel stopped and passwords will not be synchronized for this AD Connector.
+Each on-premises AD Connector has its own password synchronization channel. When the password synchronization channel is established and there aren't any password changes to be synchronized, a heartbeat event (EventId 654) is generated once every 30 minutes under Windows Application Event Log. FOr each on-premises AD Connector, the cmdlet searches for corresponding heartbeat event in the past three hours. If no heartbeat event is found, the following error is returned:
 
 ![No password synchronization heart beat event](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectpermission.png)
 
@@ -96,9 +94,11 @@ If the AD DS account used by the on-premises AD Connector to synchronize passwor
 
 ![Incorrect credential](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
+## One object is not synchronizing passwords - Troubleshoot using diagnostic cmdlet
+With Azure AD Connect version 1.1.5.240.0 and after, you can use the **Invoke-ADSyncDiagnostics** cmdlet to figure out why one object is not synchronizing passwords.
 
-## Troubleshoot one object that is not synchronizing passwords using diagnostic cmdlet
-Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synchronized:
+### How to run the diagnostics cmdlet
+To troubleshoot issues where no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with **Run as Administrator** option.
 
@@ -106,21 +106,29 @@ Use the Invoke-ADSyncDiagnostics cmdlet to figure out why no passwords are synch
 
 3. Run `Import-Module ADSyncDiagnostics`.
 
-4. Run `Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <AD-Connector-Name> -DistinguishedName <DistinguishedName>`.
+4. Run following cmdlet:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
+   ```
+   For example:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.onmicrosoft.com - AAD" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
+   ```
 
-The diagnostic cmdlet performs the following diagnostics:
+### Understand the results of the cmdlet
+The diagnostic cmdlet performs the following checks:
 
 1. Examines the state of the AD object in the AD Connector space, Metaverse and Azure AD Connector space.
 
 2. Validates that there are both inbound and outbound synchronization rules with password synchronization enabled and apply to the AD object.
 
-3. Attempts to retrieve the results of the last attempt to synchronize password for the object.
+3. Attempts to retrieve and display the results of the last attempt to synchronize password for the object.
 
-Following diagram illustrate the output of the cmdlet:
+Following diagram illustrate the results of the cmdlet when troubleshooting password synchronization for a single object:
 
 ![Diagnostic output for password synchronization - single object](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectgeneral.png)
 
-### Interpret the results of the cmdlet
+The rest of this section describes specific results returned by the cmdlet and corresponding issues.
 
 #### AD object isn't exported to Azure AD
 Password synchronization for this on-premises AD account fails because there is no corresponding object in the Azure AD tenant. Following error is returned:
@@ -138,7 +146,7 @@ By default, Azure AD Connect stores the results of password synchronization atte
 ![Diagnostic output for single object - no password sync history](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
 
 
-## Troubleshoot issues where no passwords are synchronized using manual steps
+## No passwords are synchronized - Manual troubleshooting steps
 Follow these steps to figure out why no passwords are synchronized:
 
 1. Is the Connect server in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode)? A server in staging mode does not synchronize any passwords.
@@ -166,7 +174,7 @@ Follow these steps to figure out why no passwords are synchronized:
     Go back to **Synchronization Service Manager** and **Configure Directory Partition**. Select your domain in **Select directory partitions**, select the checkbox **Only use preferred domain controllers**, and click **Configure**. In the list, enter the domain controllers Connect should use for password sync. The same list is used for import and export as well. Do these steps for all your domains.
 4. If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
 
-## Troubleshoot one object that is not synchronizing passwords using manual steps
+## One object is not synchronizing passwords - Manual troubleshooting steps
 You can easily troubleshoot password synchronization issues by reviewing the status of an object.
 
 1. Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.  
