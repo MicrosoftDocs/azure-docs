@@ -61,7 +61,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **Port:** This is the port, such as 19081, that has been specified for the reverse proxy.
 * **ServiceInstanceName:** This is the fully-qualified name of the deployed service instance that you are trying to reach without the "fabric:/" scheme. For example, to reach the *fabric:/myapp/myservice/* service, you would use *myapp/myservice*.
 
-    Note that the service instance name is case-sensitive. Using a different casing for the service instance name in the URL will cause the requests to fail with 404 (Not Found).
+    The service instance name is case-sensitive. Using a different casing for the service instance name in the URL causes the requests to fail with 404 (Not Found).
 * **Suffix path:** This is the actual URL path, such as *myapi/values/add/3*, for the service that you want to connect to.
 * **PartitionKey:** For a partitioned service, this is the computed partition key of the partition that you want to reach. Note that this is *not* the partition ID GUID. This parameter is not required for services that use the singleton partition scheme.
 * **PartitionKind:** This is the service partition scheme. This can be 'Int64Range' or 'Named'. This parameter is not required for services that use the singleton partition scheme.
