@@ -19,7 +19,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Create a fully configured virtual machine with PowerShell
+# Load balance traffic between highly available virtual machines
 
 This script sample creates everything needed to run several Windows Server 2016 virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.
 
