@@ -99,7 +99,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### MongoDB API
-With the MongoDB API, you can create a sharded collection is through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
+With the MongoDB API, you can create a sharded collection through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
 
 In the Mongo Shell:
 
