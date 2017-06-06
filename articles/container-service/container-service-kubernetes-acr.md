@@ -66,8 +66,7 @@ Once the registry has been created, the Azure CLI outputs data similar to the fo
 {
   "adminUserEnabled": true,
   "creationDate": "2017-06-05T23:28:03.266566+00:00",
-  "id": "/subscriptions/xxxxxx1c-c67e-4760-9ed6-xxxxxxxxecff/resourcegroups/myRGRegistry/providers/Microsoft.ContainerRe
-gistry/registries/myACRegistry",
+  "id": "/subscriptions/xxxxxx1c-c67e-4760-9ed6-xxxxxxxxecff/resourcegroups/myRGRegistry/providers/Microsoft.ContainerRegistry/registries/myACRegistry",
   "location": "eastus",
   "loginServer": "myacregistry.azurecr.io",
   "name": "myACRegistry",
