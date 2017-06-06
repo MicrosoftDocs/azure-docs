@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/16/2017
+ms.date: 05/05/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -26,6 +26,7 @@ The following table includes links to PowerShell scripts samples that create and
 |---|---|
 |**Create virtual machines**||
 | [Create a fully configured virtual machine](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
+| [Create highly available virtual machines](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates several virtual machines in a highly available and load balanced configuration.|
 | [Create a VM and run configuration script](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install IIS. |
 | [Create a VM and run DSC configuration](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
 | [Upload a VHD and create VMs](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Uplaods a local VHD file to Azure, creates and image from the VHD and then creates a VM from that image. |
@@ -36,3 +37,4 @@ The following table includes links to PowerShell scripts samples that create and
 |**Monitor virtual machines**||
 | [Monitor a VM with Operations Management Suite](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
 | | |
+
