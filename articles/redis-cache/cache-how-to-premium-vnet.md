@@ -142,12 +142,12 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 
 ### How can I verify that my cache is working in a VNET?
 
-Once the port requirements are configured as described in the previous section, you can verify that your cache is working by performing the following steps.
-
 >[!IMPORTANT]
 >When testing an Azure Redis Cache instance that is hosted in a VNET, your cache clients must be in the same VNET, including any test applications or diagnostic pinging tools.
 >
 >
+
+Once the port requirements are configured as described in the previous section, you can verify that your cache is working by performing the following steps.
 
 1. [Reboot](cache-administration.md#reboot) all of the cache nodes.
 2. Once the cache nodes have restarted (as reported by the cache status in the Azure portal), ping the cache endpoint (using port 6380) from a machine that is within the same VNET as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
