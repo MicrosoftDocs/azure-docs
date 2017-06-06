@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
@@ -323,13 +323,13 @@ Data Factory creates the table in the destination store with the same table name
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
-### Type mapping for Azure SQL Data Warehouse
+## Type mapping for Azure SQL Data Warehouse
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to & from Azure SQL, SQL server, Sybase the following mappings are used from SQL type to .NET type and vice versa.
+When moving data to & from Azure SQL Data Warehouse, the following mappings are used from SQL type to .NET type and vice versa.
 
 The mapping is same as the [SQL Server Data Type Mapping for ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 
