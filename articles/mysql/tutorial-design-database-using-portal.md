@@ -23,7 +23,7 @@ In this tutorial, you use the Azure portal to learn how to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
@@ -139,25 +139,25 @@ SELECT * FROM inventory;
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
 1. In the Azure portal, click on your Azure Database for MySQL. On the Overview page, click **Restore** on the toolbar. The **Restore** page opens.
+
    ![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
 2. Fill out the **Restore** form with the required information:
--	**Restore point**: Select a point-in-time that occurs before the server was changed.
--	**Restore to new server**: Provide a new server name you want to restore to.
--	**Location**: You cannot select the region, by default it is same as the source server.
--	**Pricing tier**: You cannot change this value when restoring a server. It is same as the source server.
+   - **Restore point**: Select a point-in-time that occurs before the server was changed.
+   - **Restore to new server**: Provide a new server name you want to restore to.
+   - **Location**: You cannot select the region, by default it is same as the source server.
+   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server.
    ![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
 
 3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
 ## Next Steps
-
 In this tutorial, you use the Azure portal to learned how to:
 
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
