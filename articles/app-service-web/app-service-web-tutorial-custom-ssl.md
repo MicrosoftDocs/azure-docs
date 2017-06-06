@@ -1,4 +1,4 @@
-﻿---
+---
 title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs 
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
@@ -266,7 +266,8 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
-## What you have learned
+
+## Next steps
 
 In this tutorial, you learned how to:
 
@@ -275,3 +276,8 @@ In this tutorial, you learned how to:
 > * Bind your custom SSL certificate to App Service
 > * Enforce HTTPS for your app
 > * Automate SSL certificate binding with scripts
+
+Advance to the next tutorial to learn how to use Azure Content Delivery Network.
+
+> [!div class="nextstepaction"]
+> [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
