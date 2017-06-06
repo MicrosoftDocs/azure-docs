@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2017
+ms.date: 06/05/2017
 ms.author: billmath
 ---
 
-# How does Azure Active Directory Pass-through Authentication work?
+# Azure Active Directory Pass-through Authentication: Technical deep dive
+
+## How does Azure Active Directory Pass-through Authentication work?
 
 When a user attempts to sign into an application secured by Azure Active Directory (Azure AD), and if Pass-through Authentication is enabled on the tenant, the following steps occur:
 
@@ -32,14 +34,14 @@ When a user attempts to sign into an application secured by Azure Active Directo
 10. Azure AD evaluates the response and responds to the user as appropriate - for example, it either signs the user in immediately or requests for Multi-Factor Authentication (MFA).
 11. If the user sign-in is successful, the user is able to access the application.
 
-The following diagram illustrates the various steps.
+The following diagram illustrates all the components and the steps involved.
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
 ## Next steps
-- [**Advanced topics**]() - Advanced topics about the feature.
-- [**Frequently Asked Questions**]() - Answers to frequently asked questions.
-- [**Preview limitations**]() - Learn which scenarios are currently supported in preview and which ones are not.
+- [**Preview limitations**](active-directory-aadconnect-pass-through-authentication-preview-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
+- [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

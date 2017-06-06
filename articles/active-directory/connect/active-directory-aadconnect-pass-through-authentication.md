@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2017
+ms.date: 06/05/2017
 ms.author: billmath
 ---
 
@@ -55,30 +55,11 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-on](a
 - It uses a lightweight on-premises agent that listens for and responds to password validation requests.
 - Installing multiple agents provides high availability of sign-in requests.
 
-## What's available during preview?
-
->[!NOTE]
->Azure AD Pass-through Authentication is currently in preview. It is a free feature, and you don't need any paid editions of Azure AD to use it.
-
-The following scenarios are fully supported during preview:
-
-- All web browser-based applications
-- Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga)
-
-The following scenarios are _not_ supported during preview:
-
-- Legacy Office client applications and Exchange ActiveSync (that is, native email applications on mobile devices). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your identities by using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
-- Azure AD Join for Windows 10 devices.
-
->[!IMPORTANT]
->As a workaround for scenarios not supported today, Password Hash Synchronization is also enabled by default when you enable Pass-through Authentication. Password Hash Synchronization acts as a fallback for the preceding scenarios _only_ (and _not_ as a generic fallback to Pass-through Authentication). If you don't need these scenarios, you can turn off Password Hash Synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard.
-
 ## Next steps
+- [**Preview limitations**](active-directory-aadconnect-pass-through-authentication-preview-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
-- [**Advanced topics**]() - Advanced topics about the feature.
-- [**Frequently Asked Questions**]() - Answers to frequently asked questions.
-- [**Preview limitations**]() - Learn which scenarios are currently supported in preview and which ones are not.
+- [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

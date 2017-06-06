@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Pass-through Authentication Quick Start | Microsoft Docs'
+title: 'Azure AD Pass-through Authentication - Quick Start | Microsoft Docs'
 description: This article describes how to get started with Azure Active Directory (Azure AD) Pass-through Authentication.
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2017
+ms.date: 06/05/2017
 ms.author: billmath
 ---
 
-# Quick Start: Azure Active Directory Pass-through Authentication
+# Azure Active Directory Pass-through Authentication: Quick start
 
 Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. It signs users in by validating their passwords directly against your on-premises Active Directory.
+
+## How to deploy Azure AD Pass-through Authentication?
 
 To deploy Pass-through Authentication, you need to follow these steps:
 1. [Check prerequisites](#step-1:-check-prerequisites): Set up your tenant and on-premises environment correctly before you enable the feature.
@@ -85,10 +87,9 @@ AADApplicationProxyagentInstaller.exe REGISTERagent="false" /q
 3.	When prompted, enter the credentials of the Global Administrator account on your Azure AD tenant.
 
 ## Next steps
+- [**Preview limitations**](active-directory-aadconnect-pass-through-authentication-preview-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
-- [**Advanced topics**]() - Advanced topics about the feature.
-- [**Frequently Asked Questions**]() - Answers to most frequently asked questions.
-- [**Preview limitations**]() - Learn which scenarios are currently supported in preview and which ones are not.
+- [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
