@@ -7,6 +7,7 @@ author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: sample
+ms.custom: mvc
 ---
 # Create an App Service
 
@@ -16,6 +17,10 @@ This sample script creates a function app using the [consumption plan](../functi
 * A [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) for your GitHub account.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
