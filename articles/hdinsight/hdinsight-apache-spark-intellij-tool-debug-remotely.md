@@ -83,23 +83,22 @@ For the code example below, an exception is thrown because the target file alrea
         import org.apache.spark.SparkContext
 
         object SparkCore_WasbIOTest {
-        def main (arg: Array[String]): Unit = {
-        val conf = new SparkConf().setAppName("SparkCore_WasbIOTest")
-        val sc = new SparkContext(conf)
-        val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+          def main(arg: Array[String]): Unit = {
+            val conf = new SparkConf().setAppName("SparkCore_WasbIOTest")
+            val sc = new SparkContext(conf)
+            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-        // find the rows which have only one digit in the 6th column
-        val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
+            // find the rows which have only one digit in the 6th column
+            val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 
-       try {
-             var target="wasb:///HVACout2_testdebug1";
-             rdd1.saveAsTextFile(target);
-           }
-       catch{
+            try {
+              var target = "wasb:///HVACout2_testdebug1";
+              rdd1.saveAsTextFile(target);
+            } catch {
               case ex: Exception => {
                 throw ex;
-               };
-             }
+              }
+            }
           }
         }
 
