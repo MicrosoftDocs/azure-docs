@@ -30,7 +30,7 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Restore data
 
 ## Log in to the Azure portal
-Open your favorite web browser, and visit [Microsoft Azure Portal](https://portal.azure.com/). Enter your credential to login to the portal. The default view is your service dashboard.
+Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credential to log in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MySQL server
 An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
@@ -77,7 +77,7 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 In this example, the server name is *myserver4demo.mysql.database.azure.com*, and the server admin login is *myadmin@myserver4demo*.
 
 ## Connect to the server using mysql
-Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line from the Azure Cloud Shell or from your own machine. Launch the Azure Cloud Shell by clicking the `>_` icon in the top right toolbar of the Azure portal and follow the prompt to log in to Azure. To run this from your own machine, be sure that the mysql tools are installed locally. In this example, the command is:
+Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command line tool from the Azure Cloud Shell or from your own machine. Launch the Azure Cloud Shell by clicking the `>_` icon in the top right toolbar of the Azure portal and follow the prompt to log in to Azure. To run this from your own machine, be sure that the mysql tools are installed locally. In this example, the command is:
 ```azurecli-interactive
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
