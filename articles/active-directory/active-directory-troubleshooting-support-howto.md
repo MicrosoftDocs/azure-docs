@@ -33,7 +33,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 ## Open a support ticket
 
-If you are unable to find answers by using self-help resources, you can open an online support ticket. Please limit each support ticket to a single issue so that we can connect you to support engineers who are the subject matter experts for your issue. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
+If you are unable to find answers by using self-help resources, you can open an online support ticket. Please limit each support ticket to a single issue so that we can connect you to the support engineers who are subject matter experts for your issue. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
 
 ### How to open a support ticket for Azure AD in the Azure portal
 
