@@ -19,7 +19,7 @@ ms.author: sstein
 
 ---
 # Monitor and improve performance
-Azure SQL Database identifies potential problems in your database and recommend actions that can improve performance of your workload by providing intelligent tuning actions and recommendations.
+Azure SQL Database identifies potential problems in your database and recommends actions that can improve performance of your workload by providing intelligent tuning actions and recommendations.
 
 To review your database performance, use the **Performance** tile on the Overview page, or navigate down to "Support + troubleshooting" section:
 
