@@ -45,7 +45,7 @@ The following is a summary of the environment configuration:
 > | **Golden Gate process** |EXTORA |REPORA|
 
 
-## Sign in to Azure 
+### Sign in to Azure 
 
 Sign in to your Azure subscription with the [az login](/cli/azure/#login) command. Then follow the on-screen directions.
 
@@ -53,7 +53,7 @@ Sign in to your Azure subscription with the [az login](/cli/azure/#login) comman
 az login
 ```
 
-## Create a resource group
+### Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
 
@@ -63,7 +63,7 @@ The following example creates a resource group named `myResourceGroup` in the `w
 az group create --name myResourceGroup --location westus
 ```
 
-## Create an availability set
+### Create an availability set
 
 The following step is optional but recommended. For more information, see [Azure availability sets guide](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
@@ -75,13 +75,13 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-## Create a virtual machine
+### Create a virtual machine
 
 Create a VM with the [az vm create](/cli/azure/vm#create) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 
-### Create myVM1 (primary):
+#### Create myVM1 (primary):
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ After the VM has been created, the Azure CLI shows information similar to the fo
 }
 ```
 
-### Create myVM2 (replicate):
+#### Create myVM2 (replicate):
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -120,11 +120,11 @@ az vm create \
 
 Take note of the `publicIpAddress` as well after it has been created.
 
-## Open the TCP port for connectivity
+### Open the TCP port for connectivity
 
 The next step is to configure external endpoints,  which enable you to access the Oracle database remotely. To configure the external endpoints, run the following commands.
 
-### Open the port for myVM1:
+#### Open the port for myVM1:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -155,7 +155,7 @@ The results should look similar to the following response:
 }
 ```
 
-### Open the port for myVM2:
+#### Open the port for myVM2:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -165,7 +165,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-## Connect to the virtual machine
+### Connect to the virtual machine
 
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` of your virtual machine.
 
@@ -173,17 +173,17 @@ Use the following command to create an SSH session with the virtual machine. Rep
 ssh <publicIpAddress>
 ```
 
-## Create the database on myVM1 (Primary)
+### Create the database on myVM1 (primary)
 
 The Oracle software is already installed on the Marketplace image, so the next step is to install the database. 
 
-### 1. Run the software as the 'oracle' superuser:
+1. Run the software as the 'oracle' superuser:
 
 ```bash
 sudo su - oracle
 ```
 
-### 2. Create the database:
+2. Create the database:
 
 ```bash
 $ dbca -silent \
@@ -260,7 +260,8 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 $ sudo su - oracle
 $ lsnrctl start
 ```
-### Create Database on myVM2 (replicate)
+
+### Create the database on myVM2 (replicate)
 
 ```bash
 sudo su - oracle
@@ -286,7 +287,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Set the ORACLE_SID and ORACLE_HOME variables:
+### Set the ORACLE_SID and ORACLE_HOME variables:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -312,6 +313,7 @@ $ lsnrctl start
 ```
 
 ## Configure Golden Gate 
+To configure Golden Gate, follow take the steps in this section.
 
 ### Enable archive log mode on myVM1 (primary):
 
@@ -345,7 +347,7 @@ To download and prepare the Oracle Golden Gate software, complete the following 
 
 1. Download the **fbo_ggs_Linux_x64_shiphome.zip** file from the [Oracle Golden Gate download page](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under the download title **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, there should be a set of .zip files to download.
 
-2. After you download the .zip files to your client computer,  use Secure Copy Protocol (SCP) to copy the files to your VM:
+2. After you download the .zip files to your client computer, use Secure Copy Protocol (SCP) to copy the files to your VM:
 
   ```bash
   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
@@ -488,18 +490,18 @@ To install Oracle Golden Gate, complete the following steps:
 
 2. Create the Golden Gate owner and user accounts
 
-> [!NOTE]
-> The owner account must have C## prefix.
->
+  > [!NOTE]
+  > The owner account must have C## prefix.
+  >
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> CREATE USER C##GGADMIN identified by ggadmin;
-  SQL> EXEC dbms_goldengate_auth.grant_admin_privilege('C##GGADMIN',container=>'ALL');
-  SQL> GRANT DBA to C##GGADMIN container=all;
-  SQL> connect C##GGADMIN/ggadmin
-  SQL> ALTER SESSION SET CONTAINER=PDB1;
-  SQL> EXIT;
+    ```bash
+    $ sqlplus / as sysdba
+    SQL> CREATE USER C##GGADMIN identified by ggadmin;
+    SQL> EXEC dbms_goldengate_auth.grant_admin_privilege('C##GGADMIN',container=>'ALL');
+    SQL> GRANT DBA to C##GGADMIN container=all;
+    SQL> connect C##GGADMIN/ggadmin
+    SQL> ALTER SESSION SET CONTAINER=PDB1;
+    SQL> EXIT;
   ```
 
 3. Create the Golden Gate test user account:
@@ -761,28 +763,26 @@ The replication has begun, and you can test it by inserting new records to TEST 
 
 ### View job status and troubleshooting
 
-1. To view report, on myVM1, run the following commands:
+To view reports on myVM1, run the following commands:
 
   ```bash
   GGSCI> VIEW REPORT EXTORA 
   ```
  
-2. On myVM2, run the following commands:
+To view reports on myVM2, run the following commands:
 
   ```bash
   GGSCI> VIEW REPORT REPORA
   ```
 
-3. View status and history:
-
-On myVM1, run the following commands:
+To view status and history on myVM1, run the following commands:
 
   ```bash
   GGSCI> dblogin userid c##ggadmin, password ggadmin 
   GGSCI> INFO EXTRACT EXTORA, DETAIL
   ```
 
-On myVM2, run the following commands:
+To view status and history on myVM2, run the following commands:
 
   ```bash
   GGSCI> dblogin userid repuser@pdb1 password rep_pass 
