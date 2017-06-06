@@ -494,7 +494,7 @@ To issue commands against your cache instance, simply type the desired command i
 
 ![Redis console](./media/cache-configure/redis-console.png)
 
-Not all Redis commands are supported in Azure Redis Cache. For list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
+Not all Redis commands are supported in Azure Redis Cache. For a list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 
 ### Using the Redis Console with a premium clustered cache
 
@@ -502,7 +502,7 @@ When using the Redis Console with a premium clustered cache, you can issue comma
 
 ![Redis console](./media/cache-configure/redis-console-premium-cluster.png)
 
-If you attempt to access a key that is stored in a different shard than the selected shard, you receive an error message similar to the following message.
+If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message.
 
 ```
 shard1>get myKey
