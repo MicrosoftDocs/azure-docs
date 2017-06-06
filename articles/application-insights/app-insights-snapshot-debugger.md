@@ -17,11 +17,11 @@ ms.author: cfreeman
 ---
 # Debug snapshots on exceptions in .NET apps
 
-When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
 You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
 
-Snapshot collection is available for ASP.NET web apps that run on .NET Framework 4.6 or later, hosted either on IIS in Azure Compute or in Azure App Service.
+Snapshot collection is available for ASP.NET web apps that run on .NET Framework 4.6 or later, hosted on IIS in Azure Compute or in Azure App Service.
 
 ## Configure snapshot collection
 
@@ -124,7 +124,7 @@ Make sure that you're using the correct instrumentation key in your published ap
 
 ### Check the uploader logs
 
-After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process takes that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it is deleted from disk. The log files for the minidump uploader are retained on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles\Uploader_*.log`. Use the Kudu management site for your App Service to find these log files.
+After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process takes that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it is deleted from disk. The log files for the minidump uploader are retained on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles\Uploader_*.log`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
 
@@ -134,7 +134,7 @@ After a snapshot is created, a minidump file (.dmp) is created on disk. A separa
 5. Click **LogFiles**.
 
 You should see at least one file with a name that begins with `Uploader_` and a `.log` extension. Click the appropriate icon to download any log files or open them in a browser.
-The file name includes the machine name. If your App Service is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here's an example of a successful upload:
+The file name includes the machine name. If your App Service instance is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here's an example of a successful upload:
 
 ```
 MinidumpUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
