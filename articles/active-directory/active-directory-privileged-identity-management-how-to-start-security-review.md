@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: billmath
-
+ms.custom: pim
 ---
 # How to start an access review in Azure AD Privileged Identity Management
 Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators should regularly review the roles that users have been given. This document covers the steps for starting an access review in Azure AD Privileged Identity Management (PIM).
