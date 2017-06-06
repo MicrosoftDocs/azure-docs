@@ -16,7 +16,6 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: nepeters
-ms.custom: mvc
 ---
 
 # Introduction to cloud computing and Microsoft Azure
@@ -389,24 +388,21 @@ Azure storage accounts can be configured with different levels of redundancy:
 
 Each storage type has a different use case.
 
-[]{#_Toc467071255 .anchor}Blob storage\
+**Blob storage** 
+
 The word *blob* is an acronym for *binary large object*. Blobs are unstructured files like those that you store on your computer. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage. Azure Blob storage also holds Azure Virtual Machines data disks.
 
 Azure Storage supports three kinds of blobs:
 
 -   **Block blobs** are used to hold ordinary files up to 195 GB in size (4 MB × 50,000 blocks). The primary use case for block blobs is the storage of files that are read from beginning to end, such as media files or image files for websites. They are named block blobs because files larger than 64 MB must be uploaded as small blocks. These blocks are then consolidated (or committed) into the final blob.
 
-<!-- -->
-
 -   **Page blobs** are used to hold random-access files up to 1 TB in size. Page blobs are used primarily as the backing storage for the VHDs that provide durable disks for Azure Virtual Machines, the IaaS compute service in Azure. They are named page blobs because they provide random read/write access to 512-byte pages.
-
-<!-- -->
 
 -   **Append blobs** consist of blocks like block blobs, but they are optimized for append operations. These are frequently used for logging information from one or more sources to the same blob. For example, you might write all of your trace logging to the same append blob for an application that’s running on multiple VMs. A single append blob can be up to 195 GB.
 
 For more information, see [Get started with Azure Blob storage](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
 
-### File storage
+**File storage**
 
 Azure File storage is a service that offers file shares in the cloud by using the standard Server Message Block (SMB) protocol. The service supports both SMB 2.1 and SMB 3.0. With Azure File storage, you can migrate applications that rely on file shares to Azure quickly and without costly rewrites. Applications running on Azure virtual machines, in cloud services, or from on-premises clients can mount a file share in the cloud. This is similar to how a desktop application mounts a typical SMB share. Any number of application components can then mount and access the File storage share simultaneously.
 
@@ -414,7 +410,7 @@ Because a File storage share is a standard SMB file share, applications running 
 
 For more information, see [Get started with Azure File storage](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files).
 
-### Table storage
+**Table storage**
 
 Azure Table storage is a service that stores structured NoSQL data in the cloud. Table storage is a key/attribute store with a schema-less design. Because Table storage is schema-less, it's easy to adapt your data as the needs of your application evolve. Access to data is fast and cost-effective for all kinds of applications. Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
 
@@ -422,98 +418,103 @@ You can use Table storage to store flexible datasets, such as user data for web 
 
 For more information, see [Get started with Azure Table storage](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-tables).
 
-### Queue storage
+**Queue storage**
 
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
 
 For more information, see [Get started with Azure Queue storage](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-queues).
 
-Deploying a storage account
----------------------------
+### Deploying a storage account
 
-### Portal
+There are several options for deploying a storage account.
+
+**Portal**
 
 Deploying a storage account by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new storage account into a new or existing resource group. After you’ve created the storage account, you can create a blob container or file share by using the portal. You can create Table and Queue storage entities programmatically.
 
 In addition to deploying a storage account from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any storage accounts. For more information, see [Deploy resources with Resource Manager templates and Azure portal](https://docs.microsoft.com/en-us/azure/resource-group-template-deploy-portal).
 
-### PowerShell
+**PowerShell**
 
 Deploying an Azure storage account by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Using Azure PowerShell with Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-powershell-guide-full).
 
 In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/en-us/azure/storage/storage-powershell-guide-full).
 
-### Command-line interface
+**Command-line interface (CLI)**
 
 As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli)
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](https://docs.microsoft.com/en-us/azure/resource-group-template-deploy-cli).
 
-Access and security for Azure Storage
--------------------------------------
+### Access and security for Azure Storage
 
 Azure Storage is accessed in a variety of ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries. This section will detail a few of these.
 
-### Virtual machine disks
+**Virtual machine disks**
 
 When you’re deploying a virtual machine, you also need to create a storage account to hold the virtual machine operating system disk and any additional data disks. You can select an existing storage account or create a new one. Because the maximum size of a blob is 1,024 GB, a single VM disk has a maximum size of 1,023 GB. To configure a larger data disk, you can present multiple data disks to the virtual machine and pool them together as a single logical disk. For more information, see “Storage infrastructure guidelines” for [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-infrastructure-storage-solutions-guidelines) and [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-infrastructure-storage-solutions-guidelines).
 
-### Storage tools
+**Storage tools**
 
 Azure storage accounts can be accessed through many different storage explorers, such as Visual Studio Cloud Explorer. These tools provide the ability to browse through storage accounts and data. For more information and a list of available storage explorers, see [Azure Storage client tools](https://docs.microsoft.com/en-us/azure/storage/storage-explorers).
 
-### Storage API 
+**Storage API**
 
 Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, and operational behavior. For more information, see [Azure Storage service REST API reference](https://msdn.microsoft.com/library/azure/dd179355.aspx).
 
-### Storage access keys 
+**Storage access keys**
 
 Each storage account has two authentication keys, a primary and a secondary. Either of these can be used for storage access operations. These storage keys are used to help secure a storage account and are required for programmatically accessing data. There are two keys to allow occasional rollover of the keys to enhance security. It is critical to keep these secure because their possession, along with the account name, allows unlimited access to any data in the storage account.
 
-### Shared access signatures
+**Shared access signatures**
 
 If you need to allow users to have controlled access to your storage resources, you can create a shared access signature. A shared access signature is a token that can be appended to a URL that enables delegated access to a storage resource. Anyone who possesses the token can access the resource that it points to with the permissions that it specifies, for the period of time that it’s valid. For more information, see [Using shared access signatures](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
-Azure Virtual Network
-=====================
+## Azure Virtual Network
+
 
 Virtual networks are necessary to support communications between virtual machines. You can define subnets, custom IP address, DNS settings, security filtering, and load balancing. By using a VPN gateway or an ExpressRoute circuit, you can connect Azure virtual networks to your on-premises networks.
 
-Use cases
----------
+### Use cases
 
-### Cloud-only virtual networks
+There are different use cases for Azure networking.
+
+**Cloud-only virtual networks**
 
 An Azure virtual network, by default, is accessible only to resources stored in Azure. Resources connected to the same virtual network can communicate with each other. You can associate virtual machine network interfaces and load balancers with a public IP address to make the virtual machine accessible over the Internet. You can help secure access to the publicly exposed resources by using a network security group.
 
-### Cross-premises virtual networks
+**Cross-premises virtual networks**
 
 You can connect an on-premises network to an Azure virtual network by using ExpressRoute or a site-to-site VPN connection. In this configuration, the Azure virtual network is essentially a cloud-based extension of your on-premises network.
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
 
-Deploying a virtual network
----------------------------
+###Deploying a virtual network
 
-### Portal
+There are several options for deploying a virtual network.
+
+**Portal**
 
 Deploying an Azure virtual network by using the Azure portal requires only an active Azure subscription and access to a web browser. You can deploy a new virtual network into a new or existing resource group. When you’re creating a new virtual machine from the portal, you can select an existing virtual network or a create a new one. For more information, see [Create a virtual network using the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnet-arm-pportal).
 
 In addition to deploying an Azure virtual network from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template, including any virtual network resources. For more information, see [Deploy resources with Resource Manager templates and Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnet-arm-pportal).
 
-### PowerShell
+**PowerShell**
 
 Deploying an Azure virtual network by using PowerShell allows for complete deployment automation of the storage account. For more information, see [Create a virtual network by using PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnet-arm-ps).
 
 In addition to deploying Azure resources individually, you can use the Azure PowerShell module to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/en-us/azure/resource-group-template-deploy-cli).
 
-### Command-line interface
+**Command-line interface (CLI)**
 
 As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. You can use the Azure CLI **network vnet create** command to create a virtual network. For more information, see [Create a virtual network by using the Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-powershell-guide-full).
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. This provides automation to start the deployment action while retaining all benefits of modeling a deployment by using Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnet-arm-ps).
 
-Access and security for virtual networks
-----------------------------------------
+### Access and security for virtual networks
 
 You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [What is a Network Security Group?](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+
+## Next steps
+
+There are many tutorials available for gaining mroe experience working with resources in Azure.
