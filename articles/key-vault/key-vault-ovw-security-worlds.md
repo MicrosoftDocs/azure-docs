@@ -5,7 +5,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 06/5/2017
+ms.date: 06/6/2017
 ---
 # Azure Key Vault security worlds and geographic boundaries
 
