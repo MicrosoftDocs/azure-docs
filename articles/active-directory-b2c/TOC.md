@@ -7,25 +7,26 @@
 ## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
 # Tutorials
-## [Create .NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-## [Build .NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-## [Call a .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
-## [Create Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
-## [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
-## [Create iOS app](active-directory-b2c-devquickstarts-ios.md)
-## [Create Android app](active-directory-b2c-devquickstarts-android.md)
-## [Create Windows desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
-
-
-# Samples
-## [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-## [Node.js web API](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
-## [iOS Swift using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-## [Android using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-## [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-## [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-## [.NET desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
-## [Xamarin forms app](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
+## Mobile & Desktop apps
+### [iOS Swift app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
+### [iOS app using AppAuth](active-directory-b2c-devquickstarts-ios.md)
+### [Android app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
+### [Android app using AppAuth](active-directory-b2c-devquickstarts-android.md)
+### [.NET desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
+### [Xamarin forms app](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
+## Web apps
+### [ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
+## Single page apps
+### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
+## Web APIs
+### [.NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [.NET Core web API](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
+### [Call .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Node.js web API](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
 
 # Concepts
 ## [OAuth 2.0 authorization](active-directory-b2c-reference-oauth-code.md)

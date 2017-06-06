@@ -20,8 +20,10 @@ ms.author: parakhj
 ---
 # Azure Active Directory B2C: Register your application
 
+This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in just a few minutes. When you're finished, your application will be registered for use in the Azure B2C tenant.
+
 > [!IMPORTANT]
-> Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same location. If you edit the B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
+> Applications created from the Azure AD B2C blade in the Azure portal must be managed from the same management tool. If you edit the B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
 > 
 > 
 
