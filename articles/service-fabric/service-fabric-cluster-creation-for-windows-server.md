@@ -81,8 +81,7 @@ After you have gone through the planning and preparation steps detailed at the b
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
     Running Best Practices Analyzer...
     Best Practices Analyzer completed successfully.
-
-
+    
     LocalAdminPrivilege        : True
     IsJsonValid                : True
     IsCabValid                 : True
