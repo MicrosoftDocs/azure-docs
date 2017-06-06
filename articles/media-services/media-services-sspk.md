@@ -80,6 +80,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Albis Technologies Ltd.
 * Alticast Corporation
 * Amazon Digital Services, Inc.
+* Arion Technology, Inc.
 * AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar Purchasing Corporation
@@ -103,7 +104,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
-* Arion Technology, Inc.
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
 * Advanced Digital Broadcast SA
@@ -112,6 +112,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Amazon Digital Services, Inc.
 * AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * British Sky Broadcasting Limited
 * CastPal Technology Inc., Shenzhen
@@ -150,7 +151,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-* Arion Technology, Inc.
+
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
