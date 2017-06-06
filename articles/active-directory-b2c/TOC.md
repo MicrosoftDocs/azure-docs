@@ -7,7 +7,7 @@
 ## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
 # Tutorials
-## Mobile & Desktop apps
+## Mobile & desktop apps
 ### [iOS Swift app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
 ### [iOS app using AppAuth](active-directory-b2c-devquickstarts-ios.md)
 ### [Android app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
