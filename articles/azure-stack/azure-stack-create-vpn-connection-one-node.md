@@ -37,7 +37,7 @@ To complete the connection configuration, ensure that you have the following ite
 ## Deploy the POC environments
 To complete the connection configuration, you must deploy two Azure Stack POC environments.
 > [!NOTE] 
-> For each POC that you deploy, follow the [deployment instructions](azure-stack-run-powershell-script.md). Each POC environment in this article is referred to as *POC1* and *POC2*.
+> For each POC that you deploy, follow the [deployment instructions](azure-stack-run-powershell-script.md). In this article, the POC environments are called *POC1* and *POC2*.
 
 
 ## Prepare an offer on POC1 and POC2
@@ -152,7 +152,7 @@ A way to think about this more generically is that the local network gateway res
 6. In **IP address**, enter the External BGPNAT address for POC2. This address appears earlier in the network configuration table.
 7. In **Address Space**, for the address space of the POC2 VNET that you create later, enter **10.0.20.0/23**.
 8. Verify that your **Subscription**, **Resource Group**, and
-   **location** are correct, and and then select **Create**.
+   **location** are correct, and then select **Create**.
 
 ### Create the connection
 1. In the user portal, select **New**.
