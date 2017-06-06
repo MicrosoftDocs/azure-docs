@@ -1,25 +1,25 @@
----
+--- 
 title:  Get Started with Azure Automation | Microsoft Docs
-description: This article provides an overview of Azure Automation service by reviewing the core concepts and implementation details in preparation to onboard the offering from Auzre Marketplace.
+description: This article provides an overview of Azure Automation service by reviewing the core concepts and implementation details in preparation to onboard the offering from Azure Marketplace. 
 services: automation
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: ''
 
-ms.assetid:
+ms.assetid: 
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2017
+ms.date: 06/01/2017
 ms.author: magoedte
 ---
 
 ## Getting Started with Azure Automation
 
-This getting started guide introduces core concepts related to the deployment of Azure Automation. If you are new to Automation in Azure or have experience with automation workflow software like System Center Orchestrator, this guide helps you get started with concepts and deployment details.
+This getting started guide introduces core concepts related to the deployment of Azure Automation. If you are new to Automation in Azure or have experience with automation workflow software like System Center Orchestrator, this guide helps you get started with concepts and deployment details. 
 
 ## Key concepts
 
@@ -78,14 +78,14 @@ When designating a computer to run hybrid runbook jobs, this computer must have 
 ## Security
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers.  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.  
 
-### Automation Account
+### Automation Account 
 All the automation tasks you perform against resources using the Azure cmdlets in Azure Automation authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  An Automation account is separate from the account you use to sign in to the portal to configure and use Azure resources.  
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. Create Automation accounts in different regions if you have policies that require data and resources to be isolated to a specific region.
 
 > [!NOTE]
 > Automation accounts, and the resources they contain that are created in the Azure portal, cannot be accessed in the Azure classic portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.
->
+> 
 
 When you create an Automation account in the Azure portal, you automatically create two authentication entities:
 
@@ -97,17 +97,17 @@ Role-based access control is available with Azure Resource Manager to grant perm
 #### Authentication methods
 The following table summarizes the different authentication methods for each environment supported by Azure Automation.
 
-| Method | Environment
-| --- | --- |
+| Method | Environment 
+| --- | --- | 
 | Azure Run As and Classic Run As account |Azure Resource Manager and Azure classic deployment |  
 | Azure AD User account |Azure Resource Manager and Azure classic deployment |  
 | Windows authentication |Local data center or other cloud provider using the Hybrid Runbook Worker |  
 | AWS credentials |Amazon Web Services |  
 
-Under the **How to\Authentication and Security** section, are supporting articles providing overview and implementation steps to configure authentication for those environments, either with an existing or new account you dedicate for that environment.  For the Azure Run As and Classic Run As account, the topic [Update Automation Run As account using PowerShell](automation-update-account-powershell.md) describes how to update your existing Automation account with the Run As accounts using PowerShell if it was not originally configured with a Run As or Classic Run As account.   
-
+Under the **How to\Authentication and security** section, are supporting articles providing overview and implementation steps to configure authentication for those environments, either with an existing or new account you dedicate for that environment.  For the Azure Run As and Classic Run As account, the topic [Update Automation Run As account](automation-create-runas-account.md) describes how to update your existing Automation account with the Run As accounts from the portal or using PowerShell if it was not originally configured with a Run As or Classic Run As account. If you want to create a Run As and a Classic Run As account with a certificate issued by your enterprise certification authority (CA), review this article to learn how to create the accounts using this configuration.     
+ 
 ## Network
-For the Hybrid Runbook Worker to connect to and register with Microsoft Operations Management Suite (OMS), it must have access to the port number and the URLs described below.  This is in addition to the [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access.
+For the Hybrid Runbook Worker to connect to and register with Microsoft Operations Management Suite (OMS), it must have access to the port number and the URLs described below.  This is in addition to the [ports and URLs required for the Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) to connect to OMS. If you use a proxy server for communication between the agent and the OMS service, you need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access.
 
 The information below list the port and URLs that are required for the Hybrid Runbook Worker to communicate with Automation.
 
@@ -131,11 +131,11 @@ If you have an Automation account defined for a specific region and you want to 
 | UK South | uks-jobruntimedata-prod-su1.azure-automation.net |
 | US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-For a list of IP addresses instead of names, download and review the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) xml file from the Microsoft Download Center.
+For a list of IP addresses instead of names, download and review the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) xml file from the Microsoft Download Center. 
 
 > [!NOTE]
-> This file contains the IP address ranges (including Compute, SQL and Storage ranges) used in the Microsoft Azure Datacenters. An updated file is posted weekly which reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges appearing in the file will not be used in the datacenters for at least one week. Please download the new xml file every week and perform the necessary changes on your site to correctly identify services running in Azure. Express Route users may note this file used to update the BGP advertisement of Azure space in the first week of each month.
->
+> This file contains the IP address ranges (including Compute, SQL and Storage ranges) used in the Microsoft Azure Datacenters. An updated file is posted weekly which reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges appearing in the file will not be used in the datacenters for at least one week. Please download the new xml file every week and perform the necessary changes on your site to correctly identify services running in Azure. Express Route users may note this file used to update the BGP advertisement of Azure space in the first week of each month. 
+> 
 
 
 ## Implementation
@@ -146,13 +146,13 @@ There are different ways you can create an Automation account in the Azure porta
 
 |Method | Description |
 |-------|-------------|
-| Select Automation & Control from the Marketplace | An offering, which creates both an Automation account and OMS workspace linked to one another in the same resource group and region.  It also deploys the Change Tracking & Update Management solutions, which are enabled by default. |
+| Select Automation & Control from the Marketplace | An offering, which creates both an Automation account and OMS workspace linked to one another in the same resource group and region.  Integration with OMS also includes the benefit of using Log Analytics to monitor and analyze runbook job status and job streams over time and utilize advanced features to escalate or investigate issues. The offering also deploys the Change Tracking & Update Management solutions, which are enabled by default. |
 | Select Automation from the Marketplace | Creates an Automation account in a new or existing resource group that is not linked to an OMS workspace and does not include any available solutions from the Automation & Control offering. This is a basic configuration that introduces you to Automation and can help you learn how to write runbooks, DSC configurations, and use the capabilities of the service. |
 | Selected Management solutions | If you select a solution – **[Update Management](../operations-management-suite/oms-solution-update-management.md)**, **[Start/Stop VMs during off hours](automation-solution-vm-management.md)**, or **[Change Tracking](../log-analytics/log-analytics-change-tracking.md)** they prompt you to select an existing Automation and OMS workspace, or offer you the option to create both as required for the solution to be deployed in your subscription. |
 
 This topic walks you through creating an Automation account and OMS workspace by onboarding the Automation & Control offering.  To create a standalone Automation account for testing or to preview the service, review the following article [Create standalone Automation account](automation-create-standalone-account.md).  
 
-### Create Automation account integrated with Log Analytics
+### Create Automation account integrated with OMS
 The recommended method to onboard Automation is by selecting the Automation & Control offering from the Marketplace.  This creates both an Automation account and establishes the integration with an OMS workspace, including the option to install the management solutions that are available with the offering.  
 
 >[!NOTE]
@@ -170,16 +170,16 @@ The recommended method to onboard Automation is by selecting the Automation & Co
 
 4. After reading the description for the offering, click **Create**.  
 
-5. On the **Automation & Control** settings blade, select **OMS Workspace**.  On the **OMS Workspaces** blade, select an OMS workspace linked to the same Azure subscription that the Automation account is in or create a OMS workspace.  If you do not have an OMS workspace, select **Create New Workspace** and on the **OMS Workspace** blade perform the following:
+5. On the **Automation & Control** settings blade, select **OMS Workspace**.  On the **OMS Workspaces** blade, select an OMS workspace linked to the same Azure subscription that the Automation account is in or create an OMS workspace.  If you do not have an OMS workspace, select **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
    - Specify a name for the new **OMS Workspace**.
    - Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
    - For **Resource Group**, you can create a resource group or select an existing resource group.  
    - Select a **Location**.  Currently the only locations available are **Australia Southeast**, **East US**, **Southeast Asia**, **West Central US**, and **West Europe**.
    - Select a **Pricing tier**.  The solution is offered in two tiers: free and Per Node (OMS) tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The Per Node (OMS) tier does not have a limit on the amount of data collected daily.  
-   - Select **Automation Account**.  If you are creating a new OMS workspace, you are required to also create an Automation account that is associated with the new OMS workspace specified earlier, including your Azure subscription, resource group, and region.  You can select **Create an Automation account** and on the **Automation Account** blade, provide the following:
+   - Select **Automation Account**.  If you are creating a new OMS workspace, you are required to also create an Automation account that is associated with the new OMS workspace specified earlier, including your Azure subscription, resource group, and region.  You can select **Create an Automation account** and on the **Automation Account** blade, provide the following: 
   - In the **Name** field, enter the name of the Automation account.
 
-    All other options are automatically populated based on the OMS workspace selected and these options cannot be modified.  An Azure Run As account is the default authentication method for the offering.  Once you click **OK**, the configuration options are validated and the Automation account is created.  You can track its progress under **Notifications** from the menu.
+    All other options are automatically populated based on the OMS workspace selected and these options cannot be modified.  An Azure Run As account is the default authentication method for the offering.  Once you click **OK**, the configuration options are validated and the Automation account is created.  You can track its progress under **Notifications** from the menu. 
 
     Otherwise, select an existing Automation Run As account.  The account you select cannot already be linked to another OMS workspace, otherwise a notification message is presented in the blade.  If it is already linked, you need to select a different Automation Run As account or create one.
 
@@ -189,7 +189,7 @@ The recommended method to onboard Automation is by selecting the Automation & Co
 
 7. On the **Automation & Control** settings blade, confirm you want to install the recommended pre-selected solutions. If you deselect any, you can install them individually later.  
 
-8. Click **Create** to proceed with onboarding Automation and an OMS workspace. All settings are validated and then it attempts to deploy the offering in your subscription.  This process can take several seconds to complete and you can track its progress under **Notifications** from the menu.
+8. Click **Create** to proceed with onboarding Automation and an OMS workspace. All settings are validated and then it attempts to deploy the offering in your subscription.  This process can take several seconds to complete and you can track its progress under **Notifications** from the menu. 
 
 After the offering is onboarded, you can begin creating runbooks, working with the management solutions you enabled, or start working with [Log Analytics](https://docs.microsoft.com/azure/log-analytics) to collect data generated by resources in your cloud or on-premises environments.   
 
@@ -197,3 +197,4 @@ After the offering is onboarded, you can begin creating runbooks, working with t
 * You can confirm your new Automation account can authenticate against Azure resources by reviewing [test Azure Automation Run As account authentication](automation-verify-runas-authentication.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+

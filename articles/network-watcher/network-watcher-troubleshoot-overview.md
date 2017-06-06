@@ -74,6 +74,24 @@ The following tables show the different fault types (id under results from the p
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
 | WfpParse Error | An error occurred parsing the WFP log. |Yes|
 
+## Supported Gateway types
+
+The following list shows the support shows which gateways and connections are supported with Network Watcher troubleshooting.
+|  |  |
+|---------|---------|
+|**Gateway types**   |         |
+|VPN      | Supported        |
+|ExpressRoute | Not Supported |
+|Hypernet | Not Supported|
+|**VPN types** | |
+|Route Based | Supported|
+|Policy Based | Not Supported|
+|**Connection types**||
+|IPSec| Supported|
+|VNet2Vnet| Supported|
+|ExpressRoute| Not Supported|
+|Hypernet| Not Supported|
+|VPNClient| Not Supported|
 
 ## Log files
 

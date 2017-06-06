@@ -39,7 +39,7 @@ To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
 
 Additionally, you need (or you can use the Azure CLI to generate automatically during cluster deployment):
 
-* **SSH RSA public key**: If you want to create Secure Shell (SSH) RSA keys in advance, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
+* **SSH RSA keys**: If you want to create Secure Shell (SSH) RSA keys in advance, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. If you have or create keys, make sure you run `ssh-add <path to private key>` to add the private key to `ssh-agent` (see [steps](../virtual-machines/linux/create-ssh-keys-detailed.md#using-ssh-agent-to-store-your-private-key-password)).  
 
 * **Service principal client ID and secret**: For steps to create an Azure Active Directory service principal and additional information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 

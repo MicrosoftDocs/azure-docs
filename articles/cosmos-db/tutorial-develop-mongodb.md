@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: anhoh
-
+ms.custom: mvc
 ---
 # Azure Cosmos DB: Connect to a MongoDB app using .NET
 
