@@ -63,6 +63,8 @@
       href: sql-database-service-tiers.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
+    - name: Connectivity architecture
+      href: sql-database-connectivity-architecture.md 
     - name: DTUs and eDTUs
       href: sql-database-what-is-a-dtu.md
     - name: DTU benchmark

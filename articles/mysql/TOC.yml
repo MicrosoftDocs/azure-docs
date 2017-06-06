@@ -103,6 +103,8 @@
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Videos
+    href: videos.md
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
