@@ -26,7 +26,7 @@ These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorial
 | [.NET][Sim_NET]      |
 | [Java][Sim_Jav]      |
 | [Node.js][Sim_Nd]    |
-| [Python][Sim_Pyth] S  |
+| [Python][Sim_Pyth]   |
 
 In addition, you can use an IoT Edge gateway to enable simulated devices to connect to your IoT hub.
 

@@ -56,7 +56,7 @@ Now let's clone a Graph API app from github, set the connection string, and run 
 
 Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized. In the preview, we added a graph extension API on the DocumentDB client. We are working on a standalone graph client decoupled from the DocumentDB client and resources.
+* The DocumentClient is initialized. In the preview, we added a graph extension API on the Azure Cosmos DB client. We are working on a standalone graph client decoupled from the Azure Cosmos DB client and resources.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
