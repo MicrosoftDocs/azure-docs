@@ -33,10 +33,10 @@
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
-### Archive
-#### [Event Hubs Archive](event-hubs-archive-overview.md)
-#### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-#### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
+### Capture
+#### [Event Hubs Capture](event-hubs-archive-overview.md)
+#### [Enable Event Hubs Capture using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+#### [Use Python to enable Event Hubs Capture](event-hubs-archive-python.md)
 ### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
