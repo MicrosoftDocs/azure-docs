@@ -87,26 +87,34 @@ So for example, a logic app sends an HTTP request to your web app or API app.
 Your app then returns an HTTP response, along with content that the logic app can process.
 
 For a standard action, you can write an HTTP request method in your API, 
-expose that method through your Swagger file, and call your API directly with an 
-[HTTP action](../connectors/connectors-native-http.md). 
-By default, all the steps required for responding to the original request 
-must finish within the [request timeout limit](./logic-apps-limits-and-config.md). 
+describe that method in a Swagger file, and call your API directly with an 
+[HTTP action](../connectors/connectors-native-http.md) 
+or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) action. 
+By default, responses must be returned within the [request timeout limit](./logic-apps-limits-and-config.md). 
 
 ![Standard action pattern](./media/logic-apps-create-api-app/standard-action.png)
 
+<a name="pattern-overview"></a>
 To make a logic app wait while your API finishes longer-running tasks, 
-your API can follow the [asynchronous pattern](#async-pattern) 
-or the [webhook pattern](#webhook-actions) described in this topic. 
+your API can follow the [asynchronous polling pattern](#async-pattern) 
+or the [asynchronous webhook pattern](#webhook-actions) described in this topic. 
+For an analogy that helps you visualize these patterns' different behaviors, 
+imagine the process for ordering a custom cake from a bakery. 
+The polling pattern mirrors the behavior where you call the 
+bakery every 20 minutes to check whether the cake is ready. 
+The webhook pattern mirrors the behavior where the bakery asks you 
+for your phone number so they can call you when the cake is ready.
+
 For samples, visit the [Logic Apps GitHub repository](https://github.com/logicappsio). 
 Also, learn more about [usage metering for actions](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
 
-### Perform long-running tasks with the asynchronous pattern
+### Perform long-running tasks with the polling action pattern
 
 To have your API perform tasks that could run longer than the 
 [request timeout limit](./logic-apps-limits-and-config.md), 
-you can use the asynchronous pattern. This pattern has 
+you can use the asynchronous polling pattern. This pattern has 
 your API do work in a separate thread, 
 but keep an active connection to the Logic Apps engine. 
 That way, the logic app doesn't time out or continue with 
@@ -114,11 +122,30 @@ the next step in the workflow before your API finishes working.
 
 Here's the general pattern:
 
-1. Make sure that the engine knows that your API is still working.
-2. Let the engine know when your API finishes the task.
+1. Make sure that the engine knows that your API accepted the request and will start working.
+2. When the engine makes subsequent requests for job status, let the engine know when your API finishes the task.
 3. Return relevant data to the engine so that the logic app workflow can continue.
 
-![Asynchronous action pattern](./media/logic-apps-create-api-app/custom-api-async-action-pattern.png)
+<a name="bakery-polling-action"></a>
+Now apply the previous bakery analogy to the polling pattern, 
+and imagine that you call a bakery and order a custom cake for delivery. 
+The process for making the cake takes time, 
+and you don't to wait on the phone while the bakery works on the cake. 
+The bakery confirms your order and has you call every 20 minutes for the cake's status. 
+After 20 minutes pass, you call the bakery, but they tell you that your cake isn't 
+done and that you should call in another 20 minutes. 
+This back-and-forth process continues until you call, 
+and the bakery tells you that your order is ready and delivers your cake. 
+
+So let's map this polling pattern back. The bakery represents your custom API, 
+while you, the cake customer, represent the Logic Apps engine. 
+When the engine calls your API with a request, your API confirms the request 
+and responds with the time interval when the engine can check job status. 
+The engine continues checking job status until your API responds 
+that the job is done and returns data to your logic app, 
+which then continues workflow. 
+
+![Polling action pattern](./media/logic-apps-create-api-app/custom-api-async-action-pattern.png)
 
 Here are the specific steps for your API to follow, 
 described from the API's perspective:
@@ -162,11 +189,29 @@ and checks the `location` header until your API returns a non-202 response.
 
 <a name="webhook-actions"></a>
 
-### Pause and wait with the webhook pattern
+### Perform long running tasks with the webhook action pattern
 
-To make a logic app pause and wait for a "callback" from your API to finish 
-processing before continuing workflow, you can use the webhook pattern. 
+As an alternative, you can use the webhook pattern 
+for long-running tasks and asynchronous processing. 
+This pattern has the logic app pause and wait for a "callback" 
+from your API to finish processing before continuing workflow, 
 This callback is an HTTP POST that sends a message to a URL when an event happens. 
+
+<a name="bakery-webhook-action"></a>
+Now apply the previous bakery analogy to the webhook pattern, 
+and imagine that you call a bakery and order a custom cake for delivery. 
+The process for making the cake takes time, 
+and you don't to wait on the phone while the bakery works on the cake. 
+The bakery confirms your order, but this time, 
+you give them your phone number so they can call you when the cake is done. 
+This time, the bakery tells you when your order is ready and delivers your cake.
+
+When we map this webhook pattern back, the bakery represents your custom API, 
+while you, the cake customer, represent the Logic Apps engine. 
+The engine calls your API with a request, which includes a "callback URL". 
+When the job is done, your API uses the URL to notify the engine 
+and return data to your logic app, which then continues workflow. 
+
 For this pattern, set up two endpoints on your controller: `subscribe` and `unsubscribe`
 
 *  `subscribe` endpoint: When execution reaches your API's action in the workflow, 
@@ -206,15 +251,17 @@ This trigger can either check regularly, or wait and listen,
 for new data or events at your service endpoint. 
 If new data or an event meets the specified condition, 
 the trigger fires and starts the logic app, which is listening to that trigger. 
-To start logic apps this way, your API can follow the [*polling trigger*](#polling-triggers) 
-or the [*webhook trigger*](#webhook-triggers) pattern. Also, learn more about 
-[usage metering for triggers](logic-apps-pricing.md).
+To start logic apps this way, your API can follow the 
+[*polling trigger*](#polling-triggers) or the [*webhook trigger*](#webhook-triggers) pattern. 
+These patterns are similar to their counterparts for 
+[polling actions](#async-pattern) and [webhook actions](#webhook-actions). 
+Also, learn more about [usage metering for triggers](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
 ### Check for new data or events regularly with the polling trigger pattern
 
-A *polling trigger* acts much like the [long-running asynchronous action](#async-pattern) 
+A *polling trigger* acts much like the [polling action](#async-pattern) 
 previously described in this topic. The Logic Apps engine periodically calls and checks the trigger endpoint for new data or events. If the engine finds new data or an event that meets your specified condition, the trigger fires. Then, the engine creates a logic app instance that processes the data as input. 
 
 ![Polling trigger pattern](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
