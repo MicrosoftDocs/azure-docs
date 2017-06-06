@@ -1,5 +1,5 @@
 ---
-title: Load balance Kubernetes containers in Azure | Microsoft Docs
+title: Load balance containers - Azure Kubernetes cluster | Microsoft Docs
 description: Connect externally and load balance across multiple containers in a Kubernetes cluster in Azure Container Service.
 services: container-service
 documentationcenter: ''
@@ -15,54 +15,84 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 06/06/2017
 ms.author: danlep
 
 ---
-# Load balance containers in a Kubernetes cluster in Azure Container Service 
-This article introduces load balancing in a Kubernetes cluster in Azure Container Service. Load balancing provides an externally accessible IP address for the service and distributes network traffic among the pods running in agent VMs.
+# Load balance containers in an Azure Container Service Kubernetes cluster
+In this article, we explore how to load balance containers in a Kubernetes cluster in Azure Container Service. Load balancing provides an externally accessible IP address for a Kubernetes service and distributes network traffic among the pods running in agent VMs. In this tutorial, you:
 
-You can set up a Kubernetes service to use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to manage external network (TCP) traffic. With additional configuration, load balancing and routing of HTTP or HTTPS traffic or more advanced scenarios are possible.
+> [!div class="checklist"]
+> * X
+> * Y
+> * Z
 
-## Prerequisites
-* [Deploy a Kubernetes cluster](container-service-kubernetes-walkthrough.md) in Azure Container Service
-* [Connect your client](container-service-connect.md) to your cluster
+You need a Kubernetes cluster in Container Service to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-k8s-linux.md) can create one for you.
 
-## Azure load balancer
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-By default, a Kubernetes cluster deployed in Azure Container Service includes an Internet-facing Azure load balancer for the agent VMs. (A separate load balancer resource is configured for the master VMs.) Azure load balancer is a Layer 4 load balancer. Currently, the load balancer only supports TCP traffic in Kubernetes.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
+
+
+## Kubernetes load balancing overview
+
+A Kubernetes cluster in Azure Container Service includes an internet-facing Azure load balancer for the agent VMs. (A separate load balancer resource is configured for the master VMs.) Azure load balancer is a Layer 4 load balancer. Currently, the load balancer only supports TCP traffic in Kubernetes. An Azure load balancer is, by default, configured to expose ports 80, 443, and 8080.
 
 When creating a Kubernetes service, you can automatically configure the Azure load balancer to allow access to the service. To configure the load balancer, set the service `type` to `LoadBalancer`. The load balancer creates a rule to map a public IP address and port number of incoming service traffic to the private IP addresses and port numbers of the pods in agent VMs (and vice versa for response traffic). 
 
- Following are two examples showing how to set the Kubernetes service `type` to `LoadBalancer`. (After trying the examples, delete the deployments if you no longer need them.)
+With installation of additional software, load balancing and routing of HTTP or HTTPS traffic or more advanced scenarios are possible. 
 
-### Example: Use the `kubectl expose` command 
-The [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md) includes an example of how to expose a service with the `kubectl expose` command and its `--type=LoadBalancer` flag. Here are the steps :
+## Expose a service with `kubectl expose`
 
-1. Start a new container deployment. For example, the following command starts a new deployment called `mynginx`. The deployment consists of three containers based on the Docker image for the Nginx web server.
+If you don't already have the Kubernetes `kubectl` command line tool installed, use the following command to install it:
 
-    ```console
-    kubectl run mynginx --replicas=3 --image nginx
-    ```
-2. Verify that the containers are running. For example, if you query for the containers with `kubectl get pods`, you see output similar to the following:
+```azurecli-interactive 
+az acs kubernetes install-cli 
+```
 
-    ![Get Nginx containers](./media/container-service-kubernetes-load-balancing/nginx-get-pods.png)
+To get the cluster credentials, use the following command. In this example the cluster named *myK8sCluster* is in the *myResourceGroup* resource group.
 
-3. To configure the load balancer to accept external traffic to the deployment, run `kubectl expose` with `--type=LoadBalancer`. The following command exposes the Nginx server on port 80:
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+```
 
-    ```console
-    kubectl expose deployments mynginx --port=80 --type=LoadBalancer
-    ```
+Start a new container deployment. (In Kubernetes, a container runs inside a *pod*.) The following command starts a new deployment called `mynginx`, consisting of three pods based on the Docker image for the NGINX web server.
 
-4. Type `kubectl get svc` to see the state of the services in the cluster. While the load balancer configures the rule, the `EXTERNAL-IP` of the service appears as `<pending>`. After a few minutes, the external IP address is configured: 
+```bash
+kubectl run mynginx --replicas=3 --image nginx
+```
 
-    ![Configure Azure load balancer](./media/container-service-kubernetes-load-balancing/nginx-external-ip.png)
+To get information about the pods and where they are running, run `kubectl get pods -o wide`. You see output similar to the following:
 
-5. Verify that you can access the service at the external IP address. For example, open a web browser to the IP address shown. The browser shows the Nginx web server running in one of the containers. Or, run the `curl` or `wget` command. For example:
+```bash
+NAME                       READY     STATUS    RESTARTS   AGE       IP           NODE
+mynginx-1358273036-29p3g   1/1       Running   0          5m        10.244.0.6   k8s-agent-2e1359a1-1    
+mynginx-1358273036-6cchp   1/1       Running   0          5m        10.244.0.7   k8s-agent-2e1359a1-1    
+mynginx-1358273036-dsw6v   1/1       Running   0          5m        10.244.1.6   k8s-agent-2e1359a1-0
+```
 
-    ```
-    curl 13.82.93.130
-    ```
+
+To configure the Azure load balancer to accept external traffic to the deployment, run `kubectl expose` with `--type=LoadBalancer`. The following command exposes the NGINX deployment as a service on port 80:
+
+```bash
+kubectl expose deployments mynginx --port=80 --type=LoadBalancer
+```
+
+Type `kubectl get svc` to see the state of the services in the cluster. While the load balancer configures the rule, the `EXTERNAL-IP` of the service appears as `<pending>`. After a few minutes, the external IP address is configured:
+
+```bash
+NAME         CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
+kubernetes   10.0.0.1      <none>         443/TCP        30m
+mynginx      10.0.48.222   40.80.147.20   80:31857/TCP   18m
+```
+
+Verify that you can access the service at the external IP address. For example, open a web browser to the IP address shown (`40.80.147.20` in this example). The browser shows the NGINX web server running in one of the pods. Or, run the `curl` or `wget` command. For example:
+
+```bash
+curl 40.80.147.20
+```
 
     You should see output similar to:
 
