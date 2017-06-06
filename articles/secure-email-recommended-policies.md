@@ -1,5 +1,5 @@
 ---
-title: Recommended policies
+title: Azure AD secure email recommended policies | Microsoft Docs
 description: Describes the policies for Microsoft recommendations about how to apply email policies and configurations.
 author: jeffgilb
 ms.service: guidance
@@ -13,8 +13,7 @@ pnp.series.title: Best Practices
 
 # Recommended policies
  
-This article describes recommended policies to help our customers secure organizational email. 
-
+This article describes recommended policies to help our customers secure organizational email and email clients support Modern Authentication and Conditional Access. Also discussed are the default platform client configurations we recommend to provide the best SSO experience to your users, as well as the technical pre-requisites for conditional access.
 ## Prerequisites
 
 Before implementing the policies described in the remainder of this document, there are several prerequisites that your organization must meet:
@@ -116,7 +115,7 @@ The goal for your device and app management policies is to protect data loss in 
 |**Apply an Intune Device Compliance Policy on managed devices**|Apply an Intune Device Compliance Policy for managed corporate mobile devices and Intune-managed PCs that requires: a PIN with minimum length 6, device encryption, a healthy device (is not jailbroken, rooted; passes health attestation), and if available, require devices that are Low risk as determined by a third-party MTP like Lookout or SkyCure|
 |**Apply an Intune App Protection Policy for managed apps running on unmanaged devices**|Apply an Intune App Protection Policy for managed apps running on unmanaged, personal mobile devices to require: a PIN with minimum length 6, device encryption, and that the device is healthy (is not jailbroken, rooted; passes health attestation)|
 
-### User Impact
+### User impact
 
 For most organizations, it is important to be able to set user expectations around when and for which conditions they will be expected to sign into Office 365 to access their email.  
 
@@ -156,7 +155,7 @@ The goal for these device and app management policies is to protect data loss in
 |**Apply an Intune Device Compliance Policy on managed devices**|Apply an Intune Device Compliance Policy for managed corporate mobile devices and Intune-managed PCs that requires: a PIN with minimum length 6, device encryption, a healthy device (is not jailbroken, rooted; passes health attestation), and if available, require devices that are Low risk as determined by a third-party MTP like Lookout or SkyCure|
 |**Apply an Intune App Protection Policy for managed apps running on unmanaged devices**|Apply an Intune App Protection Policy for managed apps running on unmanaged, personal mobile devices to require: a PIN with minimum length 6, device encryption, and that the device is healthy (is not jailbroken, rooted; passes health attestation)|
 
-### User Impact
+### User impact
 
 For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
@@ -193,7 +192,7 @@ For the highly regulated tier, we recommend requiring apps that support Intune A
 |**Require user mobile device management**|Require that user devices used to access email are managed by Intune or company email is accessed only through mobile email apps protected by Intune App Protection policies such as Outlook Mobile|
 |**Apply an Intune Device Compliance Policy on managed devices**|Apply an Intune Device Compliance Policy for managed corporate mobile devices and Intune-managed PCs that requires: a PIN with minimum length 6, device encryption, a healthy device (is not jailbroken, rooted; passes health attestation), and, if available, require devices that are Low risk as determined by a third-party MTP like Lookout or SkyCure|
 
-### User Impact
+### User impact
 For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 * Maximum lifetime of a single sign-on session is 1 day. Users will be required to re-authenticate with MFA after the sessions expire.
@@ -204,5 +203,5 @@ For most organizations, it is important to be able to set expectations for users
   * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
 
 
-## Next Steps
+## Next steps
 [Deploy recommended policies](secure-email-deploy-recommended-policies.md)
