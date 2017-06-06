@@ -502,7 +502,7 @@ To install Oracle Golden Gate, complete the following steps:
     SQL> connect C##GGADMIN/ggadmin
     SQL> ALTER SESSION SET CONTAINER=PDB1;
     SQL> EXIT;
-  ```
+    ```
 
 3. Create the Golden Gate test user account:
 
