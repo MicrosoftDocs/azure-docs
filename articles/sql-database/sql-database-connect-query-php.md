@@ -13,7 +13,7 @@ ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
-ms.topic: herp-article
+ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: meetb
 
