@@ -73,6 +73,14 @@ When a federated or password hash synchronized user comes to reset or change the
 
 ## Configuring password writeback
 
+### AD Permissions required
+Before configuring Password Writeback in Azure AD Connect, you need to grant **Reset Password** permission to the AD DS account used by Azure AD Connect for synchronizating with on-premises AD. The permission must be granted for all domains in the forest synchronized by Azure AD.
+
+> [!Important]
+> As best practice, it is recommended that you **DO NOT** grant **Reset Password** permission for adminSDHolder objects to Azure AD Connect. If you do so, Azure AD administrators can use the Password Writeback feature to reset the passwords of on-premises AD privileged accounts (such as Enterprise administrator accounts and Domain administrator accounts). For information about adminSDHolder objects and how it affects privileged accounts, refer to article [Protected Accounts and Groups in Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+
+### Configuring Azure AD Connect
+
 We recommend that you use the auto-update feature of [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) if you want to use password writeback.
 
 DirSync and Azure AD Sync are no longer supported means of enabling password writeback the article [Upgrade from DirSync and Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) has more information to help with your transition.
