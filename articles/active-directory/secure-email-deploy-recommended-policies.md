@@ -179,7 +179,7 @@ Add a new policy (+Add) as shown in the following screen shot:
 >
 
 The following tables describe, in details, the appropriate settings necessary to express the policies required for each level of protection.
-
+|
 The following table describes the recommended Intune app protection policy settings.
 
 |Categories|Type|Properties|Values|Notes|
@@ -189,7 +189,7 @@ The following table describes the recommended Intune app protection policy setti
 |||Platform|Android|There are slight differences in the app protection policy options between iOS and Android; this policy is specifically for Android|
 |**Apps**|Applications|Apps|Outlook|Selected (list)|
 |**Settings**|Data relocation|Prevent Android backup|Yes|On iOS this will specifically call out iTunes and iCloud|
-|||Allow app to transfer data to other apps|Policy managed apps||
+||||Allow app to transfer data to other apps|Policy managed apps||
 |||Allow app to receive data to other apps|Policy managed apps||
 |||Prevent "Save As"|Yes||
 |||Restrict cut, copy, and paste with other apps|Policy managed apps||
@@ -216,16 +216,15 @@ You create the following Configuration and Compliance policies by logging into t
 #### iOS email profile
 In the [Intune management portal (https://manage.microsoft.com)](https://manage.microsoft.com/) create the following Configuration policies at **Policy > Configuration Policies > Add > iOS > Email Profile (iOS 8 and later)**.
 
-
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
-||**Email profile**|Exchange Active Sync|Host (#)|Outlook.office365.com|
+|**Email profile**|Exchange Active Sync|Host (#)|Outlook.office365.com||
 |||Account Name (#)|SecureEmailAccount|Admini choice|
 |||Username|User principal name|Selected – Drop down|
 |||Email address|Primary SMTP address|Selected – Drop down|
 |||Authentication method|Username and password|Selected – Drop down|
 |||Use S/MIME|False||
-||Synchronization settings|Number of days of email to synchronize|Two weeks|Selected – Drop down|
+|Synchronization settings|Number of days of email to synchronize|Two weeks|Selected – Drop down||
 |||Use SSL|True|Check|
 |||Allow messages to be moved to other email accounts|False||
 |||Allow email to be sent from third party applications|True||
