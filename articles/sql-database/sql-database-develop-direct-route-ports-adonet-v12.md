@@ -19,7 +19,11 @@ ms.author: sstein
 
 ---
 # Ports beyond 1433 for ADO.NET 4.5
-This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version.
+This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version. 
+
+> ![IMPORTANT]
+> For information about connectivity architecture, see [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md).
+>
 
 ## Outside vs inside
 For connections to Azure SQL Database, we must first ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.

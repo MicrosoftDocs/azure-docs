@@ -4,7 +4,7 @@ description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 4/10/2017
-ms.author: jotaub;sethm
+ms.author: sethm
 
 ---
 
