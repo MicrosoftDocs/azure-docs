@@ -441,7 +441,7 @@ To install Oracle Golden Gate, complete the following steps:
 
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_03.png)
 
-5. On Summary screen, select **Install** to continue.
+5. On the **Summary** screen, select **Install** to continue.
 
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_04.png)
 
@@ -651,7 +651,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
     )
   ```
 
-2. Create replicate account:
+2. Create a replicate account:
 
   ```bash
   $ sqlplus / as sysdba
