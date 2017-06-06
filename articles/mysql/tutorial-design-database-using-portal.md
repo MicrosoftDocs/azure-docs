@@ -42,24 +42,22 @@ An Azure Database for MySQL server is created with a defined set of [compute and
 
 In our example, fill out the Azure Database for MySQL form with the following information:
 
-| **Form Field** | **Field Description** |
-|----------------|-----------------------|
-| *Server name* | myserver4demo (server name has to be globally unique) |
-| *Subscription* | mysubscription (select your subscription from the drop-down) |
-| *Resource group* | myresourcegroup (create a resource group or use an existing one) |
-| *Server admin login* | myadmin (setup admin account name) |
-| *Password* | set a strong admin account password |
-| *Confirm password* | confirm admin account password |
-| *Location* | select an available region |
-| *Version* | 5.7 (choose the latest version) |
-| *Configure performance* | Basic, 50 compute units, 50 GB  (choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**) |
-| *Pin to Dashboard* | recommended to check this box so you may find the server easily later on |
+| **Setting** | **Suggested value** | **Field Description** |
+|---|---|---|
+| *Server name* | myserver4demo  | Server name has to be globally unique. |
+| *Subscription* | mysubscription | Select your subscription from the drop-down. |
+| *Resource group* | myresourcegroup | Create a resource group or use an existing one. |
+| *Server admin login* | myadmin | Setup admin account name. |
+| *Password* |  | Set a strong admin account password. |
+| *Confirm password* |  | Confirm the admin account password. |
+| *Location* |  | Select an available region. |
+| *Version* | 5.7 | Choose the latest version. |
+| *Configure performance* | Basic, 50 compute units, 50 GB  | Choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**. |
+| *Pin to Dashboard* | Check | Recommended to check this box so you may find the server easily later on |
 Then, click **Create**. In a minute or two, you will have a new Azure Database for MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
 > [!TIP]
 > We recommend that you put Azure services in the same region and select the location closest to you. In addition, you can check the **Pin to dashboard** option to allow easy tracking of your deployments.
-
-![2-2 Create server](./media/tutorial-design-database-using-portal/2_2-Create-server.png)
 
 ## Configure firewall
 Azure Databases for MySQL are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Before connecting to Azure Database for MySQL from your client for the first time, you must configure the firewall and add the client’s public network IP address (or IP address range) to the whitelist.
@@ -138,17 +136,19 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-1. In the Azure portal, click on your Azure Database for MySQL. On the Overview page, click **Restore** on the toolbar. The **Restore** page opens.
+1. In the Azure portal, click on your Azure Database for MySQL. On the **Overview** page, click **Restore** on the toolbar. The Restore page opens.
 
    ![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
-2. Fill out the **Restore** form with the required information:
-   - **Restore point**: Select a point-in-time that occurs before the server was changed.
-   - **Restore to new server**: Provide a new server name you want to restore to.
-   - **Location**: You cannot select the region, by default it is same as the source server.
-   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server.
+2. Fill out the **Restore** form with the required information.
+   
    ![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
-
+   
+   - **Restore point**: Select a point-in-time that you want to restore to, within the timeframe listed. Make sure to convert your local timezone to UTC.
+   - **Restore to new server**: Provide a new server name you want to restore to.
+   - **Location**: The region is same as the source server, and cannot be changed.
+   - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
+   
 3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
 ## Next Steps
