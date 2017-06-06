@@ -16,7 +16,7 @@ ms.author: carolz
     <h1>Jenkins on Azure</h1> <img src="media/Jenkins.png" alt="Jenkins Logo">
     <div class="introHolder" style="justify-content: space-between;">
         <div class="intro" style="min-width: 200px">
-            <p>Jenkins, a popular open source automation server, is <a href="https://jenkins.io/blog/2016/05/18/announcing-azure-partnership/">partnering with Azure</a> to enable powerful DevOps scenarios.  Learn how to install Jenkins on Azure and enable CI/CD for your solutions. Start with one of the quickstarts and then go into the tutorials for step by step guidance for more complex scenarios.  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins">Meet Jenkins</a> to learn Jenkins basics.</p>
+            <p>Jenkins, a popular open source automation server, is <a href="https://jenkins.io/blog/2016/05/18/announcing-azure-partnership/">partnering with Azure</a> to enable powerful DevOps scenarios.  Start with the quickstarts for quickly installing and configuring Jenkins on Azure.  Use the tutorials for step by step guidance for CI/CD scenarios.  <a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins">Meet Jenkins</a> to learn more about Jenkins basics.</p>
         </div>
     </div>
 <h2 style="margin-top: 24px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
