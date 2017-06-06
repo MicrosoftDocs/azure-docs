@@ -95,13 +95,13 @@ az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sC
 
 To verify the connection to your cluster from your machine, try running:
 
-```bash
+```bash-interactive
 kubectl get nodes
 ```
 
 `kubectl` lists the master and agent nodes.
 
-```bash
+```bash-interactive
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
 k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
@@ -148,19 +148,19 @@ Create a local file named `iis.json` and copy the following text. This file tell
 
 To start the pod, type:
   
-```bash
+```bash-interactive
 kubectl apply -f iis.json
 ```  
 
 To track the deployment, type:
   
-```bash
+```bash-interactive
 kubectl get pods
 ```
 
 While the pod is deploying, the status is `ContainerCreating`. Because of the size of the IIS image, it can take several minutes for the container to enter the `Running` state.
 
-```bash
+```bash-interactive
 NAME     READY        STATUS        RESTARTS    AGE
 iis      1/1          Running       0           32s
 ```
@@ -169,7 +169,7 @@ iis      1/1          Running       0           32s
 
 To expose the pod to the world with a public IP address, type the following command:
 
-```bash
+```bash-interactive
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
@@ -177,13 +177,13 @@ With this command, Kubernetes creates a service and an [Azure load balancer rule
 
 Run the following command to see the status of the service.
 
-```bash
+```bash-interactive
 kubectl get svc
 ```
 
 Initially the IP address appears as `pending`. After a few minutes, the external IP address of the `iis` pod is set:
   
-```bash
+```bash-interactive
 NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
 kubernetes   10.0.0.1       <none>          443/TCP        21h       
 iis          10.0.111.25    13.64.158.233   80/TCP         22m

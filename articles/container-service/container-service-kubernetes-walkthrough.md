@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli-interactive 
+```azurecli-interactive
 az login
 ```
 
@@ -88,13 +88,13 @@ az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sC
 
 To verify the connection to your cluster from your machine, try running:
 
-```bash
+```bash-interactive
 kubectl get nodes
 ```
 
 `kubectl` lists the master and agent nodes.
 
-```bash
+```bash-interactive
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
 k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
@@ -109,19 +109,19 @@ You can run a Docker container inside a Kubernetes *pod*, which contains one or 
 
 The following command starts the NGINX Docker container in a Kubernetes pod on one of the nodes. In this case, the container runs the NGINX web server pulled from an image in [Docker Hub](https://hub.docker.com/_/nginx/).
 
-```bash
+```bash-interactive
 kubectl run nginx --image nginx
 ```
 To see that the container is running, run:
 
-```bash
+```bash-interactive
 kubectl get pods
 ```
 
 ## View the NGINX welcome page
 To expose the NGINX server to the world with a public IP address, type the following command:
 
-```bash
+```bash-interactive
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
@@ -129,13 +129,13 @@ With this command, Kubernetes creates a service and an [Azure load balancer rule
 
 Run the following command to see the status of the service.
 
-```bash
+```bash-interactive
 kubectl get svc
 ```
 
 Initially the IP address appears as `pending`. After a few minutes, the external IP address of the service is set:
   
-```bash
+```bash-interactive
 NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
 kubernetes   10.0.0.1       <none>          443/TCP        21h       
 nginx        10.0.111.25    52.179.3.96     80/TCP         22m

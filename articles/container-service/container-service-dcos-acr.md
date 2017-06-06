@@ -68,25 +68,25 @@ FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.f
 
 Create an SSH connection with the master (or the first master) of your DC/OS-based cluster. Note, update the user name if a non-default value was used when creating the cluster.
 
-```bash
+```bash-interactive
 ssh azureuser@$FQDN
 ```
 
 Run the following command to log into the Azure Container Registry. This command will store the the authentication values locally under the `~/.docker` path.
 
-```bash
+```bash-interactive
 docker login --username=password --password=Pk===2Wwy=R++/7i+zSnf=KA6J=/NJpW mycontainerregistry2675.azurecr.io
 ```
 
 Create a compressed file that containers the container registry authentication values.
 
-```bash
+```bash-interactive
 tar czf docker.tar.gz .docker
 ```
 
 Copy this file to the cluster shred storge. This will make the fiel avaliable on all nodes of the DC/OS cluster.
 
-```bash
+```bash-interactive
 cp docker.tar.gz /mtn/share/dcos
 ```
 

@@ -48,13 +48,21 @@ Marathon Load Balancer dynamically reconfigures itself based on the containers t
 
 Run the following command to install the marathon load balancer on the public agent's cluster.
 
-```bash
+```bash-interactive
 dcos package install marathon-lb
 ```
 
 ## Deploy load balanced application
 
-Now that we have the marathon-lb package, we can deploy an application container that we wish to load balance. Create a file named *hello-web.json* and copy in the following contents.
+Now that we have the marathon-lb package, we can deploy an application container that we wish to load balance. 
+
+First, get the FQDN of the publicly exposed agents.
+
+```azurecli-interactive
+az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].fqdn" --output tsv
+```
+
+Next, create a file named *hello-web.json* and copy in the following contents. The `HAPROXY_0_VHOST` label needs to be updated with the FQDN of the DC/OS agents. 
 
 ```json
 {
@@ -90,19 +98,15 @@ Now that we have the marathon-lb package, we can deploy an application container
 }
 ```
 
-The `HAPROXY_0_VHOST` label needs to be updated with the FQDN of the DC/OS cluster. This can be found using the [az acs list](/cli/azure/acs#list) command.
-
-```azurecli-interactive
-az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles.fqdn" --output tsv
-```
-
-It is worth noting that by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the behavior we desire.
-
 Use the dcos CLI to run the application. Note, the by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the desired behavior.
 
-```bash
+```bash-interactive
 dcos marathon app add hello-web.json
 ```
+
+Once the application has been deployed, browse to the FQDN of the agent cluster to view load balanced application.
+
+![Image of load balanced application](media/container-service-load-balanging/lb-app.png)
 
 ## Configure Azure Load Balancer
 

@@ -66,13 +66,13 @@ FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.f
 
 Copy your private key to the master node. This will be needed to create an ssh connection with all nodes in the cluster. Note, update the user name if a non-default value was used when creating the cluster. 
 
-```bash
+```bash-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
 Create an SSH connection with the master (or the first master) of your DC/OS-based cluster. Note, update the user name if a non-default value was used when creating the cluster.
 
-```bash
+```bash-interactive
 ssh azureuser@$FQDN
 ```
 
@@ -80,7 +80,7 @@ Create a file named **cifsMount.sh** and copy the following contents into it. Th
 
 Update the variables with the proper storage account name and storage access key. These can be found in the Azure portal.
 
-```bash
+```bash-interactive
 #!/bin/bash
 
 # Azure storage account name and access key
@@ -99,13 +99,13 @@ sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/sha
 
 Run the script to mount the Azure file share on the DC/OS master node.
 
-```bash
+```bash-interactive
 sh ./cifsMount.sh
 ```
 
 Create a second file named **mountShares.sh** and copy the following contents into the file. This script will discover all cluster nodes and run the script to mount the Azure file share on them.
 
-```bash
+```bash-interactive
 #!/bin/bash
 
 # Install jq used for the next command
@@ -123,7 +123,7 @@ do
 
 Run the script to mount the Azure file share on all nodes of the cluster.
 
-```bash
+```bash-interactive
 sh ./mountShares.sh
 ```  
 
