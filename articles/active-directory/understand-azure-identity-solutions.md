@@ -4,7 +4,7 @@ description: Get a basic understanding of Microsoft Azure identity solution term
 keywords:
 author: jeffgilb
 manager: femila
-ms.date: 5/12/2017
+ms.date: 6/6/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -100,7 +100,6 @@ Here are some common identity and access scenarios with recommendations as to wh
 
 Now that you understand Azure identity concepts and the options available to you, you can use the following resources to get started implementing the option you’ve chosen:
 
-[Test your understanding of Azure identity solutions](https://aka.ms/aad-understand-quiz)
 
 [Learn more in an Azure Proof of Concept environment](https://aka.ms/aad-poc)
 
