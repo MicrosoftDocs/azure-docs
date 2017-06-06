@@ -1,6 +1,6 @@
 ---
-title: Deploy a VM with a securely stored certificate on Azure Stack  | Microsoft Docs
-description: Learn how deploy a VM and inject a certificate from Azure Stack Key Vault
+title: Deploy a virtual machine with a securely stored certificate on Azure Stack | Microsoft Docs
+description: Learn how deploy a virtual machine and push a certificate onto it by using Key Vault in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/15/2017
+ms.date: 06/06/2017
 ms.author: sngun
 
 ---
@@ -51,9 +51,19 @@ vault as a secret.
 ```powershell
 
 # Create a certificate in the .pfx format
-New-SelfSignedCertificate -certstorelocation cert:\LocalMachine\My -dnsname contoso.microsoft.com
-$pwd = ConvertTo-SecureString -String "<Password used to export the certificate>" -Force -AsPlainText
-Export-PfxCertificate -cert "cert:\localMachine\my\<Your certificate Thumbprint>" -FilePath "<Fully qualified path to the certificate>" -Password $pwd
+New-SelfSignedCertificate `
+  -certstorelocation cert:\LocalMachine\My `
+  -dnsname contoso.microsoft.com
+
+$pwd = ConvertTo-SecureString `
+  -String "<Password used to export the certificate>" `
+  -Force `
+  -AsPlainText
+
+Export-PfxCertificate `
+  -cert "cert:\localMachine\my\<Your certificate Thumbprint>" `
+  -FilePath "<Fully qualified path to the certificate>" `
+  -Password $pwd
 
 # Upload the certificate into the Key Vault as a secret
 $vaultName = "contosovault"
@@ -63,7 +73,9 @@ $secretName = "servicecert"
 $fileName = "<Fully qualified path to the certificate>"
 $certPassword = "<Password used to export the certificate>"
 
-$fileContentBytes = get-content $fileName -Encoding Byte
+$fileContentBytes = get-content $fileName `
+  -Encoding Byte
+
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $jsonObject = @"
 {
@@ -76,10 +88,24 @@ $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
 # Create a Key Vault and upload a secret to it
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroup -Location $location -sku standard -EnabledForDeployment
-$secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-Set-AzureKeyVaultSecret -VaultName $vaultName -Name $secretName -SecretValue $secret
+New-AzureRmResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+New-AzureRmKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location `
+  -sku standard `
+  -EnabledForDeployment
+
+$secret = ConvertTo-SecureString `
+  -String $jsonEncoded `
+  -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+   -SecretValue $secret
 
 ```
 
@@ -93,7 +119,9 @@ group, and the secret URI. Of course, you can
 also download it from GitHub and modify as needed.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name KVDeployment -ResourceGroupName $resourceGroup `
+New-AzureRmResourceGroupDeployment `
+  -Name KVDeployment `
+  -ResourceGroupName $resourceGroup `
   -TemplateFile C:\Users\AzureStackAdmin\Desktop\Test\azuredeploy.json `
   -TemplateParameterFile C:\Users\AzureStackAdmin\Desktop\Test\azuredeploy.parameters.json
 ```
