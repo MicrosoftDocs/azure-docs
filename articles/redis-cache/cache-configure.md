@@ -496,9 +496,9 @@ To issue commands against your cache instance, simply type the desired command i
 
 Not all Redis commands are supported in Azure Redis Cache. For list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 
-### Using Redis console with a premium clustered cache
+### Using the Redis Console with a premium clustered cache
 
-When using the Redis console with a premium cache with clustering enabled, you can issue commands to a single shard of the cache. To issue a command to a specific shard, first select the desired shard by clicking it on the shard picker.
+When using the Redis Console with a premium clustered cache, you can issue commands to a single shard of the cache. To issue a command to a specific shard, first connect to the desired shard by clicking it on the shard picker.
 
 ![Redis console](./media/cache-configure/redis-console-premium-cluster.png)
 
