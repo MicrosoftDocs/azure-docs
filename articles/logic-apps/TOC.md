@@ -45,12 +45,12 @@
 ### [EDIFACT enterprise integration](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT encoding](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT decoding](logic-apps-enterprise-integration-edifact-decode.md)
-### [How to handle EDIFACT documents having UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
+### [How to handle EDIFACT documents having a UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12 enterprise integration](logic-apps-enterprise-integration-x12.md)
 ### [X12 encoding](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
 ### [Disaster recovery](logic-apps-enterprise-integration-b2b-business-continuity.md)
-### [Errors and solutions] (logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
+### [Errors and solutions](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Access on-premises data
 ### [Connect to on-premises data](logic-apps-gateway-connection.md)
