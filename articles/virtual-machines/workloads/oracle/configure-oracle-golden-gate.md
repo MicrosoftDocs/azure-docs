@@ -313,9 +313,9 @@ $ lsnrctl start
 ```
 
 ## Configure Golden Gate 
-To configure Golden Gate, follow take the steps in this section.
+To configure Golden Gate, take the steps in this section.
 
-### Enable archive log mode on myVM1 (primary):
+### Enable archive log mode on myVM1 (primary)
 
 ```bash
 $ sqlplus / as sysdba
@@ -749,7 +749,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-### 3. Set up the replication on myVM2 (replicate)
+#### 3. Set up the replication on myVM2 (replicate)
 
 Change the SCN number with the number you obtained before:
 
