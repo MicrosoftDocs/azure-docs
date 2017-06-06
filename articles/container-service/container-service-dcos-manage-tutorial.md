@@ -73,7 +73,7 @@ ip=$(az network public-ip list --resource-group myResourceGroup --query "[?conta
 
 To create the SSH tunnel, run the following command and follow the on-screen instructions. Note, if port 80 is already in use, the command fails. Update the tunneled port to one not in use, such as `85:localhost:80`. 
 
-```bash-interactive
+```azurecli-interactive
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -87,7 +87,7 @@ az acs dcos install-cli
 
 Before the CLI can be used with the cluster, it must be configured to use the SSH tunnel. To do so, run the following command, adjusting the port if needed.
 
-```bash-interactive
+```azurecli-interactive
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -133,13 +133,13 @@ dcos marathon app add marathon-app.json
 
 To see the deployment status for the app, run the following command.
 
-```bash-interactive
+```azurecli-interactive
 dcos marathon app list
 ```
 
 When the **WAITING** column value switches from *True* to *False*, application deployment has completed.
 
-```bash-interactive
+```azurecli-interactive
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```

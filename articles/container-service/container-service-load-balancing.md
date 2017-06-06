@@ -48,7 +48,7 @@ Marathon Load Balancer dynamically reconfigures itself based on the containers t
 
 Run the following command to install the marathon load balancer on the public agent's cluster.
 
-```bash-interactive
+```azurecli-interactive
 dcos package install marathon-lb
 ```
 
@@ -100,7 +100,7 @@ Next, create a file named *hello-web.json* and copy in the following contents. T
 
 Use the dcos CLI to run the application. Note, the by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the desired behavior.
 
-```bash-interactive
+```azurecli-interactive
 dcos marathon app add hello-web.json
 ```
 
