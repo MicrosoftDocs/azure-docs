@@ -22,7 +22,7 @@ Application Insights frequently releases new features. If you want to see previe
 
 The following image illustrates how to set your preview preferences.
 
-![Application Insights Preview blade](./media/app-insights-previews/preview.png)
+![Application Insights Preview blade](./media/app-insights-preview/preview.png)
 
 On the Preview blade, you can select from the following options for when you see previews.
 
