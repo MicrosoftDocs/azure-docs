@@ -259,17 +259,16 @@ For more detailed information on using Shared Access Signatures and Stored Acces
 ### Transport-Level Encryption – Using HTTPS
 Another step you should take to ensure the security of your Azure Storage data is to encrypt the data between the client and Azure Storage. The first recommendation is to always use the [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protocol, which ensures secure communication over the public Internet.
 
-You should always use HTTPS when calling the REST APIs or accessing objects in storage. Also, **Shared Access Signatures**, which can be used to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used when using Shared Access Signatures, ensuring that anybody sending out links with SAS tokens will use the proper protocol.
+To have a secure communication channel, you should always use HTTPS when calling the REST APIs or accessing objects in storage. Also, **Shared Access Signatures**, which can be used to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used when using Shared Access Signatures, ensuring that anybody sending out links with SAS tokens will use the proper protocol.
 
-#### Resources
-* [Enable HTTPS for an app in Azure App Service](../app-service-web/web-sites-configure-ssl-certificate.md)
-  
-  This article shows you how to enable HTTPS for an Azure Web App.
+You can enforce the use of HTTPS when calling the REST APIs to access objects in storage accounts by enabling Secure Transfer for the storage account. Connections using HTTP will be refused once this is enabled. 
 
 ### Using encryption during transit with Azure File Shares
-Azure File Storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and can be used with Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop.
+Azure File Storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop.
 
 Note that while Azure File Shares can be used with Unix, the Linux SMB client does not yet support encryption, so access is only allowed within an Azure region. Encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. When they add encryption, you will have the same ability for accessing an Azure File Share on Linux as you do for Windows.
+
+You can enforce the use of encryption with the Azure Files service by enabling Secure Transfer for the storage account. If using the REST APIs, HTTPs is required. For SMB, only SMB connections that support encryption will connect successfully.
 
 #### Resources
 * [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
