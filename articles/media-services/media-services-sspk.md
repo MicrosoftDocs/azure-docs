@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 06/06/2017
 ms.author: xpouyat
 
 ---
@@ -103,6 +103,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
+* Arion Technology, Inc.
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
 * Advanced Digital Broadcast SA
@@ -149,6 +150,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
+* Arion Technology, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
