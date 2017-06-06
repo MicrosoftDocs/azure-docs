@@ -86,7 +86,7 @@ To manage mobile apps, log in to the Microsoft Azure portal with your administra
 |**User access**|Allowed apps|Restricted user groups|Add users groups – Select specific security group containing targeted users|Start with security group including pilot users|
 |||Exempt user groups|Exception security groups|||
 
-#### Apply to:
+#### Apply to
 
 Once your pilot project has been completed, these policies should be applied to all users in your organization.
 
@@ -117,7 +117,7 @@ The following table describes the conditional access policy settings to implemen
 
 (See baseline instructions)
 
-#### Apply to:
+#### Apply to
 
 Once the pilot project has been completed, these policies should be applied to users in your organization who require access to email considered sensitive.
 
@@ -142,7 +142,7 @@ The following table describes the conditional access policy settings to implemen
 (See baseline instructions)
 ### Mobile application management conditional access for Exchange online
 (See baseline instructions)
-#### Apply to:
+#### Apply to
 Once the pilot project has been completed, these policies should be applied to users in your organization who require access to email considered highly regulated.
 
 ## User risk policy
