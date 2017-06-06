@@ -43,7 +43,7 @@ Sample code.
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cards">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
