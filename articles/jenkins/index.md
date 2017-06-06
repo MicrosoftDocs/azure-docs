@@ -23,7 +23,7 @@ ms.author: carolz
 <p style="margin-top: 6px; margin-bottom: 6px;">Learn how to quickly get started with Jenkins on Azure.</p>
 <div class="ico48Case">
    <div class="ico48Link">
-        <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> -- TODO: Solution Template
+        <a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace-- TODO: Solution Template
     </div>
 </div>
 
@@ -33,6 +33,7 @@ ms.author: carolz
     <li>Configure Jenkins to work with <a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Azure Storage</a>.</li>
     <li>CI/CD with <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins and Docker on Azure VMs</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Jenkins integration</a> with <a href="/azure/container-service/container-service-kubernetes-walkthrough">Azure Container Service and Kubernetes.</a></li>
+    <li>Automate Azure with <a href="/azure/container-service/container-service-kubernetes-jenkins">Azure CLI </a>via Jenkins. -- TODO</li>
 </ol>
 
 <h2>Sample code</h2>
