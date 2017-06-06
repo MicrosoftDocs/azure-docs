@@ -26,12 +26,12 @@ Event Hubs Capture enables you to process real-time and batch-based pipelines on
 ## How Event Hubs Capture works
 Event Hubs is a time-retention durable buffer for telemetry ingress, similar to a distributed log. The key to scaling in Event Hubs is the [partitioned consumer model](event-hubs-features.md#partitions). Each partition is an independent segment of data and is consumed independently. Over time this data ages off, based on the configurable retention period. As a result, a given event hub never gets "too full."
 
-Event Hubs Capture enables you to specify your own Azure Blob Storage account and Container which will be used to store the captured data. This account can be in the same region as your event hub or in another region, adding to the flexibility of the Event Hubs Capture feature.
+Event Hubs Capture enables you to specify your own Azure Blob Storage account and container, which is used to store the captured data. This account can be in the same region as your event hub or in another region, adding to the flexibility of the Event Hubs Capture feature.
 
-Captured data is written in [Apache Avro][Apache Avro] format: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, as well as by Stream Analytics and Azure Data Factory. More information about working with Avro is available later in this article.
+Captured data is written in [Apache Avro][Apache Avro] format: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory. More information about working with Avro is available later in this article.
 
 ### Capture windowing
-Event Hubs Capture enables you to set up a "window" to control archiving. This window is a minimum size and time configuration with a "first wins policy," meaning that the first trigger encountered causes a capture operation. If you have a fifteen-minute, 100 MB capture window and send 1 MB per second, the size window will trigger before the time window. Each partition captures independently and writes a completed block blob at the time of capture, named for the time at which the capture interval was encountered. The naming convention is as follows:
+Event Hubs Capture enables you to set up a "window" to control archiving. This window is a minimum size and time configuration with a "first wins policy," meaning that the first trigger encountered causes a capture operation. If you have a fifteen-minute, 100 MB capture window and send 1 MB per second, the size window triggers before the time window. Each partition captures independently and writes a completed block blob at the time of capture, named for the time at which the capture interval was encountered. The naming convention is as follows:
 
 ```
 [Namespace]/[EventHub]/[Partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
@@ -41,18 +41,18 @@ Event Hubs Capture enables you to set up a "window" to control archiving. This w
 
 Event Hubs traffic is controlled by [throughput units](event-hubs-features.md#capacity). A single throughput unit allows 1 MB per second or 1000 events per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units, and you can purchase more via a quota increase [support request][support request]. Usage beyond your purchased throughput units is throttled. Event Hubs Capture copies data directly from the internal Event Hubs storage, bypassing throughput unit egress quotas and saving your egress for other processing readers, such as Stream Analytics or Spark.
 
-Once configured, Event Hubs Capture runs automatically as soon as you send your first event. It continues running at all times. To make it easier to for your downstream processing to know that the process is working, Event Hubs writes empty files when there is no data. This provides a predictable cadence and marker that can feed your batch processors.
+Once configured, Event Hubs Capture runs automatically when you send your first event, and continues running. To make it easier to for your downstream processing to know that the process is working, Event Hubs writes empty files when there is no data. This process provides a predictable cadence and marker that can feed your batch processors.
 
 ## Setting up Event Hubs Capture
 
-You can configure Capture at the event hub creation time via the portal, or Azure Resource Manager. You simply enable Capture by clicking the **On** button. You configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Capture uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
+You can configure Capture at the event hub creation time via the portal, or Azure Resource Manager. You can enable Capture by clicking the **On** button in the portal UI. You configure a Storage Account and container by clicking the **Container** section of the blade. Because Event Hubs Capture uses service-to-service authentication with storage, you do not need to specify a storage connection string. The resource picker selects the resource URI for your storage account automatically. If you use Azure Resource Manager, you must supply this URI explicitly as a string.
 
 The default time window is 5 minutes. The minimum value is 1, the maximum 15. The **Size** window has a range of 10-500 MB.
 
 ![][1]
 
 ## Adding Capture to an existing event hub
-Capture can be configured on existing event hubs that are in an Event Hubs namespace. The feature is not available on older **Messaging** or **Mixed** type namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click your namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Capture setting. Finally, click on the **Properties** section of the open blade as shown in the following figure.
+Capture can be configured on existing event hubs that are in an Event Hubs namespace. The feature is not available on older **Messaging** or **Mixed** type namespaces. To enable Capture on an existing event hub, or to change your Capture settings, click your namespace to load the **Essentials** blade, then click the event hub for which you want to enable or change the Capture setting. Finally, click the **Properties** section of the open blade, as shown in the following figure:
 
 ![][2]
 
