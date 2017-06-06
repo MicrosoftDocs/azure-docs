@@ -55,9 +55,9 @@ Here are a few examples of valid names that follow the pattern:
 
 The service names aren't in the filename examples, but are an element in each URL path:
 
-* https://docs.microsoft.com/azure/**cloud-service**/dotnet-continuous-delivery
-* https://docs.microsoft.com/azure/**mobile-services**/ios-get-started
-* https://docs.microsoft.com/azure/**documentdb**/manage-account
+* /azure/**cloud-service**/dotnet-continuous-delivery
+* /azure/**mobile-services**/ios-get-started
+* /azure/**documentdb**/manage-account
 
 ## A/B testing
 
