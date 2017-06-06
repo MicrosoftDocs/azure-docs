@@ -484,6 +484,7 @@ You can securely issue commands to your Azure Redis Cache instances using the **
 > [!IMPORTANT]
 > - To use the Redis Console, your computer's proxy/firewall settings must allow outbound tcp traffic on port 10225. If this port is blocked, you receive errors similar to the following when you attempt to issue commands: `undefinded` and `Connection closed: your next command will be run on a new connection.`
 > - The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
+> - Not all Redis commands are supported in Azure Redis Cache. For a list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 > 
 > 
 
@@ -495,7 +496,6 @@ To issue commands against your cache instance, simply type the desired command i
 
 ![Redis console](./media/cache-configure/redis-console.png)
 
-Not all Redis commands are supported in Azure Redis Cache. For a list of Redis commands that are disabled for Azure Redis Cache, see the previous [Redis commands not supported in Azure Redis Cache](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 
 ### Using the Redis Console with a premium clustered cache
 
