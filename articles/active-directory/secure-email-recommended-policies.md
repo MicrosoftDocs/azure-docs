@@ -137,7 +137,7 @@ You can apply increased protection to all or specific data sets in your Office 3
 You can give users single sign-on (SSO) experience as described in earlier sections. You only need to intervene when necessary based on [risk events](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events).   
 
 * Require MFA on low or above risk sessions
-* Require secure password change for high risk users
+ * Require secure password change for high risk users
 
 >[!IMPORTANT]
 >[Password synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization) and [self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) are required for this policy recommendation.
@@ -147,7 +147,7 @@ You can give users single sign-on (SSO) experience as described in earlier secti
 
 The goal for these device and app management policies is to protect data loss in the event of a lost or stolen device. You can do this by ensuring that access to data is protected by a PIN, that the data is encrypted on the device, and that the device is not compromised.
 
-|Policy recommendation|Description|
+#|Policy recommendation|Description|
 |:--------------------|:----------|
 |**Require user PC management**|Require users to join their PCs to an Active Directory Domain or enroll their PCs into management with Intune or Configuration Manager and ensure those devices are compliant with policies before allowing email access|
 |**Apply security settings via group policy objects (GPO) or Configuration Manager policies for domain joined PCs**|Deploy policies that configure managed PCs to enable BitLocker, enable anti-virus, and enable firewall|
@@ -157,7 +157,7 @@ The goal for these device and app management policies is to protect data loss in
 
 ### User impact
 
-For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
+#For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
 
@@ -201,4 +201,6 @@ For most organizations, it is important to be able to set expectations for users
   * Users will be asked to perform MFA whenever they begin a new session.  
   * Users will be required to use email apps that support the Intune App Protection SDK
   * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
-
+ 
+ ## Next steps
+ [Deploy recommended policies](secure-email-deploy-recommended-policies.md]
