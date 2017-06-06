@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start connect- mvc
+ms.custom: mvc-quick-start-connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python

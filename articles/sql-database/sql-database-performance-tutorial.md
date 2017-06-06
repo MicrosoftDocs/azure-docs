@@ -9,7 +9,7 @@ author: jan-eng
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: performance- mvc
+ms.custom: mvc-tutorial-performance
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
