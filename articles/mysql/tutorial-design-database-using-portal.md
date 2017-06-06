@@ -23,7 +23,7 @@ In this tutorial, you use the Azure portal to learn how to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use mysql command line tool to create a database
+> * Use mysql command-line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data
@@ -54,20 +54,20 @@ In our example, fill out the Azure Database for MySQL form with the following in
 | *Version* | 5.7 | Choose the latest version. |
 | *Configure performance* | Basic, 50 compute units, 50 GB  | Choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**. |
 | *Pin to Dashboard* | Check | Recommended to check this box so you may find the server easily later on |
-Then, click **Create**. In a minute or two, you will have a new Azure Database for MySQL server running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
+Then, click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 
 ## Configure firewall
-Azure Databases for MySQL are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Before connecting to Azure Database for MySQL from your client for the first time, you must configure the firewall and add the client’s public network IP address (or IP address range) to the whitelist.
+Azure Databases for MySQL are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Before connecting to Azure Database for MySQL for the first time, configure the firewall to add the client machine's public network IP address (or IP address range).
 
 1. Click your newly created server, and then click **Connection security**.
    ![3-1 Connection security](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
 2. You can **Add My IP**, or configure firewall rules here. Remember to click **Save** after you have created the rules.
-You can now connect to the server using mysql command line tool or MySQL Workbench GUI tool.
+You can now connect to the server using mysql command-line tool or MySQL Workbench GUI tool.
 
-> Azure Database for MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure MySQL server unless your IT department opens port 3306.
+> Azure Database for MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you cannot connect to Azure MySQL server unless your IT department opens port 3306.
 
 ## Get connection information
-Get the fully qualified **Server name** and **Server admin login name** for your Azure Database for MySQL server from the Azure portal. You use the fully qualified server name to connect to your server using mysql command line tool. 
+Get the fully qualified **Server name** and **Server admin login name** for your Azure Database for MySQL server from the Azure portal. You use the fully qualified server name to connect to your server using mysql command-line tool. 
 
 1. In [Azure portal](https://portal.azure.com/), click **All resources** from the left-hand menu, type the name, and search for your Azure Database for MySQL server. Select the server name to view the details.
 
@@ -77,7 +77,7 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 In this example, the server name is *myserver4demo.mysql.database.azure.com*, and the server admin login is *myadmin@myserver4demo*.
 
 ## Connect to the server using mysql
-Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command line from the Azure Cloud Shell by clicking the >\_ icon in the top right toolbar of the Azure portal and follow the prompt to log into Azure. You can also run this command line from your own machine with mysql tools installed locally. In this example, the command is:
+Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line from the Azure Cloud Shell or from your own machine. Launch the Azure Cloud Shell by clicking the `>_` icon in the top right toolbar of the Azure portal and follow the prompt to log in to Azure. To run this from your own machine, be sure that the mysql tools are installed locally. In this example, the command is:
 ```azurecli-interactive
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
@@ -131,9 +131,9 @@ SELECT * FROM inventory;
 ```
 
 ## Restore a database to a previous point in time
-Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
+Imagine you have accidentally deleted an important database table, and cannot recover the data easily. Azure Database for MySQL allows you to restore the server to a point in time, creating a copy of the databases into new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-1. In the Azure portal, click on your Azure Database for MySQL. On the **Overview** page, click **Restore** on the toolbar. The Restore page opens.
+1. In the Azure portal, locate your Azure Database for MySQL. On the **Overview** page, click **Restore** on the toolbar. The Restore page opens.
 
    ![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
@@ -146,7 +146,7 @@ Imagine you have accidentally deleted this table. This is something you cannot e
    - **Location**: The region is same as the source server, and cannot be changed.
    - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
    
-3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
+3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, within the retention period for your service tier.
 
 ## Next Steps
 In this tutorial, you use the Azure portal to learned how to:
@@ -154,7 +154,7 @@ In this tutorial, you use the Azure portal to learned how to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use mysql command line tool to create a database
+> * Use mysql command-line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data
