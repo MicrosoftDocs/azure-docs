@@ -200,17 +200,5 @@ The **Overview** page is displayed. This page gives you a view of how the app is
 
 ## Next Steps
 
-For more information about the Azure Toolkits for Java IDEs, see the following links:
-
-* [Azure Toolkit for Eclipse (This Article)](../azure-toolkit-for-eclipse.md)
-  * [What's New in the Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-whats-new.md)
-  * [Installing the Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md)
-  * [Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174)
-* [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md)
-  * [What's New in the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-whats-new.md)
-  * [Installing the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md)
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ](https://go.microsoft.com/fwlink/?linkid=846179)
-
-Detailed instructions about **Interactive** and **Automated** sign-ins are available in the [Azure Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174) article.
-
-For more information about using Azure with Java, see the [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) and the [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).
+> [!div class="nextstepaction"]
+> [Map custom domain](app-service-web-tutorial-custom-domain.md)
