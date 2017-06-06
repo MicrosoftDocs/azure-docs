@@ -224,7 +224,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 |||Email address|Primary SMTP address|Selected – Drop down|
 |||Authentication method|Username and password|Selected – Drop down|
 |||Use S/MIME|False||
-|Synchronization settings|Number of days of email to synchronize|Two weeks|Selected – Drop down||
+||Synchronization settings|Number of days of email to synchronize|Two weeks|Selected – Drop down|
 |||Use SSL|True|Check|
 |||Allow messages to be moved to other email accounts|False||
 |||Allow email to be sent from third party applications|True||
