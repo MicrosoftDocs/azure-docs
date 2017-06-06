@@ -3,9 +3,9 @@ title: Find Performance recommendations for Azure SQL Database Advisor using the
 description: You can use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database or to correct some issue identified in your workload.
 services: sql-database
 documentationcenter: ''
-author: stevestein, jovanpop
+author: stevestein
 manager: jhubbard
-editor: monicar
+reditor: monicar
 
 ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
@@ -15,36 +15,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
-ms.author: sstein
+ems.author: sstein
 
 
 ---
-# Performance recommendations using the Azure portal
+# Find and apply performance recommendations
 
 You can use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database or to correct some issue identified in your workload. **Performance recommendation** page in Azure portal enables you to find the top recommendations based on their potential impact. 
 
 ## Viewing recommendations
 
-To view and apply recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+To view and apply performance recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+
+Use the following steps to find performance recommendations on Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **More services** > **SQL databases**, and select your database.
 3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
-> [!NOTE]
-> Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not corrently available, the **Performance recommendation** page provides a message explaining why.
-> 
-
+Performance recommendations are shonw in the table similar to the one shown on the following figure:
 
 ![Recommendations](./media/sql-database-advisor-portal/recommendations.png)
 
-You can also view the status of the historical operations. Select a recommendation or status to see  more details.
-
-Here is an example of "Create index" recommendation in the Azure portal.
-
-![Create index](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
-
-Recommendations are sorted by their potential impact on performance into the following four categories:
+Recommendations are sorted by their potential impact on performance into the following categories:
 
 | Impact | Description |
 |:--- |:--- |
@@ -52,12 +45,23 @@ Recommendations are sorted by their potential impact on performance into the fol
 | Medium |Medium impact recommendations should improve performance, but not substantially. |
 | Low |Low impact recommendations should provide better performance than without, but improvements might not be significant. |
 
+
+> [!NOTE]
+> Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not corrently available, the **Performance recommendation** page provides a message explaining why.
+> 
+
+You can also view the status of the historical operations. Select a recommendation or status to see  more details.
+
+Here is an example of "Create index" recommendation in the Azure portal.
+
+![Create index](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+
 ## Applying recommendations
 Azure SQL Database gives you full control over how recommendations are enabled using any of the following three options: 
 
 * Apply individual recommendations one at a time.
 * Enable the Automatic tuning to automatically apply recommendations.
-* To implement a recommendation manually, run the recommended T-SQL script against your database .
+* To implement a recommendation manually, run the recommended T-SQL script against your database.
 
 Select any recommendation to view its details and then click **View script** to review the exact details of how the recommendation is created.
 
@@ -66,16 +70,17 @@ The database remains online while the recommendation is applied -- using perform
 ### Apply an individual recommendation
 You can review and accept recommendations one at a time.
 
-1. On the **Recommendations** blade, click a recommendation.
-2. On the **Details** blade click **Apply**.
+1. On the **Recommendations** blade, select a recommendation.
+2. On the **Details** blade click **Apply** button.
    
     ![Apply recommendation](./media/sql-database-advisor-portal/apply.png)
 
+Selected recommendation will be applied on the database.
 
 ### Removing recommendations from the list
 If your list of recommendations contains items that you want to remove from the list, you can discard the recommendation:
 
-1. Select a recommendation in the list of **Recommendations**.
+1. Select a recommendation in the list of **Recommendations** to open the details.
 2. Click **Discard** on the **Details** blade.
 
 If desired, you can add discarded items back to the **Recommendations** list:
@@ -107,7 +112,7 @@ Recommendations that are in a **Pending**, **Verifying**, or **Success** status 
 2. Click **Cancel** to abort the process of applying the recommendation.
 
 ## Monitoring operations
-Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation operations. The following are possible states that an index can be in:
+Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation. The following are possible states that an index can be in:
 
 | Status | Description |
 |:--- |:--- |
