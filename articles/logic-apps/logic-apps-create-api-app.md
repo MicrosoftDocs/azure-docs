@@ -117,12 +117,12 @@ To have your API perform tasks that could run longer than the
 you can use the asynchronous polling pattern. This pattern has 
 your API do work in a separate thread, 
 but keep an active connection to the Logic Apps engine. 
-That way, the logic app doesn't time out or continue with 
+That way, the logic app does not time out or continue with 
 the next step in the workflow before your API finishes working.
 
 Here's the general pattern:
 
-1. Make sure that the engine knows that your API accepted the request and will start working.
+1. Make sure that the engine knows that your API accepted the request and started working.
 2. When the engine makes subsequent requests for job status, let the engine know when your API finishes the task.
 3. Return relevant data to the engine so that the logic app workflow can continue.
 
@@ -208,7 +208,7 @@ This time, the bakery tells you when your order is ready and delivers your cake.
 
 When we map this webhook pattern back, the bakery represents your custom API, 
 while you, the cake customer, represent the Logic Apps engine. 
-The engine calls your API with a request, which includes a "callback URL". 
+The engine calls your API with a request and includes a "callback" URL.
 When the job is done, your API uses the URL to notify the engine 
 and return data to your logic app, which then continues workflow. 
 
