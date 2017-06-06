@@ -2,14 +2,13 @@
 title: Azure Key Vault Developer's Guide | Microsoft Docs
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
-documentationcenter: ''
 author: BrucePerlerMS
 manager: mbaldwin
 
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 06/6/2017
 ms.author: bruceper
 
 ---
@@ -119,6 +118,7 @@ These articles are about other scenarios and services that use or integrate with
 
 - [Key Vault security worlds](key-vault-ovw-security-worlds.md) and geographic boundaries details how all HSMs at Azure locations in the same geographic region share the same cryptographic boundary (Thales Security World).
 - [Key Vault soft-delete behavior](key-vault-ovw-soft-delete.md) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+- [Key Vault client throttling](key-vault-ovw-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
 
 
 ## Social
