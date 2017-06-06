@@ -218,6 +218,7 @@ Both `id_token`s and `access_token`s will expire after a short period of time, s
 
 ## Send a sign out request
 The OpenIdConnect `end_session_endpoint` allows your app to send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.  To fully sign a user out of a web application, your app should end its own session with the user (usually by clearing a token cache or dropping cookies), and then redirect the browser to
+<!---Loc Comment: The sentence above seems to be incomplete---->
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
