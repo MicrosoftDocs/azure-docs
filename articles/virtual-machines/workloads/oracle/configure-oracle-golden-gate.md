@@ -236,7 +236,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-Set the ORACLE_SID and ORACLE_HOME variables
+Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -287,7 +287,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Set the ORACLE_SID and ORACLE_HOME variables
+Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -795,7 +795,7 @@ This completes the installation and configuration of Golden Gate on Oracle linux
 
 ## Delete the virtual machine
 
-When it's no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
+When it's no longer needed, the following command can be used to remove the resource Group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup
