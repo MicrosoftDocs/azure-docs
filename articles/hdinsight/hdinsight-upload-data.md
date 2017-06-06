@@ -29,24 +29,14 @@ Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) o
 Note the following requirement before you begin:
 
 * An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Create HDInsight clusters][hdinsight-hadoop-provision-linux-clusters.md].
+* Knowledge of the following two articles:
 
+    - [Use Azure Storage with HDInsight][hdinsight-storage]
+    - [Use Data Lake Store with HDInsight(hdinsight-hadoop-use-data-lake-store.md)
 
-### Directories
-Azure Storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. HDInsight sees these names as if they are actual directories.
+## Upload data to Azure Storage
 
-For example, a blob's key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path.
-
-Because of this reason, if you use Azure Explorer tools you may notice some 0 bytes files. These files serve two purposes:
-
-* If there are empty folders, they mark of the existence of the folder. Azure Storage is clever enough to know that if a blob called foo/bar exists, there is a folder called **foo**. But the only way to signify an empty folder called **foo** is by having this special 0 bytes file in place.
-* They hold special metadata that is needed by the Hadoop file system, notably the permissions, and owners for the folders.
-
-## Find the default storage accounts for your cluster
-
-In the most cases, you upload your data to either Azure Storage or Data Lake Store before you create a cluster to run jobs. In the cases where you want to upload data for an existing cluster to 
-
-
-## Command-line utilities
+### Command-line utilities
 Microsoft provides the following utilities to work with Azure Storage:
 
 | Tool | Linux | OS X | Windows |
@@ -61,7 +51,7 @@ Microsoft provides the following utilities to work with Azure Storage:
 >
 >
 
-### <a id="xplatcli"></a>Azure CLI
+#### <a id="xplatcli"></a>Azure CLI
 The Azure CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Storage:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -100,7 +90,7 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 >
 >
 
-### <a id="powershell"></a>Azure PowerShell
+#### <a id="powershell"></a>Azure PowerShell
 Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
@@ -128,7 +118,7 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 
 For example PowerShell scripts created to work with HDInsight, see [HDInsight tools](https://github.com/blackmist/hdinsight-tools).
 
-### <a id="azcopy"></a>AzCopy
+#### <a id="azcopy"></a>AzCopy
 AzCopy is a command-line tool that is designed to simplify the task of transferring data into and out of an Azure Storage account. You can use it as a standalone tool or incorporate this tool in an existing application. [Download AzCopy][azure-azcopy-download].
 
 The AzCopy syntax is:
@@ -139,7 +129,7 @@ For more information, see [AzCopy - Uploading/Downloading files for Azure Blobs]
 
 Azcopy on Linux preview is available.  See [Announcing AzCopy on Linux Preview](https://blogs.msdn.microsoft.com/windowsazurestorage/2017/05/16/announcing-azcopy-on-linux-preview/).
 
-### <a id="commandline"></a>Hadoop command line
+#### <a id="commandline"></a>Hadoop command line
 The Hadoop command line is only useful for storing data into blob storage when the data is already present on the cluster head node.
 
 In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:
@@ -168,7 +158,7 @@ For a list of other Hadoop commands that work with files, see [http://hadoop.apa
 >
 >
 
-## Graphical clients
+### Graphical clients
 There are also several applications that provide a graphical interface for working with Azure Storage. The following table is a list of a few of these applications:
 
 | Client | Linux | OS X | Windows |
@@ -180,10 +170,10 @@ There are also several applications that provide a graphical interface for worki
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
-### Visual Studio Tools for HDInsight
+#### Visual Studio Tools for HDInsight
 For more information, see [Navigate the linked resources](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
-### <a id="storageexplorer"></a>Azure Storage Explorer
+#### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
 
 Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy, and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].
@@ -203,23 +193,23 @@ Before using the tool, you must know your Azure storage account name and account
 
     Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
-## Mount Azure Storage as Local Drive
+### Mount Azure Storage as Local Drive
 See [Mount Azure Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
-## Upload using services
-### Azure Data Factory
+### Upload using services
+#### Azure Data Factory
 The Azure Data Factory service is a fully managed service for composing data storage, data processing, and data movement services into streamlined, scalable, and reliable data production pipelines.
 
 Azure Data Factory can be used to move data into Azure Storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.
 
 For more information, see the [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/).
 
-### <a id="sqoop"></a>Apache Sqoop
+#### <a id="sqoop"></a>Apache Sqoop
 Sqoop is a tool designed to transfer data between Hadoop and relational databases. You can use it to import data from a relational database management system (RDBMS), such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into an RDBMS.
 
 For more information, see [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 
-## Development SDKs
+### Development SDKs
 Azure Storage can also be accessed using an Azure SDK from the following programming languages:
 
 * .NET
@@ -231,8 +221,8 @@ Azure Storage can also be accessed using an Azure SDK from the following program
 
 For more information on installing the Azure SDKs, see [Azure downloads](https://azure.microsoft.com/downloads/)
 
-## Troubleshooting
-### <a id="storageexception"></a>Storage exception for write on blob
+### Troubleshooting
+#### <a id="storageexception"></a>Storage exception for write on blob
 **Symptoms**: When using the `hadoop` or `hdfs dfs` commands to write files that are ~12 GB or larger on an HBase cluster, you may encounter the following error:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
