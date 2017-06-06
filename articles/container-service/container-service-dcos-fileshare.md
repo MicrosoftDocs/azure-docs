@@ -20,14 +20,14 @@ ms.author: juliens
 
 ---
 # Create and mount a file share to a DC/OS cluster
-This tutorial details how to create a file share in Azure and mount it on each agent and master of the DC/OS cluster. Setting up a file share makes it easier to share files across your cluster such as configuration, access, logs, and more. The following task are completed in this tutorial:
+This tutorial details how to create a file share in Azure and mount it on each agent and master of the DC/OS cluster. Setting up a file share makes it easier to share files across your cluster such as configuration, access, logs, and more. The following tasks are completed in this tutorial:
 
 > [!div class="checklist"]
 > * Create an Azure storage account
 > * Create a file share
 > * Mount the share in the DC/OS cluster
 
-You will need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
+You need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -35,7 +35,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Create a file share on Microsoft Azure
 
-Before using an Azure file share with an ACS DC/OS cluster, the storage account and file share must be created. Run the following script to create the storage and file share. Update the parameters to match your environment.
+Before using an Azure file share with an ACS DC/OS cluster, the storage account and file share must be created. Run the following script to create the storage and file share. Update the parameters with thoes from your environment.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -56,7 +56,7 @@ az storage share create -n $DCOS_PERS_SHARE_NAME
 
 ## Mount the share in your cluster
 
-Next, the file share needs to be mounted on every virtual machine inside your cluster. This is completed using the cifs tool/protocol. The mount operation can be completed manually on each node of the cluster, or by running a script from the DC/OS master. This example will demonstrate the scripted configuration. 
+Next, the file share needs to be mounted on every virtual machine inside your cluster. This task is completed using the cifs tool/protocol. The mount operation can be completed manually on each node of the cluster, or by running a script from the DC/OS master. This example demonstrates the scripted configuration. 
 
 First, get the FQDN of the DC/OS master and store it in a variable.
 
@@ -64,7 +64,7 @@ First, get the FQDN of the DC/OS master and store it in a variable.
 FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Copy your private key to the master node. This will be needed to create an ssh connection with all nodes in the cluster. Note, update the user name if a non-default value was used when creating the cluster. 
+Copy your private key to the master node. This key is needed to create an ssh connection with all nodes in the cluster. Note, update the user name if a non-default value was used when creating the cluster. 
 
 ```azurecli-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
@@ -76,9 +76,9 @@ Create an SSH connection with the master (or the first master) of your DC/OS-bas
 ssh azureuser@$FQDN
 ```
 
-Create a file named **cifsMount.sh** and copy the following contents into it. This script will be used to mount the Azure file share in each node of the cluster. 
+Create a file named **cifsMount.sh** and copy the following contents into it. This script is used to mount the Azure file share in each node of the cluster. 
 
-Update the variables with the proper storage account name and storage access key. These can be found in the Azure portal.
+Update the variables with the proper storage account name and storage access key. These values can be found in the Azure portal.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -103,7 +103,7 @@ Run the script to mount the Azure file share on the DC/OS master node.
 sh ./cifsMount.sh
 ```
 
-Create a second file named **mountShares.sh** and copy the following contents into the file. This script will discover all cluster nodes and run the script to mount the Azure file share on them.
+Create a second file named **mountShares.sh** and copy the following contents into the file. This script discovers all cluster nodes and run the script to mount the Azure file share on them.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -127,7 +127,7 @@ Run the script to mount the Azure file share on all nodes of the cluster.
 sh ./mountShares.sh
 ```  
 
-The file share is now accessable at `/mnt/share/dcosshare` on each node of the cluster.
+The file share is now accessible at `/mnt/share/dcosshare` on each node of the cluster.
 
 ## Next steps
 

@@ -20,7 +20,7 @@ ms.author: rogardle
 
 ---
 # Load balance containers in an Azure Container Service DC/OS cluster
-In this article, we'll explore how to create an internal load balancer in a DC/OS managed Azure Container Service using Marathon-LB. This enables you to scale your applications horizontally. It also allows you to take
+In this article, we explore how to create an internal load balancer in a DC/OS managed Azure Container Service using Marathon-LB. This configuration enables you to scale your applications horizontally. It also allows you to take
 advantage of the public and private agent clusters by placing your load balancers on the public cluster and your application containers on the private cluster. In this tutorial, you:
 
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ advantage of the public and private agent clusters by placing your load balancer
 > * Deploy an application using the load balancer
 > * Configure and Azure load balancer
 
-You will need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
+You need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -38,13 +38,13 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 There are two load-balancing layers in an Azure Container Service DC/OS cluster: 
 
-**Azure Load Balancer** provides public entry points (the ones that end users will hit). This is provided automatically by Azure Container Service and is, by default, configured to expose port 80, 443 and 8080.
+**Azure Load Balancer** provides public entry points (the ones that end users access). An Azure LB is provided automatically by Azure Container Service and is, by default, configured to expose port 80, 443 and 8080.
 
-**The Marathon Load Balancer (marathon-lb)** routes inbound requests to container instances that service those requests. As we scale the containers providing our web service, marathon-lb dynamically adapts. This load balancer is not provided by default in your Container Service, but it is very easy to install.
+**The Marathon Load Balancer (marathon-lb)** routes inbound requests to container instances that service these requests. As we scale the containers providing our web service, the marathon-lb dynamically adapts. This load balancer is not provided by default in your Container Service, but it is easy to install.
 
 ## Configure Marathon Load Balancer
 
-Marathon Load Balancer dynamically reconfigures itself based on the containers that you've deployed. It's also resilient to the loss of a container or an agent - if this occurs, Apache Mesos will simply restart the container elsewhere and marathon-lb will adapt.
+Marathon Load Balancer dynamically reconfigures itself based on the containers that you've deployed. It's also resilient to the loss of a container or an agent - if this occurs, Apache Mesos restarts the container elsewhere and marathon-lb adapts.
 
 Run the following command to install the marathon load balancer on the public agent's cluster.
 
@@ -98,7 +98,7 @@ Next, create a file named *hello-web.json* and copy in the following contents. T
 }
 ```
 
-Use the dcos CLI to run the application. Note, the by default Marathon will deploy to the private cluster, this means that the above deployment will only be accessible via your load balancer, which is usually the desired behavior.
+Use the DC/OS CLI to run the application. Note, by default Marathon deploys the the applicaton to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

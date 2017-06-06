@@ -21,7 +21,7 @@ ms.author: juliens
 ---
 # Use ACR with a DC/OS cluster to deploy your application
 
-In this article, we'll explore how to use a private container register such as ACR (Azure Container Registry) with a DC/OS cluster. Using ACR allows you to privatley store and manage container images. This tutorial will cover the following:
+In this article, we explore how to use a private container register such as ACR (Azure Container Registry) with a DC/OS cluster. Using ACR allows you to privately store and manage container images. This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Deploy Azure Container Registry (if needed)
@@ -29,7 +29,7 @@ In this article, we'll explore how to use a private container register such as A
 > * Uploaded an image to the Azure Container Registry
 > * Run a container image from the Azure Container Registry
 
-You will need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
+You need an ACS DC/OS cluster to complete the steps in this tutorial. If needed, [this script sample](./scripts/container-service-cli-deploy-dcos.md) can create one for you.
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
@@ -45,7 +45,7 @@ The following example creates a registry with a randomly generate name and using
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
 ```
 
-Once the registry has been created, the Azure CLI outputs data similar to the following. Take not of the `name` and `loginServer`, these are used in later steps.
+Once the registry has been created, the Azure CLI outputs data similar to the following. Take note of the `name` and `loginServer`, these are used in later steps.
 
 ```azurecli
 {
@@ -78,11 +78,11 @@ For more information on Azure Container Registry, see [Introduction to private D
 
 ## Manage ACR authentication
 
-The conventional way to push and pull image from a private registry is to first authenticate with the registry. To do so, use the `docker login` command any docker client that will access the private registry. Because a DC/OS cluster can be comprised of multiple nodes, it is helpful to automate this process across all of them. 
+The conventional way to push and pull image from a private registry is to first authenticate with the registry. To do so, use the `docker login` command any docker client that access the private registry. Because a DC/OS cluster can contain many nodes, it is helpful to automate this process across all of them. 
 
 ### Create shared storage
 
-This process will use an Azure file share that has been mounted on each node in the cluster. If you have not already set up shared storage, see [Setup a file share inside a DC/OS cluster](container-service-dcos-fileshare.md).
+This process uses an Azure file share that has been mounted on each node in the cluster. If you have not already set up shared storage, see [Setup a file share inside a DC/OS cluster](container-service-dcos-fileshare.md).
 
 ### Configure ACR authentication
 
@@ -98,9 +98,9 @@ Create an SSH connection with the master (or the first master) of your DC/OS-bas
 ssh azureuser@$FQDN
 ```
 
-Run the following command to log into the Azure Container Registry. Replace the `--username` with the name of the container registry, and the `--password` with one of the provided passwords. Replace the last argument *mycontainerregistry.azurecr.io* in the example with the loginServer name of the container registry. 
+Run the following command to login to the Azure Container Registry. Replace the `--username` with the name of the container registry, and the `--password` with one of the provided passwords. Replace the last argument *mycontainerregistry.azurecr.io* in the example with the loginServer name of the container registry. 
 
-This command will store the authentication values locally under the `~/.docker` path.
+This command stores the authentication values locally under the `~/.docker` path.
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
@@ -112,7 +112,7 @@ Create a compressed file that contains the container registry authentication val
 tar czf docker.tar.gz .docker
 ```
 
-Copy this file to the cluster shared storge. This will make the file avaliable on all nodes of the DC/OS cluster.
+Copy this file to the cluster shared storage. This step makes the file available on all nodes of the DC/OS cluster.
 
 ```azurecli-interactive
 cp docker.tar.gz /mtn/share/dcos
@@ -176,7 +176,7 @@ To use an image from the ACR registry, create a file names *acrDemo.json* and co
 }
 ```
 
-Deplpy the application with the DC/OC CLI.
+Deploy the application with the DC/OC CLI.
 
 ```azurecli-interactive
 dcos marathon app add acrDemo.json
