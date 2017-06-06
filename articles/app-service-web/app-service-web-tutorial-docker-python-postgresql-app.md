@@ -32,8 +32,6 @@ Before running this sample, install the following prerequisites locally:
 1. [Download and install Docker Community Edition](https://www.docker.com/community-edition)
 1. [Download and install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
