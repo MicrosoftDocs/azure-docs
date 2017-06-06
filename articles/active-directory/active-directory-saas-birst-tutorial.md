@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_url.png)
 
-     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
      The URL depends on the datacenter that your Birst account is located: 
 
@@ -175,10 +175,6 @@ The objective of this section is to create a test user in the Azure portal calle
 ### Creating a Birst Agile Business Analytics test user
 
 The objective of this section is to create a user called Britta Simon in Birst Agile Business Analytics. Work with [Birst Agile Business Analytics support team](mailto:info@birst.com) to add the users in the Birst account. 
-
->[!NOTE]
->If you need to create a user manually, you need to contact the [Birst Agile Business Analytics support team](mailto:info@birst.com).
-
 
 ### Assigning the Azure AD test user
 
