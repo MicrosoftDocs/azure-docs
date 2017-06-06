@@ -21,13 +21,14 @@ ms.author: danlep
 ---
 # Pull images from an Azure container registry to Kubernetes in Container Service
 
-For your container deployments, Azure Container Service can pull images from Docker Hub or from private Docker container registries, including registries created in the [Azure Container Registry](../container-registry/container-registry-intro.md) service. This tutorial shows basic steps to pull images from an Azure container registry to Kubernetes in Azure Container Service. In this tutorial you learn how to:
+For your container deployments, Azure Container Service can pull images from Docker Hub or from private Docker container registries, including ones created in the [Azure Container Registry](../container-registry/container-registry-intro.md) service. This tutorial shows basic steps to pull images from an Azure container registry to Kubernetes in Azure Container Service. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * X
-> * Y
-> * Z
->
+> * Create an Azure container registry
+> * Push an image to the container registry
+> * Create and connect to a Kubernetes cluster 
+> * Pull an image from the registry to Kubernetes
+> * Use other private registries with Kubernetes
 
 This tutorial requires the Azure CLI version 2.0.4 or later. To find the CLI version run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
@@ -230,10 +231,11 @@ spec:
 In this tutorial, you learned about how to use an Azure container registry with Kubernetes in Azure Container Service, including how to:
 
 > [!div class="checklist"]
-> * X
-> * Y
-> * Z
->
+> * Create an Azure container registry
+> * Push an image to the container registry
+> * Create and connect to a Kubernetes cluster 
+> * Pull an image from the registry to Kubernetes
+> * Use other private registries with Kubernetes
 
 Advance to the next tutorial to learn about XXXX.
 
