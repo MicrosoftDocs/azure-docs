@@ -28,6 +28,8 @@ The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you 
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
 - Users have the same VM policy control for environments as what they have for single-lab VMs.
 
+Learn more about the many [benefits of using Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) to deploy, update, or delete all of your lab resources in a single operation.
+
 > [!NOTE]
 > Deploying resource type Microsoft.DevTestLab/labs (or its nested resource types, e.g. Microsoft.DevTestLab/labs/virtualmachines) through ARM templates is not yet supported in this experience. To deploy a VM, make sure to use Microsoft.Compute/virtualmachines. More ARM template samples can be found at [Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json).
 >
@@ -35,13 +37,16 @@ The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you 
 
 ## Configure Azure Resource Manager template repositories
 
-As one of the best practices with infrastructure-as-code and configuration-as-code, environment templates should be managed in source control. Azure DevTest Labs follows this practice and loads all Azure Resource Manager templates directly from your GitHub or VSTS Git repositories. There are a couple of rules to organize your Azure Resource Manager templates in a repository:
+As one of the best practices with infrastructure-as-code and configuration-as-code, environment templates should be managed in source control. Azure DevTest Labs follows this practice and loads all Azure Resource Manager templates directly from your GitHub or VSTS Git repositories. As a result, Resource Manager templates can be used across the entire release cycle, from the test environment to the production environment.
+
+There are a couple of rules to follow to organize your Azure Resource Manager templates in a repository:
 
 - The master template file must be named `azuredeploy.json`. 
 
 	![Key Azure Resource Manager template files](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - If you want to use parameter values defined in a parameter file, the parameter file must be named `azuredeploy.parameters.json`.
+- You can use the parameters `_artifactsLocation` and `_artifactsLocationSasToken` to construct the parametersLink URI value, allowing DevTest Labs to automatically manage nested templates. See [How Azure DevTest Labs makes nested ARM template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) for more information.
 - Metadata can be defined to specify the template display name and description. This metadata must be in a file named `metadata.json`. The following example metadata file illustrates how to specify the display name and description: 
 
 ```json
