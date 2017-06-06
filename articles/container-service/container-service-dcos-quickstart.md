@@ -19,13 +19,15 @@ ms.date: 06/05/2017
 ms.author: nepeters
 ---
 
-# Azure Container Service Quickstart - Deploy DC/OS Cluster
+# Deploy a DC/OS Cluster
 
 DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Log in to Azure 
 
@@ -173,4 +175,4 @@ az group delete --name myResourceGroup --no-wait
 In this quick start, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
 
 > [!div class="nextstepaction"]
-> [ACS Tutorials](container-service-dcos-manage-tutorial.md)
+> [Manage an ACS DC/OS Cluster](container-service-dcos-manage-tutorial.md)

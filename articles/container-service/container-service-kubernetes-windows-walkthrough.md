@@ -20,19 +20,19 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Container Service Quickstart - Deploy Kubernetes cluster for Windows containers
+# Deploy Kubernetes cluster for Windows containers
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.
 
-To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use the [Azure Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!NOTE]
 > Support for Windows containers on Kubernetes in Azure Container Service is in preview. 
 >
-
-
 
 ## Log in to Azure 
 
@@ -207,4 +207,4 @@ az group delete --name myResourceGroup
 In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container. To learn more about Azure Container Service, continue to the Kubernetes tutorial.
 
 > [!div class="nextstepaction"]
-> [ACS Tutorials](./container-service-create-acs-cluster-cli.md)
+> [Manage an ACS Kubernetes cluster](./container-service-dcos-manage-tutorial.md)
