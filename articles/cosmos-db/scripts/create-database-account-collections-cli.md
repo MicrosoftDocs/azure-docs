@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 06/05/2017
+ms.date: 06/06/2017
 ms.author: mimig
 ---
 
@@ -24,6 +24,8 @@ ms.author: mimig
 This sample CLI script creates an Azure Cosmos DB account, database, and container for use with the DocumentDB, Table, or Graph APIs.  
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Sample script
 
