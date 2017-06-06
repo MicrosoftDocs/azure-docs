@@ -1,11 +1,11 @@
 # [Overview](index.md)
 ## Get started
-### [Deploy to a Linux VM](/azure/app-service-web/app-service-web-intellij-create-hello-world-web-app)
-### [Deploy to a Windows VM](/azure/app-service-web/app-service-web-eclipse-create-hello-world-web-app)
+### [Install Jenkins from template](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins.md)
 # Tutorials
-## [Jenkins and Docker](java-tutorials-services-databases.md)
-## [Azure VMs for on-prem Jenkins masters](java-tutorials-services-storage.md)
-## [Jenkins and Team Services](java-tutorials-services-containers.md))
+## [Jenkins and Azure Storage](/azure/storage/storage-java-jenkins-continuous-integration-solution.md)
+## [CI/CD - Jenkins and Docker on VMs](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md)
+## [Jenkins wiht ACS and Kubernetes](/azure/container-service/container-service-kubernetes-jenkins.md)
+## [Jenkins with Azure CLI](TODOArticle.md))
 # How-To guides
 ## Deploy
 ### [App Service](java-tutorials-services-databases.md)
@@ -15,6 +15,5 @@
 ## Configure
 ### [Configure Jenkins to use Azure Storage](java-tutorials-services-storage.md)
 # Samples 
-## [Pipelines](java-samples-services-data.md)
-## [Jenkins](java-tutorials-services-storage.md)
-# [Reference](https://docs.microsoft.com/en-us/java/api/overview/azure)
+## [Jenkins to ACR](https://github.com/Azure/azure-quickstart-templates/tree/master/201-jenkins-acr)
+# [Reference](https://plugins.jenkins.io/azure-vm-agents)
