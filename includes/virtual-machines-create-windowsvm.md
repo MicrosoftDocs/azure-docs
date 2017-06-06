@@ -16,7 +16,7 @@ The Basics blade requests administrative information for the virtual machine.
 
 2. Enter a **User name** and a strong **Password** that are used to create a local account on the VM. The local account is used to sign in to and manage the VM. In the example, _azureuser_ is the user name.
 
- The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/virtual-machines-windows-faq.md).
+ The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../articles/virtual-machines/windows/faq.md).
 
 3. The **Subscription** is optional. One common setting is "Pay-As-You-Go".
 

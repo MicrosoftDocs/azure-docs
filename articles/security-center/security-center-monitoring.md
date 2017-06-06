@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 
 ---
@@ -28,32 +28,33 @@ After you enable [security policies](security-center-policies.md) for a subscrip
 
 For more information about how to apply recommendations, read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-On the **Resources security health** tile, you can monitor the security state of your resources. In the following example, you can see that a number of issues have high and medium severity and require attention. The security policies that are enabled will impact the types of controls that are monitored.
+On the **Resource security health** tile, you can monitor the security state of your resources. In the following example, you can see that a number of issues have high and medium severity and require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 If Security Center identifies a vulnerability that needs to be addressed, such as a virtual machine that has missing security updates or a subnet without a [network security group](/virtual-network/virtual-networks-nsg.md), it will be listed here.
 
-### Monitor virtual machines
-When you click **Virtual machines** in the **Resources security health** tile, the **Virtual machines** blade that opens shows more details about onboarding, prevention steps, and a list of all virtual machines that Security Center monitors as shown in the following screenshot.
+### Monitor compute
+When you click **Compute** in the **Resource security health** tile, the **Compute** blade that opens shows three tabs:
 
-![Missing system update by virtual machine](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **Overview**: monitoring and virtual machine recommendations.
+- **Virtual Machines**: list all all virtual machines and its current security state.
+- **Cloud Services**: list of all web and worker roles monitored by Security Center.
 
-* Onboarding steps
-* Virtual machine recommendations
-* Virtual machines
+![Missing system update by virtual machine](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-In each section, you can select an individual option to see more details about the recommended steps to address that issue. The following sections will explain these areas in more detail.
+In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue. 
 
 #### Monitoring recommendations
-This section shows the total number of virtual machines that were initialized for data collection and their current statuses. After all virtual machines have data collection initialized, they will be ready to receive Security Center security policies. When you click this entry, the **Data collection installation status** blade opens, and you can see the names of the virtual machines and the current status of data collection in the **INSTALLATION STATUS** column as shown in the following screenshot.
+This section shows the total number of virtual machines that were initialized for data collection and their current statuses. After all virtual machines have data collection initialized, they will be ready to receive Security Center security policies. When you click this entry, the **VM Agent is missing or not responding** blade opens. 
 
-![Initialization status of virtual machines](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![Missing system update by virtual machine](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### Virtual machine recommendations
 This section has a set of [recommendations for each virtual machine](security-center-virtual-machine-recommendations.md) that Azure Security Center monitors. The first column lists the recommendation. The second column shows the total number of virtual machines that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot.
 
-![Virtual machine recommendations](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![Virtual machine recommendations](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > Only virtual machines that have at least one public endpoint are shown in the **Networking Health** blade in the **Network topology** list.
@@ -90,7 +91,7 @@ To view the recommendation details, click the name of the virtual machine. A new
 #### Virtual machines section
 The virtual machines section gives you an overview of all virtual machines and recommendations. Each column represents one set of recommendations as shown in the following screenshot:
 
-![Overview of all virtual machines and recommendations](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![Overview of all virtual machines and recommendations](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 The icon that appears under each recommendation helps you to quickly identify the virtual machines that need attention and the type of recommendation.
 
@@ -100,12 +101,12 @@ In the previous example, one virtual machine has a critical recommendation regar
 
 This blade has the security details for the virtual machine. At the bottom of this blade, you can see the recommended action and the severity of each issue.
 
-#### Cloud services (Preview) section
-Health status for cloud services is included in the virtual machine's **Security Health** tile. A recommendation is created when the operating system version is out of date as shown in the following screenshot:
+#### Cloud services section
+For cloud services, a recommendation is created when the operating system version is out of date as shown in the following screenshot:
 
-![Health status for cloud services](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![Health status for cloud services](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-You have to follow the steps in the recommendation to update the operating system version. For example, if you click the red alert in the WebRole1 (runs Windows Server with your web app automatically deployed to IIS) or WorkerRole1 (runs Windows Server with your web app automatically deployed to IIS) rows, a new blade opens with more details about this recommendation as shown in the following screenshot:
+In a scenario where you do have recommendation (which is not the case for the previous example), you need to follow the steps in the recommendation to update the operating system version. When an update is available, you will have an alert (red or orange - depends on the severity of the issue). When you click on this alert in the WebRole1 (runs Windows Server with your web app automatically deployed to IIS) or WorkerRole1 (runs Windows Server with your web app automatically deployed to IIS) rows, a new blade opens with more details about this recommendation as shown in the following screenshot:
 
 ![Cloud service details](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 

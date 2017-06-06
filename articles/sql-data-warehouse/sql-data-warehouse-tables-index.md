@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 
@@ -48,7 +49,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 There are a few scenarios where clustered columnstore may not be a good option:
 
-* Columnstore tables do not support secondary non-clustered indexes.  Consider heap or clustered index tables instead.
 * Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
 * Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
 * Small tables with less than 100 million rows.  Consider heap tables.

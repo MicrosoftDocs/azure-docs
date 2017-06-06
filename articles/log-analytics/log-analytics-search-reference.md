@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/29/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
@@ -250,6 +250,70 @@ TimeGenerated:[NOW..NOW+1DAY]
 SampleValue:[0..2]
 ```
 
+### IN
+The **IN** keyword allows you to select from a list of values.  Depending on the syntax you use, this can be a simple list of values you provide or a list of values from an aggregation.
+
+Syntax 1:
+
+```
+field IN {value1,value2,value3,...}
+```
+
+Description:
+This syntax allows you to include all values in a simple list.
+
+
+
+Examples:
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+Syntax 2:
+
+```
+(Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
+```
+
+Description:
+This syntax allows you to create an aggregation and feed the list of values from that aggregation into another outer (primary) search that will look for events with those value. You do this by enclosing the inner search in braces and feeding its results as possible values for a field in the outer search using the IN operator.
+
+Inner query Example: *computers currently missing security updates* with the following aggregation query:
+
+```
+Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer
+```    
+
+The final query that finds *all Windows events for computers currently missing security updates* would resemble:
+
+```
+Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer}
+```
+
+### Contains
+The **Contains** keyword allows you to filter for records with a field that contains a specified string.  This is case sensitive, will only work with string fields, and may not include any escape characters.
+
+**Syntax**
+
+```
+field:contains("string")
+```
+
+**Example**
+
+```
+Type:contains("Event")
+```
+
+This returns records with a type that contains the string "Event".  Examples include **Event**, **SecurityEvent**, and **ServiceFabricOperationEvent**.
+
+
+
 ### Regular Expressions
 You can specify a search condition for a field with a regular expression by using the Regex keyword.  Get a complete description of the syntax you can use in regular expressions in [Using regular expressions to filter log searches in Log Analytics](log-analytics-log-searches-regex.md).
 
@@ -259,18 +323,10 @@ You can specify a search condition for a field with a regular expression by usin
 field:Regex("Regular Expression")
 ```
 
-```
-field=Regex("Regular Expression")
-```
-
 **Example**
 
 ```
-Computer=Regex("C.*")
-```
-
-```
-Computer=Regex("^C.*")
+Computer:Regex("^C.*")
 ```
 
 ### Logical operators
@@ -307,9 +363,10 @@ Type=Event Computer=*SQL*
 
 > [!NOTE]
 > Wildcards cannot be used within quotations today. Message=`"*This text*"` will consider the (\*) used as a literal (\*) character.
->
-> ## Commands
->
+
+
+## Commands
+
 
 The commands apply to the results that are returned by the query. Use the pipe character ( | ) to apply a command to the retrieved results. Multiple commands must be separated by the pipe character.
 
@@ -369,7 +426,7 @@ Limits the returned results fields to *Name* and *Severity*.
 ### Measure
 The *measure* command is used to apply statistical functions to the raw search results. This is very useful to get *group-by* views over the data. When you use the *measure* command, Log Analytics search displays a table with aggregated results.
 
-Syntax:
+**Syntax:**
 
     measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]] by groupField1 [, groupField2 [, groupField3]]  [interval interval]
 
@@ -577,64 +634,23 @@ Examples:
 
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
-### IN
-The **IN** keyword allows you to select from a list of values.  Depending on the syntax you use, this can be a simple list of values you provide or a list of values from an aggregation.
 
-Syntax 1:
-
-```
-field IN {value1,value2,value3,...}
-```
-
-Description:
-This syntax allows you to include all values in a simple list.
-
-
-
-Examples:
-
-```
-EventID IN {1201,1204,1210}
-```
-
-```
-Computer IN {"srv01.contoso.com","srv02.contoso.com"}
-```
-
-Syntax 2:
-
-```
-(Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
-```
-
-Description:
-This syntax allows you to create an aggregation and feed the list of values from that aggregation into another outer (primary) search that will look for events with those value. You do this by enclosing the inner search in braces and feeding its results as possible values for a field in the outer search using the IN operator.
-
-Inner query Example: *computers currently missing security updates* with the following aggregation query:
-
-```
-Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer
-```    
-
-The final query that finds *all Windows events for computers currently missing security updates* would resemble:
-
-```
-Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateState=needed TimeGenerated>NOW-25HOURS | measure count() by Computer}
-```
 
 ### Dedup
+Returns the first document found for every unique value of the given field.
+
 **Syntax**
 
     Dedup FieldName
 
-**Description**
-Returns the first document found for every unique value of the given field.
 
 **Example**
 
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 The above example returns one event (the latest since we use DESC on TimeGenerated) per EventID
+
+
 
 ### Extend
 **Description**

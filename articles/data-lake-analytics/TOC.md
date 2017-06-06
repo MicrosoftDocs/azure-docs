@@ -9,6 +9,7 @@
 ## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli.md)
+## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
 ## [REST API](data-lake-analytics-get-started-rest-api.md)
 ## [Python](data-lake-analytics-get-started-python.md)
 

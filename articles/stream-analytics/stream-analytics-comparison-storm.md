@@ -24,6 +24,7 @@ Get guidance choosing a cloud analytics platform by using this Apache Storm comp
 Both analytics platforms provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate them. Capabilities as well as the limitations of these services are listed below to help you land on the solution you need to achieve your goals.
 
 ## Storm comparison to Stream Analytics: General features
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -136,7 +137,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Authoring on each analytics platform ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -260,7 +263,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Data sources and outputs ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -349,7 +354,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Management and operations ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -511,7 +518,9 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+
 ## Advanced Features ##
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>

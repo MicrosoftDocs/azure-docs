@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/26/2017
+ms.date: 03/14/2017
 ms.author: raynew
 
 ---
 # What is Site Recovery?
 
-Welcome to the Azure Site Recovery service! This article provides a overview of the service, and links to more information.
+Welcome to the Azure Site Recovery service! This article provides a quick overview of the service.
 
-Business outages are caused by natural events and operational failures. Your organization needs a business continuity and disaster recovery (BCDR) strategy to keep data safe, and apps available, during planned and unplanned downtime, and to recover them to normal working conditions as soon as possible.
+Outages are causes by natural events and operational failures. Your organization needs a business continuity and disaster recovery (BCDR) strategy so that, during planned and unplanned downtime, data stays safe, apps remain available, and business recovers to normal working conditions as soon as possible.
 
-Azure recovery services contribute to BCDR strategy. [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) keeps your data safe and recoverable. Site Recovery replicates, fails over, and recovers workloads, so that they remain available when failure occurs.
+Azure Recovery Services contribute to your BCDR strategy. The [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/) service keeps your data safe and recoverable. Site Recovery replicates, fails over, and recovers workloads, so that they remain available when failure occurs.
 
 ## What does Site Recovery provide?
 
@@ -43,12 +43,6 @@ Replicated data is stored in Azure storage, with the resilience that provides. W
 * **Integration with the automation library**—A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery.
 * **Simple network management**—Advanced network management in Site Recovery and Azure simplifies application network requirements, including reserving IP addresses, configuring load-balancers, and integrating Azure Traffic Manager for efficient network switchovers.
 
-## Which Azure portal?
-
-* Site Recovery can be deployed in both the newer [Azure portal](https://portal.azure.com), and in the [Azure classic portal](https://manage.windowsazure.com/) .
-* In the Azure classic portal, you can support Site Recovery with the classic services management model.
-* In the Azure portal, you can support the classic model, or the newer [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md).
-- The classic portal should only be used to maintain existing Site Recovery deployments. You can't create new vaults in the classic portal.
 
 ## What's supported?
 
@@ -60,6 +54,14 @@ Replicated data is stored in Azure storage, with the resilience that provides. W
 **Where can I replicate to?** | To Azure storage, or to a secondary datacenter<br/><br/> For Hyper-V, only VMs on Hyper-V hosts managed in System Center VMM clouds can replicate to a secondary datacenter.
 **What VMware servers/hosts do I need?** | VMware VMs you want to replicate can be managed by [supported vSphere hosts/vCenter servers](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
 **What workloads can I replicate** | You can replicate any workload running on a supported replication machine. In addition, the Site Recovery team have performed app-specific testing for a [number of apps](site-recovery-workload.md#workload-summary).
+
+
+## Which Azure portal?
+
+* Site Recovery can be deployed in both the newer [Azure portal](https://portal.azure.com), and in the [Azure classic portal](https://manage.windowsazure.com/) .
+* In the Azure classic portal, you can support Site Recovery with the classic services management model.
+* In the Azure portal, you can support the classic model, or the newer [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md).
+- The classic portal should only be used to maintain existing Site Recovery deployments. You can't create new vaults in the classic portal.
 
 ## Next steps
 * Read more about [workload support](site-recovery-workload.md)

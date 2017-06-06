@@ -66,7 +66,7 @@ $resourceGroupName = "MyAppResourceGroup"
 # Create the Resource and Output the name and iKey
 ###################################################
 
-#Select the azure subscription
+# Select the azure subscription
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
 # Create the App Insights Resource
@@ -89,7 +89,7 @@ New-AzureRmRoleAssignment `
   -Scope $resource.ResourceId 
 
 
-#Display iKey
+# Display iKey
 Write-Host "App Insights Name = " $resource.Name
 Write-Host "IKey = " $resource.Properties.InstrumentationKey
 

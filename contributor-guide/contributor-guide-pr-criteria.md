@@ -31,7 +31,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Site/design functionality |The titles of switchered articles contain information that differentiates each article from the other articles in the switchered set. |
 | Site/design functionality |Manually authored TOCs are not permitted. The article must rely on H2s for its on-page TOC. |
 | Site/design functionality |If H2 headings are present, the article contains at least two H2 headings. Using one H2 heading creates a single-item article TOC. H2 headings must be used before H3 headings to ensure a TOC is created. |
-| Site/design functionality | If articles are added or deleted, the author needs to link to the PR that includes the appropriate TOC changes. If the author has not coordinated for TOC changes for a new or removed article, they should open a bug at https//aka.ms/azuretodocsbug and hold off on changes until the TOC is ready. |
+| Site/design functionality | When a new article is added, the TOC is updated at the same time. |
 | Markdown |HTML: Source content does not contain HTML at the block level – minor inline HTML is permitted – such as superscript, subscript, special characters, and other minor things that you can’t do with markdown. HTML tables are allowed ONLY if the table contains bulleted or numbered lists, but that is usually an indication the content needs to be simplified so the source can be coded in markdown. |
 | Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the [!NOTE] extension, not as plain text. |
 | SEO |The " &#124; Microsoft Docs" site identifier is required. We no longer use the " &#124; Microsoft Azure" site identifier |

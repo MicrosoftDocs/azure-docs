@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 04/05/2017
 ms.author: raynew
 
 ---
@@ -22,6 +22,9 @@ ms.author: raynew
 Read this article for an overview of using the Azure Site Recovery service for migration of virtual machines and physical servers.
 
 Site Recovery is an Azure service that contributes to your BCDR strategy, by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Site Recovery?](site-recovery-overview.md) You can also use Site Recovery to migrate your existing on-premises workloads to Azure to expedite your cloud journey and avail the array of features that Azure offers.
+
+For a quick overview of how to perform migration, please refer to this video.
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 This article describes deployment in the [Azure portal](https://portal.azure.com). The [Azure classic portal](https://manage.windowsazure.com/) can be used to maintain existing Site Recovery vaults, but you can't create new vaults.
 
@@ -42,9 +45,16 @@ You can:
 
 ## Migrate on-premises VMs and physical servers
 
-To migrate on-premises Hyper-V VMs, VMware VMs, and physical servers, you follow almost the same steps as those used for regular replication. You set up a Recovery Services vault, configure the required management servers (depending on what you want to migrate), add them to the vault, and specify replication settings. You enable replication for the machines you want to migrate, and run a quick test failover to ensure that everything's working as it should.
+To migrate on-premises Hyper-V VMs, VMware VMs, and physical servers, you follow almost the same steps as those used for regular replication.
 
-After you verify that your replication environment is working, you use a planned or unplanned failover depending on [what's supported](site-recovery-failover.md) for your scenario. For migration, you don't need to commit a failover. Instead, you select the **Complete Migration** option for each machine you want to migrate. The **Complete Migration** action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
+1. Set up a Recovery Services vault
+2. Configure the required management servers (VMware, VMM, Hyper-V - depending on what you want to migrate), add them to the vault, and specify replication settings.
+3. Enable replication for the machines you want to migrate
+4. After the initial migration, run a quick test failover to ensure that everything's working as it should.
+5. After you verify that your replication environment is working, you use a planned or unplanned failover depending on [what's supported](site-recovery-failover.md) for your scenario. We recommend you use a planned failover when possible.
+6. For migration, you don't need to commit a failover, or delete it. Instead, you select the **Complete Migration** option for each machine you want to migrate.
+     - In **Replicated Items**, right-click the VM, and click **Complete Migration**. Click **OK** to complete. You can track progress in the VM properties, in by monitoring the Complete Migration job in **Site Recovery jobs**.
+     - The **Complete Migration** action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

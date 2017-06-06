@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 03/24/2017
 ms.author: markvi
 
 ---
@@ -83,7 +83,8 @@ Use the following table to get an overview of the steps that are required for yo
 | Step 1: Configure service connection point | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
 | Step 2: Setup issuance of claims           |                                        | ![Check][1]                    | ![Check][1]        |
 | Step 3: Enable non-Windows 10 devices      |                                        |                                | ![Check][1]        |
-
+| Step 4: Control deployment and rollout     | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
+| Step 5: Verify registered devices          | ![Check][1]                            | ![Check][1]                    | ![Check][1]        |
 
 
 
@@ -288,8 +289,13 @@ The definition helps you to verify whether the values are present or if you need
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> The issuerID claim for computer in the rule above must contain one of the verified domain names in Azure AD. This is not the AD FS service URL.
+
+In the claim above,
+
+- `$<domain>` is the AD FS service URL
+- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD
+
+
 
 For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
 To get a list of your verified company domains, you can use the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet. 
@@ -561,9 +567,9 @@ The output of this cmdlet shows devices registered in Azure AD. To get all devic
 
 ## Next steps
 
-* [Automatic device registration FAQ](active-directory-conditional-access-automatic-device-registration-faq.md)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-* [Troubleshooting auto-registration of domain joined computers to Azure AD – non-Windows 10](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+* [Automatic device registration FAQ](active-directory-device-registration-faq.md)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+* [Troubleshooting auto-registration of domain joined computers to Azure AD – non-Windows 10](active-directory-device-registration-troubleshoot-windows-legacy.md)
 * [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
 
 

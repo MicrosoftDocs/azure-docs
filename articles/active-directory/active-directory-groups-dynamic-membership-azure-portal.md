@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/07/2017
 ms.author: curtand
 
 ms.custom: H1Hack27Feb2017
@@ -150,7 +150,7 @@ Allowed operators
 * -contains
 * -notContains
 
-| Poperties | Allowed values | Usage |
+| Properties | Allowed values | Usage |
 | --- | --- | --- |
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -188,14 +188,27 @@ You can now populate members in a group based on the manager attribute of a user
 ## Using attributes to create rules for device objects
 You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
 
-| Properties | Allowed values | Usage |
-| --- | --- | --- |
-| displayName |any string value |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |any string value |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |any string value |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| Properties              | Allowed values                  | Usage                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
+| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
+| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
+| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
+| deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
+| domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| managementType          | any string value                | (device.managementType -eq "")                              |
+| organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
+| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+
+
+
 
 ## Next steps
 These articles provide additional information on groups in Azure Active Directory.

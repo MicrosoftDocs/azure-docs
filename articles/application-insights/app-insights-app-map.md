@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/14/2017
 ms.author: awills
 
 ---
@@ -96,11 +96,15 @@ The app map finds server nodes by looking for all Application Insights resources
 > [!NOTE] 
 > End-to-end system app map is in preview. You have to instrument your components with a special version of the SDK, and you have to use a special URL to see the app map. [Learn how to set up end-to-end system app maps](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## Feedback
 Please [provide feedback through the portal feedback option](app-insights-get-dev-support.md).
 
 ![MapLink-1 image](./media/app-insights-app-map/13.png)
+
 
 ## Next steps
 

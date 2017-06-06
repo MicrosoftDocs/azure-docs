@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -90,11 +91,7 @@ Once the cluster has finished creating, use the following steps to run the Simpl
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
    
-    For more information on using SSH with HDInsight, see the following:
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, or Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-   * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following to create a new file named **tiny_graph.txt**:
    

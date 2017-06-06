@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Collect heap dumps in Blob storage to debug and analyze Hadoop services

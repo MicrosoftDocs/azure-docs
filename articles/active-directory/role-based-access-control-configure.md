@@ -1,5 +1,5 @@
 ---
-title: Role-Based Access Control in the Azure classic portal | Microsoft Docs
+title: Role-Based Access Control in the Azure portal | Microsoft Docs
 description: Get started in access management with Role-Based Access Control in the Azure Portal. Use role assignments to assign permissions to your resources.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 
 ---
@@ -23,6 +23,8 @@ ms.author: kgremban
 > * [Manage access by resource](role-based-access-control-configure.md)
 
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. This article helps you get up and running with RBAC in the Azure portal. If you want more details about how RBAC helps you manage access, see [What is Role-Based Access Control](role-based-access-control-what-is.md).
+
+Within each subscription, you can grant up to 2000 role assignments. 
 
 ## View access
 You can see who has access to a resource, resource group, or subscription from its main blade in the [Azure portal](https://portal.azure.com). For example, we want to see who has access to one of our resource groups:

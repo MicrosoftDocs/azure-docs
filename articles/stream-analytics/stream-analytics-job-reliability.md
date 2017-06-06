@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/27/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 ---
 
@@ -26,19 +26,6 @@ Stream Analytics guarantees jobs in paired regions are updated in separate batch
 
 _With the exception of Central India_ (whose paired region, South India, does not have Stream Analytics presence), the deployment of an update to Stream Analytics would not occur at the same time in a set of paired regions. Deployments in multiple regions **in the same group** may occur **at the same time**.
 
-See the following chart for the list of pair groups:
+The article on **[availability and paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** has the most up-to-date information on which regions are paired.
 
-Group A regions |  | Group B regions
-------- | ------- | -------
-Japan East | paired to | Japan West
-North Europe |  | West Europe
-Central US |  | East US2
-East Asia |  | South East Asia
-North Central US |  | South Central US
-Australia East |  | Australia South East
-East US |  | West US
-Brazil South |  | South Central US
-China North |  | China East
-Germany North East |  | Germany Central
-
-Customers are advised to deploy identical jobs to both paired regions. In addition to Stream Analytics’ internal monitoring, customers are also advised to monitor the jobs as if **both** are production jobs. If a break is identified to be a result of the Stream Analytics service update, escalate appropriately and fail over any downstream consumers to the healthy job output. Escalation to support will prevent the paired region from being affected by the new deployment and maintain the integrity of the paired jobs.
+Customers are advised to deploy identical jobs to both paired regions. In addition to Stream Analytics internal monitoring capabilities, customers are also advised to monitor the jobs as if **both** are production jobs. If a break is identified to be a result of the Stream Analytics service update, escalate appropriately and fail over any downstream consumers to the healthy job output. Escalation to support will prevent the paired region from being affected by the new deployment and maintain the integrity of the paired jobs.

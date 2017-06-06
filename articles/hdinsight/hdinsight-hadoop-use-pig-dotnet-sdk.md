@@ -10,11 +10,12 @@ tags: azure-portal
 
 ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/03/2017
 ms.author: larryfr
 
 ---
@@ -34,7 +35,7 @@ To complete the steps in this article, you need the following.
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
-* Visual Studio 2012 or 2013 or 2015.
+* Visual Studio 2012, 2013, 2015 or 2017.
 
 ## Create the application
 
@@ -42,32 +43,19 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 1. From the **File** menu in Visual Studio, select **New** and then select **Project**.
 
-2. For the new project, type or select the following values.
+2. For the new project, type or select the following values:
    
-    <table>
-    <tr>
-    <th>Property</th>
-    <th>Value</th>
-    </tr>
-    <tr>
-    <th>Category</th>
-    <th>Templates/Visual C#/Windows</th>
-    </tr>
-    <tr>
-    <th>Template</th>
-    <th>Console Application</th>
-    </tr>
-    <tr>
-    <th>Name</th>
-    <th>SubmitPigJob</th>
-    </tr>
-    </table>
+   | Property | Value |
+   | ------ | ------ |
+   | Category | Templates/Visual C#/Windows |
+   | Template | Console Application |
+   | Name | SubmitPigJob |
 
 3. Click **OK** to create the project.
 
 4. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
 
-5. Run the following command in the console to install the .NET SDK packages.
+5. To install the .NET SDK packages, use the following command:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
@@ -126,9 +114,9 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
     }
     ```
     
-7. Press **F5** to start the application.
+7. To start the application, press **F5**.
 
-8. Press **ENTER** to exit the application.
+8. To exit the application, press **ENTER**.
 
 ## Summary
 
@@ -136,11 +124,9 @@ As you can see, the .NET SDK for Hadoop allows you to create .NET applications t
 
 ## Next steps
 
-For general information on Pig in HDInsight.
+For information on Pig in HDInsight, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-
-For information on other ways you can work with Hadoop on HDInsight.
+For more information on using Hadoop on HDInsight, see the following documents:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

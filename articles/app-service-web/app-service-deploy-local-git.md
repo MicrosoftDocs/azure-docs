@@ -131,6 +131,15 @@ The following are errors or problems commonly encountered when using Git to publ
     git push azure master
 
 - - -
+**Symptom**: RPC failed; result=22, HTTP code = 502.
+
+**Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
+
+**Resolution**: Change the git configuration on the local machine to make the postBuffer bigger
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **Symptom**: Error - Changes committed to remote repository but your web app not updated.
 
 **Cause**: This error can occur if you are deploying a Node.js app containing a package.json file that specifies additional required modules.
@@ -150,7 +159,7 @@ The following are errors or problems commonly encountered when using Git to publ
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
 * [How to use PowerShell for Azure](/powershell/azureps-cmdlets-docs)
-* [How to use the Azure Command-Line Interface](../xplat-cli-install.md)
+* [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
 [Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

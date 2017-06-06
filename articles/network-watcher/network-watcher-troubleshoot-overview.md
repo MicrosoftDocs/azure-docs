@@ -39,7 +39,7 @@ The following list is the values returned with the troubleshoot API:
       * **actionUri** - This value provides the URI to documentation on how to act.
       * **actionUriText** - This value is a short description of the action text.
 
-The following tables shows the different fault types (id under results from the preceding list) that are available and if the fault creates logs.
+The following tables show the different fault types (id under results from the preceding list) that are available and if the fault creates logs.
 
 ### Gateway
 
@@ -53,7 +53,7 @@ The following tables shows the different fault types (id under results from the 
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
 | NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | None of the Connections are not connected. This is only a warning.| Yes|
+| ConnectionsNotConnected | No Connections are not connected. This is only a warning.| Yes|
 | GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
 
 ### Connection

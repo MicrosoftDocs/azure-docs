@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;mausher;kevin;barbkess;elbutter
 

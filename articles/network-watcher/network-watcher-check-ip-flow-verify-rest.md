@@ -1,5 +1,5 @@
 ---
-title: Verify traffic with Azure Network Watcher IP Flow Verify - REST | Microsoft Docs
+title: Verify traffic with Azure Network Watcher IP flow verify - REST | Microsoft Docs
 description: This article describes how to check if traffic to or from a virtual machine is allowed or denied
 services: network-watcher
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 02/22/2017
 ms.author: gwallace
 
 ---
-# Check if traffic is allowed or denied with IP Flow Verify a component of Azure Network Watcher
+# Check if traffic is allowed or denied with IP flow verify a component of Azure Network Watcher
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-check-ip-flow-verify-portal.md)
@@ -25,7 +25,7 @@ ms.author: gwallace
 > - [CLI](network-watcher-check-ip-flow-verify-cli.md)
 > - [Azure REST API](network-watcher-check-ip-flow-verify-rest.md)
 
-IP Flow verify is a feature of Network Watcher that allows you to verify if traffic is allowed to or from a virtual machine. The validation can be run for incoming or outgoing traffic. This scenario is useful to get a current state of whether a virtual machine can talk to an external resource or backend. IP flow verify can be used to verify if your Network Security Group (NSG) rules are properly configured and troubleshoot flows that are being blocked by NSG rules. Another reason for using IP flow verify is to ensure traffic that you want blocked is being blocked properly by the NSG.
+IP flow verify is a feature of Network Watcher that allows you to verify if traffic is allowed to or from a virtual machine. The validation can be run for incoming or outgoing traffic. This scenario is useful to get a current state of whether a virtual machine can talk to an external resource or backend. IP flow verify can be used to verify if your Network Security Group (NSG) rules are properly configured and troubleshoot flows that are being blocked by NSG rules. Another reason for using IP flow verify is to ensure traffic that you want blocked is being blocked properly by the NSG.
 
 ## Before you begin
 
@@ -35,12 +35,12 @@ This scenario assumes you have already followed the steps in [Create a Network W
 
 ## Scenario
 
-This scenario uses IP Flow Verify to verify if a virtual machine can talk to another machine over port 443. If the traffic is denied, it returns the security rule that is denying that traffic. To learn more about IP Flow Verify, visit [IP Flow Verify Overview](network-watcher-ip-flow-verify-overview.md)
+This scenario uses IP flow Verify to verify if a virtual machine can talk to another machine over port 443. If the traffic is denied, it returns the security rule that is denying that traffic. To learn more about IP flow Verify, visit [IP flow verify overview](network-watcher-ip-flow-verify-overview.md)
 
 In this scenario, you:
 
 * Retrieve a virtual machine
-* Call IP Flow Verify
+* Call IP flow verify
 * Verify results
 
 ## Log in with ARMClient
@@ -93,12 +93,12 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 }
 ```
 
-## Call IP Flow Verify
+## Call IP flow Verify
 
 The following example creates a request to verify the traffic for a specified virtual machine. The response returns if the traffic is allowed or if the traffic is denied. If traffic is denied it also returns what rule blocks the traffic.
 
 > [!NOTE]
-> IP Flow verify requires that the VM resource is allocated.
+> IP flow verify requires that the VM resource is allocated.
 
 The script requires the resource Id of a virtual machine and of a network interface card on the virtual machine. These values are provided by the preceding output.
 

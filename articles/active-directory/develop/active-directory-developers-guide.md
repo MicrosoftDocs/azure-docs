@@ -24,7 +24,7 @@ As an identity management as a service (IDMaaS) platform, Azure Active Directory
 1. [The benefits of Azure AD integration](active-directory-how-to-integrate.md): Discover why integration with Azure AD offers the best solution for secure sign-in and authorization.
 2. [Azure AD authentication scenarios](active-directory-authentication-scenarios.md): Take advantage of simplified authentication in Azure AD to provide sign-on to your application.
 3. [Integrating applications with Azure AD](active-directory-integrating-applications.md): Learn how to add, update, and remove applications from Azure AD, and about the branding guidelines for integrated apps.
-4. [Azure AD Graph API](active-directory-graph-api.md): Use the Azure AD Graph API to programmatically access Azure AD through REST API endpoints. The Azure AD Graph API is also accessible through [Microsoft Graph](https://graph.microsoft.io/). Microsoft Graph provides a unified API that enables access to multiple Microsoft cloud service APIs, through a single REST API endpoint, and with a single access token.
+4. [Microsoft Graph](https://graph.microsoft.io/) and [Azure AD Graph API](active-directory-graph-api.md): Programmatically access Azure AD through REST API endpoints. **We strongly recommend that you use Microsoft Graph instead of Azure AD Graph API to access Azure Active Directory resources.** Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog post in the Office Dev Center.
 5. [Azure AD authentication libraries](active-directory-authentication-libraries.md): Easily authenticate users to obtain access tokens by using Azure AD authentication libraries for .NET, JavaScript, Objective-C, Android, and more.
 
 ## Getting started
@@ -53,10 +53,10 @@ These tutorials are tailored for multiple platforms and can help you quickly sta
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
 
-### Querying the directory quickstart guide
-| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
-|:---:|
-| [Graph API](active-directory-graph-api-quickstart.md) |
+### Microsoft Graph and Azure AD Graph API quick-start guides
+| [![Microsoft Graph](./media/active-directory-developers-guide/msgraph.png)](https://developer.microsoft.com/graph/quick-start) | [![Azure AD Graph API](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md) |
+|:---:|:---:|
+| [Microsoft Graph](https://developer.microsoft.com/graph/quick-start) | [Azure AD Graph API](active-directory-graph-api-quickstart.md) |
 
 ## How-tos
 These articles describe how to perform specific tasks by using Azure Active Directory:
@@ -87,9 +87,13 @@ These articles provide a foundation reference for REST and authentication librar
 * [Azure Active Directory samples](https://github.com/azure-samples?query=active-directory): The easiest way to navigate the list of samples is by using the [index of code samples](active-directory-code-samples.md).
 * [Active Directory Authentication Library (ADAL) for .NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) - Reference documentation is available for both [the latest major version](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) and [the previous major version](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory).
 
-### Graph API
-* [Graph API reference](https://msdn.microsoft.com/library/azure/hh974476.aspx): REST reference for the Azure Active Directory Graph API. [View the interactive Graph API reference experience](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* [Graph API permission scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.
+### Microsoft Graph and Azure AD Graph API
+> [!IMPORTANT]
+> We strongly recommend that you use [Microsoft Graph](https://graph.microsoft.io/) instead of Azure AD Graph API to access Azure Active Directory resources. Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog post in the Office Dev Center.
+> 
+* [Microsoft Graph](https://graph.microsoft.io/): Documentation, reference, samples, and SDKs for Microsoft Graph. 
+* [Azure AD Graph API reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog): REST reference for the Azure Active Directory Graph API. 
+* [Azure AD Graph API permission scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.
 
 ### Authentication and authorization protocols
 * [Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md): Learn about Azure AD’s signing key rollover cadence and how to update the key for the most common application scenarios.

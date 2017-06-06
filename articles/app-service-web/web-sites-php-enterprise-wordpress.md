@@ -220,8 +220,8 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
+[mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -237,6 +237,6 @@ For a guide to the change from websites to App Service, see [Azure App Service a
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
 [posh]: /powershell/azureps-cmdlets-docs
-[Azure CLI]: ../xplat-cli-install.md
+[Azure CLI]:../cli-install-nodejs.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn/cdn-overview.md

@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2016
 ms.author: nitinme
+ROBOTS: NOINDEX
 
 ---
 # Use Hive with Windows-based HDInsight to analyze logs from websites

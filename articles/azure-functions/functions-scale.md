@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/04/2017
 ms.author: dariagrigoriu, glenga
 
 ms.custom: H1Hack27Feb2017
@@ -35,25 +35,33 @@ When you create a function app, you must configure a hosting plan for functions 
 
 ### Consumption plan
 
-In the **Consumption plan**, your function apps are assigned to a compute processing instance. When needed, more instances are dynamically added or removed. Moreover, your functions run in parallel minimizing the total time needed to process requests. Execution time for each function is aggregated by the containing function app. Cost is driven by memory size and total execution time across all functions in a function app as measured in gigabyte-seconds. This is an excellent option if your compute needs are intermittent or your job times tend to be very short as it allows you to only pay for compute resources when they are actually in use. The next section provides details on how the Consumption plan works.
+In the **Consumption plan**, your function apps are assigned to a compute processing instance. When needed, more instances are dynamically added or removed. Moreover, your functions run in parallel minimizing the total time needed to process requests. Execution time for each function is aggregated by the containing function app. Cost is driven by memory size and total execution time for all functions in a function app. Use a consumption plan when your compute needs are intermittent or when your job execution times are short. This plan lets you only pay for compute resources when they are being used. The next section provides details on how the Consumption plan works.
 
 ### App Service plan
 
 In the **App Service plan**, your function apps run on dedicated VMs, just like Web Apps work today for Basic, Standard, or Premium SKUs. Dedicated VMs are allocated to your App Service apps and function apps and are always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the VMs that they run on. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
+With an App Service plan, you can manually scale out by adding more single-core VM instances, or you can enable auto-scale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service-web/web-sites-scale.md). If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
+
 ## How the Consumption plan works
 
-The Consumption plan automatically scales CPU and memory resources by adding additional processing instances based on the runtime requirements of the functions in a function app. Every function app processing instance is allocated memory resources up to 1.5 GB.
+The Consumption plan automatically scales CPU and memory resources by adding additional processing instances, based on the needs of the functions running in the function app. Every function app processing instance is allocated memory resources up to 1.5 GB.
 
-When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute day in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
+When running on a Consumption plan, if a Function App has gone idle, there can be up to a 10-minute delay in processing new blobs. Once the Function App is running, blobs are processed more quickly. To avoid this initial delay, either use a regular App Service Plan with Always On enabled or use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. 
+
+When creating a Function App, you must create or link a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Internally Azure Functions uses Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts do not support queues and tables, such as blob-only storage accounts (including premium storage) and general-purpose storage accounts with ZRS replication. These accounts are filtered from the Storage Account blade when creating a Function App.
+
+When using the Consumption hosting plan, function app content (such as function code files and binding configuration) is stored on Azure Files shares on the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
+
+To learn more about storage account types, see [Introducing the Azure Storage Services] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ### Runtime scaling
 
-Functions uses a central listener to evaluate compute needs based on the configured triggers and to decide when to scale out or scale in. The central listener continuously processes hints for memory requirements and trigger-specific data points. For example, in the case of an Azure Queue Storage trigger, the data points include the queue length and queue time of the oldest entry.
+Functions uses a scale controller to evaluate compute needs based on the configured triggers and to decide when to scale out or scale in. The scale controller continuously processes hints for memory requirements and trigger-specific data points. For example, when using an Azure Queue Storage trigger, the data points include the queue length and queue time of the oldest entry.
 
 ![](./media/functions-scale/central-listener.png)
 
-The unit of scaling is the function app. Scaling out in this case means adding more instances of a function app. Inversely, as compute demand is reduced, function app instances are removed. The number of instances is eventually scaled-down to zero when none are running. 
+The unit of scaling is the function app. Scaling out in this case means adding more instances of a function app. Inversely, as compute demand is reduced, function app instances are removed. The number of instances is eventually scaled-down to zero when no functions are running. 
 
 ### Billing model
 

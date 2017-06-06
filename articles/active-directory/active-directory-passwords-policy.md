@@ -21,7 +21,7 @@ ms.author: curtand
 This article describes the password policies and complexity    requirements associated with user accounts stored in your Azure AD directory.
 
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 >
 >
 
@@ -50,7 +50,7 @@ The following table describes the available password policy settings that can be
 | Account Lockout |After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
 ## Next steps
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [Manage your passwords from anywhere](active-directory-passwords.md)
 * [How Password Management works](active-directory-passwords-how-it-works.md)
 * [Getting started with Password Mangement](active-directory-passwords-getting-started.md)

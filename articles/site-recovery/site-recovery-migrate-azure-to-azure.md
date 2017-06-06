@@ -24,14 +24,14 @@ Welcome to Azure Site Recovery! Use this article if you want to migrate Azure VM
 * Azure has two different deployment models for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. The basic steps for migration are the same whether you're configuring Site Recovery in Resource Manager or in classic. However the UI instructions and screenshots in this article are relevant for the Azure portal.
 * **Currently you can only migrate from one region to another. You can fail over VMs from one Azure region to another, but you can't fail them back again.**
 * The migration instructions in this article are based on the instructions for replicating a physical machine to Azure. It includes links to the steps in [Replicate VMware VMs or physical servers to Azure](site-recovery-vmware-to-azure.md), which describes how to replicate a physical server in the Azure portal.
-* If you're setting up Site Recovery in the classic portal, follow the detailed instructions in [this article](site-recovery-vmware-to-azure-classic.md). 
+* If you're setting up Site Recovery in the classic portal, follow the detailed instructions in [this article](site-recovery-vmware-to-azure-classic.md).
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Prerequisites
 Here's what you need for this deployment:
 
-* **Configuration server**: An on-premises VM running Windows Server 2012 R2 that acts as the configuration server. You install the other Site Recovery components (including the process server and master target server) on this VM too. Read more in [scenario architecture](site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure) and [configuration server prerequisites](site-recovery-vmware-to-azure.md#prerequisites).
+* **Configuration server**: An on-premises VM running Windows Server 2012 R2 that acts as the configuration server. You install the other Site Recovery components (including the process server and master target server) on this VM too. Read more in [scenario architecture](site-recovery-components.md#vmware-to-azure) and [configuration server prerequisites](site-recovery-vmware-to-azure.md#prerequisites).
 * **IaaS virtual machines**: The VMs you want to migrate. You migrate these VMs by treating them as physical machines.
 
 ## Deployment steps

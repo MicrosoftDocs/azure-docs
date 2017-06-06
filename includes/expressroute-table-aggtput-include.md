@@ -1,4 +1,4 @@
-|  | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
+|  | **ExpressRoute Gateway throughput (up to)** | **VPN Gateway and ExpressRoute coexist** |
 | --- | --- | --- |
 | **Basic SKU (deprecated)** |500 Mbps |No |
 | **Standard SKU** |1000 Mbps |Yes |

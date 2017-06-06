@@ -328,4 +328,4 @@ if __name__ == '__main__':
 
 ```
 ## Next Steps 
-[Planned maintenance for virtual machines in Azure](./virtual-machines-linux-planned-maintenance.md)
+[Planned maintenance for virtual machines in Azure](linux/planned-maintenance.md)

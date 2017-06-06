@@ -42,7 +42,7 @@ This article assumes that you have the following resources:
 - A virtual machine with the packet capture extension enabled.
 
 > [!IMPORTANT]
-> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/virtual-machines-windows-extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/virtual-machines-linux-extensions-nwa.md).
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ### Packet Capture agent extension through the portal
 
@@ -76,12 +76,12 @@ The properties that can be defined on a packet capture are:
 
 **Capture configuration**
 
-- **Storage** - Determines if packet capture is saved in a storage account.
+- **Storage Account** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
 - **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)
 - **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied
 - **Maximum bytes per packet** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
-- **Maximum bytes per session** - Total number of bytes that are captured, once the value is the packet capture stops.
+- **Maximum bytes per session** - Total number of bytes that are captured, once the value is reached the packet capture stops.
 - **Time limit (seconds)** - Sets a time limit for the packet capture to stop. Default is 1800 seconds.
 
 > [!NOTE]

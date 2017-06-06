@@ -46,7 +46,7 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | ClusterConfig.gMSA.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
 
 # Cluster Configuration Samples
-Latest versions of cluster configuration templates can be found at the Github page: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Latest versions of cluster configuration templates can be found at the GitHub page: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## Related
 * [Create a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md)

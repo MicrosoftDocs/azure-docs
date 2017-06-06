@@ -22,7 +22,7 @@ You can get up and running quickly with Azure Log Analytics, which helps you eva
 This article serves as an introduction to Log Analytics using a brief tutorial to walk you through a minimal deployment in Azure so that you can start using the service. The logical container where your management data in Azure is stored is called a workspace. After you've reviewed this information and completed your own evaluation, you can remove the evaluation workspace. Because this article is a tutorial, it doesn't address business requirements, planning, or architecture guidance.
 
 >[!NOTE]
->If you use the Microsoft Azure Government Cloud, use [Azure Government Monitoring + Management documentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) instead.
+>If you use the Microsoft Azure Government Cloud, use [Azure Government Monitoring + Management documentation](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) instead.
 
 Here's a quick look at the process used to get started:
 

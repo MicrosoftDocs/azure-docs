@@ -6,7 +6,7 @@ services: network-watcher
 documentationcenter: na
 author: georgewallace
 manager: timlt
-editor: 
+editor:
 
 
 ms.service: network-watcher
@@ -50,7 +50,7 @@ Before you start this scenario, you must have the following pre-requisites:
 
 ### Create the runbook
 
-The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md#create-a-new-automation-account-from-the-azure-portal)
+The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)
 
 ### Step 1
 
@@ -186,16 +186,3 @@ Now that you have an understanding on how to integrate Network Watcher troublesh
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-
-
-
-
-
-
-
-
-
-
-
-
-

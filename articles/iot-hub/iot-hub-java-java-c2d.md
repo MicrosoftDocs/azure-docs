@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 03/07/2017
 ms.author: dobett
 
 ---
@@ -54,22 +54,21 @@ In this section, you modify the simulated device app you created in [Get started
 2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the IoT hub that it has completed the message:
    
     ```
-    private static class MessageCallback implements
-    com.microsoft.azure.iothub.MessageCallback {
+    private static class AppMessageCallback implements MessageCallback {
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-   
+    
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
-3. Modify the **main** method to create a **MessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
+3. Modify the **main** method to create an **AppMessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
    
     ```
     client = new DeviceClient(connString, protocol);
    
-    MessageCallback callback = new MessageCallback();
+    MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
     ```
@@ -92,17 +91,21 @@ In this section, you create a Java console app that sends cloud-to-device messag
    
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.11</version>
+      <groupId>com.microsoft.azure.sdk.iot</groupId>
+      <artifactId>iot-service-client</artifactId>
+      <version>1.2.17</version>
     </dependency>
     ```
+
+    > [!NOTE]
+    > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
+
 4. Save and close the pom.xml file.
 5. Using a text editor, open the send-c2d-messages\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
    
     ```
-    import com.microsoft.azure.iot.service.sdk.*;
+    import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
@@ -189,3 +192,4 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

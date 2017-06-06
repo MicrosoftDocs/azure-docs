@@ -45,6 +45,8 @@
 ## [Authentication Protocols](active-directory-b2c-reference-protocols.md)
 ## [Tokens](active-directory-b2c-reference-tokens.md)
 
+## [Threat Management](active-directory-b2c-reference-threat-management.md)
+
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)

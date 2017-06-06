@@ -1,29 +1,30 @@
 # Overview
 ## [What is Traffic Manager?](traffic-manager-overview.md)
-## [How Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager endpoints](traffic-manager-endpoint-types.md)
-## [Traffic Manager endpoint monitoring and failover](traffic-manager-monitoring.md)
-## [Traffic routing methods](traffic-manager-routing-methods.md)
-## [Nested profiles](traffic-manager-nested-profiles.md)
-## [Performance considerations for Traffic Manager](traffic-manager-performance-considerations.md)
-## [Azure Resource Manager support](traffic-manager-powershell-arm.md)
+## [Routing methods](traffic-manager-routing-methods.md)
+### [Country/Region hierarchy used by Traffic Manager](traffic-manager-geographic-regions.md)
+## [Endpoint types](traffic-manager-endpoint-types.md)
+## [Endpoint monitoring](traffic-manager-monitoring.md)
+## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
-## [Manage endpoints](traffic-manager-manage-endpoints.md)
-## [Manage profiles](traffic-manager-manage-profiles.md)
-## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
+## [Create a Traffic Manager profile](traffic-manager-create-profile.md)
 
 # How To
-## [Configure a routing method](traffic-manager-configure-routing-method.md)
-## [Test your settings](traffic-manager-testing-settings.md)
+
+## [Configure geographic routing method](traffic-manager-configure-geographic-routing-method.md)
+## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
+## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
+## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+## [Manage endpoints](traffic-manager-manage-endpoints.md)
+## [Manage profiles](traffic-manager-manage-profiles.md)
+## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
-## [Use network resources](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
-## Troubleshoot
-### [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
+## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
+## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
+## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell (classic)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

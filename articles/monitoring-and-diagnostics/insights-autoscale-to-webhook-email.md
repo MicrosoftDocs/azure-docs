@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/03/2017
 ms.author: ashwink
 
 ---
@@ -72,10 +72,7 @@ When using the REST API or Resource Manager template, include the notifications 
 | properties |yes |value must be empty {} or can contain key-value pairs |
 
 ## Authentication in webhooks
-There are two authentication URI forms:
-
-1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+The webhook can authenticate using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:

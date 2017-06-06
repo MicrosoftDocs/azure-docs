@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Analyze flight delay data by using Hive on Linux-based HDInsight
 
@@ -32,7 +32,7 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you do not have a SQL Database already, see [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
-* **Azure CLI**. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) for more steps.
+* **Azure CLI**. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) for more steps.
 
 ## Download the flight data
 
@@ -65,10 +65,7 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
    
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
    
-    For more information on using SSH with Linux-based HDInsight, see the following articles:
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. Once connected, use the following to unzip the .zip file:
    

@@ -5,17 +5,20 @@
 
 # Get Started
 ## [Create lab](devtest-lab-create-lab.md)
+## [Create formulas](devtest-lab-create-formulas.md)
 ## [Create VM](devtest-lab-add-vm.md)
+## [Manage basic lab policies](devtest-lab-get-started-with-lab-policies.md)
 ## [Create lab for training](devtest-lab-training-lab.md)
 ## [FAQ](devtest-lab-faq.md)
 
 # How To
 ## Manage Labs
 ### [Add lab owners and users](devtest-lab-add-devtest-user.md)
-### [Define lab policies](devtest-lab-set-lab-policy.md)
+### [Manage all lab policies](devtest-lab-set-lab-policy.md)
 ### [Grant permissions to policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Configure cost management](devtest-lab-configure-cost-management.md)
 ### [Configure virtual networks](devtest-lab-configure-vnet.md)
+### [Understand shared IP addresses](devtest-lab-shared-ip.md)
 
 ## Manage Artifacts
 ### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
@@ -23,6 +26,7 @@
 ### [Manage artifacts](devtest-lab-add-vm-with-artifacts.md)
 
 ## Manage VM bases and templates
+### [Create claimable VM](devtest-lab-add-claimable-vm.md)
 ### [Create multi-VM environments with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md)
 ### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
 ### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)
@@ -33,8 +37,6 @@
 ### [Upload VHD file using AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Upload VHD file using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Upload VHD file using Storage Explorer](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Resources
 ## [Service Updates](https://azure.microsoft.com/updates/?product=devtest-lab)

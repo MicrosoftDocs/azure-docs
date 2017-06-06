@@ -1,6 +1,6 @@
 ---
-title: 'How it works: Azure AD Password Management | Microsoft Docs'
-description: Learn about the different components of Azure AD Password Management, including where users register, reset, and change their passwords, and where admins configure, report on, and enable management of on-premises Active Directory passwords.
+title: 'How it works: Azure AD password management | Microsoft Docs'
+description: Learn about the different components of Azure AD password management--including where users register, reset, and change their passwords, and where admins configure, report on, and enable management of on-premises Active Directory passwords.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -21,101 +21,106 @@ ms.custom: H1Hack27Feb2017
 ---
 # How password management works in Azure Active Directory
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
->
->
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
 
-Password management in Azure Active Directory (Azure AD) comprises several logical components that are described below. Select the links to learn more about that component.
+Password management in Azure Active Directory (Azure AD) consists of the following logical components:
 
-* [**Password Management Configuration Portal**](#password-management-configuration-portal) – Administrators can control different facets of how passwords are managed in their tenants by navigating to their directory’s Configure tab in the [Azure Management Portal](https://manage.windowsazure.com).
-* [**User Registration Portal**](#user-registration-portal) – Users can self-register for password reset through this web portal.
-* [**User Password Reset Portal**](#user-password-reset-portal) – Users can reset their own passwords using various challenges in accordance with the administrator-controlled password reset policy
-* [**User Password Change Portal**](#user-password-change-portal) – Users can change their own passwords at any time by entering their old password and selecting a new password using this web portal
-* [**Password Management Reports**](#password-management-reports) – Administrators can view and analyze password reset and registration activity in their tenant by navigating to the “Activity Reports” section of their directory’s “Reports” tab in the [Azure Management Portal](https://manage.windowsazure.com)
-* [**Password Writeback Component of Azure AD Connect**](#password-writeback-component-of-azure-ad-connect) – Administrators can optionally enable the Password Writeback feature when installing Azure AD Connect to enable management of federated or password synchronized user passwords from the cloud.
+* **Password management configuration portal**: You can control different facets of how passwords are managed in your tenants by navigating to their directory’s **Configure** tab in the [Azure portal](https://manage.windowsazure.com).
+* **User registration portal**: Users can self-register for password reset through this web portal.
+* **User password reset portal**: Users can reset their own passwords by using various challenges in accordance with the administrator-controlled password reset policy.
+* **User password change portal**: Users can change their own passwords at any time by entering their old password and selecting a new password through this web portal.
+* **Password management reports**: You can view and analyze password reset and registration activity in your tenant by navigating to the **Activity Reports** section of their directory’s **Reports** tab in the [Azure portal](https://manage.windowsazure.com).
+* **Password Writeback component of Azure AD Connect**: You can optionally enable the Password Writeback feature when you install Azure AD Connect to enable management of federated or password synchronized user passwords from the cloud.
 
-## Password Management Configuration Portal
-You can configure Password Management policies for a specific directory using the [Azure Management Portal](https://manage.windowsazure.com) by navigating to the **User Password Reset Policy** section in the directory’s **Configure** tab.  From this configuration page, you can control many aspects of how passwords are managed in your organization, including:
+## Password management configuration portal
+You can configure password management policies for a specific directory in the [Azure portal](https://manage.windowsazure.com) by navigating to the **User Password Reset Policy** section on the directory’s **Configure** tab. From this configuration page, you can control many aspects of how passwords are managed in your organization, including:
 
-* Enabling and disabling password reset for all users in a directory
-* Setting the number of challenges (either one or two) a user must go through to reset his or her password
-* Setting the specific types of challenges you want to enable for users in your organization from the choices below:
-  * Mobile Phone (a verification code via text or a voice call)
-  * Office Phone (a voice call)
-  * Alternate Email (a verification code via email)
-  * Security Questions (knowledge-based authentication)
-* Setting the number of questions a user must register to use the security questions authentication method (only visible if security questions are enabled)
-* Setting the number of questions a user must supply during reset to use the security questions authentication method (only visible if security questions are enabled)
-* Using pre-canned, localized, security questions that a user may choose to use when registering for password reset (only visible if security questions are enabled)
-* Defining the custom security questions that a user may choose to use when registering for password reset (only visible if security questions are enabled)
-* Requiring users to register for password reset when they go to the application Access Panel at [http://myapps.microsoft.com](http://myapps.microsoft.com).
-* Requiring users to re-confirm their previously registered data after a configurable number of days have passed (only visible if enforced registration is enabled)
-* Providing a custom helpdesk email or URL that is shown to users in case they have a problem resetting their passwords
-* Enabling or disabling the Password Writeback capability (when Password Writeback has been deployed using AAD Connect)
-* Viewing the status of the Password Writeback agent (when Password Writeback has been deployed using AAD Connect)
-* Enabling email notifications to users when their own password has been reset (found in the **Notifications** section of the [Azure Management Portal](https://manage.windowsazure.com))
-* Enabling email notifications to administrators when other administrators reset their own passwords (found in the **Notifications** section of the [Azure Management Portal](https://manage.windowsazure.com)
-* Branding the user password reset portal and password reset emails with your organization’s logo and name by using the tenant branding customization feature (found in the **Directory Properties** section of the [Azure Management Portal](https://manage.windowsazure.com)
+* Enabling and disabling password reset for all users in a directory.
+* Setting the number of challenges (either one or two) that a user must go through to reset their password.
+* Setting the specific types of challenges that you want to enable for users in your organization from these choices:
+  * Mobile phone (a verification code via text or a voice call)
+  * Office phone (a voice call)
+  * Alternate email (a verification code via email)
+  * Security questions (knowledge-based authentication)
+* Setting the number of questions that a user must register to use the security questions authentication method (only visible if security questions are enabled).
+* Setting the number of questions that a user must supply during reset to use the security questions authentication method (only visible if security questions are enabled).
+* Using pre-canned, localized, security questions that a user can choose to use when they're registering for password reset (only visible if security questions are enabled).
+* Defining the custom security questions that a user can choose to use when they're registering for password reset (only visible if security questions are enabled).
+* Requiring users to register for password reset when they go to the application [Access Panel](http://myapps.microsoft.com).
+* Requiring users to reconfirm their previously registered data after a configurable number of days have passed (only visible if enforced registration is enabled).
+* Providing a custom helpdesk email or URL that's shown to users in case they have a problem resetting their passwords.
+* Enabling or disabling the Password Writeback capability (when Password Writeback has been deployed by using Azure AD Connect).
+* Viewing the status of the Password Writeback agent (when Password Writeback has been deployed by using Azure AD Connect).
+* Enabling email notifications to users when their own password has been reset (found in the **Notifications** section of the [Azure portal](https://manage.windowsazure.com)).
+* Enabling email notifications to administrators when other administrators reset their own passwords (found in the **Notifications** section of the [Azure portal](https://manage.windowsazure.com)).
+* Branding the user password reset portal and password reset emails with your organization’s logo and name by using the tenant branding customization feature (found in the **Directory Properties** section of the [Azure portal](https://manage.windowsazure.com)).
 
-To learn more about configuring Password Management in your organization, see [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md).
+To learn more about configuring password management in your organization, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md).
 
-## User Registration Portal
-Before users are able to use password reset, their cloud user accounts must be updated with the correct authentication data to ensure that they can pass through the appropriate number of password reset challenges defined by their administrator.  Administrators can also define this authentication information on their user’s behalf by using the Azure or Office web portals, DirSync / Azure AD Connect, or Windows PowerShell.
+## User registration portal
+Before your users can use password reset, you must update their cloud user accounts with the correct authentication data to ensure that they can pass through the appropriate number of password reset challenges that you define. You can also define this authentication information on the user’s behalf by using the Azure or Office web portals, DirSync/Azure AD Connect, or Windows PowerShell.
 
-However, if you’d rather have your users register their own data, we also provide a web page that users can go to so they can populate this information.  This page will allow users to specify authentication information in accordance with the password reset policies that have been enabled in their organization.  Once this data is verified, it is stored in their cloud user account to be used for account recovery at a later time. Here’s what the registration portal looks like:
+However, if you’d rather have your users register their own data, we also provide a webpage that users can go to so that they can add this information. This page allows users to specify authentication information in accordance with the password reset policies that have been enabled in their organization. After this data is verified, it is stored in their cloud user account for use in account recovery at a later time.
+
+Here’s what the registration portal looks like:
 
   ![][001]
 
-For more information, see [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md) and [Best Practices: Azure AD Password Management](active-directory-passwords-best-practices.md).
+For more information, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md) and [Best practices: Azure AD password management](active-directory-passwords-best-practices.md).
 
-## User Password Reset Portal
-Once you have enabled self-service password reset, set up your organization’s self-service password reset policy, and ensured that your users have the appropriate contact data in the directory, users in your organization are able to reset their own passwords automatically from any web page, which uses a Work or School account for sign in (such as [portal.microsoftonline.com](https://portal.microsoftonline.com)). On pages such as these, users see a **Can’t access your account?** link.
+## User password reset portal
+After you've enabled self-service password reset, set up your organization’s self-service password reset policy, and ensured that your users have the appropriate contact data in the directory, users in your organization can reset their own passwords automatically from any webpage that uses a work or school account for sign-in (such as [portal.microsoftonline.com](https://portal.microsoftonline.com)). On pages such as these, users see a **Can’t access your account?** link.
 
   ![][002]
 
-Clicking on this link will launch the self-service password reset portal.
+Clicking on this link opens the self-service password reset portal.
 
   ![][003]
 
-To learn more about how users can reset their own passwords, see [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md).
+To learn more about how users can reset their own passwords, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md).
 
-## User Password Change Portal
-If users want to change their own passwords, they can do so by using the password change portal at any time.  Users can access the password change portal via the Access Panel profile page, or clicking the “change password” link from within Office 365 applications.  In the case when their passwords expire, users will also be asked to change them automatically when signing in.
+## User password change portal
+If your users want to change their own passwords, they can do so by using the password change portal at any time. Users can access the password change portal via the Access Panel profile page, or by clicking the **Change password** link from within Office 365 applications. In the case when their passwords expire, users are also asked to change them automatically when they sign in.
 
   ![][004]
 
-In both of these cases, if Password Writeback has been enabled and the user is either federated or password sync’d, these changed passwords are written back to your on-premises Active Directory. Here’s what the password change portal looks like:
+In both cases, if Password Writeback has been enabled, and the user is either federated or the password is synchronized, these changed passwords are written back to your on-premises Active Directory.
+
+Here’s what the password change portal looks like:
 
   ![][005]
 
-To learn more about how users can change their own on-premises Active Directory passwords, see [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md).
+To learn more about how users can change their own on-premises Active Directory passwords, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md).
 
-## Password Management reports
-By navigating to the **Reports** tab and looking under the **Activity Logs** section, you see two Password Management reports: **Password reset activity** and **Password reset registration activity**.  Using these two reports, you can get a view of users registering for and using password reset in your organization. Here’s what these reports look like in the [Azure Management Portal](https://manage.windowsazure.com):
+## Password management reports
+When you navigate to the **Reports** tab and look under the **Activity Logs** section, you see two password management reports: **Password reset activity** and **Password reset registration activity**. You can use these two reports to get a view of users that register for and use password reset in your organization.
+
+Here’s what these reports look like in the [Azure portal](https://manage.windowsazure.com):
 
   ![][006]
 
-For more information, see [Get Insights: Azure AD Password Management Reports](active-directory-passwords-get-insights.md).
+For more information, see [Get insights: Azure AD password management reports](active-directory-passwords-get-insights.md).
 
 ## Password Writeback component of Azure AD Connect
-If the passwords of users in your organization originate from your on-premises environment (either via federation or password synchronization), you can install the latest version of Azure AD Connect to enable updating those passwords directly from the cloud.  This means that when your users forget or want to modify their AD password, they can do so straight from the web.  Here’s where to find Password Writeback in the Azure AD Connect installation wizard:
+If the passwords of users in your organization originate from your on-premises environment (either via federation or password synchronization), you can install the latest version of Azure AD Connect to enable updating those passwords directly from the cloud. This means that when your users forget or want to modify their Azure AD password, they can do so straight from the web. Here’s where to find Password Writeback in the Azure AD Connect installation wizard:
 
   ![][007]
 
-For more information about Azure AD Connect, see [Get Started: Azure AD Connect](active-directory-aadconnect.md). For more information about Password Writeback, see [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md).
+For more information about Azure AD Connect, see [Get started: Azure AD Connect](active-directory-aadconnect.md). For more information about Password Writeback, see [Getting started: Azure AD password management](active-directory-passwords-getting-started.md).
 
 
 ## Next steps
-Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
-* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+To learn more, see the following Azure AD password reset pages:
+
+* **Are you here because you're having problems signing in?** If so, learn how to [change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* [**Getting started**](active-directory-passwords-getting-started.md): Learn how to allow you users to reset and change their cloud or on-premises passwords.
+* [**Customize**](active-directory-passwords-customize.md): Learn how to customize the look, feel, and behavior of the service to your organization's needs.
+* [**Best practices**](active-directory-passwords-best-practices.md): Learn how to quickly deploy and effectively manage passwords in your organization.
+* [**Get insights**](active-directory-passwords-get-insights.md): Learn about our integrated reporting capabilities.
+* [**FAQ**](active-directory-passwords-faq.md): Get answers to frequently asked questions.
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md): Learn how to quickly troubleshoot problems with the service.
+* [**Learn more**](active-directory-passwords-learn-more.md): Go deep into the technical details of how the service works.
 
 [001]: ./media/active-directory-passwords-how-it-works/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-how-it-works/002.jpg "Image_002.jpg"

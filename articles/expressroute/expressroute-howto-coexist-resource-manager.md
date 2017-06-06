@@ -1,5 +1,5 @@
 ---
-title: Configure Expressroute and Site-to-Site VPN connections that can coexist for the Resource Manager deployment model | Microsoft Docs
+title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: Resource Manager: Azure | Microsoft Docs'
 description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for Resource Manager model.
 documentationcenter: na
 services: expressroute
@@ -18,7 +18,7 @@ ms.date: 10/10/2016
 ms.author: charwen
 
 ---
-# Configure ExpressRoute and Site-to-Site coexisting connections for the Resource Manager deployment model
+# Configure ExpressRoute and Site-to-Site coexisting connections
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Classic](expressroute-howto-coexist-classic.md)

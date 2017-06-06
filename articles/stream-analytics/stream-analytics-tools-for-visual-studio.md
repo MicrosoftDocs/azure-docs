@@ -4,9 +4,9 @@ description: Getting-started tutorial for the Azure Stream Analytics Tools for V
 keywords: visual studio
 documentationcenter: ''
 services: stream-analytics
-author: 
-manager: 
-editor: 
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
-ms.author: 
+ms.date: 03/28/2017
+ms.author: sujie
 
 ---
 # Use Azure Stream Analytics Tool for Visual Studio

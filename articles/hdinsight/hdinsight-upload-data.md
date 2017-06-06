@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -60,7 +61,7 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Install and configure the Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
+1. [Install and configure the Azure CLI for Mac, Linux and Windows](../cli-install-nodejs.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
         azure login
@@ -298,7 +299,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[azurecli]: ../xplat-cli-install.md
+[azurecli]: ../cli-install-nodejs.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png

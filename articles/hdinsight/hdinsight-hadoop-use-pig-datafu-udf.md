@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 0016721a-82be-4773-88ad-91e6b2c21cbb
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -41,10 +42,7 @@ DataFu is a collection of Open Source libraries for use with Hadoop. In this doc
 
 DataFu can be downloaded and installed from the Maven repository. Use the following steps to add DataFu to your HDInsight cluster:
 
-1. Connect to your Linux-based HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
-   
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Connect to your Linux-based HDInsight cluster using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following command to download the DataFu jar file using the wget utility, or copy and paste the link into your browser to begin the download.
    

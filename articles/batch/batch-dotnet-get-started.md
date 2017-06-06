@@ -44,7 +44,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 >
 
 ### Visual Studio
-You must have **Visual Studio 2015** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio 2015 products][visual_studio].
+You must have **Visual Studio 2015 or newer** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio products][visual_studio].
 
 ### *DotNetTutorial* code sample
 The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking  **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, you can find the solution in the following folder:
@@ -55,7 +55,7 @@ The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code
 The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
 ## DotNetTutorial sample project overview
-The *DotNetTutorial* code sample is a Visual Studio 2015 solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
+The *DotNetTutorial* code sample is a Visual Studio solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
 
 * **DotNetTutorial** is the client application that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). DotNetTutorial runs on your local workstation.
 * **TaskApplication** is the program that runs on compute nodes in Azure to perform the actual work. In the sample, `TaskApplication.exe` parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, TaskApplication uploads the file to Azure Storage. This makes it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
@@ -245,7 +245,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
         CloudBlobContainer container = blobClient.GetContainerReference(containerName);
         CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
-        await blobData.UploadFromFileAsync(filePath, FileMode.Open);
+        await blobData.UploadFromFileAsync(filePath);
 
         // Set the expiry time and permissions for the blob shared access signature.
         // In this case, no start time is specified, so the shared access signature
@@ -477,7 +477,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
         try
         {
                 CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
-                blob.UploadFromFile(filePath, FileMode.Open);
+                blob.UploadFromFile(filePath);
 
                 Console.WriteLine("Write operation succeeded for SAS URL " + containerSas);
                 Console.WriteLine();
@@ -788,7 +788,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
-[visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
+[visual_studio]: https://www.visualstudio.com/vs/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Create containers in Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Upload task application and input (data) files to containers"

@@ -25,7 +25,9 @@ This topic provides a reference for the following API Management policies. For i
   
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.  
   
--   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.  
+-   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity. 
+
+-   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
   
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.  
   
@@ -307,7 +309,49 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy sections:** inbound, outbound, backend, on-error  
   
 -   **Policy scopes:** all scopes  
+
+##  <a name="mock-response"></a> Mock response  
+The `mock-response`, as the name implies, is used to mock APIs and operations. It aborts normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, whenever available. It generates sample responses from schemas, when schemas are provided and examples are not. If neither examples or schemas are found, responses with no content are returned.
   
+### Policy statement  
+  
+```xml  
+<mock-response status-code="code" content-type="media type"/>  
+  
+```  
+  
+### Examples  
+  
+```xml  
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code. First found content type is used. If no example or schema is found, the content is empty. -->
+<mock-response/>
+
+<!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
+status code and media type. If no example or schema found, the content is empty. -->
+<mock-response status-code='200' content-type='application/json'/>  
+```  
+  
+### Elements  
+  
+|Element|Description|Required|  
+|-------------|-----------------|--------------|  
+|mock-response|Root element.|Yes|  
+  
+### Attributes  
+  
+|Attribute|Description|Required|Default|  
+|---------------|-----------------|--------------|--------------|  
+|status-code|Specifies response status code and is used to select corresponding example or schema.|No|200|  
+|content-type|Specifies `Content-Type` response header value and is used to select corresponding example or schema.|No|None|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound, outbound, on-error  
+  
+-   **Policy scopes:** all scopes
+
 ##  <a name="Retry"></a> Retry  
  The             `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes            `false` or retry            `count` is exhausted.  
   

@@ -14,7 +14,7 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/06/2017
 ms.author: tobiast
 
 ---
@@ -75,7 +75,7 @@ Alternatively, you could create a DSN file using the wizard that is launched whe
 Congratulations! You have now successfully connected to Azure SQL using C++ and ODBC on Windows. You can continue reading to do the same for Linux platform as well. 
 
 ## <a id="Linux"></a>Step 5: Connecting from a Linux C/C++ application
-In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 For this tutorial, let us assume that you have an Ubuntu 16.04 Linux distribution set up. The steps here should also apply to Ubuntu 15.10, Red Hat 6, and Red Hat 7. 
 
@@ -88,7 +88,7 @@ The following steps install the libraries needed for SQL and ODBC for your distr
     apt-get install msodbcsql
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
-Launch Visual Studio 2015. Under Tools -> options -> cross platform -> C++ -> connection manager, add a connection to your Linux box: 
+Launch Visual Studio. Under Tools -> Options -> Cross Platform -> Connection Manager, add a connection to your Linux box: 
 
 ![Tools Options](./media/sql-database-develop-cplusplus-simple/tools.png)
 

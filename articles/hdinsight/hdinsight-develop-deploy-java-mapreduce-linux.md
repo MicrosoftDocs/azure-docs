@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -258,10 +259,7 @@ This command copies the files from the local system to the head node.
 
 ## <a name="run"></a>Run the MapReduce job
 
-1. Connect to HDInsight using SSH as described in the following articles:
-   
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. Connect to HDInsight using SSH. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. From the SSH session, use the following command to run the MapReduce application:
    

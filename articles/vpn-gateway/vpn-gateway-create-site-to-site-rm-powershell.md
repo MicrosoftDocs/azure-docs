@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 
 ---
@@ -22,6 +22,7 @@ ms.author: cherylmc
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Classic - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 >
 >
@@ -41,7 +42,7 @@ The following table shows the currently available deployment models and methods 
 If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md). If you want to add a Site-to-Site connection to a VNet that already has a connection, see [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 
 ## Before you begin
-Verify that you have the following items before beginning configuration.
+Verify that you have the following items before beginning configuration:
 
 * A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 * An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
@@ -71,7 +72,7 @@ If you already have a virtual network with a gateway subnet that is /29 or large
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### To create a virtual network and a gateway subnet
-Use the following sample to create a virtual network and a gateway subnet. Substitute the values for your own.
+Use the following sample to create a virtual network and a gateway subnet:
 
 First, create a resource group:
 
@@ -134,14 +135,14 @@ Sometimes your local network gateway prefixes change. The steps you take to modi
 ## <a name="PublicIP"></a>4. Request a public IP address for the VPN gateway
 Next, request a public IP address to be allocated to your Azure VNet VPN gateway. This is not the same IP address that is assigned to your VPN device; rather it's assigned to the Azure VPN gateway itself. You can't specify the IP address that you want to use. It is dynamically allocated to your gateway. You use this IP address when configuring your on-premises VPN device to connect to the gateway.
 
-The Azure VPN gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address will change. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and re-created. The gateway public IP address won't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.
+The Azure VPN gateway for the Resource Manager deployment model currently only supports public IP addresses by using the Dynamic Allocation method. However, this does not mean the IP address changes. The only time the Azure VPN gateway IP address changes is when the gateway is deleted and re-created. The gateway public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your Azure VPN gateway.
 
 Use the following PowerShell sample:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
 ## <a name="GatewayIPConfig"></a>5. Create the gateway IP addressing configuration
-The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration.
+The gateway configuration defines the subnet and the public IP address to use. Use the following sample to create your gateway configuration:
 
     $vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet

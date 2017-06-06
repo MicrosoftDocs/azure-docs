@@ -24,13 +24,13 @@ Azure API Management can be deployed inside the virtual network (VNET), so it ca
 
 > [!NOTE]
 > Azure API Management supports both classic and Azure Resource Manager VNets.
-> 
-> 
+>
+>
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
 > [!NOTE]
-> VNET connectivity is available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management 
-> service in the Azure portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or 
+> VNET connectivity is available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management
+> service in the Azure portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or
 > Developer tier and click Save.
 >
 
@@ -57,20 +57,20 @@ You will now see a list of all regions where your API Management service is prov
 
 > [!IMPORTANT]
 > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
-> 
-> 
+>
+>
 
 ![Select VPN][api-management-setup-vpn-select]
 
-Click **Save** at the top of the screen. 
+Click **Save** at the top of the screen.
 
 > [!NOTE]
 > The VIP address of the API Management instance will change each time VNET is enabled or disabled.  
 > The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
-> 
+>
 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to 4 hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
@@ -92,7 +92,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 > [!IMPORTANT]
 > It is recommended that, if you are using a Custom DNS Server for the VNET, you set that up **before** deploying an API Management service into it. Otherwise we need to restart the CloudService hosting the service, for it to pick up the new DNS Server settings.
-> 
+>
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
@@ -132,7 +132,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 
 ## <a name="related-content"> </a>Related content
-* [Connecting a Virtual Network to backend using Vpn Gateway][Different topologies to connect to Vpn Gateway]
+* [Connecting a Virtual Network to backend using Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
 
@@ -147,6 +147,5 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md

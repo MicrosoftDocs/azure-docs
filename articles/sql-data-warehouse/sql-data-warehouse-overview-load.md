@@ -13,8 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
 ms.author: barbkess
+
 
 ---
 # Load data into Azure SQL Data Warehouse

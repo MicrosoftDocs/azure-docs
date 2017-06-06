@@ -1,5 +1,5 @@
 ---
-title: Working with Geospatial data in Azure DocumentDB | Microsoft Docs
+title: Working with geospatial data in Azure DocumentDB | Microsoft Docs
 description: Understand how to create, index and query spatial objects with Azure DocumentDB.
 services: documentdb
 documentationcenter: ''
@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 03/20/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 
 ---
-# Working with Geospatial data in Azure DocumentDB
+# Working with geospatial and GeoJSON location data in DocumentDB
 This article is an introduction to the geospatial functionality in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
 
 * How do I store spatial data in Azure DocumentDB?
 * How can I query geospatial data in Azure DocumentDB in SQL and LINQ?
 * How do I enable or disable spatial indexing in DocumentDB?
 
-Please see this [Github project](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) for code samples.
+Please see this [GitHub project](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) for code samples.
 
 ## Introduction to spatial data
 Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth, i.e. geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for e.g., "find all coffee shops near my current location". 
 
 ### GeoJSON
-DocumentDB supports indexing and querying of geospatial point data that's represented using the [GeoJSON specification](http://geojson.org/geojson-spec.html). GeoJSON data structures are always valid JSON objects, so they can be stored and queried using DocumentDB without any specialized tools or libraries. The DocumentDB SDKs provide helper classes and methods that make it easy to work with spatial data. 
+DocumentDB supports indexing and querying of geospatial point data that's represented using the [GeoJSON specification](https://tools.ietf.org/html/rfc7946). GeoJSON data structures are always valid JSON objects, so they can be stored and queried using DocumentDB without any specialized tools or libraries. The DocumentDB SDKs provide helper classes and methods that make it easy to work with spatial data. 
 
 ### Points, LineStrings and Polygons
 A **Point** denotes a single position in space. In geospatial data, a Point represents the exact location, which could be a street address of a grocery store, a kiosk, an automobile or a city.  A point is represented in GeoJSON (and DocumentDB) using its coordinate pair or longitude and latitude. Here's an example JSON for a point.
@@ -380,7 +381,7 @@ And here's how you can modify an existing collection to take advantage of spatia
 ## Next steps
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
 
-* Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
+* Start coding with the [Geospatial .NET code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 * Learn more about [DocumentDB Query](documentdb-sql-query.md)
 * Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)

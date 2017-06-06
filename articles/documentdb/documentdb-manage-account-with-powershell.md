@@ -150,6 +150,19 @@ Example:
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
+## <a id="list-connection-strings-powershell"></a> List Connection Strings
+
+For MongoDB accounts, the connection string to connect your MongoDB app to the database account can be retrieved using the following command.
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
+* `<database-account-name>` The name of the DocumentDB database account.
+
+Example:
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+
 ## <a id="regenerate-account-key-powershell"></a> Regenerate Account Key
 
 You should change the access keys to your DocumentDB account periodically to help keep your connections more secure. Two access keys are assigned to enable you to maintain connections to the DocumentDB account using one access key while you regenerate the other access key.

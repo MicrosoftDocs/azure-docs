@@ -1,12 +1,17 @@
 # Overview
 ## [What is Azure Automation?](automation-intro.md)
-## [Security in Azure Automation](automation-security-overview.md)
 # Get started
-## [Create runbook](automation-first-runbook-graphical.md)
-## [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
-## [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
-## [Manage role-based access control](automation-role-based-access-control.md)
+## Runbook tutorial
+### [Create graphical runbook](automation-first-runbook-graphical.md)
+### [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
+### [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 # How to
+## Authentication and security
+### [Authentication in Azure Automation](automation-security-overview.md)
+### [Configure Azure Run As account](automation-sec-configure-azure-runas-account.md)
+### [Configure Azure AD User account](automation-sec-configure-aduser-account.md)
+### [Configure authentication with AWS](automation-sec-configure-aws-account.md)
+### [Manage role-based access control](automation-role-based-access-control.md)
 ## Create runbooks
 ### [Runbook types](automation-runbook-types.md)
 ### [Create and import runbooks](automation-creating-importing-runbook.md)
@@ -28,15 +33,11 @@
 ### [Manage Azure Automation data](automation-managing-data.md)
 ### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Deploy configuration management (DSC)
-### [Desired State Configuration (DSC)](automation-dsc-overview.md)
+### [Desired State Configuration (DSC) overview](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
 ### [Onboarding machines for management](automation-dsc-onboarding.md)
 ### [Compiling DSC configurations](automation-dsc-compile.md)
 ### [Continuous deployment using Chocolatey](automation-dsc-cd-chocolatey.md)
-## Set up authentication
-### [Azure Service Management and Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Azure RunAs account](automation-sec-configure-azure-runas-account.md)
 ## Manage automation assets
 ### [Certificates](automation-certificates.md)
 ### [Connections](automation-connections.md)
@@ -47,8 +48,6 @@
 ### [Update Azure PowerShell modules](automation-update-azure-modules.md)
 ## Automate scenarios
 ### [Runbook gallery](automation-runbook-gallery.md)
-### [Start/stop virtual machines](automation-solution-startstopvm-graphical.md)
-### [Start/stop virtual machines with PowerShell](automation-solution-startstopvm-psworkflow.md)
 ### [Create Amazon Web Service VM](automation-scenario-aws-deployment.md)
 ### [Remediate Azure VM alert](automation-azure-vm-alert-integration.md)
 ### [Start/stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
@@ -56,6 +55,9 @@
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ### [Source control integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Source control integration with VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Solutions
+### [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
+### [Update Management](../operations-management-suite/oms-solution-update-management.md)
 ## Monitor
 ### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)

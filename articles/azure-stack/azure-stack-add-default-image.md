@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/1/2017
+ms.date: 04/04/2017
 ms.author: erikje
 
 ---
@@ -24,58 +24,37 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 1. After deploying Azure Stack, sign in to the MAS-CON01 virtual machine.
 2. Go to https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 and download the Windows Server 2016 evaluation. When prompted, select the **ISO** version of the download. Record the path to the download location to use later in these steps.
 3. Open PowerShell ISE as an administrator.
-4. Install the following PowerShell modules:
+4. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+5. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md).  
+   
+   > [!NOTE]
+   > Make sure that you download and extract the Azure Stack tool repository to a folder that is NOT under the C:\Windows\System32 directory.  
+   
+6. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)  
+7. Import the Azure Stack ComputeAdmin Module by using the following cmdlet:
+   ```powershell
+   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
+   ```
 
-    ```powershell
-    Install-Module -Name AzureRM -RequiredVersion 1.2.8 -Scope CurrentUser
-    Install-Module -Name AzureStack
+8. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the [Parameters](#parameters) section below for the allowed parameters.
+
+   ```powershell
+   $ISOPath = "<Path_to_ISO>"
+   
+   # Store the AAD service administrator account credentials in a variable 
+   $UserName='<Username of the service administrator account>'
+   $Password='<Admin password provided when deploying Azure Stack>'|ConvertTo-SecureString -Force -AsPlainText
+   $Credential=New-Object PSCredential($UserName,$Password)
+
+   # Add a Windows Server 2016 Evaluation VM Image. Make sure to configure the $AadTenant and AzureStackAdmin environment values as described in Step 6
+   New-Server2016VMImage -ISOPath $ISOPath -TenantId $AadTenant -EnvironmentName "AzureStackAdmin" -AzureStackCredentials $Credential
     ```
-5. Download the Azure Stack Tools archive, expand the downloaded files, and changes to the tools directory by running the following script:    
-
-    ```powershell
-    #Download the tools archive
-    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip 
-    #Expand the downloaded files. 
-    expand-archive master.zip -DestinationPath . -Force
-    #Change to the tools directory
-    cd AzureStack-Tools-master 
-    ```
-6. Import the Azure Stack Connect and Compute Modules by using the following script:
-
-    ```powershell
-    Import-Module .\Connect\AzureStack.Connect.psm1 
-    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-    ```
-7. Get the GUID of the Azure Active Directory Tenant that was used to deploy Azure Stack by running one of the following scripts (depending on if you are using AAD or AD FS):
-
-    For AAD deployments, use the following:
-
-    ```powershell
-    $aadTenant = Get-AADTenantGUID -AADTenantName "<myaadtenant>.onmicrosoft.com" 
-    ```
-
-    For AD FS deployments, use the following script. Be sure to use your actual information for the placeholders Your_Azure_Stack_host_address and Your_Admin_Password (the password you used when you deployed Azure Stack).
-
-    ```powershell
-    Set-Item wsman:\localhost\Client\TrustedHosts -Value "Your_Azure_Stack_host_address" -Concatenate
-    $Password = ConvertTo-SecureString "Your_Admin_Password" -AsPlainText -Force
-    $AadTenant = Get-AzureStackAadTenant  -HostComputer <Host IP Address> -Password $Password
-    ```
-
-8. Add the Windows Server 2016 image to the Azure Stack marketplace by running the following script. Replace *Path_to_ISO* with the path to the WS2016 ISO you downloaded. See the Parameters section below for script parameter descriptions.
-
-    ```powershell
-    $ISOPath = "Path_to_ISO"
-    New-Server2016VMImage -ISOPath $ISOPath -TenantId $aadTenant
-    ```
-
-9. When prompted, supply the credentials of the AAD service administrator account used to deploy Azure Stack.
 
 ## Parameters
 
 |New-Server2016VMImage parameters|Required?|Description|
 |-----|-----|------|
-|ARMEndpoint|No|The Azure Resource Manager endpoint for your Azure Stack environment. The default is the one used by the Proof of Concept (PoC) environment.|
+|ArmEndpoint|No|The Azure Resource Manager endpoint for your Azure Stack environment. The default is the one used by the Proof of Concept (PoC) environment.|
 |AzureStackCredentials|Yes|The credentials provided during deployment that are used to login to the Azure Stack Administrator portal. |
 |IncludeLatestCU|No|Set this switch to apply the latest Windows Server 2016 cumulative update to the new VHD.|
 |ISOPath|Yes|The full path to the downloaded Windows Server 2016 ISO.|
@@ -83,6 +62,10 @@ Before you can provision virtual machines, you must add the Windows Server VM im
 |TenantID|Yes|The GUID value of your Azure Stack Tenant ID.|
 |Version|No|This parameter allows you to choose whether to add a Core or Full (or both) Windows Server 2016 images. Valid values include Full (the default this parameter is not provided), Core, and Both.|
 |VHDSizeInMB|No|Sets the size (in MB) of the VHD image to be added to your Azure Stack environment. Default value is 40960 MB.|
+|CreateGalleryItem|No|Specifies if a Marketplace item should be created for the Windows Server 2016 image. By default, this value is set to true.|
+|location |No |Specifies the location to which the Windows Server 2016 image should be published.|
+|CUUri |No |Set this value to choose the Windows Server 2016 cumulative update from a specific URI. |
+|CUPath |No |Set this value to choose the Windows Server 2016 cumulative update from a local path. This option is helpful if you have deployed Azure Stack in a disconnected environment.|
 
 ## Next Steps
 

@@ -27,7 +27,7 @@ the migration process. In this case, you need to preemptively bind the domain na
 
 ## Prerequisites
 
-This article assumes that you arleady know how to [manually map a custom domain to App Service](web-sites-custom-domain-name.md).
+This article assumes that you already know how to [manually map a custom domain to App Service](web-sites-custom-domain-name.md).
 
 ## Bind the domain name preemptively
 

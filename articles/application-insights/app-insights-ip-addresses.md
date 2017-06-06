@@ -187,3 +187,9 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API docs |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 
+## Profiler
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Agent | agent.azureserviceprofiler.net | dynamic | 443
+| Portal | gateway.azureserviceprofiler.net | dynamic | 443

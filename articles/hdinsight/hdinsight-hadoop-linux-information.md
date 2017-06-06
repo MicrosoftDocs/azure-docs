@@ -10,6 +10,7 @@ tags: azure-portal
 
 ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -47,13 +48,13 @@ Internally, each node in the cluster has a name that is assigned during cluster 
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Replace **PASSWORD** with the password of the admin account, and **CLUSTERNAME** with the name of your cluster. This returns a JSON document that contains a list of the hosts in the cluster, then jq pulls out the `host_name` element value for each host in the cluster.
+Replace **PASSWORD** with the password of the admin account, and **CLUSTERNAME** with the name of your cluster. This command returns a JSON document that contains a list of the hosts in the cluster, then jq pulls out the `host_name` element value for each host in the cluster.
 
-If you need to find the name of the node for a specific service, you can query Ambari for that component. For example, to find the hosts for the HDFS name node, use the following.
+If you need to find the name of the node for a specific service, you can query Ambari for that component. For example, to find the hosts for the HDFS name node, use the following command:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-This request returns a JSON document describing the service, and then jq pulls out only the `host_name` value for the hosts.
+This command returns a JSON document describing the service, and then jq pulls out only the `host_name` value for the hosts.
 
 ## Remote access to services
 
@@ -64,7 +65,7 @@ This request returns a JSON document describing the service, and then jq pulls o
     Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
     > [!IMPORTANT]
-    > While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you may receive "server not found" errors when trying to access some features over the Internet.
+    > While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since internal domain name are not publicly accessible, you may receive "server not found" errors when trying to access some features over the Internet.
     >
     > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
@@ -92,25 +93,25 @@ This request returns a JSON document describing the service, and then jq pulls o
 Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This directory contains the following subdirectories:
 
 * **2.2.4.9-1**: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.
-* **current**: This directory contains links to directories under the **2.2.4.9-1** directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.
+* **current**: This directory contains links to sub-directories under the **2.2.4.9-1** directory. This directory exists so that you don't have to type a version number (which might change) every time you want to access a file.
 
-Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at `/example` and `/HdiSamples`
+Example data and JAR files can be found on Hadoop Distributed File System at `/example` and `/HdiSamples`
 
-## HDFS, Blob storage, and Data Lake Store
+## HDFS, Azure Storage, and Data Lake Store
 
-In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
+In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While using local storage is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
-HDInsight uses either Azure Blob storage or Azure Data Lake Store as the default store. These provide the following benefits:
+HDInsight uses either blobs in Azure Storage or Azure Data Lake Store as the default store. These services provide the following benefits:
 
 * Cheap long-term storage
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
 
-> [!IMPORTANT]
-> Blob storage can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte.
->
-> For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+> [!WARNING]
+> HDInsight only supports __General purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
-When using either Azure Storage or Data Lake Store, you normally don't have to do anything special from HDInsight to access the data. For example, the following command will list files in the `/example/data` folder regardless of whether it is stored on Azure Blob storage or Data Lake Store:
+An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+
+When using either Azure Storage or Data Lake Store, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder regardless of whether it is stored on Azure Storage or Data Lake Store:
 
     hdfs dfs -ls /example/data
 
@@ -118,7 +119,7 @@ When using either Azure Storage or Data Lake Store, you normally don't have to d
 
 Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
 
-When using __Blob storage__, the scheme can be one of the following:
+When using __Azure Storage__, use one of the following URI schemes:
 
 * `wasb:///`: Access default storage using unencrypted communication.
 
@@ -126,7 +127,7 @@ When using __Blob storage__, the scheme can be one of the following:
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using __Data Lake Store__, the scheme can be one of the following:
+When using __Data Lake Store__, use one of the following URI schemes:
 
 * `adl:///`: Access the default Data Lake Store for the cluster.
 
@@ -146,7 +147,7 @@ You can use Ambari to retrieve the default storage configuration for the cluster
 > [!NOTE]
 > This returns the first configuration applied to the server (`service_config_version=1`), which contains this information. If you are retrieving a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
 
-This returns a value similar to the following:
+This command returns a value similar to the following:
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net` if using an Azure Storage account.
 
@@ -156,23 +157,23 @@ This returns a value similar to the following:
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
-    This returns the following host name: `<data-lake-store-account-name>.azuredatalakestore.net`.
+    This command returns the following host name: `<data-lake-store-account-name>.azuredatalakestore.net`.
 
     To get the directory within the store that is the root for HDInsight, use the following REST call:
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
 
-    This returns a path similar to the following: `/clusters/<hdinsight-cluster-name>/`.
+    This command returns a path similar to the following: `/clusters/<hdinsight-cluster-name>/`.
 
-You can also find the storage information using the Azure Portal by using the following steps:
+You can also find the storage information using the Azure portal by using the following steps:
 
-1. In the [Azure Portal](https://portal.azure.com/), select your HDInsight cluster.
+1. In the [Azure portal](https://portal.azure.com/), select your HDInsight cluster.
 
 2. From the **Properties** section, select **Storage Accounts**. The storage information for the cluster is displayed.
 
 ### How do I access files from outside HDInsight
 
-There are a variety of ways to access data from outside the HDInsight cluster. The following are a few links to utilities and SDKs that can be used to work with your data:
+There are a various ways to access data from outside the HDInsight cluster. The following are a few links to utilities and SDKs that can be used to work with your data:
 
 If using __Azure Storage__, see the following links for ways that you can access your data:
 
@@ -208,10 +209,7 @@ The different cluster types are affected by scaling as follows:
 * **Hadoop**: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. This can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
 * **HBase**: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers, use the following steps:
 
-    1. Connect to the HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
-
-        * [Use SSH with HDInsight from Linux, Unix, and Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Use SSH (PuTTY) with HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    1. Connect to the HDInsight cluster using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     2. Use the following to start the HBase shell:
 
@@ -236,15 +234,15 @@ The different cluster types are affected by scaling as follows:
 
 For specific information on scaling your HDInsight cluster, see:
 
-* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage Hadoop clusters in HDinsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Manage Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## How do I install Hue (or other Hadoop component)?
 
-HDInsight is a managed service, which means that nodes in a cluster may be destroyed and reprovisioned automatically by Azure if a problem is detected. Because of this, it is not recommended to manually install things directly on the cluster nodes. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md) when you need to install the following:
+HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they are not persisted when this operation occurs.. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md). A script action can be used to make the following changes:
 
-* A service or web site such as Spark or Hue.
-* A component that requires configuration changes on multiple nodes in the cluster. For example, a required environment variable, creating of a logging directory, or creation of a configuration file.
+* Install and configure a service or web site such as Spark or Hue.
+* Install and configure a component that requires configuration changes on multiple nodes in the cluster. For example, a required environment variable, creating of a logging directory, or creation of a configuration file.
 
 Script Actions are Bash scripts that run during cluster provisioning, and can be used to install and configure additional components on the cluster. Example scripts are provided for installing the following components:
 
@@ -265,9 +263,9 @@ For example, if you want to use the latest version of [DataFu](http://datafu.inc
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >
-> This returns the path of any matching jar files.
+> This command returns the path of any matching jar files.
 
-If the cluster already provides a version of a component as a standalone jar file, but you want to use a different version, you can upload a new version of the component to the cluster and try using it in your jobs.
+If you want to use a different version than the one that comes with the cluster, you can upload a new version of the component to the and try using it in your jobs.
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support helps to isolate and resolve issues related to these components.

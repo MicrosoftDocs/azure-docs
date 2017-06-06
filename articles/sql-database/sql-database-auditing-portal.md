@@ -15,33 +15,33 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/25/2017
-ms.author: ronitr; giladm
+ms.author: ronitr;giladm
 
 ---
 
 # Configure and manage SQL database auditing in the Azure portal
 
-The following section describes how to configure and manage auditing using the Azure Portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](sql-database-auditing-powershell.md). To configure and manage auditing using the REST API, see [Configure auditing with the REST API](sql-database-auditing-rest.md).
+The following section describes how to configure and manage auditing using the Azure portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
 
 For an overview of auditing, see [SQL Database auditing](sql-database-auditing.md).
 
 ## Configure blob auditing
 
-1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
+1. Launch the [Azure portal](https://portal.azure.com) at https://portal.azure.com.
 2. Navigate to the Settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection**.
 
     ![Navigation pane](./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png)
-3. In the Database Auditing Configuration blade, you can check the **Inherit settings from server** checkbox to designate that this database will be audited according to its server's settings. If this option is checked, you will see a **View server auditing settings** link that allows you to view or modify the server auditing settings from this context.
+3. In the Database Auditing Configuration blade, you can check the **Inherit settings from server** checkbox to designate that this database be audited according to its server's settings. If this option is checked, you see a **View server auditing settings** link that allows you to view or modify the server auditing settings from this context.
 
     ![Navigation pane][2]
 4. If you prefer to enable blob auditing on the database-level (in addition or instead of server-level auditing), **uncheck** the **Inherit Auditing settings from server** option, turn **ON** Auditing, and choose the **Blob** Auditing Type.
 
     ![Navigation pane][3]
-5. Select **Storage Details** to open the Audit Logs Storage blade. Select the Azure storage account where logs will be saved, and the retention period, after which the old logs will be deleted, then click **OK** at the bottom. **Tip:** Use the same storage account for all audited databases to get the most out of the auditing reports templates.
+5. Select **Storage Details** to open the Audit Logs Storage blade. Select the Azure storage account where logs are saved, and the retention period, after which the old logs are deleted, then click **OK** at the bottom. **Tip:** Use the same storage account for all audited databases to get the most out of the auditing reports templates.
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via [PowerShell](sql-database-auditing-powershell.md) or the [REST API](sql-database-auditing-rest.md).
+6. If you want to customize the audited events, you can do this via PowerShell or the REST API.
 7. Once you've configured your auditing settings, you can turn on the new Threat Detection (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Threat detection](sql-database-threat-detection.md) for more details.
 8. Click **Save**.
 
@@ -49,18 +49,18 @@ For an overview of auditing, see [SQL Database auditing](sql-database-auditing.m
 ## Table auditing
 
 > [!IMPORTANT]
-> Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
+> Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database changes](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
 >
 
-1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
+1. Launch the [Azure portal](https://portal.azure.com) at https://portal.azure.com.
 2. Navigate to the Settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection** (*[see screenshot in Blob Auditing section](#auditing-screenshot)*).
-3. In the Database Auditing Configuration blade, you can check the **Inherit settings from server** checkbox to designate that this database will be audited according to its server's settings. If this option is checked, you will see a **View server auditing settings** link that allows you to view or modify the server auditing settings from this context.
+3. In the Database Auditing Configuration blade, you can check the **Inherit settings from server** checkbox to designate that this database be audited according to its server's settings. If this option is checked, you see a **View server auditing settings** link that allows you to view or modify the server auditing settings from this context.
 
     ![Navigation pane][2]
 4. If you prefer not to inherit auditing settings from server, **uncheck** the **Inherit Auditing settings from server** option, turn **ON** auditing, and choose **Table** auditing type.
 
     ![Navigation pane][3-tbl]
-5. Select **Storage Details** to open the Audit Logs Storage blade. Select the Azure storage account where logs will be saved, and the retention period, after which the old logs will be deleted. **Tip:** Use the same storage account for all audited databases to get the most out of the auditing reports templates (*[see screenshot in Blob Auditing section](#storage-screenshot)*).
+5. Select **Storage Details** to open the Audit Logs Storage blade. Select the Azure storage account where logs are saved, and the retention period, after which the old logs are deleted. **Tip:** Use the same storage account for all audited databases to get the most out of the auditing reports templates (*[see screenshot in Blob Auditing section](#storage-screenshot)*).
 6. Click on **Audited Events** to customize which events to audit. In the Logging by Event blade, click **Success** and **Failure** to log all events, or choose individual event categories.
 
     ![Navigation pane][5]
@@ -79,10 +79,10 @@ When using geo-replicated databases, it is possible to set up Auditing on either
 2. **Secondary database:** Blob auditing can only be turned on/off from the primary database auditing settings.
 
    * Turn on blob auditing on the primary database. Blob auditing must be enabled on the *primary database itself*, not the server.
-   * Once blob auditing is enabled on the primary database, it will also become enabled on the secondary database.
+   * Once blob auditing is enabled on the primary database, it is also become enabled on the secondary database.
 
     > [!IMPORTANT]
-    > By default, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. You can avoid this by enabling blob auditing on the secondary server and configuring a local storage in the Secondary server storage settings (this will override the storage location for the Secondary database and result in each database saving the Audit logs to a local storage).  
+    > By default, the storage settings for the secondary database are identical to those of the primary database, causing cross-regional traffic. You can avoid this by enabling blob auditing on the secondary server and configuring local storage in the Secondary server storage settings (this overrides the storage location for the Secondary database and result in each database saving the Audit logs to local storage).  
 
 ## Viewing blob auditing logs
 
@@ -92,11 +92,11 @@ For further details about the Blob audit logs storage folder hierarchy, blob nam
 
 There are several methods to view Blob Auditing logs:
 
-* Through the [Azure Portal](https://portal.azure.com) - open the relevant database. At the top of the database's Auditing & Threat detection blade, click on **View audit logs**.
+* Through the [Azure portal](https://portal.azure.com) - open the relevant database. At the top of the database's Auditing & Threat detection blade, click on **View audit logs**.
 
     ![Navigation Pane][10]
 
-    An Audit records blade will open, where you'll be able to view the logs.
+    An Audit records blade opens, where you'll be able to view the logs.
 
     - You can choose to view specific dates by clicking on **Filter** at the top area of the Audit records blade
     - You can toggle between audit records that were created by server policy or database policy audit
@@ -128,11 +128,11 @@ For further details about the Table audit log format, see the [Table Audit Log F
 
 There are several methods to view Table Auditing logs:
 
-* Through the [Azure Portal](https://portal.azure.com) - open the relevant database. At the top of the database's Auditing & Threat detection blade, click on **View audit logs**.
+* Through the [Azure portal](https://portal.azure.com) - open the relevant database. At the top of the database's Auditing & Threat detection blade, click on **View audit logs**.
 
     ![Navigation Pane][10]
 
-    An Audit records blade will open, where you'll be able to view the logs.
+    An Audit records blade opens, where you'll be able to view the logs.
 
     * You can choose to view specific dates by clicking on **Filter** at the top area of the Audit records blade
     * You can download and view the audit logs in Excel format by clicking on **Open in Excel** at the top area of the Audit records blade
@@ -184,7 +184,6 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 ## Next steps
 
-* To configure and manage auditing using PowerShell, see [Configure database auditing using PowerShell](sql-database-auditing-powershell.md).
-* To configure and manage auditing using the REST API, see [Configure database auditing using the REST API](sql-database-auditing-rest.md).
+* To configure and manage auditing using PowerShell, see [Configure database auditing using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 * For an overview of auditing, see [Database auditing](sql-database-auditing.md).
 

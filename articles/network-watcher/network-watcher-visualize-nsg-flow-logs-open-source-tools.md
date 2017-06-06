@@ -84,7 +84,7 @@ For further instructions on installing Elastic search, refer to the page [Instal
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Next we need to configure Logstash to read from the output of eve.json file. Create a logstash.conf file using:
+1. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -152,7 +152,7 @@ For further instructions on installing Logstash, refer to the [official document
 
 ### Install the Logstash input plugin for Azure blob storage
 
-This Logstash plug in will allow you to directly access the flow logs from their designated storage account. To install this plug in, run the command:
+This Logstash plug in will allow you to directly access the flow logs from their designated storage account. To install this plug in, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -226,7 +226,7 @@ The sample dashboard provides several visualizations of the flow logs:
 1. Flow Tuples – this table shows you the information contained within each flow tuple, as well as its corresponding NGS and rule.
 
   ![figure7][7]
-  
+
 Using the query bar at the top of the dashboard, you can filter down the dashboard based on any parameter of the flows, such as subscription ID, resource groups, rule, or any other variable of interest. For more about Kibana's queries and filters, refer to the [official documentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## Conclusion
@@ -248,4 +248,3 @@ Learn how to visualize your NSG flow logs with Power BI by visiting [Visualize N
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-

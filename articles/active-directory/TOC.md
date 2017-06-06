@@ -72,27 +72,31 @@
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
-## [View activity reports](active-directory-view-access-usage-reports.md)
-### [Sign-ins](active-directory-reporting-activity-sign-ins.md)
-### [Audit logs](active-directory-reporting-activity-audit-logs.md)
+## [Manage reports](active-directory-reporting-azure-portal.md)
+### [Sign-ins activity](active-directory-reporting-activity-sign-ins.md)
+### [Audit activity](active-directory-reporting-activity-audit-logs.md)
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
-### [FAQ](active-directory-reporting-faq.md)
+### [Risk events](active-directory-reporting-risk-events.md)
+### [Named networks](active-directory-known-networks-azure-portal.md)
 ### [Report migration](active-directory-reporting-migration.md)
-### [Known networks](active-directory-known-networks.md)
-
-### Classic portal
+### [Retention](active-directory-reporting-retention.md)
+### [FAQ](active-directory-reporting-faq.md)
+### Troubleshoot
+#### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
+###	Programmatic Access
+#### [Audit reference](active-directory-reporting-api-audit-reference.md)
+#### [Audit samples](active-directory-reporting-api-audit-samples.md)
+#### [Prerequisites](active-directory-reporting-api-prerequisites.md)
+#### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
+### [Classic portal](active-directory-view-access-usage-reports.md)
 #### [Azure AD reporting](active-directory-reporting-getting-started.md)
 #### [Reporting guide](active-directory-reporting-guide.md)
-#### [Preview](active-directory-reporting-azure-portal.md)
+#### [Known networks](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
-##### [Audit Reference](active-directory-reporting-api-audit-reference.md)
-##### [Audit Samples](active-directory-reporting-api-audit-samples.md)
-##### [Prerequisites](active-directory-reporting-api-prerequisites.md)
-##### [Sign-in reference](active-directory-reporting-api-sign-in-activity-reference.md)
-##### [Sign-in samples](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Audit events](active-directory-reporting-audit-events.md)
-#### [Retention](active-directory-reporting-retention.md)
 #### [Latencies](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### Understand reports
@@ -106,6 +110,7 @@
 
 ## [Manage passwords](active-directory-manage-passwords.md)
 ### [Update your own password](active-directory-passwords-update-your-own-password.md)
+### [Set up self-service password reset](active-directory-passwords.md)
 ### [Understand password management](active-directory-passwords-how-it-works.md)
 ### [Understand policies and restrictions](active-directory-passwords-policy.md)
 ### Reset passwords
@@ -115,7 +120,6 @@
 ### Enable password management
 #### [Get started](active-directory-passwords-getting-started.md)
 #### [Deploy](active-directory-passwords-best-practices.md)
-#### [Set up self-service password reset](active-directory-passwords.md)
 #### [Customize](active-directory-passwords-customize.md)
 #### [View reports](active-directory-passwords-get-insights.md)
 #### [Learn more](active-directory-passwords-learn-more.md)
@@ -123,20 +127,18 @@
 #### [Troubleshoot](active-directory-passwords-troubleshoot.md)
 
 ## Manage devices
-### [Register devices](active-directory-conditional-access-device-registration-overview.md)
-#### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
+### [Register devices](active-directory-device-registration-overview.md)
 #### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [FAQs](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
+#### [FAQs](active-directory-device-registration-faq.md)
 #### Troubleshoot
-##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-##### [Troubleshooting for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+##### [Troubleshooting for Windows down-level clients](active-directory-device-registration-troubleshoot-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Set up device registration](active-directory-azureadjoin-setup.md)
 #### [Register new devices](active-directory-azureadjoin-user-frx.md)
 #### [Deploy](active-directory-azureadjoin-devices-group-policy.md)
-#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
-#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 #### [Understand Windows 10 integration](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Use Windows 10 devices](active-directory-azureadjoin-windows10-devices.md)
 #### [Join your device](active-directory-azureadjoin-personal-device.md)
@@ -153,23 +155,18 @@
 ### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
 #### [Understand connectors](application-proxy-understand-connectors.md)
-
-#### Publish apps
-##### [Azure portal](application-proxy-publish-azure-portal.md)
-##### [Classic portal](active-directory-application-proxy-publish.md)
+#### [Publish apps](application-proxy-publish-azure-portal.md)
 #### [Security](application-proxy-security-considerations.md)
 #### [Networks](application-proxy-network-topology-considerations.md)
 #### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Publish on separate networks
-##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Classic portal](active-directory-application-proxy-connectors.md)
+#### [Publish on separate networks](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Proxy servers](application-proxy-working-with-proxy-servers.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Access apps](active-directory-appssoaccess-whatis.md)
 ##### [Azure portal](application-proxy-sso-azure-portal.md)
-#### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+#### [SSO with headers](application-proxy-ping-access.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
 #### [Custom home page](application-proxy-office365-app-launcher.md)
@@ -177,6 +174,10 @@
 #### [Silent install](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
+#### Use the classic portal
+##### [Publish apps](active-directory-application-proxy-publish.md)
+##### [Use connectors](active-directory-application-proxy-connectors.md)
+
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -278,10 +279,12 @@
 #### [Supported apps](active-directory-conditional-access-supported-apps.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
-#### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md)
 #### [FAQs](active-directory-conditional-faqs.md)
 #### [Troubleshoot](active-directory-conditional-access-device-remediation.md)
 #### [Reference](active-directory-conditional-access-technical-reference.md)
+### Windows Hello
+#### [Authenticate without passwords](active-directory-azureadjoin-passport.md)
+#### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

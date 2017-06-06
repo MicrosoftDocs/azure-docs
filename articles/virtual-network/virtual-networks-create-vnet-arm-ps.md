@@ -28,13 +28,13 @@ Azure has two deployment models: Azure Resource Manager and classic. Microsoft r
 This article explains how to create a VNet through the Resource Manager deployment model using PowerShell. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
-- [Template](virtual-networks-create-vnet-arm-template-click.md)
-- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
-- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
+> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
+> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+> * [CLI](virtual-networks-create-vnet-arm-cli.md)
+> * [Template](virtual-networks-create-vnet-arm-template-click.md)
+> * [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+> * [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+> * [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
