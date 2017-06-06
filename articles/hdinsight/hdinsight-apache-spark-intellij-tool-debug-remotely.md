@@ -16,7 +16,7 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: article
 ms.date: 06/05/2017
-ms.author: Jenny Jiang,ruoxin
+ms.author: jejiang
 
 ---
 # Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster
@@ -75,10 +75,10 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 2. When the program execution reaches the breakpoint, you should see a Debugger tab in the bottom pane and view parameter and variable information in the Variable window. Click **Step Over** icon to proceed to next line of code, you can further step through the code. Click **Resume Program** icon to continue running. You can review the execution status in the HDInsight Spark Submission window. 
 
    ![debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
+
 ### Scenario 3: Perform Remote Debugging and bug fixing
 In this section, we show you how to dynamically update the variable value using IntelliJ debugging capability for a simple fix. For the code example below, an exception is thrown because the target file already exists.
-
-    
+  
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
 
