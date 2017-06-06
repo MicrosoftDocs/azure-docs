@@ -25,6 +25,9 @@ Application Insights can monitor both Java and ASP.NET web applications and serv
 
 On the client side, Application Insights can take telemetry from web pages and a wide variety of devices including iOS, Android and Windows Store apps.
 
+>![Note]
+> We have made a new experience available for finding slow performing pages in your web application. If you don't have access to it, enable it by configuring your preview options with the Preview blade.
+
 ## <a name="setup"></a>Set up performance monitoring
 If you haven't yet added Application Insights to your project (that is, if it doesn't have ApplicationInsights.config), choose one of these ways to get started:
 
@@ -47,8 +50,6 @@ Click a chart to choose which metrics it displays, or add a new chart and select
 
 > [!NOTE]
 > **Uncheck all the metrics** to see the full selection that is available. The metrics fall into groups; when any member of a group is selected, only the other members of that group appear.
-> 
-> 
 
 ## <a name="metrics"></a>What does it all mean? Performance tiles and reports
 There's a variety of performance metrics you can get. Let's start with those that appear by default on the application blade.
@@ -109,6 +110,30 @@ Here are a few tips for finding and diagnosing performance issues:
 * Set up [web tests][availability] to be alerted if your web site goes down or responds incorrectly or slowly. 
 * Compare the Request count with other metrics to see if failures or slow response are related to load.
 * [Insert and search trace statements][diagnostic] in your code to help pinpoint problems.
+* Monitor your Web app in operation with [Live Metrics Stream][livestream].
+* Capture the state of your .Net application with [Snapshot Debugger][snapshot].
+
+## Find and fix performance bottlenecks with the Interactive Performance blade
+
+You can use the Application Insights Performance blade to locate areas of your Web app that are slowing down overall performance. You can quickly find specific pages that are slowing down, and use the [Profiling tool](app-insights-profiler.md) to see if there is a correlation between these pages.
+
+### Create a list of slow performing pages 
+
+The first step for finding performance issues is to get a list of the slow responding pages. The screen shot below demonstrates using the Performance blade to get a list of potential pages to investigate further. You can quickly see from this page that there was a slow-down in the response time of the app at approximately 6:00 PM and again at 11:13 PM. You can also see that the GET customer/index operation is the longest running operation, with a median response time of 329.19 milliseconds. 
+
+![Application Insights Performance blade](./media/app-insights-web-monitor-performance/performance1.png)
+
+### Drill down on specific pages
+
+Once you have a snapshot of your app's performance, you can get more details on specific slow-performing operations. Click on any point in time in the chart on the Performance blade and pull up the Search blade as shown below. On the Search blade you see all the calls to your app filtered by the time slice you selected on the Performance blade. You also have a url for creating a TFS work item if you want to send the details to your development team for further investigations.
+
+![Application Insights Search blade](./media/app-insights-web-monitor-performance/performance2.png)
+
+## Drill down on specific operations
+
+After you have identified a point in time to investigate, drill-down even further to look at the specific operations that might have caused the performance slow-down. When you click on an operations from the Search blade you open a blade with the details of the operations as shown below. In this example you can see that the operation failed, and Application Insights has provided the details of the exception the application threw. Again, you can easily create a TFS work item from this blade.
+
+![Application Insights operation blade](./media/app-insights-web-monitor-performance/performance3.png)
 
 ## <a name="next"></a>Next steps
 [Web tests][availability] - Have web requests sent to your application at regular intervals from around the world.
@@ -130,5 +155,8 @@ Here are a few tips for finding and diagnosing performance issues:
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
+[livestream]: app-insights-live-stream.md
+[snapshot]: app-insights-snapshot-debugger.md
+
 
 
