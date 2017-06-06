@@ -36,11 +36,10 @@ ms.author: carolz
     <li>Automate Azure with <a href="/azure/container-service/container-service-kubernetes-jenkins">Azure CLI </a>via Jenkins. -- TODO</li>
 </ol>
 
-<h2>Sample code</h2>
-Sample code.
+<h2>Samples</h2>
+
 <ul>
-    <li><a href="java-samples-services-data.md">TODO - public Java samples once they go public?</a></li>
-    <li><a href="java-samples-services-storage.md">TODO - public Java samples once they go public?</a></li>
+    <li><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/201-jenkins-acr">Jenkins to Azure Container Registry</a></li>
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
