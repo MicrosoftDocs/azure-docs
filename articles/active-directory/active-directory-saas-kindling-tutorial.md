@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -114,9 +114,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://<customerdomain>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [Kindling support team](mailto:support@kindlingapp.com) to get these values.
+	> These values are not the real. Update these values with the actual Sign-on URL and Identifier. Contact [Kindling support team](mailto:support@kindlingapp.com) to get these values.
  
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_certificate.png) 
 
@@ -128,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_configure.png) 
 
-7. To configure single sign-on on **Kindling** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Kindling support](mailto:support@kindlingapp.com).
+7. To configure single sign-on on **Kindling** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Kindling support team](mailto:support@kindlingapp.com).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,8 +167,9 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Kindling test user
 
-The objective of this section is to create a user called Britta Simon in Kindling.
-Kindling supports just-in-time provisioning. You have already enabled it in [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+The objective of this section is to create a user called Britta Simon in Kindling. Kindling supports just-in-time provisioning. You have already enabled it in [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
+
+There is no action item for you in this section.
 
 ### Assigning the Azure AD test user
 
