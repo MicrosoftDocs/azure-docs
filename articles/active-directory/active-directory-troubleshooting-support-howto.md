@@ -38,7 +38,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 ### How to open a support ticket for Azure AD in the Azure portal
 
 1. Sign in to [the Azure portal](https://portal.azure.com) and open **Azure Active Directory**.
-2. Scroll down to **Troubleshooting + Support** and select **New support request**
+2. Scroll down to **Troubleshooting + Support** and select **New support request**.
 3. On the **Basics** blade, for **Issue type**, select **Technical**.
 4. For **Service**, select **Azure Active Directory**, and then select **Next**.
 5. On the **Problem** blade, select a Severity (linked to [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/)).
@@ -60,6 +60,10 @@ If you are unable to find answers by using self-help resources, you can open an 
 6. Select one of the offered self-help resources, or select **Yes, continue** or **No, cancel request**.
 7. If you continue, you'l be asked for more details and you can attach any files you have that will help, and then select **Next**.
 8. Provide your contact information and select **Submit request**.
+
+## Get phone support
+
+See the [Contact Microsoft for support](https://portal.office.com/Support/ContactUs.aspx) page to obtain support phone numbers.
 
 ##  Next steps
 
