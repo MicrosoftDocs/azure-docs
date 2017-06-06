@@ -139,6 +139,14 @@
       href: move-vm.md
     - name: Create highly available VMs
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Install and configure
+        href: ansible-install-configure.md
+      - name: Create basic VM
+        href: ansible-create-vm.md
+      - name: Create complete VM
+        href: ansible-create-complete-vm.md
     - name: Deploy an app with VM template
       items:
       - name: Tutorial overview
@@ -193,7 +201,7 @@
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
-    - name: Create Azure-endorsed images
+    - name: Create Azure images
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -205,6 +213,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Manage VM storage
     items:
     - name: Azure Managed Disks
@@ -296,6 +306,8 @@
       href: extensions-customscript.md
     - name: OMS Agent Extension
       href: extensions-oms.md
+    - name: Linux Diagnostic Extension
+      href: diagnostic-extension.md
   - name: Run applications
     items:
     - name: Cloud Foundry
@@ -353,19 +365,23 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot SSH connections
+    - name: SSH connections
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Troubleshoot access to applications
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
+    - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: Troubleshoot allocation failures
+    - name: Allocation failures
       href: allocation-failure.md
-    - name: Troubleshoot deployment issues
+    - name: Deployment issues
       href: troubleshoot-deployment-new-vm.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
+    - name: Common error messages
+      href: error-messages.md
     - name: Attach virtual hard disk for troubleshooting
       items:
       - name: Azure CLI

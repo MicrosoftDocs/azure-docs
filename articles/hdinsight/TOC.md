@@ -133,6 +133,7 @@
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions-linux.md)
+### [Install and use Presto](hdinsight-hadoop-install-presto.md)
 ### [Install or update Mono](hdinsight-hadoop-install-mono.md)
 ### [Add Hive libraries](hdinsight-hadoop-add-hive-libraries.md)
 ### [Use Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -221,5 +222,7 @@
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
+## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
 ## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)
