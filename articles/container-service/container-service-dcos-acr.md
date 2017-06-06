@@ -191,8 +191,3 @@ In this tutorial you have configure DC/OS to use Azure Container Registry includ
 > * Configure ACR authentication on a DC/OS cluster
 > * Uploaded an image to the Azure Container Registry
 > * Run a container image from the Azure Container Registry
-
-Advance to the next tutorial to learn how to monitor a DC/OS cluster with OMS.
-
-> [!div class="nextstepaction"]
-> [Create custom VM images](./container-service-monitoring-oms.md)

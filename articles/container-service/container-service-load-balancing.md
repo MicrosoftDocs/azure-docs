@@ -123,7 +123,7 @@ In this tutorial, you learned about load balancing in ACS with both the Marathon
 > * Deploy an application using the load balancer
 > * Configure and Azure load balancer
 
-Advance to the next tutorial to learn about ACS integration with the Azure Container Registry.
+Advance to the next tutorial to learn about integrating Azure storage with DC/OS in Azure.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry](./container-service-dcos-acr.md)
+> [Mount Azure File Share in DC/OS cluster](./container-service-dcos-fileshare.md)

@@ -154,9 +154,61 @@ Browsing to this address returns the default NGINX site.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
+## Scale Marathon application
+
+In the previous example, a single instance application was created. To update this deployment so that three instances of the application are available, open up the **marathon-app.json** file, and update the instance property to 3.
+
+```json
+{
+  "id": "demo-app",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 32,
+  "disk": 0,
+  "instances": 3,
+  "container": {
+    "docker": {
+      "image": "nginx",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "name": "80",
+          "labels": null
+        }
+      ]
+    },
+    "type": "DOCKER"
+  },
+  "acceptedResourceRoles": [
+    "slave_public"
+  ]
+}
+```
+
+Update the application using the `dcos marathon app update` command.
+
+```azurecli-interactive
+dcos marathon app update demo-app < marathon-app.json
+```
+
 ## Scale DC/OS cluster
 
-## Cluster management tasks
+In the previous example, a container was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+
+To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#show) command.
+
+```azurecli-interactive
+az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
+```
+
+To increase the count to 5, use the [az acs scale](/cli/azure/acs#scale) command. 
+
+```azurecli-interactive
+az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
+```
 
 ## Delete DC/OS cluster
 
@@ -168,7 +220,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## Next steps
 
-In this quick start, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
+In this tutorial, you have learned about basic DC/OS management task including the following. 
 
 > [!div class="checklist"]
 > * Create an ACS DC/OS cluster
@@ -177,8 +229,9 @@ In this quick start, you’ve deployed a DC/OS cluster and have run a simple Doc
 > * Deploy an application to the cluster
 > * Scale an application on the cluster
 > * Scale the DC/OS cluster nodes
-> * Basic DC/OS management
 > * Delete the DC/OS cluster
 
+Advance to the next tutorial to learn about load balancing application in DC/OS on Azure. 
+
 > [!div class="nextstepaction"]
-> [Create and manage data volumes](container-service-dcos-fileshare.md)
+> [Load balance applications](container-service-load-balancing.md)

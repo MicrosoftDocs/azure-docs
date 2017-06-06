@@ -138,7 +138,7 @@ In this tutorial an Azure file share was made available to a DC/OS cluster using
 > * Create a file share
 > * Mount the share in the DC/OS cluster
 
-Advance to the next tutorial to learn about load balancing applications in an ACS DC/OS cluster.  
+Advance to the next tutorial to learn about integrating an Azure Container Registry with DC/OS in Azure.  
 
 > [!div class="nextstepaction"]
-> [Load balance applications](./container-service-load-balancing.md)
+> [Load balance applications](./container-service-dcos-acr.md)
