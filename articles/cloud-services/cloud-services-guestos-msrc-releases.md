@@ -29,6 +29,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 17-05 | [4019214] |Windows Security only |3.49 | May 9, 2017 |
 | Rel 17-05 | [4018271] |Cumulative security update for Internet Explorer |3.49 | May 9, 2017 |
 | Rel 17-05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | May 9, 2017 |
+| Rel 17-05 | [4022344] |Microsoft Security Advisory |5.7 | May 9, 2017 |
+| Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | May 9, 2017 |
+| Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
 | N/A | [4012864] |Timezone Update |2.62, 3.49, 4.42 | May 9, 2017 |
 | N/A | [4014565] |April .NET non-security rollup |2.62 | May 9, 2017 |
 | N/A | [4014559] |April .NET non-security rollup |2.62 | May 9, 2017 |
@@ -481,6 +484,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
+[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217
