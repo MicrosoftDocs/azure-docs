@@ -76,8 +76,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 
    ![debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
 ### Scenario 3: Perform Remote Debugging and bug fixing
-In this section, we show you how to dynamically update the variable value using IntelliJ debugging capability for a simple fix. 
-For the code example below, an exception is thrown because the target file already exists. 
+In this section, we show you how to dynamically update the variable value using IntelliJ debugging capability for a simple fix. For the code example below, an exception is thrown because the target file already exists. 
         
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
@@ -101,6 +100,7 @@ For the code example below, an exception is thrown because the target file alrea
             }
           }
         }
+
 
 1. Set up two breaking points and click **Debug** icon to start remote debug.
 2. The code stops at the first breaking point, the parameter and variable information are shown in the Variable window. 
