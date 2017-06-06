@@ -157,7 +157,7 @@ Yes. Install the Azure Backup agent on the guest Windows OS, and back up files a
 Yes.
 
 ### Can I Register my DPM Server to multiple vaults? <br/>
-No. A DPM, MABS server can be registered to only one vault.
+No. A DPM or MABS server can be registered to only one vault.
 
 ### Which version of System Center Data Protection Manager is supported? <br/>
 We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). As of August 2016, Update Rollup 11 is the latest update.
