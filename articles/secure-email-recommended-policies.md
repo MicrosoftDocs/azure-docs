@@ -202,6 +202,3 @@ For most organizations, it is important to be able to set expectations for users
   * Users will be required to use email apps that support the Intune App Protection SDK
   * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
 
-
-## Next steps
-[Deploy recommended policies](secure-email-deploy-recommended-policies.md)
