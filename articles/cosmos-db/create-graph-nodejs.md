@@ -95,7 +95,7 @@ Now go back to the Azure portal to get your connection string information, and c
 
 1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, on the left navigation menu, click **Keys**, and then click **Read-write Keys**. You use the copy buttons at the right to copy the URI and primary key into the `app.js` file in the next step.
 
-    ![The Azure portal Keys blade](./media/create-documentdb-dotnet/keys.png)
+    ![The Azure portal Keys blade](./media/create-graph-nodejs/keys.png)
 
 2. Copy your Gremlin URI value from the portal (using the copy button) and make it the value of `config.endpoint` key in config.js. The Gremlin endpoint must be only the host name without the protocol/port number, like `mygraphdb.graphs.azure.com` (not `https://mygraphdb.graphs.azure.com` or `mygraphdb.graphs.azure.com:433`).
 

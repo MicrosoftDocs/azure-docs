@@ -21,6 +21,7 @@
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
+### [Secure email policies and configurations](secure-email-introduction.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 
 #### Determine requirements
