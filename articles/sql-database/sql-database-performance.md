@@ -27,7 +27,7 @@ To review your database performance, use the **Performance** tile on the Overvie
 
 In the "Support + troubleshooting" you can find the following pages:
 
-1. **Performance overview** to the overview of database performance. 
+1. [Performance overview](#performance-overview) to monitor performance of your database. 
 2. [Performance recommendations](#sql-database-advisor) to find performance recommendations that can improve performance of your workload.
 3. [Query Performance Insight](#query-performance-insight) to find top resource consuming queries.
 4. [Automatic tuning](#sql-database-automatic-tuning) to let Azure SQL Database automatically optimize your database.
