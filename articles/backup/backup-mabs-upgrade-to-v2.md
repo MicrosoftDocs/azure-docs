@@ -105,7 +105,7 @@ To add a volume in the Administrator console:
 
   If you want to add a disk, the disk must belong to a protection group that has legacy storage. These disks can only be used for these protection groups. If Backup Server doesn't have sources that have legacy protection, the disk isn't listed.
 
-  For more information about adding disks, see [Adding disks to increase legacy storage](../system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
+  For more information about adding disks, see [Adding disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016.md#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
 
 
 ### Assign workloads to volumes
