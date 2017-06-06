@@ -16,7 +16,6 @@ ms.custom: mvc
 ---
 
 # Design your first Azure Database for MySQL database
-
 Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. Using the Azure portal, you can easily manage your server and design a database.
 
 In this tutorial, you use the Azure portal to learn how to:
@@ -36,10 +35,10 @@ Open your favorite web browser, and visit [Microsoft Azure Portal](https://porta
 ## Create an Azure Database for MySQL server
 An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
 
-1.	Navigate to **Databases** -> **Azure Database for MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **Azure Database for MySQL** in the search box to quickly find the service.
+1. Navigate to **Databases** > **Azure Database for MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **Azure Database for MySQL** in the search box to quickly find the service.
 ![2-1 Navigate to MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
 
-2.	Click **Azure Database for MySQL** tile, and then click **Create**.
+2. Click **Azure Database for MySQL** tile, and then click **Create**.
 
 In our example, fill out the Azure Database for MySQL form with the following information:
 
@@ -51,7 +50,7 @@ In our example, fill out the Azure Database for MySQL form with the following in
 | *Server admin login* | myadmin (setup admin account name) |
 | *Password* | set a strong admin account password |
 | *Confirm password* | confirm admin account password |
-| *Location* | select an avaialble region |
+| *Location* | select an available region |
 | *Version* | 5.7 (choose the latest version) |
 | *Configure performance* | Basic, 50 compute units, 50 GB  (choose **Pricing tier**, **Compute Units**, **Storage (GB)**, and then click **OK**) |
 | *Pin to Dashboard* | recommended to check this box so you may find the server easily later on |
@@ -75,16 +74,16 @@ You can now connect to the server using mysql command line tool or MySQL Workben
 ## Get connection information
 Get the fully qualified **Server name** and **Server admin login name** for your Azure Database for MySQL server from the Azure portal. You use the fully qualified server name to connect to your server using mysql command line tool. 
 
-1.	In [Azure portal](https://portal.azure.com/), click **All resources** from the left-hand menu, type the name, and search for your Azure Database for MySQL server. Select the server name to view the details.
+1. In [Azure portal](https://portal.azure.com/), click **All resources** from the left-hand menu, type the name, and search for your Azure Database for MySQL server. Select the server name to view the details.
 
-2.	Under the Settings heading, click **Properties**. Note down **SERVER NAME** and **SERVER ADMIN LOGIN NAME**. You may click the copy button next to each field to copy to the clipboard.
-![4-2 server properties](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
+2. Under the Settings heading, click **Properties**. Note down **SERVER NAME** and **SERVER ADMIN LOGIN NAME**. You may click the copy button next to each field to copy to the clipboard.
+   ![4-2 server properties](./media/tutorial-design-database-using-portal/4_2-server-properties.png)
 
 In this example, the server name is *myserver4demo.mysql.database.azure.com*, and the server admin login is *myadmin@myserver4demo*.
 
 ## Connect to the server using mysql
-Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to establish a connection to your Azure Database for MySQL server. Run this command line from the Azure Cloud Shell by clicking the >\_ icon in the top right toolbar of the Azure portal, or on run this from your own machine with mysql tools installed. In this example, the command is:
-```cmd
+Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command line from the Azure Cloud Shell by clicking the >\_ icon in the top right toolbar of the Azure portal and follow the prompt to log into Azure. You can also run this command line from your own machine with mysql tools installed locally. In this example, the command is:
+```azurecli-interactive
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
@@ -139,18 +138,17 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-1- On the Azure Database for MySQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
-![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
+1. In the Azure portal, click on your Azure Database for MySQL. On the Overview page, click **Restore** on the toolbar. The **Restore** page opens.
+   ![10-1 restore a database](./media/tutorial-design-database-using-portal/10_1-restore-a-db.png)
 
-2- Fill out the **Restore** form with the required information:
--	Restore point: Select a point-in-time that occurs before the server was changed.
--	Target server: Provide a new server name you want to restore to.
--	Location: You cannot select the region, by default it is same as the source server.
--	Pricing tier: You cannot change this value when restoring a server. It is same as the source server.
-
+2. Fill out the **Restore** form with the required information:
+-	**Restore point**: Select a point-in-time that occurs before the server was changed.
+-	**Restore to new server**: Provide a new server name you want to restore to.
+-	**Location**: You cannot select the region, by default it is same as the source server.
+-	**Pricing tier**: You cannot change this value when restoring a server. It is same as the source server.
    ![10-2 restore form](./media/tutorial-design-database-using-portal/10_2-restore-form.png)
 
-3- Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
+3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your service tier.
 
 ## Next Steps
 
