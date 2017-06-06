@@ -25,15 +25,20 @@ Acronyms and initialisms in file names - specific guidelines:
 * Other industry-standard abbreviations are acceptable as necessary in file names.
 
 ## Pattern
+
+>NOTE
+> Service names are in the URL path element that follows the brand, and aren't necessary in the filename. 
+> Example: /azure/**mobile-services**/dotnet-backend-get-started-settings-sync
+>
+
 Here's the general pattern:
 
  **platform-language-content-product-version.md**
 
 Use the parts of the pattern that apply, and review the list of articles in the repository to get an idea of existing names. Names that don't start with a dev platform or a service name are probably suspect and slipped through.
 
->NOTE
-> Service names are in the URL path element following the brand, and aren't necessary in the filename. 
-> Example: /azure/**mobile-services**/dotnet-backend-get-started-settings-sync
+>IMPORTANT
+>Use updated filename guidance for *new* articles. It's not necessary nor recommended to rename and redirect existing articles to conform to the updated guidance. 
 
 ## Standard examples
 Here are a few examples of valid names that follow the pattern:
