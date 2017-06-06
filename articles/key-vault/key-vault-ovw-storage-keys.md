@@ -21,7 +21,7 @@ For more general information on Azure Storage accounts, see [About Azure storage
 
 The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. For more information, see [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
-## Feature behavior
+## Storage account keys behavior
 
 ### What Key Vault manages
 
