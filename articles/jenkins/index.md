@@ -43,28 +43,9 @@ Sample code.
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
-<ul class="panelContent cards">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
- <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
+<ul>
+  <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
+  <li>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins.</a></li>
 </ul>
+ 
 </div>
