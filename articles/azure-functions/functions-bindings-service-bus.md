@@ -23,6 +23,7 @@ ms.author: chrande; glenga
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and work with Azure Service Bus bindings in Azure Functions. 
+
 Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
@@ -63,7 +64,7 @@ The Service Bus queue and topic triggers are defined by the following JSON objec
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Bus namespace, then specify the 
   name of the app setting in the `connection` property in your trigger. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
@@ -78,7 +79,8 @@ Note the following:
 * **Single-threading** - By default, the Functions runtime processes multiple messages concurrently. To direct the runtime 
   to process only a single queue or topic message at a time, set `serviceBus.maxConcurrentCalls` to 1 in *host.json*. 
   For information about *host.json*, see [Folder Structure](functions-reference.md#folder-structure) and 
-  [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  [host.json](https://git
+  .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Poison message handling** - Service Bus does its own poison message handling, which can't be controlled or configured 
   in Azure Functions configuration or code. 
 * **PeekLock behavior** - The Functions runtime receives a message in 
@@ -89,7 +91,7 @@ Note the following:
 <a name="triggerusage"></a>
 
 ## Trigger usage
-This section shows you how to use your Service Hub trigger in your function code. 
+This section shows you how to use your Service Bus trigger in your function code. 
 
 In C# and F#, the Service Bus trigger message can be deserialized to any of the following input types:
 
@@ -193,7 +195,7 @@ The Service Bus queue and topic output for a function use the following JSON obj
 
 Note the following:
 
-* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Hub namespace, then specify the 
+* For `connection`, [create an app setting in your function app](functions-how-to-use-azure-function-app-settings.md) that contains the connection string to your Service Bus namespace, then specify the 
   name of the app setting in the `connection` property in your output binding. You obtain the connection string by following the steps shown at 
   [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
   The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.

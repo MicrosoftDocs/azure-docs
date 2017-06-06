@@ -26,7 +26,7 @@ ms.author: rodsan
 | Database | <ul><li>[Ensure that least-privileged accounts are used to connect to Database server](#privileged-server)</li><li>[Implement Row Level Security RLS to prevent tenants from accessing each others data](#rls-tenants)</li><li>[Sysadmin role should only have valid necessary users](#sysadmin-users)</li></ul> |
 | IoT Cloud Gateway | <ul><li>[Connect to Cloud Gateway using least-privileged tokens](#cloud-least-privileged)</li></ul> |
 | Azure Event Hub | <ul><li>[Use a send-only permissions SAS Key for generating device tokens](#sendonly-sas)</li><li>[Do not use access tokens that provide direct access to the Event Hub](#access-tokens-hub)</li><li>[Connect to Event Hub using SAS keys that have the minimum permissions required](#sas-minimum-permissions)</li></ul> |
-| Azure Document DB | <ul><li>[Use resource tokens to connect to DocumentDB whenever possible](#resource-docdb)</li></ul> |
+| Azure Cosmos DB | <ul><li>[Use resource tokens to connect to Azure Cosmos DB whenever possible](#resource-docdb)</li></ul> |
 | Azure Trust Boundary | <ul><li>[Enable fine-grained access management to Azure Subscription using RBAC](#grained-rbac)</li></ul> |
 | Service Fabric Trust Boundary | <ul><li>[Restrict client's access to cluster operations using RBAC](#cluster-rbac)</li></ul> |
 | Dynamics CRM | <ul><li>[Perform security modeling and use Field Level Security where required](#modeling-field)</li></ul> |
@@ -213,7 +213,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | Steps | Provide least privilege permissions to various back-end applications that connect to the Event Hub. Generate separate SAS keys for each back-end application and only provide the required permissions - Send, Recieve or Manage to them.|
 
-## <a id="resource-docdb"></a>Use resource tokens to connect to DocumentDB whenever possible
+## <a id="resource-docdb"></a>Use resource tokens to connect to Cosmos DB whenever possible
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -222,7 +222,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
 | References              | N/A  |
-| Steps | A resource token is associated with a DocumentDB permission resource and captures the relationship between the user of a database and the permission that user has for a specific DocumentDB application resource (e.g. collection, document). Always use a resource token to access the DocumentDB if the client cannot be trusted with handling master or read-only keys - like an end user application like a mobile or desktop client.Use Master key or read-only keys from backend applications which can store these keys securely.|
+| Steps | A resource token is associated with a Cosmos DB permission resource and captures the relationship between the user of a database and the permission that user has for a specific Cosmos DB application resource (e.g. collection, document). Always use a resource token to access the Cosmos DB if the client cannot be trusted with handling master or read-only keys - like an end user application like a mobile or desktop client.Use Master key or read-only keys from backend applications which can store these keys securely.|
 
 ## <a id="grained-rbac"></a>Enable fine-grained access management to Azure Subscription using RBAC
 

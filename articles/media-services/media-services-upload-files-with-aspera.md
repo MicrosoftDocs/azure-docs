@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 04/17/2017
 ms.author: juliako
 
 ---
@@ -27,6 +27,7 @@ ms.author: juliako
 
 This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On Demand** service on Azure. 
 
+You can find an example that shows how to use Azure functions with Aspera and Media Services [here](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
 >There is a limit to the maximum file size supported for processing with Azure Media Services media processors (MPs). Please see [this](media-services-quotas-and-limitations.md) topic for details about the file size limitation.

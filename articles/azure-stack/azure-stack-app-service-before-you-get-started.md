@@ -21,7 +21,7 @@ ms.author: anwestg
 
 You need a few items to install App Service on Azure Stack:
 
-- A completed deployment of [Azure Stack Technical Preview 2](azure-stack-run-powershell-script.md)
+- A completed deployment of [Azure Stack Technical Preview 3](azure-stack-run-powershell-script.md)
 - Enough space in your Azure Stack system for a small deployment of App Service on Azure Stack.  The required space is roughly 20 GB of disk space.
 - A Windows Server VM Image for use when creating Virtual Machines for App Service on Azure Stack
 - [A server that's running SQL Server](#SQL-Server).

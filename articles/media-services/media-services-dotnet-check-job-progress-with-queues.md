@@ -32,7 +32,7 @@ Consider the following when developing Media Services applications that use Queu
 
 * Queue storage does not provide a guarantee of first-in-first-out (FIFO) ordered delivery. For more information, see [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Queue storage is not a push service. You have to poll the queue.
-* You can have any number of queues. For more information, see [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* You can have any number of queues. For more information, see [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * Queue storage has some limitations and specifics to be aware of. These are described in [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### Code example

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/6/2017
+ms.date: 4/12/2017
 ms.author: helaw
 
 ---
@@ -42,7 +42,8 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * You cannot associate a load balancer with a backend network via the portal.  This task can be completed with PowerShell or with a template.
 * VM Scale Set scale-in operations may fail.
 * VM Scale Set resize operations fail to complete. As an example, scaling out a VM Scale Set and resizing from A1 to D2 VMs will fail.
-* You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB. 
+* You will notice in the Total Memory in Region Management>Scale Units is expressed in MB instead of GB.
+* You may see a blank dashboard in the portal.  If this happens, recover the dashboard by selecting the gear in the upper right of the portal, and selecting "Restore default settings".
  
 
 ## Deployment
@@ -101,6 +102,17 @@ It may take up to fourteen hours for reclaimed capacity to show up in the portal
 When connecting to tenant subscriptions with PowerShell, you will notice that the resource providers are not automatically registered. Use the [Connect module](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), or run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
        Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
+
+## CLI
+
+* The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
+
+* To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
+
+* Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. And this URNmust match the image specifications as derived from the `az vm images list` command.
+
+* By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
+
 
 ## Windows Azure Pack Connector
 * If you change the password of the azurestackadmin account after you deploy Azure Stack TP3, you can no longer configure multi-cloud mode. Therefore, it won't be possible to connect to the target Windows Azure Pack environment.

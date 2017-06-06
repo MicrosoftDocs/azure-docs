@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 05/26/2017
 ms.author: robinsh
 
 ---
@@ -29,7 +29,9 @@ Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing th
 
 ## Benefits of managed disks
 
-Let's take a look at some of the benefits you gain by using managed disks.
+Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+<br/>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
 ### Simple and scalable VM deployment
 
@@ -39,7 +41,7 @@ Managed Disks will allow you to create up to 10,000 VM **disks** in a subscripti
 
 ### Better reliability for Availability Sets
 
-Managed Disks provides better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
+Managed Disks provides better reliability for Availability Sets by ensuring that the disks of [VMs in an Availability Set](../virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
 
 ### Granular access control
 
@@ -144,7 +146,9 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
-* [Add a managed disk to a Linux VM](../virtual-machines/linux/quick-create-cli.md)
+* [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
+
+* [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
 ### Compare Managed Disks storage options 
 

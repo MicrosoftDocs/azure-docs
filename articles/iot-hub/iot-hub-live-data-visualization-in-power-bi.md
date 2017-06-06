@@ -20,8 +20,10 @@ ms.author: xshi
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
 
-> [!NOTE]
-> Before you start this tutorial, make sure you’ve completed [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md). In [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md), you set up your IoT device and IoT hub, and deploy a sample application to run on your device. The application sends collected sensor data to your IoT hub.
+![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/4.png)
+
+
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## What you learn
 
@@ -35,22 +37,13 @@ You learn how to visualize real-time sensor data that your Azure IoT hub receive
 
 ## What you need
 
-- Tutorial [Connect ESP8266 to Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md) completed which covers the following requirements:
+- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.
 - A Power BI account. ([Try Power BI for free](https://powerbi.microsoft.com/))
 
-## Add a consumer group to your IoT hub
-
-Consumer groups are used by applications to pull data from Azure IoT Hub. In this lesson, you create a consumer group to be used by a Stream Analytics job to read data from your IoT hub.
-
-To add a consumer group to your IoT hub, follow these steps:
-
-1. In the [Azure portal](https://ms.portal.azure.com/), open your IoT hub.
-1. Click **Endpoints** on the left pane, select **Events** on the middle pane, enter a name under **Consumer groups** on the right pane, and then click **Save**.
-
-   ![Create consumer group in Azure IoT Hub](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## Create, configure, and run a Stream Analytics job
 
@@ -166,8 +159,4 @@ Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/e
 You’ve successfully used Power BI to visualize real-time sensor data from your Azure IoT hub.
 There is an alternate way to visualize data from Azure IoT Hub. See [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
-
-- [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-- [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
-- [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

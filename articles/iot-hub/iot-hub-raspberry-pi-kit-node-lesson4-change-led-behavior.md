@@ -8,6 +8,9 @@ manager: timlt
 tags: ''
 keywords: 'control led with raspberry pi, raspberry pi led control, raspberry pi control led'
 
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
+
 ms.assetid: 3b42a4ad-0197-42f6-8ca9-04c883e879e8
 ms.service: iot-hub
 ms.devlang: node
