@@ -50,6 +50,7 @@
 ### [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Using Managed Disks in Resource Manager Templates](storage-using-managed-disks-template-deployments.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
