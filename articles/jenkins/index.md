@@ -30,6 +30,7 @@ ms.author: carolz
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>In-depth guides to use Jenkins to build and deploy Azure apps.</p>
 <ol>
+    <li>CI/CD with <a href="azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins and Docker on Azure VMs</a><li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Jenkins integration</a> with <a href="/azure/container-service/container-service-kubernetes-walkthrough">Azure Container Service and Kubernetes.</a></li>
     <li>Configure Jenkins to work with <a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Azure Storage</a>.</li>
     <li>Integrate your Jenkins environment with <a href="https://www.visualstudio.com/docs/marketplace/integrate/service-hooks/services/jenkins">Visual Studio Team Services</a>.</li>
