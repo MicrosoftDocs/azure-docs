@@ -19,9 +19,9 @@ ms.date: 06/05/2017
 ms.author: danlep
 
 ---
-# Pull images from a private Docker container registry to a Kubernetes cluster in Container Service
+# Pull images from an Azure container registry to Kubernetes in Container Service
 
-For your container deployments, Azure Container Service can pull images from Docker Hub or from private Docker container registries, including registries created in the [Azure Container Registry](../container-registry/container-registry-intro.md) service. This tutorial shows basic steps to pull images from an Azure container registry to a Kubernetes cluster in Azure Container Service. In this tutorial you learn how to:
+For your container deployments, Azure Container Service can pull images from Docker Hub or from private Docker container registries, including registries created in the [Azure Container Registry](../container-registry/container-registry-intro.md) service. This tutorial shows basic steps to pull images from an Azure container registry to Kubernetes in Azure Container Service. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * X
@@ -37,7 +37,7 @@ To push and pull Docker images from your registry, install [Docker](https://docs
 
 ## Private registry overview
 
-Docker containers are built from images pulled from public or private container registries. While you might test with images from a public registry such as [Docker Hub](https://hub.docker.com/), for greater control over image versions, security, and updates, using a private registry is usually recommended. 
+Docker containers are built from images pulled from public or private container registries. While you might test with images from a public registry such as [Docker Hub](https://hub.docker.com/), for greater control over image versions, security, and updates in your container deployments, using a private registry is usually recommended. 
 
 An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), which can be installed on-premises or in a virtual private cloud. There are also cloud-based private container registry services including [Azure Container Registry](../container-registry/container-registry-intro.md).
 
@@ -84,7 +84,7 @@ gistry/registries/myACRegistry",
 
 ```
 ## Get registry credentials
-To manage images in an Azure container registry, you can use the admin user name and password. The user name is the same as the registry name (*myACRegistry* in this example). Get the registry password by running the following command:
+To manage images in an Azure container registry, you can authenticate with the admin user name and password. The user name is the same as the registry name (*myACRegistry* in this example). Get the registry password by running the following command:
 
 ```azurecli-interactive 
 az acr credential show --name myACRegistry --query passwords[0].value
@@ -94,7 +94,7 @@ az acr credential show --name myACRegistry --query passwords[0].value
 
 Use the [Docker Command-Line Interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for login, push, pull, and other operations on your container registry. 
 
-Log in to your Azure container registry with the user name and password you obtained in the previous step. Use all lowercase letters for the fully qualified registry name - in this example, *myacregistry.azurecr.io*.
+Log in to your Azure container registry with the user name and password you obtained in the previous step. Specify the fully qualified registry name, which is the value of `loginServer` - in this case, `myacregistry.azurecr.io`.
 
 ```bash 
 docker login myacregistry.azurecr.io --username myACRegistry --password <yourPassword>
@@ -163,9 +163,9 @@ k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
 k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
-## Pull from the registry to Kubernetes
+## Pull from Azure container registry to Kubernetes
 
-Now when you want to deploy containers from images in your Azure container registry, you specify the fully qualified image name in your object configuration or when specifying an image with `kubectl`. 
+Now, deploy a container by pulling an images from your Azure container registry. Specify the fully qualified image name in your object configuration or when specifying an image with `kubectl`. 
 
 For example, to use `kubectl run` to deploy a Kubernetes container app from the NGINX image in your Azure container registry, specify the fully qualified image name, `myacregistry.azurecr.io/samples/nginx`:
 
@@ -190,7 +190,7 @@ spec:
 
 
 ## Pull from another private registry
-To use a private registry other than an Azure container registry with your Kubernetes cluster, you typically configure an *image pull secret*. To create a secret, run the `kubectl create secret docker-registry` command. Then, reference the pull secret in a pod definition. For details, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod).
+To use a private registry other than an Azure container registry with your Kubernetes cluster, an additional step is needed to configure an *image pull secret*. To create a secret, run the `kubectl create secret docker-registry` command. Then, reference the pull secret in a pod definition. For details, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod).
 
 The following example creates the secret named `myregistrykey` using the login credentials for the private registry server `mycr.contoso.io`:
 
@@ -203,7 +203,7 @@ kubectl create secret docker-registry myregistrykey --docker-server=mycr.contoso
 >If you need to access multiple registries, you can create one secret for each registry.
 >
 
-Then, deploy pods from an image in the private registry by adding an `imagePullSecrets` section to a pod definition. The following configuration file shows how to specify an Nginx image from a private registry and the image pull secret:
+Then, deploy pods from an image in the private registry by adding an `imagePullSecrets` section to a pod definition. The following configuration file shows how to specify an NGINX image from a private registry and the image pull secret:
 
 ```YAML
 apiVersion: v1
@@ -224,24 +224,18 @@ spec:
 ```
 
 
-To use a private registry such as an Azure container registry, you need to authenticate with the registry (the examples in this article use basic authentication with a username and password), and you might need a way to store the credentials for your deployment. Specific steps to authenticate with the registry depend on the orchestrator you deployed on your Container Service cluster, the registry itself, and possibly the build tools you use. To pull from the registry, specify a fully qualified image name, such as `mycr.contoso.io/samples/nginx`, on the command line or in a configuration file for your orchestrator.
-
-
-
-
-
 
 ## Next steps
 
-* To use an Azure container registry in CI/CD scenarios with Azure Container Service, see the tutorials for [Swarm](container-service-docker-swarm-setup-ci-cd.md) and [Swarm mode](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md).
+In this tutorial, you learned about how to use an Azure container registry with Kubernetes in Azure Container Service, including how to:
 
-* For information about how a private container registry can help secure container deployments, see the [Container Service security](container-service-security.md) guidance.
+> [!div class="checklist"]
+> * X
+> * Y
+> * Z
 >
 
-To use a private registry such as an Azure container registry, you need to authenticate with the registry, and you might need a way to store the credentials for your deployment. To pull from the registry, specify a fully qualified image name, such as `mycr.contoso.io/samples/nginx`, on the command line or in a configuration file for your orchestrator. 
+Advance to the next tutorial to learn about XXXX.
 
-## Prerequisites
-
-* A Kubernetes cluster [deployed in Azure Container Service](container-service-deployment.md) and to which you have a [remote connection](container-service-connect.md).
-
-* A private container registry. To create an Azure container registry, use the [Azure portal](../container-registry/container-registry-get-started-portal.md) or the [Azure CLI 2.0](../container-registry/container-registry-get-started-azure-cli.md).
+> [!div class="nextstepaction"]
+> [XXX tutorial](./tutorial-manage-disks.md)
