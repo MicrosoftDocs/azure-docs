@@ -166,15 +166,6 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 
 The types include database, schema, assembly, external data source, table, table valued function or table statistics.
 
-### Create catalog secret
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### Modify catalog secret
-      azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### Delete catalog secret
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
 <!-- ################################ -->
 <!-- ################################ -->
 ## Use ARM groups
