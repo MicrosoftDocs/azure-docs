@@ -1,6 +1,6 @@
 ---
 title: Use Azure Backup Server to protect a VMware server workload | Microsoft Docs
-description: Back up a VMware server to Azure or disk, with Azure Backup Server. Use this article to protect your VMware workload.
+description: Back up a VMware server to Azure or disk, with Azure Backup Server. Use this article to help protect your VMware workload.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -17,11 +17,11 @@ ms.date: 04/20/2017
 ms.author: markgal;
 
 ---
-# Back up VMware server to Azure
+# Back up a VMware server to Azure
 
-This article explains how to configure Azure Backup Server to protect VMware server workloads. This article assumes you already have Azure Backup Server installed. If you don't have Azure Backup Server installed, see [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+This article explains how to configure Azure Backup Server to help protect VMware server workloads. This article assumes you already have Azure Backup Server installed. If you don't have Azure Backup Server installed, see [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-Azure Backup Server can back up, or protect, VMware vCenter Server version 6.0 and 5.5.
+Azure Backup Server can back up, or help protect, VMware vCenter Server version 6.0 and 5.5.
 
 
 ## Create a secure connection to the vCenter Server
@@ -78,7 +78,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     If you're asked if you want to allow changes to the computer, click **Yes** or **OK**, to all the changes.
 
-8. On the **Certificate Store** screen, select **Place all certificates in the following store**, and then click **Browse** to choose the certificate store.
+8. On the **Certificate Store** page, select **Place all certificates in the following store**, and then click **Browse** to choose the certificate store.
 
     ![Place certificates in a specific storage spot](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
@@ -94,7 +94,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 
     ![Certificate store folder](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. On the **Completing the Certificate Import Wizard** screen, verify that the certificate is in the desired folder, and then click **Finish** to complete the wizard.
+10. On the **Completing the Certificate Import Wizard** page, verify that the certificate is in the desired folder, and then click **Finish** to complete the wizard.
 
     ![Verify certificate is in the proper folder](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -177,7 +177,7 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
 
 
-## Create vCenter Server user account and permissions
+## Create a vCenter Server user account and permissions
 
 After the role with privileges is set up, create a user account. The user account has a name and password, which provides the credentials that are used for authentication.
 
@@ -270,7 +270,7 @@ To open Production Server Addition Wizard, complete the following procedure:
 
     ![Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-2. On the **Select Production Server type** screen, select **VMware Servers**, and then click **Next**.
+2. On the **Select Production Server type** page, select **VMware Servers**, and then click **Next**.
 
 3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all the ESXi servers are managed by the same vCenter, you can use the vCenter name.
 
@@ -282,17 +282,17 @@ To open Production Server Addition Wizard, complete the following procedure:
 
     ![Specify credential](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. Click **Add** to add the VMware server to the list of **Added VMware Servers**, and then click **Next** to move to the next screen in the wizard.
+6. Click **Add** to add the VMware server to the list of **Added VMware Servers**, and then click **Next** to move to the next page in the wizard.
 
     ![Add VMWare server and credential](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
-7. In the **Summary** screen, click **Add** to add the specified VMware server to Azure Backup Server.
+7. In the **Summary** page, click **Add** to add the specified VMware server to Azure Backup Server.
 
     ![Add VMware server to Azure Backup Server](./media/backup-azure-backup-server-vmware/tasks-screen.png)
 
-  The VMware server backup is an agentless backup, and the new server is added immediately. The **Finish** screen shows you the results.
+  The VMware server backup is an agentless backup, and the new server is added immediately. The **Finish** page shows you the results.
 
-  ![Finish screen](./media/backup-azure-backup-server-vmware/summary-screen.png)
+  ![Finish page](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
   To add multiple instances of vCenter Server to Azure Backup Server, repeat the previous steps in this section.
 
@@ -311,11 +311,11 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
     ![Create New Protection Group wizard dialog box](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-    Click **Next** to advance to the **Select protection group type** screen.
+    Click **Next** to advance to the **Select protection group type** page.
 
-2. On the **Select Protection group type** screen, select **Servers** and then click **Next**. The **Select group members** screen appears.
+2. On the **Select Protection group type** page, select **Servers** and then click **Next**. The **Select group members** page appears.
 
-3. On the **Select group members** screen, the available members and the selected members appear. Select the members that you want to protect, and then click **Next**.
+3. On the **Select group members** page, the available members and the selected members appear. Select the members that you want to protect, and then click **Next**.
 
     ![Select group members](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
@@ -323,27 +323,27 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
     If a VM, or a folder containing a VM, is already protected to Azure, you cannot select that VM again. That is, after a VM is protected to Azure, it cannot be protected again, which prevents duplicate recovery points from being created for one VM. If you want to see which Azure Backup Server instance already protects a member, point to the member to see the name of the protecting server.
 
-4. On the **Select Data Protection Method** screen, enter a name for the protection group. Short-term protection (to disk) and online protection are selected. If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
+4. On the **Select Data Protection Method** page, enter a name for the protection group. Short-term protection (to disk) and online protection are selected. If you want to use online protection (to Azure), you must use short-term protection to disk. Click **Next** to proceed to the short-term protection range.
 
     ![Select data protection method](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-5. On the **Specify Short-Term Goals** screen, for **Retention Range**, specify the number of days that you want to retain recovery points that are *stored to disk*. If you want to change the time and days when recovery points are taken, click **Modify**. The short-term recovery points are full backups. They are not incremental backups. When you are satisfied with the short-term goals, click **Next**.
+5. On the **Specify Short-Term Goals** page, for **Retention Range**, specify the number of days that you want to retain recovery points that are *stored to disk*. If you want to change the time and days when recovery points are taken, click **Modify**. The short-term recovery points are full backups. They are not incremental backups. When you are satisfied with the short-term goals, click **Next**.
 
     ![Specify short-term goals](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
-6. On the **Review Disk Allocation** screen, review and if necessary, modify the disk space for the VMs. The recommended disk allocations are based on the retention range that is specified in the **Specify Short-Term Goals** screen, the type of workload, and the size of the protected data (identified in step 3).  
+6. On the **Review Disk Allocation** page, review and if necessary, modify the disk space for the VMs. The recommended disk allocations are based on the retention range that is specified in the **Specify Short-Term Goals** page, the type of workload, and the size of the protected data (identified in step 3).  
 
   - **Data size:** Size of the data in the protection group.
   - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
   - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
-  - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, DPM tries to increase the disk size by 25 percent.
+  - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, System Center Data Protection Manager tries to increase the disk size by 25 percent.
   - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
     ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
     When you are satisfied with the space allocation, click **Next**.
 
-7. On the **Choose Replica Creation Method** screen, specify how you want to generate the initial copy, or replica, of the protected data on Azure Backup Server.
+7. On the **Choose Replica Creation Method** page, specify how you want to generate the initial copy, or replica, of the protected data on Azure Backup Server.
 
     The default is **Automatically over the network** and **Now**. If you use the default, we recommend that you specify an off-peak time. Choose **Later** and specify a day and time.
 
@@ -353,31 +353,31 @@ If you have not used System Center Data Protection Manager or Azure Backup Serve
 
     ![Choose replica creation method](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-8. On the **Consistency Check Options** screen, select how and when to automate the consistency checks. You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
+8. On the **Consistency Check Options** page, select how and when to automate the consistency checks. You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
 
     If you don't want to configure automatic consistency checks, you can run a manual check. In the protection area of the Azure Backup Server console, right-click the protection group and then select **Perform Consistency Check**.
 
-    Click **Next** to move to the next screen.
+    Click **Next** to move to the next page.
 
-9. On the **Specify Online Protection Data** screen, select one or more data sources that you want to protect. You can select the members individually, or click **Select All** to choose all members. After you choose the members, click **Next**.
+9. On the **Specify Online Protection Data** page, select one or more data sources that you want to protect. You can select the members individually, or click **Select All** to choose all members. After you choose the members, click **Next**.
 
     ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-10. On the **Specify Online Backup Schedule** screen, specify the schedule to generate recovery points from the disk backup. After the recovery point is generated, it is transferred to the Recovery Services vault in Azure. When you are satisfied with the online backup schedule, click **Next**.
+10. On the **Specify Online Backup Schedule** page, specify the schedule to generate recovery points from the disk backup. After the recovery point is generated, it is transferred to the Recovery Services vault in Azure. When you are satisfied with the online backup schedule, click **Next**.
 
     ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-11. On the **Specify Online Retention Policy** screen, indicate how long you want to retain the backup data in Azure. After the policy is defined, click **Next**.
+11. On the **Specify Online Retention Policy** page, indicate how long you want to retain the backup data in Azure. After the policy is defined, click **Next**.
 
     ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
     There is no time limit for how long you can keep data in Azure. When you store recovery point data in Azure, the only limit is that you cannot have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
 
-12. On the **Summary** screen, review the details for your protection group members and settings, and then click **Create Group**.
+12. On the **Summary** page, review the details for your protection group members and settings, and then click **Create Group**.
 
     ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## Next steps
-If you use Azure Backup Server to protect VMware workloads, you may be interested in using Azure Backup Server to protect [Microsoft Exchange server](./backup-azure-exchange-mabs.md), a [Microsoft SharePoint farm](./backup-azure-backup-sharepoint-mabs.md), or a [SQL Server](./backup-azure-sql-mabs.md).
+If you use Azure Backup Server to protect VMware workloads, you may be interested in using Azure Backup Server to help protect a [Microsoft Exchange server](./backup-azure-exchange-mabs.md), a [Microsoft SharePoint farm](./backup-azure-backup-sharepoint-mabs.md), or a [SQL Server database](./backup-azure-sql-mabs.md).
 
-For information on problems with registering the agent, configuring the protection group, or problems with backup jobs, see [Troubleshoot Azure Backup Server](./backup-azure-mabs-troubleshoot.md).
+For information on problems with registering the agent, configuring the protection group, or backing up jobs, see [Troubleshoot Azure Backup Server](./backup-azure-mabs-troubleshoot.md).
