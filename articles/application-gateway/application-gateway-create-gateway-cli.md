@@ -93,7 +93,7 @@ Once the code has been entered you are signed in, close the browser to continue 
 Before creating the application gateway, a resource group is created to contain the application gateway. The following shows the command.
 
 ```azurecli
-az resource group create --name myresourcegroup --location "West US"
+az group create --name myresourcegroup --location "eastus"
 ```
 
 ## Create a virtual network and subnet
