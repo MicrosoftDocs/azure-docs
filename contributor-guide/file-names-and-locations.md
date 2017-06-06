@@ -48,7 +48,7 @@ Here are a few examples of valid names that follow the pattern:
 * azure-sdk-dotnet-release-notes-2-8.md
 * disaster-recovery-using-azure-site-recovery.md
 
-The service names aren't in the filename example, but are an element in the URL path:
+The service names aren't in the filename examples, but are an element in each URL path:
 
 * https://docs.microsoft.com/azure/**cloud-service**/dotnet-continuous-delivery
 * https://docs.microsoft.com/azure/**mobile-services**/ios-get-started
