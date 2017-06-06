@@ -141,7 +141,7 @@
 ### [Use R](hdinsight-hadoop-r-scripts-linux.md)
 ### [Use Solr](hdinsight-hadoop-solr-install-linux.md)
 ### [Use Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
-### [Use Zeppelin](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Use Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### Build HDInsight applications
 #### [Install HDInsight apps](hdinsight-apps-install-applications.md)
 #### [Install custom apps](hdinsight-apps-install-custom-applications.md)
