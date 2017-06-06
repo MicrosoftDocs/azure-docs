@@ -66,7 +66,7 @@ OUTPUT @a
 Submit the script.
 
 ```
-Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
+Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"
 ```
 
 ## Monitor U-SQL Jobs
