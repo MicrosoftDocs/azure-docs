@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Archive walkthrough | Microsoft Docs
-description: Sample that uses the Azure Python SDK to demonstrate using the Event Hubs Archive feature.
+title: Azure Event Hubs Capture walkthrough | Microsoft Docs
+description: Sample that uses the Azure Python SDK to demonstrate using the Event Hubs Capture feature.
 services: event-hubs
 documentationcenter: ''
 author: djrosanova
@@ -17,18 +17,18 @@ ms.date: 05/03/2017
 ms.author: darosa;sethm
 
 ---
-# Event Hubs Archive walkthrough: Python
-Event Hubs Archive is a new feature of Event Hubs that enables you to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](event-hubs-archive-overview.md).
+# Event Hubs Capture walkthrough: Python
+Event Hubs Capture is a new feature of Event Hubs that enables you to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see the [overview article](event-hubs-archive-overview.md).
 
-This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Archive feature. The sender.py program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub is configured to use the Archive feature to write this data to blob storage in batches. The archivereader.py app then reads these blobs and creates an append file per device, then writes the data into .csv files.
+This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The sender.py program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub is configured to use the Capture feature to write this data to blob storage in batches. The archivereader.py app then reads these blobs and creates an append file per device, then writes the data into .csv files.
 
 What will be accomplished
 
 1. Create an Azure Blob Storage account and a blob container within it, using the Azure portal.
 2. Create an Event Hub namespace, using the Azure portal.
-3. Create an event hub with the Archive feature enabled, using the Azure portal.
+3. Create an event hub with the Capture feature enabled, using the Azure portal.
 4. Send data to the event hub with a Python script.
-5. Read the files from the archive and process them with another Python script.
+5. Read the files from the capture and process them with another Python script.
 
 Prerequisites
 
@@ -44,7 +44,7 @@ Prerequisites
 3. Complete the fields in the storage account blade and then click **Create**.
    
    ![][1]
-4. After you see the **Deployments Succeeded** message, click the name of the new storage account and in the **Essentials** blade, click **Blobs**. When the **Blob service** blade opens, click **+ Container** at the top. Name the container **archive**, then close the **Blob service** blade.
+4. After you see the **Deployments Succeeded** message, click the name of the new storage account and in the **Essentials** blade, click **Blobs**. When the **Blob service** blade opens, click **+ Container** at the top. Name the container **capture**, then close the **Blob service** blade.
 5. Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these values to Notepad or some other temporary location.
 
 ## Create a Python script to send events to your event hub
@@ -73,10 +73,11 @@ Prerequisites
    ```
 4. Update the preceding code to use your namespace name, key value, and event hub name that you obtained when you created the Event Hubs namespace.
 
-## Create a Python script to read your archive files
+## Create a Python script to read your Capture files
+
 1. Fill out the blade and click **Create**.
-2. Create a script called **archivereader.py**. This script will read the archive files and create a file per device to write the data only for that device.
-3. Paste the following code into archivereader.py:
+2. Create a script called **capturereader.py**. This script will read the captured files and create a file per device to write the data only for that device.
+3. Paste the following code into capturereader.py:
    
    ```python
    import os
@@ -118,7 +119,7 @@ Prerequisites
                processBlob(cleanName)
                os.remove(cleanName)
            block_blob_service.delete_blob(container, blob.name)
-   startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
+   startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
    ```
 4. Be sure to paste the appropriate values for your storage account name and key in the call to `startProcessing`.
 
@@ -138,31 +139,31 @@ Prerequisites
    ```
    pip install cryptography
    ```
-2. Change your directory to wherever you saved sender.py and archivereader.py, and run this command:
+2. Change your directory to wherever you saved sender.py and capturereader.py, and run this command:
    
    ```
    start python sender.py
    ```
    
    This starts a new Python process to run the sender.
-3. Now wait a few minutes for the archive to run. Then type the following command into your original command window:
+3. Now wait a few minutes for the capture to run. Then type the following command into your original command window:
    
     ```
-    python archivereader.py
+    python capturereader.py
     ```
 
-    This archive processor uses the local directory to download all the blobs from the storage account/container. It processes any that are not empty, and writes the results as .csv files into the local directory.
+    This capture processor uses the local directory to download all the blobs from the storage account/container. It processes any that are not empty, and writes the results as .csv files into the local directory.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Overview of Event Hubs Archive][Overview of Event Hubs Archive]
+* [Overview of Event Hubs Capture][Overview of Event Hubs Capture]
 * A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
 * The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
 * [Event Hubs overview][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/
-[Overview of Event Hubs Archive]: event-hubs-archive-overview.md
+[Overview of Event Hubs Capture]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]: ../storage/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
