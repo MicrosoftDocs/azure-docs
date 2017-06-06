@@ -177,13 +177,13 @@ ssh <publicIpAddress>
 
 The Oracle software is already installed on the Marketplace image, so the next step is to install the database. 
 
-1. Run the software as the 'oracle' superuser:
+Run the software as the 'oracle' superuser:
 
 ```bash
 sudo su - oracle
 ```
 
-2. Create the database:
+Create the database:
 
 ```bash
 $ dbca -silent \
@@ -236,7 +236,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-### Set the ORACLE_SID and ORACLE_HOME variables
+Set the ORACLE_SID and ORACLE_HOME variables
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -287,7 +287,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-### Set the ORACLE_SID and ORACLE_HOME variables
+Set the ORACLE_SID and ORACLE_HOME variables
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
