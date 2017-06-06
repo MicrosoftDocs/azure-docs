@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service Quickstart - Deploy DC/OS Cluster | Microsoft Docs
-description: Azure Container Service Quickstart - Deploy DC/OS Cluster
+title: Azure Container Service tutorial - Manage DC/OS | Microsoft Docs
+description: Azure Container Service tutorial - Manage DC/OS
 services: container-service
 documentationcenter: ''
 author: neilpeterson
@@ -15,27 +15,27 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 05/30/2017
 ms.author: nepeters
 ---
 
-# Deploy a DC/OS Cluster
+# Azure Container Service tutorial - Manage DC/OS
 
-DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
+DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details basic steps needed to deploy a DC/OS cluster and run basic workload.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> [!div class="checklist"]
+> * Create an ACS DC/OS cluster
+> * Connect to the cluster
+> * Install the DC/OS CLI
+> * Deploy an application to the cluster
+> * Scale an application on the cluster
+> * Scale the DC/OS cluster nodes
+> * Basic DC/OS management
+> * Delete the DC/OS cluster
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Log in to Azure 
-
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
-
-```azurecli-interactive
-az login
-```
 
 ## Create a resource group
 
@@ -43,7 +43,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -53,7 +53,7 @@ Create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli-interactive
+```azurecli-interactive 
 az acs create \
   --orchestrator-type dcos \
   --resource-group myResourceGroup \
@@ -67,7 +67,7 @@ After several minutes, the command completes, and returns information about the 
 
 Once a DC/OS cluster has been created, it can be accesses through an SSH tunnel. Run the following command to return the public IP address of the DC/OS master. This IP address is stored in a variable and used in the next step.
 
-```azurecli-interactive
+```azurecli-interactive 
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
@@ -77,19 +77,11 @@ To create the SSH tunnel, run the following command and follow the on-screen ins
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-The SSH tunnel can be tested by browsing to `http://localhost`. If a port other that 80 has been used, adjust the location to match. 
-
-If the SSH tunnel was successfully created, the DC/OS portal is returned.
-
-![DCOS UI](./media/container-service-dcos-quickstart/dcos-ui.png)
-
 ## Install DC/OS CLI
 
-The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
+Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
-If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
-
-```azurecli-interactive
+```azurecli-interactive 
 az acs dcos install-cli
 ```
 
@@ -101,7 +93,7 @@ dcos config set core.dcos_url http://localhost
 
 ## Run an application
 
-The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon is used to start an application and manage the state of the application on the DC/OS cluster. To schedule an application through Marathon, create a file named *marathon-app.json*, and copy the following contents into it. 
+The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon is used to start an application and manage the state of the application on the DC/OS cluster. To schedule an application through Marathon, create a file named **marathon-app.json**, and copy the following contents into it. 
 
 ```json
 {
@@ -135,7 +127,7 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli-interactive
+```azurecli-interactive 
 dcos marathon app add marathon-app.json
 ```
 
@@ -154,7 +146,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 Get the public IP address of the DC/OS cluster agents.
 
-```azurecli-interactive
+```azurecli-interactive 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -162,17 +154,84 @@ Browsing to this address returns the default NGINX site.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
+## Scale Marathon application
+
+In the previous example, a single instance application was created. To update this deployment so that three instances of the application are available, open up the **marathon-app.json** file, and update the instance property to 3.
+
+```json
+{
+  "id": "demo-app",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 32,
+  "disk": 0,
+  "instances": 3,
+  "container": {
+    "docker": {
+      "image": "nginx",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "name": "80",
+          "labels": null
+        }
+      ]
+    },
+    "type": "DOCKER"
+  },
+  "acceptedResourceRoles": [
+    "slave_public"
+  ]
+}
+```
+
+Update the application using the `dcos marathon app update` command.
+
+```azurecli-interactive
+dcos marathon app update demo-app < marathon-app.json
+```
+
+## Scale DC/OS cluster
+
+In the previous example, a container was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+
+To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#show) command.
+
+```azurecli-interactive
+az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
+```
+
+To increase the count to 5, use the [az acs scale](/cli/azure/acs#scale) command. 
+
+```azurecli-interactive
+az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
+```
+
 ## Delete DC/OS cluster
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group delete --name myResourceGroup --no-wait
 ```
 
 ## Next steps
 
-In this quick start, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
+In this tutorial, you have learned about basic DC/OS management task including the following. 
+
+> [!div class="checklist"]
+> * Create an ACS DC/OS cluster
+> * Connect to the cluster
+> * Install the DC/OS CLI
+> * Deploy an application to the cluster
+> * Scale an application on the cluster
+> * Scale the DC/OS cluster nodes
+> * Delete the DC/OS cluster
+
+Advance to the next tutorial to learn about load balancing application in DC/OS on Azure. 
 
 > [!div class="nextstepaction"]
-> [Manage an ACS DC/OS Cluster](container-service-dcos-manage-tutorial.md)
+> [Load balance applications](container-service-load-balancing.md)

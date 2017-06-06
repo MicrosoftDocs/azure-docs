@@ -20,11 +20,13 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Container Service Quickstart - Deploy Kubernetes cluster for Windows containers
+# Deploy Kubernetes cluster for Windows containers
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.
 
-To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](/cli/azure/install-azure-cli). You can also use the [Azure Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -32,13 +34,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 > Support for Windows containers on Kubernetes in Azure Container Service is in preview. 
 >
 
-
-
 ## Log in to Azure 
 
 Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
 
-```azurecli
+```azurecli-interactive 
 az login
 ```
 
@@ -48,7 +48,7 @@ Create a resource group with the [az group create](/cli/azure/group#create) comm
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -59,7 +59,7 @@ The following example creates a cluster named *myK8sCluster* with one Linux mast
 
 
 
-```azurecli
+```azurecli-interactive 
 az acs create --orchestrator-type=kubernetes \
     --resource-group myResourceGroup \
     --name=myK8sCluster \
@@ -79,7 +79,7 @@ If you're using Azure CloudShell, `kubectl` is already installed. If you want to
 
 The following Azure CLI example installs `kubectl` to your system. On Windows, run this command as an administrator.
 
-```azurecli
+```azurecli-interactive 
 az acs kubernetes install-cli
 ```
 
@@ -89,19 +89,19 @@ az acs kubernetes install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
 downloads the cluster configuration for your Kubernetes cluster.
 
-```azurecli
+```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
 To verify the connection to your cluster from your machine, try running:
 
-```bash
+```azurecli-interactive
 kubectl get nodes
 ```
 
 `kubectl` lists the master and agent nodes.
 
-```bash
+```azurecli-interactive
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
 k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
@@ -148,19 +148,19 @@ Create a local file named `iis.json` and copy the following text. This file tell
 
 To start the pod, type:
   
-```bash
+```azurecli-interactive
 kubectl apply -f iis.json
 ```  
 
 To track the deployment, type:
   
-```bash
+```azurecli-interactive
 kubectl get pods
 ```
 
 While the pod is deploying, the status is `ContainerCreating`. Because of the size of the IIS image, it can take several minutes for the container to enter the `Running` state.
 
-```bash
+```azurecli-interactive
 NAME     READY        STATUS        RESTARTS    AGE
 iis      1/1          Running       0           32s
 ```
@@ -169,7 +169,7 @@ iis      1/1          Running       0           32s
 
 To expose the pod to the world with a public IP address, type the following command:
 
-```bash
+```azurecli-interactive
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
@@ -177,13 +177,13 @@ With this command, Kubernetes creates a service and an [Azure load balancer rule
 
 Run the following command to see the status of the service.
 
-```bash
+```azurecli-interactive
 kubectl get svc
 ```
 
 Initially the IP address appears as `pending`. After a few minutes, the external IP address of the `iis` pod is set:
   
-```bash
+```azurecli-interactive
 NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
 kubernetes   10.0.0.1       <none>          443/TCP        21h       
 iis          10.0.111.25    13.64.158.233   80/TCP         22m
@@ -197,7 +197,7 @@ You can use a web browser of your choice to see the default IIS welcome page at 
 ## Delete cluster
 When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
@@ -207,4 +207,4 @@ az group delete --name myResourceGroup
 In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container. To learn more about Azure Container Service, continue to the Kubernetes tutorial.
 
 > [!div class="nextstepaction"]
-> [ACS Tutorials](./container-service-create-acs-cluster-cli.md)
+> [Manage an ACS Kubernetes cluster](./container-service-dcos-manage-tutorial.md)
