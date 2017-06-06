@@ -54,7 +54,7 @@ Before you can create a container registry, create a resource group with [az gro
 az group create --name myRGRegistry --location eastus
 ```
 
-Now create a container registry with [az acr create](/cli/azure/acr#create). The following example creates a registry named *myACRegistry*, and enables an admin user account for basic authentication. You specify the `Basic` SKU in this example.
+Now create a container registry with [az acr create](/cli/azure/acr#create). The following example creates a registry named *myACRegistry*, and enables an admin user account for basic authentication. You specify the `Basic` sku in this example.
 
 ```azurecli-interactive 
 az acr create --name myACRegistry --resource-group myRGRegistry --admin-enabled --sku Basic
@@ -140,14 +140,18 @@ az acs create --orchestrator-type=kubernetes \
     --generate-ssh-keys 
 ```
 
-Use the following commands to install the `kubectl` command-line tool and to get the cluster credentials:
+Use the following command to install the `kubectl` command-line tool:
 
 ```azurecli-interactive 
 az acs kubernetes install-cli 
-
-az acs kubernetes get-credentials --resource-group=myRGRegistry --name=myK8sCluster
-
 ```
+
+Now get the cluster credentials:
+
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myRGRegistry --name=myK8sCluster
+```
+
 To verify the connection to your cluster from your machine, try running:
 
 ```bash
