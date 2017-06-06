@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Performance Insight | Microsoft Docs
+title: Performance overview | Microsoft Docs
 description: The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance.
 services: sql-database
 documentationcenter: ''
@@ -19,10 +19,12 @@ ms.author: sstein
 
 ---
 # SQL Database Performance Insight
-Azure SQL Database provides performance tools to help you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. 
+Azure SQL Database helps you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. To review your database performance, you have few options:
 
-1. Browse to your database in the [Azure Portal](http://portal.azure.com) and click **All settings** > **Performance ** > **Overview** to open the **Performance** page. 
-2. Click **Recommendations** to open the [SQL Database Advisor](#sql-database-advisor), and click **Queries** to open [Query Performance Insight](#query-performance-insight).
+1. Click **Performance overview** or click on **Performance tile** to get the performance overview page. 
+2. Click **Performance recommendations** to open the [SQL Database Advisor](#sql-database-advisor).
+3. Click **Queries** to open [Query Performance Insight](#query-performance-insight).
+4. Click **Automatic tuning** to open [Automatic tuning page](#sql-database-automatic-tuning).
    
     ![View Performance](./media/sql-database-performance/entries.png)
 
@@ -36,12 +38,15 @@ Clicking on **Overview** or on the **Performance** tile will take you to the per
 * The **Auto-tuning** tile shows the auto-tuning configuration for your database (which tuning actions are configured to be automatically applied to your database). Clicking this tile opens the automation configuration dialog.
 * The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **Query Performance Insight**.
 
-## SQL Database Advisor
+## Performance recommendations
 [SQL Database Advisor](sql-database-advisor.md) provides intelligent tuning recommendations that can help improve your database's performance. 
 
-* Recommendations on which indexes to create or drop (and an option to apply index recommendations automatically without any user interaction and automatically rolling back recommendations that have a negative impact on performance).
+* Recommendations on which indexes to create or drop.
 * Recommendations when schema issues are identified in the database.
 * Recommendations when queries can benefit from parameterized queries.
+
+## Automatic tuning
+Azure SQL Databases have an ability to tune their performance automatically by applying performance recommendations. To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md). To enable it, read [how to enable automatic tuning](sql-database-enable-automatic-tuning.md).
 
 ## Query Performance Insight
 [Query Performance Insight](sql-database-query-performance.md) allows you to spend less time troubleshooting database performance by providing:
