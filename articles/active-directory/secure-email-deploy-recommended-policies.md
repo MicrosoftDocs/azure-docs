@@ -219,8 +219,8 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
-||**Email profile**|Exchange Active Sync|Host (*)| Outlook.office365.com|
-|||Account Name (*)|SecureEmailAccount|Admini choice|
+||**Email profile**|Exchange Active Sync|Host (#)|Outlook.office365.com|
+|||Account Name (#)|SecureEmailAccount|Admini choice|
 |||Username|User principal name|Selected – Drop down|
 |||Email address|Primary SMTP address|Selected – Drop down|
 |||Authentication method|Username and password|Selected – Drop down|
@@ -254,8 +254,8 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
-|**Email profile**|Exchange Active Sync|Host (*)| Outlook.office365.com|
-|||Account Name (*)|SecureEmailAccount|Admini choice|
+|**Email profile**|Exchange Active Sync|Host (#)| Outlook.office365.com|
+|||Account Name (#)|SecureEmailAccount|Admini choice|
 |||Username|User principal name|Selected – Drop down|
 |||Email address|Primary SMTP address|Selected – Drop down|
 |||Authentication method|Username and password|Selected – Drop down|
@@ -275,8 +275,8 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
-|**Email profile**|Exchange Active Sync|Host(*)| Outlook.office365.com|
-|||Account Name(*)|SecureEmailAccount|Admini choice|
+|**Email profile**|Exchange Active Sync|Host(#)| Outlook.office365.com|
+|||Account Name(#)|SecureEmailAccount|Admini choice|
 |||Username|User principal name|Selected – Drop down|
 |||Email address|Primary SMTP address|Selected – Drop down|
 |||Authentication method|Username and password|Selected – Drop down|
@@ -311,7 +311,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 ||Advanced password settings|All|Not configured||
 ||Encryption|Require encryption on mobile device (...)|Yes|Selected – Drop down|
 ||Email profiles|Email account must be managed by Intune (iOS 8.0+)|Yes| Selected  – Drop down|
-|||Select (*)||Must select Email Configuration Policy for iOS: iOS Email Policy (see configuration policies above)|
+|||Select (#)||Must select Email Configuration Policy for iOS: iOS Email Policy (see configuration policies above)|
 |**Device health**|Windows decide health attestation|Require devices to be reported as healthy (Windows 10 Desktop and Mobile and later)|Yes||
 ||Device security settings|All|Not configured||
 ||Device threat protection|All|Not configured||
