@@ -33,7 +33,7 @@ ms.author: carolz
     <li>Configure Jenkins to work with <a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Azure Storage</a>.</li>
     <li>CI/CD with <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins and Docker on Azure VMs</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Jenkins integration</a> with <a href="/azure/container-service/container-service-kubernetes-walkthrough">Azure Container Service and Kubernetes.</a></li>
-    <li>Automate Azure with <a href="/azure/container-service/container-service-kubernetes-jenkins">Azure CLI </a>via Jenkins. -- TODO</li>
+    <li>Execute Azure CLI <a href="/azure/container-service/container-service-kubernetes-jenkins"> with Jenkins.</a> -- TODO</li>
 </ol>
 
 <h2>Samples</h2>
@@ -46,7 +46,8 @@ ms.author: carolz
 <ul>
   <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
   <li>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins.</a></li>
-  <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services</a>.</li>
+  <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services</a>.</li> 
+  <li>DevOps with <a href="https://blogs.msdn.microsoft.com/mikerichter/2016/06/29/devops-on-windows-with-jenkins-and-azure-resource-manager/">Jenkins and Azure Resource Manager</a></li>
 </ul>
  
 </div>
