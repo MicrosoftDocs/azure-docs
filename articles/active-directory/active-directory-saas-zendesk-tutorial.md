@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Zendesk | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and zendesk.
+description: Learn how to configure single sign-on between Azure Active Directory and Zendesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -79,7 +79,6 @@ To configure the integration of Zendesk into Azure AD, you need to add Zendesk f
 
 	![Creating an Azure AD test user](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
 
-
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Zendesk based on a test user called "Britta Simon".
 
@@ -91,7 +90,7 @@ To configure and test Azure AD single sign-on with Zendesk, you need to complete
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Zendesk test user](#creating-a-Zendesk-test-user)** - to have a counterpart of Britta Simon in Zendesk that is linked to the Azure AD representation of user.
+3. **[Creating a Zendesk test user](#creating-a-zendesk-test-user)** - to have a counterpart of Britta Simon in Zendesk that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -116,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      In the **Sign-on URL** textbox, type the value using the following pattern: `https://<subdomain>.zendesk.com`
 
 	> [!NOTE] 
-	> This value is not the real. Update this value with the actual Sign-on URL. Contact [Zendesk support team](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get this value. 
+	> This value is not the real. Update this value with the actual Sign-on URL. Contact [Zendesk support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get this value. 
 
 4. Zendesk expects the SAML assertions in a specific format. There are no mandatory SAML attributes but optionally you can add an attribute from **User Attributes** section by following the below steps: 
 
@@ -146,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. On the **Zendesk Configuration** section, click **Configure Zendesk** to open **Configure sign-on** window. Copy the **Sign-Out URL and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_configure.png) 
-<CS>
+
 7. In a different web browser window, log into your Zendesk company site as an administrator.
 
 8. Click **Admin**.
@@ -171,8 +170,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     > For more information, see [how to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
    
 15. Click **Save**.
-
-<CE>
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -265,7 +262,6 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Zendesk tile in the Access Panel, you should get login page to get signed-on to your Zendesk application. For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
-
 
 ## Additional resources
 
