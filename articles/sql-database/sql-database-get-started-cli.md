@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create, mvc
+ms.custom: quick start create- mvc
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli

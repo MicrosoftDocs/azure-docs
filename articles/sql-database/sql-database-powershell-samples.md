@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample, mvc
+ms.custom: sample- mvc
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: sql-database
