@@ -86,10 +86,10 @@ controller that accepts HTTP requests and returns HTTP responses.
 So for example, a logic app sends an HTTP request to your web app or API app. 
 Your app then returns an HTTP response, along with content that the logic app can process.
 
-For a standard action, you can write an HTTP request method in your API, 
-describe that method in a Swagger file, and call your API directly with an 
-[HTTP action](../connectors/connectors-native-http.md) 
-or [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) action. 
+For a standard action, you can write an HTTP request method in your API and 
+describe that method in a Swagger file. You can then call your API directly 
+with an [HTTP action](../connectors/connectors-native-http.md) 
+or an [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) action. 
 By default, responses must be returned within the [request timeout limit](./logic-apps-limits-and-config.md). 
 
 ![Standard action pattern](./media/logic-apps-create-api-app/standard-action.png)
@@ -194,7 +194,7 @@ and checks the `location` header until your API returns a non-202 response.
 As an alternative, you can use the webhook pattern 
 for long-running tasks and asynchronous processing. 
 This pattern has the logic app pause and wait for a "callback" 
-from your API to finish processing before continuing workflow, 
+from your API to finish processing before continuing workflow. 
 This callback is an HTTP POST that sends a message to a URL when an event happens. 
 
 <a name="bakery-webhook-action"></a>
