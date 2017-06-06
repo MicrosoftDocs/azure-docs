@@ -134,12 +134,10 @@ These articles are about other scenarios and services that use or integrate with
 - [Key Vault storage account keys overview](key-vault-ovw-storage-keys.md) describes the Key Vault integration Azure Storage Accounts keys.
 - [Key Vault security worlds](key-vault-ovw-security-worlds.md) describes the relationships between regions and security areas.
 
-
 ## Social
 
 - [Key Vault Blog](http://aka.ms/kvblog)
 - [Key Vault Forum](http://aka.ms/kvforum)
-
 
 ## Supporting Libraries
 
