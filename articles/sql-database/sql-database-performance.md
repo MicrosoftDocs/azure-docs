@@ -46,7 +46,7 @@ Clicking on **Overview** or on the **Performance** tile will take you to the per
 * Recommendations when queries can benefit from parameterized queries.
 
 ## Automatic tuning
-Azure SQL Databases have an ability to tune their performance automatically by applying performance recommendations. To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md). To enable it, read [how to enable automatic tuning](sql-database-enable-automatic-tuning.md).
+Azure SQL Databases have an ability to tune their performance automatically by applying performance recommendations. To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md). To enable it, read [how to enable automatic tuning](sql-database-automatic-tuning-enable.md).
 
 ## Query Performance Insight
 [Query Performance Insight](sql-database-query-performance.md) allows you to spend less time troubleshooting database performance by providing:
