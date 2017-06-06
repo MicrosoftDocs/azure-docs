@@ -58,7 +58,7 @@ You can also see usage quotas on the blade for resources that have quotas:
 
 ![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) or [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Monitor) to access the full set of usage quotas programmatically.
+Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) or [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to access the full set of usage quotas programmatically.
 
 ## Next steps
 * [Receive alert notifications](insights-receive-alert-notifications.md) whenever a metric crosses a threshold.
