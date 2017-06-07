@@ -1,6 +1,6 @@
 ---
 title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight | Microsoft Docs
-description: Learn how to create Storm topologies in C# by creating a simple word count topology in Visual Studio using the Hadoop tools for Visual Studio.
+description: Learn how to create Storm topologies in C#. Create a simple word count topology in Visual Studio by using the Hadoop tools for Visual Studio.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -19,26 +19,26 @@ ms.date: 05/23/2017
 ms.author: larryfr
 
 ---
-# Develop C# topologies for Apache Storm using Data Lake tools for Visual Studio
+# Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
 
-Learn how to create a C# Storm topology by using the Data Lake (Hadoop) Tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
+Learn how to create a C# Storm topology by using the Data Lake (Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
 
 You also learn how to create hybrid topologies that use C# and Java components.
 
 > [!NOTE]
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies__.
+> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after October 28, 2016 support SCP.NET topologies.
 
-To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight.
+To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or later. The version of the package must also match the major version of Storm installed on HDInsight.
 
 | HDInsight version | Storm version | SCP.NET version | Default Mono version |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(Only on Windows-based HDInsight) | NA |
+| 3.3 |0.10.x |0.10.x.x</br>(only on Windows-based HDInsight) | NA |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 > [!IMPORTANT]
-> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
+> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Check [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) for potential incompatibilities.
 
 ## Install Visual Studio
 
@@ -54,19 +54,19 @@ You can develop C# topologies with SCP.NET by using one of the following version
 
 ## Install Data Lake tools for Visual Studio
 
-To install Data Lake tools for Visual Studio, follow the steps in the  [Get started using Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) document.
+To install Data Lake tools for Visual Studio, follow the steps in [Get started using Data Lake tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ## Install Java
 
-When submitting a Storm topology from Visual Studio, SCP.NET generates a zip file containing the topology and dependencies. Java is used to create these zip files, as it uses a format that is more compatible with Linux-based clusters.
+When you submit a Storm topology from Visual Studio, SCP.NET generates a zip file containing the topology and dependencies. Java is used to create these zip files, as it uses a format that is more compatible with Linux-based clusters.
 
-1. Install the Java Developer Kit (JDK) 7 or greater on your development environment. You can get the Oracle JDK from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html). You can also use other Java distributions, such as [http://openjdk.java.net/](http://openjdk.java.net/).
+1. Install the Java Developer Kit (JDK) 7 or later on your development environment. You can get the Oracle JDK from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). You can also use [other Java distributions](http://openjdk.java.net/).
 
 2. The `JAVA_HOME` environment variable must point to the directory that contains Java.
 
 3. The `PATH` environment variable must include the `%JAVA_HOME%\bin` directory.
 
-You can use the following C# console application to verify that Java and the JDK is correctly installed:
+You can use the following C# console application to verify that Java and the JDK are correctly installed:
 
 ```csharp
 using System;
@@ -102,43 +102,43 @@ namespace ConsoleApplication2
 
 ## Storm templates
 
-The Data Lake Tools for Visual Studio provide the following templates:
+The Data Lake tools for Visual Studio provide the following templates:
 
 | Project type | Demonstrates |
 | --- | --- |
-| Storm Application |An empty Storm topology project |
-| Storm Azure SQL Writer Sample |How to write to Azure SQL Database |
-| Storm Azure Cosmos DB Reader Sample |How to read from Azure Cosmos DB |
-| Storm Azure Cosmos DB Writer Sample |How to write to Azure Cosmos DB |
-| Storm EventHub Reader Sample |How to read from Azure Event Hubs |
-| Storm EventHub Writer Sample |How to write to Azure Event Hubs |
-| Storm HBase Reader Sample |How to read from HBase on HDInsight clusters |
-| Storm HBase Writer Sample |How to write to HBase on HDInsight clusters |
-| Storm Hybrid Sample |How to use a Java component |
-| Storm Sample |A basic word count topology |
+| Storm Application |An empty Storm topology project. |
+| Storm Azure SQL Writer Sample |How to write to Azure SQL Database. |
+| Storm Azure Cosmos DB Reader Sample |How to read from Azure Cosmos DB. |
+| Storm Azure Cosmos DB Writer Sample |How to write to Azure Cosmos DB. |
+| Storm EventHub Reader Sample |How to read from Azure Event Hubs. |
+| Storm EventHub Writer Sample |How to write to Azure Event Hubs. |
+| Storm HBase Reader Sample |How to read from HBase on HDInsight clusters. |
+| Storm HBase Writer Sample |How to write to HBase on HDInsight clusters. |
+| Storm Hybrid Sample |How to use a Java component. |
+| Storm Sample |A basic word count topology. |
 
 In the steps in this document, you use the basic Storm Application project type to create a topology.
 
 ### HBase templates notes
 
-The HBase reader and writer templates use the HBase REST API to communicate with an HBase on HDInsight cluster, not the HBase Java API.
+The HBase reader and writer templates use the HBase REST API, not the HBase Java API, to communicate with an HBase on HDInsight cluster.
 
 ### EventHub templates notes
 
 > [!IMPORTANT]
-> The Java-based EventHub spout component included with the EventHub Reader template may not work with Storm on HDInsight version 3.5 or greater. An updated version of this component is available at [https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
+> The Java-based EventHub spout component included with the EventHub Reader template may not work with Storm on HDInsight version 3.5 or later. An updated version of this component is available at [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
-For an example topology that uses this component and works with Storm on HDInsight 3.5, see [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
+For an example topology that uses this component and works with Storm on HDInsight 3.5, see [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
 ## Create a C# topology
 
-1. Open Visual Studio, select **File** > **New**, and then **Project**.
+1. Open Visual Studio, select **File** > **New**, and then select **Project**.
 
-2. From the **New Project** screen, expand **Installed** > **Templates**, and select **Azure Data Lake**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
+2. From the **New Project** window, expand **Installed** > **Templates**, and select **Azure Data Lake**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
 
-    ![image](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Screenshot of New Project window](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 
-3. After the project has been created, you should have the following files:
+3. After you have created the project, you should have the following files:
 
    * **Program.cs**: This file defines the topology for your project. A default topology that consists of one spout and one bolt is created by default.
 
@@ -146,7 +146,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
    * **Bolt.cs**: An example bolt that keeps a count of numbers emitted by the spout.
 
-     As part of project creation, the latest [SCP.NET package](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) is downloaded from NuGet.
+     When you create the project, NuGet downloads the latest [SCP.NET package](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
      [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
@@ -224,11 +224,11 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 1. Delete the existing **Bolt.cs** file from the project.
 
-2. In **Solution Explorer**, right-click the project and select **Add** > **New item**. From the list, select **Storm Bolt**, and enter **Splitter.cs** as the name. Repeat this process to create a second bolt named **Counter.cs**.
+2. In **Solution Explorer**, right-click the project, and select **Add** > **New item**. From the list, select **Storm Bolt**, and enter **Splitter.cs** as the name. Repeat this process to create a second bolt named **Counter.cs**.
 
-   * **Splitter.cs**: Implements a bolt that splits sentences into individual words and emits a new stream of words.
+   * **Splitter.cs**: Implements a bolt that splits sentences into individual words, and emits a new stream of words.
 
-   * **Counter.cs**: Implements a bolt that counts each word and emits a new stream of words and the count for each word.
+   * **Counter.cs**: Implements a bolt that counts each word, and emits a new stream of words and the count for each word.
 
      > [!NOTE]
      > These bolts read and write to streams, but you can also use a bolt to communicate with sources such as a database or service.
@@ -281,7 +281,7 @@ For an example topology that uses this component and works with Storm on HDInsig
     }
     ```
 
-5. Open **Counter.cs** and replace the class contents with the following:
+5. Open **Counter.cs**, and replace the class contents with the following:
 
     ```csharp
     private Context ctx;
@@ -339,9 +339,9 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 Spouts and bolts are arranged in a graph, which defines how the data flows between components. For this topology, the graph is as follows:
 
-![image of how components are arranged](./media/hdinsight-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagram of how components are arranged](./media/hdinsight-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
 
-Sentences are emitted from the spout, which are distributed to instances of the Splitter bolt. The Splitter bolt breaks the sentences into words, which are distributed to the Counter bolt.
+Sentences are emitted from the spout, and are distributed to instances of the Splitter bolt. The Splitter bolt breaks the sentences into words, which are distributed to the Counter bolt.
 
 Because word count is held locally in the Counter instance, we want to make sure that specific words flow to the same Counter bolt instance. Each instance keeps track of specific words. Since the Splitter bolt maintains no state, it really doesn't matter which instance of the splitter receives which sentence.
 
