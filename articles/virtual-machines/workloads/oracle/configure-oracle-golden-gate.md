@@ -1,5 +1,5 @@
 ---
-title: Implement Oracle Golden Gate on Azure Linux VM | Microsoft Docs
+title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -18,11 +18,11 @@ ms.date: 05/19/2017
 ms.author: rclaus
 ---
 
-# Implement Oracle Golden Gate on Azure Linux VM
+# Implement Oracle Golden Gate on an Azure Linux VM
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 12c database from the Marketplace gallery image. 
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 12c database from the Azure Marketplace gallery image. 
 
-This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on Azure VM.
+This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -433,11 +433,11 @@ To install Oracle Golden Gate, complete the following steps:
 
   ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Change the Software location. Then select  the **Start Manager** box and enter the database location. Select **Next** to continue.
+3. Change the software location. Then select  the **Start Manager** box and enter the database location. Select **Next** to continue.
 
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_02.png)
 
-4. Change the Inventory Directory, and then select **Next** to continue.
+4. Change the inventory directory, and then select **Next** to continue.
 
   ![Screenshot of the  Select Installation page](./media/oracle-golden-gate/golden_gate_install_03.png)
 
@@ -488,7 +488,7 @@ To install Oracle Golden Gate, complete the following steps:
     )
   ```
 
-2. Create the Golden Gate owner and user accounts
+2. Create the Golden Gate owner and user accounts.
 
   > [!NOTE]
   > The owner account must have C## prefix.
@@ -518,7 +518,7 @@ To install Oracle Golden Gate, complete the following steps:
   SQL> EXIT;
   ```
 
-4. Configure the extract parameter file
+4. Configure the extract parameter file.
 
  Start the Golden gate command-line interface (ggsci):
 
@@ -586,7 +586,6 @@ To install Oracle Golden Gate, complete the following steps:
   EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
   ```
 In this step, you find the starting SCN, which will be used later, in a different section:
-
 
   ```bash
   $ sqlplus / as sysdba
@@ -718,7 +717,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
 
 ### Set up the replication (myVM1 and myVM2)
 
-#### 1. Set up the replication on myVM2 (replicate):
+#### 1. Set up the replication on myVM2 (replicate)
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -739,7 +738,7 @@ Then restart the Manager service:
   GGSCI> EXIT
   ```
 
-#### 2. Set up the replication on myVM1 (primary):
+#### 2. Set up the replication on myVM1 (primary)
 
 Start the initial load and check for errors:
 
@@ -795,7 +794,7 @@ This completes the installation and configuration of Golden Gate on Oracle linux
 
 ## Delete the virtual machine
 
-When it's no longer needed, the following command can be used to remove the resource Group, VM, and all related resources.
+When it's no longer needed, the following command can be used to remove the resource group, VM, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup
