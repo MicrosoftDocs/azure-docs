@@ -241,13 +241,13 @@
       href: sql-database-elastic-pool-manage-csharp.md
   - name: Security
     items:
-    - name: SQL Server auth tutorial
+    - name: SQL Server auth
       href: sql-database-control-access-sql-authentication-get-started.md
-    - name: Azure AD auth tutorial
+    - name: Azure AD auth
       href: sql-database-control-access-aad-authentication-get-started.md
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
-    - name : Conditional access
+    - name: Conditional access
       href: sql-database-conditional-access.md
     - name: Always encrypted cert store
       href: sql-database-always-encrypted.md
