@@ -17,6 +17,8 @@ ms.date: 06/07/2017
 ms.author: lakasa
 
 ---
+#Storage Service Encryption using customer managed keys in Azure Key Vault
+
 Microsoft Azure is strongly committed to helping you protect and safeguard your data to meet your organizational security and compliance commitments.  One way you can protect your data at rest is to use Storage Service Encryption (SSE), which automatically encrypts your data when writing it to storage, and decrypts your data when retrieving it. The encryption and decryption is automatic and completely transparent and uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
 You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. This article will talk about the latter. For more information about using Microsoft-managed keys, or about SSE in general, please see [Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
