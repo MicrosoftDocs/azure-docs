@@ -62,7 +62,7 @@ The patch orchestration app must be run on Standalone clusters having Service Fa
 
 The patch orchestration app requires the repair manager system service to be enabled on the cluster.
 
-#### Enable the repair manager service on Azure clusters
+#### Azure clusters
 
 Azure clusters in silver durability tier have the repair manager service enabled by default. Azure cluster in gold durability tier may or may not have the repair manager service enabled, depending on when those clusters were created. Azure clusters in bronze durability tier, by default, do not have repair manager service enabled. If the service is already enabled, you can see it running under the system services section in the Service Fabric explorer.
 
