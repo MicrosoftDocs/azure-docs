@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
+ms.custom: mvc
 ---
 
 # Create a VM with IIS using DSC
@@ -23,6 +24,8 @@ ms.author: rclaus
 This script creates a virtual machine, and uses the Azure Virtual Machine DSC custom script extension to install and configure IIS. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +37,7 @@ This script creates a virtual machine, and uses the Azure Virtual Machine DSC cu
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

@@ -53,7 +53,7 @@ You can also perform this step after installing docker from the **Settings** men
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
-    * **&lt;ApplicationName&gt;** is the name of the OPC UA application the gateway creates in the format **publisher.&lt;your fully qualified domain name&gt;**. For example, **publisher.microsoft.com**.
+    * **&lt;ApplicationName&gt;** is the name to give to your OPC UA Publisher in the format **publisher.&lt;your fully qualified domain name&gt;**. For example, if your factory network is called **myfactorynetwork.com**, the **ApplicationName** value is **publisher.myfactorynetwork.com**.
     * **&lt;IoTHubOwnerConnectionString&gt;** is the **iothubowner** connection string you copied in the previous step. This connection string is only used in this step and you don’t need it again.
 
     The mapped D:\\docker folder (the `-v` argument) is used later to persist the two X.509 certificates used by the gateway modules.
@@ -147,5 +147,5 @@ To learn more about the architecture of the connected factory preconfigured solu
 [Azure portal]: http://portal.azure.com/
 [open-source OPC UA client]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Install Docker]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-overview.md
+[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [Azure IoT Edge]: https://github.com/Azure/iot-edge

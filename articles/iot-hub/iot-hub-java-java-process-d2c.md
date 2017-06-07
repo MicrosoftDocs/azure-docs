@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 05/25/2017
 ms.author: dobett
 
 ---
@@ -224,7 +224,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-c2d]: iot-hub-java-java-process-d2c.md
+[lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java

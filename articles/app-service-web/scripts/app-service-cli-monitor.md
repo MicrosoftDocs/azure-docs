@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
+ms.custom: mvc
 ---
 
 # Monitor a web app with web server logs
@@ -23,6 +24,10 @@ ms.author: cfowler
 In this scenario you will create a resource group, app service plan, web app and configure the web app to enable web server logs. You will then download the log files for review.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
