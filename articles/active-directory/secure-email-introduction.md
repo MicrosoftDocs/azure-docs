@@ -131,4 +131,4 @@ Policy recommendations consider the privileges associated with an account. [Offi
 Use Azure AD Privileged Identity Management to reduce the number of persistent administrative accounts. In addition, we recommend that Office 365 administrators have a separate user account for regular non-administrative use. They only apply their administrative account when necessary to complete a task associated with their job function.
 
 ## Next steps
-[Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+[Recommended policies](secure-email-recommended-policies.md)
