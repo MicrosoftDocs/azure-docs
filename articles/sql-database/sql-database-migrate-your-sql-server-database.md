@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-migrate
+ms.custom: mvc-tutorial-migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -4,7 +4,7 @@ description: Overview of Azure Managed Disks, which handles the storage accounts
 services: storage
 documentationcenter: na
 author: robinsh
-manager: timlt 
+manager: timlt
 editor: tysonn
 
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
@@ -23,7 +23,7 @@ ms.author: robinsh
 Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
 
 >[!NOTE]
->VMs with Managed Disks require outbound traffic on port 8443 to report the status of the installed [VM extensions](../virtual-machines/windows/extensions-features.md) to the Azure platform. Provisioning a VM with extensions will fail without the availability of this port. Also, the deployment status of an extension will be unknown if it is installed on a running VM. If you cannot unblock port 8443, you must use unmanaged disks. We are actively working to fix this issue. Please refer to the [FAQ for IaaS VM Disks](storage-faq-for-disks.md#managed-disks-and-port-8443) for more details. 
+>VMs with Managed Disks require outbound traffic on port 8443 to report the status of the installed [VM extensions](../virtual-machines/windows/extensions-features.md) to the Azure platform. Provisioning a VM with extensions will fail without the availability of this port. Also, the deployment status of an extension will be unknown if it is installed on a running VM. If you cannot unblock port 8443, you must use unmanaged disks. We are actively working to fix this issue. Please refer to the [FAQ for IaaS VM Disks](storage-faq-for-disks.md#managed-disks-and-port-8443) for more details.
 >
 >
 
@@ -41,16 +41,16 @@ Managed Disks will allow you to create up to 10,000 VM **disks** in a subscripti
 
 ### Better reliability for Availability Sets
 
-Managed Disks provides better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
+Managed Disks provides better reliability for Availability Sets by ensuring that the disks of [VMs in an Availability Set](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
 
 ### Granular access control
 
 You can use [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
 
-### Azure Backup service support 
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
+### Azure Backup service support
+Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## Pricing and Billing 
+## Pricing and Billing
 
 When using Managed Disks, the following billing considerations apply:
 
@@ -79,7 +79,7 @@ Here are the disk sizes available for a premium managed disk:
 |------------------|---------|---------|----------------|
 | Disk Size        | 128 GB  | 512 GB  | 1024 GB (1 TB) |
 
-Here are the disk sizes available for a standard managed disk: 
+Here are the disk sizes available for a standard managed disk:
 
 | **Standard Managed <br>Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
 |------------------|---------|---------|----------------|---------|----------------|
@@ -89,7 +89,7 @@ Here are the disk sizes available for a standard managed disk:
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Managed Disk Snapshots (full disk copy)**: A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These 
+**Managed Disk Snapshots (full disk copy)**: A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These
 snapshots exist independent of the source disk and can be used to create new Managed Disks. The cost of a managed snapshot is the same as that for standard managed disk. For example, if you take a snapshot of a 128 GB premium managed disk, then the cost of the managed snapshot is equivalent to a 128 GB standard managed disk.
 
 [Incremental snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
@@ -120,15 +120,15 @@ What if a VM has five disks and they are striped? You could take a snapshot of e
 
 ## Managed Disks and Encryption
 
-There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs. 
+There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
 
 ### Storage Service Encryption (SSE)
 
-Azure Storage supports automatically encrypting the data written to a storage account. For more details, please refer to [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md). What about the data on your managed disks? Currently, you can not enable Storage Service Encryption for Managed Disks. However, it will be released in the future. In the meantime, you need to be aware of how to use a VHD file that resides in an encrypted storage account and has itself been encrypted. 
+Azure Storage supports automatically encrypting the data written to a storage account. For more details, please refer to [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md). What about the data on your managed disks? Currently, you can not enable Storage Service Encryption for Managed Disks. However, it will be released in the future. In the meantime, you need to be aware of how to use a VHD file that resides in an encrypted storage account and has itself been encrypted.
 
-SSE encrypts data as it is written to the storage account. If you have a VHD file that has ever been encrypted with SSE, you cannot use that VHD file to create a VM that uses Managed Disks. You also can't convert an encrypted unmanaged disk into a managed disk. And finally, if you disable encryption on that storage account, it does not go back and decrypt the VHD file. 
+SSE encrypts data as it is written to the storage account. If you have a VHD file that has ever been encrypted with SSE, you cannot use that VHD file to create a VM that uses Managed Disks. You also can't convert an encrypted unmanaged disk into a managed disk. And finally, if you disable encryption on that storage account, it does not go back and decrypt the VHD file.
 
-To use a disk that has been encrypted, you must first copy the VHD file to a storage account that has never been encrypted. Then you can create a VM with Managed Disks and specify that VHD file during creation, or attach the copied VHD file to a running VM with Managed Disks. 
+To use a disk that has been encrypted, you must first copy the VHD file to a storage account that has never been encrypted. Then you can create a VM with Managed Disks and specify that VHD file during creation, or attach the copied VHD file to a running VM with Managed Disks.
 
 ### Azure Disk Encryption (ADE)
 
@@ -138,7 +138,7 @@ Azure Disk Encryption allows you to encrypt the OS and Data disks used by an Iaa
 
 For more information about Managed Disks, please refer to the following articles.
 
-### Get started with Managed Disks 
+### Get started with Managed Disks
 
 * [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
@@ -150,7 +150,7 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
-### Compare Managed Disks storage options 
+### Compare Managed Disks storage options
 
 * [Premium storage and disks](storage-premium-storage.md)
 

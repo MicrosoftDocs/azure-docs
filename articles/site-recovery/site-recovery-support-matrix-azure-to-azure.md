@@ -79,6 +79,21 @@ The below support is applicable for any workload running on the mentioned OS.
 * Volume manager : LVM2
 * Multipath software : Device Mapper
 
+## Region support
+
+You can replicate and recover VMs between any two regions within the same geographic cluster.
+
+**Geographic cluster** | **Azure regions**
+-- | --
+America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
+Europe | UK West, UK South, North Europe, West Europe
+Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West
+Australia	| Australia East, Australia Southeast
+
+>[!NOTE]
+>
+> For Brazil South region, you can only replicate and failover to one of South Central US, West Central US, East US, East US 2, West US, West US 2 and North Central US regions and fail back.
+
 
 ## Support for Compute configuration
 
