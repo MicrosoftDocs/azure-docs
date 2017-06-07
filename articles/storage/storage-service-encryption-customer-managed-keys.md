@@ -60,7 +60,7 @@ If the storage account does not have access to the Key Vault, you can run the fo
 
 ![Portal Screenshot showing access denied for key vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
-You can also grant access via the Azure Portal by going to the Azure Key Vault in the Azure portal and granting access to the storage account.
+You can also grant access via the Azure portal by going to the Azure Key Vault in the Azure portal and granting access to the storage account.
 
 ### Step 4: Copy data to storage account
 If you would like to transfer data into your new storage account so that it’s encrypted, please refer to [Step 3 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
