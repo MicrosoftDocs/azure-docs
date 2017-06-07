@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/05/2017
+ms.date: 06/06/2017
 ms.author: ramankum
 ---
 
-# Copy managed disks to same or different subscription with PowerShell
+# Copy managed disks in the same subscription or different subscription with PowerShell
 
-This script copies a managed disk to same or different subscription but in the same region. 
+This script creates a copy of an existing managed disk in the same subscription or different subscription. The new disk is created in the same region as the parent managed disk.   
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 

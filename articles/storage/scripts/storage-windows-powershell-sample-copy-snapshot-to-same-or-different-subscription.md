@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/05/2017
+ms.date: 06/06/2017
 ms.author: ramankum
 ---
 
-# Copy snapshot of a managed disk to same or different subscription with PowerShell
+# Copy snapshot of a managed disk in same subscription or different subscription with PowerShell
 
-This script copies a snapshot of a managed disk to same or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
+This script creates a copy of a snapshot in the same same subscription or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
