@@ -28,7 +28,7 @@ This script creates a managed disk from a snapshot. Use it to restore a virtual 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/storage/create-managed-disks-from-snapshot/create-managed-disks-from-snapshot.ps1 "Create managed disk from snapshot")]
+[!code-powershell[main](../../../powershell_scripts/storage/create-managed-disk-from-snapshot/create-managed-disk-from-snapshot.ps1 "Create managed disk from snapshot")]
 
 
 ## Script explanation
@@ -44,8 +44,8 @@ This script uses following commands to create a managed disk from a snapshot. Ea
 
 ## Next steps
 
-[Create a virtual machine from a managed disk](./../../storage/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Create a virtual machine from a managed disk](./../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../../virtual-machines/windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
