@@ -30,13 +30,13 @@ You need version 1.1.486.0 or later for Azure AD Connect and 1.5.58.0 or later f
 
 ## Is Pass-through Authentication a free feature?
 
-Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it. It continues to be free when the feature reaches general availability.
+Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
 
 ## What happens if my user's password has expired and they try to sign in using Pass-through Authentication?
 
 If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
 
-However, if password writeback is not configured or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator have to reset their password in your on-premises Active Directory.
+However, if password writeback is not configured or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator has to reset their password in your on-premises Active Directory.
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
@@ -68,9 +68,9 @@ Yes, all Conditional Access capabilities, including Azure Multi-Factor Authentic
 
 ## I already use Active Directory Federation Services (AD FS) for Azure AD sign-in? How do I switch it to Pass-through Authentication?
 
-If you have configured AD FS as the sign-in method using the Azure AD Connect wizard, change the user sign-in method to Pass-through Authentication. This change enables Pass-through Authentication on the tenant and convert _all_ your Federated domains into Managed domains. All subsequent sign-in requests in your tenant are handled by Pass-through Authentication. Currently, there is no supported way in Azure AD Connect to use a combination of AD FS and Pass-through Authentication (for different domains) on the same tenant.
+If you have configured AD FS as the sign-in method using the Azure AD Connect wizard, change the user sign-in method to Pass-through Authentication. This change enables Pass-through Authentication on the tenant and converts _all_ your Federated domains into Managed domains. All subsequent sign-in requests in your tenant are handled by Pass-through Authentication. Currently, there is no supported way in Azure AD Connect to use a combination of AD FS and Pass-through Authentication (for different domains) on the same tenant.
 
-If AD FS was configured as the sign-in method _outside_ of the Azure AD Connect wizard, set the user sign-in method to Pass-through Authentication. This setting enables Pass-through Authentication on the tenant. However all Federated domains on your tenant continue to use AD FS for sign-in. You need to use PowerShell to manually convert some or all these Federated domains to Managed domains. After all sign-in requests on Managed domains (_only_) are handled by Pass-through Authentication.
+If AD FS was configured as the sign-in method _outside_ of the Azure AD Connect wizard, set the user sign-in method to Pass-through Authentication. This setting enables Pass-through Authentication on the tenant. However all Federated domains on your tenant continue to use AD FS for sign-in. Use PowerShell to manually convert some or all these Federated domains to Managed domains. After all sign-in requests on Managed domains (_only_) are handled by Pass-through Authentication.
 
 ## Can I use Pass-through Authentication in a multi-forest AD environment?
 
@@ -89,7 +89,7 @@ We recommend that you install Authentication Agents close to your Domain Control
 
 ## How many Pass-through Authentication Agents can I install?
 
-You can install up to 12 Authentication Agents per tenant. Installing two or three Authentication Agents in total is usually sufficient for most customers.
+You can install up to 12 Authentication Agents per tenant. Installing two or three Authentication Agents in total is sufficient for most customers.
 
 We recommend that you install Authentication Agents close to your Domain Controllers to improve sign-in latency.
 
@@ -99,7 +99,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 ## How can I disable Pass-through Authentication?
 
-Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-through Authentication to another method. This change disables Pass-through Authentication on the tenant and also uninstall the Authentication Agent from the server. You have to manually uninstall the Authentication Agents from other servers.
+Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-through Authentication to another method. This change disables Pass-through Authentication on the tenant and uninstalls the Authentication Agent from the server. You have to manually uninstall the Authentication Agents from other servers.
 
 ## What happens when I uninstall a Pass-through Authentication Agent?
 

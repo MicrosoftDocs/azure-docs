@@ -40,7 +40,7 @@ A good place to start troubleshooting user sign-in issues is to look at the [sig
 
 ![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table.
+Navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table:
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
