@@ -79,28 +79,28 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 ### Scenario 3: Perform Remote Debugging and bug fixing
 In this section, we show you how to dynamically update the variable value using IntelliJ debugging capability for a simple fix. For the code example below, an exception is thrown because the target file already exists.
   
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
+            import org.apache.spark.SparkConf
+            import org.apache.spark.SparkContext
 
-        object SparkCore_WasbIOTest {
-          def main(arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("SparkCore_WasbIOTest")
-            val sc = new SparkContext(conf)
-            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            object SparkCore_WasbIOTest {
+              def main(arg: Array[String]): Unit = {
+                val conf = new SparkConf().setAppName("SparkCore_WasbIOTest")
+                val sc = new SparkContext(conf)
+                val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-            // find the rows which have only one digit in the 6th column
-            val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
+                // find the rows which have only one digit in the 6th column
+                val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 
-            try {
-              var target = "wasb:///HVACout2_testdebug1";
-              rdd1.saveAsTextFile(target);
-            } catch {
-              case ex: Exception => {
-                throw ex;
+                try {
+                  var target = "wasb:///HVACout2_testdebug1";
+                  rdd1.saveAsTextFile(target);
+                } catch {
+                  case ex: Exception => {
+                    throw ex;
+                  }
+                }
               }
             }
-          }
-        }
 
 
 1. Set up two breaking points and click **Debug** icon to start remote debug.
