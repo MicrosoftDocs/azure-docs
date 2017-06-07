@@ -32,9 +32,9 @@ Before running this sample, install the following prerequisites locally:
 1. [Download and install Docker Community Edition](https://www.docker.com/community-edition)
 1. [Download and install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Test local PostgreSQL installation and create a database
 In this step, you make sure that your local PostgreSQL database is running.

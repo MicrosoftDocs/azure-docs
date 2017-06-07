@@ -14,6 +14,7 @@ pnp.series.title: Best Practices
 # Recommended policies
  
 This article describes recommended policies to help our customers secure organizational email and email clients support Modern Authentication and Conditional Access. Also discussed are the default platform client configurations we recommend to provide the best SSO experience to your users, as well as the technical pre-requisites for conditional access.
+
 ## Prerequisites
 
 Before implementing the policies described in the remainder of this document, there are several prerequisites that your organization must meet:
@@ -71,6 +72,7 @@ Each industry also has their own set of specialized regulations. Rather than pro
 **Highly regulated**. Some organizations may have a very small amount of data that is highly classified, trade secret, or regulated data. Microsoft provides capabilities to help organizations meet these requirements, including added protection for identities and devices. 
 
 ### Default protection mechanism recommendations
+
 
 The following table contains default protection mechanism recommendations for each of the previously defined security and protection tiers:
 
@@ -137,7 +139,7 @@ You can apply increased protection to all or specific data sets in your Office 3
 You can give users single sign-on (SSO) experience as described in earlier sections. You only need to intervene when necessary based on [risk events](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events).   
 
 * Require MFA on low or above risk sessions
-* Require secure password change for high risk users
+ * Require secure password change for high risk users
 
 >[!IMPORTANT]
 >[Password synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization) and [self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) are required for this policy recommendation.
@@ -160,7 +162,6 @@ The goal for these device and app management policies is to protect data loss in
 For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
-
 * When requesting authentication tokens for Exchange Online:
   * Users will be asked to MFA whenever a low or above sign-in risk is detected and users has not yet performed MFA in their current sessions.  
   * Users will be required to either use email apps that support the Intune App Protection SDK or access emails from Intune compliant or AD domain-joined devices. 
@@ -201,4 +202,6 @@ For most organizations, it is important to be able to set expectations for users
   * Users will be asked to perform MFA whenever they begin a new session.  
   * Users will be required to use email apps that support the Intune App Protection SDK
   * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
-
+ 
+ ## Next steps
+ [Deploy recommended policies](secure-email-deploy-recommended-policies.md)
