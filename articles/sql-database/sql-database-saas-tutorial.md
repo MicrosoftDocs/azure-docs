@@ -47,7 +47,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 Deploy the Wingtip SaaS app:
 
-1. Click to deploy:
+1. Clicking the **Deploy to Azure** button opens the Azure portal to the Wingtip SaaS deployment template. The template requires two parameter values, a name for a new resource group, and a user name that distinguishes this deployment from othe users deploying the Wingtip SaaS app. The section below the button provides details for setting these value. Be sure to note these values because you will enter them into a config file later.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -71,10 +71,10 @@ Deploy the Wingtip SaaS app:
 
 ## Download and unblock the Wingtip SaaS scripts
 
-While the application is deploying, download the source code and management scripts. 
+While the application is deploying, download the source code and management scripts.
 
 > [!IMPORTANT]
-> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run:
+> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run.
 
 1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
 1. Click **Clone or download**.
@@ -100,7 +100,7 @@ Setting this here simply keeps you from having to update these deployment-specif
 
 The app showcases venues, such as concert halls, jazz clubs, sports clubs, that host events. Venues register as customers (or tenants) of the Wingtip platform, for an easy way to list events and sell tickets. Each venue gets a personalized web app to manage and list their events and sell tickets, independent and isolated from other tenants. Under the covers, each tenant gets a SQL database deployed into a SQL elastic pool.
 
-A central **Events Hub** provides a list of tenant URLs specific to your deployment. All the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. 
+A central **Events Hub** provides a list of tenant URLs specific to your deployment.
 
 1. Open the _Events Hub_: http://events.wtp.&lt;USER&gt;.trafficmanager.net (replace with your deployment's user name):
 
@@ -111,7 +111,7 @@ A central **Events Hub** provides a list of tenant URLs specific to your deploym
    ![Events](./media/sql-database-saas-tutorial/fabrikam.png)
 
 
-To control the distribution of incoming requests, the app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview). The events pages, which are tenant-specific, require that tenant names are included in the URLs. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant’s database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database to provide the list of URLs.
+To control the distribution of incoming requests, the app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview). The events pages, which are tenant-specific, require that tenant names are included in the URLs. All the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant's database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database to provide the list of URLs.
 
 In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
 
@@ -119,17 +119,17 @@ In a production environment, you would typically create a CNAME DNS record to [
 
 Now that the app is deployed, let’s put it to work! The *Demo-LoadGenerator* PowerShell script starts a workload running against all tenant databases. The real-world load on many SaaS apps is typically sporadic and unpredictable. To simulate this type of load, the generator produces a load distributed across all tenants, with randomized bursts on each tenant occurring at randomized intervals. Because of this it takes several minutes for the load pattern to emerge, so it’s best to let the generator run for at least three or four minutes before monitoring the load.
 
-1. Open ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* in the *PowerShell ISE*
+1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
 1. Press **F5** to run the script and start the load generator (leave the default parameter values for now).
 
 > [!IMPORTANT]
-> The load generator is running as a series of jobs in your local PowerShell session. The *Demo-LoadGenerator.ps1* script kicks off the actual load generator script, which runs as a foreground task plus a series of background load generation jobs. A load-generator job is invoked for each database registered in the catalog. THe jobs are running in your local PowerShell session, so closing the PowerShell session stops all jobs. If you suspend your machine, load generation is paused and will resume when you wake up your machine.
+> The load generator is running as a series of jobs in your local PowerShell session. The *Demo-LoadGenerator.ps1* script kicks off the actual load generator script, which runs as a foreground task plus a series of background load-generation jobs. A load-generator job is invoked for each database registered in the catalog. The jobs are running in your local PowerShell session, so closing the PowerShell session stops all jobs. If you suspend your machine, load generation is paused and will resume when you wake up your machine.
 
 Once the load generator invokes load-generation jobs for each tenant, the foreground task remains in a job-invoking state, where it starts additional background jobs for any new tenants that are subsequently provisioned. You can use *Ctrl-C* or press the *Stop* button to stop the foreground task, but existing background jobs will continue generating load on each database. If you need to monitor and control the background jobs, use *Get-Job*, *Receive-Job* and *Stop-Job*. While the foreground task is running you cannot use the same PowerShell session to execute other scripts. To run other scripts, open a new PowerShell ISE window.
 
-If you want to restart the load generator session, for example with different parameters, you can stop the foreground task and then re-run the *Demo-LoadGenerator.ps1* script. Re-running *Demo-LoadGenerator.ps1* first stops any currently running jobs, and then restarts the generator, which kicks off a new set of jobs using the current parameters. 
+If you want to restart the load generator session, for example with different parameters, you can stop the foreground task and then re-run the *Demo-LoadGenerator.ps1* script. Re-running *Demo-LoadGenerator.ps1* first stops any currently running jobs, and then restarts the generator, which kicks off a new set of jobs using the current parameters.
 
-For now, start the generator and leave it running in the job-invoking state.
+For now, leave the load generator running in the job-invoking state.
 
 
 ## Provision a new tenant
