@@ -20,7 +20,7 @@ ms.author: nachandr
 
 # Patch Windows OS in your Service Fabric cluster
 
-The patch orchestration application is a Service Fabric application that automates OS patching on a Service Fabric cluster on Azure without downtime. Support for running the patch orchestration app on a standalone cluster is coming later.
+The patch orchestration application is a Service Fabric application that automates OS patching on a Service Fabric cluster on Azure without downtime.
 
 The patch orchestration application provides the following:
 
@@ -50,9 +50,13 @@ The patch orchestration app is comprised of the following subcomponents:
 
 ## Prerequisites
 
-### The cluster runs Service Fabric version 5.5 or later
+### Minimum supported Service Fabric runtime version
 
-The patch orchestration app must be run on clusters having Service Fabric runtime version v5.5 or later.
+#### Azure clusters
+The patch orchestration app must be run on Azure clusters having Service Fabric runtime version v5.5 or later.
+
+#### Standalone On-Premise Clusters
+The patch orchestration app must be run on Standalone clusters having Service Fabric runtime version v5.6 or later.
 
 ### Enable repair manager service (if not running already)
 
@@ -93,8 +97,33 @@ To enable the repair manager service:
 
 #### Standalone On-Premise Clusters
 
-> [!NOTE]
-> Support for standalone clusters is coming later.
+You can use the [Configuration settings for standalone Windows cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest) to enable the repair manager service on new and existing Service Fabric cluster.
+
+To enable the repair manager service:
+
+1. First check that the `apiversion` in [General cluster configurations](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) is set to `04-2017` or higher:
+
+    ```json
+    {
+        "name": "SampleCluster",
+        "clusterConfigurationVersion": "1.0.0",
+        "apiVersion": "04-2017",
+        ...
+    }
+    ```
+
+2. Now enable repair manager service by adding the following `addonFeaturres` section after the `fabricSettings` section as shown below:
+
+    ```json
+    "fabricSettings": [
+        ...      
+        ],
+        "addonFeatures": [
+            "RepairManager"
+        ],
+    ```
+
+3. Update you cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
 ### Disable automatic Windows Update on all nodes
 
@@ -116,7 +145,7 @@ Logs for the patch orchestration app would be generated on the following fixed p
 Inside the `WadCfg` section in the Azure Resource Manager template, add the following section: 
 
 ```json
-"PatchOrchestrationApplication": \[
+"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -145,7 +174,7 @@ Inside the `WadCfg` section in the Azure Resource Manager template, add the foll
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
   },
-\]
+]
 ```
 
 > [!NOTE]
@@ -308,10 +337,6 @@ For example, the cluster went to error state temporarily due to 2 down nodes and
 ![Image of Unhealthy cluster](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
 In case the issue persists, refer to the troubleshooting section.
-
-Q. **Can I use patch orchestration app for standalone clusters?**
-
-A. Not yet, support for standalone clusters is coming soon.
 
 Q. **Patch orchestration app is in warning state**
 
