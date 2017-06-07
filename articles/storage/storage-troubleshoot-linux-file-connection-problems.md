@@ -19,8 +19,6 @@ ms.author: genli
 ---
 # Troubleshooting Azure File storage problems in Linux
 
-[!INCLUDE [storage-troubleshoot-linux-file-connection-problems](../../includes/storage-troubleshoot-file-connection-problems-selector.md)]
-
 This article lists common problems that are related to Microsoft Azure File storage when you connect from Linux clients. It also provides possible causes of and resolutions for these problems.
 
 <a id="permissiondenied"></a>
