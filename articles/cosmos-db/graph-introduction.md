@@ -21,22 +21,22 @@ ms.author: arramac
 
 ![Gremlin, graph, and Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png)
 
-Azure Cosmos DB provides:
+The Azure Cosmos DB Graph API provides:
 
 - Graph modeling
 - Traversal APIs
 - Turn-key global distribution
 - Elastic scaling of storage and throughput with less than 10 ms read latencies and less than 15 ms at the 99th percentile
-- Automatic indexing and query
+- Automatic indexing with instant query availability
 - Tunable consistency levels
 - Comprehensive SLAs including 99.99% availability
 
-You can use the graph traversal language of [Apache TinkerPop](http://tinkerpop.apache.org) and [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) to query Azure Cosmos DB. Azure Cosmos DB integrates with other TinkerPop-compatible graph systems like [Apache Spark GraphX](spark-connector-graph.md).
+To query Azure Cosmos DB, you can use the [Apache TinkerPop](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), or other TinkerPop-compatible graph systems like [Apache Spark GraphX](spark-connector-graph.md).
 
-This article provides an overview of the Graph API of Azure Cosmos DB and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with latency in the order of milliseconds and evolve the graph structure and schema easily.
+This article provides an overview of the Azure Cosmos DB Graph API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily.
 
-## Graph databases
-Data as it appears in the real world is naturally connected. Traditional data modeling focuses on entities. For many applications, there is also a need to model the rich relationships between entities. Graphs allow you to model both entities and relationships naturally.
+## Graph database
+Data as it appears in the real world is naturally connected. Traditional data modeling focuses on entities. For many applications, there is also a need to model or to model both entities and relationships naturally.
 
 A [graph](http://mathworld.wolfram.com/Graph.html) is a structure that's composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both vertices and edges can have an arbitrary number of properties. Vertices denote discrete objects such as a person, a place, or an event. Edges denote relationships between vertices. For example, a person might know another person, be involved in an event, and recently been at a location. Properties express information about the vertices and edges. Example properties include a vertex that has a name, age, and edge, which has a timestamp and/or a weight. More formally, this model is known as a [property graph](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB supports the property graph model.
 
