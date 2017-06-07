@@ -50,7 +50,7 @@ This page provides intelligent [tuning recommendations](sql-database-advisor.md)
 * Recommendations when schema issues are identified in the database.
 * Recommendations when queries can benefit from parameterized queries.
 
-You can also find complete history of tuning actions thar were applied in the past.
+You can also find complete history of tuning actions that were applied in the past.
 
 Learn how to find an apply performance recommendations in [Find and apply performance recommendations](sql-database-advisor-portal.md) article.
 
