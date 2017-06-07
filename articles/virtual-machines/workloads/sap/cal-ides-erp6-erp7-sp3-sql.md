@@ -98,9 +98,7 @@ After the setup of an SAP CAL account you select The SAP IDES solution on Window
 
 ![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-After pressing the button 'Create' you will see a screen like bellow that gives you the status of the deployment. You need to wait until the status is 'Active' \. Below you see the state within the deployment
-
-![](./mediasap-cal-ides-erp6-ehp7-sp3-sql/ides-pic11.jpg)
+After pressing the button 'Create' you will see a screen like bellow that gives you the status of the deployment. You need to wait until the status is 'Active'. Below you see the state within the deployment
 
 After some time depending on the size and complexity of the solution (an estimation is given by SAP CAL) it's shown as "active" and ready for usage. 
 
