@@ -132,7 +132,7 @@ By applying the following three rules to the AD FS relying party trust for Micro
 | Mac OS                 | Chrome                   | Coming soon |
 
 > [!NOTE]
-> For Chrome support, you must be using Windows 10 Creators Update and install the extension found [here].(https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)
+> For Chrome support, you must be using Windows 10 Creators Update and install the extension found [here](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 >
 >
 
