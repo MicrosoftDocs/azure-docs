@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: mysql-database
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
-ms.date: 06/01/2017
+ms.date: 06/06/2017
 ms.custom: mvc
 ---
 
@@ -122,7 +122,7 @@ Open the command prompt and enter the following:
 If everything goes well, the command-line tool should output the following:
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
+C:\Users\>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -162,7 +162,7 @@ mysql>
 ```
 
 > [!TIP]
-> For additional commands, see [MySQL 5.6 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
+> For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## Connect to the server using the MySQL Workbench GUI tool
 1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
