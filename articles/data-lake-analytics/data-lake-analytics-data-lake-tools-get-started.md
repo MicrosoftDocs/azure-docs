@@ -118,7 +118,7 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
    * **IntelliSense**
 
-       Name auto completed and the members will be shown for Rowset, Classes, Databases, Schemas and User Defined Objects (UDOs).
+       Name auto completed and the members will be shown for Rowset, Classes, Databases, Schemas, and User Defined Objects (UDOs).
 
        IntelliSense for catalog entities (Databases, Schemas, Tables, UDOs etc.) is related to your compute account. You can check the current active compute account, database and schema in the top toolbar, and switch them through the dropdown lists.
    * **Expand * columns**
@@ -158,7 +158,7 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
     ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   * Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
+   * Job Summary. Show the summary information of current job: State, Progress, Execution Time, Runtime Name, Submitter etc.   
    * Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
    * Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Execution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
    * Metadata Operations. It shows all the metadata operations.
@@ -167,7 +167,7 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 **To check job state**
 
-1. From Server Explorer, expand **Azure**, expand **Data Lake Analytics**, expand the Data Lake Analytics account name
+1. From Server Explorer, select **Azure > Data Lake Analytics**. Expand the Data Lake Analytics account name
 2. Double-click **Jobs** to list the jobs.
 3. Click a job to see the status.
 
@@ -178,12 +178,12 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 3. Double-click **SearchLog-From-adltools.csv**.
 
 ### Job Playback
-Job playback enables you to watch job execution progress and visually detect out performance anomalies and bottlenecks. This feature can be used before the job completes execution (i.e. during the time the job is actively running) as well as after the execution has completed. Doing playback during job execution will allow the user to play back the progress up to the current time.
+Job playback enables you to watch job execution progress and visually detect out performance anomalies and bottlenecks. This feature can be used before the job completes execution and also after the execution has completed. Doing playback during job execution allows the user to play back the progress up to the current time.
 
 **To view job execution progress**  
 
 1. Click **Load Profile** on the upper right corner. See the previous screen shot.
-2. Click on the Play button on the bottom left corner to review the job execution progress.
+2. Click the Play button on the bottom left corner to review the job execution progress.
 3. During the playback, click **Pause** to stop it or directly drag the progress bar to specific positions.
 
 ### Heat Map
