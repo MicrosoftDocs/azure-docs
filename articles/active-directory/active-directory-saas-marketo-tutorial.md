@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Marketo support team](http://investors.marketo.com/contactus.cfm) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Marketo support team](http://investors.marketo.com/contactus.cfm) to get these values.
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -131,11 +131,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     a. Log in to Marketo app using admin credentials.
    
-    b. Click the Admin button on the top navigation pane.
+    b. Click the **Admin** button on the top navigation pane.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Navigate to the Integration menu and click the Munchkin link
+    c. Navigate to the Integration menu and click the **Munchkin link**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_11.png)
    
@@ -147,40 +147,40 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     a. Log in to Marketo app using admin credentials.
    
-    b. Click the Admin button on the top navigation pane.
+    b. Click the **Admin** button on the top navigation pane.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Navigate to the Integration menu and click Single Sign On
+    c. Navigate to the Integration menu and click **Single Sign On**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
    
-    d. To enable the SAML Settings, click Edit button
+    d. To enable the SAML Settings, click **Edit** button.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
    
-    e. **Enable** Single Sign-On settings
+    e. **Enabled** Single Sign-On settings.
    
-    f. Paste the SAML Entity ID, in the Issuer ID textbox
+    f. Paste the **SAML Entity ID**, in the **Issuer ID** textbox.
    
-    g. In the Entity ID textbox, enter the URL as **http://saml.marketo.com/sp**
+    g. In the **Entity ID** textbox, enter the URL as `http://saml.marketo.com/sp`.
    
-    h. Select the User ID Location as **Name Identifier element**
+    h. Select the User ID Location as **Name Identifier element**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
     > If your User Identifier is not UPN value then change the value in the Attribute tab.
    
-    i. Upload the certificate, which you have downloaded from Azure AD configuration wizard. Save the settings.
+    i. Upload the certificate, which you have downloaded from Azure AD configuration wizard. **Save** the settings.
    
-    j. Edit the Redirect Pages settings
+    j. Edit the Redirect Pages settings.
    
-    k. Paste the SAML Single Sign-On Service URL in the **Login URL** textbox.
+    k. Paste the **SAML Single Sign-On Service URL** in the **Login URL** textbox.
    
-    l. paste the Sign-Out URL in the **Logout URL** textbox.
+    l. Paste the **Sign-Out URL** in the **Logout URL** textbox.
    
-    m. In the Error URL, copy your Marketo instance URL and click Save button to save settings.
+    m. In the **Error URL**, copy your **Marketo instance URL** and click **Save** button to save settings.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
 
@@ -192,11 +192,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-    c. Navigate to the **Security** menu and click **Login Settings** 
+    c. Navigate to the **Security** menu and click **Login Settings**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_13.png)
    
-    d. Check the **Require SSO** option and Save the settings.
+    d. Check the **Require SSO** option and **Save** the settings.
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_14.png)
 
@@ -263,12 +263,12 @@ In this section, you create a user called Britta Simon in Marketo. follow these 
    
     c. Enter the **Last Name**  in the textbox
    
-    d. Click Next
+    d. Click **Next**
 
-6. In the **Permissions** tab, select the user&Roles and click Next
+6. In the **Permissions** tab, select the **userRoles** and click **Next**
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_17.png)
-7. Click the Send button to send the user invitation
+7. Click the **Send** button to send the user invitation
    
     ![Configure Single Sign-On](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_18.png)
 
