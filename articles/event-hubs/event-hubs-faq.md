@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2017
+ms.date: 06/28/2017
 ms.author: sethm;shvija
 
 ---
@@ -23,15 +23,17 @@ ms.author: sethm;shvija
 ## General
 
 ### What is the difference between Event Hubs Basic and Standard tiers?
+
 The Standard tier of Azure Event Hubs provides features beyond what is available in the Basic tier. The following features are included with Standard:
 * Longer event retention
 * Additional brokered connections, with an overage charge for more than the number included
 * More than a single Consumer Group
-* [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+* [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
 
-For a more details regarding pricing tiers, including Dedicated Event Hubs, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
+For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### What are Event Hubs throughput units?
+
 You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs resource manager templates. Throughput units apply to all Event Hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
 
 * Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.
@@ -52,7 +54,7 @@ There is a default quota of 20 throughput units per namespace. You can request a
 Yes, as long as all of the Event Hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
-Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that Event Hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Archive](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) on your Event Hub will pull the data from your Event Hub to the storage of your choosing. Enabling Archive will incur a charge based on your purchased Throughput Unit.
+Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that Event Hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) on your Event Hub pulls the data from your Event Hub to the storage of your choosing. Enabling Capture incurs a charge based on your purchased Throughput Unit.
 
 ### Where is Azure Event Hubs available?
 Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
@@ -85,12 +87,11 @@ Events consumed from an Event Hub, as well as management operations and control 
 ### Do brokered connection charges apply to Event Hubs?
 Connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding how many connections are included in each service tier.
 
-### How is Event Hubs Archive billed?
-Archive is enabled when any Event Hub in the namespace has the Archive feature enabled. Archive is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Archive billing will reflect these changes in whole hour increments.
-please refer to the [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/) page for details regarding Event Hubs Archive billing.
+### How is Event Hubs Capture billed?
+Capture is enabled when any Event Hub in the namespace has the Capture option enabled. Event Hubs Capture is billed hourly per purchased Throughput Unit. As the Throughput Unit count is increased or decreased, Event Hubs Capture billing will reflect these changes in whole hour increments. For more information about Event Hubs Capture billing, see [Event Hubs pricing information](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-### Will I be billed for the storage account I select for Event Hubs Archive?
-Archive uses a storage account you provide when enabled on an Event Hub. As this is your storage account, any changes for this will be billed to your Azure subscription.
+### Will I be billed for the storage account I select for Event Hubs Capture?
+Capture uses a storage account you provide when enabled on an Event Hub. As this is your storage account, any changes for this will be billed to your Azure subscription.
 
 ## Quotas
 
@@ -103,7 +104,7 @@ For a list of all Event Hubs quotas, see [quotas](event-hubs-quotas.md).
 For a list of possible Event Hubs exceptions, see [Exceptions overview](event-hubs-messaging-exceptions.md).
 
 ### Diagnostic logs
-Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.md) - Archive error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
+Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.md) - Capture error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
 
 ### Support and SLA
 Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home). Billing and subscription management support is provided at no cost.
