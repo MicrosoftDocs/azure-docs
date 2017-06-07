@@ -21,6 +21,7 @@ ms.author: gwallace
 # Troubleshoot Virtual Network gateway and Connections using Azure Network Watcher
 
 > [!div class="op_single_selector"]
+> - [Portal](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
