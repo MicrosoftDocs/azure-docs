@@ -56,20 +56,24 @@ To show the available storage accounts in the myResourceGroup resource group, ty
 az storage account list -g myResourceGroup
 ```
 
-If you want to use an existing storage account, proceed to the [Upload the VHD](#upload-the-vhd-to-your-storage-account) section.
-
-To create a new storage account named *mystorageaccount* in the *West US* region in the *myResourceGroup* resource group, type the following:
+Or, to create a new storage account named *mystorageaccount* in the *West US* region in the *myResourceGroup* resource group, type the following:
 
 ```azurecli-interactive
 az storage account create -n mystorageaccount -g MyResourceGroup -l westus --sku Standard_LRS
 ```
 
-### Upload the VHD to your storage account 
-
-Use [AzCopy](https://azure.microsoft.com/en-us/blog/announcing-azcopy-on-linux-preview/) to upload the VHD to the storage account. 
+You also need the storage account key. 
 
 ```azurecli-interactive
-azcopy --source /mnt --include "*.vhd" --destination "https://mystorageaccount.blob.core.windows.net/mycontainer/myVHD.vhd"
+az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup
+```
+
+### Upload the VHD to your storage account 
+
+Use [AzCopy](https://azure.microsoft.com/en-us/blog/announcing-azcopy-on-linux-preview/) to upload the VHD to the storage account. Replace *key1* with your storage account key.
+
+```azurecli-interactive
+azcopy --source /mnt --include "*.vhd" --destination "https://mystorageaccount.blob.core.windows.net/mycontainer/" --dest-key key1
 ```
 
 Depending on your network connection and the size of your VHD file, this command may take a while to complete
@@ -87,24 +91,15 @@ Make sure that you:
 * Have downloaded and installed the [AzCopy tool](../../storage/storage-use-azcopy.md). 
 
 ### Deallocate the VM
-Deallocate the VM, which frees up the VHD to be copied. 
+Deallocate the VM using [az vm deallocate](/cli/azure/vm#deallocate), which frees up the VHD to be copied. 
 
-* **Portal**: Click **Virtual machines** > **myVM** > Stop
-* **Powershell**: Use [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) to stop (deallocate) the VM named **myVM** in resource group **myResourceGroup**.
+    ```azurecli
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    ```
 
-```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-```
-
-The **Status** for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 
 ### Get the storage account URLs
 You need the URLs of the source and destination storage accounts. The URLs look like: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. If you already know the storage account and container name, you can just replace the information between the brackets to create your URL. 
-
-You can use the Azure portal or Azure Powershell to get the URL:
-
-* **Portal**: Click the **>** for **More services** > **Storage accounts** > *storage account* > **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
-* **Powershell**: Use [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) to get the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -163,6 +158,8 @@ When you use AZCopy, if you see the error "Server failed to authenticate the req
 ## Create the new VM 
 
 You need to create networking and other VM resources to be used by the new VM.
+
+
 
 ### Create the subNet and vNet
 
@@ -242,42 +239,43 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 Create a managed disk from the specialized VHD in your storage account using [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd** as the URI for the source VHD that you uploaded or copied to a storage account.
 
-```powershell
-$sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
-$osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
-    -SourceUri $sourceUri) `
-    -ResourceGroupName $rgName
+convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
+
+```azurecli
+az disk create --resource-group myResourceGroup --name myManagedDisk \
+  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
-Add the OS disk to the configuration using [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
- 
-```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
-    -DiskSizeInGB 128 -CreateOption Attach -Windows
+Obtain the details of the managed disk you created with [az disk list](/cli/azure/disk/list):
+
+```azurecli
+az disk list --resource-group myResourceGroup \
+  --query [].{Name:name,ID:id} --output table
 ```
 
-Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](create-managed-disk-ps.md). 
+The output is similar to the following example:
 
-```powershell
-$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+```azurecli
+Name               ID
+-----------------  ----------------------------------------------------------------------------------------------------
+myManagedDisk    /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk
 ```
 
-### Complete the VM 
+Now, create your VM with [az vm create](/cli/azure/vm#create) and specify the name of your managed disk (`--attach-os-disk`). The following example creates a VM named `myVM` using the managed disk created from your uploaded VHD:
 
-Create the VM using [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm)the configurations that we just created.
-
-```powershell
-#Create the new VM
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+```azurecli
+az vm create --resource-group myResourceGroup --location westus \
+    --name myVM --os-type linux \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+    --attach-os-disk myManagedDisk
 ```
 
-If this command was successful, you'll see output like this:
+### Create the VM 
 
-```powershell
-RequestId IsSuccessStatusCode StatusCode ReasonPhrase
---------- ------------------- ---------- ------------
-                         True         OK OK   
+
+```azurecli-interactive
+az vm create -g MyResourceGroup -n MyVm --attach-os-disk MyOsDisk --os-type linux
+```
 
 ```
 
