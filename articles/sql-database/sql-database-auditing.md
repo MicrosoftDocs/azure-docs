@@ -9,12 +9,12 @@ editor: giladm
 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/25/2017
+ms.date: 6/7/2017
 ms.author: giladm
 
 ---
@@ -107,7 +107,10 @@ There are several methods to view Blob Auditing logs:
 
     ![Navigation Pane][8]
 
-2. Using the **Merge Audit Files** feature in SSMS (starting with SSMS 17):  
+2. Using the system function sys.fn_get_audit_file (T-SQL), you can return the audit log data in tabular format. More info on using the function can be found in the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+
+
+3. Using the **Merge Audit Files** feature in SSMS (starting with SSMS 17):  
     - In the SSMS top menu, click on **File** --> **Open** --> **Merge Audit Files...**
 
         ![Navigation Pane][9]
@@ -118,9 +121,9 @@ There are several methods to view Blob Auditing logs:
     - Once all files to merge have been added, click **OK** to complete the merge operation.
     - The merged file will open in SSMS, where you'll be able to view and analyze it, as well as export to XEL/CSV files or to a table.
 
-3. We have created a **sync application** that runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard ([more info here](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
+4. We have created a **sync application** that runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard ([more info here](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)).
 
-4. Download log files from your Azure Storage Blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
+5. Download log files from your Azure Storage Blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
 
     Once you have downloaded the log file locally, you can double-click the file to open, view and analyze the logs in SSMS.
 
