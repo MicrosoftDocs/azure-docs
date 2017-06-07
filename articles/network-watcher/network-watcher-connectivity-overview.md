@@ -18,7 +18,7 @@ ms.author: gwallace
 
 # Introduction to connectivity in Azure Network Watcher
 
-The connectivity feature of Network Watcher provides the capability to test a direct TCP connection from a virtual machine to a remote endpoint. Networking resources are complex and can have Network Security Groups, firewalls, User-defined routes, and more that make troubleshooting connection issues tough. Network Watcher helps reduce the amount of time to find and detect mis-configurations and connectivity issues.
+The connectivity feature of Network Watcher provides the capability to test a direct TCP connection from a virtual machine to a VM, FQDN, or URI. Network scenarios are complex, they are implemented using Network Security Groups, firewalls, User-defined routes, and more. This complexity makes troubleshooting connection issues tough. Network Watcher helps reduce the amount of time to find and detect mis-configurations and connectivity issues.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
@@ -26,15 +26,15 @@ The connectivity feature of Network Watcher provides the capability to test a di
 
 The connectivity test returns heuristics about the connection. The following table provides a list of the current heuristics ran and possible actions to take to resolve the issues found.
 
-|Heuristic Name  |Description  | User Action|
-|---------|---------|---|
-|CPU     | Total CPU Usage on VM goes above 90%        | Investigate VM with high CPU usage|
-|Memory     | Total memory usage on VM above 90%        |Investigate VM with high memory usage|
-|Firewall Rules     | Ports are blocked by Windows firewall        |Investigate Firewall rules on source VM|
-|NIC DNS Resolution     | Source VM failed to resolve destination address        |Investigate DNS configuration on source VM|
-|VFP Port Counter     | Returns if packets get dropped due to throttling in past 30 mins. (Any Packets, not restricted to Source/Destination)        | Increase VM size to higher network or reduce network load|
-|IP Flow Verify Heuristic     | Check NSG applied on all VMs in the path from source to destination (Nic & Subnet)        |Check/Change the NSG Rules or Configuration|
-|Next Hop Heuristic|Check UDR applied on all VMs in the path from source to destination to check if packets are getting blackholed|Check/Change the applied User-Defined Routes|
+|Heuristic Name  |Description  |
+|---------|---------|
+|CPU     | Total CPU Usage on VM goes above 90%        |
+|Memory     | Total memory usage on VM above 90%        |
+|Firewall Rules     | Ports are blocked by Windows firewall        |
+|NIC DNS Resolution     | Source VM failed to resolve destination address        |
+|VFP Port Counter     | Returns if packets get dropped due to throttling in past 30 mins. (Any Packets, not restricted to Source/Destination)        |
+|IP Flow Verify Heuristic     | Check NSG applied on all VMs in the path from source to destination (Nic & Subnet)        |
+|Next Hop Heuristic|Check UDR applied on all VMs in the path from source to destination to check if packets are getting blackholed|
 
 ## Results
 
