@@ -50,6 +50,8 @@ This page provides intelligent [tuning recommendations](sql-database-advisor.md)
 * Recommendations when schema issues are identified in the database.
 * Recommendations when queries can benefit from parameterized queries.
 
+![Performance](./media/sql-database-performance/recommendations.png)
+
 You can also find complete history of tuning actions that were applied in the past.
 
 Learn how to find an apply performance recommendations in [Find and apply performance recommendations](sql-database-advisor-portal.md) article.
@@ -66,6 +68,7 @@ Azure SQL Databases can automatically tune database performance by applying [per
 
   ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
+Find more information about this page in the article **[How to use Query Performance Insight](sql-database-query-performance.md)**.
 
 ## Additional resources
 * [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
