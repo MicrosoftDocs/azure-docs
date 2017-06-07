@@ -1,6 +1,6 @@
 ---
 title: Machine learning example with Spark MLlib on HDInsight - Azure | Microsoft Docs
-description: Learn how to use Spark **MLlib** to create a machine learning app that analyzes a dataset using *classification* through logistic regression.
+description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 keywords: spark machine learning, spark machine learning example
 services: hdinsight
 documentationcenter: ''
@@ -20,12 +20,12 @@ ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Build a machine learning application and analyze a dataset using Spark MLlib
+# Use Spark MLlib to build a machine learning application and analyze a dataset
 
 Learn how to use Spark **MLlib** to create a machine learning application to do simple predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression. 
 
 > [!TIP]
-> This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLlib.ipynb** under the **Python** folder.
+> This example is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLlib.ipynb** under the **Python** folder.
 >
 >
 

@@ -1,9 +1,10 @@
 ---
-title: Apache Spark streaming with Kafka - Azure HDInsight | Microsoft Docs
-description: 'Learn how to use Apache Spark on HDInsight to read and write data to Apache Kafka on HDInsight. This example uses Scala in a Jupyter Notebook to write data to Kafka on HDInsight, then read it back using Spark streaming.'
+title: Apache Spark streaming example with Kafka - Azure HDInsight | Microsoft Docs
+description: Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
+keywords: kafka example,kafka zookeeper,spark streaming kafka,spark streaming kafka example 
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: Blackmisti
 manager: jhubbard
 editor: cgronlun
 
@@ -17,9 +18,9 @@ ms.workload: big-data
 ms.date: 05/15/2017
 ms.author: larryfr
 ---
-# Use Apache Spark with Kafka (preview) on HDInsight
+# Try an Apache Spark streaming data example with Kafka (preview) on HDInsight
 
-Learn how to use Spark Apache Spark can be used to stream data into or out of Apache Kafka. In this document, learn how to stream data into and out of Kafka using a Jupyter notebook from Spark on HDInsight.
+Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka on HDInsight. In this example, you stream data using a Scala app in a Jupyter notebook from Spark.
 
 > [!NOTE]
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
@@ -182,7 +183,7 @@ Since the steps in this document create both clusters in the same Azure resource
 
 ## Next steps
 
-In this document, you learned how to use Spark to read and write to Kafka. Use the following links to discover other ways to work with Kafka:
+In this example, you learned how to use Spark to read and write to Kafka. Use the following links to discover other ways to work with Kafka:
 
 * [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
