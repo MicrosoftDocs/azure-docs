@@ -12,12 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 
 ---
 # Monitor Surface Hubs with Log Analytics to track their health
+
+![Surface Hub symbol](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
 This article describes how you can use the Surface Hub solution in Log Analytics to monitor Microsoft Surface Hub devices with the Microsoft Operations Management Suite (OMS). Log Analytics helps you track the health of your Surface Hubs as well as understand how they are being used.
 
