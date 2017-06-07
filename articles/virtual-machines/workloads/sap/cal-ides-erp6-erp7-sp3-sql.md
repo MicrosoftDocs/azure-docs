@@ -119,5 +119,5 @@ Before you proceed, you need to click the link of the 'Getting Started Guide' be
 
 As you can see a perfectly healthy SAP IDES system deployed in Microsoft Azure within a few hours.
 
-And yes, SAP does support deployments through SAP CAL on Azure fully if you bought an SAP CAL subscription. The support queue is: BC-VCM-CAL.
+SAP does support deployments through SAP CAL on Azure fully if you bought an SAP CAL subscription. The support queue is: BC-VCM-CAL.
 
