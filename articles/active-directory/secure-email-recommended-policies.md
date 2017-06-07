@@ -72,6 +72,7 @@ Each industry also has their own set of specialized regulations. Rather than pro
 
 ### Default protection mechanism recommendations
 
+
 The following table contains default protection mechanism recommendations for each of the previously defined security and protection tiers:
 
 |Protection mechanism|Baseline|Sensitive|Highly regulated|
@@ -147,7 +148,7 @@ You can give users single sign-on (SSO) experience as described in earlier secti
 
 The goal for these device and app management policies is to protect data loss in the event of a lost or stolen device. You can do this by ensuring that access to data is protected by a PIN, that the data is encrypted on the device, and that the device is not compromised.
 
-#|Policy recommendation|Description|
+|Policy recommendation|Description|
 |:--------------------|:----------|
 |**Require user PC management**|Require users to join their PCs to an Active Directory Domain or enroll their PCs into management with Intune or Configuration Manager and ensure those devices are compliant with policies before allowing email access|
 |**Apply security settings via group policy objects (GPO) or Configuration Manager policies for domain joined PCs**|Deploy policies that configure managed PCs to enable BitLocker, enable anti-virus, and enable firewall|
