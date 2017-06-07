@@ -53,8 +53,6 @@ The following example creates an Azure Database for MySQL server located in `wes
 az mysql server create --resource-group myresoucegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
-![Create an Azure Database for MySQL server using Azure CLI](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
-
 ## Configure firewall rule
 Create an Azure Database for MySQL server-level firewall rule using the **az mysql server firewall-rule create** command. A server-level firewall rule allows an external application, such as the **mysql.exe** command-line tool or MySQL Workbench to connect to your server through the Azure MySQL service firewall. 
 
