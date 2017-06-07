@@ -107,7 +107,7 @@ A: Is it a Resource Manager storage account? Classic storage accounts are not su
 
 **Q: Is SSE with customer managed keys only permitted in specific regions?**
 
-A: SSE is available in only certain regions for Blob storage for this Preview. Please email [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com to check for availability and details on preview. 
+A: SSE is available in only certain regions for Blob storage for this Preview. Please email [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) to check for availability and details on preview. 
 
 **Q: How do I contact someone if I have any issues or want to provide feedback?**
 
