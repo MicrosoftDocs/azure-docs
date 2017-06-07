@@ -149,7 +149,7 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 
 Once the port requirements are configured as described in the previous section, you can verify that your cache is working by performing the following steps.
 
-- [Reboot](cache-administration.md#reboot) all of the cache nodes. If all of the required cache dependencies can't be reached (as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements), the cache won't be able to restart successfully.
+- [Reboot](cache-administration.md#reboot) all of the cache nodes. If all of the required cache dependencies can't be reached (as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements)), the cache won't be able to restart successfully.
 - Once the cache nodes have restarted (as reported by the cache status in the Azure portal), you can perform the following tests:
   - ping the cache endpoint (using port 6380) from a machine that is within the same VNET as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
     `tcping.exe contosocache.redis.cache.windows.net 6380`
