@@ -14,6 +14,7 @@ pnp.series.title: Best Practices
 # Recommended policies
  
 This article describes recommended policies to help our customers secure organizational email and email clients support Modern Authentication and Conditional Access. Also discussed are the default platform client configurations we recommend to provide the best SSO experience to your users, as well as the technical pre-requisites for conditional access.
+
 ## Prerequisites
 
 Before implementing the policies described in the remainder of this document, there are several prerequisites that your organization must meet:
@@ -158,7 +159,7 @@ The goal for these device and app management policies is to protect data loss in
 
 ### User impact
 
-#For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
+For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
 * When requesting authentication tokens for Exchange Online:
