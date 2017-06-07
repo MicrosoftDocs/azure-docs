@@ -33,16 +33,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: functions-cli-samples.md
 - name: Tutorials
   items:
   - name: 1 - Functions with Logic Apps
     href: functions-twitter-email.md
   - name: 2 - Create a serverless API
     href: functions-create-serverless-api.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: functions-cli-samples.md
 - name: Concepts
   items:
   - name: Consumption and App Service plans
@@ -117,6 +117,8 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow

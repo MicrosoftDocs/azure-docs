@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-failover, mvc
+ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -66,8 +66,7 @@ These user accounts replicate automatically to your secondary server (and be kep
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
    --grant permission to SalesLT schema
-   GRANT SELECT ON SalesLT.Product TO app_user; 
-   GRANT UPDATE ON SalesLT.Product TO app_user;  
+   GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
    ```
 
 ## Create database-level firewall
