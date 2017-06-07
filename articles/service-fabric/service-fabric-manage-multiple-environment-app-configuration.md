@@ -3,7 +3,7 @@ title: Manage multiple environments in Service Fabric | Microsoft Docs
 description: Service Fabric applications can be run on clusters that range in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikhegn
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/06/2017
-ms.author: seanmck
+ms.date: 06/07/2017
+ms.author: mikhegn
 
 ---
 # Manage application parameters for multiple environments
@@ -29,18 +29,18 @@ The solution to this configuration issue is a set of parameterized default servi
 Service Fabric applications are made up of a collection of service instances. While it is possible for you to create an empty application and then create all service instances dynamically, most applications have a set of core services that should always be created when the application is instantiated. These are referred to as "default services". They are specified in the application manifest, with placeholders for per-environment configuration included in square brackets:
 
 ```xml
-    <DefaultServices>
-        <Service Name="Stateful1">
-            <StatefulService
-                ServiceTypeName="Stateful1Type"
-                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
-                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+  <DefaultServices>
+      <Service Name="Stateful1">
+          <StatefulService
+              ServiceTypeName="Stateful1Type"
+              TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+              MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
-                <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]"
-                    LowKey="-9223372036854775808"
-                    HighKey="9223372036854775807"
-                />
+              <UniformInt64Partition
+                  PartitionCount="[Stateful1_PartitionCount]"
+                  LowKey="-9223372036854775808"
+                  HighKey="9223372036854775807"
+              />
         </StatefulService>
     </Service>
   </DefaultServices>
@@ -69,14 +69,14 @@ The [Service Fabric application model](service-fabric-application-model.md) enab
 Suppose that you have the following setting in the Config\Settings.xml file for the `Stateful1` service:
 
 ```xml
-    <Section Name="MyConfigSection">
-      <Parameter Name="MaxQueueSize" Value="25" />
-    </Section>
+  <Section Name="MyConfigSection">
+     <Parameter Name="MaxQueueSize" Value="25" />
+  </Section>
 ```
 To override this value for a specific application/environment pair, create a `ConfigOverride` when you import the service manifest in the application manifest.
 
 ```xml
-    <ConfigOverrides>
+  <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
            <Section Name="MyConfigSection">

@@ -3,7 +3,7 @@ title: Troubleshoot your local Service Fabric cluster setup | Microsoft Docs
 description: This article covers a set of suggestions for troubleshooting your local development cluster
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikhegn
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: seanmck
+ms.date: 06/07/2017
+ms.author: mikhegn
 
 ---
 # Troubleshoot your local development cluster setup
