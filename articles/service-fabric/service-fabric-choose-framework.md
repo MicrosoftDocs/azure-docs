@@ -18,7 +18,7 @@ ms.author: seanmck
 
 ---
 # Service Fabric programming model overview
-Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks, be any compiled executable program written in any language and simply hosted on a Service Fabric cluster or run be a container.
+Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks. Service can also be any compiled executable program written in any language or code running in a container simply hosted on a Service Fabric cluster.
 
 ## Guest Executable
 A guest executable is an arbitrary executable, written in any language, so you can take your existing applications and host them on a Service Fabric cluster. A guest executable can be packaged in an application and hosted alongside other services. Service Fabric handles orchestration and simple execution management of the executable, ensuring it stays up and running according to the service description. However, because guest executables do not integrate directly with Service Fabric APIs, they do not benefit from the full set of features the platform offers, such as custom health and load reporting, service endpoint registration, and stateful compute.
