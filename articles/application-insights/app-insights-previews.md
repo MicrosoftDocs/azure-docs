@@ -26,9 +26,9 @@ The following image illustrates how to set your preview preferences.
 
 On the Preview blade, you can select from the following options for when you see previews.
 
-- Always: You see Preview experiences when they are available.
+- Always: You see Preview experiences as soon as they are available.
 - Auto: You see Preview experiences that Microsoft recommends for your account. 
-- Never: You don't see Preview experiences. 
+- Never: You will only see Preview experiences that you select. 
 
 ## Next steps
 
