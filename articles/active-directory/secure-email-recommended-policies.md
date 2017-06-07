@@ -14,6 +14,7 @@ pnp.series.title: Best Practices
 # Recommended policies
  
 This article describes recommended policies to help our customers secure organizational email and email clients support Modern Authentication and Conditional Access. Also discussed are the default platform client configurations we recommend to provide the best SSO experience to your users, as well as the technical pre-requisites for conditional access.
+
 ## Prerequisites
 
 Before implementing the policies described in the remainder of this document, there are several prerequisites that your organization must meet:
@@ -71,6 +72,7 @@ Each industry also has their own set of specialized regulations. Rather than pro
 **Highly regulated**. Some organizations may have a very small amount of data that is highly classified, trade secret, or regulated data. Microsoft provides capabilities to help organizations meet these requirements, including added protection for identities and devices. 
 
 ### Default protection mechanism recommendations
+
 
 The following table contains default protection mechanism recommendations for each of the previously defined security and protection tiers:
 
@@ -147,7 +149,7 @@ You can give users single sign-on (SSO) experience as described in earlier secti
 
 The goal for these device and app management policies is to protect data loss in the event of a lost or stolen device. You can do this by ensuring that access to data is protected by a PIN, that the data is encrypted on the device, and that the device is not compromised.
 
-#|Policy recommendation|Description|
+|Policy recommendation|Description|
 |:--------------------|:----------|
 |**Require user PC management**|Require users to join their PCs to an Active Directory Domain or enroll their PCs into management with Intune or Configuration Manager and ensure those devices are compliant with policies before allowing email access|
 |**Apply security settings via group policy objects (GPO) or Configuration Manager policies for domain joined PCs**|Deploy policies that configure managed PCs to enable BitLocker, enable anti-virus, and enable firewall|
@@ -157,7 +159,7 @@ The goal for these device and app management policies is to protect data loss in
 
 ### User impact
 
-#For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
+For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
 * When requesting authentication tokens for Exchange Online:
