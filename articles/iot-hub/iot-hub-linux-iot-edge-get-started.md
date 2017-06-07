@@ -13,7 +13,7 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 06/07/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
 
@@ -44,7 +44,9 @@ git clone https://github.com/Azure/iot-edge.git
 You can now build the IoT Edge runtime and samples on your local machine:
 
 1. Open a shell.
+
 1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+
 1. Run the build script as follows:
 
     ```sh

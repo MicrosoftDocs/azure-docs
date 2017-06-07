@@ -1,6 +1,6 @@
 ## Typical output
 
-The following is an example of the output written to the log file by the Hello World sample. The following output is formatted for legibility:
+The following example shows the output written to the log file by the Hello World sample. The output is formatted for legibility:
 
 ```json
 [{
