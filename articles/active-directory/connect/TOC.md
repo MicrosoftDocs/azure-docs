@@ -33,7 +33,7 @@
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
 #### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
-##### [Current limitations](active-directory-aadconnect-pass-through-authentication-preview-limitations.md)
+##### [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [How does it work?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)

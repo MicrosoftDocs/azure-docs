@@ -40,7 +40,7 @@ A good place to start troubleshooting user sign-in issues is to look at the [sig
 
 ![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-If you navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and click on a specific user's sign-in activity, you'll find the **SIGN-IN ERROR CODE** field. You can map that value to a failure reason using the below table, and attempt to resolve appropriately.
+Navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and click a specific user's sign-in activity. Look for the **SIGN-IN ERROR CODE** field. Map the value of that field to a failure reason and resolution using the following table.
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
@@ -48,13 +48,13 @@ If you navigate to **Azure Active Directory** -> **Sign-ins** on the Azure porta
 | 80001 | No Authentication Agent available. | Install and register an Authentication Agent.
 | 80002	| Authentication Agent's password validation request timed out. | Check if your Active Directory is reachable from the Authentication Agent.
 | 80003 | Invalid response received by Authentication Agent. | If the problem is consistently reproducible across multiple users, check your Active Directory configuration.
-| 80004 | Incorrect User Principal Name (UPN) used in sign-in request. | Ask the user to sign-in with the correct username.
+| 80004 | Incorrect User Principal Name (UPN) used in sign-in request. | Ask the user to sign in with the correct username.
 | 80005 | Authentication Agent: Error occurred. | Transient error. Try again later.
 | 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent.
 | 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one. 
 | 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
 
-## Authentiation Agent installation issues
+## Authentication Agent installation issues
 
 ### An Azure AD Application Proxy connector already exists
 
@@ -112,7 +112,7 @@ For detailed analytics, enable the "Session" log. Don't run the Authentication A
 
 ### Detailed trace logs
 
-To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy agent\Trace**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the [table](#sign-in-failure-reasons-on-the-Azure-portal) above. Following is an example log entry:
+To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy agent\Trace**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
 
 ```
 	ApplicationProxyagentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
