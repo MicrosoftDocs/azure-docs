@@ -5,7 +5,7 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 06/5/2017
+ms.date: 06/6/2017
 ---
 # Azure Key Vault security worlds and geographic boundaries
 
@@ -24,10 +24,10 @@ For example, a back up taken by a given subscription of a key in a key vault in 
 
 ## Regions and products
 
+Regions are mapped to security worlds, shown as major headings.
+
 - [Azure regions](https://azure.microsoft.com/regions/)
 - [Microsoft products by region](https://azure.microsoft.com/regions/services/)
-
-Regions are mapped to security worlds, shown as major headings in the tables:
 
 In the products by region article, for example, the **Americas** tab contains EAST US, CENTRAL US, WEST US all mapping to the Americas region. 
 
