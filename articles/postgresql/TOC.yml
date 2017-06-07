@@ -11,10 +11,12 @@
     href: quickstart-create-server-database-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-server-database-azure-cli.md
-- name: Sample Scripts
-  items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
+  - name: Connect
+    items:
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Python
+      href: connect-python.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
@@ -55,7 +57,11 @@
     items:
     - name: Connection libraries
       href: concepts-connection-libraries.md
-- name: How-to Guides
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
+- name: How-to guides
   items:
   - name: Firewall rules
     items:
@@ -93,6 +99,8 @@
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Videos
+    href: videos.md    
   - name: Feedback forum
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Region availability
