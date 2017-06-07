@@ -21,7 +21,7 @@ ms.author: markgal,masaran
 
 Azure Backup Server backs up system state and provides bare-metal recovery (BMR) protection.
 
-*   **System state backup**:  Backs up operating system files, so you can recover when a computer starts, but system files and the registry are lost. A system state backup includes:
+*   **System state backup**: Backs up operating system files, so you can recover when a computer starts, but system files and the registry are lost. A system state backup includes:
     * Domain member: Boot files, COM+ class registration database, registry
     * Domain controller: Windows Server Active Directory (NTDS), boot files, COM+ class registration database, registry, system volume (SYSVOL)
     * Computer that runs cluster services: Cluster server metadata
