@@ -28,14 +28,16 @@ This Quickstart helps you register an application in a Microsoft Azure Active Di
 > 
 
 ## Prerequisite
+
 To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md). After you follow all the steps in that article, you will have the B2C features blade pinned to your Startboard.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Navigate to the B2C features blade
-If you have the B2C features blade pinned to your Startboard, you will see the blade as soon as you sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant.
 
-You can also access the blade by clicking **More services** and then searching **Azure AD B2C** in the left navigation pane on the [Azure portal](https://portal.azure.com/).
+If you have the B2C features blade [pinned to your Startboard](active-directory-b2c-get-started.md#navigate-to-the-b2c-features-blade-on-the-azure-portal), you will see the blade as soon as you sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant.
+
+You can also access the blade by entering `Azure AD B2C` in **Search resources** at the top of the portal. In the results list, select **Azure AD B2C** to access the B2C features blade.
 
 > [!IMPORTANT]
 > You need to be a Global Administrator of the B2C tenant to be able to access the B2C features blade. A Global Administrator from any other tenant or a user from any tenant cannot access it.  You can switch to your B2C tenant by using the tenant switcher in the top right corner of the Azure portal.

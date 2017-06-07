@@ -88,7 +88,7 @@ If you are planning to use your B2C tenant for production apps, you need to link
 To improve discoverability, we've added a shortcut to the B2C features blade on the Azure portal.
 
 1. Sign into the Azure portal as the Global Administrator of your Azure AD B2C tenant.
-2. To switch to your Azure AD B2C tenant, by select the B2C directory on the top-right corner of the portal.
+2. To switch to your Azure AD B2C tenant, by selecting the B2C directory on the top-right corner of the portal.
 
    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-get-started/switch-to-b2c-tenant.png)
 3. In **Search resources** at the top of the portal, enter `Azure AD B2C` and select **Azure AD B2C** in the results list to access the B2C features blade.
