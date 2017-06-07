@@ -280,8 +280,9 @@ The example Azure network infrastructure is configured in the following way:
 
 ### Configure Vnets
 1. Sign in to the Azure portal with your Azure credentials.
-2. Create the spoke VNet and subnet using the 10.100.0.0/16 address range.
-3. Create the hub VNet using the 192.168.2.0/24 address space. Create a subnet using the 192.168.2.0/25 address range, and add a gateway subnet using the 192.168.2.128/27 address range.
+2. Create the hub VNet using the 192.168.2.0/24 address space. Create a subnet using the 192.168.2.0/25 address range, and add a gateway subnet using the 192.168.2.128/27 address range.
+3. Create the spoke VNet and subnet using the 10.100.0.0/16 address range.
+
 
 For more information about creating virtual networks in Azure, see [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
