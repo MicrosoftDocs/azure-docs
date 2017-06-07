@@ -56,7 +56,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-on](a
 - Installing multiple agents provides high availability of sign-in requests.
 
 ## Next steps
-- [**Preview limitations**](active-directory-aadconnect-pass-through-authentication-preview-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
+- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - This feature is currently in preview. Learn which scenarios are supported and which ones are not.
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.

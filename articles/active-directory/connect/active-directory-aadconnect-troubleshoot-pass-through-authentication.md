@@ -12,65 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2017
+ms.date: 06/06/2017
 ms.author: billmath
 ---
 
 # Troubleshoot Azure Active Directory Pass-through Authentication
 
-This article helps you find troubleshooting information about common issues during the installation, registration, or uninstallation of Pass-through Authentication agents (either via Azure AD Connect or standalone). And during enabling and operating of the Azure Active Directory (Azure AD) Pass-through Authentication feature on your tenant.
+This article helps you find troubleshooting information about common issues regarding Pass-through Authentication.
 
-## Issues during installation of agents (either via Azure AD Connect or standalone)
+## General issues
 
-### An Azure AD Application Proxy agent already exists
+### User-facing sign-in error messages
 
-A Pass-through Authentication agent cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) agent. Install the Pass-through Authentication agent on a separate server.
-
-### An unexpected error occurred
-
-[Collect agent logs](#collecting-pass-through-authentication-agent-logs) from the server and contact Microsoft Support with your issue.
-
-## Issues during registration of agents
-
-### Registration of the connecter failed due to blocked ports
-
-Ensure that the server on which the agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
-
-### Registration of the agent failed due to token or account authorization errors
-
-Ensure that you use a cloud-only Global Administrator account for all Azure AD Connect or standalone agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
-
-### An unexpected error occurred
-
-[Collect agent logs](#collecting-pass-through-authentication-agent-logs) from the server and contact Microsoft Support with your issue.
-
-## Issues during uninstallation of agents
-
-### Warning message when uninstalling Azure AD Connect
-
-If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it shows you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers."
-
-Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
-
-## Issues with enabling the Pass-through Authentication feature
-
-### The enabling of the feature failed because there were no agents available
-
-You need to have at least one active agent to enable Pass-through Authentication on your tenant. You can install an agent by either installing Azure AD Connect or a standalone agent.
-
-### The enabling of the feature failed due to blocked ports
-
-Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
-
-### The enabling of the feature failed due to token or account authorization errors
-
-Ensure that you use a cloud-only Global Administrator account when enabling the feature. There is a known issue with multi-factor authentication (MFA)-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operation) as a workaround.
-
-## Issues while operating the Pass-through Authentication feature
-
-### User-facing sign-in errors
-
-The feature reports the following user-facing errors on the Azure AD sign-in screen:
+If the user is unable to sign into using Pass-through Authentication, they may see one of the following user-facing errors on the Azure AD sign-in screen: 
 
 |Error|Description|Resolution
 | --- | --- | ---
@@ -80,19 +34,85 @@ The feature reports the following user-facing errors on the Azure AD sign-in scr
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
-## Collecting Pass-through Authentication agent logs
+### Sign-in failure reasons on the Azure portal
 
-Depending on the type of issue you may have, you need to look in different places for Pass-through Authentication agent logs.
+A good place to start troubleshooting user sign-in issues is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the Azure portal.
 
-### Agent event logs
+![Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-For errors related to the agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AadApplicationProxy\agent\Admin**.
+If you navigate to **Azure Active Directory** -> **Sign-ins** on the Azure portal and click on a specific user's sign-in activity, you'll find the **SIGN-IN ERROR CODE** field. You can map that value to a failure reason using the below table, and attempt to resolve appropriately.
 
-For detailed analytics, enable the "Session" log. Don't run the agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
+|Sign-in error code|Sign-in failure reason|Resolution
+| --- | --- | ---
+| 50144 | User's Active Directory password has expired. | Reset the user's password in your on-premises Active Directory.
+| 80001 | No Authentication Agent available. | Install and register an Authentication Agent.
+| 80002	| Authentication Agent's password validation request timed out. | Check if your Active Directory is reachable from the Authentication Agent.
+| 80003 | Invalid response received by Authentication Agent. | If the problem is consistently reproducible across multiple users, check your Active Directory configuration.
+| 80004 | Incorrect User Principal Name (UPN) used in sign-in request. | Ask the user to sign-in with the correct username.
+| 80005 | Authentication Agent: Error occurred. | Transient error. Try again later.
+| 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent.
+| 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one. 
+| 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
+
+## Authentiation Agent installation issues
+
+### An Azure AD Application Proxy connector already exists
+
+A Pass-through Authentication Agent cannot be installed on the same server as an [Azure AD Application Proxy](../../active-directory/active-directory-application-proxy-get-started.md) connector. Install the Pass-through Authentication Agent on a separate server.
+
+### An unexpected error occurred
+
+[Collect agent logs](#collecting-pass-through-authentication-agent-logs) from the server and contact Microsoft Support with your issue.
+
+## Authentication Agent registration issues
+
+### Registration of the Authentication Agent failed due to blocked ports
+
+Ensure that the server on which the Authentication Agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+
+### Registration of the Authentication Agent failed due to token or account authorization errors
+
+Ensure that you use a cloud-only Global Administrator account for all Azure AD Connect or standalone Authentication Agent installation and registration operations. There is a known issue with MFA-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operations) as a workaround.
+
+### An unexpected error occurred
+
+[Collect agent logs](#collecting-pass-through-authentication-agent-logs) from the server and contact Microsoft Support with your issue.
+
+## Authentication Agent uninstallation issues
+
+### Warning message when uninstalling Azure AD Connect
+
+If you have Pass-through Authentication enabled on your tenant and you try to uninstall Azure AD Connect, it shows you the following warning message: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers."
+
+Ensure that your setup is [high available](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) before you uninstall Azure AD Connect to avoid breaking user sign-in.
+
+## Issues with enabling the feature
+
+### Enabling the feature failed because there were no Authentication Agents available
+
+You need to have at least one active Authentication Agent to enable Pass-through Authentication on your tenant. You can install an Authentication Agent by either installing Azure AD Connect or a standalone Authentication Agent.
+
+### Enabling the feature failed due to blocked ports
+
+Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+
+### Enabling the feature failed due to token or account authorization errors
+
+Ensure that you use a cloud-only Global Administrator account when enabling the feature. There is a known issue with multi-factor authentication (MFA)-enabled Global Administrator accounts; turn off MFA temporarily (only to complete the operation) as a workaround.
+
+## Collecting Pass-through Authentication Agent logs
+
+Depending on the type of issue you may have, you need to look in different places for Pass-through Authentication Agent logs.
+
+### Authentication Agent event logs
+
+For errors related to the Authentication Agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AadApplicationProxy\agent\Admin**.
+
+For detailed analytics, enable the "Session" log. Don't run the Authentication Agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
 
 ### Detailed trace logs
 
-To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy agent\Trace**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. Following is an example log entry:
+To troubleshoot user sign-in failures, look for trace logs at **C:\Programdata\Microsoft\Microsoft AAD Application Proxy agent\Trace**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the [table](#sign-in-failure-reasons-on-the-Azure-portal) above. Following is an example log entry:
 
 ```
 	ApplicationProxyagentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -108,7 +128,7 @@ You can get descriptive details of the error ('1328' in the preceding example) b
 
 ### Domain Controller logs
 
-If audit logging is enabled, additional information can be found in the security logs of your Domain Controllers. A simple way to query sign-in requests sent by Pass-through Authentication agents is as follows:
+If audit logging is enabled, additional information can be found in the security logs of your Domain Controllers. A simple way to query sign-in requests sent by Pass-through Authentication Agents is as follows:
 
 ```
     <QueryList>
