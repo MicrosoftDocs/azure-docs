@@ -1,7 +1,7 @@
 ---
 
 title="Create and Use an Internal Load Balancer with an Azure App Service Environment" 
-description="Details on creating and using a internet isolated Azure App Service Environment" 
+description="Details on creating and using an internet isolated Azure App Service Environment" 
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -18,20 +18,19 @@ ms.date: 05/08/2017
 ms.author: ccompy
 
 ---
-	
 
 # Create and Use an Internal Load Balancer with an App Service Environment #
 
-This article shows you how to create an _ILB ASE_. This is the second of two types of [App Service Environments][Intro] (ASE):
+The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet). There are two ways to deploy an ASE: 
 
 - with a VIP on an external IP address, often called an _External ASE_.
 - with the VIP on an internal IP address, often called an _ILB ASE_ because the internal endpoint is an Internal Load Balancer (ILB). 
 
-For details on creating an External ASE, see [Create an External ASE][MakeExternalASE].
+This article shows you how to create an _ILB ASE_.  For an overview on the ASE you can start with [An Introduction to the App Service Environments][Intro] and if you want to learn how to create an External ASE, start with [Creating an External ASE][MakeExternalASE].
 
 ## Overview ##
 
-An ASE can be deployed with an internet accessible endpoint or with an IP address in your Virtual Network. In order to set the IP address to a Virtual Network address, you need to deploy your ASE with an ILB. When your ASE is configured with an ILB, you provide:
+An ASE can be deployed with an internet accessible endpoint or with an IP address in your Virtual Network. In order to set the IP address to a Virtual Network address, the ASE has to be deployed with an ILB. When deploying your ASE with an ILB, you must provide:
 
 -   your own domain that apps are created with
 -   the certificate used for HTTPS
@@ -41,7 +40,7 @@ In return, you can do things such as:
 
 -   host intranet applications securely in the cloud, which you access through a Site-to-Site or ExpressRoute VPN
 -   host apps in the cloud that are not listed in public DNS servers
--   create internet isolated back end apps, which your front end apps can securely integrate with
+-   create internet isolated back-end apps, which your front-end apps can securely integrate with
 
 ***Disabled functionality***
 
@@ -49,17 +48,17 @@ There are some things that you cannot do when using an ILB ASE, including:
 
 -   using IP-based SSL
 -   assigning IP addresses to specific apps
--   buying and using a certificate with an app through the portal. You can of course still obtain certificates directly with a Certificate Authority and use it with your apps, just not through the Azure portal.
+-   buying and using a certificate with an app through the portal. You can still obtain certificates directly with a Certificate Authority and use it with your apps, just not through the Azure portal.
 
 ## Create an ILB ASE ##
 
 To create an ILB ASE:
 
-1.  In the Azure portal select **New -&gt; Web + Mobile -&gt; App Service Environment**.
+1.  In the Azure portal, select **New -&gt; Web + Mobile -&gt; App Service Environment**.
 2.  Select your subscription.
 3.  Select or create a resource group.
 4.  Select or create a Virtual Network.
-5.  Create a subnet, if selecting a Virtual Network. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. The recommended size is a `/25` which has 128 addresses and can handle a maximum sized ASE. `/28` is not recommended, for example, because only 16 addresses are available. Infrastructure needs would use up at least 5 addresses, leaving you with just a maximum scaling of 11 instances in a `/28` subnet. If you think you will need to go beyond the default maximum of 100 instances in your App Service plans someday, or will need to scale near 100 but with more rapid Front End scaling, then use a /24 with 256 addresses.
+5.  Create a subnet, if selecting a Virtual Network. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. The recommended size is a `/25`, which has 128 addresses and can handle a maximum sized ASE. You cannot use a `/29` or smaller subnet size.  Infrastructure needs use up at least 5 addresses.  Even with a `/28` you would have a maximum scaling of 11 instances in a `/28` subnet. If you think you will need to go beyond the default maximum of 100 instances in your App Service plans someday, or will need to scale near 100 but with more rapid Front End scaling, then use a /24 with 256 addresses.
 6.  Select **Virtual Network/Location -&gt; Virtual Network Configuration** and set the **VIP Type** to **Internal**.
 7.  Provide domain name. This will be the domain used for apps created in this ASE. There are some restrictions. It cannot be:
 	- net
@@ -81,7 +80,7 @@ Within the Virtual Network blade, there is a **Virtual Network Configuration** o
 
 After selecting **Internal**, the ability to add more IP addresses to your ASE is removed, and instead you need to provide the domain of the ASE. In an ASE with an External VIP, the name of the ASE is used in the domain for apps created in that ASE.
 
-If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is ***contoso.corp.net*** and you create an app in that ASE named ***timereporting***, then the URL for that app is be ***timereporting.contoso.corp.net***.
+If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is ***contoso.corp.net*** and you create an app in that ASE named ***timereporting***, then the URL for that app is ***timereporting.contoso.corp.net***.
 
 ## Apps in an ILB ASE ##
 
@@ -164,7 +163,7 @@ For every app that is created, there are two endpoints. In an ILB ASE, you have 
 
 The SCM site name takes you to the Kudu console, which is called the **Advanced Portal** from within the Azure portal. The Kudu console lets you do a lot of things, including viewing environment variables, explore the disk, use a console, and much more. For more information, see [Kudu console for Azure App Service][Kudu]. 
 
-In the multi-tenant App Service and in an External ASE, there is single sign-on between the Azure Portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console instead.
+In the multi-tenant App Service and in an External ASE, there is single sign-on between the Azure portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console instead.
 
 Internet-based CI systems, such as Github and VSTS, don't work with an ILB ASE as the publishing endpoint is not internet accessible. Instead, you need to use a CI system that uses a pull model, such as Dropbox.
 
