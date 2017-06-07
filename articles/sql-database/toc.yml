@@ -141,7 +141,7 @@
       href: sql-database-export.md
   - name: Monitor & manage
     items:
-    - name: Performance recommendations
+    - name: Perf recommendations
       href: sql-database-advisor.md
     - name: Automatic tuning
       href: sql-database-automatic-tuning.md
