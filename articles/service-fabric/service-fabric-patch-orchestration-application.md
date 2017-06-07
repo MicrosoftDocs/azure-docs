@@ -362,6 +362,6 @@ In such a case, a warning-level health report is generated against the Node Agen
 
 ### The health of the cluster goes to error while the update installs
 
-A bad Windows update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent Windows Update operation until the cluster is healthy again.
+A faulty Windows update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent Windows Update operation until the cluster is healthy again.
 
-An administrator must intervene and determine why the Windows update caused the health of the application or cluster to go bad.
+An administrator must intervene and determine why the application or cluster became unhealthy due to Windows Update.
