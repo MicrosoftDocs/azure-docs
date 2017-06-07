@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Continuous deployment for Azure Functions
     href: functions-continuous-deployment.md
-  - name: Deploy Functions using infrastructure as code
+  - name: Automate resource deployment
     href: functions-infrastructure-as-code.md
   - name: Monitoring Azure Functions
     href: functions-monitoring.md

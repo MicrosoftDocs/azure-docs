@@ -15,7 +15,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
-
+ms.custom: mvc
 ---
 # Map an existing custom DNS name to Azure Web Apps
 
@@ -212,6 +212,8 @@ For the `www.contoso.com` domain example, create the A and TXT records according
 Your DNS records page should look like the following screenshot:
 
 ![DNS records page](./media/app-service-web-tutorial-custom-domain/a-record.png)
+
+<a name="enable-a"></a>
 
 ### Enable the A record mapping in your app
 
