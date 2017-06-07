@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure File storage problems in Windows | Microsoft Docs
+title: Troubleshoot Azure File storage problems in Windows | Microsoft Docs
 description: Troubleshooting Azure File storage issues in Windows
 services: storage
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 05/24/2017
 ms.author: genli
 
 ---
-# Troubleshooting Azure File storage problems in Windows
+# Troubleshoot Azure File storage problems in Windows
 
 This article lists common problems and resolutions that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes of and resolutions for these problems.
 
