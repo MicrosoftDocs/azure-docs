@@ -12,7 +12,7 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 05/08/2017
+ms.date: 06/06/2016
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
@@ -26,11 +26,10 @@ This topic shows you how to create and manage scalable [elastic pools](sql-datab
 
 There are two ways you can create an elastic pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends an elastic pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
-You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
+You can create multiple pools on a server, but you can't add databases from different servers into the same pool. 
 
 > [!NOTE]
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
->
 >
 
 ### Step 1: Create an elastic pool
@@ -67,7 +66,6 @@ To change the pricing tier for the pool, click **Pricing tier**, click the prici
 
 > [!IMPORTANT]
 > After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool, create an elastic pool in the desired pricing tier and migrate the databases to this new pool.
->
 >
 
 ![Select a pricing tier](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
@@ -154,8 +152,6 @@ You can edit the chart and the metric blade to display other metrics such as CPU
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-
-
 3. Then click **OK**.
 
 ## Manage and monitor databases in an elastic pool
@@ -195,11 +191,6 @@ In the database list in the **Database Resource Utilization** blade, you can fin
 
 You can add rules to an elastic pool that send email to people or alert strings to URL endpoints when the elastic pool hits a utilization threshold that you set up.
 
-> [!IMPORTANT]
-> Resource utilization monitoring for elastic pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for elastic pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
->
->
-
 **To add an alert to any resource:**
 
 1. Click the **Resource utilization** chart to open the **Metric** blade, click **Add alert**, and then fill out the information in the **Add an alert rule** blade (**Resource** is automatically set up to be the pool you're working with).
@@ -209,7 +200,10 @@ You can add rules to an elastic pool that send email to people or alert strings 
     The chart dynamically shows resource utilization for that metric to help you choose a threshold.
 
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
-5. Click **OK**.
+5. Choose a **Period** of time that the metric rule must be satisfied before the alert triggers.
+6. Click **OK**.
+
+For more information, see [create SQL Database alerts in Azure portal](/sql-database-insights-alerts-portal.md).
 
 ## Move a database into an elastic pool
 
