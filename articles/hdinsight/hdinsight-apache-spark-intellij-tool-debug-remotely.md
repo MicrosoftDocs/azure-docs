@@ -59,6 +59,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 8. Click **OK** to save it in Run/Debug configurations dialog, when all have done. The configuration is now saved with the name you provided. You can click the configuration name to view the configurations details or click **Edit Configurations** to make changes. 
 9. After completing the configurations settings, you can run the project against the remote cluster or perform remote debugging.
 
+## Scenarios of Remote Debugging and Remote Run
 ### Scenario 1: Perform Remote Run
 1. Click the run icon to execute the project remotely.
 
