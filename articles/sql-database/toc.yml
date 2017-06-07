@@ -249,6 +249,8 @@
       href: sql-database-control-access-aad-authentication-get-started.md
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
+    - name : Conditional access
+      href: sql-database-conditional-access.md
     - name: Always encrypted cert store
       href: sql-database-always-encrypted.md
     - name: Always encrypted key vault
