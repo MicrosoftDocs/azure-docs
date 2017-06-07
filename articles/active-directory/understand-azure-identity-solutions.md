@@ -4,6 +4,8 @@ description: Get a basic understanding of Microsoft Azure identity solution term
 keywords:
 author: jeffgilb
 manager: femila
+editor: jsnow
+ms.author: jeffgilb
 ms.date: 6/6/2017
 ms.topic: article
 ms.prod:
@@ -16,7 +18,6 @@ ms.assetid:
 #ROBOTS:
 #audience:
 #ms.devlang:
-ms.reviewer: jsnow
 #ms.suite:
 #ms.tgt_pltfrm:
 ms.custom: it-pro
