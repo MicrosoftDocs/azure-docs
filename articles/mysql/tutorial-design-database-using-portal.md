@@ -77,7 +77,7 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 In this example, the server name is *myserver4demo.mysql.database.azure.com*, and the server admin login is *myadmin@myserver4demo*.
 
 ## Connect to the server using mysql
-Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command line tool from the Azure Cloud Shell or from your own machine. Launch the Azure Cloud Shell by clicking the `>_` icon in the top right toolbar of the Azure portal and follow the prompt to log in to Azure. To run this from your own machine, be sure that the mysql tools are installed locally. In this example, the command is:
+Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line tool from the Azure Cloud Shell or from your own machine. Launch the Azure Cloud Shell by clicking the Try It button on a code block, or by clicking the `>_` icon in the top right toolbar in the Azure portal and follow the prompt to log in. To run this from your own machine, be sure that the mysql tools are installed locally. In this example, the command is:
 ```azurecli-interactive
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
@@ -146,7 +146,7 @@ Imagine you have accidentally deleted an important database table, and cannot re
    - **Location**: The region is same as the source server, and cannot be changed.
    - **Pricing tier**: The pricing tier is the same as the source server, and cannot be changed.
    
-3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, within the retention period for your service tier.
+3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server creates a new copy of the server, as of the point in time you specify. 
 
 ## Next steps
 In this tutorial, you use the Azure portal to learned how to:
