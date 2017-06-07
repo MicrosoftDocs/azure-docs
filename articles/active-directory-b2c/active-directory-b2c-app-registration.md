@@ -58,7 +58,6 @@ You can also access the blade by entering `Azure AD B2C` in **Search resources**
 > [!NOTE]
 > An **Application Secret** is an important security credential, and should be secured appropriately.
 > 
-   
 
 ## Register a web api
 1. On the B2C features blade on the Azure portal, click **Applications**.
