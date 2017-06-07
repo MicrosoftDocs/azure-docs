@@ -5,6 +5,7 @@
 ## [Understand Azure identity solutions](understand-azure-identity-solutions.md)
 ## [Preview the Azure portal experience](active-directory-preview-explainer.md)
 
+
 # Get started
 ## [Get an Azure AD tenant](active-directory-howto-tenant.md)
 ## [Sign up for Azure AD Premium](active-directory-get-started-premium.md)
@@ -13,12 +14,17 @@
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Classic portal](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
-## [FAQs](active-directory-faq.md)
-## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
+## [FAQs](active-directory-faq.md)secure-email-ems-office365-service-descriptions.md
+## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 
 # How to
 ## Plan and design
 ### [Understand Azure AD architecture](active-directory-architecture.md)
+### [Secure email policies and configurations](secure-email-introduction.md)
+#### [Recommended policies](secure-email-recommended-policies.md)
+#### [Deploy policies and configurations](secure-email-deploy-recommended-policies.md)
+#### [EMS and Office 365 service descriptions](secure-email-ems-office365-service-descriptions.md)
 ### [Deploy a hybrid identity solution](active-directory-hybrid-identity-design-considerations-overview.md)
 
 #### Determine requirements

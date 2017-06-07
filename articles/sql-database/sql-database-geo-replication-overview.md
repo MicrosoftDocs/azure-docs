@@ -74,14 +74,14 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 * **Failover group**: One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as unit in case all or some primary databases become unavailable due to an outage in the primary region.  
 * **Primary server**: A server that hosts the primary databases in the failover group.
 * **Secondary server**: A server that hosts the secondary databases in the failover group. The secondary server cannot be in the same region as the primary server.
-* **Adding databases to failover group**: You can put several databases within a server or within an elastic pool into the same failover group. If you add a standalone database to the group, it automatically creates a secondary database using the same edition using the same edition and performance level. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group.
+* **Adding databases to failover group**: You can put several databases within a server or within an elastic pool into the same failover group. If you add a standalone database to the group, it automatically creates a secondary database using the same edition and performance level. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group.
 
    > [!NOTE]
    > When adding a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server. 
    >
 
 * **Failover group read-write listener**: A DNS CNAME record that points to the current primary server URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover. 
-* **Failover Group read-only listener**: A DNS CNAME record that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules. Optionally you can specify if you want the read-only traffic to be automatically re-directed to the primary server when the secondary server is not available.
+* **Failover group read-only listener**: A DNS CNAME record that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules. Optionally you can specify if you want the read-only traffic to be automatically re-directed to the primary server when the secondary server is not available.
 * **Automatic failover policy**: By default, the failover group is configured with an automatic failover policy. The system triggers failover as soon as the failure is detected. If you want to control the failover workflow from the application, you can turn off automatic failover. 
 * **Manual failover**: You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured manual failover is required to recover databases in the failover group. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the active server to the primary region. When failover is completed the DNS records are automatically updated to ensure connectivity to the correct server.
 * **Grace period with data loss**: Because the primary and secondary databases are synchronized using asynchronous replication the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring **GracePeriodWithDataLossHours**, you can control how long the system waits before initiating the failover that is likely to result data loss. 
@@ -177,7 +177,10 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 |  | |
 
 ## Next steps
-* For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), and  [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md.
+* For sample scripts, see:
+   - [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+   - [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+   - [Configure and failover a failover group for a single database (preview)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 * To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).

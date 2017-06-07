@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 05/25/2017
 ms.author: markvi
 
 ---
@@ -33,7 +33,7 @@ It's important to know which applications can use conditional access rules, and 
 
 The following applications support conditional access for Office 365 and other Azure AD-connected service applications:
 
-| Target service | Platform | Application |
+| Target Service| Platform| Application |
 | --- | --- | --- |
 | Office 365 Exchange Online |Windows 10 |Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) |
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) |
@@ -115,7 +115,7 @@ By applying the following three rules to the AD FS relying party trust for Micro
 | OS                     | Browsers                 | Support     |
 | :--                    | :--                      | :-:         |
 | Win 10                 | IE, Edge                 | ![Check][1] |
-| Win 10                 | Chrome                   | Coming soon |
+| Win 10                 | Chrome                   | Preview     |
 | Win 8 / 8.1            | IE, Chrome               | ![Check][1] |
 | Win 7                  | IE, Chrome               | ![Check][1] |
 | iOS                    | Safari                   | ![Check][1] |
@@ -128,10 +128,15 @@ By applying the following three rules to the AD FS relying party trust for Micro
 | Mac OS                 | Safari                   | ![Check][1] |
 | Mac OS                 | Chrome                   | Coming soon |
 
+> [!NOTE]
+> For Chrome support, you must be using Windows 10 Creators Update and install the extension found [here](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+>
+>
 
 ## Next steps
 
 For more details, see [Conditional access in Azure Active Directory](active-directory-conditional-access.md)
+
 
 
 

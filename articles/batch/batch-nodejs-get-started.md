@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.workload: big-compute
-ms.date: 04/25/2017
+ms.date: 05/22/2017
 ms.author: shwetams
 ---
 
@@ -162,7 +162,7 @@ The following code snippet creates an Azure Batch pool.
 ```nodejs
 // Create a unique Azure Batch pool ID
 var poolid = "pool" + customerDetails.customerid;
-var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicated:numVms,enableAutoScale:false };
+var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicatedComputeNodes:numVms,enableAutoScale:false };
 // Creating the Pool for the specific customer
 var pool = batch_client.pool.add(poolConfig,function(error,result){
     if(error!=null){console.log(error.response)};

@@ -163,7 +163,7 @@ The payload format of the `simple` phrase result:
 ```json
 {
   "RecognitionStatus": "Success",
-  "DisplayText": "Remind me to buy 5 iPhones.",
+  "DisplayText": "Remind me to buy 5 pencils.",
   "Offset": "1236645672289",
   "Duration": "1236645672289"
 }
@@ -178,17 +178,17 @@ The payload format of the `detailed` phrase result:
   "N-Best": [
       {
         "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five iphones",
-        "ITN" : "remind me to buy 5 iphones",
-        "MaskedITN" : "remind me to buy 5 iphones",
-        "Display" : "Remind me to buy 5 iPhones.",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
       },
       {
         "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five iphones",
-        "ITN" : "rewind me to buy 5 iphones",
-        "MaskedITN" : "rewind me to buy 5 iphones",
-        "Display" : "Rewind me to buy 5 iPhones.",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }
