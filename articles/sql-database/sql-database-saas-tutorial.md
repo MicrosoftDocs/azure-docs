@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/06/2017
 ms.author: sstein
 
 ---
@@ -59,7 +59,6 @@ Deploy the Wingtip SaaS app:
     * **Resource group** - Select **Create new** and provide a **Name** and **Location**.
     * **User** - Some resources require names that are globally unique. To ensure uniqueness, each time you deploy the application provide a value to differentiate resources you create, from resources created by any other deployment of the Wingtip application. It’s recommended to use a short **User** name, such as your initials plus a number (for example, *bg1*), and then use that in the resource group name (for example, *wingtip-bg1*). The **User** parameter can only contain letters, numbers, and hyphens (no spaces). The first and last character must be a letter or a number (all lowercase is recommended).
 
-     ![template](./media/sql-database-saas-tutorial/template.png)
 
 1. **Deploy the application**.
 
@@ -70,20 +69,18 @@ Deploy the Wingtip SaaS app:
 
    ![deployment succeeded](media/sql-database-saas-tutorial/succeeded.png)
 
-## Download the Wingtip SaaS scripts
+## Download and unblock the Wingtip SaaS scripts
 
-While the application is deploying, download the source code and management scripts:
+While the application is deploying, download the source code and management scripts. 
+
+> [!IMPORTANT]
+> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run:
 
 1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
 1. Click **Clone or download**.
 1. Click **Download ZIP** and save the file.
-
-### Unblock the scripts
-
-Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run:
-
 1. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
-1. Select **Unblock**, and click **Apply**.
+1. On the **General** tab, select **Unblock**, and click **Apply**.
 1. Click **OK**.
 1. Extract the files.
 
@@ -91,7 +88,7 @@ Scripts are located in the *..\\WingtipSaaS-master\\Learning Modules* folder.
 
 ## Update the configuration file for this deployment
 
-Because the scripts need to know the resource group and user values that you set during deployment, set these values in **UserConfig.psm1**.
+Before running any scripts, set the *resource group* and *user* values in **UserConfig.psm1**. Set these variables to the values you set during deployment.
 
 1. Open ...\\Learning Modules\\*UserConfig.psm1* in the *PowerShell ISE*
 1. Update *ResourceGroupName* and *Name* with the specific values for your deployment (on lines 10 and 11 only).
