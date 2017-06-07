@@ -49,7 +49,7 @@ $Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -N
 * `-StorageAccountName` is optional. If not specified, a storage account is created with a name consisting of the registry name and a timestamp in the specified resource group.
 
 ## Assign a service principal
-Use PowerShell commands to assign an Azure Active Directory [service principal]((../azure-resource-manager/resource-group-authenticate-service-principal.md)) to a registry. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure.md) if you want.
+Use PowerShell commands to assign an Azure Active Directory [service principal](../azure-resource-manager/resource-group-authenticate-service-principal.md) to a registry. The service principal in these examples is assigned the Owner role, but you can assign [other roles](../active-directory/role-based-access-control-configure.md) if you want.
 
 ### Create a service principal
 In the following command, a new service principal is created. Specify a strong password with the `-Password` parameter.
