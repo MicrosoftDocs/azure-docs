@@ -65,5 +65,6 @@ This is an indication that there is some discrepancy between your labels and the
 
 ## Next steps
 
+* You can find many answers in the [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis).
 * Another resource is the [MSDN LUIS Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
