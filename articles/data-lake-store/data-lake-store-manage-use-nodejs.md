@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 06/06/2017
 ms.author: nitinme
 
 ---
@@ -31,7 +31,7 @@ ms.author: nitinme
 > 
 
 > [!NOTE]
-> For uploading and downloading large amount of data (large files, a large number of files, or both), we recommend that you use the [Python SDK](data-lake-store-get-started-python.md), the [.NET SDK](data-lake-store-get-started-net-sdk.md), or [Azure PowerShell](data-lake-store-get-started-powershell.md). These options have better performance as they use multiple threads to parallelize the data movement.
+> For uploading and downloading large amount of data (large files, a large number of files, or both), we recommend that you use the [Python SDK](data-lake-store-get-started-python.md), the [.NET SDK](data-lake-store-get-started-net-sdk.md), [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md), or [Azure PowerShell](data-lake-store-get-started-powershell.md). These options have better performance as they use multiple threads to parallelize the data movement.
 > 
 > 
 
