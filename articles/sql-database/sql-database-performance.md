@@ -27,6 +27,7 @@ To review your database performance, use the **Performance** tile on the Overvie
 
 In the "Support + troubleshooting" section, you can use the following pages:
 
+
 1. [Performance overview](#performance-overview) to monitor performance of your database. 
 2. [Performance recommendations](#sql-database-advisor) to find performance recommendations that can improve performance of your workload.
 3. [Query Performance Insight](#query-performance-insight) to find top resource consuming queries.
@@ -62,6 +63,9 @@ Azure SQL Databases can automatically tune database performance by applying [per
 * Deeper insight into your databases resource (DTU) consumption. 
 * The top CPU consuming queries, which can potentially be tuned for improved performance. 
 * The ability to drill down into the details of a query. 
+
+  ![performance dashboard](./media/sql-database-query-performance/performance.png)
+
 
 ## Additional resources
 * [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
