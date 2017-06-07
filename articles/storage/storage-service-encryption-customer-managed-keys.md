@@ -33,7 +33,7 @@ This feature is currently in preview. To use this feature, you need to create a 
 
 To participate in the preview please contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com). We will provide a special link to participate in the preview.
 
-To learn more, please refer to the [FAQ]((#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest)).
+To learn more, please refer to the [FAQ](#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
 
 > [!IMPORTANT]
 > You must sign up for the preview prior to following the steps in this article. Without preview access, you will not be able to enable this feature in the portal.
