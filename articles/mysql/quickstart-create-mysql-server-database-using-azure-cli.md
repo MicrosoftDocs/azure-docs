@@ -118,7 +118,6 @@ Type the next commands:
  mysql> status
 ```
 If everything goes well, the command-line tool should output the following text:
-
 ```dos
 C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 Enter password: ***********
@@ -167,6 +166,8 @@ mysql>
 
 2.	In the **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
 
+   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+
 | **Setting** | **Suggested Value** | **Description** |
 |---|---|---|
 |	Connection Name | My Connection | Specify a label for this connection (this can be anything) |
@@ -176,13 +177,10 @@ mysql>
 | Username | myadmin@myserver4demo | The server admin login you previously noted. |
 | Password | **** | Use the admin account password you configured earlier. |
 
-   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
-
 Click **Test Connection** to test if all parameters are correctly configured.
 Now, you can click the connection to successfully connect to the server.
 
 ## Clean up resources
-
 If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
 
 ```azurecli-interactive
