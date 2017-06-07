@@ -1,4 +1,4 @@
-- name: Azure Stack Documentation
+- name: Azure Stack documentation
   href: index.yml
 - name: Overview
   items:
