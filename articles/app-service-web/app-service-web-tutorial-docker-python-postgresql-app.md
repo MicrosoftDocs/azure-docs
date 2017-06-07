@@ -49,14 +49,14 @@ psql postgres
 
 If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the steps at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
-Create a database called `eventregistration` and set up a separate database user named `manager` with password `supersecretpass`.
+Create a database called *eventregistration* and set up a separate database user named *manager* with password *supersecretpass*.
 
 ```bash
 CREATE DATABASE eventregistration;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
-Type `\q` to exit the PostgreSQL client. 
+Type *\q* to exit the PostgreSQL client. 
 
 <a name="step2"></a>
 
@@ -68,7 +68,7 @@ In this step, you set up the local Python Flask project.
 
 Open the terminal window, and `CD` to a working directory.  
 
-Run the following commands to clone the sample repository and go to the `0.1-initialapp` release.
+Run the following commands to clone the sample repository and go to the *0.1-initialapp* release.
 
 ```bash
 git clone https://github.com/Azure-Samples/docker-flask-postgres.gi
@@ -217,11 +217,11 @@ CREATE USER manager WITH PASSWORD 'supersecretpass';
 GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 ```
 
-Type `\q` to exit the PostgreSQL client.
+Type *\q* to exit the PostgreSQL client.
 
 ### Test the application locally against the Azure PostgreSQL database 
 
-Going back now to the `app` folder of the cloned Github repository, you can run the Python Flask application by updating the database environment variables.
+Going back now to the *app* folder of the cloned Github repository, you can run the Python Flask application by updating the database environment variables.
 
 ```bash
 FLASK_APP=app.py;DBHOST="<postgresql_name>.postgres.database.azure.com";DBUSER="manager@<postgresql_name>";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
@@ -256,7 +256,7 @@ Docker displays a confirmation that it successfully created the container.
 Successfully built 7548f983a36b
 ```
 
-Add database environment variables to an environment variable file `db.env`. The app will connect to the PostgreSQL production database in Azure.
+Add database environment variables to an environment variable file *db.env*. The app will connect to the PostgreSQL production database in Azure.
 
 ```
 DBHOST="<postgresql_name>.postgres.database.azure.com"
@@ -363,7 +363,7 @@ Create an App Service plan with the [az appservice plan create](/cli/azure/appse
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-The following example creates a Linux-based App Service plan named `myAppServicePlan` using the S1 pricing tier:
+The following example creates a Linux-based App Service plan named *myAppServicePlan* using the S1 pricing tier:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
@@ -409,7 +409,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ### Create a web app
 
-Create a web app in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#create) command. 
+Create a web app in the *myAppServicePlan* App Service plan with the [az webapp create](/cli/azure/webapp#create) command. 
 
 The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use  to create the web app. 
 
@@ -442,7 +442,7 @@ Earlier in the tutorial, you defined environment variables to connect to your Po
 
 In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) command. 
 
-The following example specifies the database connection details as app settings. It also uses the `PORT` variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
+The following example specifies the database connection details as app settings. It also uses the *PORT* variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
 
 ```azurecli-interactive
 az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
@@ -482,7 +482,7 @@ You see previously registered guests that were saved to the Azure production dat
 
 In this step, you add the number of attendees to each event registration by updating the Guest model.
 
-Check out the `0.2-migration` release with the following git command:
+Check out the *0.2-migration* release with the following git command:
 
 ```bash
 git checkout tags/0.2-migration
