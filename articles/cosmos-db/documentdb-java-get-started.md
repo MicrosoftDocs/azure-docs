@@ -97,7 +97,7 @@ Your Azure Cosmos DB [database](documentdb-resources.md#databases) can be create
 
 ## <a id="CreateColl"></a>Step 5: Create a collection
 > [!WARNING]
-> **createCollection** creates a new collection with reserved throughput, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+> **createCollection** creates a new collection with reserved throughput, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
