@@ -118,6 +118,7 @@ Type the next commands:
  mysql> status
 ```
 If everything goes well, the command-line tool should output the following text:
+
 ```dos
 C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 Enter password: ***********
