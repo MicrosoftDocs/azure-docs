@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/5/2017
+ms.date: 6/6/2017
 ms.author: raiye
 
 ---
@@ -469,9 +469,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4019214]: http://support.microsoft.com/kb/4019214
 [4018271]: http://support.microsoft.com/kb/4018271
 [4010323]: http://support.microsoft.com/kb/4010323
-[4022344]: http://support.microsoft.com/kb/4022344
-[4022345]: http://support.microsoft.com/kb/4022345
-[4021279]: http://support.microsoft.com/kb/4021279
 [4012864]: http://support.microsoft.com/kb/4012864
 [4014565]: http://support.microsoft.com/kb/4014565
 [4014559]: http://support.microsoft.com/kb/4014559
@@ -487,6 +484,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
+[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217
