@@ -1,5 +1,5 @@
 ---
-title: Query data from the by Azure Time Series Insights environment using C# | Microsoft Docs
+title: Query data from the by Azure Time Series Insights environment by using C# | Microsoft Docs
 description: This tutorial covers how to query data from the Time Series Insights environment by using C#
 keywords:
 services: time-series-insights
@@ -149,7 +149,7 @@ namespace TimeSeriesInsightsQuerySample
             // 4. Get aggregates for the environment:
             //    Group by event source name and calculate the number of events in each group.
             {
-                // Assume that data for the whole availablility range is requested.
+                // Assume that data for the whole availability range is requested.
                 DateTime from = fromAvailabilityTimestamp;
                 DateTime to = toAvailabilityTimestamp;
 
@@ -174,7 +174,7 @@ namespace TimeSeriesInsightsQuerySample
 
                 var webSocket = new ClientWebSocket();
 
-                // Establish the web socket connection.
+                // Establish the WebSocket connection.
                 Uri uri = new UriBuilder("wss", environmentFqdn)
                 {
                     Path = "aggregates",
@@ -190,7 +190,7 @@ namespace TimeSeriesInsightsQuerySample
                     endOfMessage: true,
                     cancellationToken: CancellationToken.None);
 
-                // Read response messages from the web socket.
+                // Read response messages from WebSocket.
                 JObject responseContent = null;
                 using (webSocket)
                 {
@@ -199,7 +199,7 @@ namespace TimeSeriesInsightsQuerySample
                         string message;
                         using (var ms = new MemoryStream())
                         {
-                            // Write from the socket to the memory stream.
+                            // Write from WebSocket to the memory stream.
                             const int bufferSize = 16 * 1024;
                             var temporaryBuffer = new byte[bufferSize];
                             while (true)
@@ -215,7 +215,7 @@ namespace TimeSeriesInsightsQuerySample
                                 }
                             }
 
-                            // Reset position to the beginning to allow reads.
+                            // Reset the position to the beginning to allow reads.
                             ms.Position = 0;
 
                             using (var sr = new StreamReader(ms))
@@ -247,7 +247,7 @@ namespace TimeSeriesInsightsQuerySample
                         }
                     }
 
-                    // Close web socket connection.
+                    // Close the WebSocket connection.
                     if (webSocket.State == WebSocketState.Open)
                     {
                         await webSocket.CloseAsync(

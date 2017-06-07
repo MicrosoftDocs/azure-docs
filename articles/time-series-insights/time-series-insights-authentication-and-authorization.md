@@ -27,7 +27,7 @@ This section explains how to configure an application to access the Time Series 
 
 When you have an application that needs to access Time Series Insights, you must set up an Azure Active Directory application and assign the data access policies in the Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
 
-* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to exactly what the app needs to do. For example, the application can only be allowed to read data in a particular Time Series Insights environment.
+* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to exactly what the app needs to do. For example, you can allow the app to only read data in a particular Time Series Insights environment.
 * You don't have to change the app's credentials if your responsibilities change.
 * You can use a certificate or an application key to automate authentication when you're running an unattended script.
 
@@ -100,9 +100,9 @@ Here are the detailed steps:
 
 ## Next steps
 
-* Use the application ID and key in your application. For sample  code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
+Use the application ID and key in your application. For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
 
 ## See also
 
 * [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) for the full Query API reference
-* [How to create a service principal in the Azure portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Create a service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
