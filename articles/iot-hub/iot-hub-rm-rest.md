@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 05/04/2017
 ms.author: dobett
 
 ---
@@ -30,18 +30,18 @@ You can use the [IoT Hub resource provider REST API][lnk-rest-api] to create and
 
 To complete this tutorial, you need the following:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 * [Azure PowerShell 1.0][lnk-powershell-install] or later.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## Prepare your Visual Studio project
-1. In Visual Studio, create a Visual C# Windows project using the **Console Application** project template. Name the project **CreateIoTHubREST**.
+1. In Visual Studio, create a Visual C# Windows Classic Desktop project using the **Console App (.NET Framework)** project template. Name the project **CreateIoTHubREST**.
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
-3. In NuGet Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.ResourceManager**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+3. In NuGet Package Manager, check **Include prerelease**, and on the **Browse** page search for **Microsoft.Azure.Management.ResourceManager**. Select the package, click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
-5. In Program.cs, replace the existing **using** statements with the following:
+5. In Program.cs, replace the existing **using** statements with the following code:
    
     ```
     using System;
@@ -81,13 +81,13 @@ Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub 
    
     }
     ```
-2. Add the following code to the **CreateIoTHub** method to create an **HttpClient** object with the authentication token in the headers:
+2. Add the following code to the **CreateIoTHub** method. This code creates an **HttpClient** object with the authentication token in the headers:
    
     ```
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
-3. Add the following code to the **CreateIoTHub** method to describe the IoT hub to create and generate a JSON representation. For the current list of locations that support IoT Hub see [Azure Status][lnk-status]:
+3. Add the following code to the **CreateIoTHub** method. This code describes the IoT hub to create and generates a JSON representation. For the current list of locations that support IoT Hub see [Azure Status][lnk-status]:
    
     ```
     var description = new
@@ -104,7 +104,7 @@ Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub 
    
     var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
-4. Add the following code to the **CreateIoTHub** method to submit the REST request to Azure, check the response, and retrieve the URL you can use to monitor the state of the deployment task:
+4. Add the following code to the **CreateIoTHub** method. This code submits the REST request to Azure, checks the response, and retrieves the URL you can use to monitor the state of the deployment task:
    
     ```
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
@@ -119,7 +119,7 @@ Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub 
    
     var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
-5. Add the following code to the end of the **CreateIoTHub** method to use the **asyncStatusUri** address retrieved in the previous step to wait for the deployment to complete:
+5. Add the following code to the end of the **CreateIoTHub** method. This code uses the **asyncStatusUri** address retrieved in the previous step to wait for the deployment to complete:
    
     ```
     string body;
@@ -130,7 +130,7 @@ Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub 
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
     } while (body == "{\"status\":\"Running\"}");
     ```
-6. Add the following code to the end of the **CreateIoTHub** method to retrieve the keys of the IoT hub you created and print them to the console:
+6. Add the following code to the end of the **CreateIoTHub** method. This code retrieves the keys of the IoT hub you created and prints them to the console:
    
     ```
     var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
@@ -163,24 +163,24 @@ Now you have deployed an IoT hub using the resource provider REST API, you may w
 * Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
 * Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
-To learn more about developing for IoT Hub, see the following:
+To learn more about developing for IoT Hub, see the following articles:
 
 * [Introduction to C SDK][lnk-c-sdk]
 * [Azure IoT SDKs][lnk-sdks]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
-[lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md

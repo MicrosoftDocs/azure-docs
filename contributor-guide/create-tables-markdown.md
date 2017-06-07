@@ -9,6 +9,15 @@ You can justify the columns with colons:
     |:-----| -  this is left aligned
     |:-----:| - this is centered
 
+You can create a table without a header. For example, to create a multi-column list:
+
+```
+|   |   |
+| - | - |
+| This | table |
+| has no | header |
+```
+
 If you use HTML tables and your markdown is not rendering between the two tables, you need to add a closing BR tag after the closing TABLE tag.
 
 ![2]

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 03/27/2017
 ms.author: pratshar
 
 ---
 # Designing your network for disaster recovery
+
 This article is directed to IT professionals who are responsible for architecting, implementing, and supporting business continuity and disaster recovery (BCDR) infrastructure, and who want to leverage Microsoft Azure Site Recovery (ASR) to support and enhance their BCDR services. This paper discusses practical considerations for System Center Virtual Machine Manager server deployment, the pros and cons of stretched subnets vs. subnet failover, and how to structure disaster recovery to virtual sites in Microsoft Azure.
 
 ## Overview
@@ -31,11 +32,11 @@ Crucial for BCDR planning, Recovery Time Objective (RTO) and Recovery Point Obje
 
 Failover is made possible by ASR which initially copies designated virtual machines from the primary data center to the secondary data center or to Azure (depending on the scenario), and then periodically refreshes the replicas. During infrastructure planning, network design should be considered as potential bottleneck that can prevent you from meeting company RTO and RPO objectives.  
 
-When administrators are planning to deploy a disaster recovery solution, one of the key questions in their minds is how the virtual machine would be reachable after the failover is completed. ASR allows the administrator to choose the network to which a virtual machine would be connected to after failover. If the primary site is managed by a VMM server then this is achieved using Network Mapping. See [Prepare for network mapping](site-recovery-network-mapping.md) for more details.
+When administrators are planning to deploy a disaster recovery solution, one of the key questions in their minds is how the virtual machine would be reachable after the failover is completed. ASR allows the administrator to choose the network to which a virtual machine would be connected to after failover. If the primary site is managed by a VMM server then this is achieved using Network Mapping. See [Prepare for network mapping](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) for more details.
 
 While designing the network for the recovery site, the administrator has two choices:
 
-* Use a different IP address range for the network at recovery site. In this scenario the virtual machine after failover will get a new IP address and the administrator would have to do a DNS update. Read more about how to do the DNS update [here](site-recovery-vmm-to-vmm.md#step-7-test-your-deployment) 
+* Use a different IP address range for the network at recovery site. In this scenario the virtual machine after failover will get a new IP address and the administrator would have to do a DNS update. Read more [here](site-recovery-test-failover-vmm-to-vmm.md#preparing-infrastructure-for-test-failover)
 * Use same IP address range for the network at the recovery site. In certain scenarios administrators prefer to retain the IP addresses that they have on the primary site even after the failover. In a normal scenario an administrator would have to update the routes to indicate the new location of the IP addresses. But in the scenario where a stretched VLAN is deployed between the primary and the recovery sites, retaining the IP addresses for the virtual machines becomes an attractive option. Keeping the same IP addresses simplifies the recovery process by taking away any network related post-failover steps.
 
 When administrators are planning to deploy a disaster recovery solution, one of the key questions in their mind is how the applications will be reachable after the failover is completed. Modern applications are almost always dependent on networking to some degree, so physically moving a service from one site to another represents a networking challenge. There are two main ways that this problem is dealt with in disaster recovery solutions. The first approach is to maintain fixed IP addresses. Despite the services moving and the hosting servers being in different physical locations, applications take the IP address configuration with them to the new location. The second approach involves completely changing the IP address during the transition into the recovered site. Each approach has several implementation variations which are summarized below.
@@ -160,4 +161,4 @@ After failing-over the replica virtual machine might have an IP address that isn
 The [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) blog post explains how to setup the required Azure networking infrastructure when retaining IP addresses isn’t a requirement. It starts with describing the application and then look at how to setup networking on-premises and on Azure and then concluding with how to do a test failover and a planned failover.
 
 ## Next steps
-[Learn](site-recovery-network-mapping.md) how Site Recovery maps source and target networks when a VMM server is being used to manage the primary site.
+[Learn](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) how Site Recovery maps source and target networks when a VMM server is being used to manage the primary site.

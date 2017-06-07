@@ -1,9 +1,15 @@
-1. Copy the relevant install on to the server and launch the installer.
-2. In **Before you begin**, select **Mobility service**.
+1. Copy the installation to the server, and then open the installer.
+2. On the **Installation Option** blade, select **Install Mobility Service**.
 
-    ![Mobility service](./media/site-recovery-install-mob-svc-gui/mobility3.png)
-3. In **Configuration Server Details**, specify the IP address of the configuration server, and the configuration server passphrase.
+    ![Mobility Service Install Option Page ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. Select the install location  and click **Install** to being the installation procedure.
 
-    ![Mobility service](./media/site-recovery-install-mob-svc-gui/mobility6.png)
-4. In **Install Location**, keep the default settings, and click **Next** to begin installation.
-5. In **Installation Progress**, monitor installation and restart the machine if prompted. After installing the service, it can take around 15 minutes for status to update in the portal.
+    ![Mobility Service Install Location Page ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. You can use **Installation Progress** page to monitor the installer's progress.
+    ![Mobility Service Install Progress ](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+
+5. Once installation is complete, click the **Proceed to Configuration** button to register the Mobility Service with your Configuration server.
+    ![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+
+6. Click on the **Register** button to complete the registration.
+    ![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility5.png)

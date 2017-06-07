@@ -3,7 +3,7 @@ title: How to enable cross-app SSO on iOS using ADAL | Microsoft Docs
 description: 'How to use the features of the ADAL SDK to enable Single Sign On across your applications. '
 services: active-directory
 documentationcenter: ''
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: ''
 
@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/07/2017
 ms.author: brandwe
+ms.custom: aaddev
 
 ---
 # How to enable cross-app SSO on iOS using ADAL
 Providing Single Sign-On (SSO) so that users only need to enter their credentials once and have those credentials automatically work across applications is now expected by customers. The difficulty in entering their username and password on a small screen, often times combined with an additional factor (2FA) like a phone call or a texted code, results in quick dissatisfaction if a user has to do this more than one time for your product.
 
-In addition, if you leverage an identity platform that other applications may use such as Microsoft Accounts or a work account from Office365, customers expect that those credentials to be available to use across all their applications no matter the vendor.
+In addition, if you apply an identity platform that other applications may use such as Microsoft Accounts or a work account from Office365, customers expect that those credentials to be available to use across all their applications no matter the vendor.
 
-The Microsoft Identity platform, along with our Microsoft Identity SDKs, does all of this hard work for you and gives you the ability to delight your customers with SSO either within your own suite of applications or, as with our broker capability and Authenticator applications, across the entire device.
+The Microsoft Identity platform, along with our Microsoft Identity SDKs, does all this hard work for you and gives you the ability to delight your customers with SSO either within your own suite of applications or, as with our broker capability and Authenticator applications, across the entire device.
 
 This walkthrough will tell you how to configure our SDK within your application to provide this benefit to your customers.
 
@@ -33,13 +34,13 @@ This walkthrough applies to:
 * Azure Active Directory B2B
 * Azure Active Directory Conditional Access
 
-Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) as well as have integrated your application with the [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+The document preceding assumes you know how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) and integrated your application with the [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## SSO Concepts in the Microsoft Identity Platform
 ### Microsoft Identity Brokers
-Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors as well as allows for special enhanced features that require a single secure place from where to validate credentials. We call these **brokers**. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
+Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors and allows for special enhanced features that require a single secure place from where to validate credentials. We call these **brokers**. On iOS and Android these brokers are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows, this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
 
-To understand how we use these brokers and how your customers might see them in their login flow for the Microsoft Identity platform read on for more information.
+For more information on how we use these brokers and how your customers might see them in their login flow for the Microsoft Identity platform read on.
 
 ### Patterns for logging in on mobile devices
 Access to credentials on devices follow two basic patterns for the Microsoft Identity platform:
@@ -48,7 +49,7 @@ Access to credentials on devices follow two basic patterns for the Microsoft Ide
 * Broker assisted logins
 
 #### Non-broker assisted logins
-Non-broker assisted logins are login experiences that happen inline with the application and use the local storage on the device for that application. This storage may be shared across applications but the credentials are tightly bound to the app or suite of apps using that credential. This is the experience you've most likely experienced in many mobile applications where you enter a username and password within the application itself.
+Non-broker assisted logins are login experiences that happen inline with the application and use the local storage on the device for that application. This storage may be shared across applications but the credentials are tightly bound to the app or suite of apps using that credential. You've most likely experienced this in many mobile applications when you enter a username and password within the application itself.
 
 These logins have the following benefits:
 
@@ -58,9 +59,9 @@ These logins have the following benefits:
 
 These logins have the following drawbacks:
 
-* User cannot experience single-sign on across all apps that use a Microsoft Identity, only across those Microsoft Identities that are your application owns and have configured.
-* Your application can not be used with more advanced business features such as Conditional Access or use the InTune suite of products.
-* Your application can't support certificate based authentication for business users.
+* User cannot experience single-sign on across all apps that use a Microsoft Identity, only across those Microsoft Identities that your application has configured.
+* Your application cannot be used with more advanced business features such as Conditional Access or use the InTune suite of products.
+* Your application can't support certificate-based authentication for business users.
 
 Here is a representation of how the Microsoft Identity SDKs work with the shared storage of your applications to enable SSO:
 
@@ -71,7 +72,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the shared
 |            | |            |  |             |
 |            | |            |  |             |
 +------------+ +------------+  +-------------+
-| Azure SDK  | | Azure SDK  |  | Azure SDK   |
+| ADAL SDK  |  |  ADAL SDK  |  |  ADAK SDK   |
 +------------+-+------------+--+-------------+
 |                                            |
 |            App Shared Storage              |
@@ -79,23 +80,27 @@ Here is a representation of how the Microsoft Identity SDKs work with the shared
 ```
 
 #### Broker assisted logins
-Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that leverage the Microsoft Identity platform. This means that your applications will rely on the broker in order to sign users in. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Azure Authenticator application on iOS. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
-The experience varies by platform and can sometimes be disruptive to users if not managed correctly. You're probably most familiar with this pattern if you have the Facebook application installed and use Facebook Login functionality in another application. The Microsoft Identity platform leverages the same pattern.
+Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that apply the Microsoft Identity platform. This means that your applications rely on the broker to sign users in. On iOS and Android these brokers are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Microsoft Authenticator application on iOS. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
+The experience varies by platform and can sometimes be disruptive to users if not managed correctly. You're probably most familiar with this pattern if you have the Facebook application installed and use Facebook Connect from another application. The Microsoft Identity platform uses the same pattern.
 
-For iOS this leads to a "transition" animation where your application is sent to the background while the Azure Authenticator applications comes to the foreground for the user to select which account they would like to sign in with.  
+For iOS this leads to a "transition" animation where your application is sent to the background while the Microsoft Authenticator applications comes to the foreground for the user to select which account they would like to sign in with.  
 
 For Android and Windows the account chooser is displayed on top of your application which is less disruptive to the user.
 
 #### How the broker gets invoked
-If a compatible broker is installed on the device, like the Azure Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This could be a personal Microsoft Account, a work or school account, or an account that you provide and host in Azure using our B2C and B2B products. By using extremely secure algorithms and encryption we ensure that the credentials are asked for and delivered back to your application in a secure manner. The exact technical detail of these mechanisms is not published but have been developed with collaboration by Apple and Google.
+If a compatible broker is installed on the device, like the Microsoft Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This account could be a personal Microsoft Account, a work or school account, or an account that you provide and host in Azure using our B2C and B2B products. 
 
-**The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of leveraging SSO credentials that the user may have already added on the device as well as prevents their application from being used with business features Microsoft provides its customers such as Conditional Access, Intune Management capabilities, and certificate based authentication.
+ #### How we ensure the application is valid
+ 
+ The need to ensure the identity of an application call the broker is crucial to the security we provide in broker assisted logins. Neither iOS nor Android enforces unique identifiers that are valid only for a given application, so malicious applications may "spoof" a legitimate application's identifier and receive the tokens meant for the legitimate application. To ensure we are always communicating with the right application at runtime, we ask the developer to provide a custom redirectURI when registering their application with Microsoft. **How developers should craft this redirect URI is discussed in detail below.** This custom redirectURI contains the Bundle ID of the application and is ensured to be unique to the application by the Apple App Store. When an application calls the broker, the broker asks the iOS operating system to provide it with the Bundle ID that called the broker. The broker provides this Bundle ID to Microsoft in the call to our identity system. If the Bundle ID of the application does not match the Bundle ID provided to us by the developer during registration, we will deny access to the tokens for the resource the application is requesting. This check ensures that only the application registered by the developer receives tokens.
+
+**The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of using SSO credentials that the user may have already added on the device and prevents their application from being used with business features Microsoft provides its customers such as Conditional Access, Intune Management capabilities, and certificate-based authentication.
 
 These logins have the following benefits:
 
 * User experiences SSO across all their applications no matter the vendor.
-* Your application can leverage more advanced business features such as Conditional Access or use the InTune suite of products.
-* Your application can support certificate based authentication for business users.
+* Your application can use more advanced business features such as Conditional Access or use the InTune suite of products.
+* Your application can support certificate-based authentication for business users.
 * Much more secure sign-in experience as the identity of the application and the user are verified by the broker application with additional security algorithms and encryption.
 
 These logins have the following drawbacks:
@@ -132,7 +137,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
 
 ## Enabling cross-app SSO using ADAL
-Here we'll use the ADAL iOS SDK to:
+Here we use the ADAL iOS SDK to:
 
 * Turn on non-broker assisted SSO for your suite of apps
 * Turn on support for broker-assisted SSO
@@ -274,10 +279,10 @@ Your redirect URI must be in the proper form of:
 
 ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-This Redirect URI needs to be specified in your app registration using the [Azure classic portal](https://manage.windowsazure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
+This Redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
 
 ##### Step 3a: Add a redirect URI in your app and dev portal to support certificate based authentication
-To support cert based authentication a second "msauth"  needs to be registered in your application and the [Azure classic portal](https://manage.windowsazure.com/) to handle certificate authentication if you wish to add that support in your application.
+To support cert based authentication a second "msauth"  needs to be registered in your application and the [Azure portal](https://portal.azure.com/) to handle certificate authentication if you wish to add that support in your application.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 

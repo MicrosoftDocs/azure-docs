@@ -9,192 +9,216 @@ editor: tysonn
 
 ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 05/15/2017
 ms.author: tomfitz
 
 ---
 # Deploy resources with Resource Manager templates and Azure CLI
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [Azure CLI](resource-group-template-deploy-cli.md)
-> * [Portal](resource-group-template-deploy-portal.md)
-> * [REST API](resource-group-template-deploy-rest.md)
-> 
-> 
 
-This topic explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.  Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+This topic explains how to use Azure CLI 2.0 with Resource Manager templates to deploy your resources to Azure. If you are not familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).  
 
-> [!TIP]
-> For help with debugging an error during deployment, see:
-> 
-> * [View deployment operations](resource-manager-deployment-operations.md) to learn about getting information that helps you troubleshoot your error
-> * [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
-> 
-> 
+The Resource Manager template you deploy can either be a local file on your machine, or an external file that is located in a repository like GitHub. The template you deploy in this article is available in the [Sample template](#sample-template) section, or as a [storage account template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-## Quick steps to deployment
-To quickly get started with deployment, use the following commands:
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
+<a id="deploy-local-template" />
+
+## Deploy a template from your local machine
+
+When deploying resources to Azure, you:
+
+1. Log in to your Azure account
+2. Create a resource group that serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It cannot end in a period.
+3. Deploy to the resource group the template that defines the resources to create
+
+A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU. 
+
+The following example creates a resource group, and deploys a template from your local machine:
+
+```azurecli
+az login
+
+az group create --name ExampleGroup --location "Central US"
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
 ```
-azure group create -n examplegroup -l "West US"
-azure group deployment create -f "c:\MyTemplates\example.json" -e "c:\MyTemplates\example.params.json" -g examplegroup -n exampledeployment
+
+The deployment can take a few minutes to complete. When it finishes, you see a message that includes the result:
+
+```azurecli
+"provisioningState": "Succeeded",
 ```
 
-These commands create a resource group, and deploy a template to that resource group. The template file and parameter file are both local files. If that works for you, you have everything you need to deploy resources. However, there are more options available to you for specifying the resources to deploy. The rest of this article describes all the options available to you during deployment. 
+## Deploy a template from an external source
+
+Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
+
+To deploy an external template, use the **template-uri** parameter. Use the URI in the example to deploy the sample template from GitHub.
+   
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+```
+
+The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template should not include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you do not want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
+
+## Parameter files
+
+Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be in the following format:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+     "storageAccountType": {
+         "value": "Standard_GRS"
+     }
+  }
+}
+```
+
+Notice that the parameters section includes a parameter name that matches the parameter defined in your template (storageAccountType). The parameter file contains a value for the parameter. This value is automatically passed to the template during deployment. You can create multiple parameter files for different deployment scenarios, and then pass in the appropriate parameter file. 
+
+Copy the preceding example and save it as a file named `storage.parameters.json`.
+
+To pass a local parameter file, use `@` to specify a local file named storage.parameters.json.
+
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters @storage.parameters.json
+```
+
+## Test a template deployment
+
+To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#validate). 
+
+```azurecli
+az group deployment validate \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters @storage.parameters.json
+```
+
+If no errors are detected, the command returns information about the test deployment. In particular, notice that the **error** value is null.
+
+```azurecli
+{
+  "error": null,
+  "properties": {
+      ...
+```
+
+If an error is detected, the command returns an error message. For example, attempting to pass an incorrect value for the storage account SKU, returns the following error:
+
+```azurecli
+{
+  "error": {
+    "code": "InvalidTemplate",
+    "details": null,
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
+      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
+    "target": null
+  },
+  "properties": null
+}
+```
+
+If your template has a syntax error, the command returns an error indicating it could not parse the template. The message indicates the line number and position of the parsing error.
+
+```azurecli
+{
+  "error": {
+    "code": "InvalidTemplate",
+    "details": null,
+    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
+      \". Path 'variables', line 31, position 3.'.",
+    "target": null
+  },
+  "properties": null
+}
+```
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-## Deploy
-If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
+To use complete mode, use the `mode` parameter:
 
-1. Log in to your Azure account. After providing your credentials, the command returns the result of your login.
-   
-   ```
-   azure login
-   ```
-2. If you have multiple subscriptions, provide the subscription ID you wish to use for deployment.
-   
-   ```
-   azure account set <YourSubscriptionNameOrId>
-   ```
-4. When deploying a template, you must specify a resource group that will contain the deployed resources. If you have an existing resource group that you wish to deploy to, you can skip this step and use that resource group. 
-   
-     To create a resource group, provide a name and location for your resource group. You provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
-   
-   ```
-   azure group create -n ExampleResourceGroup -l "West US"
-   ```
+```azurecli
+az group deployment create \
+    --name ExampleDeployment \
+    --mode Complete \
+    --resource-group ExampleGroup \
+    --template-file storage.json \
+    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+```
 
-     A summary of the new resource group is returned.
-   
-5. Validate your deployment before executing it by running the **azure group template validate** command. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
-   
-   ```
-   azure group template validate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
-   ```
-6. To deploy resources to your resource group, run the **azure group deployment create** command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template, and any other parameters needed for your scenario. If the **mode** parameter is not specified, the default value of **Incremental** is used. To run a complete deployment, set **mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that are not in your template.
-   
-     To deploy a local template, use the **template-file** parameter:
-   
-   ```
-   azure group deployment create --resource-group examplegroup --template-file "c:\MyTemplates\example.json"
-   ```
-   
-     To deploy an external template, use **template-uri** parameter:
-   
-   ```
-   azure group deployment create --resource-group examplegroup --template-uri "https://raw.githubusercontent.com/exampleuser/MyTemplates/master/example.json"
-   ```
-   
-     The preceding two examples do not include parameter values. You learn about the options for passing parameter values in the [Parameters](#parameters) section. For now, you are prompted to provide parameter values with the following syntax:
+## Sample template
 
-   ```
-   info:    Executing command group deployment create
-   info:    Supply values for the following parameters
-   firstParameters:  <type here>
-   ```
+The following template is used for the examples in this topic. Copy and save it as a file named storage.json. To understand how to create this template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).  
 
-      After the resources have been deployed, you see a summary of the deployment. The summary includes a **ProvisioningState**, which indicates whether the deployment succeeded.
-
-   ```
-   + Initializing template configurations and parameters
-   + Creating a deployment
-   info:    Created template deployment "example"
-   + Waiting for deployment to complete
-   +
-   +
-   data:    DeploymentName     : example
-   data:    ResourceGroupName  : examplegroup
-   data:    ProvisioningState  : Succeeded
-   ```
-7. If you want to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **debug-setting** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
-   
-   ```
-   azure group deployment create --debug-setting All -f <PathToTemplate> -e <PathToParameterFile> -g examplegroup -n exampleDeployment
-   ```
-
-## Deploy template from storage with SAS token
-You can add your templates to a storage account and link to them during deployment with a SAS token.
-
-> [!IMPORTANT]
-> By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
-> 
-> 
-
-### Add private template to storage account
-The following steps set up a storage account for templates:
-
-1. Create a resource group.
-   
-   ```
-   azure group create -n "ManageGroup" -l "westus"
-   ```
-2. Create a storage account. The storage account name must be unique across Azure, so provide your own name for the account.
-   
-   ```
-   azure storage account create -g ManageGroup -l "westus" --sku-name LRS --kind Storage storagecontosotemplates
-   ```
-3. Set variables for the storage account and key.
-   
-   ```
-   export AZURE_STORAGE_ACCOUNT=storagecontosotemplates
-   export AZURE_STORAGE_ACCESS_KEY={storage_account_key}
-   ```
-4. Create a container. The permission is set to **Off** which means the container is only accessible to the owner.
-   
-   ```
-   azure storage container create --container templates -p Off 
-   ```
-5. Add your template to the container.
-   
-   ```
-   azure storage blob upload --container templates -f c:\MyTemplates\azuredeploy.json
-   ```
-
-### Provide SAS token during deployment
-To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
-
-1. Create a SAS token with read permissions and an expiry time to limit access. Set the expiry time to allow enough time to complete the deployment. Retrieve the full URI of the template including the SAS token.
-   
-   ```
-   expiretime=$(date -I'minutes' --date "+30 minutes")
-   fullurl=$(azure storage blob sas create --container templates --blob azuredeploy.json --permissions r --expiry $expiretimetime --json  | jq ".url")
-   ```
-2. Deploy the template by providing the URI that includes the SAS token.
-   
-   ```
-   azure group deployment create --template-uri $fullurl -g ExampleResourceGroup
-   ```
-
-For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-
-## Parameters
-
-You have the following options for providing parameter values: 
-   
-- Use inline parameters. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The following example shows the parameters with escape characters.
-
-   ```   
-   azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
-   ```
-- Use a parameter file.
-
-  ```    
-  azure group deployment create -f "c:\MyTemplates\example.json" -e "c:\MyTemplates\example.params.json" -g ExampleResourceGroup -n ExampleDeployment
-  ```
-      
-
-[!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "2016-01-01",
+      "location": "[resourceGroup().location]",
+      "sku": {
+          "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "Storage", 
+      "properties": {
+      }
+    }
+  ],
+  "outputs": {
+      "storageAccountName": {
+          "type": "string",
+          "value": "[variables('storageAccountName')]"
+      }
+  }
+}
+```
 
 ## Next steps
-* For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
-* For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
-* For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+* The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
+* For a complete sample script that deploys a template, see [Resource Manager template deployment script](resource-manager-samples-cli-deploy.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
-* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
-

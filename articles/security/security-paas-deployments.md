@@ -3,9 +3,9 @@ title: Securing PaaS deployments | Microsoft Docs
 description: " Understand the security advantages of PaaS versus other cloud service models and learn recommended practices for securing your Azure PaaS deployment. "
 services: security
 documentationcenter: na
-author: TerryLanfear
+author: techlake
 manager: MBaldwin
-editor: ''
+editor: techlake
 
 ms.assetid:
 ms.service: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 03/21/2017
 ms.author: terrylan
 
 ---

@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Automation Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Automation to automate processes and configuration management in order to save time and increase reliability of regular administrative tasks.
+services: automation
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Automation Documentation
 
@@ -153,7 +164,7 @@ Learn how to use Automation to save time and increase the reliability of regular
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
+                        <p><a href="/rest/api/automation/">REST API</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Classic REST API</a></p>
                     </div>
                 </div>

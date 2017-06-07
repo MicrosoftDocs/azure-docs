@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/08/2016
+ms.date: 03/27/2017
 ms.author: robinsh
 ---
 
@@ -45,8 +45,8 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-### Add namespace declarations
-Add the following `using` statements to the top of the `program.cs` file:
+### Add using directives
+Add the following `using` directives to the top of the `Program.cs` file:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager

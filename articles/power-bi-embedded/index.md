@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Power BI Embedded Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to embed Power BI data visualizations and interactive reports into apps. Tutorials, API references, and other documentation.
+services: power-bi-embedded
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: power-bi-embedded
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Power BI Embedded Documentation
 

@@ -1,6 +1,6 @@
 ---
-title: Monitor your Logic apps in Azure | Microsoft Docs
-description: How to see what your Logic apps have done
+title: Enable logging & alerts, check the run history, track inputs and outputs - Azure Logic Apps | Microsoft Docs
+description: Monitor the status of your logic app workflows using logging, tracking, and viewing the history and diagnostics
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -13,12 +13,13 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: jehollan
-
+ms.author: LADocs; jehollan
 ---
-# Monitor your Logic apps
-After you [create a Logic app](../logic-apps/logic-apps-create-a-logic-app.md), you can see the full history of its execution in the Azure portal.  You can also set up services like Azure Diagnostics and Azure Alerts to monitor events real-time, and alert you for events like "when more than 5 runs fail within an hour."
+
+# Check the performance, and start diagnostic logging and alerts of your workflows in logic apps
+After you [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md), you can see the full history of its execution in the Azure portal.  You can also set up services like Azure Diagnostics and Azure Alerts to monitor events real-time, and alert you for events like "when more than 5 runs fail within an hour."
 
 ## Monitor in the Azure Portal
 To view the history, select **Browse**, and select **Logic Apps**. A list of all logic apps in your subscription is displayed.  Select the logic app you want to monitor.  You will see a list of all actions and triggers that have occurred for this logic app.

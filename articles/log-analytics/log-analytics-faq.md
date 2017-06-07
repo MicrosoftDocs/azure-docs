@@ -1,9 +1,9 @@
 ---
 title: Log Analytics FAQ | Microsoft Docs
-description: Answers to frequently asked questions about the Log Analytics service.
+description: Answers to frequently asked questions about the Azure Log Analytics service.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
-ms.author: banders
+ms.date: 04/12/2017
+ms.author: magoedte
 
 ---
 # Log Analytics FAQ
@@ -85,6 +85,13 @@ A yellow warning icon means the agent is having issues communication with OMS. O
 
 A: In SCOM, remove the computer from the OMS managed list. This stops all communication through SCOM for that agent. For agents connected to OMS directly, you can stop them from communicating with OMS through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
 Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
+
+**Q: Why am I getting an error when I try to move my workspace from one Azure subscription to another?**
+
+A: When you add a solution, Azure creates a resource in the Azure subscription that the workspace is in.
+
+Typically, the person adding the subscription is either an administrator or contributor for the *Azure subscription*. Administrator or Contributor in the OMS portal is not enough if the user doesn’t also have the same permissions in the Azure portal for the Azure subscription.
+
 
 ## Agent data
 **Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?**  

@@ -46,7 +46,7 @@ Restore a virtual machine to a new VM from the backups stored in an Azure backup
    
     ![Select a date](./media/backup-azure-restore-vms/select-date.png)
    
-    Once you click a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the [consistency](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) of the recovery point. The table header shows the number of recovery points available on that day in parenthesis.
+    Once you click a date in the calendar control, the recovery points available on that date will be shown in recovery points table below. The **Time** column indicates the time at which the snapshot was taken. The **Type** column displays the [consistency](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) of the recovery point. The table header shows the number of recovery points available on that day in parentheses.
    
     ![Recovery points](./media/backup-azure-restore-vms/recovery-points.png)
 3. Select the recovery point from the **Recovery Points** table and click the Next arrow to go to the next screen.
@@ -88,26 +88,33 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) for the virtual machine in the Azure portal.
+After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](../virtual-machines/windows/classic/setup-endpoints.md) for the virtual machine in the Azure portal.
 
 ## Post-Restore steps
-If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password will be blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore. 
+If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password will be blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/linux/classic/reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore. 
 
 ## Backup for Restored VMs
-If you have restored VM to same cloud service with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored Vm to a different cloud service or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.
+If you have restored VM to same cloud service with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored VM to a different cloud service or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.
 
 ## Restoring a VM during Azure DataCenter Disaster
-Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. 
+Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. Learn more about [Azure Data center resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## Restoring Domain Controller VMs
-Backup of Domain Controller (DC) virtual machines is a supported scenario with Azure Backup. However some care must be taken during the restore process. The restore experience is vastly different for Domain Controller VMs in a single-DC configuration vs. VMs in a multi-DC configuration.
+Backup of Domain Controller (DC) virtual machines is a supported scenario with Azure Backup. However, care must be taken during
+the restore process. The correct restore process depends on the structure of the domain. In the simplest case you have a single DC in a single domain. More commonly for production loads, you will have a single domain with multiple DCs, perhaps with some DCs on premises. Finally, you may have a forest with multiple domains. 
 
-### Single DC
+From an Active Directory perspective the Azure VM is like any other VM on a modern supported hypervisor. The major difference with on-premises hypervisors is that there is no VM console available in Azure. A console is required for certain scenarios such as recovering using a Bare Metal Recovery (BMR) type backup. However, VM restore from the backup vault is a full replacement for BMR. Active Directory Restore Mode (DSRM) is also available, so all Active Directory recovery scenarios are viable. For more background information, please check [Backup and Restore considerations for virtualized Domain Controllers](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) and [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+
+### Single DC in a single domain
 The VM can be restored (like any other VM) from the Azure portal or using PowerShell.
 
-### Multiple DCs
-When you have a multi-DC environment, the Domain Controllers have their own way of keeping data in sync. When an older backup point is restored *without the proper precautions*, The USN rollback process can wreak havoc in a multi-DC environment. The right way to recover such a VM is to boot it in DSRM mode.
+### Multiple DCs in a single domain
+When other DCs of the same domain can be reached over the network, the DC can be restored like any VM. If it is the last remaining DC in the domain, or a recovery in an isolated network is performed, a forest recovery procedure must be followed.
 
+### Multiple domains in one forest
+When other DCs of the same domain can be reached over the network, the DC can be restored like any VM. However, in all other cases a forest recovery is recommended.
+
+<!--- WK: this following original supportability statement is incorrect, taking it out. 
 The challenge arises because DSRM mode is not present in Azure. So to restore such a VM, you cannot use the Azure portal. The only supported restore mechanism is disk-based restore using PowerShell.
 
 > [!WARNING]
@@ -116,11 +123,12 @@ The challenge arises because DSRM mode is not present in Azure. So to restore su
 > 
 
 Read more about the [USN rollback problem](https://technet.microsoft.com/library/dd363553) and the strategies suggested to fix it.
+--->
 
 ## Restoring VMs with special network configurations
 Azure Backup supports backup for following special network configurations of virtual machines.
 
-* VMs under load balancer ( internal and external)
+* VMs under load balancer (internal and external)
 * VMs with multiple reserved IPs
 * VMs with multiple NICs
 
@@ -135,7 +143,7 @@ These configurations mandate following considerations while restoring them.
 While restoring from UI, **always choose a new cloud service**. Please note that since portal only takes mandatory parameters during restore flow, VMs restored using UI will lose the special network configuration they possess. In other words, restore VMs will be normal VMs without configuration of load balancer or multi NIC or multiple reserved IP.
 
 ### Restoring from PowerShell:
-PowerShell has the ability to just restore the VM disks from backup and not create the virtual machine. This is helpful when restoring virtual machines which require special network configurations mentined above.
+PowerShell has the ability to just restore the VM disks from backup and not create the virtual machine. This is helpful when restoring virtual machines which require special network configurations mentioned above.
 
 In order to fully recreate the virtual machine post restoring disks, follow these steps:
 

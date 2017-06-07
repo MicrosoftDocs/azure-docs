@@ -1,5 +1,5 @@
 ---
-title: Traffic Manager endpoint monitoring and failover | Microsoft Docs
+title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
 description: This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications
 services: traffic-manager
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 ---
 
-# Traffic Manager endpoint monitoring and failover
+# Traffic Manager endpoint monitoring
 
 Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures.
 
@@ -128,71 +128,7 @@ For more information, see [Traffic Manager traffic-routing methods](traffic-mana
 
 For more information about troubleshooting failed health checks, see [Troubleshooting Degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
-## FAQ
 
-### Is Traffic Manager resilient to Azure region failures?
-
-Traffic Manager is a key component of the delivery of highly available applications in Azure.
-To deliver high availability, Traffic Manager must have an exceptionally high level of availability and be resilient to regional failure.
-
-By design, Traffic Manager components are resilient to a complete failure of any Azure region. This resilience applies to all Traffic Manager components: the DNS name servers, the API, the storage layer, and the endpoint monitoring service.
-
-In the unlikely event of an outage of an entire Azure region, Traffic Manager is expected to continue to function normally. Applications deployed in multiple Azure regions can rely on Traffic Manager to direct traffic to an available instance of their application.
-
-### How does the choice of resource group location affect Traffic Manager?
-
-Traffic Manager is a single, global service. It is not regional. The choice of resource group location makes no difference to Traffic Manager profiles deployed in that resource group.
-
-Azure Resource Manager requires all resource groups to specify a location, which determines the default location for resources deployed in that resource group. When you create a Traffic Manager profile, it is created in a resource group. All Traffic Manager profiles use **global** as their location, overriding the resource group default.
-
-### How do I determine the current health of each endpoint?
-
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
-
-Azure does not provide historical information about past endpoint health or the ability to raise alerts about changes to endpoint health.
-
-### Can I monitor HTTPS endpoints?
-
-Yes. Traffic Manager supports probing over HTTPS. Configure **HTTPS** as the protocol in the monitoring configuration.
-
-Traffic manager cannot provide any certificate validation, including:
-
-* Server-side certificates are not validated
-* SNI server-side certificates are not supported
-* Client certificates are not supported
-
-### What host header do endpoint health checks use?
-
-Traffic Manager uses host headers in HTTP and HTTPS health checks. The host header used by Traffic Manager is the name of the endpoint target configured in the profile. The value used in the host header cannot be specified separately from the target property.
-
-### What are the IP addresses from which the health checks originate?
-
-The following list contains the IP addresses from which Traffic Manager health checks can originate. You may use this list to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
-
-* 40.68.30.66
-* 40.68.31.178
-* 137.135.80.149
-* 137.135.82.249
-* 23.96.236.252
-* 65.52.217.19
-* 40.87.147.10
-* 40.87.151.34
-* 13.75.124.254
-* 13.75.127.63
-* 52.172.155.168
-* 52.172.158.37
-* 104.215.91.84
-* 13.75.153.124
-* 13.84.222.37
-* 23.101.191.199
-* 23.96.213.12
-* 137.135.46.163
-* 137.135.47.215
-* 191.232.208.52
-* 191.232.214.62
-* 13.75.152.253
-* 104.41.187.209
-* 104.41.190.203
 
 ## Next steps
 

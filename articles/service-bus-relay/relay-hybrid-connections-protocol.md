@@ -1,5 +1,5 @@
 ---
-title: Azure Relay Hybrid Connections protocol | Microsoft Docs
+title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: Azure Relay Hybrid Connections protocol guide.
 services: service-bus-relay
 documentationcenter: na
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 03/23/2017
+ms.author: sethm;clemensv
 
 ---
 # Azure Relay Hybrid Connections protocol
@@ -47,7 +47,7 @@ connection to be accepted for establishing a bi-directional communication path.
 "Connect," "Listen," and "Accept" are the same terms you will find on most socket
 APIs.
 
-Any relayed communication model has either party making outbound connections Azure Relay Hybrid Connections Protocol Guide
+Any relayed communication model has either party making outbound connections
 towards a service endpoint, which makes the "listener" also a "client" in
 colloquial use and may also cause other terminology overloads; the precise
 terminology we therefore use for Hybrid Connections is as follows:
@@ -210,7 +210,7 @@ properties at this time:
   Sec-WebSocket-Extensions headers.
 
 #### Accept Message
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -230,10 +230,6 @@ establish the web socket for accepting or rejecting the sender socket.
 #### Accepting the Socket
 To accept, the listener establishes a web socket connection to the provided
 address.
-
-Note that for the preview period, the address URI may use a bare IP address and
-the TLS certificate supplied by the server will fail validation on that address.
-This will be rectified during the preview.
 
 If the "accept" message carries a "Sec-WebSocket-Protocol" header, it is
 expected that the listener will only accept the web socket if it supports that
@@ -302,9 +298,7 @@ and appends two query string parameters to it:
 | statusCode |Yes |Numeric HTTP status code. |
 | statusDescription |Yes |Human readable reason for the rejection. |
 
-The resulting URI is then used to establish a WebSocket connection; again, note
-that the TLS certificate may not match the address during the preview, so
-validation may have to be disabled.
+The resulting URI is then used to establish a WebSocket connection.
 
 When completing correctly, this handshake will intentionally fail with an HTTP
 error code 410, since no web socket has been established. If an error occurs,
@@ -325,7 +319,7 @@ property at this time:
   namespace or Hybrid Connection that confers the **Listen** right.
 
 #### renewToken Message
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  

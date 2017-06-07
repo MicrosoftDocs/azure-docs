@@ -1,4 +1,4 @@
----
+﻿---
 title: Common cloud service management tasks | Microsoft Docs
 description: Learn how to manage cloud services in the Azure portal. These examples use the Azure portal.
 services: cloud-services
@@ -24,7 +24,7 @@ ms.author: adegeo
 >
 >
 
-Your cloud service is managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. Which includes updating, deleting, scaling, and promoting a staged deployment to production.
+In the **Cloud Services (classic)** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 More information about how to scale your cloud service is available [here](cloud-services-how-to-scale-portal.md).
 
@@ -43,7 +43,7 @@ If you need to update the application code for your cloud service, use **Update*
 4. **Optionally** update the deployment label and the storage account.
 5. If any roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** to enable the upgrade to proceed.
 
-    Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine will process client requests while the other is updated.
+    Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine processes client requests while the other is updated.
 
 6. Check **Start deployment** to have the update applied after the upload of the package has finished.
 7. Click **OK** to begin updating the service.
@@ -74,15 +74,15 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 There are two key prerequisites for a successful deployment swap:
 
-- If you would like to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap will fail.
+- If you would like to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap fails.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the overview blade of the Azure portal or by using [the Get-AzureRole command in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the overview blade of the Azure portal. Alternatively, you can use the [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) command in Windows PowerShell.
 
-Note that guest OS updates and service healing operations can also cause deployment swaps to fail. See [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md) for more details.
+Note that Guest OS updates and service healing operations can also cause deployment swaps to fail. For more information, see [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md).
 
 **Does a swap incur downtime for my application? How should I handle it?**
 
-As described in the last section, a deployment swap is typically very fast since it is just a configuration change in the Azure load balancer. In some cases, however, it can take ten or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](../best-practices-retry-general.md).
+As described in the last section, a deployment swap is typically fast since it is just a configuration change in the Azure load balancer. In some cases, however, it can take ten or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](../best-practices-retry-general.md).
 
 ## How to: Link a resource to a cloud service
 The Azure portal does not link resources together like the current Azure classic portal does. Instead, deploy additional resources to the same resource group being used by the Cloud Service.
@@ -108,8 +108,14 @@ Use the following procedure to delete a deployment or your cloud service.
 
 > [!NOTE]
 > When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
->
->
+
+
+## How to: Find more information about failed deployments
+The **Overview** blade has a status bar at the top. When you click the bar, a new blade opens and displays any error information. If the deployment does not contain any errors, the information blade is blank.
+
+![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/status-info.png)
+
+
 
 [Azure portal]: https://portal.azure.com
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 05/17/2017
 ms.author: danlep
 
 ---
 # Load balance containers in a Kubernetes cluster in Azure Container Service 
 This article introduces load balancing in a Kubernetes cluster in Azure Container Service. Load balancing provides an externally accessible IP address for the service and distributes network traffic among the pods running in agent VMs.
 
-You can set up a Kubernetes service to use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to manage external network (TCP or UDP) traffic. With additional configuration, load balancing and routing of HTTP or HTTPS traffic or more advanced scenarios are possible.
+You can set up a Kubernetes service to use [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to manage external network (TCP) traffic. With additional configuration, load balancing and routing of HTTP or HTTPS traffic or more advanced scenarios are possible.
 
 ## Prerequisites
 * [Deploy a Kubernetes cluster](container-service-kubernetes-walkthrough.md) in Azure Container Service
@@ -30,7 +30,7 @@ You can set up a Kubernetes service to use [Azure Load Balancer](../load-balance
 
 ## Azure load balancer
 
-By default, a Kubernetes cluster deployed in Azure Container Service includes an Internet-facing Azure load balancer for the agent VMs. (A separate load balancer resource is configured for the master VMs.) Azure load balancer is a Layer 4 (TCP, UDP) load balancer.
+By default, a Kubernetes cluster deployed in Azure Container Service includes an Internet-facing Azure load balancer for the agent VMs. (A separate load balancer resource is configured for the master VMs.) Azure load balancer is a Layer 4 load balancer. Currently, the load balancer only supports TCP traffic in Kubernetes.
 
 When creating a Kubernetes service, you can automatically configure the Azure load balancer to allow access to the service. To configure the load balancer, set the service `type` to `LoadBalancer`. The load balancer creates a rule to map a public IP address and port number of incoming service traffic to the private IP addresses and port numbers of the pods in agent VMs (and vice versa for response traffic). 
 
@@ -124,9 +124,9 @@ The following steps use the Kubernetes [Guestbook example](https://github.com/ku
 
 To load balance HTTP or HTTPS traffic to container web apps and manage certificates for transport layer security (TLS), you can use the Kubernetes [Ingress](https://kubernetes.io/docs/user-guide/ingress/) resource. An Ingress is a collection of rules that allow inbound connections to reach the cluster services. For an Ingress resource to work, the Kubernetes cluster must have an [Ingress controller](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers) running.
 
-Azure Container Service does not implement a Kubernetes Ingress controller automatically. Several controller implementations are available. Currently, the [Nginx Ingress controller](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md) is recommended to configure Ingress rules and load balance HTTP and HTTPS traffic. 
+Azure Container Service does not implement a Kubernetes Ingress controller automatically. Several controller implementations are available. Currently, the [Nginx Ingress controller](https://github.com/kubernetes/ingress/tree/master/examples/deployment/nginx) is recommended to configure Ingress rules and load balance HTTP and HTTPS traffic. 
 
-For more information and examples, see the [Nginx Ingress controller documentation](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md).
+For more information, see the [Nginx Ingress controller documentation](https://github.com/kubernetes/ingress/tree/master/controllers/nginx/README.md).
 
 > [!IMPORTANT]
 > When using the Nginx Ingress controller in Azure Container Service, you must expose the controller deployment as a service with `type: LoadBalancer`. This configures the Azure load balancer to route traffic to the controller. For more information, see the previous section.

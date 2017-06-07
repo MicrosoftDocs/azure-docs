@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ## [What is Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 # Get Started
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
@@ -44,6 +44,7 @@
 
 ## Manage
 ### [Registrations](notification-hubs-push-notification-registration-management.md)
+### [APNS token-based auth](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Secure](notification-hubs-push-notification-security.md)
 ### Secure push
@@ -59,7 +60,7 @@
 ### [Diagnosis guidelines](notification-hubs-push-notification-fixer.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

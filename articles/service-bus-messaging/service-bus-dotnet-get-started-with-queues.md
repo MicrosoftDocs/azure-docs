@@ -1,9 +1,9 @@
 ---
-title: Get started with Service Bus queues | Microsoft Docs
+title: Write a program that uses Azure Service Bus queues | Microsoft Docs
 description: How to write a C# console application for Service Bus messaging
 services: service-bus-messaging
 documentationcenter: .net
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/30/2016
-ms.author: jotaub;sethm
+ms.date: 03/23/2017
+ms.author: sethm
 
 ---
 # Get started with Service Bus queues
@@ -29,7 +29,7 @@ In this tutorial, we will complete the following:
 4. Write a console application to receive messages.
 
 ## Prerequisites
-1. [Visual Studio 2013 or Visual Studio 2015](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -167,8 +167,4 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples

@@ -3,6 +3,7 @@
 ## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Data warehouse workload](sql-data-warehouse-overview-workload.md)
 ## [Distributed data](sql-data-warehouse-distributed-data.md)
+## [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 # Get Started
 
@@ -10,6 +11,7 @@
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 # How To
 
@@ -24,11 +26,11 @@
 ## Connect
 
 ### [Overview](sql-data-warehouse-connect-overview.md)
-### [Connection strings](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Connection strings](sql-data-warehouse-connection-strings.md)
 
 ## Create
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
@@ -80,9 +82,9 @@
 
 ### [Overview](sql-data-warehouse-overview-load.md)
 ### [Sample data](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [BCP from SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
@@ -100,7 +102,7 @@
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 ### [Migrate to premium storage](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pause and scale
+## Manage compute
 
 ### [Overview](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure portal](sql-data-warehouse-manage-compute-portal.md)
@@ -112,9 +114,8 @@
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Queries](sql-data-warehouse-manage-monitor.md)
+### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
-### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 ## Security
 
@@ -125,6 +126,9 @@
 ### [Encryption](sql-data-warehouse-encryption-tde.md)
 ### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
+
+## Troubleshoot
+### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 # Reference
 

@@ -30,7 +30,7 @@ In this tutorial, you develop a job that reads a tab separated values (TSV) file
 Before you begin this tutorial, you must have the following items:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **An Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+- **An Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [End-user authentication](../data-lake-store/data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 - **[Python](https://www.python.org/downloads/)**. You must use the 64-bit version. This article uses Python version 3.5.2.
 
 
@@ -63,14 +63,15 @@ The azure-datalake-store module includes the Azure Data Lake Store filesystem op
 		from azure.mgmt.resource.resources.models import ResourceGroup
 
 		## Required for Azure Data Lake Store account management
-		from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-		from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+		from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+		from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
 		## Required for Azure Data Lake Store filesystem management
 		from azure.datalake.store import core, lib, multithread
 
 		## Required for Azure Data Lake Analytics account management
-		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeAnalyticsAccountProperties, DataLakeStoreAccountInfo
+		from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
+		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInfo
 
 		## Required for Azure Data Lake Analytics job management
 		from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient

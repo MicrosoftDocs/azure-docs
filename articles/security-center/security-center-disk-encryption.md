@@ -1,4 +1,4 @@
----
+﻿---
 title: Encrypt an Azure Virtual Machine | Microsoft Docs
 description: This document helps you to encrypt an Azure Virtual Machine after receiving an alert from Azure Security Center.
 services: security, security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 
 ---
@@ -23,7 +23,7 @@ Azure Security Center will alert you if you have virtual machines that are not e
 ![Disk encryption recommendation](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> The information in this document applies to the preview release of Azure Security Center.
+> The information in this document applies to encrypting virtual machines without using a Key Encryption Key (which is required for backing up virtual machines using Azure Backup). Please see the article [Azure Disk Encryption for Windows and Linux Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) for information on how to use a Key Encryption Key to support Azure Backup for encrypted Azure Virtual Machines.
 >
 >
 
@@ -44,12 +44,12 @@ There are many approaches that can be used to setup the prerequisites and to con
 >
 
 ## Install and configure Azure PowerShell
-You need Azure PowerShell version 1.2.1 or above installed on your computer. The article [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) contains all the steps you need to provision your computer to work with Azure PowerShell. The most straightforward approach is to use the Web PI installation approach mentioned in that article. Even if you already have Azure PowerShell installed, install again using the Web PI approach so that you have the latest version of Azure PowerShell.
+You need Azure PowerShell version 1.2.1 or above installed on your computer. The article [How to install and configure Azure PowerShell](/powershell/azure/overview) contains all the steps you need to provision your computer to work with Azure PowerShell. The most straightforward approach is to use the Web PI installation approach mentioned in that article. Even if you already have Azure PowerShell installed, install again using the Web PI approach so that you have the latest version of Azure PowerShell.
 
 ## Obtain and run the Azure disk encryption prerequisites configuration script
 The Azure Disk Encryption Prerequisites Configuration Script will set up all the prerequisites required for encrypting your Azure Virtual Machines.
 
-1. Go to the GitHub page that has the [Azure Disk Encryption Prerequisite Setup Script](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Go to the GitHub page that has the [Azure Disk Encryption Prerequisite Setup Script](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 2. On the GibHub page, click the **Raw** button.
 3. Use **CTRL-A** to select all the text on the page and then use **CTRL-C** to copy all the text on the page to the clipboard.
 4. Open **Notepad** and paste the copied text into Notepad.
@@ -138,10 +138,10 @@ Press **ENTER**. You should see the name of the virtual machine you want to encr
 
 ![PowerShell output](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-There are two ways you can run the encryption command to encrypt the virtual machine. The first method is to type the following command in the PowerShell ISE console:
+There are two methods to run the encryption command to encrypt all drives on the virtual machine. The first method is to type the following command in the PowerShell ISE console:
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 After typing this command press **ENTER**.

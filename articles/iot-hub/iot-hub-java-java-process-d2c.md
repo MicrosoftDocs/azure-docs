@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/25/2017
 ms.author: dobett
 
 ---
@@ -53,25 +53,30 @@ In this section, you modify the simulated device app you created in the [Get sta
    
     ```
     private static class MessageSender implements Runnable {
-        public volatile boolean stopThread = false;
 
         public void run()  {
             try {
-                double avgWindSpeed = 10; // m/s
+                double minTemperature = 20;
+                double minHumidity = 60;
                 Random rand = new Random();
 
-                while (!stopThread) {
-                    double currentWindSpeed = avgWindSpeed + rand.nextDouble() * 4 - 2;
-                    TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
-                    telemetryDataPoint.deviceId = deviceId;
-                    telemetryDataPoint.windSpeed = currentWindSpeed;
-
-                    String msgStr = telemetryDataPoint.serialize();
-                    if (new Random() > 0.7) {
-                        Message msg = new Message("This is a critical message.");
+                while (true) {
+                    String msgStr;
+                    Message msg;
+                    if (new Random().nextDouble() > 0.7) {
+                        msgStr = "This is a critical message.";
+                        msg = new Message(msgStr);
                         msg.setProperty("level", "critical");
                     } else {
-                        Message msg = new Message(msgStr);
+                        double currentTemperature = minTemperature + rand.nextDouble() * 15;
+                        double currentHumidity = minHumidity + rand.nextDouble() * 20; 
+                        TelemetryDataPoint telemetryDataPoint = new TelemetryDataPoint();
+                        telemetryDataPoint.deviceId = deviceId;
+                        telemetryDataPoint.temperature = currentTemperature;
+                        telemetryDataPoint.humidity = currentHumidity;
+
+                        msgStr = telemetryDataPoint.serialize();
+                        msg = new Message(msgStr);
                     }
                     
                     System.out.println("Sending: " + msgStr);
@@ -219,7 +224,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-c2d]: iot-hub-java-java-process-d2c.md
+[lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java

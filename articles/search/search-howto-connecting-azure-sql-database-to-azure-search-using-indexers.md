@@ -13,14 +13,14 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 06/01/2017
 ms.author: eugenesh
 ---
 
 # Connecting Azure SQL Database to Azure Search using indexers
 Azure Search service is a hosted cloud search service that makes it easy to provide a great search experience. Before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process. This means you have less code to write and less infrastructure to care about.
 
-This article covers the mechanics of using indexers, but it also describes the features that are only available with Azure SQL databases (for example, integrated change tracking). Azure Search also supports other data sources, such as Azure DocumentDB, blob storage, and table storage. If you would like to see support for additional data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
+This article covers the mechanics of using indexers, but it also describes the features that are only available with Azure SQL databases (for example, integrated change tracking). Azure Search also supports other data sources, such as Azure Cosmos DB, blob storage, and table storage. If you would like to see support for additional data sources, provide your feedback on the [Azure Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## Indexers and data sources
 You can set up and configure an Azure SQL indexer using:
@@ -177,9 +177,10 @@ Integrated change tracking is supported starting with the following SQL Server d
 * SQL Server 2008 R2 and later, if you're using SQL Server on Azure VMs.
 * Azure SQL Database V12, if you're using Azure SQL Database.
 
-When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows.
-
-This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/library/bb964713.aspx) for instructions.
+> [!IMPORTANT] 
+> This policy can only be used with tables; it cannot be used with views. You need to enable change tracking for the table you're using before you can use this policy. See [Enable and disable change tracking](https://msdn.microsoft.com/library/bb964713.aspx) for instructions.
+> 
+> In addition, you cannot use this policy if the table uses a composite primary key (primary key containing more than one column).  
 
 To use this policy, create or update your data source like this:
 
@@ -193,6 +194,8 @@ To use this policy, create or update your data source like this:
       }
     }
 
+When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### High Water Mark Change Detection policy
@@ -200,11 +203,13 @@ While the SQL Integrated Change Tracking policy is recommended, it can only be u
 
 * All inserts specify a value for the column.
 * All updates to an item also change the value of the column.
-* The value of this column increases with each change.
+* The value of this column increases with each insert or update.
 * Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-For example, an indexed **rowversion** column is an ideal candidate for the high water mark column.
-To use this policy, create or update your data source like this:
+> [!IMPORTANT] 
+> We strongly recommend using a **rowversion** column for change tracking. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query.
+
+To use a high water mark policy, create or update your data source like this:
 
     {
         "name" : "myazuresqldatasource",
@@ -213,7 +218,7 @@ To use this policy, create or update your data source like this:
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 

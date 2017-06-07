@@ -4,7 +4,7 @@ description: Shows how to use Azure App Service Web Apps to create enterprise we
 services: app-service\web
 documentationcenter: ''
 author: apwestgarth
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: cf9ac3b2-0493-4461-8b64-251d3a5cd5b5
@@ -110,7 +110,7 @@ Once these topics have been considered, your web application should be ready for
 
 The next steps in the migration process are to create an App Service web app and an Azure SQL Database. There are multiple sizes of Web Apps instances with varying number of CPU Cores and RAM amounts available for you to select based on your web applications requirement. For more information and pricing, see [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/). Likewise, Microsoft Azure SQL Database caters to all of a business’ needs with various service tiers and performance levels to fulfill requirements. Further information can be found at [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/). Once created, the application is uploaded to App Service Web Apps, either via FTP or WebDeploy and then move onto the database.
 
-In this migration the solution uses Azure SQL Database but that is not the only database that is supported on Azure. Companies can also make use of MySQL, MongoDB, Azure DocumentDB and many more via add-ons which can be purchased at the [Azure Store](/marketplace/partner-program/).
+In this migration the solution uses Azure SQL Database but that is not the only database that is supported on Azure. Companies can also make use of MySQL, MongoDB, Azure Cosmos DB and many more via add-ons which can be purchased at the [Azure Store](/marketplace/partner-program/).
 
 When creating an Azure SQL Database a number of options are available to import an existing database from an on-premises server from generating a script of an existing database to using the [Data-tier Application Export and Import](http://aka.ms/dacpac).
 
