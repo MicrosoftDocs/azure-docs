@@ -27,18 +27,21 @@ To provide the ability to use your own encryption keys, SSE for Blob storage is 
 
 Why would you want to create your own keys? It gives you more flexibility, including the ability to create, rotate, disable, and define access controls, and to audit the encryption keys used to protect your data.
 
-# SSE with customer managed keys preview
+## SSE with customer managed keys preview
 
 This feature is currently in preview. To use this feature, you need to create a new storage account. You can either create a new key vault and key or you can use an existing key vault and key. The storage account and the key vault must be in the same region, but they can be in different subscriptions.
 
 To participate in the preview please contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com). We will provide a special link to participate in the preview.
 
-To learn more, please refer to the FAQ.
+To learn more, please refer to the [FAQ]((#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest)).
+
+> [!IMPORTANT]
+> You must sign up for the preview prior to following the steps in this article. Without preview access, you will not be able to enable this feature in the portal.
 
 ## Getting Started
 ## Step 1: [Create a new storage account](storage-create-storage-account.md)
 
-## Step 2: Enable encryption.
+## Step 2: Enable encryption
 You can enable SSE for the storage account using the [Azure portal](https://portal.azure.com). On the Settings blade for the storage account, look for the Blob Service section as shown in figure below and click Encryption.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
@@ -85,7 +88,7 @@ A: There is a cost associated for using Azure Key Vault. For more details visit 
 
 **Q: Can I revoke access to the encryption keys?**
 
-A: Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Please refer to [Azure Key Vault Powershell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) and [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the Account Encryption Key is inaccessible by Azure Storage.
+A: Yes, you can revoke access at any time. There are several ways to revoke access to your keys. Please refer to [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) and [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) for more details. Revoking access will effectively block access to all blobs in the storage account as the Account Encryption Key is inaccessible by Azure Storage.
 
 **Q: Can I create a storage account and key in different region?**
 
@@ -117,5 +120,5 @@ A: Please contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft
 ## Next steps
 
 *	For more information on the comprehensive set of security capabilities that help developers build secure applications, please see the [Storage Security Guide](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*	For overview information about Azure Key Vault, see What is [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
-*	For getting started on Azure Key Vault, see [Getting Started with Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started).
+*	For overview information about Azure Key Vault, see [What is Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
+*	For getting started on Azure Key Vault, see [Getting Started with Azure Key Vault](../key-vault/key-vault-get-started).
