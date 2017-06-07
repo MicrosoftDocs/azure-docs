@@ -59,6 +59,7 @@ An ASE inbound access dependency is:
 |-----|------|----|
 | Management | Internet | ASE subnet: 454, 455 |
 |  ASE internal communication | ASE subnet: all ports | ASE subnet: all ports
+|  Allow Azure Load Balancer Inbound | Azure Load Balancer | Any
 
 The inbound traffic provides command and control of the ASE in addition to system monitoring. The source IPs for this traffic are not constant. This means that the network security configuration needs to allow access from all IPs on ports 454 and 455.
 
@@ -135,9 +136,11 @@ NSGs can be configured through the Azure Portal or via PowerShell. For the sake 
 
 Taking into account the inbound and outbound requirements, the NSGs should look similar to what is shown below. In this example, the VNet address range is _192.168.250.0/16_ and the subnet that the ASE is in is _192.168.251.128/25_.
 
-The first two inbound requirements for the ASE to function are at the top in this example. They enable ASE management and allow the ASE to communicate with itself. The other entries are all tenant configurable and can govern network access to the ASE hosted applications.
+The first two inbound requirements for the ASE to function are at the top in this example. They enable ASE management and allow the ASE to communicate with itself. The other entries are all tenant configurable and can govern network access to the ASE hosted applications.   
 
 ![][4]
+
+In addition to a default rule to enable the IPs in the VNet to talk to the ASE subnet, there is also a default rule that enables the load balancer, aka the public VIP, to communicate with the ASE.  You can see the default rules by clicking *Default rules* next to the *Add* icon. If you were to put a deny everything else rule after the NSG rules shown, you would prevent traffic between the VIP and the ASE. If you wish to prevent traffic coming from inside the VNet, be sure to add your own rule to allow inbound with a source equal to AzureLoadBalancer with a destination of Any and a port range of \*.  Since the NSG rule is being applied just to the ASE subnet you do not need to be specific in the destination.
 
 If you assigned an IP address to your app, then you will also need to make sure you keep the ports used with that open. You can see the ports used in the **App Service Environment** > **IP Addresses** UI.  
 
