@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/07/2017
 ms.author: jeedes
 
 ---
@@ -185,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 To enable Azure AD users to log in to BambooHR, they must be provisioned into BambooHR.  
 
-* In the case of BambooHR, provisioning is a manual task.
+In the case of BambooHR, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -240,7 +240,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the BambooHR tile in the Access Panel, you should get login page of BambooHR application.
+When you click the BambooHR tile in the Access Panel, you should get automatically signed-on to your BambooHR application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
