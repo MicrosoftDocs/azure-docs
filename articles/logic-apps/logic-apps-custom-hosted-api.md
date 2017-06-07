@@ -1,7 +1,7 @@
 ---
-title: Deploy and call web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
-description: Deploy, secure, and call web APIs & REST APIs in workflows for system integrations with Azure Logic Apps
-keywords: web APIs, REST APIs, connectors, workflows, system integrations
+title: Deploy, call, and authenticate web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
+description: Deploy, authenticate, and call web APIs & REST APIs in workflows for system integrations with Azure Logic Apps
+keywords: web APIs, REST APIs, connectors, workflows, system integrations, authenticate
 services: logic-apps
 author: stepsic-microsoft-com
 manager: anneta
@@ -18,7 +18,7 @@ ms.date: 05/26/2017
 ms.author: LADocs; stepsic
 ---
 
-# Deploy, call, and secure custom APIs for logic apps
+# Deploy, call, and authenticate custom APIs as connectors for logic apps
 
 After you [create custom APIs](./logic-apps-create-api-app.md) 
 that provide actions or triggers to use in logic apps workflows, 
@@ -37,7 +37,7 @@ APIs -- just deploy your code to an API app. You can host your APIs on
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting.
 
-To secure calls from logic apps to your APIs, 
+To authenticate calls from logic apps to your APIs, 
 you can set up Azure Active Directory in the Azure portal 
 so you don't have to update your code. Or, 
 you can require and enforce authentication through your API's code.
@@ -90,7 +90,7 @@ use the [HTTP + Swagger action](../connectors/connectors-native-http-swagger.md)
 *  To call any API, including APIs that don't have or expose a Swagger document, 
 you can always create a request with the [HTTP action](../connectors/connectors-native-http.md).
 
-## Secure your custom API
+## Authenticate calls to your custom API
 
 You can secure calls to your custom API in these ways:
 
@@ -110,7 +110,7 @@ or [Azure AD authentication](#azure-ad-code) through code.
 
 <a name="no-code"></a>
 
-### Secure calls to your API without changing code
+### Authenticate calls to your API without changing code
 
 Here's the general steps for this method:
 
