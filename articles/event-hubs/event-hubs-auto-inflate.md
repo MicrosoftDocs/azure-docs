@@ -28,7 +28,7 @@ Event Hubs customers increase their usage after onboarding on to the service. Th
 ## How does Auto-Inflate work?
 Event Hubs traffic is controlled by throughput units. A single throughput unit allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-Inflate lets you start small with minimum required throughput units and lets you scale-up automatically to the limit you want the number of throughput units you want to grow to, depending on the increase in your traffic. This gives the following benefits:
 1.	This provides an efficient scaling mechanism to start small and scale-up as you grow
-2.	Once enabled, you can automatically scale-up to without hitting throttling issues
+2.	Once enabled, you can automatically scale-up to the specified upper limit without hitting throttling issues
 3.	Gives you more control on scaling as you control when and how much to scale
 
 ## How do I enable Auto-Inflate on my namespace?
@@ -46,7 +46,48 @@ You can also enable the auto-inflate using the Scale option on your settings bla
 
 ### Enabling Auto-Inflate using Azure Resource Manager template
 Auto-inflate can be enabled while deploying using azure resource manager template. By setting the 
-"isAutoInflateEnabled": true property and specifying the maximum throughput units that you want to inflate up to as, "maximumThroughputUnits": 10. For the complete template, see [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) template on GitHub.
+"isAutoInflateEnabled": true property and specifying the maximum throughput units that you want to inflate up to as, "maximumThroughputUnits": 10.
+```json
+"resources": [
+        {
+            "apiVersion": "2017-04-01",
+            "name": "[parameters('namespaceName')]",
+            "type": "Microsoft.EventHub/Namespaces",
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard"
+            },
+            "properties": {
+                "isAutoInflateEnabled": true,
+                "maximumThroughputUnits": 10
+            },
+            "resources": [
+                {
+                    "apiVersion": "2017-04-01",
+                    "name": "[parameters('eventHubName')]",
+                    "type": "EventHubs",
+                    "dependsOn": [
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+                    ],
+                    "properties": {},
+                    "resources": [
+                        {
+                            "apiVersion": "2017-04-01",
+                            "name": "[parameters('consumerGroupName')]",
+                            "type": "ConsumerGroups",
+                            "dependsOn": [
+                                "[parameters('eventHubName')]"
+                            ],
+                            "properties": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+```
+ For the complete template, see [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) template on GitHub.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
