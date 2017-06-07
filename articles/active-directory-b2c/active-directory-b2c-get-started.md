@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 05/26/2017
+ms.date: 06/07/2017
 ms.author: swkrish
 
 ---
-# Create an Azure AD B2C Tenant
+# Create an Azure Active Directory B2C tenant
 
 This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B2C tenant in just a few minutes. When you're finished, you have a B2C tenant to use and start registering applications.
 
@@ -96,5 +96,10 @@ To improve discoverability, we've added a shortcut to the B2C features blade on 
     ![Screenshot of Search resources at the top of the portal](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 ## Next steps
-Learn how to register an application with Azure AD B2C and to build a Quick Start application by reading [Azure Active Directory B2C: Register your application](active-directory-b2c-app-registration.md).
+
+> [!div class="nextstepaction"]
+> [Register your application in a B2C tenant](active-directory-b2c-app-registration.md)
+
+> [!div class="nextstepaction"]
+> [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 
