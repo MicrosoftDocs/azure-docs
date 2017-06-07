@@ -130,7 +130,7 @@ Here's the general pattern:
 Now apply the previous bakery analogy to the polling pattern, 
 and imagine that you call a bakery and order a custom cake for delivery. 
 The process for making the cake takes time, 
-and you don't to wait on the phone while the bakery works on the cake. 
+and you don't want to wait on the phone while the bakery works on the cake. 
 The bakery confirms your order and has you call every 20 minutes for the cake's status. 
 After 20 minutes pass, you call the bakery, but they tell you that your cake isn't 
 done and that you should call in another 20 minutes. 
@@ -201,7 +201,7 @@ This callback is an HTTP POST that sends a message to a URL when an event happen
 Now apply the previous bakery analogy to the webhook pattern, 
 and imagine that you call a bakery and order a custom cake for delivery. 
 The process for making the cake takes time, 
-and you don't to wait on the phone while the bakery works on the cake. 
+and you don't want to wait on the phone while the bakery works on the cake. 
 The bakery confirms your order, but this time, 
 you give them your phone number so they can call you when the cake is done. 
 This time, the bakery tells you when your order is ready and delivers your cake.
@@ -262,17 +262,12 @@ Also, learn more about [usage metering for triggers](logic-apps-pricing.md).
 ### Check for new data or events regularly with the polling trigger pattern
 
 A *polling trigger* acts much like the [polling action](#async-pattern) 
-previously described in this topic. The Logic Apps engine periodically calls and checks the trigger endpoint for new data or events. If the engine finds new data or an event that meets your specified condition, the trigger fires. Then, the engine creates a logic app instance that processes the data as input. 
+previously described in this topic. The Logic Apps engine periodically 
+calls and checks the trigger endpoint for new data or events. 
+If the engine finds new data or an event that meets your specified condition, 
+the trigger fires. Then, the engine creates a logic app instance that processes the data as input. 
 
 ![Polling trigger pattern](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
-
-Based on the [Azure App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
-that you use for API hosting and the plan's SKU, 
-the Logic Apps engine uses these intervals to call your trigger:
-
-* 15 seconds for Premium plans
-* One minute for Standard plans
-* One hour for Free plans
 
 > [!NOTE]
 > Each polling request counts as an action execution, even when no logic app instance is created. 
