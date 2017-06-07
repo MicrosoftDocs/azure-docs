@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/10/2017
 ms.author: jeedes
 
 ---
@@ -131,15 +131,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In the menu on the top, click **Admin**.
    
-    ![Admin](./media/active-directory-saas-humanity-tutorial/IC786619.png "Admin")
+    ![Admin](./media/active-directory-saas-humanity-tutorial/iC786619.png "Admin")
 
 9. Under **Integration**, click **Single Sign-On**.
    
-    ![Single Sign-On](./media/active-directory-saas-humanity-tutorial/IC786620.png "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-humanity-tutorial/iC786620.png "Single Sign-On")
 
 10. In the **Single Sign-On** section, perform the following steps:
    
-    ![Single Sign-On](./media/active-directory-saas-humanity-tutorial/IC786905.png "Single Sign-On")
+    ![Single Sign-On](./media/active-directory-saas-humanity-tutorial/iC786905.png "Single Sign-On")
    
     a. Select **SAML Enabled**.
 
@@ -198,21 +198,21 @@ In order to enable Azure AD users to log in to Humanity, they must be provisione
 
 2. Click **Admin**.
    
-    ![Admin](./media/active-directory-saas-humanity-tutorial/IC786619.png "Admin")
+    ![Admin](./media/active-directory-saas-humanity-tutorial/iC786619.png "Admin")
 
 3. Click **Staff**.
    
-    ![Staff](./media/active-directory-saas-humanity-tutorial/IC786623.png "Staff")
+    ![Staff](./media/active-directory-saas-humanity-tutorial/ic786623.png "Staff")
 
 4. Under **Actions**, click **Add Employee**.
    
-    ![Add Employees](./media/active-directory-saas-humanity-tutorial/IC786624.png "Add Employees")
+    ![Add Employees](./media/active-directory-saas-humanity-tutorial/iC786624.png "Add Employees")
 
 5. In the **Add Employees** section, perform the following steps:
    
-    ![Save Employees](./media/active-directory-saas-humanity-tutorial/IC786625.png "Save Employees")
+    ![Save Employees](./media/active-directory-saas-humanity-tutorial/iC786625.png "Save Employees")
    
-    a. Type the **First Name**, **Last Name, and **Email** of a valid AAD account you want to provision into the related textboxes.
+    a. Type the **First Name**, **Last Name**, and **Email** of a valid AAD account you want to provision into the related textboxes.
 
     b. Click **Save Employees**.
 
@@ -257,8 +257,6 @@ If you want to test your single sign-on settings, open the Access Panel. For mor
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
