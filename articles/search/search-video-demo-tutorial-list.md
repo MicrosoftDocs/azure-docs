@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/31/2017
+ms.date: 06/06/2017
 ms.author: heidist
 
 ---
@@ -32,6 +32,7 @@ Start here if you are new to Azure Search. You can review all of these resources
 | [Query an index](search-get-started-portal.md) | Create and query an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
 | [Next step:<br/> Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough shows you how to connect, index, and query using the Azure Search .NET library. | November 2016 |
 | [Next step:<br/> Code in REST](search-create-index-rest-api.md) | Review REST calls and JSON payloads for creating an Azure Search index on any platform and programming language. | December 2016 |
+| [How full text search works in Azure Search](search-lucene-query-architecture.md) | Architecture and overview of full text search workloads in Azure Search. | March 2017 |
 
 ## Code samples
 
