@@ -11,7 +11,7 @@ tags: ''
 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
