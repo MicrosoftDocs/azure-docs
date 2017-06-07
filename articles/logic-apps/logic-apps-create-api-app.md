@@ -189,7 +189,7 @@ and checks the `location` header until your API returns a non-202 response.
 
 <a name="webhook-actions"></a>
 
-### Perform long running tasks with the webhook action pattern
+### Perform long-running tasks with the webhook action pattern
 
 As an alternative, you can use the webhook pattern 
 for long-running tasks and asynchronous processing. 
