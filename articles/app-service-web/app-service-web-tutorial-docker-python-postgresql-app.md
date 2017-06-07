@@ -23,7 +23,9 @@ Azure Web Apps provides a highly scalable, self-patching web hosting service. Th
 
 ![Docker Python Flask app in Azure App Service](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-## Before you begin
+You can follow the steps below on Linux or macOS. Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+ 
+## Prerequisites
 
 To complete this tutorial:
 
