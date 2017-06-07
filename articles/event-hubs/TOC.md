@@ -21,7 +21,7 @@
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
-### [Automatically scaling throughput units](event-hubs-auto-inflate.md)
+### [Automatically scale throughput units](event-hubs-auto-inflate.md)
 ## Develop
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
