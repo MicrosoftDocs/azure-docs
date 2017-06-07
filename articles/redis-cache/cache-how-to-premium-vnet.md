@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 06/07/2017
 ms.author: sdanie
 
 ---
@@ -149,15 +149,13 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 
 Once the port requirements are configured as described in the previous section, you can verify that your cache is working by performing the following steps.
 
-1. [Reboot](cache-administration.md#reboot) all of the cache nodes.
-2. Once the cache nodes have restarted (as reported by the cache status in the Azure portal), ping the cache endpoint (using port 6380) from a machine that is within the same VNET as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
-   `tcping.exe contosocache.redis.cache.windows.net 6380`
-3. If the `tcping` tool reports that the port is open, the cache is available for connection from clients in the VNET.
+- [Reboot](cache-administration.md#reboot) all of the cache nodes. If all of the required cache dependencies can't be reached (as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements), the cache won't be able to restart successfully.
+- Once the cache nodes have restarted (as reported by the cache status in the Azure portal), you can perform the following tests:
+  - ping the cache endpoint (using port 6380) from a machine that is within the same VNET as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
+    `tcping.exe contosocache.redis.cache.windows.net 6380`
+    If the `tcping` tool reports that the port is open, the cache is available for connection from clients in the VNET.
+  - Another way to test is to create a test cache client (which could be a simple console application using StackExchange.Redis) that connects to the cache and adds and retrieves some items from the cache. Install the sample client application onto a VM that is in the same VNET as the cache and run it to verify connectivity to the cache.
 
-Another way to test is to create a test cache client (which could be a simple console application using StackExchange.Redis) that connects to the cache and adds and retrieves some items from the cache. Install the sample client application onto a VM that is in the same VNET as the cache and run it to verify connectivity to the cache.
-
->[!NOTE]
->These steps only test connectivity to the cache and don't verify that the required ports for metrics, logs, storage, and other internal cache requirements are configured properly. Ensure that your port are configured as described in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements).
 
 ### Can I use VNets with a standard or basic cache?
 VNets can only be used with premium caches.
