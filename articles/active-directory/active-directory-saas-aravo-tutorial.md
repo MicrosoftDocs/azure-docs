@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-aravo-tutorial/tutorial_aravo_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.aravo.com`
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.aravo.com`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.aravo.com/aems/login.do`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.aravo.com/aems/login.do`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Aravo support team](http://www.aravo.com/about-us/contact/) to get these values.
