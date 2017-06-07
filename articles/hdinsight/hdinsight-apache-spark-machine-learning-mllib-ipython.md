@@ -1,6 +1,7 @@
 ---
-title: Use Spark MLlib to build machine learning applications on Azure HDInsight | Microsoft Docs
-description: Step-by-step instructions on how to use MLlib library in Apache Spark to build machine learning applications
+title: Machine learning example with Spark MLlib on HDInsight - Azure | Microsoft Docs
+description: Learn how to use Spark **MLlib** to create a machine learning app that analyzes a dataset using *classification* through logistic regression.
+keywords: spark machine learning, spark machine learning example
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -19,14 +20,16 @@ ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Machine learning: Predictive analysis on food inspection data using MLlib with Apache Spark cluster on HDInsight
+# Build a machine learning application and analyze a dataset using Spark MLlib
+
+Learn how to use Spark **MLlib** to create a machine learning application to do simple predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression. 
 
 > [!TIP]
-> This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** under the **Python** folder.
+> This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLlib.ipynb** under the **Python** folder.
 >
 >
 
-This article demonstrates how to use **MLLib**, Spark's built-in machine learning libraries, to perform a simple predictive analysis on an open dataset. MLLib is a core Spark library that provides a number of utilities that are useful for machine learning tasks, including utilities that are suitable for:
+MLlib is a core Spark library that provides a number of utilities that are useful for machine learning tasks, including utilities that are suitable for:
 
 * Classification
 * Regression
@@ -35,8 +38,6 @@ This article demonstrates how to use **MLLib**, Spark's built-in machine learnin
 * Singular value decomposition (SVD) and principal component analysis (PCA)
 * Hypothesis testing and calculating sample statistics
 
-This article presents a simple approach to *classification* through logistic regression.
-
 ## What are classification and logistic regression?
 *Classification*, a very common machine learning task, is the process of sorting input data into categories. It is the job of a classification algorithm to figure out how to assign "labels" to input data that you provide. For example, you could think of a machine learning algorithm that accepts stock information as input and divides the stock into two categories: stocks which you should sell and stocks which you should retain.
 
@@ -44,12 +45,12 @@ Logistic regression is the algorithm that you use for classification. Spark's lo
 
 In summary, the process of logistic regression produces a *logistic function* that can be used to predict the probability that an input vector belongs in one group or the other.  
 
-## What are we trying to accomplish in this article?
-You will use Spark to perform some predictive analysis on food inspection data (**Food_Inspections1.csv**) that was acquired through the [City of Chicago data portal](https://data.cityofchicago.org/). This dataset contains information about food inspections that were conducted in Chicago, including information about each food establishment that was inspected, the violations that were found (if any), and the results of the inspection. The CSV data file is already available in the storage account associated with the cluster at **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+## Predictive analysis example on food inspection data
+In this example, you use Spark to perform some predictive analysis on food inspection data (**Food_Inspections1.csv**) that was acquired through the [City of Chicago data portal](https://data.cityofchicago.org/). This dataset contains information about food inspections that were conducted in Chicago, including information about each food establishment that was inspected, the violations that were found (if any), and the results of the inspection. The CSV data file is already available in the storage account associated with the cluster at **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 In the steps below, you develop a model to see what it takes to pass or fail a food inspection.
 
-## Start building a machine learning application using Spark MLlib
+## Start building a Spark MMLib machine learning app
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
@@ -194,13 +195,13 @@ We can use `sqlContext` to perform transformations on structured data. The first
 
     You should see an output like the following:
 
-    ![Spark machine learning result output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark machine learning result output")
+    ![Spark machine learning application output - pie chart with 5 distinct inspection results](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark machine learning result output")
 1. You can see that there are 5 distinct results that an inspection can have:
 
    * Business not located
    * Fail
    * Pass
-   * Pss w/ conditions, and
+   * Pss w/ conditions
    * Out of Business
 
      Let us develop a model that can guess the outcome of a food inspection, given the violations. Since logistic regression is a binary classification method, it makes sense to group our data into two categories: **Fail** and **Pass**. A "Pass w/ Conditions" is still a Pass, so when we train the model, we will consider the two results equivalent. Data with the other results ("Business Not Located", "Out of Business") are not useful so we will remove them from our training set. This should be okay since these two categories make up a very small percentage of the results anyway.
@@ -233,7 +234,7 @@ Our final task is to convert the labeled data into a format that can be analyzed
 
 One standard machine learning approach for processing natural language is to assign each distinct word an "index", and then pass a vector to the machine learning algorithm such that each index's value contains the relative frequency of that word in the text string.
 
-MLLib provides an easy way to perform this operation. First, we'll "tokenize" each violations string to get the individual words in each string, and then we'll use a `HashingTF` to convert each set of tokens into a feature vector which can then be passed to the logistic regression algorithm to construct a model. We'll conduct all of these steps in sequence using a "pipeline".
+MLlib provides an easy way to perform this operation. First, we'll "tokenize" each violations string to get the individual words in each string, and then we'll use a `HashingTF` to convert each set of tokens into a feature vector which can then be passed to the logistic regression algorithm to construct a model. We'll conduct all of these steps in sequence using a "pipeline".
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -326,7 +327,7 @@ We can now construct a final visualization to help us reason about the results o
 
     You should see the following output.
 
-    ![Spark machine learning result output](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning result output")
+    ![Spark machine learning application output - pie chart percentages of failed food inspections.](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning result output")
 
     In this chart, a "positive" result refers to the failed food inspection, while a negative result refers to a passed inspection.
 
