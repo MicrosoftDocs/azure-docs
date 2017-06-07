@@ -64,6 +64,7 @@ Azure Databases for MySQL are protected by a firewall. By default, all connectio
 2. You can **Add My IP**, or configure firewall rules here. Remember to click **Save** after you have created the rules.
 You can now connect to the server using mysql command-line tool or MySQL Workbench GUI tool.
 
+> [!TIP]
 > Azure Database for MySQL server communicates over port 3306. If you are trying to connect from within a corporate network, outbound traffic over port 3306 may not be allowed by your network's firewall. If so, you cannot connect to Azure MySQL server unless your IT department opens port 3306.
 
 ## Get connection information
@@ -77,7 +78,9 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 In this example, the server name is *myserver4demo.mysql.database.azure.com*, and the server admin login is *myadmin@myserver4demo*.
 
 ## Connect to the server using mysql
-Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line tool from the Azure Cloud Shell or from your own machine. Launch the Azure Cloud Shell by clicking the Try It button on a code block, or by clicking the `>_` icon in the top right toolbar in the Azure portal and follow the prompt to log in. To run this from your own machine, be sure that the mysql tools are installed locally. In this example, the command is:
+Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line tool from the Azure Cloud Shell in the browser or from your own machine using mysql tools installed locally. To launch the Azure Cloud Shell, click the `Try It` button on a code block in this article, or visit the Azure portal and click the `>_` icon in the top right toolbar. 
+
+Type the command to connect:
 ```azurecli-interactive
 mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
