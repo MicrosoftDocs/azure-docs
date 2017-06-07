@@ -160,7 +160,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 3. To ensure the mapper.py and reducer.py have the correct line endings, use the following commands:
 
     ```bash
-    perl -pi -e 's/\r\n/\n/g' mappery.py
+    perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 

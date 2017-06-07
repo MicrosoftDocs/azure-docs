@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/07/2017
 ms.author: arramac
 
 ---
@@ -127,7 +127,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 2. In the NuGet **Browse** box, type *WindowsAzure.Storage* and check the **Include prerelease** box. 
 
-3. From the results, install the **WindowsAzure.Storage** library. This installs the preview Azure Cosmos DB Table API package as well as all dependencies.
+3. From the results, install the **Windows Azure Storage Premium Table** library. This installs the preview Azure Cosmos DB Table API package as well as all dependencies. Note that this is a different NuGet package than the Windows Azure Storage package used by Azure Table storage. 
 
 4. Click CTRL + F5 to run the application.
 

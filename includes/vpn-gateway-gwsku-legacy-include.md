@@ -1,4 +1,4 @@
-This section pertains to the old gateway SKUs. The old VPN gateway SKUs are:
+The old VPN gateway SKUs are:
 
 * Basic
 * Standard
