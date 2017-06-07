@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 06/10/2017
 ms.author: jeedes
 
 ---
@@ -192,7 +192,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 To enable Azure AD users to log in to Aha!, they must be provisioned into Aha!.  
 
-* When Aha!, provisioning is an automated task. There is no action item for you.
+In the case of Aha!, provisioning is an automated task. There is no action item for you.
 
 Users are automatically created if necessary during the first single sign-on attempt.
 
@@ -237,8 +237,6 @@ If you want to test your single sign-on settings, open the Access Panel. For mor
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
