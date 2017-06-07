@@ -29,8 +29,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Update data
 > * Restore data
 
-## Log in to the Azure portal
-Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credential to log in to the portal. The default view is your service dashboard.
+## Sign in to the Azure portal
+Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MySQL server
 An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
@@ -148,7 +148,7 @@ Imagine you have accidentally deleted an important database table, and cannot re
    
 3. Click **OK** to restore the server to [restore to a point in time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, within the retention period for your service tier.
 
-## Next Steps
+## Next steps
 In this tutorial, you use the Azure portal to learned how to:
 
 > [!div class="checklist"]
