@@ -25,7 +25,7 @@ This article describes how to deploy S/4HANA on Microsoft Azure by using SAP Clo
 > [!NOTE]
 For more information about the SAP Cloud Appliance Library, see the [home page of their site](https://cal.sap.com/). There is also a blog from SAP about [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
-**As of 05/29/2017, SAP CAL allows deploying with the Azure Resource Manager deployment model additional to the less preferred classic deployment model. We highly recommend leveraging the new Azure Resource Manager deployment model for deployment and disregard the old deployment model CAL marks as 'classic'.**
+**As of May 29th 2017, SAP CAL allows deploying with the Azure Resource Manager deployment model additional to the less preferred classic deployment model. We highly recommend using the new Azure Resource Manager deployment model for deployment and disregard the old deployment model CAL marks as 'classic'.**
 
 ## Step-by-step process to deploy the solution
 
@@ -43,12 +43,12 @@ Using your SAP S-User or other user registered with SAP to log in to SAP CAL for
 - Give SAP CAL the permission to deploy into your Azure subscription.
 
 > [!NOTE]
-The next steps will show, the SAP CAL account creation for Azure Resource Manager deployments. If you already have an SAP CAL account that is linked to the classical deployment model, you NEED to follow these steps to create a new SAP CAL account that gets linked to the deploy in the Azure Resource Manager model.
+The next steps will show, the SAP CAL account creation for Azure Resource Manager deployments. If you already have an SAP CAL account that is linked to the classical deployment model, you NEED to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to get assigned to deploy in the Azure Resource Manager model.
 
 First, create a new SAP CAL account. In **Accounts**, you see three choices for Azure: 
 
 - Microsoft Azure (classic) which is the classic deployment method and not preferred these days
-- Microsoft Azure which, stands for the new Azure Resource Manager deployment model
+- Microsoft Azure, which, stands for the new Azure Resource Manager deployment model
 - An Azure option operated by 21Vianet in China where the deployment still is in the classic model
 
 Since we want to deploy in Azure Resource Manager deployment model in the future, our new SAP CAL account needs to associated with **Microsoft Azure**.
@@ -93,7 +93,7 @@ No, we can start to deploy S/4HANA into your user subscription into Azure.
 **Before continuing, check whether you have Azure core quotas for Azure H-Series VMs. At the moment, CAL is using H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription may not have any H-Series core quota for H-Series. Hence you might need to contact Microsoft Azure support to get a quota of at least 16 H-Series cores.**
 
 > [!NOTE]
-**As you attempt to deploy an SAP solution on Azure in CAL, you might find that you only can choose one Azure region. In order to deploy into other Azure regions, than the one suggested by CAL, you need to purchase a CAL subscription from SAP! You also might need to open a message with SAP to have your CAL account enabled to deliver into other Azure regions than the ones suggested by SAP CAL initially**
+**As you attempt to deploy an SAP solution on Azure in CAL, you might find that you only can choose one Azure region. To deploy into other Azure regions, than the one suggested by CAL, you need to purchase a CAL subscription from SAP! You also might need to open a message with SAP to have your CAL account enabled to deliver into other Azure regions than the ones suggested by SAP CAL initially**
 
 As these obstacles are taken care of, let's start with the deployment of the solution out of the solution screen of SAP CAL. SAP CAL has two sequences to deploy:
 
@@ -107,7 +107,7 @@ As the first screen (below) appears, you need to:
 - Select a CAL account (use an account that is associated to deploy with Azure Resource Manager deployment model)
 - Enter an instance name
 - Choose an Azure region. Keep in mind that CAL suggests a region. If you need another Azure region and you do not have a CAL subscription, you should order an SAP CAL subscription with SAP) 
-- Define the master password for the solution. The master password needs to be between 8-9 signs long. The password will be used for the administrators of the different components
+- Define the master password for the solution. The master password needs to be between 8-9 signs long. The password is used for the administrators of the different components
 
 
 ![Screenshot of SAP Cloud Appliance Library Solutions window](./media/cal-s4h/s4h-pic10a.png)
@@ -128,7 +128,7 @@ Now the deployment is taking place, depending on the size and complexity of the 
 
 In the Azure portal, these virtual machines can be found now all collected with the other associated resources in one Azure Resource Group: 
 
-![Screenshot that shows CAL deployed objects in the new portal portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
+![Screenshot that shows CAL deployed objects in the new portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
 From SAP CAL side, you should see the status of 'Active', like shown below
 
@@ -138,7 +138,7 @@ Now it's possible to connect to the solution by using the connect button in the 
 
 ![Screenshot of Connect to the Instance dialog box](./media/cal-s4h/connect_to_solution.png)
 
-Before you proceed, you need to click the link of the 'Getting Started Guide' before you can take one of the options to connect to the deployed systems. The documentation will name the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords that you can use to log into the deployed system. 
+Before you proceed, you need to click the link of the 'Getting Started Guide' before you can take one of the options to connect to the deployed systems. The documentation names the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords that you can use to log in to the deployed system. 
 
 For example, using SAP GUI that is preinstalled on the Windows Remote Desktop machine, The S/4 system itself could look like:
 

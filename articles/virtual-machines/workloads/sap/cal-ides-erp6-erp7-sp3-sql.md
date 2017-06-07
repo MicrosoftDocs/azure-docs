@@ -22,10 +22,10 @@ ms.author: hermannd
 # Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Microsoft Azure
 This article describes how to deploy an SAP IDES system running with SQL Server and Windows OS on Microsoft Azure via SAP Cloud Appliance Library 3.0. The screenshots show the process step by step. Deploying other solutions in the list works a similar way from a process perspective. One just has to select a different solution.
 
-To start with SAP Cloud Appliance Library (SAP CAL) follow this [link](https://cal.sap.com/). There is a blog from SAP about 
+To start with SAP Cloud Appliance Library (SAP CAL), follow this [link](https://cal.sap.com/). There is a blog from SAP about 
 the new [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-**As of 05/29/2017, SAP CAL allows deploying with the Azure Resource Manager deployment model additional to the less preferred classic deployment model. We highly recommend leveraging the new Azure Resource Manager deployment model for deployment and disregard the old deployment model CAL marks as 'classic'.**
+**As of May 29th 2017, SAP CAL allows deploying with the Azure Resource Manager deployment model additional to the less preferred classic deployment model. We highly recommend using the new Azure Resource Manager deployment model for deployment and disregard the old deployment model CAL marks as 'classic'.**
 
 If you already deployed in SAP CAL and created an SAP CAL account that could deploy SAP solutions in Azure using the Azure classic deployment method **you need to create another SAP CAL account** that can exclusively deploy into Azure using Azure Resource Manager as deployment framework.
 
@@ -48,7 +48,7 @@ The next steps will show, the SAP CAL account creation for Azure Resource Manage
 First, create a new SAP CAL account. In **Accounts**, you see three choices for Azure: 
 
 - Microsoft Azure (classic) which is the classic deployment method and not preferred these days
-- Microsoft Azure which, stands for the new Azure Resource Manager deployment model
+- Microsoft Azure, which, stands for the new Azure Resource Manager deployment model
 - An Azure option operated by 21Vianet in China where the deployment still is in the classic model
 
 Since we want to deploy in the Azure Resource Manager deployment model in the future, our new SAP CAL account needs to associated with **Microsoft Azure**.
@@ -61,7 +61,7 @@ Then, enter the Azure subscription ID that can be found on the Azure portal.
 
 The next step is to authorize SAP CAL to deploy into the Azure subscription you just defined. To initiate that process, press the button 'Authorize' as seen in the screenshot above.
 
-Check your Internet Browser since the next screen which should appear in the same tab in the browser should look like
+Check your Internet Browser since the next screen, which should appear in the same tab in the browser should look like
 
 ![Screenshot of IE Cloud Service Login Screen](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.png)
 
@@ -91,7 +91,7 @@ You succeeded now to create an SAP CAL account that is able to:
 Before being able to deploy the SAP IDES solution based on Windows and SQL Server, you might need to sign up for an SAP CAL subscription. Otherwise the solution could show up as 'Locked' in the overview page.
 
 
-After the setup of an SAP CAL account you select The SAP IDES solution on Windows and SQL Server solution. Pressing the button 'Create Instance' should get you to the next screen. In that screen, you need to confirm some usage and terms conditions (not shown here). The next screen, which is shown below is using the 'basic' deployment mode as the only screen where you need to:
+After the setup of an SAP CAL account, you select The SAP IDES solution on Windows and SQL Server solution. Pressing the button 'Create Instance' should get you to the next screen. In that screen, you need to confirm some usage and terms conditions (not shown here). The next screen, which is shown below is using the 'basic' deployment mode as the only screen where you need to:
 - Enter an instance name.
 - Choose an Azure region. Keep in mind that you might need an SAP CAL subscription to get multiple Azure regions offered.
 -  Define the master password for the solution as shown below.
@@ -104,16 +104,16 @@ After some time depending on the size and complexity of the solution (an estimat
 
 ![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
-If you check on the Azure portal, you can find the Resource Group and all of its objects that were created by SAP CAL in an Azure Resource Group that was created by SAP CAL. The virtual machine can be found starting with the same instance name that was given in SAP CAL.
+If you check on the Azure portal, you can find the Resource Group and all its objects that were created by SAP CAL in an Azure Resource Group that was created by SAP CAL. The virtual machine can be found starting with the same instance name that was given in SAP CAL.
 
 ![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.png)
 
-Jumping back to SAP CAL, you can go to the deployed instances and press he button 'Connect'. Th pop-up below will show up. 
+Jumping back to SAP CAL, you can go to the deployed instances and press he button 'Connect'. Th pop-up below shows up. 
 
 ![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.png)
 
 
-Before you proceed, you need to click the link of the 'Getting Started Guide' before you can take one of the options to connect to the deployed systems. The documentation will name the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords that you can use to log into the deployed system.
+Before you proceed, you need to click the link of the 'Getting Started Guide' before you can take one of the options to connect to the deployed systems. The documentation names the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords that you can use to log in to the deployed system.
 
 ![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
