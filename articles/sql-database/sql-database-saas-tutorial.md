@@ -47,7 +47,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 Deploy the Wingtip SaaS app:
 
-1. Clicking the **Deploy to Azure** button opens the Azure portal to the Wingtip SaaS deployment template. The template requires two parameter values, a name for a new resource group, and a user name that distinguishes this deployment from othe users deploying the Wingtip SaaS app. The section below the button provides details for setting these value. Be sure to note these values because you will enter them into a config file later.
+1. Clicking the **Deploy to Azure** button opens the Azure portal to the Wingtip SaaS deployment template. The template requires two parameter values; a name for a new resource group, and a user name that distinguishes this deployment from other deployments of the Wingtip SaaS app. The next step provides details for setting these values. Make sure to note the exact values that you use, because you will need to enter them into a configuration file later.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -74,7 +74,7 @@ Deploy the Wingtip SaaS app:
 While the application is deploying, download the source code and management scripts.
 
 > [!IMPORTANT]
-> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run.
+> Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the scripts from a zip file, follow the steps below to unblock the .zip file before extracting. This ensures the scripts are allowed to run.
 
 1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
 1. Click **Clone or download**.
