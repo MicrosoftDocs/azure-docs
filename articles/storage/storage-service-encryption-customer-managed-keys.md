@@ -36,9 +36,9 @@ To participate in the preview please contact [ssediscussions@microsoft.com](mail
 To learn more, please refer to the FAQ.
 
 ## Getting Started
-### Step 1: [Create a new storage account](storage-create-storage-account.md)
+## Step 1: [Create a new storage account](storage-create-storage-account.md)
 
-### Step 2: Enable encryption.
+## Step 2: Enable encryption.
 You can enable SSE for the storage account using the [Azure portal](https://portal.azure.com). On the Settings blade for the storage account, look for the Blob Service section as shown in figure below and click Encryption.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
@@ -52,7 +52,7 @@ On this screen, if you can’t see the “use your own key” checkbox, you have
 
 By default, SSE will use Microsoft managed keys. To use your own keys, check the box. Then you can either specify your key URI, or select a key and Key Vault from the picker.
 
-### Step 3: Select your key
+## Step 3: Select your key
 
 ![Portal Screenshot showing Encryption use your own key option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
@@ -64,10 +64,10 @@ If the storage account does not have access to the Key Vault, you can run the fo
 
 You can also grant access via the Azure portal by going to the Azure Key Vault in the Azure portal and granting access to the storage account.
 
-### Step 4: Copy data to storage account
+## Step 4: Copy data to storage account
 If you would like to transfer data into your new storage account so that it’s encrypted, please refer to [Step 3 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
-### Step 5: Query the status of the encrypted data
+## Step 5: Query the status of the encrypted data
 To query the status of the encrypted data please refer to [Step 4 of Getting Started in Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## Frequently asked questions about Storage Service Encryption for Data at Rest
