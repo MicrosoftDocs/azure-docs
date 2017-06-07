@@ -79,7 +79,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 
 6. Select one of the offered self-help resources, or select **Yes, continue** or **No, cancel request**.
 
-7. If you continue, you'l be asked for more details and you can attach any files you have that will help, and then select **Next**.
+7. If you continue, you'll be asked for more details and you can attach any files you have that will help, and then select **Next**.
 
 8. Provide your contact information and select **Submit request**.
 
