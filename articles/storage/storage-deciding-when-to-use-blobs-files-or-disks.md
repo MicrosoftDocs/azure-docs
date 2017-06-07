@@ -22,14 +22,10 @@ Microsoft Azure provides several ways to store and access data in the cloud. The
 
 | Storage type | Description | When to use |
 |--------------|-------------|-------------|
-| **Azure Files** | Provides an SMB interface, client libraries, and a [REST interface](/rest/api/storageservices/file-service-rest-api) that allows easy access from anywhere to stored files. | You want to "lift and shift" an application to the cloud which already uses the native file system APIs to share data between it and other applications running in Azure. |
-| | | You want to store development and debugging tools that need to be accessed from many virtual machines.   |
-| **Azure Blobs** | Provides client libraries and a [REST interface](/rest/api/storageservices/blob-service-rest-api) that allows unstructured data to  be stored and accessed at a massive scale in block blobs. | You want your application to support streaming and random access scenarios. |
-| | | You want to be able to access application data from anywhere. |
-| **Azure Data Disks** | Provides client libraries and a [REST interface](/rest/api/compute/virtualmachines/virtualmachines-create-or-update) that allows data to be  persistently stored and accessed from an attached virtual hard disk. | You want to lift and shift applications that use native file system APIs to read and write data to persistent disks. |
-| | | You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
+| **Azure Files** | Provides an SMB interface, client libraries, and a [REST interface](/rest/api/storageservices/file-service-rest-api) that allows easy access from anywhere to stored files. | You want to "lift and shift" an application to the cloud which already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to store development and debugging tools that need to be accessed from many virtual machines. |
+| **Azure Blobs** | Provides client libraries and a [REST interface](/rest/api/storageservices/blob-service-rest-api) that allows unstructured data to  be stored and accessed at a massive scale in block blobs. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere. |
+| **Azure Data Disks** | Provides client libraries and a [REST interface](/rest/api/compute/virtualmachines/virtualmachines-create-or-update) that allows data to be  persistently stored and accessed from an attached virtual hard disk. | You want to lift and shift applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
 
-  
 > [!NOTE]
 >  For more information about using client libraries with storage services, see [Introduction to Microsoft Azure Storage](storage-introduction.md).  
 
@@ -70,8 +66,8 @@ The following table compares Azure Files with Azure Blobs.
 |Max 8KB IOps|500 IOps|1000 IOps|  
 |Throughput|Up to 60 MB/s per Disk|Up to 60 MB/s per File Share|  
   
- When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Storage Pricing Details](https://azure.microsoft.com/en-us/pricing/details/storage/).  
+ When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).  
   
- Some SMB features are not applicable to the cloud. For more information, see [Features Not Supported By the Azure File Service](Features-Not-Supported-By-the-Azure-File-Service.md).  
+ Some SMB features are not applicable to the cloud. For more information, see [Features Not Supported By the Azure File Service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).  
   
- For more information about data disks, see [Managing Disks and Images](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-disks-vhds/) and [How to Attach a Data Disk to a Windows Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/).
+ For more information about data disks, see [Managing Disks and Images](storage-about-disks-and-vhds-linux.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md).
