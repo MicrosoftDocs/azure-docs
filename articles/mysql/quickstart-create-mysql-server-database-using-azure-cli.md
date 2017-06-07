@@ -106,9 +106,9 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to the server using the mysql.exe command-line tool
-To connect to your server using the **mysql.exe** command-line tool. You can download MySQL from [here](https://dev.mysql.com/downloads/) and install it on your computer, or open the **Azure Cloud Shell** in the portal (click Try It `>_`  button on code samples) to run the following commands. 
+Connect to your server using the **mysql.exe** command-line tool. You can download MySQL from [here](https://dev.mysql.com/downloads/) and install it on your computer. Instead you may also click the **Try It** button on code samples, or the  `>_` button from the upper right toolbar in the Azure portal, and launch the **Azure Cloud Shell**.
 
-Open the command prompt and type the next commands: 
+Type the next commands: 
 
 1. Connect to the server using **mysql** command-line tool:
 ```azurecli-interactive
