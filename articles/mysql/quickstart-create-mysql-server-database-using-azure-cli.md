@@ -38,7 +38,7 @@ Follow the command prompt instructions to open URL https://aka.ms/devicelogin in
 ## Create a resource group
 Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
-The following example creates a resource group named `mycliresource` in the `westus` location.
+The following example creates a resource group named `myresourcegroup` in the `westus` location.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -47,7 +47,7 @@ az group create --name myresourcegroup --location westus
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the **az mysql server create** command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates an Azure Database for MySQL server located in `westus` in the resource group `mycliresource` with name `mycliserver`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
+The following example creates an Azure Database for MySQL server located in `westus` in the resource group `myresoucegroup` with name `myserver4demo`. The server has an administrator log in named `myadmin` and password `Password01!`. The server is created with **Basic** performance tier and **50** compute units shared between all the databases in the server. You can scale compute and storage up or down depending on the application needs.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresoucegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
@@ -86,7 +86,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
   "fullyQualifiedDomainName": "myserver4demo.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/myserver4demo",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver4demo",
   "location": "westus",
   "name": "myserver4demo",
   "resourceGroup": "myresourcegroup",
@@ -112,7 +112,7 @@ Open the command prompt and type the next commands:
 
 1. Connect to the server using **mysql** command-line tool:
 ```azurecli-interactive
- mysql -h myserver4demo.mysql.database.azure.com -u myadmin@mycliserver -p
+ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
 
 2. View server status:
