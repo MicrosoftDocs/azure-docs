@@ -1,6 +1,6 @@
 ---
-title: Get started with the Bing Speech API using cURL | Microsoft Docs
-description: Apply the Bing Speech Recognition API in Microsoft Cognitive Services by using cURL to convert spoken audio to text.
+title: Get started with the Azure Speech REST API using cURL | Microsoft Docs
+description: Apply the Azure Speech Recognition API in Microsoft Cognitive Services by using cURL to convert spoken audio to text.
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
@@ -12,7 +12,7 @@ ms.date: 03/16/2017
 ms.author: prrajan
 ---
 
-# Get Started with Bing Speech API in cURL
+# Get Started with Speech REST API in cURL
 
 Exercise Bing Speech Recognition API using cURL to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. The example below is **bash** commands that demonstrates the use of Microsoft Cognitive Services (formerly Project Oxford) Speech To Text API using **cURL**.
 
@@ -37,20 +37,23 @@ Before creating the example, you must subscribe to Speech API which is part of M
     `JWT access token`
 
 ## <a name="Step2"></a>Step 2: Upload the Audio Binary
-1. Replace **your_instance_id**, **your_request_id**, **your_locale**, **your_device_os** in accordance to your own application
+1. Replace **your_locale**, **your_format**, **your_guid** in accordance to your own application
 2. Replace **your_access_token** with the JWT access token retrieved from [Step 1](#Step1)
 3. Replace **your_wave_file** with the actual wave file
 4. Run the command in **bash**
 
-    `curl -v -X POST "https://speech.platform.bing.com/recognize?scenarios=smd&appid=D4D52672-91D7-4C74-8AD8-42B1D98141A5&locale=your_locale&device.os=your_device_os&version=3.0&format=json&instanceid=your_instance_id&requestid=your_request_id" -H 'Authorization: Bearer your_access_token' -H 'Content-type: audio/wav; codec="audio/pcm"; samplerate=16000' --data-binary @your_wave_file`
+    `curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR&locale=your_locale&format=your_format&requestid=your_guid" -H 'Authorization: Bearer your_access_token' -H 'Content-type: audio/wav; codec="audio/pcm"; samplerate=16000' --data-binary @your_wave_file`
 
 5. Parse the Succcessful recognition response or Error response
 
-## <a name="Related"></a>Related Topics
-* [Get Started with Bing Speech Recognition in C Sharp for .Net on Windows Desktop](GetStartedCSharpDesktop.md)
-* [Get Started with Bing Speech Recognition in Java on Android](GetStartedJavaAndroid.md)
-* [Get Started with Bing Speech Recognition in JavaScript](GetStartedJS.md)
-* [Get Started with Bing Speech Recognition in Objective C on iOS](Get-Started-ObjectiveC-iOS.md)
+## Recognition Mode  
+You specify the *recognition mode* as part of the URL path for the Microsoft Speech Service. The following recognition modes are supported.  
+
+| Mode | Path | URL Example |
+|---- | ---- | ---- |
+| Interactive/Command | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Dictation | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR | 
 
 For questions, feedback, or suggestions about Microsoft Cognitive Services, feel free to reach out to us directly.
 

@@ -10,23 +10,23 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop
+ms.custom: mvc-tutorial-develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/24/2017
+ms.date: 05/30/2017
 ms.author: janeng
 
 ---
 
 # Design your first Azure SQL database
 
-Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. This tutorial covers basic database tasks such as create a database and tables, load and query data and restore the database to a previous point in time. You learn how to: 
+Azure SQL Database is a relational database-as-a service using the Microsoft SQL Server Engine. This tutorial covers basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learn how to: 
 
 > [!div class="checklist"]
 > * Create a database
-> * Set up a firewall rule
+> * Set up a server-level firewall rule
 > * Connect to the database with [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
 > * Create tables
 > * Bulk load data
@@ -89,25 +89,37 @@ Follow these steps to create a blank SQL database.
 
 ## Create a server-level firewall rule
 
-Azure SQL Databases are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your server to allow connections from your client's IP address. 
+The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and click your new database, **mySampleDatabase**, on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170313.database.windows.net**) and provides options for further configuration.
+> [!NOTE]
+> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot to connect to your Azure SQL Database server unless your IT department opens port 1433.
+>
 
-   ![server firewall rule](./media/sql-database-design-first-database/server-firewall-rule.png) 
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170313.database.windows.net**) and provides options for further configuration. Copy this fully qualified server name for use later.
+
+   > [!IMPORTANT]
+   > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
+   > 
+
+   ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
-3. Click **Add client IP** on the toolbar and then click **Save**. A server-level firewall rule is created for your current IP address.
+   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-   ![set server firewall rule](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
 
-4. Click **OK** and then click the **X** to close the **Firewall settings** page.
+3. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-You can now connect to the database and its server using SQL Server Management Studio or another tool of your choice.
+4. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-> [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
->
+   ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
+
+4. Click **OK** and then close the **Firewall settings** page.
+
+You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
+
+> [!IMPORTANT]
+> By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
 
 ## Get connection information
 
@@ -297,12 +309,12 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
 
    ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 
-3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, provided that it is within the retention period for your [service tier](sql-database-service-tiers.md).
+3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, as long as it is within the retention period for your [service tier](sql-database-service-tiers.md).
 
 
 
 ## Next Steps 
-In this tutorial, you learned basic database tasks such as create a database and tables, load and query data and restore the database to a previous point in time. You learned how to:
+In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:
 > [!div class="checklist"]
 > * Create a database
 > * Set up a firewall rule
