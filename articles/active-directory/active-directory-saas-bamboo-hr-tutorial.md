@@ -139,7 +139,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. In the **SAML Single Sign-On** section, perform the following steps:
    
-    ![SAML Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
+    ![SAML Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/ic796692.png "SAML Single Sign-On")
    
     a. Paste the **SAML Single Sign-On Service URL** value into the **SSO Login Url** textbox.
       
@@ -193,7 +193,7 @@ In the case of BambooHR, provisioning is a manual task.
 
 2. In the toolbar on the top, click **Settings**.
    
-    ![Setting](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "Setting")
+    ![Setting](./media/active-directory-saas-bamboo-hr-tutorial/ic796694.png "Setting")
 
 3. Click **Overview**.
 
