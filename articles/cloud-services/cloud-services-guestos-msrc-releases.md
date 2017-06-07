@@ -13,12 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/1/2017
+ms.date: 6/6/2017
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## May Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-05 | [4019472] |WS 2016 OS Quality Improvements |5.7 | May 9, 2017 |
+| Rel 17-05 | [4019263] |Windows Security only |2.62 | May 9, 2017 |
+| Rel 17-05 | [4019213] |Windows Security only |4.42 | May 9, 2017 |
+| Rel 17-05 | [4019214] |Windows Security only |3.49 | May 9, 2017 |
+| Rel 17-05 | [4018271] |Cumulative security update for Internet Explorer |3.49 | May 9, 2017 |
+| Rel 17-05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | May 9, 2017 |
+| Rel 17-05 | [4022344] |Microsoft Security Advisory |5.7 | May 9, 2017 |
+| Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | May 9, 2017 |
+| Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | May 9, 2017 |
+| N/A | [4012864] |Timezone Update |2.62, 3.49, 4.42 | May 9, 2017 |
+| N/A | [4014565] |April .NET non-security rollup |2.62 | May 9, 2017 |
+| N/A | [4014559] |April .NET non-security rollup |2.62 | May 9, 2017 |
+| N/A | [4015549] |April non-Security Rollup |2.62 | May 9, 2017 |
+| N/A | [4019990] |D3DCompiler update - requirement for .NET 4.7 |3.49 | May 9, 2017 |
+| N/A | [4014563] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4014557] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4014545] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4014548] |April .NET non-security rollup |3.49 | May 9, 2017 |
+| N/A | [4015551] |April non-security rollup |3.49 | May 9, 2017 |
+| N/A | [3173424] |Servicing Stack Update  |4.42 | May 9, 2017 |
+| N/A | [4014555] |April .NET non-security rollup  |4.42 | May 9, 2017 |
+| N/A | [4014567] |April .NET non-security rollup |4.42 | May 9, 2017 |
+| N/A | [4015550] |April non-security rollup |4.42 | May 9, 2017 |
+| N/A | [4013418] |Servicing Stack Update |5.7 | May 9, 2017 |
 
 ## April Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -434,6 +462,32 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4019472]: http://support.microsoft.com/kb/4019472
+[4019263]: http://support.microsoft.com/kb/4019263
+[4019213]: http://support.microsoft.com/kb/4019213
+[4019214]: http://support.microsoft.com/kb/4019214
+[4018271]: http://support.microsoft.com/kb/4018271
+[4010323]: http://support.microsoft.com/kb/4010323
+[4012864]: http://support.microsoft.com/kb/4012864
+[4014565]: http://support.microsoft.com/kb/4014565
+[4014559]: http://support.microsoft.com/kb/4014559
+[4015549]: http://support.microsoft.com/kb/4015549
+[4019990]: http://support.microsoft.com/kb/4019990
+[4014563]: http://support.microsoft.com/kb/4014563
+[4014557]: http://support.microsoft.com/kb/4014557
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014548]: http://support.microsoft.com/kb/4014548
+[4015551]: http://support.microsoft.com/kb/4015551
+[3173424]: http://support.microsoft.com/kb/3173424
+[4014555]: http://support.microsoft.com/kb/4014555
+[4014567]: http://support.microsoft.com/kb/4014567
+[4015550]: http://support.microsoft.com/kb/4015550
+[4013418]: http://support.microsoft.com/kb/4013418
+[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+
 
 [4015217]: http://support.microsoft.com/kb/4015217
 [4015546]: http://support.microsoft.com/kb/4015546

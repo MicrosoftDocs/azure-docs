@@ -43,6 +43,8 @@ Before running this sample, install the following prerequisites locally:
 1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 1. [Download and install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL
@@ -151,7 +153,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL (Preview)
 
 You are now going to use the Azure CLI 2.0 in a terminal window to create the resources needed to host your PHP application in Azure App Service. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
 ``` 
 
@@ -161,7 +163,7 @@ Create a [resource group](../azure-resource-manager/resource-group-overview.md) 
 
 The following example creates a resource group in the North Europe region:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "North Europe"
 ```
 
@@ -173,7 +175,7 @@ Create a server in Azure Database for MySQL (Preview) with the [az mysql server 
 
 In the following command, substitute your own unique MySQL server name where you see the _&lt;mysql_server_name>_ placeholder. This name is part of your MySQL server's hostname, `<mysql_server_name>.database.windows.net`, so it needs to be globally unique. Similarly, substitute _&lt;admin_user>_ and _&lt;admin_password>_ with your own values.
 
-```azurecli
+```azurecli-interactive
 az mysql server create \
     --name <mysql_server_name> \
     --resource-group myResourceGroup \
@@ -201,7 +203,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command. 
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
     --name allIPs \
     --server <mysql_server_name> \
@@ -327,7 +329,7 @@ Create an App Service plan with the [az appservice plan create](/cli/azure/appse
 
 The following example creates an App Service plan named _myAppServicePlan_ using the **FREE** pricing tier:
 
-```azurecli
+```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlan \
     --resource-group myResourceGroup \
@@ -358,7 +360,7 @@ Now that an App Service plan has been created, create a web app within the _myAp
 
 In the following command, substitute the _&lt;appname>_ placeholder with your own unique app name. This unique name is used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
-```azurecli
+```azurecli-interactive
 az appservice web create \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -388,7 +390,7 @@ Set the PHP version that your application requires by using the [az appservice w
 
 The following command sets the PHP version to _7.0_.
 
-```azurecli
+```azurecli-interactive
 az appservice web config update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -403,7 +405,7 @@ In App Service, you set environment variables as _app settings_ by using the [az
 
 The following command lets you configure the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_, and _&lt;phpapp_password>_.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -435,7 +437,7 @@ php artisan key:generate --show
 
 Set the application key in your App Service web app by using the [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -478,13 +480,13 @@ For FTP and local Git, it is necessary to have a deployment user configured on t
 
 If you've previously created a deployment username and password, you can use the following command to show the username:
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user show
 ```
 
 If you don't already have a deployment user, run the [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set) command to create your deployment credentials. 
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user set \
     --user-name <username> \
     --password <minimum-8-char-capital-lowercase-number>
@@ -502,7 +504,7 @@ You can deploy your application to Azure App Service in various ways including F
 
 Use the [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) command to configure local Git access to the Azure web app. 
 
-```azurecli
+```azurecli-interactive
 az appservice web source-control config-local-git \
     --name <app_name> \
     --resource-group myResourceGroup
@@ -713,7 +715,7 @@ While your PHP application runs in Azure App Service, you can get the console lo
 
 To start log streaming, use the [az appservice web log tail](/cli/azure/appservice/web/log#tail) command.
 
-```azurecli 
+```azurecli-interactive 
 az appservice web log tail \
     --name <app_name> \
     --resource-group myResourceGroup 
@@ -758,7 +760,7 @@ These tabs in the blade show the many great features you can add to your web app
  
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
   
-```azurecli 
+```azurecli-interactive
 az group delete --name myResourceGroup 
 ``` 
 

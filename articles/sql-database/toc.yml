@@ -63,6 +63,8 @@
       href: sql-database-service-tiers.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
+    - name: Connectivity architecture
+      href: sql-database-connectivity-architecture.md 
     - name: DTUs and eDTUs
       href: sql-database-what-is-a-dtu.md
     - name: DTU benchmark
@@ -117,9 +119,9 @@
       href: sql-database-geo-replication-security-config.md
     - name: App design & recovery
       href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-    - name: App design and pools
+    - name: App design & pools
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-    - name: App design and upgrades
+    - name: App design & app upgrades
       href: sql-database-manage-application-rolling-upgrade.md
     - name: Recover from outage
       href: sql-database-disaster-recovery.md
@@ -139,6 +141,8 @@
       href: sql-database-export.md
   - name: Monitor & manage
     items:
+    - name: Automatic tuning
+      href: sql-database-automatic-tuning.md
     - name: Single databases
       href: sql-database-single-database-monitor.md
     - name: Database advisor
@@ -277,6 +281,8 @@
       href: sql-database-advisor-portal.md
     - name: Use QPI
       href: sql-database-performance.md
+    - name: Enable automatic tuning
+      href: sql-database-automatic-tuning-enable.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
     - name: Extended events - event file
