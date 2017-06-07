@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -108,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_url.png)
 
-     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.teamseer.com/secure.php?lev=1&page=login&companyId=<companyID>&mode=saml2`
+     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.teamseer.com/<companyid>`
 
 	> [!NOTE] 
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [TeamSeer Client support team](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) to get the value. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_certificate.png) 
 
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_general_400.png)
 
-6. On the **TeamSeer Configuration** section, click **Configure TeamSeer** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **TeamSeer Configuration** section, click **Configure TeamSeer** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_configure.png)
 
@@ -129,31 +129,31 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. Go to **HR Admin**.
    
-    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789634.png "HR Admin")
+    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/ic789634.png "HR Admin")
 
 9. Click **Setup**.
    
-    ![Setup](./media/active-directory-saas-teamseer-tutorial/IC789635.png "Setup")
+    ![Setup](./media/active-directory-saas-teamseer-tutorial/ic789635.png "Setup")
 
 10. Click **Set up SAML provider details**.
    
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789636.png "SAML Settings")
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/ic789636.png "SAML Settings")
 
 11. In the SAML provider details section, perform the following steps:
    
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML Settings")   
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/ic789637.png "SAML Settings")   
 
-    a. paste the **Single Sign-On Service URL** value in to the **URL** textbox.
+    a. Paste the **Single Sign-On Service URL** value in to the **URL** textbox.
           
     b. Open your base-64 encoded certificate in notepad, copy the content of it in to your clipboard, and then paste it to the **IdP Public Certificate** textbox.
 
 12. To complete the SAML provider configuration, perform the following steps:
     
-    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/IC789638.png "SAML Settings") 
+    ![SAML Settings](./media/active-directory-saas-teamseer-tutorial/ic789638.png "SAML Settings") 
 
     a. In the **Test Email Addresses**, type the test user’s email address. 
   
-    b. paste the **SAML Entity ID** value in to the **Issuer** textbox. 
+    b. In the **Issuer** textbox, type the Issuer URL of the service provider. 
   
     c. Click **Save**.
 
@@ -202,7 +202,7 @@ To enable Azure AD users to log in to TeamSeer, they must be provisioned in to S
 
 2. Perform the following steps:
    
-    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/IC789640.png "HR Admin")  
+    ![HR Admin](./media/active-directory-saas-teamseer-tutorial/ic789640.png "HR Admin")  
  
     a. Go to **HR Admin \> Users**.
   
@@ -210,7 +210,7 @@ To enable Azure AD users to log in to TeamSeer, they must be provisioned in to S
 
 3. In the **User Details** section, perform the following steps:
    
-    ![User Details](./media/active-directory-saas-teamseer-tutorial/IC789641.png "User Details")
+    ![User Details](./media/active-directory-saas-teamseer-tutorial/ic789641.png "User Details")
 
     a. Type the **First Name**, **Surname**, **User name (Email address)** of a valid AAD account you want to provision in to the related textboxes.
   
