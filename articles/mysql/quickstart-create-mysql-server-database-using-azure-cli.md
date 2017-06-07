@@ -106,7 +106,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to the server using the mysql.exe command-line tool
-To connect to your server using the **mysql.exe** command-line tool. You can download MySQL from [here](https://dev.mysql.com/downloads/) and use the MySQL installation on your computer, or open the **Azure Cloud Shell** in the portal (click Try It `>_`  button on code samples) to run the following commands. 
+To connect to your server using the **mysql.exe** command-line tool. You can download MySQL from [here](https://dev.mysql.com/downloads/) and install it on your computer, or open the **Azure Cloud Shell** in the portal (click Try It `>_`  button on code samples) to run the following commands. 
 
 Open the command prompt and type the next commands: 
 
@@ -119,7 +119,7 @@ Open the command prompt and type the next commands:
 ```sql
  mysql> status
 ```
-If everything goes well, the command-line tool should output the following:
+If everything goes well, the command-line tool should output the following text:
 
 ```dos
 C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
@@ -172,7 +172,7 @@ mysql>
 | **Setting** | **Suggested Value** | **Description** |
 |---|---|---|
 |	Connection Name | My Connection | Specify a label for this connection (this can be anything) |
-| Connection Method | choose Standard (TCP/IP) | Use TCP/IP protocol to connect to Azure Datbase for MySQL> |
+| Connection Method | choose Standard (TCP/IP) | Use TCP/IP protocol to connect to Azure Database for MySQL> |
 | Hostname | myserver4demo.mysql.database.azure.com | Server name you previously noted. |
 | Port | 3306 | The default port for MySQL is used. |
 | Username | myadmin@myserver4demo | The server admin login you previously noted. |
@@ -181,11 +181,11 @@ mysql>
    ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
 Click **Test Connection** to test if all parameters are correctly configured.
-Now, you can click the connection just created to successfully connect to the server.
+Now, you can click the connection to successfully connect to the server.
 
 ## Clean up resources
 
-If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following: 
+If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
