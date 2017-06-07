@@ -174,7 +174,7 @@ Verify that you can access the service at the external IP address. For example, 
 
 
 
-## Verify load balancer configuration
+## See load balancer configuration
 If you want to see how the Azure load balancer is configured, go to the [Azure portal](https://portal.azure.com).
 
 Browse for the resource group for your Kubernetes cluster - *myK8sRG* in this example. Select the load balancer for the agent VMs. Its name begins with name of the cluster followed by the name of the resource group - *myk8scluster-myk8srg-...* in this example. 
