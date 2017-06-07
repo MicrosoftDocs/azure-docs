@@ -111,7 +111,7 @@ A: SSE is available in only certain regions for Blob storage for this Preview. P
 
 **Q: How do I contact someone if I have any issues or want to provide feedback?**
 
-A: Please contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com for any issues related to Storage Service Encryption. 
+A: Please contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) for any issues related to Storage Service Encryption. 
 
 ## Next Steps
 
