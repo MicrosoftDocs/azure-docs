@@ -61,7 +61,7 @@ Multi-instance updates (for VMs in an availability set) are applied one update d
     
 ### User-initiated reboot/shutdown actions
  
-If a reboot is performed from the Azure portal, Azure PowerShell, Command-Line interface, or Reset API, the event can be found in [Azure Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs).
+If a reboot is performed from the Azure portal, Azure PowerShell, Command-Line interface, or Reset API, the event can be found in [Azure Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 If the action is performed from the VM's operation system, the event can be found in system logs.
 
