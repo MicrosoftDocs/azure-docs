@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/07/2017
 ms.author: jeedes
 
 ---
@@ -167,7 +167,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an Autotask Workplace test user
 
-In this section, you create a user called Britta Simon in Autotask. Please work with [Autotask support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) to add the users in the Autotask platform.
+In this section, you create a user called Britta Simon in Autotask. Please work with [Autotask Workplace support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) to add the users in the Autotask Workplace platform.
 
 ### Assigning the Azure AD test user
 
