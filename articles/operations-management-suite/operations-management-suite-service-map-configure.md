@@ -30,33 +30,33 @@ This article describes the details of configuring Service Map and onboarding age
 
 
 ## Connected sources
-Service Map gets its data from the Microsoft Dependency Agent. The Dependency Agent depends on the Operations Management Suite Agent for its connections to Operations Management Suite. This means that a server must have the Operations Management Suite Agent installed and configured first, and then the Dependency Agent can be installed. The following table describes the connected sources that the Service Map solution supports.
+Service Map gets its data from the Microsoft Dependency Agent. The Dependency Agent depends on the OMS Agent for its connections to Operations Management Suite. This means that a server must have the OMS Agent installed and configured first, and then the Dependency Agent can be installed. The following table describes the connected sources that the Service Map solution supports.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers. <br><br>In addition to the [Operations Management Suite Agent](../log-analytics/log-analytics-windows-agents.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Service Map analyzes and collects data from Linux agent computers. <br><br>In addition to the [Operations Management Suite Agent](../log-analytics/log-analytics-linux-agents.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Service Map analyzes and collects data from Windows agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-windows-agents.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Service Map analyzes and collects data from Linux agent computers. <br><br>In addition to the [OMS Agent](../log-analytics/log-analytics-linux-agents.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Operations Management Suite is required. Data is forwarded from the management group to the Operations Management Suite repository.|
 | Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
 Service Map supports only 64-bit platforms.
 
-On Windows, the Microsoft Monitoring Agent is used by both System Center Operations Manager and Operations Management Suite to gather and send monitoring data. (This agent is called the System Center Operations Manager Agent, Operations Management Suite Agent, Log Analytics Agent, Microsoft Monitoring Agent, or Direct Agent, depending on the context.) System Center Operations Manager and Operations Management Suite provide different out-of-the box versions of the Microsoft Monitoring Agent. These versions can each report to System Center Operations Manager, to Operations Management Suite, or to both.  
+On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Operations Management Suite to gather and send monitoring data. (This agent is called the System Center Operations Manager Agent, OMS Agent, Log Analytics Agent, MMA, or Direct Agent, depending on the context.) System Center Operations Manager and Operations Management Suite provide different out-of-the box versions of the MMA. These versions can each report to System Center Operations Manager, to Operations Management Suite, or to both.  
 
-On Linux, the Operations Management Suite Agent for Linux gathers and sends monitoring data to Operations Management Suite. You can use Service Map on servers with Operations Management Suite Direct Agents or on servers that are attached to Operations Management Suite via System Center Operations Manager management groups.  
+On Linux, the OMS Agent for Linux gathers and sends monitoring data to Operations Management Suite. You can use Service Map on servers with OMS Direct Agents or on servers that are attached to Operations Management Suite via System Center Operations Manager management groups.  
 
-In this article, we'll refer to all agents--whether Linux or Windows, whether connected to a System Center Operations Manager management group or directly to Operations Management Suite--as the "Operations Management Suite Agent." We'll use the specific deployment name of the agent only if it's needed for context.
+In this article, we'll refer to all agents--whether Linux or Windows, whether connected to a System Center Operations Manager management group or directly to Operations Management Suite--as the "OMS Agent." We'll use the specific deployment name of the agent only if it's needed for context.
 
-The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Service Map is always transmitted by the Operations Management Suite Agent to Operations Management Suite, either directly or via the Operations Management Suite Gateway.
+The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Service Map is always transmitted by the OMS Agent to Operations Management Suite, either directly or via the OMS Gateway.
 
 ![Service Map agents](media/oms-service-map/agents.png)
 
 If you are a System Center Operations Manager customer with a management group connected to Operations Management Suite:
 
 - If your System Center Operations Manager agents can access the Internet to connect to Operations Management Suite, no additional configuration is required.  
-- If your System Center Operations Manager agents cannot access Operations Management Suite over the Internet, you need to configure the Operations Management Suite Gateway to work with System Center Operations Manager.
+- If your System Center Operations Manager agents cannot access Operations Management Suite over the Internet, you need to configure the OMS Gateway to work with System Center Operations Manager.
   
-If you are using the Operations Management Suite Direct Agent, you need to configure the Operations Management Suite Agent itself to connect to Operations Management Suite or to your Operations Management Suite Gateway. The Operations Management Suite Gateway can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to Operations Management Suite or to your OMS Gateway. The OMS Gateway can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### Management packs
 When Service Map is activated in an Operations Management Suite workspace, a 300-KB management pack is sent to all the Windows servers in that workspace. If you are using System Center Operations Manager agents in a [connected management group](../log-analytics/log-analytics-om-agents.md), the Service Map management pack is deployed from System Center Operations Manager. If the agents are directly connected, Operations Management Suite delivers the management pack.
@@ -71,7 +71,7 @@ The Dependency Agent is installed on Windows computers through InstallDependency
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Install the Operations Management Suite Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md).
+1.	Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md).
 2.	Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
 3.	Follow the wizard to install the agent.
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
@@ -95,7 +95,7 @@ The Dependency Agent is installed on Linux computers through InstallDependencyAg
  
 Use the following steps to install the Dependency Agent on each Linux computer:
 
-1.	Install the Operations Management Suite Agent by using the instructions at [Collect and manage data from Linux computers](https://technet.microsoft.com/library/mt622052.aspx).
+1.	Install the OMS Agent by using the instructions at [Collect and manage data from Linux computers](https://technet.microsoft.com/library/mt622052.aspx).
 2.	Install the Linux Dependency agent as root by using the following command:<br>`sh InstallDependencyAgent-Linux64.bin`
 3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is /var/opt/microsoft/dependency-agent/log.
 
@@ -212,7 +212,7 @@ If your Dependency Agent installation succeeded, but you don't see your server i
 
 		* Computer="<your computer name here>" | measure count() by Type
 		
-  Did you get a variety of events in the results? Is the data recent? If so, your Operations Management Suite Agent is operating correctly and communicating with the Operations Management Suite service. If not, check the Operations Management Suite Agent on your server: [Operations Management Suite Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) or [Operations Management Suite Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Did you get a variety of events in the results? Is the data recent? If so, your OMS agent is operating correctly and communicating with the Operations Management Suite service. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### Server appears in Service Map but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load. 
