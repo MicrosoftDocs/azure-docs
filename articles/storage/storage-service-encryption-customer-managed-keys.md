@@ -21,7 +21,7 @@ ms.author: lakasa
 
 Microsoft Azure is strongly committed to helping you protect and safeguard your data to meet your organizational security and compliance commitments.  One way you can protect your data at rest is to use Storage Service Encryption (SSE), which automatically encrypts your data when writing it to storage, and decrypts your data when retrieving it. The encryption and decryption is automatic and completely transparent and uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
-You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. This article will talk about the latter. For more information about using Microsoft-managed keys, or about SSE in general, please see [Storage Service Encryption for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. This article will talk about the latter. For more information about using Microsoft-managed keys, or about SSE in general, please see [Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
 To provide the ability to use your own encryption keys, SSE for Blob storage is integrated with Azure Key Vault (AKV). You can create your own encryption keys and store them in AKV, or you can use AKV’s APIs to generate encryption keys. Not only does AKV allow you to manage and control your keys, it also enables you to audit your key usage. 
 
@@ -39,7 +39,7 @@ To learn more, please refer to the FAQ.
 ### Step 1: [Create a new storage account](storage-create-storage-account.md)
 
 ### Step 2: Enable encryption.
-You can enable SSE for the storage account using the [Azure portal](https://portal.azure.com). On the Settings blade for the storage account, look for the Blob Service section as shown in Figure below and click Encryption.
+You can enable SSE for the storage account using the [Azure portal](https://portal.azure.com). On the Settings blade for the storage account, look for the Blob Service section as shown in figure below and click Encryption.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
 <br/>*Enable SSE for Blob Service*
@@ -96,6 +96,7 @@ A: No, the storage account and key vault/key need to be in the same region.
 A: No. When you enable SSE while creating the storage account, you can only use Microsoft managed keys. If you would like to use customer managed keys you will need to update the storage account properties. You can use REST or one of the storage client libraries to programmatically update your storage account, or update the storage account properties using the Azure Portal after creating the account.
 
 **Q: Can I disable encryption while using SSE with customer managed keys?**
+
 A: No, you cannot disable encryption while using SSE with customer managed keys. To disable encryption, you will need to switch to using Microsoft managed keys. You can do this using either the Azure portal or PowerShell.
 
 **Q: Is SSE enabled by default when I create a new storage account?**
@@ -103,7 +104,7 @@ A: SSE is not enabled by default; you can use the Azure portal to enable it. You
 
 **Q: I can't enable encryption on my storage account.**
 
-A: Is it a Resource Manager storage account? Classic storage accounts are not supported. SSE with customer managed keys can also be enabled only on newly created RM storage accounts.
+A: Is it a Resource Manager storage account? Classic storage accounts are not supported. SSE with customer managed keys can also be enabled only on newly created Resource Manager storage accounts.
 
 **Q: Is SSE with customer managed keys only permitted in specific regions?**
 
@@ -113,7 +114,7 @@ A: SSE is available in only certain regions for Blob storage for this Preview. P
 
 A: Please contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) for any issues related to Storage Service Encryption. 
 
-## Next Steps
+## Next steps
 
 *	For more information on the comprehensive set of security capabilities that help developers build secure applications, please see the [Storage Security Guide](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 *	For overview information about Azure Key Vault, see What is [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
