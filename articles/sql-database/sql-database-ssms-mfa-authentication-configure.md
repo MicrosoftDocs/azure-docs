@@ -39,13 +39,13 @@ The following steps show how to connect to SQL Database or SQL Data Warehouse by
 1. To connect using Universal Authentication, on the **Connect to Server** dialog box, select **Active Directory Universal Authentication**.
 
    ![1mfa-universal-connect][1]
-2. As usual for SQL Database and SQL Data Warehouse you must click **Options** and specify the database on the **Options** dialog box. Then click **Connect**.
+2. As usual for SQL Database and SQL Data Warehouse, you must click **Options** and specify the database on the **Options** dialog box. Then click **Connect**.
 3. When the **Sign in to your account** dialog box appears, provide the account and password of your Azure Active Directory identity.
 
    ![2mfa-sign-in][2]
    
    > [!NOTE]
-   > For Universal Authentication with an account which does not require MFA, you connect at this point. For users requiring MFA, continue with the following steps.
+   > For Universal Authentication with an account that does not require MFA, you connect at this point. For users requiring MFA, continue with the following steps:
    > 
    > 
 4. Two MFA setup dialog boxes might appear. This one time operation depends on the MFA administrator setting, and therefore may be optional. For an MFA enabled domain this step is sometimes pre-defined (for example, the domain requires users to use a smartcard and pin).  
