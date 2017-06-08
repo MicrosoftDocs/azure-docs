@@ -145,12 +145,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+	c. In the **Value** list, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**.
 	
 	d. Click **Ok**.
-
-	>[!NOTE]
-	>For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**. 
 
 7. Click **Save** button.
 
