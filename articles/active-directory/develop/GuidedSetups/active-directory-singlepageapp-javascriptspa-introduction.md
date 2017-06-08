@@ -34,11 +34,12 @@ At the end of this guide, your application will be able to call Graph API using 
 The sample application created by this guide enables JavaScript SPA application to query Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, after user signs-in, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
 <!--end-collapse-->
 
+<!--start-collapse-->
 ### Libraries
 
 This guide uses the following library:
 
 |Library|Description|
 |---|---|
-|[msal.js](https://secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js)|Microsoft Authentication Library for JavaScript Preview|
-
+|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Preview|
+<!--end-collapse-->
