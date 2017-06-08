@@ -19,7 +19,9 @@ ms.custom: mvc
 ---
 # Build an ASP.NET app in Azure with SQL Database
 
-This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure, connect it to Azure SQL Database, and enable your data-driven functionality. When you're finished, you'll have a ASP.NET application running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
+
+
+This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../../sql-database/sql-database-technical-overview.md). When you're finished, you'll have a ASP.NET app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
 ![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -35,9 +37,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Install Visual Studio Community 2017:
+To complete this tutorial:
 
-  * [Visual Studio 2017 Home page installer](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [Visual Studio 2017 Home page installer](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 
 Run the installer and select the following workloads under **Web & Cloud**:
  - **ASP.NET and web development**
@@ -407,12 +409,7 @@ These tabs in the blade show the many great features you can add to your web app
 - Scale up and out
 - Add user authentication
 
-## Clean up Resources
- 
-If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
-  
-```azurecli 
-az group delete --name myResourceGroup 
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]delete --name myResourceGroup 
 ``` 
 
 <a name="next"></a>
