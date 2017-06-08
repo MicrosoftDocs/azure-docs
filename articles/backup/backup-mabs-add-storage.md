@@ -39,21 +39,19 @@ Backup Server version 2 accepts storage volumes. When you add a volume, Backup S
 
 ## Create a volume for Modern Backup Storage
 
-Using Backup Server version 2 with volumes as disk storage helps maintain control over the storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This helps if you want to expand the volume for backup storage. This section provides best practices for creating a volume with this setup.
-
-The first step is to create a virtual disk. 
+Using Backup Server version 2 with volumes as disk storage can help you maintain control over storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This can help if you want to expand the volume for backup storage. This section offers best practices for creating a volume with this setup.
 
 1. In Server Manager, select **File and Storage Services** > **Volumes** > **Storage Pools**. Under **PHYSICAL DISKS**, select **New Storage Pool**. 
 
-    ![Create new storage pool](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+    ![Create a new storage pool](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
-2. In the **TASKS** drop-down box, select **New Virtual Disk**. disk with **Simple Layout**.
+2. In the **TASKS** drop-down box, select **New Virtual Disk**.
 
     ![Add a virtual disk](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
 3. Select the storage pool, and then select **Add Physical Disk**.
 
-    ![Add physical disk](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
+    ![Add a physical disk](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
 4. Select the physical disk, and then select **Extend Virtual Disk**.
 
@@ -61,9 +59,9 @@ The first step is to create a virtual disk.
 
 5. Select the virtual disk, and then select **New Volume**.
 
-    ![Create New Volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
+    ![Create a new volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. In the **Select the server and disk** dialog, select the server and the new disk. Select **Next**.
+6. In the **Select the server and disk** dialog, select the server and the new disk. Then, select **Next**.
 
     ![Select the server and disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
@@ -73,13 +71,13 @@ To add a volume to Backup Server, in the **Management** pane, rescan the storage
 
 ![Add Available Volumes](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-## Configure workload-aware storage
+## Set up workload-aware storage
 
-With Workload Aware Storage, the volumes can be selected to preferentially store certain kinds of workloads. For example, you can set expensive volumes that support a high number of input/output operations per second (IOPS) to store only the workloads that require frequent, high-volume backups, such as SQL Server with transaction logs. Other workloads that are backed up less frequently, like VMs, can be backed up to other, low-cost volumes.
-
-You can do this by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a Data Protection Manager server.
+With workload-aware storage, you can select the volumes that preferentially store certain kinds of workloads. For example, you can set expensive volumes that support a high number of input/output operations per second (IOPS) to store only the workloads that require frequent, high-volume backups. An example is SQL Server with transaction logs. Other workloads that are backed up less frequently, like VMs, can be backed up to low-cost volumes.
 
 ### Update-DPMDiskStorage
+
+You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a Data Protection Manager server.
 
 Syntax:
 
@@ -92,7 +90,7 @@ The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShel
 
 ![The Update-DPMDiskStorage command in the PowerShell window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
-The changes you make by using PowerShell are reflected in the UI.
+The changes you make by using PowerShell are reflected in the Backup Server Administrator Console.
 
 ![Disks and volumes in the Administrator Console](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
