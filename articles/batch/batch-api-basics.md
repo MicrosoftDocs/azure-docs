@@ -72,9 +72,15 @@ You can create an Azure Batch account using the [Azure portal](batch-account-cre
 Batch supports two account configurations, based on the *pool allocation mode* property. The two configurations give you access to different capabilities related to Batch [pools](#pool) (see later in this article).
 
 
-* **Batch service**: : This is the default option, with Batch pool VMs being allocated behind the scenes in Azure-managed subscriptions. This account configuration must be used if Cloud Services pools are required, but cannot be used if Virtual Machine pools are required that are created from custom VM images or use a virtual network. You can access the Batch APIs using either shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md). You can use either dedicated or low-priority compute nodes in pools in the Batch service account configuration.
+* **Batch service**: Batch service is the default pool allocation mode option. For an account created with this configuration, Batch pools are allocated behind the scenes in Azure-managed subscriptions. Keep in mind these key points about the Batch service pool allocation mode:
 
-* **User subscription**: This account configuration must be used if Virtual Machine pools are required that are created from custom VM images or use a virtual network. You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md), and Cloud Services pools are not supported. Batch compute VMs are allocated directly in your Azure subscription. This mode requires you to set up an Azure key vault for your Batch account. You can use only dedicated compute nodes in pools in the user subscription account configuration. 
+    - To use Cloud Services pools, create your account with the Batch service allocation mode.
+    - The Batch service account configuration supports access to the Batch APIs using either shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md). 
+    - You can use either dedicated or low-priority compute nodes in pools in the Batch service account configuration.
+    - Do not use the Batch service account configuration if you plan to create Azure virtual machine pools from custom VM images, or if you plan to use a virtual network. Use the user subscription account configuration instead.
+
+* **User subscription**: Batch compute VMs are allocated directly in the Azure subscription of your choice.
+     This account configuration must be used if Virtual Machine pools are required that are created from custom VM images or use a virtual network. You can only access the Batch APIs using [Azure Active Directory authentication](batch-aad-auth.md), and Cloud Services pools are not supported. This mode requires you to set up an Azure key vault for your Batch account. You can use only dedicated compute nodes in pools in the user subscription account configuration. 
 
 ## Compute node
 A compute node is an Azure virtual machine (VM) or cloud service VM that is dedicated to processing a portion of your application's workload. The size of a node determines the number of CPU cores, memory capacity, and local file system size that is allocated to the node. You can create pools of Windows or Linux nodes by using either Azure Cloud Services or Virtual Machines Marketplace images. See the following [Pool](#pool) section for more information on these options.
@@ -109,7 +115,7 @@ When you create a pool, you can specify the following attributes. Some settings 
 Each of these settings is described in more detail in the following sections.
 
 > [!IMPORTANT]
-> All Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota might be the cause.
+> Batch accounts with the  have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota might be the cause.
 >
 >
 
