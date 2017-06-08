@@ -165,6 +165,6 @@ To learn more about the architecture of the connected factory preconfigured solu
 [Azure IoT Edge]: https://github.com/Azure/iot-edge
 
 [lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
-[lnk-publisher-docker]: https://github.com/Azure/iot-edge-opc-proxy
-[lnk-proxy-github]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
+[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
+[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
 [lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy
