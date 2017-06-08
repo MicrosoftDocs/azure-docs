@@ -22,7 +22,7 @@ ms.author: dobett
 
 The software required to deploy a gateway for the connected factory preconfigured solution has two components:
 
-* The *OPC Proxy* establishes a connection to IoT Hub and waits for command and control messages from the integrated OPC Browser running in the connected factory solution portal.
+* The *OPC Proxy* establishes a connection to IoT Hub and waits for command and control messages from the integrated OPC Browser that runs in the connected factory solution portal.
 * The *OPC Publisher* connects to existing on-premises OPC UA servers and forwards telemetry messages from them to IoT Hub.
 
 Both components are open-source and are available as source on GitHub and as Docker containers:
