@@ -161,8 +161,6 @@
       href: sql-database-troubleshoot-performance.md
     - name: Monitor in-memory
       href: sql-database-in-memory-oltp-monitoring.md
-    - name: Connectivity issues
-      href: sql-database-troubleshoot-common-connection-issues.md
   - name: Scale out apps
     items:
     - name: SaaS design patterns
@@ -291,6 +289,8 @@
       href: sql-database-xevent-code-ring-buffer.md
     - name: Diagnostic logging
       href: sql-database-metrics-diag-logging.md
+    - name: Troubleshoot connectivity
+      href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
     - name: Azure RemoteApp
