@@ -80,6 +80,19 @@ If other Azure Services like Data Factory, or VMs will be connecting to the Data
 1. Open the Data Lake Analytics account in the Azure portal.
 2. On the left hand side menu, under **Settings** > **Firewall**
 
+## Add a new User
+
+The **Add User Wizard** let's you easily provision new Data Lake users.
+
+1. Open an Azure Data Lake Analytics account in the Azure portal.
+2. On the left under **Getting Started**, click **Add User Wizard**.
+3. In the first step, pick a user and click **Select**.
+4. In the second step, pick a role and click **Select**. To enable a new developer to Azure Data Lake, choose the **Data Lake Analytics Developer** role.
+5. In the third step, you will select the ACLs for the U-SQL databases. When you are satisfied with the choices, click **Select**.
+6. In the fourth step, you will select the ACLs for files. For the default Data Lake Store, don't change the ACLS for the root folder "/" and for the /system folder. Click **Select**.
+7. In the fifth step, review all the changes that will be made by the wizard and then click **Run**.
+8. Once the wizard in finished, click **Done**.
+
 ## Manage role-based access control
 
 Like other Azure services, you can use Azure Role-Based Access Control (RBAC) to control how users interact with the service.
