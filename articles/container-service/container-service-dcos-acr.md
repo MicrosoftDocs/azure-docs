@@ -21,7 +21,7 @@ ms.author: juliens
 ---
 # Use ACR with a DC/OS cluster to deploy your application
 
-In this article, we explore how to use a private container register such as ACR (Azure Container Registry) with a DC/OS cluster. Using ACR allows you to privately store and manage container images. This tutorial covers the following tasks:
+In this article, we explore how to use Azure Container Registry with a DC/OS cluster. Using ACR allows you to privately store and manage container images. This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Deploy Azure Container Registry (if needed)
@@ -39,7 +39,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 If needed, create an Azure Container registry with the [az acr create](/cli/azure/acr#create) command. 
 
-The following example creates a registry with a randomly generate name and using the *Basic* sku. The registry is also configured with an admin account using the `--admin-enabled` argument.
+The following example creates a registry with a randomly generate name. The registry is also configured with an admin account using the `--admin-enabled` argument.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
@@ -78,7 +78,7 @@ For more information on Azure Container Registry, see [Introduction to private D
 
 ## Manage ACR authentication
 
-The conventional way to push and pull image from a private registry is to first authenticate with the registry. To do so, use the `docker login` command any docker client that access the private registry. Because a DC/OS cluster can contain many nodes, it is helpful to automate this process across all of them. 
+The conventional way to push and pull image from a private registry is to first authenticate with the registry. To do so, you would use the `docker login` command on any client that needs to access the private registry. Because a DC/OS cluster can contain many nodes, all of which need to be authenticated with the ACR, it is helpful to automate this process across each node. 
 
 ### Create shared storage
 
@@ -115,23 +115,35 @@ tar czf docker.tar.gz .docker
 Copy this file to the cluster shared storage. This step makes the file available on all nodes of the DC/OS cluster.
 
 ```azurecli-interactive
-cp docker.tar.gz /mtn/share/dcos
+cp docker.tar.gz /mnt/share/dcosshare
 ```
 
 ## Upload image to ACR
 
-Now from a development machine, or any other system with Docker installed. Create an image and upload it to the Azure Container Registry. This tutorial assumes that you have an existing image to upload.
+Now from a development machine, or any other system with Docker installed, create an image and upload it to the Azure Container Registry.
 
-First, login into the Azure Container Registry. In the following example, replace the name with the `loginServer` name, the `--username` with the name of the container registry, and the `--password` with one of the provided passwords.
+Create a container from the Ubuntu image.
 
 ```azurecli-interactive
-docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
+docker run ubunut --name base-image
 ```
 
-Next, upload the image to the ACR registry. This example uploads an image named dcos-demo.
+Now capture the container into a new image. The image name needs to include the `loginServer` name of the container registrywith a format of `loginServer/imageName`.
 
 ```azurecli-interactive
-docker push dcos-demo
+docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
+````
+
+Login into the Azure Container Registry. Replace the name with the loginServer name, the --username with the name of the container registry, and the --password with one of the provided passwords.
+
+```azurecli-interactive
+docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
+```
+
+Finally, upload the image to the ACR registry. This example uploads an image named dcos-demo.
+
+```azurecli-interactive
+docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
 ## Run an image from ACR
@@ -144,7 +156,7 @@ To use an image from the ACR registry, create a file names *acrDemo.json* and co
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "demodcos.azurecr.io/dcos-demo",
+      "image": "mycontainerregistry30678.azurecr.io/dcos-demo",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -171,7 +183,7 @@ To use an image from the ACR registry, create a file names *acrDemo.json* and co
       "maxConsecutiveFailures": 10
   }],
   "uris":  [
-       "file:///mnt/share/docker.tar.gz"
+       "file:///mnt/share/dcos/docker.tar.gz"
    ]
 }
 ```
