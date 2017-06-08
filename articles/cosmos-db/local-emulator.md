@@ -84,13 +84,13 @@ The Azure Cosmos DB Emulator can be run on Docker for Windows. The Emulator does
 Once you have [Docker for Windows](https://www.docker.com/docker-windows) installed, you can pull the Emulator image from Docker Hub by running the following command from your favorite shell (cmd.exe, PowerShell, etc.).
 
 ```      
-docker pull microsoft/azure-documentdb-emulator 
+docker pull microsoft/azure-cosmosdb-emulator 
 ```
 To start the image, run the following commands.
 
 ``` 
-md %LOCALAPPDATA%\DocumentDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i microsoft/azure-documentdb-emulator 
+md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i microsoft/azure-cosmosdb-emulator 
 ```
 
 The response looks similar to the following:
@@ -101,7 +101,7 @@ Emulator Endpoint: https://172.20.229.193:8081/
 Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 Exporting SSL Certificate
 You can import the SSL certificate from an administrator command prompt on the host by running:
-cd /d %LOCALAPPDATA%\DocumentDBEmulatorCert
+cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 --------------------------------------------------------------------------------------------------
 Starting interactive shell
@@ -112,7 +112,7 @@ Closing the interactive shell once the Emulator has been started will shutdown t
 Use the endpoint and master key in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
 
 ```
-cd %LOCALAPPDATA%\DocumentDBEmulatorCert
+cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 ```
 
@@ -136,7 +136,7 @@ When the Azure Cosmos DB emulator launches it will automatically open the Azure 
 ![Azure Cosmos DB local emulator data explorer launcher](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
 ## Checking for updates
-Data Explorer will indicate if there is a new update is available for download. 
+Data Explorer indicates if there is a new update is available for download. 
 
 > [!NOTE]
 > Data created in one version of the Azure Cosmos DB Emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos DB account, rather than in the Azure Cosmos DB Emulator. 
@@ -172,7 +172,7 @@ Using the Azure Cosmos DB emulator, by default, you can create up to 25 single p
 
 .NET languages and runtime use the Windows Certificate Store to securely connect to the Azure Cosmos DB local emulator. Other languages have their own method of managing and using certificates. Java uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) whereas Python uses [socket wrappers](https://docs.python.org/2/library/ssl.html).
 
-In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store you will need to export it using the Windows Certificate Manager. You can start it by running certlm.msc or follow the step by step instructions in [Export the Azure Cosmos DB Emulator Certificates](./local-emulator-export-ssl-certificates.md). Once the certificate manager is running, open the Personal Certificates as shown below and export the certificate with the friendly name "Azure Cosmos DBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
+In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store you will need to export it using the Windows Certificate Manager. You can start it by running certlm.msc or follow the step by step instructions in [Export the Azure Cosmos DB Emulator Certificates](./local-emulator-export-ssl-certificates.md). Once the certificate manager is running, open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
 
 ![Azure Cosmos DB local emulator SSL certificate](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
