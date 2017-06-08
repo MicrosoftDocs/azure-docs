@@ -21,7 +21,7 @@ ms.author: donnam
 ---
 # Using .NET class libraries with Azure Functions
 
-In addition to script files, Azure Functions supports publishing a class library as the implementation for one or more functions in a Function App. We recommend that you use the [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
+In addition to script files, Azure Functions supports publishing a class library as the implementation for one or more functions. We recommend that you use the [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
 
 ## Prerequisites 
 
@@ -32,7 +32,7 @@ This article has the following prerequisites:
 
 ## Functions class library project
 
-From Visual Studio, create a new Azure Functions project. This creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
 
 The file *local.settings.json* stores app settings, connection strings, and settings for Azure Functions Core Tools. To learn more about its structure, see [Code and test Azure functions locally](functions-run-local.md#local-settings).
 
@@ -42,7 +42,7 @@ The attribute [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-s
 
 ### Conversion to function.json
 
-When an Azure Functions project is built, it produces a file `function.json` in the directory matching the function name defined by `[FunctionName]`. It specifies triggers and bindings and points to the the project assembly file.
+When an Azure Functions project is built, it produces a file `function.json` in the directory matching the function name defined by `[FunctionName]`. It specifies triggers and bindings and points to the project assembly file.
 
 This conversion is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). The source is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
@@ -70,7 +70,7 @@ The following table lists the triggers and bindings that are available in an Azu
 
 ### Blob storage trigger, input, and output bindings
 
-Azure Functions supports trigger, input, and output bindings for Azure Blob storage. For more information on binding expressions and metdata, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
+Azure Functions supports trigger, input, and output bindings for Azure Blob storage. For more information on binding expressions and metadata, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
 
 A blob trigger is defined with the `[BlobTrigger]` attribute. You can use the attribute `[StorageAccount]` to define the storage account that is used by an entire function or class.
 
@@ -168,7 +168,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ### External file input and output
 
-Azure functions supports trigger, input, and output bindings for external file. To learn more, see [Azure Functions External File bindings](functions-bindings-external-file.md). The attributes `[ExternalFileTrigger]` and `[ExternalFile]` are defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.ApiHub].
+Azure Functions supports trigger, input, and output bindings for external files, such as Google Drive, Dropbox, and OneDrive. To learn more, see [Azure Functions External File bindings](functions-bindings-external-file.md). The attributes `[ExternalFileTrigger]` and `[ExternalFile]` are defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.ApiHub].
 
 The following C# example demonstrates an external file input and output binding. The code copies the input file to the output file.
 
