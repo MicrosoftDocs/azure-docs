@@ -53,7 +53,7 @@ First, create a new SAP CAL account. In **Accounts**, you see three choices for 
 
 Since we want to deploy in the Azure Resource Manager deployment model in the future, our new SAP CAL account needs to associated with **Microsoft Azure**.
 
-![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.png)
+![Screenshot of the SAP Cloud Appliance Library Accounts window](media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.png)
 
 Then, enter the Azure subscription ID that can be found on the Azure portal. 
 
