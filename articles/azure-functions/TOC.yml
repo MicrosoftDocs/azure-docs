@@ -75,7 +75,7 @@
       href: functions-continuous-deployment.md
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
-    - name: On-premises deployment
+    - name: On-premises functions
       href: functions-runtime-install.md
   - name: Configure
     href: functions-how-to-use-azure-function-app-settings.md
