@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 06/10/2017
 ms.author: jeedes
 
 ---
@@ -108,10 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.sprinklr.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.sprinklr.com`
+
+    b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.sprinklr.com`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Sprinklr Client support team](https://www.sprinklr.com/contact-us/) to get the value. 
+	> These values are not real. Update the value with the actual Sign-On URL and Identifier. Contact [Sprinklr Client support team](https://www.sprinklr.com/contact-us/) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -127,19 +129,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. Go to **Administration \> Settings**.
    
-    ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
+    ![Administration](./media/active-directory-saas-sprinklr-tutorial/ic782907.png "Administration")
 
 9. Go to **Manage Partner \> Single Sign** on from the left pane.
    
-    ![Manage Partner](./media/active-directory-saas-sprinklr-tutorial/IC782908.png "Manage Partner")
+    ![Manage Partner](./media/active-directory-saas-sprinklr-tutorial/ic782908.png "Manage Partner")
 
 10. Click **+Add Single Sign Ons**.
    
-    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782909.png "Single Sign-Ons")
+    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/ic782909.png "Single Sign-Ons")
 
 11. On the **Single Sign on** page, perform the following steps:
    
-    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/IC782910.png "Single Sign-Ons")
+    ![Single Sign-Ons](./media/active-directory-saas-sprinklr-tutorial/ic782910.png "Single Sign-Ons")
 
     a. In the **Name** textbox, type a name for your configuration (for example: *WAADSSOTest*).
 
@@ -149,11 +151,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
              
     e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
 
-    f. paste the **SAML Entity ID** value into the **Entity Id** textbox.
+    f. Paste the **SAML Entity ID** value which you have copied from Azure Portal into the **Entity Id** textbox.
 
-    g. paste the **SAML Single Sign-On Service URL** value into the **Identity Provider Login URL** textbox.
+    g. Paste the **SAML Single Sign-On Service URL** value which you have copied from Azure Portal into the **Identity Provider Login URL** textbox.
 
-    h. paste the **Sign-Out URL** value into the **Identity Provider Logout URL** textbox.
+    h. Paste the **Sign-Out URL** value which you have copied from Azure Portal into the **Identity Provider Logout URL** textbox.
      
     i. As **SAML User ID Type**, select **Assertion contains User”s sprinklr.com username**.
 
@@ -161,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     k. Click **Save**.
        
-    ![SAML](./media/active-directory-saas-sprinklr-tutorial/IC782911.png "SAML")
+    ![SAML](./media/active-directory-saas-sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -203,19 +205,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 2. Go to **Administration \> Settings**.
    
-    ![Administration](./media/active-directory-saas-sprinklr-tutorial/IC782907.png "Administration")
+    ![Administration](./media/active-directory-saas-sprinklr-tutorial/ic782907.png "Administration")
 
 3. Go to **Manage Client \> Users** from the left pane.
    
-    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782914.png "Settings")
+    ![Settings](./media/active-directory-saas-sprinklr-tutorial/ic782914.png "Settings")
 
 4. Click **Add User**.
    
-    ![Settings](./media/active-directory-saas-sprinklr-tutorial/IC782915.png "Settings")
+    ![Settings](./media/active-directory-saas-sprinklr-tutorial/ic782915.png "Settings")
 
 5. On the **Edit user** dialog, perform the following steps:
    
-    ![Edit user](./media/active-directory-saas-sprinklr-tutorial/IC782916.png "Edit user") 
+    ![Edit user](./media/active-directory-saas-sprinklr-tutorial/ic782916.png "Edit user") 
 
     a. In the **Email**, **First Name** and **Last Name** textboxes, type the information of an Azure AD user account you want to provision.
 
@@ -232,7 +234,7 @@ The objective of this section is to create a test user in the Azure portal calle
      
 6. Go to **Role**, and then perform the following steps:
    
-    ![Partner Roles](./media/active-directory-saas-sprinklr-tutorial/IC782917.png "Partner Roles")
+    ![Partner Roles](./media/active-directory-saas-sprinklr-tutorial/ic782917.png "Partner Roles")
 
     a. From the **Global** list, select **ALL\_Permissions**.  
 
