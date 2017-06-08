@@ -11,7 +11,7 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: csharp
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cephalin
@@ -35,41 +35,36 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before running this sample, [download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+Install Visual Studio Community 2017:
+
+  * [Visual Studio 2017 Home page installer](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+
+Run the installer and select the following workloads under **Web & Cloud**:
+ - **ASP.NET and web development**
+ - **Azure development**
+
+![**ASP.NET and web development and Azure development** (under **Web & Cloud**)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
-In this step, you download a sample ASP.NET application.
 
-### Get the sample project
+* [Download the sample project](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+* Extract (Unzip) the  *dotnet-sqldb-tutorial-master.zip* file.
 
-Download the samples project by clicking [here](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) app using [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
-Extract the downloaded _dotnet-sqldb-tutorial-master.zip_ into a working directory.
+### Run the app
 
-> [!TIP]
-> You can get the same sample project by cloning the GitHub repository:
->
-> ```bash
-> git clone https://github.com/Azure-Samples/dotnet-sqldb-tutorial.git
-> ```
->
->
+Select the *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln*  file, which opens the solution in Visual Studio. 
 
-This sample project contains a simple [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete) application built on [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+Type `Ctrl+F5` to run the app without debugging. The app is displayed in your default browser. Select the **Create New** link and create a couple *to-do* items. 
 
-### Run the application
+![New ASP.NET Project dialog box](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
-From the extracted directory, open _dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln_ in Visual Studio 2017.
+Test the **Edit**, **Details**, and **Delete** links.
 
-Once the sample solution is opened, type `F5` to run it in the browser.
-
-You should see a simple to-do list in the homepage. Try to add a few to-dos to the empty list.
-
-![New ASP.NET Project dialog box](./media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
-
-Your database context uses a connection string called `MyDbConnection`. This connection string is defined in _Web.config_ and referenced in _Models\MyDatabaseContext.cs_. The connection string name is all you'll need later when connecting your Azure web app to Azure SQL Database. 
+The app uses a database context to connect with the database. In this sample, the database context uses a connection string named `MyDbConnection`. The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The connection string name is used later in the tutorial to connect the Azure web app to an Azure SQL Database. 
 
 ## Publish to Azure with SQL Database
 
@@ -93,16 +88,18 @@ Once signed in, you're ready to create all the resources you need for your Azure
 
 ### Create a resource group
 
-First, you need a _resource group_. 
-
-> [!NOTE] 
-> A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
->
->
+[!INCLUDE [resource-group](../../includes/resource-group.md)]
 
 Next to **Resource Group**, click **New**.
 
-Name your resource group **myResourceGroup** and click **OK**.
+![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg.png)
+
+
+<!-- I like this as it warns you not to hit create. Which image should I keep? -->
+
+![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
+
+Name the resource group **myResourceGroup**, and click **OK**.
 
 ### Create an App Service plan
 
@@ -237,7 +234,7 @@ Update the localdb database like this:
 Update-Database
 ```
 
-Test your changes by running the application with `F5`.
+Type Ctrl+F5 to run the app. Test the edit, details, and create links.
 
 If the application loads without errors, then Code First Migrations has succeeded. However, your page still looks the same because your application logic is not using this new property yet. 
 
@@ -289,7 +286,7 @@ Find the `<td>` tag that contains the `Html.ActionLink()` helper methods. Just a
 
 That's all you need to see the changes in the `Index` and `Create` views. 
 
-Type `F5` again to run the application.
+Type `Ctrl+F5` again to run the application.
 
 You should be able now to add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that this is all you can do for now because you didn't change the `Edit` view.
 
