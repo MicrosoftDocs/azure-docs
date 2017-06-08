@@ -108,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://web.ciscospark.com/#/signin`
+    a. In the **Sign-on URL** textbox, type a URL as: `https://web.ciscospark.com/#/signin`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://idbroker.webex.com/<companyname>`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Cisco Spark Client support team](https://support.ciscospark.com/) to get these values. 
+	> This value is not real. Update this value with the actual Identifier. Contact [Cisco Spark Client support team](https://support.ciscospark.com/) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -140,9 +140,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. From the **Value** list, type the attribute value shown for that row.
 	
 	d. Click **Ok**.
-
-	> [!NOTE] 
-	> Before you can configure the SAML assertion, you need to contact your [Cisco Spark Client support team](https://support.ciscospark.com/) and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application. 	
 
 7. Click **Save** button.
 
