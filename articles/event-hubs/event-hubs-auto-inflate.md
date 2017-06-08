@@ -1,5 +1,5 @@
 ---
-title: Automatically Scale-up your Event Hubs Throughput Units | Microsoft Docs
+title: Automatically Scale-up your Azure Event Hubs Throughput Units | Microsoft Docs
 description: Enable auto-inflate on your namespace to automatically scale-up your throughput units
 services: event-hubs
 documentationcenter: na
@@ -7,17 +7,17 @@ author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
-ms.assetid: ff99e327-c8db-4354-9040-9c60c51a2191
+ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2017
-ms.author: ShubhaVijayasarathy
+ms.author: shvija
 ---
 
-# Automatically Scale-up your Event Hubs Throughput Units
+# Automatically Scale-up your Azure Event Hubs Throughput Units
 
 ## Overview
 Event Hubs customers increase their usage after onboarding on to the service. This requires increasing the predetermined throughput units to scale your Event Hubs to handle greater transfer rates. Auto-inflate feature of Event Hubs automatically scales up the number of Throughput Units (TU) to meet usage needs. This prevents throttling scenarios, where
@@ -34,7 +34,7 @@ Event Hubs traffic is controlled by throughput units. A single throughput unit a
 ## How do I enable Auto-Inflate on my namespace?
 You can enable or disable Auto-Inflate on your namespace,
 1.	Through the portal
-2.	Through Azure Resource Manger template
+2.	Through Azure Resource Manager template
 
 ### Enabling Auto-Inflate through the portal
 You can enable the auto-Inflate feature on your namespace when creating your Event Hubs namespace 
@@ -45,7 +45,7 @@ You can also enable the auto-inflate using the Scale option on your settings bla
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
 ### Enabling Auto-Inflate using Azure Resource Manager template
-Auto-inflate can be enabled while deploying using azure resource manager template. By setting the 
+Auto-inflate can be enabled while deploying using Azure Resource Manager template. By setting the 
 "isAutoInflateEnabled": true property and specifying the maximum throughput units that you want to inflate up to as, "maximumThroughputUnits": 10.
 ```json
 "resources": [
