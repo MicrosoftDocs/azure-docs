@@ -30,7 +30,7 @@ First, create a resource group with [az group create](/cli/azure/group#create). 
 az group create -n myResourceGroup -l eastus
 ```
 
-Next, create a storage account with [az storage account create](/cli/azure/storage/account#create). Storage account names must be unique, and are case sensitive. Provide your own unique storage account name. The following example creates a storage account named *mystorageaccount*:
+Next, create a storage account with [az storage account create](/cli/azure/storage/account#create). Storage account names must be unique, and are case-sensitive. Provide your own unique storage account name. The following example creates a storage account named *mystorageaccount*:
 
 ```azurecli
 az storage account create \
@@ -115,7 +115,11 @@ Create a file named *ubuntu.json* and paste the following content. Enter your ow
 }
 ```
 
-This template will build an Ubuntu 16.04 LTS image, install NGINX, and then deprovision the VM. If you are wish to expand on this template to provision user credentials, adjust the provisioner command that deprovisions the Azure agent to read `-deprovision` rather than `deprovision+user`. The `+user` flag removes all accounts from the source VM.
+This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovisions the VM. 
+
+> [!NOTE]
+> If you wish to expand on this template to provision user credentials, adjust the provisioner command that deprovisions the Azure agent to read `-deprovision` rather than `deprovision+user`.
+> The `+user` flag removes all accounts from the source VM.
 
 
 ## Build Packer image
