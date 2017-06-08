@@ -37,9 +37,9 @@ If you are using Visual Studio and are creating a new project, follow the steps 
 
 
 ## Create your single page application’s UI
-1.	Create a index.html file for your JavaScript SPA. If you are using Visual Studio, follow the steps below to create index.html:
+1.	Create an index.html file for your JavaScript SPA. If you are using Visual Studio, follow the steps below to create index.html:
 a.	Select the project (project root folder), right click and select: `Add` > `New Item` > `HTML page`
-2.	Use the following code to your page:
+2.	Add the following code to your page:
 ```html
 <!DOCTYPE html>
 <html>
