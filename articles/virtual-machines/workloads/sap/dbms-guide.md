@@ -275,8 +275,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-manage-availability-linux]:../../linux/manage-availability.md
 [virtual-machines-manage-availability-windows]:../../windows/manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
-[virtual-machines-sizes]:../../linux/sizes.md
-[virtual-machines-sizes]:../../windows/sizes.md
+[virtual-machines-sizes-linux]:../../linux/sizes.md
+[virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
