@@ -270,7 +270,7 @@ You can now deploy updates to the sample API to Azure simply by pushing commits 
 
 To clean up the resources created in this quickstart, run the following Azure CLI command:
 
-```azcli-interactive
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
