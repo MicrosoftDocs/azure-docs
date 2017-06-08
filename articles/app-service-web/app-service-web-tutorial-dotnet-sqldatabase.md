@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
 # Build an ASP.NET app in Azure with SQL Database
 
-This tutorial shows you how to develop a data-driven ASP.NET web app in Azure, connect it to Azure SQL Database, and enable your data-driven functionality. When you're finished, you'll have a ASP.NET application running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
+This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure, connect it to Azure SQL Database, and enable your data-driven functionality. When you're finished, you'll have a ASP.NET application running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
 ![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
