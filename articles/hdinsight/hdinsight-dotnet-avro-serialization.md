@@ -1,7 +1,7 @@
 ---
-title: Serialize data in Hadoop - Microsoft Avro Library | Microsoft Docs
+title: Serialize data in Hadoop - Microsoft Avro Library - Azure | Microsoft Docs
 description: Learn how serialize and deserialize data in Hadoop on HDInsight using the Microsoft Avro Library to persist to memory, a database, or file.
-keywords: avro, hadoop avro
+keywords: avro,hadoop avro
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
