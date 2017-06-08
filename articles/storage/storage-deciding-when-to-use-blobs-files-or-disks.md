@@ -21,7 +21,9 @@ ms.author: robinsh
 
 Microsoft Azure provides several features in Azure Storage for storing and accessing your data in the cloud. This article covers Azure Files, Blobs, and Data Disks, and is designed to help you choose between these features.
 
-The following table compares Files, Blobs, and Data Disks, and shows some example scenarios appropriate for each.
+## Example use cases
+
+The following table compares Files, Blobs, and Data Disks, and shows example scenarios appropriate for each.
 
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
@@ -32,7 +34,7 @@ The following table compares Files, Blobs, and Data Disks, and shows some exampl
 > [!NOTE]
 >  For more information about using client libraries with storage services, see [Introduction to Microsoft Azure Storage](storage-introduction.md).  
 
-# Comparison: Files and Blobs
+## Comparison: Files and Blobs
 The following table compares Azure Files with Azure Blobs.  
   
 ||||  
@@ -52,7 +54,7 @@ The following table compares Azure Files with Azure Blobs.
   
  Azure Files complement Azure Data Disks. A data disk can only be attached to one Azure Virtual Machine at a time. Data disks are fixed format VHDs stored as page blobs in Azure Storage and are used by the virtual machine to store durable data. File shares based on Azure Files can be accessed in the same way as the local disk is accessed (using native file system APIs) and can be shared across many virtual machines.  
 
-# Comparison: Files and Data Disks
+## Comparison: Files and Data Disks
   
  The following table compares Azure Files with Azure Data Disks.  
   
