@@ -2,9 +2,9 @@
 ## [About Container Service](container-service-intro.md)
 
 # Quickstarts
-## [Create cluster - Kubernetes](container-service-kubernetes-walkthrough.md)
-## [Create cluster - DC/OS](container-service-dcos-quickstart.md)
-## [Create cluster - K8S (Windows)](container-service-kubernetes-windows-walkthrough.md)
+## [Kubernetes Linux](container-service-kubernetes-walkthrough.md)
+## [Kubernetes Windows](container-service-kubernetes-windows-walkthrough.md)
+## [DC/OS Linux](container-service-dcos-quickstart.md)
 
 # Tutorials
 ## Kubernetes
