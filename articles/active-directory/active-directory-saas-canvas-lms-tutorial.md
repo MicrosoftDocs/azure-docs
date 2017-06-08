@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/08/2017
 ms.author: jeedes
 
 ---
@@ -108,11 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.instructure.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.instructure.com`
+
+    b. In the **Identifier** textbox, type the value using the following pattern: `https://<tenant-name>.instructure.com/saml2`
+
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Canvas Client support team](https://community.canvas-lms.com/community/help) to get this value. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Canvas Client support team](https://community.canvaslms.com/community/help) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click **Certificate(Raw)** and then save the Certificate file on your computer.
+4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
 	![Configure Single Sign-On](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
 
@@ -146,11 +149,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     d. In **Change Password Link** textbox, paste the value of **Change Password URL** which you have copied from Azure portal. 
 
-    e. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.      
-    
-      >[!TIP]
-      >For more information, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI) 
-      
+    e. In **Certificate Fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.      
+        
     f. From the **Login Attribute** list, select **NameID**.
 
     g. From the **Identifier Format** list, select **emailAddress**.
