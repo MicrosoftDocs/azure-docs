@@ -194,69 +194,10 @@ You'll do the following steps to run the application in the cloud:
 After you've created some ads while running in the cloud, you'll view the WebJobs SDK dashboard to see the rich monitoring features it has to offer.
 
 ### Deploy to Web Apps
+
 1. Close the browser and the console application window.
-2. In **Solution Explorer**, right-click the ContosoAdsWeb project and then click **Publish**.
-3. In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure web apps**.
-
-    ![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
-4. Sign in to Azure if you aren't still signed in.
-5. Click **New**.
-
-    The dialog box may look slightly different depending on which version of the Azure SDK for .NET you have installed.
-
-    ![Click New](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
-6. In the **Create web app on Microsoft Azure** dialog box, enter a unique name in the **Web app name** box.
-
-    The complete URL will consist of what you enter here plus .azurewebsites.net (as shown next to the **Web app name** text box). For example, if the web app name is ContosoAds, the URL will be ContosoAds.azurewebsites.net.
-7. In the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) drop-down list choose **Create new App Service plan**. Enter a name for the App Service plan, such as ContosoAdsPlan.
-8. In the [Resource group](../azure-resource-manager/resource-group-overview.md) drop-down list choose **Create new resource group**.
-9. Enter a name for the resource group, such as ContosoAdsGroup.
-10. In the **Region** drop-down list, choose the same region you chose for your storage account.
-
-    This setting specifies which Azure datacenter your web app will run in. Keeping the web app and storage account in the same datacenter minimizes latency and data egress charges.
-11. In the **Database server** drop-down list choose **Create new server**.
-12. Enter a name for the database server, such as contosoadsserver + a number or your name to make the server name unique.
-
-    The server name must be unique. It can contain lower-case letters, numeric digits, and hyphens. It cannot contain a trailing hyphen.
-
-    Alternatively, if your subscription already has a server, you can select that server from the drop-down list.
-13. Enter an administrator **Database username** and **Database password**.
-
-    If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a server that you created previously, you'll be prompted for the password to the administrative user account you already created.
-14. Click **Create**.
-
-    ![Create web app on Microsoft Azure dialog](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)
-
-    Visual Studio creates the solution, the web project, the web app in Azure, and the Azure SQL Database instance.
-15. In the **Connection** step of the **Publish Web** wizard, click **Next**.
-
-    ![Connection step](./media/websites-dotnet-webjobs-sdk-get-started/connstep.png)
-16. In the **Settings** step, clear the **Use this connection string at runtime** check box, and then click **Next**.
-
-    ![Settings step](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)
-
-    You don't need to use the publish dialog to set the SQL connection string because you'll set that value in the Azure environment later.
-
-    You can ignore the warnings on this page.
-
-    * Normally the storage account you use when running in Azure would be different from the one you use when running locally, but for this tutorial you're using the same one in both environments. So the AzureWebJobsStorage connection string does not need to be transformed. Even if you did want to use a different storage account in the cloud, you wouldn't need to transform the connection string because the app uses an Azure environment setting when it runs in Azure. You'll see this later in the tutorial.
-    * For this tutorial you aren't going to be making changes to the data model used for the ContosoAdsContext database, so there is no need to use Entity Framework Code First Migrations for deployment. Code First automatically creates a new database the first time the app tries to access SQL data.
-
-    For this tutorial, the default values of the options under **File Publish Options** are fine.
-17. In the **Preview** step, click **Start Preview**.
-
-    ![Click Start Preview](./media/websites-dotnet-webjobs-sdk-get-started/previewstep.png)
-
-    You can ignore the warning about no databases being published. Entity Framework Code First creates the database; it doesn't need to be published.
-
-    The preview window shows that binaries and configuration files from the WebJob project will be copied to the *app_data\jobs\continuous* folder of the web app.
-
-    ![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
-18. Click **Publish**.
-
-    Visual Studio deploys the application and opens the home page URL in the browser.
-
-    You won't be able to use the web app until you set connection strings in the Azure environment in the next section. You'll see either an error page or the home page depending on web app and database creation options you chose earlier.
+2. Follow the steps in the [Publish to Azure with SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase#publish-to-azure-with-sql-database) section.
+3. After you complete the steps for deploying, continue with the remaining tasks in this article.
 
 ### Configure the web app to use your Azure SQL database and storage account.
 It's a security best practice to [avoid putting sensitive information such as connection strings in files that are stored in source code repositories](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure provides a way to do that: you can set connection string and other setting values in the Azure environment, and ASP.NET configuration APIs automatically pick up these values when the app runs in Azure. You can set these values in Azure by using **Server Explorer**, the Azure Portal, Windows PowerShell, or the cross-platform command-line interface. For more information, see [How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
@@ -266,10 +207,10 @@ In this section you use **Server Explorer** to set connection string values in A
 1. In **Server Explorer**, right-click your web app under **Azure > App Service > {your resource group}**, and then click **View Settings**.
 
     The **Azure Web App** window opens on the **Configuration** tab.
-2. Change the name of the DefaultConnection connection string to ContosoAdsContext.
+2. Change the name of the DefaultConnection connection string to the name you chose when you configured the SQL database in the [Publish to Azure with SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase#publish-to-azure-with-sql-database) steps.
 
     Azure automatically created this connection string when you created the web app with an associated database, so it already has the right connection string value. You're changing just the name to what your code is looking for.
-3. Add two new connection strings, named AzureWebJobsStorage and AzureWebJobsDashboard. Set type to Custom, and set the connection string value to the same value that you used earlier for the *Web.config* and *App.config* files. (Make sure you include the entire connection string, not just the access key, and don't include the quotation marks.)
+3. Add two new connection strings, named AzureWebJobsStorage and AzureWebJobsDashboard. Set type to Custom, and set the connection string value to the same value that you used earlier for the *Web.config* and *App.config* files. (Be sure you include the entire connection string, not just the access key, and don't include the quotation marks.)
 
     These connection strings are used by the WebJobs SDK, one for application data and one for logging. As you saw earlier, the one for application data is also used by the web front end code.
 4. Click **Save**.
@@ -278,23 +219,22 @@ In this section you use **Server Explorer** to set connection string values in A
 5. In **Server Explorer**, right-click the web app, and then click **Stop**.
 6. After the web app stops, right-click the web app again, and then click **Start**.
 
-   The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it you can either restart the web app or restart the WebJob in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). It's generally recommended to restart the web app after a configuration change.
+   The WebJob automatically starts when you publish, but it stops when you make a configuration change. To restart it, you can either restart the web app or restart the WebJob in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). It's generally recommended to restart the web app after a configuration change.
 7. Refresh the browser window that has the web app URL in its address bar.
 
     The home page appears.
-8. Create an ad, as you did when you ran the application locally.
+8. Create an ad, as you did when you [ran the application locally](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started#a-idrunarun-the-application-locally).
 
    The Index page shows without a thumbnail at first.
-9. Refresh the page after a few seconds, and the thumbnail appears.
+9. Refresh the page after a few seconds and the thumbnail appears.
 
-   If the thumbnail doesn't appear, you may have to wait a minute or so for the WebJob to restart. If after a a while you still don't see the thumbnail when you refresh the page, the WebJob may not have started automatically. In that case, go to the WebJobs tab in the [classic portal](https://manage.windowsazure.com) page for your web app, and then click **Start**.
+   If the thumbnail doesn't appear, you might have to wait a minute or so for the WebJob to restart. If after a while, you still don't see the thumbnail when you refresh the page, the WebJob might not have started automatically. In that case, go to the App Services blade in the [Azure portal](https://portal.azure.com/), locate your web app, and then click **Start**.
 
 ### View the WebJobs SDK dashboard
-1. In the [classic portal](https://manage.windowsazure.com), select your web app.
-2. Click the **WebJobs** tab.
-3. Click the URL in the Logs column for your WebJob.
+1. In the [Azure portal](https://portal.azure.com/), select the App Services blade, locate your web app, and select **WebJobs**.
+3. Select the **Logs** tab.
 
-    ![WebJobs tab](./media/websites-dotnet-webjobs-sdk-get-started/wjtab.png)
+    ![Logs tab](./media/websites-dotnet-webjobs-sdk-get-started/log-tab.png)
 
     A new browser tab opens to the WebJobs SDK dashboard. The dashboard shows that the WebJob is running and shows a list of functions in your code that the WebJobs SDK triggered.
 4. Click one of the functions to see details about its execution.
@@ -306,9 +246,17 @@ In this section you use **Server Explorer** to set connection string values in A
     The **Replay Function** button on this page causes the WebJobs SDK framework to call the function again, and it gives you a chance to change the data passed to the function first.
 
 > [!NOTE]
-> When you're finished testing, delete the web app and the SQL Database instance. The web app is free, but the SQL Database instance and storage account accrue charges (minimal due to small size). Also, if you leave the web app running, anyone who finds your URL can create and view ads. In the classic portal, go to the **Dashboard** tab for your web app, and then click the **Delete** button at the bottom of the page. You can then select a check box to delete the SQL Database instance at the same time. If you just want to temporarily prevent others from accessing the web app, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+> When you're finished testing, consider deleting the web app, storage account, and your SQL Database instance. The web app is free, but the SQL storage account and database instance accrue charges (albeit, minimal due to the small size). Also, if you leave the web app running, anyone who finds your URL can create and view ads. 
 >
 >
+### Delete your web app
+In the portal, go to the **App Services** blade, locate and select your web app, and then click **Delete**. If you just want to temporarily prevent others from accessing the web app, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account.
+
+### Delete your storage account
+To delete your storage account, see [Delete a storage account](https://docs.microsoft.com/azure/storage/storage-create-storage-account#delete-a-storage-account). 
+
+### Delete your database
+To delete your SQL database, see the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) documentation.
 
 ## <a id="create"></a>Create the application from scratch
 In this section you'll do the following tasks:
