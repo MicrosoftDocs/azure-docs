@@ -78,9 +78,9 @@ If other Azure Services like Data Factory, or VMs will be connecting to the Data
 **To setup a firewall rule**
 
 1. Open the Data Lake Analytics account in the Azure portal.
-2. On the left hand side menu, under **Settings** > **Firewall**
+2. On the left-hand side menu, click  **Settings > Firewall**
 
-## Add a new User
+## Add a new user
 
 The **Add User Wizard** let's you easily provision new Data Lake users.
 
@@ -97,7 +97,7 @@ The **Add User Wizard** let's you easily provision new Data Lake users.
 
 Like other Azure services, you can use Azure Role-Based Access Control (RBAC) to control how users interact with the service.
 
-The standard Azure RBAC roles have the folloing capabilities with respect to Data Lake Analytics:
+The standard Azure RBAC roles have the following capabilities:
 * **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.
 * **Contributor**: Can submit job, monitor jobs, and cancel jobs from any user, and configure the account.
 * **Reader**: Can monitor jobs.
