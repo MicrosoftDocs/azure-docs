@@ -6,7 +6,6 @@ documentationcenter: ''
 author: jodoglevy
 manager: jhubbard
 editor: monicar
-
 ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
 ms.service: sql-database
 ms.custom: monitor & manage
