@@ -95,6 +95,10 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 At this point, Azure AD enforces that only a tenant administrator can sign in to complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
 
+> [!NOTE]
+> If you're app is performing this operation in a work or school (organization) context then you must use the tenantId or domain name in the tenant parameter.
+> 
+
 ##### Successful response
 If the admin approves the permissions for your application, the successful response looks like this:
 
@@ -142,7 +146,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
-| scope |Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
+| resource |Required |The value passed for the `resource` parameter in this request should be the resource identifier (Application ID URI) of the resource you want. For the Microsoft Graph example, the value is `https://graph.microsoft.com/`. |
 | client_secret |Required |The Application Secret that you generated for your app in the app registration portal. |
 | grant_type |Required |Must be `client_credentials`. |
 
@@ -173,6 +177,10 @@ A successful response looks like this:
 {
   "token_type": "Bearer",
   "expires_in": 3599,
+  "ext_expires_in": "0",
+  "expires_on": "1490271617",
+  "not_before": "1490267717",
+  "resource": "https://graph.microsoft.com/",
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBP..."
 }
 ```
@@ -182,6 +190,7 @@ A successful response looks like this:
 | access_token |The requested access token. The app can use this token to authenticate to the secured resource, such as to a Web API. |
 | token_type |Indicates the token type value. The only type that Azure AD supports is `bearer`. |
 | expires_in |How long the access token is valid (in seconds). |
+| expires_on |When the access token will expire (in epoch time). |
 
 ### Error response
 An error response looks like this:
@@ -212,7 +221,7 @@ An error response looks like this:
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
 
 ```
-GET /v1.0/me/messages
+GET /v1.0/users/
 Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
@@ -222,7 +231,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/users/'
 ```
 
 ## Code sample
