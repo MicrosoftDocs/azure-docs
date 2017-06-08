@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 06/08/2017
 ms.author: pajosh
 
 ---
@@ -102,6 +102,13 @@ To ensure that there are always a valid number of recovery points available, the
 Typically, when a critical operation is performed, the subscription admin is sent an email notification with details about the operation. You can configure additional email recipients for these notifications by using the Azure portal.
 
 The security features mentioned in this article provide defense mechanisms against targeted attacks. More importantly, if an attack happens, these features give you the ability to recover your data.
+
+## Troubleshooting errors
+| Operation | Error details | Resolution |
+| --- | --- | --- |
+| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after sometime. If the issue persists, please contact Microsoft support. |This error comes when you security settings are enabled and you try to reduce retention range below the minimum specified above and your backup agent version is below 2.0.9052. <br/> In this case, you should set retention period above the minimum retention period specified (seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly). The preferred approach would be to additionally update backup agent to leverage all the security feature updates. |
+| Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |To change passphrase, you must enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
+| Change Passphrase |Operation failed. ID: 120002 |This error comes when security settings are enabled and you try to change passphrase. To change passphrase, you must first update backup agent to minimun version 2.0.9052 or above, then enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 
 ## Next steps
 * [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
