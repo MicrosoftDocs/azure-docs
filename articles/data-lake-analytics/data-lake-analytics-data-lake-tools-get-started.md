@@ -49,32 +49,24 @@ Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After 
 
 **Create and submit a Data Lake Analytics job**
 
-1. From the **File** menu, click **New**, and then click **Project**.
+1. Click **File > New > Project**.
 2. Select the **U-SQL Project** type.
 
     ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
 4. Enter the following script into **Script.usql**:
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-
-        @res =
-            SELECT *
-            FROM @searchlog;        
-
-        OUTPUT @res   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-
+      @a  = 
+          SELECT * FROM 
+              (VALUES
+                  ("Contoso", 1500.0),
+                  ("Woodgrove", 2700.0)
+              ) AS 
+                    D( customer, amount );
+      OUTPUT @a
+          TO "/data.csv"
+          USING Outputters.Csv();
+    
     This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
 
     Don't modify the two paths unless you copied the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
