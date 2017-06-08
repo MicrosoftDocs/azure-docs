@@ -30,7 +30,7 @@ Before you begin this tutorial, you must have the following:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI**. See [Install and configure Azure CLI](../cli-install-nodejs.md).
   * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
- * **Authentication**, using the following command:
+* **Authentication**, using the following command:
   
         azure login
     For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
