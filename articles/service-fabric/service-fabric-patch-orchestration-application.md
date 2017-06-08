@@ -131,7 +131,10 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 ### Optional: Enable Azure Diagnostics
 
-Logs for the patch orchestration app collect locally on each of the cluster nodes. We recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
+Logs for the patch orchestration app collect locally on each of the cluster nodes. 
+Additionally for clusters running Service Fabric runtime version `5.6.220.9494` and above, logs would be collected as part of Service Fabric logs.
+
+For clusters running Service Fabric runtime version less than `5.6.220.9494`, we recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
 
 For information on enabling Azure Diagnostics, see [Collect logs by using Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
@@ -288,7 +291,8 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ### Collect patch orchestration app logs
 
-Patch orchestration app logs collect as part of Service Fabric logs. Until that time, logs can be collected by using one of the following methods.
+Patch orchestration app logs are collected as part of Service Fabric logs from runtime version `5.6.220.9494` and above.
+For clusters running Service Fabric runtime version less than `5.6.220.9494`, Logs can be collected by using one of the following methods.
 
 #### Locally on each node
 
