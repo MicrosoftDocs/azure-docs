@@ -1,5 +1,5 @@
 ---
-title: Get started with the Azure IoT Edge (Linux) | Microsoft Docs
+title: Get started with Azure IoT Edge (Linux) | Microsoft Docs
 description: How to build a gateway on a Linux machine and learn about key concepts in Azure IoT Edge such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
