@@ -59,7 +59,6 @@ The following database solutions are supported with backup feature:
 
 ## Create a manual backup
 1. In the [Azure Portal](https://portal.azure.com), navigate to your app's blade, select **Backups**. The **Backups** blade will be displayed.
-
    
     ![Backups page][ChooseBackupsPage]
    
@@ -69,6 +68,7 @@ The following database solutions are supported with backup feature:
    > ![Choose storage account](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
+
 2. In the **Backup** blade, Click **Configure**
 ![Click Configure](./media/web-sites-backup/ClickConfigure1.png)
 3. In the **Backup Configuration** blade, click **Storage: Not configured** to configure a storage account.
@@ -177,5 +177,5 @@ using REST API (see [Use REST to backup and restore App Service apps](websites-c
 [ImagesFolder]: ./media/web-sites-backup/11Images.png
 [LogsFolder]: ./media/web-sites-backup/12Logs.png
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
-
+[kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
 
