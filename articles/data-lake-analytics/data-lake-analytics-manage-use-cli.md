@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/08/2017
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
-# Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI 2.0)
+# Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure CLI. To see management topics using other tools, click the tab select above.
-
-The Azure CLI 2.0 is Azure's command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview). You can also look at the [Azure Data Lake Analytics CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dla) for a complete list of commands and syntax.
 
 
 **Prerequisites**
@@ -30,8 +28,9 @@ The Azure CLI 2.0 is Azure's command-line experience for managing Azure resource
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI 2.0** - See [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.
-* **Authentication**, using the following command:
+* **Azure CLI**. See [Install and configure Azure CLI](../cli-install-nodejs.md).
+  * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
+ * **Authentication**, using the following command:
   
         azure login
     For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
