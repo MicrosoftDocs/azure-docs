@@ -1,5 +1,5 @@
 ---
-title: Azure Functions developer reference | Microsoft Docs
+title: Azure Functions C# Script developer reference | Microsoft Docs
 description: Understand how to develop Azure Functions using C#.
 services: functions
 documentationcenter: na
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 06/07/2017
 ms.author: donnam
 
 ---
-# Azure Functions C# developer reference
+# Azure Functions C# script developer reference
 > [!div class="op_single_selector"]
 > * [C# script](functions-reference-csharp.md)
 > * [F# script](functions-reference-fsharp.md)
@@ -27,9 +27,11 @@ ms.author: donnam
 >
 >
 
-The C# experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
+The C# script experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
+
+For information on using C# class libraries, see [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md).
 
 ## How .csx works
 The `.csx` format allows you to write less "boilerplate" and focus on writing just a C# function. Include any assembly references and namespaces at the beginning of the file as usual. Instead of wrapping everything in a namespace and class, just define a `Run` method. If you need to include any classes, for instance to define Plain Old CLR Object (POCO) objects, you can include a class inside the same file.   
