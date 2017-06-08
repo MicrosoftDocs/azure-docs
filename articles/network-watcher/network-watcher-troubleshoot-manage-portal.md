@@ -39,52 +39,47 @@ For a list of supported gateway types visit, [Supported Gateway types](/network-
 
 Resource troubleshooting provides the ability troubleshoot issues that arise with Virtual Network Gateways and Connections. When a request is made to resource troubleshooting, logs are being queried and inspected. When inspection is complete, the results are returned. Resource troubleshooting requests are long running requests, which could take multiple minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
 
-## Retrieve Network Watcher
+![portal][1]
 
-The first step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet in step 4.
+## Troubleshoot a gateway
 
-```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
-```
+1. Navigate to the [Azure portal](https://portal.azure.com) and click **Networking** > **Network Watcher** > **VPN Diagnostics**
+2. Select a **Subscription**, **Resource Group**, and **Location**.
+3. Resource troubleshooting returns data about the health of the resource, it also saves logs to a storage account to be reviewed. Click **Storage Account** to select a storage account.
+4. On the **Storage accounts** blade, select an existing storage account or click **+ Storage account** to create a new one.
+5. On the **Containers** blade, choose an existing container or click **+ Container** to create a new container. When complete click **Select**
+6. Select the Gateway and Connection resources to troubleshoot and click **Start Troubleshooting**
 
-## Retrieve a Virtual Network Gateway Connection
+If multiple resources are selected, troubleshooting is ran on one resource at a time. While VPN Diagnostics are being ran the **TROUBLESHOOTING STATUS** column will show a status of **Running**
 
-In this example, resource troubleshooting is being ran on a Connection. You can also pass it a Virtual Network Gateway.
+When complete, 
 
-```powershell
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-```
+![troubleshoot complete][2]
 
-## Create a storage account
+### Details
 
-Resource troubleshooting returns data about the health of the resource, it also saves logs to a storage account to be reviewed. In this step, we create a storage account, if an existing storage account exists you can use it.
 
-```powershell
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
-$sc = New-AzureStorageContainer -Name logs
-```
-
-## Run Network Watcher resource troubleshooting
-
-You troubleshoot resources with the `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. We pass the cmdlet the Network Watcher object, the Id of the Connection or Virtual Network Gateway, the storage account id, and the path to store the results.
-
-> [!NOTE]
-> The `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet is long running and may take a few minutes to complete.
-
-```powershell
-Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
-```
-
-Once you run the cmdlet, Network Watcher reviews the resource to verify the health. It returns the results to the shell and stores logs of the results in the storage account specified.
 
 ## Understanding the results
 
-The action text provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance. In the case where there is no additional guidance, the response provides the url to open a support case.  For more information about the properties of the response and what is included, visit [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md)
+#### Status
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+|Property  |Description  |
+|---------|---------|
+|Resource     | A link to the resource.        |
+|Storage path     | Storage path to the logs (if any were produced during the run)        |
+|Summary     | Summary of the resource health.        |
+|Detail     | Detailed information on the resource health.        |
+|Last run     | The time the last time troubleshooting was ran.        |
+
+
+The **Action** tab provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance. In the case where there is no additional guidance, the response provides the url to open a support case.  For more information about the properties of the response and what is included, visit [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md)
+
 
 ## Next steps
 
 If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that may be in question.
+
+
+[1]: ./media/network-watcher-troubleshoot-manage-portal/portal.png
+[2]: ./media/network-watcher-troubleshoot-manage-portal/2.png
