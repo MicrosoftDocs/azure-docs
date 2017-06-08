@@ -185,6 +185,8 @@
       href: sql-database-elastic-scale-glossary.md
     - name: Move sharded data
       href: sql-database-elastic-scale-overview-split-and-merge.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
     - name: Elastic tools FAQ
       href: sql-database-elastic-scale-faq.md
     - name: Elastic queries
@@ -219,8 +221,6 @@
       href: sql-database-client-id-keys.md
     - name: Error messages
       href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: Batching for perf
       href: sql-database-use-batching-to-improve-performance.md
     - name: Connectivity guidance
