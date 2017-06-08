@@ -373,7 +373,11 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 6. Find out which role your disaster recovery server is performing.
 
    ```powershell
-   $mydrserver.ReplicationRole
+   $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
+      -FailoverGroupName $myfailovergroupname `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $mydrservername
+   $fileovergroup.ReplicationRole
    ```
 ## Next steps 
 
