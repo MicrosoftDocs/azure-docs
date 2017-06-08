@@ -1,6 +1,6 @@
 ---
 title: Database compatibility level 130 - Azure SQL Database | Microsoft Docs
-description: In this article, we explore the benefits of running your Azure SQL Databse at compatibility level 130, and leveraging the benefits of the new query optimizer and query processor features. We also address the possible side-effects on the query performance for the existing SQL applications.
+description: In this article, we explore the benefits of running your Azure SQL Database at compatibility level 130, and leveraging the benefits of the new query optimizer and query processor features. We also address the possible side-effects on the query performance for the existing SQL applications.
 services: sql-database
 documentationcenter: ''
 author: alainlissoir
