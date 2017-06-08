@@ -25,12 +25,6 @@ Auditing can help you maintain regulatory compliance, understand database activi
 
 Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
-This article contains the following sections:
-
-* [Azure SQL database auditing overview]
-* [Set up auditing for your database]
-* [Analyze audit logs and reports]
-
 ## <a id="subheading-1"></a>Azure SQL database auditing overview
 SQL database auditing allows you to:
 
@@ -127,7 +121,7 @@ There are several methods you can use to view blob auditing logs:
 
 * Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS. The sync application pushes SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard. 
 
-* Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI and use a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
     * Once you have downloaded a log file locally, you can double-click the file to open, view, and analyze the logs in SSMS.
