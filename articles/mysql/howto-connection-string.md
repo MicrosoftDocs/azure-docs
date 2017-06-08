@@ -2,16 +2,16 @@
 title: How to connect applications to Azure Database for MySQL | Microsoft Docs
 description: This document lists all currently supported connection strings for applications to connect with Azure Database for MySQL
 services: mysql
-author: wuta
+author: mswutao 
 ms.author: wuta
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
 ms.assetid: 
 ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ---
 
 # How to connect applications to Azure Database for MySQL
