@@ -65,13 +65,14 @@ First, the Azure storage account name, and access key are needed. Run the follow
 Storage account name:
 
 ```azurecli-interactive
-az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv
+STORAGE_ACCT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+echo $STORAGE_ACCT
 ```
 
 Storage account access key:
 
 ```azurecli-interactive
-az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount11454 --query "[0].value" -o tsv
+az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCT --query "[0].value" -o tsv
 ```
 
 Next, get the FQDN of the DC/OS master and store it in a variable.
@@ -92,7 +93,9 @@ Create an SSH connection with the master (or the first master) of your DC/OS-bas
 ssh azureuser@$FQDN
 ```
 
-Create a file named ***mountShares.sh** and copy the following contents into it. This script is used to mount the Azure file share. Update the `STORAGE_ACCT_NAME` and `ACCESS_KEY` variables with the information collected earlier.
+Create a file named **cifsMount.sh**, and copy the following contents into it. 
+
+This script is used to mount the Azure file share. Update the `STORAGE_ACCT_NAME` and `ACCESS_KEY` variables with the information collected earlier.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -110,7 +113,9 @@ if [ ! -d "/mnt/share/dcosshare" ]; then sudo mkdir -p "/mnt/share/dcosshare" ; 
 # Mount the share under the previous local folder created
 sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
 ```
-Create a second file named **mountShares.sh** and copy the following contents into the file. This script discovers all cluster nodes, and then runs the **cifsMount.sh** script to mount the file share on each.
+Create a second file named **getNodesRunScript.sh** and copy the following contents into the file. 
+
+This script discovers all cluster nodes, and then runs the **cifsMount.sh** script to mount the file share on each.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -131,7 +136,7 @@ do
 Run the script to mount the Azure file share on all nodes of the cluster.
 
 ```azurecli-interactive
-sh ./mountShares.sh
+sh ./getNodesRunScript.sh
 ```  
 
 The file share is now accessible at `/mnt/share/dcosshare` on each node of the cluster.
