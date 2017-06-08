@@ -24,7 +24,7 @@ By using Azure Application Gateway, you can monitor resources in the following w
 
 * [Back-end health](#back-end-health): Application Gateway provides the capability to monitor the health of the servers in the back-end pools through the Azure portal and through PowerShell. You can also find the health of the back-end pools through the performance diagnostic logs.
 
-* [Logs](#diagnostic-logs): Logs allows for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
+* [Logs](#diagnostic-logs): Logs allow for performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
 * [Metrics](#metrics): Application Gateway currently has one metric. This metric measures the throughput of the application gateway in bytes per second.
 
@@ -106,11 +106,11 @@ You have three options for storing your logs:
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
 
-1. Note your storage account's resource ID, where the log data is stored. This value is of the form /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
+1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
     ![Portal: resource ID for storage account](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Note your application gateway's resource ID for which logging will be enabled. This value is of the form /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
+2. Note your application gateway's resource ID for which logging will be enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
 
     ![Portal: resource ID for application gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
