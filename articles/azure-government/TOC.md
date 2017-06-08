@@ -39,7 +39,7 @@
 ### [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 ### [Web + Mobile](documentation-government-services-webandmobile.md)
 ### [Media Services](documentation-government-services-media.md)
-
+### [Internet of Things](documentation-government-services-iot-hub.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/)

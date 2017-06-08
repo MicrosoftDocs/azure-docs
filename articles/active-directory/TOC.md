@@ -14,7 +14,7 @@
 ### [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 ### [Classic portal](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
-## [FAQs](active-directory-faq.md)secure-email-ems-office365-service-descriptions.md
+## [FAQs](active-directory-faq.md)
 ## [How to get support for Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
 
