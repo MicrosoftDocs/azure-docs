@@ -9,7 +9,7 @@ editor: genemi
 
 ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.author: genemi
 ---
 # Connection libraries for SQL Database and SQL Server
 
-This topic lists each library or *driver* that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
+This topic lists each library or *driver* that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server. 
 
 | Language | Platform | Additional resources | Download |
 |:--- |:--- |:--- |:--- |
@@ -35,7 +35,9 @@ This topic lists each library or *driver* that client programs can use when conn
 ## Related links
 
 - [SQL Server Drivers](https://docs.microsoft.com/sql/connect/sql-server-drivers/), for connecting from a client
-- [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
-- [Connect to SQL Database by using Node.js](sql-database-develop-nodejs-simple.md)
-- [Connect to SQL Database by using Python](sql-database-develop-python-simple.md), pymssql
-- [Connect to SQL Database by using Ruby](sql-database-develop-ruby-simple.md)
+- [Connect to SQL Database by using .NET (C#)](sql-database-connect-query-dotnet.md)
+- [Connect to SQL Database by using PHP](sql-database-connect-query-php.md)
+- [Connect to SQL Database by using Node.js](sql-database-connect-query-nodejs.md)
+- [Connect to SQL Database by using Java](sql-database-connect-query-java.md)
+- [Connect to SQL Database by using Python](sql-database-connect-query-python.md)
+- [Connect to SQL Database by using Ruby](sql-database-connect-query-ruby.md)

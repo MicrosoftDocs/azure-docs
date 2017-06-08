@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Automation DSC Overview | Microsoft Docs
 description: An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues
 services: automation
@@ -24,7 +24,7 @@ Deploying and maintaining the desired state of your servers and application reso
 
 Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/overview) as Azure Automation offers for PowerShell scripting today.
 
-Azure Automation DSC allows you to [author and manage PowerShell Desired State Configurations](https://technet.microsoft.com/library/dn249918.aspx), import [DSC Resources](https://technet.microsoft.com/library/dn282125.aspx), and generate DSC Node Configurations (MOF documents), all in the cloud. These DSC items are placed on the Azure Automation [DSC pull server](https://technet.microsoft.com/library/dn249913.aspx) so that target nodes automatically recieve configurations, conform to the desired state, and report back on their compliance. Azure Automation can target virtual or physical machines, in the cloud or on-premesis. 
+Azure Automation DSC allows you to [author and manage PowerShell Desired State Configurations](https://technet.microsoft.com/library/dn249918.aspx), import [DSC Resources](https://technet.microsoft.com/library/dn282125.aspx), and generate DSC Node Configurations (MOF documents), all in the cloud. These DSC items are placed on the Azure Automation [DSC pull server](https://technet.microsoft.com/library/dn249913.aspx) so that target nodes automatically receive configurations, conform to the desired state, and report back on their compliance. Azure Automation can target virtual or physical machines, in the cloud or on-premises. 
 
 Prefer watching to reading? Have a look at the following video from May 2015, when Azure Automation DSC was first announced. **Note:** While the concepts and lifecycle discussed in this video are correct, Azure Automation DSC has progressed a lot since this video was recorded. It is now generally available, has a much more extensive UI in the Azure portal, and supports many additional capabilities.
 
@@ -114,7 +114,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 * [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 * [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md)
-* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 * [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey](automation-dsc-cd-chocolatey.md)
 

@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-restore-database-portal
+redirect_url: /azure/sql-database/sql-database-recovery-using-backups
 --- 

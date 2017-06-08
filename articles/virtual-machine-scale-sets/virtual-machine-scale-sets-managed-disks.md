@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
 
 ---
@@ -37,11 +37,11 @@ az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Alternatively, you could look in the [Azure Quickstart Templates Github repo](https://github.com/Azure/azure-quickstart-templates) for folders that contain `vmss` to see pre-built examples of templates that deploy scale sets. To tell which templates are already using managed disks, you can refer to [this list](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
+Alternatively, you could look in the [Azure Quickstart Templates GitHub repo](https://github.com/Azure/azure-quickstart-templates) for folders that contain `vmss` to see pre-built examples of templates that deploy scale sets. To tell which templates are already using managed disks, you can refer to [this list](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
 
 ## API versions
 
-The current Generally Available API version for scale sets with managed disks is `2016-04-30-preview`. Scale sets with unmanaged disks will continue to work as they currently do, even in new API versions that have support for managed disk. However, scale sets with unmanaged disks will not get the benefits of managed disks, even in these new api versions.
+Scale sets with managed disks requires a Microsoft.Compute APi version of `2016-04-30-preview` or later. Scale sets with unmanaged disks will continue to work as they currently do, even in new API versions that have support for managed disk. However, scale sets with unmanaged disks will not get the benefits of managed disks, even in these new api versions.
 
 ## Next steps
 

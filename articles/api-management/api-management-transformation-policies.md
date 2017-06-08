@@ -223,15 +223,28 @@ This topic provides a reference for the following API Management policies. For i
     </outbound>  
 </policies>  
 ```  
+In this example the set backend service policy routes requests based on the version value passed in the query string to a different backend service than the one specified in the API.
   
- In this example the set backend service policy routes requests based on the version value passed in the query string to a different backend service than the one specified in the API.  
+Initially the backend service base URL is derived from the API settings. So the request URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` becomes `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` where `http://contoso.com/api/10.4/` is the backend service URL specified in the API settings.  
   
- Initially the backend service base URL is derived from the API settings. So the request URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` becomes `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` where `http://contoso.com/api/10.4/` is the backend service URL specified in the API settings.  
+When the [<choose\>](api-management-advanced-policies.md#choose) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
- When the [<choose\>](api-management-advanced-policies.md#choose) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md#TransformationPolicies) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the  [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) policy can be used to remove the now redundant version attribute.  
   
- If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md#TransformationPolicies) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the  [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) policy can be used to remove the now redundant version attribute.  
+### Example  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+In this example the policy routes the request to a service fabric backend, using the userId query string as the partition key and using the primary replica of the partition.  
+
 ### Elements  
   
 |Name|Description|Required|  
@@ -243,7 +256,11 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
 |base-url|New backend service base URL.|Yes|N/A|  
-  
+|sf-partition-key|Only applicable when the backend is a Service Fabric service. Used to resolve a specific partition from the name resolution service.|No|N/A|  
+|sf-replica-type|Only applicable when the backend is a Service Fabric service. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|    
+|sf-resolution-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|    
+|sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows to change service instances at runtime. |No|N/A|    
+
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -280,7 +297,7 @@ This topic provides a reference for the following API Management policies. For i
 <set-body>Hello world!</set-body>  
 ```  
   
-#### Example accessing the body as a string  
+#### Example accessing the body as a string. Note that we are preserving the original request body so that we can access it later in the pipeline.
   
 ```xml  
 <set-body>  
@@ -294,7 +311,7 @@ This topic provides a reference for the following API Management policies. For i
 </set-body>  
 ```  
   
-#### Example accessing the body as a JObject  
+#### Example accessing the body as a JObject. Note that since we are not reserving the original request body, accesing it later in the pipeline will result in an exception.  
   
 ```xml  
 <set-body>   

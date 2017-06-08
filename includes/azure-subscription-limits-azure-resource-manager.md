@@ -1,15 +1,16 @@
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
 | VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region |10,000 per Region |
-| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region |10,000 per Region |
-| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region |10,000 per Region |
+| VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
+| VM per series (Dv2, F, etc.) cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per Region | Contact support |
 | [Co-administrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited |Unlimited |
 | [Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
 | [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |
-| [Availability Sets](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2000 per Region |2000 per Region |
+| [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2000 per Region |2000 per Region |
 | Resource Manager API Reads |15000 per hour |15000 per hour |
 | Resource Manager API Writes |1200 per hour |1200 per hour |
 | Resource Manager API request size |4194304 bytes |4194304 bytes |
+| Tags per subscription |10000 |10000 |
 | [Cloud services](../articles/cloud-services/cloud-services-choose-me.md) per subscription |Not Applicable<sup>3</sup> |Not Applicable<sup>3</sup> |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |Not Applicable<sup>3</sup> |Not Applicable<sup>3</sup> |
 

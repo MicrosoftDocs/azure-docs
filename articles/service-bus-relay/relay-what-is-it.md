@@ -3,7 +3,7 @@ title: What is Azure Relay and why use it overview | Microsoft Docs
 description: Overview of Azure Relay
 services: service-bus-relay
 documentationcenter: .net
-author: banisadr
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 03/09/2017
-ms.author: babanisa;sethm
+ms.author: sethm
 
 ---
 # What is Azure Relay?

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 06/07/2017
 ms.author: markvi
 
 ---
@@ -78,7 +78,7 @@ See the following resource categories and articles to learn more about setting c
 
 ### Multi-factor authentication and location policies
 * [Getting started with conditional access to Azure AD-connected apps based on group, location, and multi-factor authentication policies](active-directory-conditional-access-azuread-connected-apps.md)
-* [Applications that are supported](active-directory-conditional-access-supported-apps.md)
+* [Applications and browsers that are supported](active-directory-conditional-access-supported-apps.md)
 
 ### Device-based conditional access
 * [Set device-based conditional access policy for access control to Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md)

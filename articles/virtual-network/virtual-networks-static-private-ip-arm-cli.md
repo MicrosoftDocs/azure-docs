@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -123,7 +123,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
             "resourceGuid": "<guid>"
         }
     }
-        ```
+    ```
     
     Parameters:
 

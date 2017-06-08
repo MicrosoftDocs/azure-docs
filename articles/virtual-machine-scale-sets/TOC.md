@@ -1,24 +1,25 @@
-# Overview
+﻿# Overview
 ## [What are virtual machine scale sets?](virtual-machine-scale-sets-overview.md)
 
 # Get Started
 ## [Deploy a scale set in the portal](virtual-machine-scale-sets-portal-create.md)
-## [Deploy a scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
-## [Deploy a simple scale set using a Resource Manager Template](virtual-machine-scale-sets-mvss-start.md)
+## [Deploy a scale set using PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
+## [Deploy an autoscaling app using a template](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
 # How To
 ## Plan and design
 ### [Design considerations](virtual-machine-scale-sets-design-overview.md)
-## Write Scale Set Templates To
-### [Deploy a simple scale set](virtual-machine-scale-sets-mvss-start.md)
-### [Deploy a scale set to an existing virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+
+## Create a template
+### [Learn about scale set templates](virtual-machine-scale-sets-mvss-start.md)
+### [Use an existing virtual network](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Use a custom image](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Deploy
-### [Scale set using the portal](virtual-machine-scale-sets-portal-create.md)
+### [Create with the portal](virtual-machine-scale-sets-portal-create.md)
+### [Create with Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Create with PowerShell or Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Scale set with managed disks](virtual-machine-scale-sets-managed-disks.md)
-### [Scale set using Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Scale set using PowerShell](virtual-machine-scale-sets-windows-create.md)
-### [Scale set using Azure CLI](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
@@ -44,7 +45,7 @@
 ### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

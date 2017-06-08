@@ -3,7 +3,7 @@ title: Create table as select (CTAS) in SQL Data Warehouse | Microsoft Docs
 description: Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 01/30/2017
-ms.author: jrj;barbkess
+ms.author: shigu;barbkess
 
 ---
 # Create Table As Select (CTAS) in SQL Data Warehouse

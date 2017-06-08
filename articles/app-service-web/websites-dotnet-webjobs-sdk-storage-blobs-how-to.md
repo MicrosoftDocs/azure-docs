@@ -3,7 +3,7 @@ title: How to use Azure blob storage with the WebJobs SDK
 description: Learn how to use Azure blob storage with the WebJobs SDK. Trigger a process when a new blob appears in a container and handle 'poison blobs'.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: ''
 

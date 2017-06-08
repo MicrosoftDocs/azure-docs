@@ -1,4 +1,4 @@
-# Overview
+﻿# Overview
 ##[Why use Redis cache](https://azure.microsoft.com/services/cache/)
 ##[Explore premium tier features](cache-premium-tier-intro.md)
 ## Scenarios
@@ -26,7 +26,7 @@
 ###[Distribute your cache with clustering](cache-how-to-premium-clustering.md)
 ## Automate
 ###[Deploy and manage using Powershell](cache-howto-manage-redis-cache-powershell.md)
-###[Deploy and Manage using Azure CLI](cache-manage-cli.md)
+###[Deploy and Manage using Azure CLI](cli-samples.md)
 ###[Provision a Redis Cache](cache-redis-cache-arm-provision.md)
 ###[Provision a Web App with Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
 ## Integrate with ASP.NET
@@ -46,7 +46,7 @@
 ###[Use Redis cluster to scale in/out](cache-how-to-premium-clustering.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 Preview](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)

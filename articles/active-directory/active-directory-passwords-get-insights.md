@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: curtand
+editor: gahug
 
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
 ms.service: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # How to get operational insights with password management reports
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 >
 >
 
@@ -90,10 +91,10 @@ The following activity types appear in the **Self-Service Password Management** 
 * [**Reset password (self-service)**](#activity-type-reset-password-self-service) - Indicates a user successfully reset his or her password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com).
 * [**Self serve password reset flow activity progress**](#activity-type-self-serve-password-reset-flow-activity-progress) - Indicates each specific step a user proceeds through (such as passing a specific password reset authentication gate) as part of the password reset process.
 * [**Unlock user account (self-service)**](#activity-type-unlock-user-account-self-service) - Indicates a user successfully unlocked his or her Active Directory account without resetting his or her password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com) using the [AD account unlock without reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password) feature.
-* [**User registered for self-service password reset**](#activity-type-user-registered-for-self-service-password-reset) - Indicates a user has registered all the required information to be able to reset his or her password in accordance with the currently-specified tenant password reset policy. 
+* [**User registered for self-service password reset**](#activity-type-user-registered-for-self-service-password-reset) - Indicates a user has registered all the required information to be able to reset his or her password in accordance with the currently-specified tenant password reset policy.
 
 ### Activity type: Blocked from self-service password reset
-The following list explains this activity in detail: 
+The following list explains this activity in detail:
 
 * **Activity Description** – Indicates a user tried to reset a password, use a specific gate, or validate a phone number more than 5 total times in 24 hours.
 * **Activity Actor** - the user who was throttled from performing additional reset operations. May be an end-user or an administrator.
@@ -103,7 +104,7 @@ The following list explains this activity in detail:
 * **Activity Status Failure Reason** - not applicable
 
 ### Activity type: Change password (self-service)
-The following list explains this activity in detail: 
+The following list explains this activity in detail:
 
 * **Activity Description** – Indicates a user performed a voluntary, or forced (due to expiry) password change.
 * **Activity Actor** - the user who changed his or her password. May be an end-user or an administrator.
@@ -111,11 +112,11 @@ The following list explains this activity in detail:
 * **Allowed Activity Statuses**
  * _Success_ - indicates a user successfully changed his or her password
  * _Failure_ - indicates a user failed to change his or her password. Clicking on the row will allow you to see the **Activity Status Reason** category to learn more about why the failure occurred.
-* **Activity Status Failure Reason** - 
+* **Activity Status Failure Reason** -
  * _FuzzyPolicyViolationInvalidPassword_ - the user selected a password which was automatically banned due to Microsoft's Banned Password Detection capabilities finding it to be too common or especially weak.
 
 ### Activity type: Reset password (by admin)
-The following list explains this activity in detail: 
+The following list explains this activity in detail:
 
 * **Activity Description** – Indicates an administrator performed a password reset on behalf of a user from the Azure Portal.
 * **Activity Actor** - the administrator who performed the password reset on behalf of another end-user or administrator. Must be either a global administrator, password administrator, user administrator, or helpdesk administrator.
@@ -125,7 +126,7 @@ The following list explains this activity in detail:
  * _Failure_ - indicates an admin failed to change a user's password. Clicking on the row will allow you to see the **Activity Status Reason** category to learn more about why the failure occurred.
 
 ### Activity type: Reset password (self-service)
-The following list explains this activity in detail: 
+The following list explains this activity in detail:
 
 * **Activity Description** – Indicates a user successfully reset his or her password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com).
 * **Activity Actor** - the user who reset his or her password. May be an end-user or an administrator.
@@ -133,11 +134,11 @@ The following list explains this activity in detail:
 * **Allowed Activity Statuses**
  * _Success_ - indicates an user successfully reset his or her own password
  * _Failure_ - indicates an user failed to reset his or her own password. Clicking on the row will allow you to see the **Activity Status Reason** category to learn more about why the failure occurred.
-* **Activity Status Failure Reason** - 
+* **Activity Status Failure Reason** -
  * _FuzzyPolicyViolationInvalidPassword_ - the admin selected a password which was automatically banned due to Microsoft's Banned Password Detection capabilities finding it to be too common or especially weak.
 
 ### Activity type: Self serve password reset flow activity progress
-The following list explains this activity in detail: 
+The following list explains this activity in detail:
 
 * **Activity Description** – Indicates each specific step a user proceeds through (such as passing a specific password reset authentication gate) as part of the password reset process.
 * **Activity Actor** - the user who performed part of the password reset flow. May be an end-user or an administrator.
@@ -149,7 +150,7 @@ The following list explains this activity in detail:
  * See table below for [all allowed reset activity status reasons](#allowed-values-for-details-column)
 
 ### Activity type: Unlock user account (self-service)
-The following list explains this activity in detail: 
+The following list explains this activity in detail:
 
 * **Activity Description** – Indicates a user successfully unlocked his or her Active Directory account without resetting his or her password from the [Azure AD Password Reset Portal](https://passwordreset.microsoftonline.com) using the [AD account unlock without reset](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-customize#allow-users-to-unlock-accounts-without-resetting-their-password) feature.
 * **Activity Actor** - the user who unlocked his or her account without resetting their password. May be an end-user or an administrator.
@@ -159,13 +160,13 @@ The following list explains this activity in detail:
  * _Failure_ - indicates an user failed to unlock his or her account. Clicking on the row will allow you to see the **Activity Status Reason** category to learn more about why the failure occurred.
 
 ### Activity type: User registered for self-service password reset
-The following list explains this activity in detail: 
+The following list explains this activity in detail:
 
-* **Activity Description** – Indicates a user has registered all the required information to be able to reset his or her password in accordance with the currently-specified tenant password reset policy. 
+* **Activity Description** – Indicates a user has registered all the required information to be able to reset his or her password in accordance with the currently-specified tenant password reset policy.
 * **Activity Actor** - the user who registered for password reset. May be an end-user or an administrator.
 * **Activity Target** - the user who registered for password reset. May be an end-user or an administrator.
 * **Allowed Activity Statuses**
- * _Success_ - indicates an user successfully registered for password reset in accordance with the current policy. 
+ * _Success_ - indicates an user successfully registered for password reset in accordance with the current policy.
  * _Failure_ - indicates a user failed to register for password reset. Clicking on the row will allow you to see the **Activity Status Reason** category to learn more about why the failure occurred. Note - this does not mean a user is not able to reset his or her own password, just that he or she did not complete the registration process. If there is unverified data on their account that is correct (such as a phone number that is not validated), even though they have not verified this phone number, they can still use it to reset their password. For more information, see [What happens when a user registers?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)
 
 ## How to retrieve password management events from the Azure AD Reports and Events API
@@ -180,7 +181,7 @@ Once you have a working script, you'll next want to examine the password reset a
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Lists the columns available for password reset registration events
 
 ### Reporting API data retrieval limitations
-Currently, the Azure AD Reports and Events API retrieves up to **75,000 individual events** of the [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) and [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) types, spanning the **last 30 days**. 
+Currently, the Azure AD Reports and Events API retrieves up to **75,000 individual events** of the [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) and [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) types, spanning the **last 30 days**.
 
 If you need to retrieve or store data beyond this window, we suggest persisting it in an external database and using the API to query the deltas that result. A best practice is to begin retrieving this data when you start your password reset registration process in your organization, persist it externally, and then continue to track the deltas from this point forward.
 
@@ -198,16 +199,12 @@ To find the password management reports, follow the steps below:
 4. Look under the **Activity Logs** section.
 5. Select either the **Password reset activity** report or the **Password reset registration activity** report.
 
-   ![][001]
-
 ## View password reset registration activity in the classic portal
 The password reset registration activity report shows all password reset registrations that have occurred in your organization.  A password reset registration is displayed in this report for any user who has successfully registered authentication information at the password reset registration portal ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Max time range**: 30 days
 * **Max number of rows**: 75,000
 * **Downloadable**: Yes, via CSV file
-
-    ![][002]
 
 ### Description of report columns
 The following list explains each of the report columns in detail:
@@ -230,8 +227,6 @@ This report shows all password reset attempts that have occurred in your organiz
 * **Max time range**: 30 days
 * **Max number of rows**: 75,000
 * **Downloadable**: Yes, via CSV file
-
-    ![][003]
 
 ### Description of report columns
 The following list explains each of the report columns in detail:
@@ -296,7 +291,7 @@ Below is the list of result types you may expect when using the password reset a
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
@@ -304,7 +299,3 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 * [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
 * [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
 * [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"

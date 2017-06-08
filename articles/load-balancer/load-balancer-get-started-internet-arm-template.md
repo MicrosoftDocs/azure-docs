@@ -1,4 +1,4 @@
----
+﻿---
 title: Create an Internet-facing load balancer - Azure template | Microsoft Docs
 description: Learn how to create an Internet facing load balancer in Resource Manager using a template
 services: load-balancer
@@ -41,7 +41,7 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```powershell
@@ -54,7 +54,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
 To deploy the template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli

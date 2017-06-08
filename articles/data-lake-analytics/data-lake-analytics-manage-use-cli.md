@@ -27,7 +27,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
+* **Azure CLI**. See [Install and configure Azure CLI](../cli-install-nodejs.md).
   * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 * **Authentication**, using the following command:
   
@@ -165,15 +165,6 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
     azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 
 The types include database, schema, assembly, external data source, table, table valued function or table statistics.
-
-### Create catalog secret
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### Modify catalog secret
-      azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### Delete catalog secret
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->

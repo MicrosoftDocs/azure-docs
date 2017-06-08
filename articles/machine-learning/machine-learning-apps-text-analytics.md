@@ -13,8 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2017
 ms.author: onewth
+
+ROBOTS: NOINDEX
+redirect_url: ../cognitive-services/cognitive-services-text-analytics-quick-start
+redirect_document_id: TRUE 
 
 ---
 # Machine Learning APIs: Text Analytics for Sentiment, Key Phrase Extraction, Language Detection and Topic Detection

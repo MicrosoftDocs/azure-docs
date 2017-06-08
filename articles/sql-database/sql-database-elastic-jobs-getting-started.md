@@ -8,7 +8,7 @@ author: ddove
 
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -33,7 +33,7 @@ Here you will create a shard map manager along with several shards, followed by 
    ![command prompt](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
 2. In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat this action four times. This inserts sample data rows in your shards.
-3. The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
+3. The [Azure Portal](https://portal.azure.com) should show three new databases:
 
    ![Visual Studio confirmation](./media/sql-database-elastic-query-getting-started/portal.png)
 

@@ -55,7 +55,7 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
         </a>
     </li>
     <li>
-        <a href="/azure/traffic-manager/traffic-manager-how-traffic-manager-works">
+        <a href="/azure/traffic-manager/traffic-manager-create-profile">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -13,17 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/13/2017
+ms.date: 03/19/2017
 ms.author: zakramer
 
 ---
 
 
-# Connect to Azure Government with Azure CLI
+# Connect to Azure Government with Azure Command Line Interface (CLI)
+To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  
 
-To use Azure CLI, you need to connect to Azure Government instead of Azure public. The Azure CLI can be used to manage a large subscription through script or to access features that are not currently available in the Azure portal. If you have used Azure CLI in Azure Public, it is mostly the same.  The differences in Azure Government are:
+## Azure CLI 2.0
+There are multiple ways to [install the Azure CLI v2](https://docs.microsoft.com/cli/azure/install-az-cli2).  
 
-There are multiple ways to [install the Azure CLI](https://docs.microsoft.com/en-us/azure/xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
+To connect to Azure Government, you set the cloud:
+
+```
+az cloud set --name AzureUSGovernment
+```
+
+After the cloud has been set, you can continue logging in:
+
+```
+az login
+```
+
+> [!NOTE]
+> You can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter for simple Azure AD setups/scenarios. However, if you have configured Azure AD for federation you'll need to use `az login` and go through the device login flow.
+
+To confirm the cloud has correctly been set to AzureUSGovernment, run this command:
+
+```
+az cloud list
+```
+
+or
+
+```
+az cloud list --output table
+```
+
+and verify that the `isActive` flag is set to `true` for the AzureUSGovernment item.
+
+## Azure CLI 1.0
+There are multiple ways to [install the Azure CLI v1](https://docs.microsoft.com/azure/xplat-cli-install). If you already have Node installed, the easiest way is to install the npm package:
 
 To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
 
@@ -44,8 +76,11 @@ sudo npm install -g azure-cli
 Once you have the Azure CLI installed, you need to log in to Azure Government:
 
 ```
-azure login --username your-user-name@your-gov-tenant.onmicrosoft.com  --environment AzureUSGovernment
+azure login --environment AzureUSGovernment
 ```
+
+> [!NOTE]
+> You can use the `az login --username your-user-name@your-gov-tenant.onmicrosoft.com` and optionally the `--password` parameter for simple Azure AD setups/scenarios. However, if you have configured Azure AD for federation you'll need to use `az login` and go through the device login flow.
 
 Once you are logged in, you can run Azure CLI commands as you normally would:
 

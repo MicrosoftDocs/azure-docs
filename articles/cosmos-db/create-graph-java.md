@@ -1,0 +1,133 @@
+---
+title: Build an Azure Cosmos DB Java application using the Graph API | Microsoft Docs
+description: Presents a Java code sample you can use to connect to and query graph data in Azure Cosmos DB using Gremlin.
+services: cosmos-db
+documentationcenter: ''
+author: mimig1
+manager: jhubbard
+editor: ''
+
+ms.assetid: daacbabf-1bb5-497f-92db-079910703046
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
+ms.workload: 
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 05/10/2017
+ms.author: arramac
+
+---
+# Azure Cosmos DB: Build a Java application using the Graph API
+
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+
+This quick start demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph using the Azure portal. You then build and run a console app using the OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) driver.  
+
+## Prerequisites
+
+* Before you can run this sample, you must have the following prerequisites:
+   * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK), and set environment variables like `JAVA_HOME`
+   * Maven (Run `apt-get install maven` if you don't have Maven)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Create a database account
+
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+
+## Add a graph
+
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+
+## Clone the sample application
+
+Now let's clone a Graph API (preview) app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
+
+1. Open a git terminal window, such as git bash, and `cd` to a working directory.  
+
+2. Run the following command to clone the sample repository. 
+
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
+    ```
+
+## Review the code
+
+Let's make a quick review of what's happening in the app. Open the `Program.java` file and you find that these lines of code. 
+
+* The Gremlin `Client` is initialized from the configuration in `src/remote-secure.yaml` that you set earlier.
+
+    ```java
+    Cluster cluster = Cluster.build(new File("src/remote.yaml")).create();
+    
+    Client client = cluster.connect();
+    ```
+
+* A series of Gremlin steps are executed using the `client.submit` method.
+
+    ```java
+    ResultSet results = client.submit("g.V()");
+
+    CompletableFuture<List<Result>> completableFutureResults = results.all();
+    List<Result> resultList = completableFutureResults.get();
+
+    for (Result result : resultList) {
+        System.out.println(result.toString());
+    }
+    ```
+## Update your connection string
+
+Now go back to the Azure portal to get your connection string information and copy it into the app.
+
+1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `Program.java` file in the next step.
+
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-graph-java/keys.png)
+
+2. In Open the `src/remote-secure.yaml` file. 
+
+3. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations in the `src/remote-secure.yaml` file:
+
+    Setting|Suggested value|Description
+    ---|---|---
+    Hosts|***.graphs.azure.com|Your graph service URI, which you can retrieve from the Azure portal
+    Port|443|Set to 443
+    Username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>`.
+    Password|*Your primary master key*|Your primary master key for the Azure Cosmos DB
+    ConnectionPool|{enableSsl: true}|Your connection pool setting for SSL
+    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Set to this value
+
+## Run the console app
+
+1. Run `mvn package` in a terminal to install required npm modules
+
+2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
+
+You can now go back to Data Explorer and see query, modify, and work with this new data. 
+
+## Browse using the Data Explorer
+
+You can now go back to Data Explorer in the Azure portal and browse and query your new graph data.
+
+* In Data Explorer, the new database appears in the Collections pane. Expand **graphdb**, **graphcoll**, and then click **Graph**.
+
+    The data generated by the sample app is displayed in the Graphs pane.
+
+## Review SLAs in the Azure portal
+
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+
+## Clean up resources
+
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+## Next steps
+
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
+
+> [!div class="nextstepaction"]
+> [Query using Gremlin](tutorial-query-graph.md)
+

@@ -14,7 +14,7 @@ ms.date: 01/23/2017
 ms.author: carolz
 ---
 
-# IoT Hub Documentation
+# IoT Hub Documentation 
 
 Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation help you deploy reliable and bi-directional communication between IoT devices and a solution back end. 
 
@@ -37,14 +37,14 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="/media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -56,17 +56,17 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-simulated">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using .NET</h3>
+                        <h3>Get started with a simulated device</h3>
                     </div>
                 </div>
             </div>
@@ -74,17 +74,17 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-physical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Java</h3>
+                        <h3>Get started with a physical device</h3>
                     </div>
                 </div>
             </div>
@@ -92,17 +92,17 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/azure/iot-hub/iot-hub-devguide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="/media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Hub using Node.js</h3>
+                        <h3>Read the developer guide</h3>
                     </div>
                 </div>
             </div>
@@ -135,12 +135,11 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Service)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Devices)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (Service)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C device SDK</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html">Node (Service)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html">Node (Devices)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDKs</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">Node.js SDKs</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
             </div>
@@ -154,6 +153,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (Resource Provider)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (Device Identities)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (Device Twins)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (Jobs)</a></p>
                     </div>
@@ -162,5 +162,3 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
         </div>
     </li>
 </ul>
-
-
