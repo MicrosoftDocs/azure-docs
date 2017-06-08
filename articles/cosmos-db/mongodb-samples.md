@@ -44,7 +44,14 @@ To use this example, you must:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    
+    var config = {
+      MONGODB_HOST: process.env.MONGODB_HOST || 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250',  //If using local MongoDB on default 27017 port, consider using mongodb://localhost or mongodb://0.0.0.0.
+      MONGODB_NAME: 'people', //This database name can be anything you like and where the families collection will reside from this sample
+      MONGODB_OPTS: process.env.MONGODB_OPTS || '?ssl=true&replicaSet=globaldb', //Options for end of MongoDB connection string. If using local MongoDB, leave blank.
+    };
+
+    var url = config.MONGODB_HOST + '/' + config.MONGODB_NAME + config.MONGODB_OPTS;
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -119,13 +126,19 @@ To use this example, you must:
     });
     ```
 
-2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-mongodb-account.md)):
-   
+2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](connect-mongodb-account.md)).  
+Copy all of the text _to the left of_ `/?ssl=true..` since this is provided by default with the MONGODB_OPTS variable.
+
     ```nodejs
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    MONGODB_HOST: process.env.MONGODB_HOST || 
+    'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250';
     ```
-     
+    > Note: The MONGODB_HOST and MONGODB_OPTS variables are setup to utilize the host machine/container ENV variables if they are present, otherwise will revert to the hard-coded text just entered.
+
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
+    The data just created from this sample can be seen in the Azure Portal under CosmosDB - Data Explorer.  The Data Explorer allows deletion of the database or collection if desired.
+
 ## Next steps
+
 * Learn how to [use MongoChef](mongodb-mongochef.md) with your Azure Cosmos DB: API for MongoDB account.
