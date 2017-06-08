@@ -6,7 +6,6 @@ documentationcenter: ' '
 author: markgalioto
 manager: carmonm
 
-
 ms.service: backup
 ms.devlang: na
 ms.topic: article
@@ -20,7 +19,7 @@ ms.author: markgal;masaran
 
 Learn how to run an unattended installation of Azure Backup Server version 2. 
 
-(These steps do not apply if you are installing Azure Backup Server version 1.)
+These steps do not apply if you are installing Azure Backup Server version 1.
 
 ## Install Backup Server version 2
 

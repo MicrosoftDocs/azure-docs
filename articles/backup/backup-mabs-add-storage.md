@@ -41,27 +41,27 @@ The first step is to create a virtual disk.
 
 1. In Server Manager, in the **File and Storage Services** section, select **Storage Pool**. Add the available disks to it. 
 
-![Create Storage Pools](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+    ![Create Storage Pools](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
 2. In that storage pool, create a virtual disk with **Simple Layout**.
 
-![Add Virtual Disks](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
+    ![Add Virtual Disks](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
 3. Add physical disks.
 
-![Add Physicial Disks](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
+    ![Add Physicial Disks](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
 4. Extend the virtual disk to reflect the added disks.
 
-![Extend the Virtual Disk](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
+    ![Extend the Virtual Disk](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
 
 5. After creating the virtual disk with sufficient storage, create volumes on the virtual disk.
 
-![Create New Volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
+    ![Create New Volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
 6. Select the server and disk.
 
-![Select the Server and Disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
+    ![Select the Server and Disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## Add volumes to Backup Server disk storage
 
@@ -84,7 +84,7 @@ Syntax:
 ```
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
-
+The following screenshot shows the Update-DPMDiskStorage command in the PowerShell window.
 ![The Update-DPMDiskStorage command in the PowerShell window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
 The changes you make by using PowerShell are reflected in the UI.
