@@ -69,7 +69,7 @@ Learn about MapReduce examples that are included in jar files on HDInsight and h
 > [!NOTE]
 > The `2.2.4.9-1` in the path is the version of the Hortonworks Data Platform for the HDInsight cluster, and may be different for your cluster.
 
-## How to run the wordcount example
+## Run the wordcount example
 
 1. Connect to HDInsight using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -119,7 +119,7 @@ Learn about MapReduce examples that are included in jar files on HDInsight and h
 
     Each line represents a word and how many times it occurred in the input data.
 
-## Run the Sudoku example
+## The Sudoku example
 
 [Sudoku](https://en.wikipedia.org/wiki/Sudoku) is a logic puzzle made up of nine 3x3 grids. Some cells in the grid have numbers, while others are blank, and the goal is to solve for the blank cells. The previous link has more information on the puzzle, but the purpose of this sample is to solve for the blank cells. So our input should be a file that is in the following format:
 
