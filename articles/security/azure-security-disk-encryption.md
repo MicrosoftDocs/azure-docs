@@ -222,6 +222,14 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 * To configure disk-encryption prerequisites using the Azure CLI, see [this Bash script](https://github.com/ejarvi/ade-cli-getting-started).
 * To use the Azure Backup service to back up and restore encrypted VMs, when encryption is enabled with Azure Disk Encryption, encrypt your VMs by using the Azure Disk Encryption key configuration. The Backup service supports VMs that are encrypted using KEK configuration only. See [How to back up and restore encrypted virtual machines with Azure Backup  encryption](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
 
+* When encrypting a Linux OS volume, note that a VM restart is currently required at the end of the process. This can be done via the portal, powershell, or CLI.   To track the progress of encryption, periodically poll the status message returned by Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Once encryption is complete, the the status message returned by this command will indicate this.  For example, "ProgressMessage: OS disk successfully encrypted, please reboot the VM"  At this point the VM can be restarted and used.  
+
+* Azure Disk Encryption for Linux requires data disks to have a mounted file system in Linux prior to encryption
+
+* Recursively mounted data disks are not supported by the Azure Disk Encryption for Linux. For example, if the target system has mounted a disk on /foo/bar and then another on /foo/bar/baz, the encryption of /foo/bar/baz will succeed, but encryption of /foo/bar will fail. 
+
+* Azure Disk Encryption is only supported on gallery images that meet the aforementioned prerequisites.  Custom images are not supported due to custom partition schemes and process behaviors that may exist on these images.  Further, even gallery image based VM's that initially met prerequisites but have been modified after creation may be incompatible.  For that reason, the suggested procedure for encrypting a Linux VM is to start from a clean gallery image, encrypt the VM, and then add custom software or data to the VM as needed.  
+
 > [!NOTE]
 > Backup and restore of encrypted VMs is supported only for VMs that are encrypted with the KEK configuration. It is not supported on VMs that are encrypted without KEK. KEK is an optional parameter that enables VM.
 
