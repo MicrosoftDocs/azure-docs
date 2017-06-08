@@ -44,4 +44,4 @@ For questions about Azure SQL Database and Data Warehouse regarding multi-factor
 
 ## Next steps  
 
-For a tutorial using Azure Active Directory authentication, see [Azure AD authentication, access, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md).
+For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
