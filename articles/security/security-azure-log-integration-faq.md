@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure log integration FAQ | Microsoft Docs
 description: This FAQ answers questions about Azure log integration.
 services: security
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
+ms.custom: azlog
 
 ---
 # Azure log integration frequently asked questions (FAQ)

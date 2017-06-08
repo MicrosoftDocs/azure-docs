@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/02/2017
+ms.date: 06/05/2017
 ms.author: cherylmc
 
 ---
@@ -27,7 +27,11 @@ Each virtual network can have only one VPN gateway, however, you can create mult
 
 A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet called the GatewaySubnet. The VMs that are located in the GatewaySubnet are created when you create the virtual network gateway. Virtual network gateway VMs are configured to contain routing tables and gateway services specific to the gateway. You can't directly configure the VMs that are part of the virtual network gateway and you should never deploy additional resources to the GatewaySubnet.
 
-When you create a virtual network gateway using the gateway type 'Vpn', it creates a specific type of virtual network gateway that encrypts traffic; a VPN gateway. The Gateway SKU that you select when you create your virtual network gateway determines the VMs that are created and configured in the GatewaySubnet. 
+When you create a virtual network gateway using the gateway type 'Vpn', it creates a specific type of virtual network gateway that encrypts traffic; a VPN gateway. The Gateway SKU that you select when you create your virtual network gateway determines the VMs that are created and configured in the GatewaySubnet.
+
+## <a name="gwsku"></a>Gateway SKUs
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## Configuring a VPN Gateway
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although they must be configured in a certain order in some cases.
@@ -115,9 +119,6 @@ You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute,
 
 For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-### Estimated aggregate throughput by SKU
-[!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
-
 ## FAQ
 
 For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
@@ -126,4 +127,3 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 - Plan your VPN gateway configuration. See [VPN Gateway Planning and Design](vpn-gateway-plan-design.md).
 - View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
 - View the [Subscription and service limits](../azure-subscription-service-limits.md#networking-limits).
-

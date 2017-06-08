@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Log Integration (AZLOG) with Active directory audit logs | Microsoft Docs
 description: Learn how to install the Azure log integration service and integrate logs from Azure audit logs
 services: security
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ums.workload: na
 ms.date: 05/09/2017
 ms.author: barclayn
+ms.custom: azlog
 
 ---
 

@@ -9,12 +9,12 @@ editor: giladm
 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/25/2017
+ms.date: 6/7/2017
 ms.author: giladm
 
 ---
@@ -45,11 +45,13 @@ Audit logs are written to Azure Blob storage on your Azure subscription.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 
-An auditing policy can be defined for a specific database or as a default server policy.
+An auditing policy can be defined for a specific database or as a default server policy:
 
-* If blob auditing on the server is enabled, the database will be audited, regardless of the database auditing settings.
+* A server policy applies to all existing and newly created databases on the server.
 
-* If blob auditing is enabled on the database, in addition to being enabled on the server, it will *not* override or change any of the settings for server blob auditing. Both audits will exist side by side. In other words, the database will be audited twice, in parallel (once by the server policy and once by the database policy).
+* If *server blob auditing is enabled*, it *always applies to the database* (that is, the database will be audited), regardless of the database auditing settings.
+
+* Enabling blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server blob auditing. Both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the server policy and once by the database policy).
 
    > [!NOTE]
    > You should avoid enabling both server blob auditing and database blob auditing together, unless:
@@ -81,8 +83,8 @@ The following section describes the configuration of auditing using the Azure po
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. You can customize the audited events by using PowerShell or the REST API. For more details, see the [Automation (PowerShell/REST API)](#subheading-7) section.
-7. Once you've configured your auditing settings, you can turn on the new threat detection (preview) feature and configure emails to receive security alerts. Threat detection allows you to receive proactive alerts on anomalous database activities that can indicate potential security threats. For more details, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
+6. If you want to customize the audited events, you can do this via PowerShell or the REST API. For more details, see the [Automation (PowerShell/REST API)](#subheading-7) section.
+7. Once you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. Threat detection allows you to receive proactive alerts on anomalous database activities that can indicate potential security threats. For more details, see [Getting Started with Threat Detection](sql-database-threat-detection-get-started.md).
 8. Click **Save**.
 
 
@@ -107,29 +109,34 @@ There are several methods you can use to view blob auditing logs:
     - You can view specific dates by clicking **Filter** at the top of the **Audit records** blade.
     - You can switch between audit records that were created by a server policy or database policy audit.
 
-    ![Navigation Pane][8]
+       ![Navigation Pane][8]
 
-* Use the Merge Audit Files feature in SQL Server Management Studio (starting with SSMS 17):  
-    - From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
+* Use the system function **sys.fn_get_audit_file** (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+
+
+* Use **Merge Audit Files** in SSMS (starting with SSMS 17):  
+    1. From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
 
         ![Navigation Pane][9]
-    - The **Add Audit Files** dialog box opens. Select one of the **Add** options to
+    2. The **Add Audit Files** dialog box opens. Select one of the **Add** options to
      choose whether to merge audit files from a local disk or import them from Azure Storage (you will be required to provide your Azure Storage details and account key).
 
-        ![Navigation Pane][10]
-    - Once all the files you want to merge have been added, click **OK** to complete the merge operation.
-    - The merged file opens in SSMS, where you'll be able to view and analyze it. You can also export the file to an XEL or CSV file or to a table.
+    3. Once all files to merge have been added, click **OK** to complete the merge operation.
 
-* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS.
+    4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file or to a table.
+
+* Use the [sync application](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) that we have created. It runs in Azure and utilizes OMS Log Analytics public APIs to push SQL audit logs into OMS. The sync application pushes SQL audit logs into OMS Log Analytics for consumption via the OMS Log Analytics dashboard. 
+
+* Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI and use a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
     * Once you have downloaded a log file locally, you can double-click the file to open, view, and analyze the logs in SSMS.
     * You can also download multiple files simultaneously via Azure Storage Explorer. Right-click a specific subfolder (for example, a subfolder that includes all log files for a specific date) and select **Save as** to save in a local folder.
 
 * Additional methods:
-   * After downloading several files (or a subfolder that includes log files for an entire day, as described in the previous step), you can merge them locally as described in the SSMS Merge Audit Files instructions described earlier.
+   * After downloading several files (or a subfolder that includes log files for an entire day, as described in the previous item in this list), you can merge them locally as described in the SSMS Merge Audit Files instructions described earlier.
 
-   * Programmatically:
+   * View blob auditing logs programmatically:
 
      * Use the [Extended Events Reader](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# library.
      * [Query Extended Events Files](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
