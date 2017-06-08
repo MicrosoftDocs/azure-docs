@@ -32,10 +32,10 @@ Post comments and questions at the bottom of this article or on the [Azure Recov
 
 Built-in Azure infrastructure capabilities and features contribute to a robust and resilient availability strategy for workloads that run on Azure VMs. However, there are many reasons why you need to plan for disaster recovery between Azure regions yourself:
 
-- You need to meet compliance guidelines for specific apps and workloads that require a business continuity and disaster recovery (BCDR) strategy.
-- You want to protect and recover Azure VMs based on your business decisions and not only based on built-in Azure functionality.
-- You need to test failover and recovery in accordance with your business and compliance needs, with no effect on production.
-- You need to fail over to the recovery region in the event of a disaster and fail back to the original source region seamlessly.
+- To meet compliance guidelines for specific apps and workloads that require a business continuity and disaster recovery (BCDR) strategy
+- To protect and recover Azure VMs based on your business decisions and not only based on built-in Azure functionality
+- To test failover and recovery in accordance with your business and compliance needs, with no effect on production
+- To fail over to the recovery region if a disaster occurs and fail back to the original source region seamlessly
 
 Use Site Recovery for Azure-to-Azure VM replication to help you do all these tasks.
 
@@ -47,7 +47,7 @@ Site Recovery provides a simple way to replicate Azure VMs between regions:
 - **Automatic deployment**. Unlike an active-active replication model, there's no need for an expensive and complex infrastructure in the secondary region. When you enable replication, Site Recovery automatically creates the required resources in the target region, based on source region settings.
 - **Control regions**. With Site Recovery, you can replicate from one region to any other region within a continent. Compare this capability with read-access geo-redundant storage (RA-GRS), which replicates asynchronously between standard [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) only. RA-GRS provides read-only access to the data in the target region.
 - **Automated replication**. Site Recovery provides automated continuous replication. Failover and failback can be triggered with a single click.
-- **RTO and RPO**. Site Recovery takes advantage of the Azure network infrastructure that connects regions to keep RTO and RPO very low.
+- **RTO and RPO**. Site Recovery takes advantage of the Azure network infrastructure that connects regions to keep RTO and RPO low.
 - **Testing**. You can run disaster-recovery drills with on-demand test failovers, as and when needed, without affecting your production workloads or ongoing replication.
 - **Recovery plans**. You can use recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature has rich first-class integration with Azure automation runbooks.
 
@@ -72,7 +72,7 @@ Here's a summary of what you need to do to set up replication of VMs between Azu
 ### Before you start
 
 * Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of an Azure virtual machine.
-* Your Azure subscription should be enabled to create VMs in the target location that you want to use as the disaster recovery region. You can contact support to enable the required quota.
+* Your Azure subscription should be enabled to create VMs in the target location that you want to use as the disaster recovery region. Contact support to enable the required quota.
 
 ## Create a Recovery Services vault
 
@@ -116,7 +116,7 @@ By default, Site Recovery automatically creates settings in the target location 
 
     ![Customize policy](./media/site-recovery-azure-to-azure/customize-policy.png)
 
-3. To start provisioning the target resources, click **Create target resources**. Provisioning takes a minute or so. Don't close the blade during provisioning, or you'll need to start over.
+3. To start provisioning the target resources, click **Create target resources**. Provisioning takes a minute or so. Don't close the blade during provisioning, or you need to start over.
 
 4. To trigger replication of the selected VM, click **Enable replication**.
 
@@ -126,7 +126,7 @@ By default, Site Recovery automatically creates settings in the target location 
 
 ## Run a test failover
 
-After you set everything up, run a test failover to make sure everything is working as expected:
+After you set up everything, run a test failover to make sure everything is working as expected:
 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM **+Test Failover** icon.
 
