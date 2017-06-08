@@ -118,7 +118,7 @@ Partial backups allows you choose exactly which files you want to backup.
 ### Exclude files from your backup
 Suppose you have an app that contains log files and static images that have been backup once and are not going to change. In such cases you can exclude those folders and files from being stored in your future backups. To exclude files and folders from your backups, create a `_backup.filter` file in the `D:\home\site\wwwroot` folder of your app. Specify the list of files and folders you want to exclude in this file. 
 
-An easy way to access your files is to use Kudu . Click **Adavanced Tools -> Go** setting for your web app to access Kudu.
+An easy way to access your files is to use Kudu . Click **Advanced Tools -> Go** setting for your web app to access Kudu.
 
 ![Kudu using portal][kudu-portal]
 
