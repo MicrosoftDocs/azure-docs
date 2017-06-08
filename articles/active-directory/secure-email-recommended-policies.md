@@ -14,6 +14,7 @@ pnp.series.title: Best Practices
 # Recommended policies
  
 This article describes recommended policies to help our customers secure organizational email and email clients support Modern Authentication and Conditional Access. Also discussed are the default platform client configurations we recommend to provide the best SSO experience to your users, as well as the technical pre-requisites for conditional access.
+
 ## Prerequisites
 
 Before implementing the policies described in the remainder of this document, there are several prerequisites that your organization must meet:
@@ -28,7 +29,7 @@ Before implementing the policies described in the remainder of this document, th
 ### Recommended email clients
 The following email clients support Modern Authentication and Conditional Access. Azure Information Protection is not yet available for all clients.
 
-|Platform|Client|Version/Notes|Azure Info Protection|
+|Platform|Client|Version/Notes|Azure Information Protection|
 |:-------|:-----|:------------|:--------------------|
 |**Windows**|Outlook|2016, 2013 ([Enable Modern Auth]((https://support.office.com/en-us/article/Enable-Modern-Authentication-for-Office-2013-on-Windows-devices-7dc1c01a-090f-4971-9677-f1b192d6c910))|Yes|
 |**iOS**|Outlook|[Latest](https://itunes.apple.com/us/app/microsoft-outlook-email-and-calendar/id951937596?mt=8)|No|
@@ -72,6 +73,7 @@ Each industry also has their own set of specialized regulations. Rather than pro
 
 ### Default protection mechanism recommendations
 
+
 The following table contains default protection mechanism recommendations for each of the previously defined security and protection tiers:
 
 |Protection mechanism|Baseline|Sensitive|Highly regulated|
@@ -79,7 +81,7 @@ The following table contains default protection mechanism recommendations for ea
 |**Enforce MFA**|On medium or above sign-in risk|On low or above sign-in risk|On all new sessions|
 |**Enforce Password Change**|For high risk users|For high risk users|For high risk users|
 |**Enforce Intune Application Protection**|Yes|Yes|Yes|
-|**Enforce Intune Enrollment (COD**|Require a compliant or domain joined device|Require a compliant or domain joined device|Require a compliant or domain joined device|
+|**Enforce Intune Enrollment (COD)**|Require a compliant or domain joined device|Require a compliant or domain joined device|Require a compliant or domain joined device|
 
 ### Device ownership
 The above table reflects the trend for many organizations to support a mix of corporate-owned devices (COD) as well as personal or bring-your-own devices (BYOD) to enable mobile productivity across their workforces. Intune App Protection Policies ensure that email is protected from exfiltrating out of the Outlook mobile app and other Office mobile apps, on both COD and BYOD.  
@@ -137,7 +139,7 @@ You can apply increased protection to all or specific data sets in your Office 3
 You can give users single sign-on (SSO) experience as described in earlier sections. You only need to intervene when necessary based on [risk events](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events).   
 
 * Require MFA on low or above risk sessions
-* Require secure password change for high risk users
+ * Require secure password change for high risk users
 
 >[!IMPORTANT]
 >[Password synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization) and [self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords) are required for this policy recommendation.
@@ -160,7 +162,6 @@ The goal for these device and app management policies is to protect data loss in
 For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
-
 * When requesting authentication tokens for Exchange Online:
   * Users will be asked to MFA whenever a low or above sign-in risk is detected and users has not yet performed MFA in their current sessions.  
   * Users will be required to either use email apps that support the Intune App Protection SDK or access emails from Intune compliant or AD domain-joined devices. 
@@ -201,4 +202,6 @@ For most organizations, it is important to be able to set expectations for users
   * Users will be asked to perform MFA whenever they begin a new session.  
   * Users will be required to use email apps that support the Intune App Protection SDK
   * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
-
+ 
+ ## Next steps
+ [Deploy recommended policies](secure-email-deploy-recommended-policies.md)
