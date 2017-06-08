@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/10/2017
 ms.author: jeedes
 
 ---
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
-4. If you wish to configure the application in **SP** initiated mode, Check **Show advanced URL settings** and perform the following steps:
+4. If you wish to configure the application in **SP** initiated mode, check **Show advanced URL settings** and perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-autotaskworkplace-tutorial/tutorial_autotaskworkplace_url1.png)
 
