@@ -3,8 +3,8 @@ title: Develop U-SQL scripts using Data Lake Tools for Visual Studio | Microsoft
 description: 'Learn how to install Data Lake Tools for Visual Studio, how to develop and test U-SQL scripts. '
 services: data-lake-analytics
 documentationcenter: ''
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
@@ -111,4 +111,3 @@ To get started with Data Lake Analytics using different tools, see:
 * Get started with Data Lake Analytics [using Azure portal](data-lake-analytics-get-started-portal.md) | [using Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
 * [Debug C# code in U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
 * [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
-
