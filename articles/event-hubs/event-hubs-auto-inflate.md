@@ -31,9 +31,9 @@ Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hu
 
 Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units, and scale up automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. This provides the following benefits:
 
-1. An efficient scaling mechanism to start small and scale up as you grow.
-2. Automatic scale-up to the specified upper limit without throttling issues.
-3. More control over scaling, as you control when and how much to scale.
+- An efficient scaling mechanism to start small and scale up as you grow.
+- Automatic scale-up to the specified upper limit without throttling issues.
+- More control over scaling, as you control when and how much to scale.
 
 ## Enable Auto-inflate on a namespace
 
