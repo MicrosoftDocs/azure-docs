@@ -57,7 +57,19 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. Refresh your package lists based on the newly added repositories.
+5. Add Docker’s official GPG key to your apt keyring.
+
+    ```bash
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    ```
+
+6. Set up the Docker repository.
+
+    ```bash
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    ```
+
+7. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
