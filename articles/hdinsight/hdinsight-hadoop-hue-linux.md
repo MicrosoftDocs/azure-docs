@@ -1,6 +1,7 @@
 ---
-title: Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Docs
-description: Learn how to install and use Hue with Hadoop clusters on HDInsight Linux.
+title: Hue with Hadoop on HDInsight clusters - Azure | Microsoft Docs
+description: Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue. Use Hue to browse storage and run Hive or Pig.
+keywords: hue hadoop
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -9,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +27,7 @@ Learn how to install Hue on HDInsight clusters and use tunneling to route the re
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## What is Hue?
-Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are available with Hue installations on an HDInsight Hadoop cluster.
+Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, and so on. The following components are available with Hue installations on an HDInsight Hadoop cluster.
 
 * Beeswax Hive Editor
 * Pig
