@@ -69,6 +69,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Mobile Services](#mobile-services-limits)
 * [Monitor](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
+Operations Management Suite (OMS)
 * [Networking](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
