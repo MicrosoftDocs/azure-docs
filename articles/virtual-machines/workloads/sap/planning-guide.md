@@ -230,7 +230,7 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
@@ -262,12 +262,14 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
+[virtual-machines-windows-capture-image-resource-manager]:../../windows/capture-image.md
 [virtual-machines-windows-capture-image]:../../virtual-machines-windows-generalize-vhd.md
 [virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture]:../../virtual-machines-windows-generalize-vhd.md
 [virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
 [virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../../linux/suse-create-upload-vhd.md
+[virtual-machines-linux-create-upload-vhd-oracle]:../../linux/oracle-create-upload-vhd.md
 [virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
 [virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
@@ -275,7 +277,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
 [virtual-machines-manage-availability]:../../linux/manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
-[virtual-machines-sizes]:../../linux/sizes.md
+[virtual-machines-sizes-linux]:../../linux/sizes.md
+[virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
@@ -290,7 +293,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
+[virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -302,6 +306,7 @@ ms.custom: H1Hack27Feb2017
 [vpn-gateway-vpn-faq]:../../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
+[capture-image-linux-step-2-create-vm-image]:../../linux/capture-image.md#step-2-create-vm-image
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -412,7 +417,7 @@ As a second step, Azure resource and bandwidth limitations need to be compared t
 * IOPS bandwidth of different VM types and
 * Network capabilities of different VM types.
 
-Most of that data can be found [here][virtual-machines-sizes]
+Most of that data can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
 Keep in mind that the limits listed in the link above are upper limits. It does not mean that the limits for any of the resources, e.g. IOPS can be provided under all circumstances. The exceptions though are the CPU and memory resources of a chosen VM type. For the VM types supported by SAP, the CPU and memory resources are reserved and as such available at any point in time for consumption within the VM.
 
@@ -484,7 +489,7 @@ From an operational perspective, the Azure Virtual Machine Service offers simila
 * Number of VHDs that can be attached,
 * Network and Storage bandwidths.
 
-The size and limitations of various different virtual machines sizes offered can be seen in a table in [this article][virtual-machines-sizes]
+The size and limitations of various different virtual machines sizes offered can be seen in a table in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows].
 
 As you will realize there are different families or series of virtual machines. As of Dec 2015, you can distinguish the following families of VMs:
 
@@ -520,7 +525,7 @@ More information about using Resource Manager templates can be found here :
 
 Another interesting feature is the ability to create images from Virtual Machines, which allows you to prepare certain repositories from which you are able to quickly deploy Virtual machine instances which meet your requirements.
 
-More information about creating images from Virtual Machines can be found in [this article][virtual-machines-linux-capture-image-resource-manager].
+More information about creating images from Virtual Machines can be found in [this article (Linux)][virtual-machines-linux-capture-image-resource-manager] and [this article (Windows)][virtual-machines-windows-capture-image-resource-manager].
 
 #### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Fault Domains
 Fault Domains represent a physical unit of failure, very closely related to the physical infrastructure contained in data centers, and while a physical blade or rack can be considered a Fault Domain, there is no direct one-to-one mapping between the two.
@@ -592,7 +597,7 @@ More information in regards to Azure Storage can be found here:
 
 * <https://azure.microsoft.com/documentation/services/storage/>
 * <https://azure.microsoft.com/services/site-recovery>
-* <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>
+* <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
 #### Azure Standard Storage
@@ -622,7 +627,7 @@ You also can create disks on Premium Storage that are not directly mapping into 
 
 Please be aware that only certain VM series can benefit from the Azure Premium Storage. As of Dec 2015, these are the DS- and GS-series. The DS-series is basically the same as D-series with the exception that DS-series has the ability to mount Premium Storage based VMs additionally to disks that are hosted on Azure Standard Storage. Same thing is valid for G-series compared to GS-series.
 
-If you are checking out the part of the DS-series VMs in [this article][virtual-machines-sizes] you also will realize that there are data volume limitations to Premium Storage disks on the granularity of the VM level. Different DS-series or GS-series VMs also have different limitations in regards to the number of data disks that can be mounted. These limits are documented in the article mentioned above as well. But in essence it means that if you e.g. mount 32 x P30 disks to a single DS14 VM you can NOT get 32 x the maximum throughput of a P30 disk. Instead the maximum throughput on VM level as documented in the article will limit data throughput.
+If you are checking out the part of the DS-series VMs in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows] you also will realize that there are data volume limitations to Premium Storage disks on the granularity of the VM level. Different DS-series or GS-series VMs also have different limitations in regards to the number of data disks that can be mounted. These limits are documented in the article mentioned above as well. But in essence it means that if you e.g. mount 32 x P30 disks to a single DS14 VM you can NOT get 32 x the maximum throughput of a P30 disk. Instead the maximum throughput on VM level as documented in the article will limit data throughput.
 
 More information on Premium Storage can be found here: <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
@@ -686,7 +691,8 @@ It is possible to assign fixed or reserved IP addresses to VMs within an Azure V
 ##### Multiple NICs per VM
 You can define multiple virtual network interface cards (vNIC) for an Azure Virtual Machine. With the ability to have multiple vNICs you can start to set up network traffic separation where e.g. client traffic is routed through one vNIC and backend traffic is routed through a second vNIC. Dependent on the type of VM there are different limitations in regards to the number of vNICs. Exact details, functionality and restrictions can be found in these articles:
 
-* [Create a VM with multiple NICs][virtual-networks-multiple-nics]
+* [Create a Windows VM with multiple NICs][virtual-networks-multiple-nics-windows]
+* [Create a Linux VM with multiple NICs][virtual-networks-multiple-nics-linux]
 * [Deploy multi NIC VMs using a template][virtual-network-deploy-multinic-arm-template]
 * [Deploy multi NIC VMs using PowerShell][virtual-network-deploy-multinic-arm-ps]
 * [Deploy multi NIC VMs using the Azure CLI][virtual-network-deploy-multinic-arm-cli]
@@ -761,7 +767,7 @@ We need to be clear about the fact that the storage and network infrastructure i
 >
 >
 
-When planning and sizing SAP on Azure solutions the quotas for each virtual machine size must be considered.  The VM quotas are described [here][virtual-machines-sizes].
+When planning and sizing SAP on Azure solutions the quotas for each virtual machine size must be considered. The VM quotas are described [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
 The quotas described represent the theoretical maximum values.  The limit of IOPS per disk may be achieved with small IOs (8kb) but possibly may not be achieved with large IOs (1Mb).  The IOPS limit is enforced on the granularity of single disk.
 
@@ -779,7 +785,7 @@ See also this blog and attached document for SAP sizing on Azure :
 
 **Step 3**: Compare the SAPS requirement for the DBMS server with the SAPS the different VM types of Azure can provide. The information on SAPS of the different Azure VM types is documented in SAP Note [1928533]. The focus should be on the DBMS VM first since the database layer is the layer in an SAP NetWeaver system that does not scale out in the majority of deployments. In contrast, the SAP application layer can be scaled out. If none of the SAP supported Azure VM types can deliver the required SAPS, the workload of the planned SAP system can’t be run on Azure. You either need to deploy the system on-premises or you need to change the workload volume for the system.
 
-**Step 4**: As documented [here][virtual-machines-sizes], Azure enforces an IOPS quota per disk independent whether you use Standard Storage or Premium Storage. Dependent on the VM type, the number of data disks which can be mounted varies. As a result, you can calculate a maximum IOPS number that can be achieved with each of the different VM types. Dependent on the database file layout, you can stripe disks to become one volume in the guest OS. However, if the current IOPS volume of a deployed SAP system exceeds the calculated limits of the largest VM type of Azure and if there is no chance to compensate with more memory, the workload of the SAP system can be impacted severely. In such cases, you can hit a point where you should not deploy the system on Azure.
+**Step 4**: As documented [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows], Azure enforces an IOPS quota per disk independent whether you use Standard Storage or Premium Storage. Dependent on the VM type, the number of data disks which can be mounted varies. As a result, you can calculate a maximum IOPS number that can be achieved with each of the different VM types. Dependent on the database file layout, you can stripe disks to become one volume in the guest OS. However, if the current IOPS volume of a deployed SAP system exceeds the calculated limits of the largest VM type of Azure and if there is no chance to compensate with more memory, the workload of the SAP system can be impacted severely. In such cases, you can hit a point where you should not deploy the system on Azure.
 
 **Step 5**: Especially in SAP systems which are deployed on-premises in 2-Tier configurations, the chances are that the system might need to be configured on Azure in a 3-Tier configuration. In this step, you need to check whether there is a component in the SAP application layer which can’t be scaled out and which would not fit into the CPU and memory resources the different Azure VM types offer. If there indeed is such a component, the SAP system and its workload can’t be deployed into Azure. But if you can scale-out the SAP application components into multiple Azure VMs, the system can be deployed into Azure.
 
@@ -828,7 +834,7 @@ Deployment of the Azure Monitoring Extension for SAP (see chapter [Azure Monitor
 
 As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://azure.microsoft.com/downloads/> for a new version of the cmdlets. The new version will just be installed on top of the older version.
 
-For a general list of Azure related PowerShell commands check here: <https://msdn.microsoft.com/library/azure/dn708514.aspx>.
+For a general list of Azure related PowerShell commands check here: <https://docs.microsoft.com/powershell/azure/overview>.
 
 ### Management via Microsoft Azure CLI commands
 For customers who use Linux and want to manage Azure resources Powershell might not be an option. Microsoft offers Azure CLI as an alternative.
@@ -864,7 +870,7 @@ Due to specific patch requirements of your OS or DBMS version, the provided imag
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Please follow the steps described in these articles for [SUSE][virtual-machines-linux-create-upload-vhd-suse] or [Red Hat][virtual-machines-linux-redhat-create-upload-vhd] to prepare a VHD to be uploaded to Azure.
+> Please follow the steps described in these articles for [SUSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd] or [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle], to prepare a VHD to be uploaded to Azure.
 >
 >
 
@@ -883,10 +889,8 @@ A common deployment method is to move an existing VM which runs an SAP system fr
 Requirements when preparing your own Azure VM Disk are:
 
 * Originally the VHD containing the operating system could have a maximum size of 127GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1TB in size as any other Azure Storage hosted VHD as well.
-
-[comment]: <> (MShermannd  TODO have to check if CLI also converts to static )
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
-* VHDs which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Please read [this article](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Please read [this article (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) and [this article (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * Add another local account with administrator privileges which can be used by Microsoft support or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
 * For the case of using a Cloud-Only deployment scenario (see chapter [Cloud-Only - Virtual Machine deployments into Azure without dependencies on the on-premises customer network][planning-guide-2.1] of this document) in combination with this deployment method, domain accounts might not work once the Azure Disk is deployed in Azure. This is especially true for accounts which are used to run services like the DBMS or SAP applications. Therefore you need to replace such domain accounts with VM local accounts and delete the on-premises domain accounts in the VM. Keeping on-premises domain users in the VM image is not an issue when the VM is deployed in the Cross-Premises scenario as described in chapter [Cross-Premise - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network][planning-guide-2.2] in this document.
 * If domain accounts were used as DBMS logins or users when running the system on-premises and those VMs are supposed to be deployed in Cloud-Only scenarios, the domain users need to be deleted. You need to make sure that the local administrator plus another VM local user is added as a login/user into the DBMS as administrators.
@@ -913,10 +917,8 @@ VHD files that contain a generalized OS are stored in containers on Azure Storag
 Requirements when preparing your own Azure VM Image are:
 
 * Originally the VHD containing the operating system could have a maximum size of 127GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1TB in size as any other Azure Storage hosted VHD as well.
-
-[comment]: <> (MShermannd  TODO have to check if CLI also converts to static )
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
-* VHDs which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Please read [this article](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Please read [this article (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) and [this article (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * Since all the Domain users registered as users in the VM will not exist in a Cloud-Only scenario (see chapter [Cloud-Only - Virtual Machine deployments into Azure without dependencies on the on-premises customer network][planning-guide-2.1] of this document), services using such domain accounts might not work once the Image is deployed in Azure. This is especially true for accounts which are used to run services like DBMS or SAP applications. Therefore you need to replace such domain accounts with VM local accounts and delete the on-premises domain accounts in the VM. Keeping on-premises domain users in the VM image might not be an issue when the VM is deployed in the Cross-Premise scenario as described in chapter [Cross-Premise - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network][planning-guide-2.2] in this document.
 * Add another local account with administrator privileges which can be used by Microsoft support in problem investigations or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
 * In Cloud-Only deployments and where domain accounts were used as DBMS logins or users when running the system on-premises, the domain users should be deleted. You need to make sure that the local administrator plus another VM local user is added as a login/user of the DBMS as administrators.
@@ -951,7 +953,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 >
 > ![Linux][Logo_Linux] Linux
 >
-> [How to capture a Linux virtual machine to use as a Resource Manager template][/linux/capture-image.md#step-2-create-vm-image]
+> [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image]
 >
 >
 
@@ -959,7 +961,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 ### Transferring VMs and VHDs between on-premises to Azure
 Since uploading VM images and disks to Azure is not possible via the Azure portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool ‘AzCopy’. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Please consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
-A third alternative would be to use various third party GUI oriented tools. However, please make sure that these tools are supporting Azure Page Blobs. For our purposes we need to use Azure Page Blob store (the differences are described here: <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>). Also the tools provided by Azure are very efficient in compressing the VMs and VHDs which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S. based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
+A third alternative would be to use various third party GUI oriented tools. However, please make sure that these tools are supporting Azure Page Blobs. For our purposes we need to use Azure Page Blob store (the differences are described here: <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Also the tools provided by Azure are very efficient in compressing the VMs and VHDs which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S. based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
 
 #### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Uploading a VHD from on-premises to Azure
 To upload an existing VM or VHD from the on-premises network such a VM or VHD needs to meet the requirements as listed in chapter [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document.
@@ -992,12 +994,12 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 
 * Upload the VHD with Powershell or Azure CLI
 * (Optional) Create a Managed Disk from the VHD with Powershell, Azure CLI or the Azure portal
-* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json) or using the Managed Disk as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-disk-md/azuredeploy.json).
+* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-disk-md/azuredeploy.json).
 
 #### Deployment of a VM Image
 To upload an existing VM or VHD from the on-premises network in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer specific image for SAP][planning-guide-5.2.2] of this document.
 
-* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][/linux/capture-image.md#step-2-create-vm-image] for Linux
+* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Login to your subscription with *Login-AzureRmAccount*
 * Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
@@ -1009,7 +1011,7 @@ To upload an existing VM or VHD from the on-premises network in order to use it 
 
 **Azure CLI 2.0**
 
-* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][/linux/capture-image.md#step-2-create-vm-image] for Linux
+* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Login to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
 * Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
@@ -1018,7 +1020,7 @@ To upload an existing VM or VHD from the on-premises network in order to use it 
 
 **Template**
 
-* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][/linux/capture-image.md#step-2-create-vm-image] for Linux
+* Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Upload the VHD with Powershell or Azure CLI
 * (Optional) Create a Managed Disk Image from the VHD with Powershell, Azure CLI or the Azure portal
 * Deploy the VM with a JSON template referencing the image VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) or using the Managed Disk Image as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
@@ -1054,7 +1056,7 @@ During the time of the download the VHDs or Managed Disks can’t be active. Eve
   Save-AzureRmVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  For more details of the Save-AzureRmVhd cmdlet, please check here <https://msdn.microsoft.com/library/mt622705.aspx>.
+  For more details of the Save-AzureRmVhd cmdlet, please check here <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
 #### CLI 2.0
   * Downloading a Managed Disk  
@@ -1102,7 +1104,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 ```
 
 ##### Azure Storage tools
-* <http://azurestorageexplorer.codeplex.com/releases/view/125870>
+* <http://storageexplorer.com/>
 
 There also are professional editions of Azure Storage Explorers which can be found here:
 
@@ -1161,8 +1163,8 @@ Copying VHDs between subscriptions is also possible. For more information read [
 
 The basic flow of the PS cmdlet logic looks like this:
 
-* Create a storage account context for the source storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
-* Create a storage account context for the target storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
+* Create a storage account context for the **source** storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
+* Create a storage account context for the **target** storage account with *New-AzureStorageContext* - see <https://msdn.microsoft.com/library/dn806380.aspx>
 * Start the copy with
 
 ```powershell
@@ -1238,7 +1240,7 @@ sudo service waagent restart
 Please read SAP Note [1597355] for more details on the recommended swap file size
 
 - - -
-The number of disks used for the DBMS data files and the type of Azure Storage these disks are hosted on should be determined by the IOPS requirements and the latency required. Exact quotas are described in [this article][virtual-machines-sizes]
+The number of disks used for the DBMS data files and the type of Azure Storage these disks are hosted on should be determined by the IOPS requirements and the latency required. Exact quotas are described in [this article (Linux)][virtual-machines-sizes-linux] and [this article (Windows)][virtual-machines-sizes-windows].
 
 Experience of SAP deployments over the last 2 years taught us some lessons which can be summarized as:
 
@@ -1309,7 +1311,7 @@ Azure Geo-replication works locally on each VHD in a VM and does not replicate t
 >
 > In order to set the automount, please check the documentation of the command line executable diskpart.exe here:
 >
-> * [DiskPart Command-Line Options](https://technet.microsoft.com/library/cc766465.aspx)
+> * [DiskPart Command-Line Options](https://technet.microsoft.com/library/bb490893.aspx)
 > * [Automount](http://technet.microsoft.com/library/cc753703.aspx)
 >
 > The Windows command line window should be opened as administrator.
@@ -1383,7 +1385,7 @@ systems, such as a clone of development for project testing etc. This can be don
 >
 >
 
-as documented in: <https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm>
+as documented in [Security Settings for the SAP Message Server ](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
 ## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>Concepts of Cloud-Only deployment of SAP instances
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Single VM with SAP NetWeaver demo/training scenario
@@ -1907,21 +1909,21 @@ For critical SAP components we achieved the following so far :
 
 * High Availability of SAP Application Servers (AS)
 
-SAP application server instances are redundant components. Each SAP AS instance is deployed on its own VM, that is running in a different Azure Fault and Upgrade Domain (see chapters [Fault Domains][planning-guide-3.2.1] and [Upgrade Domains][planning-guide-3.2.2]). This is ensured by using Azure Availability Sets (see chapter [Azure Availability Sets][planning-guide-3.2.3]). Potential planned or unplanned unavailability of an Azure Fault or Upgrade Domain will cause unavailability of a restricted number of VMs with their SAP AS instances.
+  SAP application server instances are redundant components. Each SAP AS instance is deployed on its own VM, that is running in a different Azure Fault and Upgrade Domain (see chapters [Fault Domains][planning-guide-3.2.1] and [Upgrade Domains][planning-guide-3.2.2]). This is ensured by using Azure Availability Sets (see chapter [Azure Availability Sets][planning-guide-3.2.3]). Potential planned or unplanned unavailability of an Azure Fault or Upgrade Domain will cause unavailability of a restricted number of VMs with their SAP AS instances.
 
-Each SAP AS instance is placed in its own Azure Storage account – potential unavailability of one Azure Storage Account will cause unavailability of only one VM with its SAP AS instance. However, be aware that there is a limit of Azure Storage Accounts within one Azure subscription. To ensure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5].
-Please also read chapter [High Availability for SAP Application Servers][planning-guide-11.4.1] for more details.
+  Each SAP AS instance is placed in its own Azure Storage account – potential unavailability of one Azure Storage Account will cause unavailability of only one VM with its SAP AS instance. However, be aware that there is a limit of Azure Storage Accounts within one Azure subscription. To ensure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5].
+  Please also read chapter [High Availability for SAP Application Servers][planning-guide-11.4.1] for more details.
 
-Even if you use Managed Disks, those disks are also stored in an Azure Storage Account and can be unavailable in an event of a storage outage.
+  Even if you use Managed Disks, those disks are also stored in an Azure Storage Account and can be unavailable in an event of a storage outage.
 
 * *Higher* Availability of SAP (A)SCS instance
 
-Here we utilize Azure VM Restart to protect the VM with installed SAP (A)SCS instance. In the case of planned or unplanned downtime of Azure severs, VMs will be restarted on another available server. As mentioned earlier, Azure VM Restart primarily protects VMs and NOT applications, in this case the (A)SCS instance. Through the VM Restart we’ll reach indirectly “higher availability” of SAP (A)SCS instance. To insure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5]. This means the (A)SCS instance as a Single Point of Failure (SPOF) running in a single VM will be the determinative factor for the availability of the whole SAP landscape.
+  Here we utilize Azure VM Restart to protect the VM with installed SAP (A)SCS instance. In the case of planned or unplanned downtime of Azure severs, VMs will be restarted on another available server. As mentioned earlier, Azure VM Restart primarily protects VMs and NOT applications, in this case the (A)SCS instance. Through the VM Restart we’ll reach indirectly “higher availability” of SAP (A)SCS instance. To insure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5]. This means the (A)SCS instance as a Single Point of Failure (SPOF) running in a single VM will be the determinative factor for the availability of the whole SAP landscape.
 
 * *Higher* Availability of DBMS Server
 
-Here, similar to the SAP (A)SCS instance use case, we utilize Azure VM Restart to protect the VM with installed DBMS software, and we achieve “higher availability” of DBMS software through VM Restart.
-DBMS running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
+  Here, similar to the SAP (A)SCS instance use case, we utilize Azure VM Restart to protect the VM with installed DBMS software, and we achieve “higher availability” of DBMS software through VM Restart.
+  DBMS running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
 
 ### SAP Application High Availability on Azure IaaS
 To achieve full SAP system high availability, we need to protect all critical SAP system components, e.g. redundant SAP application servers, and unique components (e.g. Single Point of Failure) like SAP (A)SCS instance and DBMS.
@@ -2049,11 +2051,11 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup
 >
 > To get familiar with Azure Virtual Machine Backup please start here:
-> <https://azure.microsoft.com/documentation/articles/backup-azure-vms/>.
+> <https://docs.microsoft.com/azure/backup/backup-azure-vms>.
 >
 > Other possibilities are to use a combination of Microsoft Data Protection Manager installed in an Azure VM and Azure Backup to
 > backup/restore databases. More information can be found here:
-> <https://azure.microsoft.com/documentation/articles/backup-azure-dpm-introduction/>.  
+> <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>.  
 >
 > ![Linux][Logo_Linux] Linux
 >
