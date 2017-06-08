@@ -4,7 +4,7 @@ description: Learn how to use Spark Apache Spark to stream data into or out of A
 keywords: kafka example,kafka zookeeper,spark streaming kafka,spark streaming kafka example 
 services: hdinsight
 documentationcenter: ''
-author: Blackmisti
+author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
