@@ -69,7 +69,13 @@ You use the output from these two commands in the next step.
 ## Define Packer template
 To build images, you create a template as a JSON file. In the template, you define builders and provisioners that carry out the actual build process. Packer has a provisioner for Azure that allows you to define Azure resources, such as the service principal credentials created in the preceding step.
 
-Create a file named *ubuntu.json* and paste the following content. Enter your own values for *client_id*, *client_secret*, *tenant_id*, *subscription_id*, and *storage_account* as follows:
+Create a file named *ubuntu.json* and paste the following content. Enter your own values for the following:
+
+- client_id
+- client_secret
+- tenant_id
+- subscription_id
+- storage_account:
 
 ```json
 {
@@ -119,7 +125,7 @@ This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovision
 
 > [!NOTE]
 > If you wish to expand on this template to provision user credentials, adjust the provisioner command that deprovisions the Azure agent to read `-deprovision` rather than `deprovision+user`.
-> The `+user` flag removes all accounts from the source VM.
+> The `+user` flag removes all user accounts from the source VM.
 
 
 ## Build Packer image
@@ -220,7 +226,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-It takes a few minutes for the VM to be created. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
+It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 
 To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
 
@@ -239,3 +245,5 @@ Now you can open a web browser and enter `http://publicIpAddress` in the address
 
 ## Next steps
 In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the image with Ansible, Chef, or Puppet.
+
+For additional example Packer templates for other Linux distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
