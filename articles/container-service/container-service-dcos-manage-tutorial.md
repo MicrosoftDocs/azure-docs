@@ -37,9 +37,9 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create a resource group
+## Create DC/OS cluster
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+First, create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -47,9 +47,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-## Create DC/OS cluster
-
-Create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
+Next, create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -173,7 +171,7 @@ In the previous example, a single instance application was created. To update th
 Update the application using the `dcos marathon app update` command.
 
 ```azurecli-interactive
-dcos marathon app update demo-app < marathon-app.json
+dcos marathon app update demo-app-private < marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
@@ -189,14 +187,15 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
 
-## Deploy internet accessable application
+## Run internet accessable app
 
-The ACS DC/OS cluster consists of two node sets, one public set which is accessible on the internet, and one private set that is not accessible over the internet. The default set if the private nodes. In the last example, the NGINX containers were deployed to the private set.
+The ACS DC/OS cluster consists of two node sets, one public which is accessible on the internet, and one private which is not accessible on the internet. The default set is the private nodes, which was used in the last example.
 
-To make the applications accessible on the internet, deploy them to the public node set. To do so, give the `acceptedResourceRoles` object a value of `slave_public`.
+To make an application accessible on the internet, deploy them to the public node set. To do so, give the `acceptedResourceRoles` object a value of `slave_public`.
 
-Create a file names nginx-public.json and copy the following contents into it.
+Create a file named **nginx-public.json** and copy the following contents into it.
 
+```json
 {
   "id": "demo-app",
   "cmd": null,
@@ -224,14 +223,15 @@ Create a file names nginx-public.json and copy the following contents into it.
     "slave_public"
   ]
 }
+```
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
 ```azurecli-interactive 
-dcos marathon app add marathon-app.json
+dcos marathon app add nginx-public.json
 ```
 
-Get the public IP address of the DC/OS cluster agents.
+Get the public IP address of the DC/OS public cluster agents.
 
 ```azurecli-interactive 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
