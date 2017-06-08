@@ -31,7 +31,7 @@ Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to
 
 ## Download and install the virtual machine
 1. Browse to the [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
-2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hrotonworks Sandbox on a VM. You will be prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
+2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hortonworks Sandbox on a VM. You will be prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
    
     ![Link image for download Hortonworks Sandbox for VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
 3. From the same web page, click the **Import on Virtual Box** link to download a PDF containing installation instructions for the virtual machine.
@@ -52,13 +52,13 @@ To download an older HDP version sandbox, expand the archive:
 
 ## Set Sandbox passwords
 
-1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
+1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to log in to the sandbox using SSH. Use the name and password provided.
    
    > [!NOTE]
    > If you do not have an SSH client installed, you can use the web-based SSH provided at by the virtual machine at **http://localhost:4200/**.
    > 
    
-    The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you login using SSH in the future.
+    The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you log in using SSH in the future.
 2. Once logged in, enter the following command:
    
         ambari-admin-password-reset
