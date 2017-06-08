@@ -94,10 +94,9 @@ Once signed in, you're ready to create all the resources you need for your Azure
 
 Next to **Resource Group**, click **New**.
 
+<!-- I like this as it warns you not to hit create. Which image should I keep?
 ![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg.png)
-
-
-<!-- I like this as it warns you not to hit create. Which image should I keep? -->
+ -->
 
 ![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
@@ -121,36 +120,72 @@ Click **OK**.
 
 ### Configure the web app name
 
-In **Web App Name**, type a unique app name. This name is used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`), so it needs to be unique across all apps in Azure. You can later map a custom domain name to your app before you expose it to your users.
+You can keep the generated web app name, or change it to another unique name. The web app name is used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`). The web app needs to be unique across all apps in Azure. 
 
-You can also accept the automatically generated name, which is already unique.
+### Create a resource group
 
-To prepare for the next step, click **Explore additional Azure services**.
+[!INCLUDE [resource-group](../../includes/resource-group.md)]
+
+Next to **Resource Group**, click **New**.
+
+![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg.png)
+
+
+<!-- I like this as it warns you not to hit create. Which image should I keep? -->
+
+![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
+
+Name the resource group **myResourceGroup**, and click **OK**.
+
+### Create an App Service plan
+
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+
+Next to **App Service Plan**, click **New**. 
+
+In the **Configure App Service Plan** dialog, use the following settings:
+
+- **App Service Plan**: Type **myAppServicePlan**. 
+- **Location**: Choose **West Europe**, or a region near you.
+- **Size**: Choose **Free**. See [pricing tier](https://azure.microsoft.com/pricing/details/app-service/) for features.
+
+Click **OK**.
+
+![Create App Service plan](media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
+
 
 > [!NOTE]
-> Do not click **Create** in this dialog yet. You first need to setup a SQL Database in the next step.
-
-![Configure web app name](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
+> Do not click **Create** until you've set up a SQL database.
 
 ### Create a SQL Server instance
 
+Select **Explore additional Azure services**.
+
+![Configure web app name](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
+
 In the **Services** tab, click the **+** icon next to **SQL Database**. 
+
+![In the **Services** tab, click the **+** icon next to **SQL Database**.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
 
 In the **Configure SQL Database** dialog, click **New** next to **SQL Server**. 
 
-In **Server Name**, type a unique name. This name is used as part of the default DNS name for your database server, `<server_name>.database.windows.net`, so it needs to be unique across all SQL Server instances in Azure. 
+A unique server name is generated. This name is used as part of the default DNS name for your database server, `<server_name>.database.windows.net`. It must be unique across all SQL Server instances in Azure. 
 
-Configure the rest of the fields as you like and click **OK**.
+Add an administrator username and password, and then select **OK**.
 
-![Create SQL Server instance](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+![Create SQL Server instance](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-### Configure the SQL Database
+The **Configure SQL Database** dialog is displayed:
 
-In **Database Name**, type _myToDoAppDb_, or any name you like.
+![Configure SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-In **Connection String Name**, type _MyDbConnection_. This name must match the connection string that is referenced in _Models\MyDatabaseContext.cs_.
+* Keep the default generated **Database Name**.
+* In **Connection String Name**, type *MyDbConnection*. This name must match the connection string that is referenced in *Models/MyDatabaseContext.cs*.
+* Select **OK**.
 
-![Configure SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
+The **Create App Service** dialog shows the resources you've created. Click **Create**. 
+
+![the resources you've created](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
 ### Create and publish the web app
 
