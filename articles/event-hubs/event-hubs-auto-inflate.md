@@ -33,7 +33,7 @@ Event Hubs traffic is controlled by throughput units. A single throughput unit a
 
 ## How do I enable Auto-Inflate on my namespace?
 You can enable or disable Auto-Inflate on your namespace,
-1.	Through the portal
+1.	Through the portal (this will be available starting June 12 2017)
 2.	Through Azure Resource Manager template
 
 ### Enabling Auto-Inflate through the portal
