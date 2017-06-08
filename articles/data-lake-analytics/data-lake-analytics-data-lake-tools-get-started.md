@@ -32,42 +32,20 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
     * Visual Studio 2015 update 4
     * Visual Studio 2013
 * **Microsoft Azure SDK for .NET** version 2.7.1 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* **Data Lake Tools for Visual Studio**: Install it [from here](http://aka.ms/adltoolsvs)
 * A **Data Lake Analytics Analytics** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 
-Once Data Lake Tools for Visual Studio is installed, you will see:
+## Install Azure Data Lake Tools for Visual Studio (ADLToolsForVS)
+
+Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After installation, you will see:
 * A **Data Lake Analytics** node in** Server Explorer > Azure** node. 
 * A **Tools > Data Lake** menu item.
 
-## Sample data
-For your convenience, a PowerShell script for creating a Data Lake Analytics service and uploading the source data file can be found in [Appx-A PowerShell sample for preparing the tutorial](data-lake-analytics-data-lake-tools-get-started.md).
-
-## Connect to Azure
-
-**Connect to Azure**
+## Connect to an Azure Data Lake Analytics account
 
 1. Open Visual Studio.
 2. From the **View > Server Explorer** to open Server Explorer.
 3. Right-click **Azure**. Select **Connect to Microsoft Azure Subscription**, and then follow the instructions.
-
-**Connect to an Azure Data Lake Analytics account**
-
-In **Server Explorer** select **Azure > Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. 
-
-## Upload source data files
-
-To use your own data, follow these steps for uploading data from the Data Lake Tools.
-
-1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. The default Data Lake account has a label "Default Storage Account".
-2. Right-click the default Data Lake Storage account, and then click **Explorer**.  It opens the Data Lake Tools for Visual Studio Explorer pane.  In the left, it shows a tree view, the content view is on the right.
-3. Browse to the folder where you want to upload files,
-4. Right-click any blank space, and then click **Upload**.
-
-    ![U-SQL Visual Studio project U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
-
-
-## Develop U-SQL scripts
-The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+4. In **Server Explorer**, select **Azure > Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any.
 
 **Create and submit a Data Lake Analytics job**
 
@@ -213,73 +191,3 @@ To see more development topics:
 * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 * [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-## Appx-A PowerShell sample for preparing the tutorial
-The following PowerShell script prepares an Azure Data Lake Analytics account and the source data for you, So you can skip to [Develop U-SQL scripts](data-lake-analytics-data-lake-tools-get-started.md).
-
-    #region - used for creating Azure service names
-    $nameToken = "<Enter an alias>"
-    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-    #endregion
-
-    #region - service names
-    $resourceGroupName = $namePrefix + "rg"
-    $dataLakeStoreName = $namePrefix + "adas"
-    $dataLakeAnalyticsName = $namePrefix + "adla"
-    $location = "East US 2"
-    #endregion
-
-
-    # Treat all errors as terminating
-    $ErrorActionPreference = "Stop"
-
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
-    #endregion
-
-    #region - Create an Azure Data Lake Analytics service account
-    Write-Host "Create a resource group ..." -ForegroundColor Green
-    New-AzureRmResourceGroup `
-        -Name  $resourceGroupName `
-        -Location $location
-
-    Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeStoreAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeStoreName `
-        -Location $location
-
-    Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeAnalyticsAccount `
-        -Name $dataLakeAnalyticsName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -DefaultDataLake $dataLakeStoreName
-
-    Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
-    Get-AzureRmDataLakeAnalyticsAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeAnalyticsName  
-    #endregion
-
-    #region - prepare the source data
-    Write-Host "Import the source data ..."  -ForegroundColor Green
-    $localFolder = "C:\Tutorials\Downloads\" # A temp location for the file.
-    $storageAccount = "adltutorials"  # Don't modify this value.
-    $container = "adls-sample-data"  #Don't modify this value.
-
-    # Create the temp location  
-    New-Item -Path $localFolder -ItemType Directory -Force
-
-    # Download the sample file from Azure Blob storage
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $blobs = Azure\Get-AzureStorageBlob -Container $container -Context $context
-    $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
-
-    # Upload the file to the default Data Lake Store account    
-    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
-
-    Write-Host "List the source data ..."  -ForegroundColor Green
-    Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
-    #endregion
