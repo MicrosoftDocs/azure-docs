@@ -49,7 +49,7 @@ You can now build the IoT Edge runtime and samples on your local machine:
 1. Run the build script as follows:
 
     ```cmd
-    tools\build.cmd --disable-nodejs-remote-modules --disable-native-remote-modules
+    tools\build.cmd --disable-native-remote-modules
     ```
 
 This script creates a Visual Studio solution file and builds the solution. You can find the Visual Studio solution in the **build** folder in your local copy of the **iot-edge** repository. If you want to build and run the unit tests, add the `--run-unittests` parameter. If you want to build and run the end to end tests, add the `--run-e2e-tests`.
