@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure disks with the Azure PowerShell | Microsoft Docs
 description: Tutorial - Manage Azure disks with the Azure PowerShell 
 services: virtual-machines-windows
@@ -16,11 +16,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Manage Azure disks with PowerShell
 
-Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks.
+Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
+
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
@@ -34,7 +42,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ### Temporary disk sizes
 
-| Type | VM Size | Max temp disk size |
+| Type | VM Size | Max temp disk size (GB) |
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
@@ -131,6 +139,16 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## Next steps
 
-In this tutorial, you have learned about VM disks. Advance to the next tutorial to learn about automating VM configuration.
+In this tutorial, you learned about VM disks topics such as:
 
-[Automate VM configuration](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * OS disks and temporary disks
+> * Data disks
+> * Standard and Premium disks
+> * Disk performance
+> * Attaching and preparing data disks
+
+Advance to the next tutorial to learn about automating VM configuration.
+
+> [!div class="nextstepaction"]
+> [Automate VM configuration](./tutorial-automate-vm-deployment.md)

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
-ms.author: padmavc; LADocs
+ms.author: LADocs; padmavc
 ---
 
 # Connect to an on-premises SAP system from logic apps with the SAP connector 

@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -15,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 
@@ -71,7 +73,6 @@ If you are having issues with self-service password reset, the items that follow
 | The Azure AD Connect machine event log contains error 32002 thrown by the PasswordResetService. <br> <br> The error reads: “Error Connecting to ServiceBus, The token provider was unable to provide a security token…” | Your on-premises environment is not able to connect to the service bus endpoint in the cloud. This error is normally caused by a firewall rule blocking an outbound connection to a particular port or web address. See [Network requirements](active-directory-passwords-how-it-works.md#network-requirements) for more info. Once you have updated these rules, reboot the Azure AD Connect machine and Password Writeback should start working again. |
 | After working for some time, federated or password hash synchronized users cannot reset their passwords. | In some rare cases, the Password Writeback service may fail to restart when Azure AD Connect has restarted. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. If this doesn’t work, try completely uninstalling and reinstalling Azure AD Connect. |
 | Federated or password hash synchronized users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem. <br ><br> In addition to this, during password reset operations, you may see an error regarding management agent was denied access in your on premises event logs. | If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for password writeback. <br> <br> **Once this permission is given, it can take up to 1 hour for the permissions to trickle down via sdprop background task on the DC.** <br> <br> For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset continues to fail with access denied. |
-| Unable to reset password for users in special groups such as Domain Admins or Enterprise Admins | Privileged users in Active Directory are protected using AdminSDHolder. For more information, see [http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx](http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx) for more details. <br> <br> This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for Password Writeback therefore do not trickle to such users. This can result in Password Writeback not working for such users. As a result, **we do not support managing passwords for users within these groups because it breaks the AD security model.**
 | Federated or password hash synchronized users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem. <br> <br> In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error. | This error usually indicates that the sync engine is unable to find either the user object in the AAD connector space or the linked MV or AD connector space object. <br> <br> To troubleshoot this, make sure that the user is indeed synchronized from on-prem to AAD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the AD CS object is connector to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.|
 | Federated or password hash synchronized users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem. <br> <br> In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating a “Multiple matches found” error. | This indicates that the sync engine detected that the MV object is connected to more than one AD CS objects via the “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. **This scenario is not supported for password writeback.** |
 | Password operations fail with a configuration error. The application event log contains <br> <br> Azure AD Connect error 6329 with text: 0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent.) | This occurs if the Azure AD Connect configuration is changed to add a new AD forest (or to remove and readd an existing forest) after the Password Writeback feature has already been enabled. Password operations for users in such newly added forests fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed. |
@@ -206,10 +207,11 @@ To properly assist, we ask that you provide as much detail as possible when open
 
 * **General description of the error** - What is the error? What was the behavior that was noticed? How can we reproduce the error? Please provide as much detail as possible.
 * **Page** - What page were you on when you noticed the error? Please include the URL if you are able to and a screenshot.
-* **Date, time, and timezone** - Please include the precise date and time **with the timezone** that the error occurred.
 * **Support code** - What was the support code generated when the user saw the error? 
     * To find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results.
+    ![Find the support code at the bottom of the screen][Support Code]
     * If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
+* **Date, time, and timezone** - Please include the precise date and time **with the timezone** that the error occurred.
 * **User ID** - Who was the user who saw the error? (user@contoso.com)
     * Is this a federated user?
     * Is this a password hash synchronized user?
@@ -217,7 +219,10 @@ To properly assist, we ask that you provide as much detail as possible when open
 * **Licensing** - Does the user have an Azure AD Premium or Azure AD Basic license assigned?
 * **Application event log** - If you are using password writeback and the error is in you on-premises infrastructure, include a zipped copy of your application event log from the Azure AD Connect server when contacting support.
 
+    
+
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Restart the Azure AD Sync service"
+[Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Support Code is located at the bottom right of the window"
 
 ## Next steps
 

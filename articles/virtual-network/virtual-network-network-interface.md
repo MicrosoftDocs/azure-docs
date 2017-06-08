@@ -1,6 +1,6 @@
 ---
-title: Azure network interface settings and tasks | Microsoft Docs
-description: Learn what network interfaces (NIC) are, how to create, configure, and delete NICs.
+title: Create, change, or delete Azure network interfaces | Microsoft Docs
+description: Learn what network interfaces (NIC) are and how to create, change settings, and delete them.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,11 +19,11 @@ ms.author: jdial
 
 ---
 
-# Network interface settings and tasks
+# Create, change, or delete network interfaces
 
-Learn how to create, change settings for, and delete a network interface (NIC). A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. When creating a VM using the Azure portal, the portal creates one NIC with default settings for you. You may instead choose to create NICs with custom settings and add one or more to VMs when you create them. You may also want to change default NIC settings for existing NICs. This article explains how to create NICs with custom settings, and change existing NIC settings, such as network filter assignment (network security groups), subnet assignment, DNS server settings, and IP forwarding. 
+Learn how to create, change settings for, and delete network interfaces (NIC). A NIC enables an Azure Virtual Machine (VM) to communicate with Internet, Azure, and on-premises resources. When creating a VM using the Azure portal, the portal creates one NIC with default settings for you. You may instead choose to create NICs with custom settings and add one or more to VMs when you create them. You may also want to change default NIC settings for existing NICs. This article explains how to create NICs with custom settings, change existing NIC settings, such as network filter assignment (network security groups), subnet assignment, DNS server settings, and IP forwarding, and delete NICs.
 
-If you need to add, change, or remove IP addresses for a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article. If you need to add NICs to, or remove NICs from VMs, read the [Add or remove NICs](virtual-network-network-interface-vm.md) article. 
+If you need to add, change, or remove IP addresses for a NIC, read the [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md) article. If you need to add NICs to, or remove NICs from VMs, read the [Add or remove NICs](virtual-network-network-interface-vm.md) article.
 
 
 ## <a name="before"></a>Before you begin
@@ -49,7 +49,7 @@ When creating a VM using the Azure portal, the portal creates a NIC with default
 	|Virtual network|Yes|Select a VNet to connect the NIC to. You can only connect a NIC to a VNet that exists in the same subscription and location as the NIC. Once a NIC is created, you cannot change the VNet it is connected to. The VM you add the NIC to must also exist in the same location and subscription as the NIC.|
 	|Subnet|Yes|Select a subnet within the VNet you selected. You can change the subnet the NIC is connected to after it's created.|
 	|Private IP address assignment|Yes| Choose from the following assignment methods: **Dynamic:** When selecting this option, Azure automatically assigns an available address from the address space of the subnet you selected. Azure may assign a different address to a NIC when the VM it's in is started after having been in the stopped (deallocated) state. The address remains the same if the VM is restarted without having been in the stopped (deallocated) state. **Static:** When selecting this option, you must manually assign an available IP address from within the address space of the subnet you selected. Static addresses do not change until you change them or the NIC is deleted. You can change the assignment method after the NIC is created. The Azure DHCP server assigns this address to the NIC within the operating system of the VM.|
-	|Network security group|No| Leave set to **None**, select an existing network security group (NSG), or create an NSG. NSGs enable you to filter network traffic in and out of a NIC. To learn more about NSGs, read the [Network security groups](virtual-networks-nsg.md) article. To create an NSG, read the [Create an NSG](virtual-networks-create-nsg-arm-pportal.md) article. You can apply zero or one NSG to a NIC. Zero or one NSG can also be applied to the subnet the NIC is connected to. When an NSG is applied to a NIC and the subnet the NIC is connected to, sometimes unexpected results occur. To troubleshoot NSGs applied to NICs and subnets, read the [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md#view-effective-security-rules-for-a-network-interface) article.|
+	|Network security group|No| Leave set to **None**, select an existing network security group (NSG), or create an NSG. NSGs enable you to filter network traffic in and out of a NIC. To learn more about NSGs, read the [Network security groups](virtual-networks-nsg.md) article. To create an NSG, read the [Create an NSG](virtual-networks-create-nsg-arm-pportal.md) article. You can apply zero or one NSG to a NIC. Zero or one NSG can also be applied to the subnet the NIC is connected to. When an NSG is applied to a NIC and the subnet the NIC is connected to, sometimes unexpected results occur. To troubleshoot NSGs applied to NICs and subnets, read the [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md#a-namensgaview-effective-security-rules-for-a-network-security-group-nsg) article.|
 	|Subscription|Yes|Select one of your Azure [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). The VM you attach a NIC to and the VNet you connect it to must exist in the same subscription.|
 	|Resource group|Yes|Select an existing [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) or create one. A NIC can exist in the same, or different resource group, than the VM you attach it to, or the VNet you connect it to.|
 	|Location|Yes|The VM you attach a NIC to and the VNet you connect it to must exist in the same [location](https://azure.microsoft.com/regions), also referred to as a region.|
@@ -81,7 +81,7 @@ You can view and change most settings for a NIC.
 	- **DNS servers:** You can specify which DNS server a NIC is assigned by the Azure DHCP servers. The NIC can inherit the setting from the VNet the NIC is connected to, or have a custom setting that overrides the setting for the VNet it's connected to. To modify what's displayed, complete the steps in the [Change DNS servers](#dns) section of this article.
 	- **Network security group (NSG):** Displays which NSG is associated to the NIC (if any). An NSG contains inbound and outbound rules to filter network traffic for the NIC. If an NSG is associated to the NIC, the name of the associated NSG is displayed. To modify what's displayed, complete the steps in the [Associate an NSG to or disassociate an NSG from a network interface](#associate-nsg) section of this article.
 	- **Properties:** Displays key settings about the NIC, including its MAC address (blank if the NIC isn't attached to a VM), and the subscription it exists in.
-	- **Effective security rules:**  Security rules are listed if the NIC is attached to a running VM, and an NSG is associated to the NIC, the subnet it's connected to, or both. To learn more about what's displayed, read the [Troubleshoot network security groups](virtual-network-nsg-troubleshoot-portal.md#view-effective-security-rules-for-a-network-interface) article. To learn more about NSGs, read the [Network security groups](virtual-networks-nsg.md) article.
+	- **Effective security rules:**  Security rules are listed if the NIC is attached to a running VM, and an NSG is associated to the NIC, the subnet it's connected to, or both. To learn more about what's displayed, read the [Troubleshoot network security groups](virtual-network-nsg-troubleshoot-portal.md#a-namensgaview-effective-security-rules-for-a-network-security-group-nsg) article. To learn more about NSGs, read the [Network security groups](virtual-networks-nsg.md) article.
 	- **Effective routes:** Routes are listed if the NIC is attached to a running VM. The routes are a combination of the Azure default routes, any user-defined routes (UDR), and any BGP routes that may exist for the subnet the NIC is connected to. To learn more about what's displayed, read the [Troubleshoot routes](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface) article. To learn more about Azure default and UDRs, read the [User-defined routes](virtual-networks-udr-overview.md) article.
 	- **Common Azure Resource Manager settings:**  To learn more about common Azure Resource Manager settings, read the [Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Automation script](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group) articles.
 
@@ -182,7 +182,7 @@ To create a VM with multiple NICs or IP addresses, read the following articles:
 
 |Task|Tool|
 |---|---|
-|Create a VM with multiple NICs|[CLI](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-supporting-resources)|
-||[PowerShell](/virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-core-resources)|
+|Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IP addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
 ||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

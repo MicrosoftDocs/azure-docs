@@ -21,7 +21,10 @@ ms.author: aelnably;wesmc
 
 # Azure App Service Web App on Linux FAQ
 
-With the release of Web App on Linux (currently in preview), we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+With the release of Web App on Linux, we're working on adding features and making improvements to our platform. Here are some frequently asked questions (FAQ) that our customers have been asking us over the last months.
 If you have a question, comment on the article and we'll answer it as soon as possible.
 
 ## Built-in images
@@ -62,7 +65,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 **Q:** Do you support Composer as a dependency manager for PHP apps?
 
-**A:** No. You will need to deploy your PHP apps with all the dependencies. We're planning a full deployment experience in a future release.
+**A:** Yes. During a Git deployment, Kudu should detect that you are deploying a PHP application (thanks to the presence of a composer.json file) and will trigger a composer install for you.
 
 ## Custom containers
 
@@ -116,7 +119,7 @@ If you have a question, comment on the article and we'll answer it as soon as po
 
 ## Next steps
 * [What is Azure Web App on Linux?](app-service-linux-intro.md)
-* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-a-web-app.md)
+* [Creating web apps in Azure Web App on Linux](app-service-linux-how-to-create-web-app.md)
 * [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md)
 * [Set up staging environments in Azure App Service](./web-sites-staged-publishing.md)
 * [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md)

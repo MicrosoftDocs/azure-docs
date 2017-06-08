@@ -1,9 +1,9 @@
 - name: Text Analytics Documentation
   href: ../index.md
 - name: Overview
-  items: 
-  - name: Learn about Text Analytics
-    href: overview.md
+  href: overview.md
+- name: Quick Start Guide
+  href: quick-start.md
 - name: Reference
   items: 
   - name: API Reference content

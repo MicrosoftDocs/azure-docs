@@ -26,7 +26,7 @@ There are three categories of SDK for working with IoT Hub:
 
 * **Service SDKs** enable you to manage your IoT hub, and optionally send messages to your IoT devices.
 
-* **Gateway SDKs** enable you to build gateways to enable devices that don't use one of the supported protocols, or when you need to process messages on the edge.
+* **Azure IoT Edge** enables you to build gateways to enable devices that don't use one of the supported protocols, or when you need to process messages on the edge.
 
 SDKs are provided to support multiple programming languages.
 
@@ -66,11 +66,11 @@ The following Azure IoT service SDKs are available to download from GitHub:
 > [!NOTE]
 > See the readme files in the GitHub repositories for information about using language and platform-specific package managers to install binaries and dependencies on your development machine.
 
-## Azure IoT Gateway SDKs
+## Azure IoT Edge
 
-This Azure IoT Gateway SDK contains the infrastructure and modules to create IoT gateway solutions. You can extend the SDK to create gateways tailored to any end-to-end scenario.
+Azure IoT Edge contains the infrastructure and modules to create IoT gateway solutions. You can extend IoT Edge to create gateways tailored to any end-to-end scenario.
 
-You can download the [Azure IoT Gateway SDK][lnk-gateway-sdk] from GitHub.
+You can download [Azure IoT Edge][lnk-iot-edge] from GitHub.
 
 ## Online API reference documentation
 
@@ -83,14 +83,14 @@ The following list contains links to online API reference documentation for Azur
 * [Azure IoT service SDK for Java][lnk-java-service-ref]
 * [Azure IoT device SDK for Node.js][lnk-node-ref]
 * [Azure IoT service SDK for Node.js][lnk-node-service-ref]
-* [Azure IoT gateway SDK][lnk-gateway-ref]
+* [Azure IoT Edge][lnk-gateway-ref]
 
 ## Next steps
 
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for device twins and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query]
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 
@@ -106,16 +106,16 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
 [lnk-java-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device
-[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html
+[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.12/index.html
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
-[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html
-[lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
+[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.11/index.html
+[lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md

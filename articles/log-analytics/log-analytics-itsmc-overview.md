@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/29/2017
 ms.author: v-jysur
 
 ---
 # Centrally manage ITSM work items using IT Service Management Connector (Preview)
+
+![IT Service Management Connector symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
 
 You can use the IT Service Management Connector (ITSMC) in OMS Log Analytics to centrally monitor and manage work items across your ITSM products/services.
 
@@ -50,12 +52,18 @@ After successful addition, you will see the IT Service Management Connector unde
 
 ![ITSMC Connected](./media/log-analytics-itsmc/itsmc-overview-solution-in-connected-sources.png)
 
+> [!NOTE]
+
+> By default, the IT Service Management Connector refreshes the connection's data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the refresh button displayed next to your connection.
+
+ ![ITSMC refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
+
 ## Management packs
 This solution does not require any management packs.
 
 ## Connected sources
 
-The following ITSM products/services are supported by the IT Service Management connector:
+The following ITSM products/services are supported by the IT Service Management Connector:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 

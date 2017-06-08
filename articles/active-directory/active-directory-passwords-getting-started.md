@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Quick Start: Azure AD self-service password reset
@@ -56,15 +58,15 @@ This guide assumes you already have a working trial or licensed Azure AD tenant.
 **At this point, you have configured SSPR for your Azure AD tenant**. You can stop here or continue on to configure synchronization of passwords to an on-premises AD domain.
 
 > [!NOTE]
-> Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [deep dive article](active-directory-passwords-how-it-works.md).
+> Test SSPR with a user and not an administrator as Microsoft enforces strong authentication requirements for Azure administrator type accounts. For more information regarding the administrator password policy, see our [password policy article](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## Configure synchronization to existing identity source
 
 To enable on-premises identity synchronization to Azure AD, you need to install and configure [Azure AD Connect](./connect/active-directory-aadconnect.md) on a server in your organization. This application handles synchronizing users and groups from your existing identity source to your Azure AD Domain.
 
-[Getting started with Azure AD Connect using express settings](./connect/active-directory-aadconnect-get-started-express.md)
-
-[Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [Getting started with Azure AD Connect using express settings](./connect/active-directory-aadconnect-get-started-express.md)
+* [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to write passwords from Azure AD back to your on-premises directory.
 
 ## Disabling self-service password reset
 

@@ -52,30 +52,17 @@ This tutorial assumes you already have:
 1. Click on the now available **Download Metadata** button and save the metadata file which you'll use in a later step.
 
 ## Add a SAML Signing certificate to Azure AD B2C
-You need to store upload the Salesforce certificate to your Azure AD B2C tenant. To do this:
+You need to upload a SAML certificate to your Azure AD B2C tenant to use when signing its SAML requests. To do this:
 
-1. Open PowerShell and navigate to the working directory `active-directory-b2c-advanced-policies`.
-1. Switch into the folder with the ExploreAdmin tool.
+1. Navigate to your Azure AD B2C tenant and open B2C **Settings > Identity Experience Framework > Policy Keys**
+1. Click **+Add**
+1. Options:
+ * Select **Options > Upload**
+ * **Name**: > `ContosoIdpSamlCert`.  The prefix B2C_1A_ will be added automatically to the name of your key. Take note of the full name (with B2C_1A_) as you will refer to this in the policy later.
+ * Use the **upload file control** to select your certificate and provide the certificate's password if applicable.
+1. Click **Create**
+1. Confirm you've created key: `B2C_1A_ContosoIdpSamlCert`
 
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. Import the ExploreAdmin tool into powershell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. In the following command, replace `tenantName` with the name of your Azure AD B2C tenant (e.g. fabrikamb2c.onmicrosoft.com), `certificateId` with a name for the certificate that will use to reference it in the policy later on (e.g. ContosoSalesforceCert) and finally `pathToCert` and `password` with the path and password of the certificate. Run the command.
-
-    ```PowerShell
-    Set-CpimCertificate -TenantId {tenantName} -CertificateId {certificateId} -CertificateFileName {pathToCert} - CertificatePassword {password}
-    ```
-
-    When you run the command, make sure you sign in with the onmicrosoft.com admin account local to the Azure AD B2C tenant. 
-
-1. Close PowerShell.
 
 ## Create the Salesforce SAML claims provider in your base policy
 
@@ -102,17 +89,17 @@ In order to allow users to log in using Salesforce, you need to define Salesforc
             </Item>
           </Metadata>       
           <CryptographicKeys>
-            <Key Id="SamlAssertionSigning" StorageReferenceId="ContosoIdpSamlCert"/>
-            <Key Id="SamlMessageSigning" StorageReferenceId="ContosoIdpSamlCert "/>
+            <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert "/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="userId"/>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAML Idp" />
+            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userId"/>
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
@@ -214,12 +201,12 @@ You’ll need to register Azure AD B2C as a Connected App in Salesforce.
     1. Enter the following URL in the **Entity ID** field, make sure your replace the `tenantName`. 
     
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
         ```
 
     1. Enter the following URL in the **ACS URL** field, make sure your replace the `tenantName`. 
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base/samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
         ```
 
     1. Leave all other settings with their defaults

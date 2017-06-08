@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/05/2017
 ms.author: cynthn
+ms.custom: mvc
 ---
 # Back up Windows virtual machines in Azure
 
@@ -96,10 +97,10 @@ In this tutorial, you learned how to:
 > * Schedule a daily backup
 > * Restore a file from a backup
 
-Advance to the next tutorial to learn about Azure security center.
+Advance to the next tutorial to learn about monitoring virtual machines.
 
-[Manage VM security](tutorial-azure-security.md)
-
+> [!div class="nextstepaction"]
+> [Monitor virtual machines](tutorial-monitoring.md)
 
 
 

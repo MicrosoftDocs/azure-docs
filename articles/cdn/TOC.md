@@ -6,7 +6,7 @@
 
 # How To
 ## Integrate
-### [Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
@@ -36,6 +36,7 @@
 ### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
 ### [View real-time statistics](cdn-real-time-stats.md)
 ### [Analyze edge node performance](cdn-edge-performance.md)
+### [Export metrics with Diagnostics Logs](cdn-log-analysis.md)
 
 ## Develop
 ### [.NET](cdn-app-dev-net.md)

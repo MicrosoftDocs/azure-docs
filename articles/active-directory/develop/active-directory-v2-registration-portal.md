@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
+ms.custom: aaddev
 
 ---
 # App registration reference
