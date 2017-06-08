@@ -108,11 +108,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
 	
-	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application. For production environments, use the following URL format: `https://sso.dayforcehcm.com/DayforcehcmNamespace`
+	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Ceridian Dayforce HCM application. For production environments, use the following URL format: `https://sso.dayforcehcm.com/<DayforcehcmNamespace>`
 
     For clarity, replace DayforcehcmNamespace with the namespace of your environment or your Company ID; for example: `https://sso.dayforcehcm.com/contoso`
 
-    For test environments, use the following URL format: `https://ssotest.dayforcehcm.com/DayforcehcmNamespace`
+    For test environments, use the following URL format: `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>`
 	
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.dayforcehcm.com/sp`
     
@@ -121,7 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     For test environments, use: `https://fs-test.dayforcehcm.com/sp/ACS.saml2`
 		 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, and Sign-On URL. Contact [Ceridian Dayforce HCM Client support team](https://www.ceridian.com/contact-us/index.html) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -145,7 +145,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. In the **Value** list, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**.
+	c. In the **Value** list, select the user attribute you want to use for your implementation.
+	For example, if you want to use the EmployeeID as unique user identifier and you have stored the attribute value in the ExtensionAttribute2, then select **user.extensionattribute2**.
 	
 	d. Click **Ok**.
 
