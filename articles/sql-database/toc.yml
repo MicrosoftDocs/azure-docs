@@ -185,7 +185,7 @@
       href: sql-database-elastic-scale-glossary.md
     - name: Move sharded data
       href: sql-database-elastic-scale-overview-split-and-merge.md
-    - name: Dapper
+    - name: Elastic client library - Dapper
       href: sql-database-elastic-scale-working-with-dapper.md
     - name: Elastic tools FAQ
       href: sql-database-elastic-scale-faq.md
