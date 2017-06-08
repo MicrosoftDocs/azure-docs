@@ -19,11 +19,13 @@ ms.author: masaran;markgal
 
 # Add storage to Azure Backup Server version 2
 
-Azure Backup Server version 2 comes with System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage delivers 50 percent storage savings, three times faster backups, and more efficient storage. It also offers workload-aware storage. To use Modern Backup Storage, you must use Backup Server version 2 on Windows Server 2016.
+Azure Backup Server version 2 comes with System Center 2016 Data Protection Manager Modern Backup Storage. Modern Backup Storage offers storage savings of 50 percent, backups that are three times faster, and more efficient storage. It also offers workload-aware storage. 
+
+To use Modern Backup Storage, you must run Backup Server version 2 on Windows Server 2016. 
 
 If you run Backup Server version 2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as in Backup Server version 1. For more information about preparing storage to back up the legacy way, see.
 
-Backup Server version 2 accepts storage volumes. When you add a volume, Backup Server formats the volume to ReFS, which Modern Backup Storage requires. To add a volume, and to expand it later if you need to, we suggest that you use this workflow:
+Backup Server version 2 accepts storage volumes. When you add a volume, Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires. To add a volume, and to expand it later if you need to, we suggest that you use this workflow:
 
 1.	Set up Backup Server version 2 on a VM.
 2.	Create a volume on a virtual disk in a storage pool:
@@ -35,33 +37,33 @@ Backup Server version 2 accepts storage volumes. When you add a volume, Backup S
 
 ## Create a volume for Backup Server version 2 Modern Backup Storage
 
-Using Azure Backup Server version 2 with volumes as disk storage helps maintain control over the storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This helps if you want to expand the volume for backup storage. This section provides best practices for creating a volume with this setup.
+Using Backup Server version 2 with volumes as disk storage helps maintain control over the storage. A volume can be a single disk. However, if you want to extend storage in the future, create a volume out of a disk created by using storage spaces. This helps if you want to expand the volume for backup storage. This section provides best practices for creating a volume with this setup.
 
 The first step is to create a virtual disk. 
 
-1. In Server Manager, in the **File and Storage Services** section, select **Storage Pool**. Add the available disks to it. 
+1. In Server Manager, select **File and Storage Services** > **Volumes** > **Storage Pools**. Under **PHYSICAL DISKS**, select **New Storage Pool**. 
 
-    ![Create Storage Pools](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+    ![Create new storage pool](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
-2. In that storage pool, create a virtual disk with **Simple Layout**.
+2. In the **TASKS** drop-down box, select **New Virtual Disk**. disk with **Simple Layout**.
 
-    ![Add Virtual Disks](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
+    ![Add a virtual disk](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
-3. Add physical disks.
+3. Select the storage pool, and then select **Add Physical Disk**.
 
-    ![Add Physicial Disks](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
+    ![Add physicial disk](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
-4. Extend the virtual disk to reflect the added disks.
+4. Select the physical disk, and then select **Extend Virtual Disk**.
 
-    ![Extend the Virtual Disk](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
+    ![Extend the virtual disk](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
 
-5. After creating the virtual disk with sufficient storage, create volumes on the virtual disk.
+5. Select the virtual disk, and then select **New Volume**.
 
     ![Create New Volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. Select the server and disk.
+6. In the **Select the server and disk** dialog, select the server and the new disk. Select **Next**.
 
-    ![Select the Server and Disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
+    ![Select the server and disk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## Add volumes to Backup Server disk storage
 
@@ -84,9 +86,13 @@ Syntax:
 ```
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
-The following screenshot shows the Update-DPMDiskStorage command in the PowerShell window.
+The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShell window.
+
 ![The Update-DPMDiskStorage command in the PowerShell window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
 The changes you make by using PowerShell are reflected in the UI.
 
 ![Disks and volumes in the Administrator Console](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
+
+## Next steps
+
