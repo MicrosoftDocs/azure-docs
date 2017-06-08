@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: juluk
 ---
 
@@ -28,6 +28,9 @@ On initial start, Azure Cloud Shell asks for your subscription to create an LRS 
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
 This file share will mount as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically mounts for subsequent sessions.
+
+#### Restrict resource creation with an Azure resource policy
+The storage account is tagged with "ms-resource-usage:azure-cloud-shell". If your organization would like to deny users from creating storage accounts for Cloud Shell, create an [Azure resource policy](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy) triggered by this tag.
 
 ### Cloud Shell persists files with both methods below:
 1. Create a disk image of your $Home directory to persist files within $Home. 
