@@ -21,6 +21,8 @@ ms.author: robinsh
 
 Microsoft Azure provides several features in Azure Storage for storing and accessing your data in the cloud. This article covers Azure Files, Blobs, and Data Disks, and is designed to help you choose between these features.
 
+The following table compares Files, Blobs, and Data Disks, and shows some example scenarios appropriate for each.
+
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
 | **Azure Files** | Provides an SMB interface, client libraries, and a [REST interface](/rest/api/storageservices/file-service-rest-api) that allows access from anywhere to stored files. | You want to "lift and shift" an application to the cloud which already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to store development and debugging tools that need to be accessed from many virtual machines. |
