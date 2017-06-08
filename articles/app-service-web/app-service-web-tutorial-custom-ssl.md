@@ -74,11 +74,11 @@ From the left menu, click **App Services**, then click the name of your web app.
 
 ![Select web app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
 
-You have landed in the management blade of your web app (_blade_: a portal page that opens horizontally).  
+You have landed in the management page of your web app.  
 
 ### Check the pricing tier
 
-In the left-hand navigation of your web app blade, scroll to the **Settings** section and select **Scale up (App Service plan)**.
+In the left-hand navigation of your web app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
@@ -86,7 +86,7 @@ Check to make sure that your web app is not in the **Free** or **Shared** tier. 
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Custom SSL is not supported in the **Free** and **Shared** tier. If you need to scale up, follow the next section. Otherwise, close the **Choose your pricing tier** blade and skip to [Upload and bind your SSL certificate](#upload).
+Custom SSL is not supported in the **Free** and **Shared** tier. If you need to scale up, follow the next section. Otherwise, close the **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](#upload).
 
 ### Scale up your App Service plan
 
@@ -140,7 +140,7 @@ You should now see your uploaded certificate back in the **SSL certificate** pag
 
 In the **SSL bindings** section, click **Add binding**.
 
-In the **Add SSL Binding** blade, use the dropdowns to select the domain name to secure, and the certificate to use. 
+In the **Add SSL Binding** page, use the dropdowns to select the domain name to secure, and the certificate to use. 
 
 In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
    

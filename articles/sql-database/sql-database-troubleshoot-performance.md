@@ -10,7 +10,7 @@ keywords: sql performance tuning, database performance tuning, sql performance t
 
 ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -35,5 +35,5 @@ You can change the [service tier](sql-database-service-tiers.md) of a standalone
 
 ## Steps to improve database performance with more resources
 1. For standalone databases, you can [change service tiers](sql-database-service-tiers.md) on-demand to improve database performance.
-2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool.md) to scale resources automatically.
+2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 
