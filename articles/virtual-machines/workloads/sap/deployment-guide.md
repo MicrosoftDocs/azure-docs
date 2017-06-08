@@ -403,7 +403,7 @@ The wizard guides you through setting the required parameters to create the virt
 
 1. **Basics**:
  * **Name**: The name of the resource (the virtual machine name).
- * **VM disk type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend to use Premium Storage for the OS disk as well.
+ * **VM disk type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
  * **Username and password** or **SSH public key**: Enter the username and password of the user that is created during the provisioning. For a Linux virtual machine, you can enter the public Secure Shell (SSH) key that you use to sign in to the machine.
  * **Subscription**: Select the subscription that you want to use to provision the new virtual machine.
  * **Resource group**: The name of the resource group for the VM. You can enter either the name of a new resource group or the name of a resource group that already exists.
@@ -414,7 +414,7 @@ The wizard guides you through setting the required parameters to create the virt
 
 3. **Settings**:
   * **Storage**
-    * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend to use Premium Storage for the OS disk as well.
+    * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
     * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks][planning-guide-managed-disks] in the planning guide.
     * **Storage account**: Select an existing storage account or create a new one. Not all storage types work for running SAP applications. For more information about storage types, see [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide].
   * **Network**
@@ -536,7 +536,7 @@ The wizard guides you through setting the required parameters to create the virt
 
 1. **Basics**:
  * **Name**: The name of the resource (the virtual machine name).
- * **VM disk type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend to use Premium Storage for the OS disk as well.
+ * **VM disk type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
  * **Username and password** or **SSH public key**: Enter the username and password of the user that is created during the provisioning. For a Linux virtual machine, you can enter the public Secure Shell (SSH) key that you use to sign in to the machine.
  * **Subscription**: Select the subscription that you want to use to provision the new virtual machine.
  * **Resource group**: The name of the resource group for the VM. You can enter either the name of a new resource group or the name of a resource group that already exists.
@@ -547,7 +547,7 @@ The wizard guides you through setting the required parameters to create the virt
 
 3. **Settings**:
   * **Storage**
-    * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend to use Premium Storage for the OS disk as well.
+    * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
     * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks][planning-guide-managed-disks] in the planning guide.
   * **Network**
     * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
@@ -888,7 +888,7 @@ To install the Azure Enhanced Monitoring Extension for SAP by using PowerShell:
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].  
 2. Run the following PowerShell cmdlet.
-    For a list of available environments, run `commandlet Get-AzureRmEnvironment`. If you want to use public Azure, your environment is **AzureCloud**. For Azure in China, select **AzureChinaCloud**.
+    For a list of available environments, run `commandlet Get-AzureRmEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure in China, select **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzureRmEnvironment -Name <name of the environment>
@@ -1053,7 +1053,7 @@ If any of these checks fail, and for detailed information about how to redeploy 
 If some of the monitoring data is not delivered correctly as indicated by the test described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1], run the `Test-AzureRmVMAEMExtension` cmdlet to check whether the Azure monitoring infrastructure and the monitoring extension for SAP are configured correctly.
 
 1.  Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-2.  Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzureRmEnvironment`. To use public Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
+2.  Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzureRmEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env
