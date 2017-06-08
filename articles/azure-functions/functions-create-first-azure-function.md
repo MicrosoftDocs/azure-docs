@@ -55,7 +55,7 @@ A function is created in your chosen language using the template for an HTTP tri
 
 ## Test the function
 
-1. In your new function, click **</> Get function URL**, select **default (Function key)**, then click **Copy**. 
+1. In your new function, click **</> Get function URL**, select **default (Function key)**, and then click **Copy**. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
