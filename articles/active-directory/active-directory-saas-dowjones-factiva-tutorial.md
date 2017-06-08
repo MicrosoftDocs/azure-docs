@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic:article 
+ms.topic: article
 ms.date: 11/17/2016
 ms.author: jeedes
 
