@@ -19,7 +19,7 @@ ms.date: 05/22/2017
 ms.author: larryfr
 
 ---
-# Query Hive through the JDBC driver
+# Query Hive through the JDBC driver in HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
