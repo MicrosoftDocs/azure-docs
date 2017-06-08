@@ -70,7 +70,8 @@
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
 ### [Overview](/rest/api/storageservices/File-Service-Concepts)
-### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Troubleshoot File storage problems in Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Troubleshoot File storage problems in Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +110,7 @@
 ## Secure
 ### [Security guide](storage-security-guide.md)
 ### [Encryption for data at rest](storage-service-encryption.md)
+### [Encryption at rest with customer keys](storage-service-encryption-customer-managed-keys.md)
 ### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +132,8 @@
 ### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
-### [AzCopy command-line utility](storage-use-azcopy.md)
+### [AzCopy on Windows](storage-use-azcopy.md)
+### [AzCopy on Linux](storage-use-azcopy-linux.md)
 ### [Using the Import/Export service](storage-import-export-service.md)
 ### [Using the Import/Export Tool](storage-import-export-tool-how-to.md)
 #### [Setting up the Import/Export Tool](storage-import-export-tool-setup.md)

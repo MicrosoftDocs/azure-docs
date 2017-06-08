@@ -9,7 +9,7 @@ editor: monicar
 documentationcenter: ''
 
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
-ms.service: documentdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +25,7 @@ Azure Cosmos DB is a globally replicated, multi-model database service that that
 
 Azure Cosmos DB started in late 2010 to address developer pain-points that are faced by large-scale applications inside Microsoft. Since building globally distributed applications is not a problem unique to just to Microsoft, we made the service available externally to all Azure Developers in the form of Azure DocumentDB. Azure Cosmos DB is the next big leap in the evolution of DocumentDB and we are now making it available for you to use. As a part of this release of Azure Cosmos DB, DocumentDB customers (with their data) are automatically Azure Cosmos DB customers. The transition is seamless and they now have access to a broader range of new capabilities offered by Azure Cosmos DB. 
 
-For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
+For more database questions, answers, and instructions on deploying and using this service, see the [Azure Cosmos DB documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### What happened to DocumentDB?
 The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (preview), Table API (preview) and MongoDB API. For more information, see [Answers to frequent questions from DocumentDB customers](#moving-to-cosmos-db).
@@ -51,7 +51,7 @@ There is no limit to the total amount of data that a container can store in Azur
 There is no limit to the total amount of throughput that a container can support in Azure Cosmos DB, the key here is that your workload needs to be distributed roughly evenly among a sufficiently large number of partition keys.
 
 ### How much does Azure Cosmos DB cost?
-Refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/documentdb/) page for details. Azure Cosmos DB usage charges are determined by the number of containers provisioned, the number of hours the containers were online, and the provisioned throughput for each container. Containers here refer to DocumentDB API's collection, Graph API's graph, MongoDB API's collection, and Table API's tables. 
+Refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page for details. Azure Cosmos DB usage charges are determined by the number of containers provisioned, the number of hours the containers were online, and the provisioned throughput for each container. Containers here refer to DocumentDB API's collection, Graph API's graph, MongoDB API's collection, and Table API's tables. 
 
 ### Is there a free account available?
 If you are new to Azure, you can sign up for an [Azure free account](https://azure.microsoft.com/free/), which gives you 30 days and $200 to try all the Azure services. Or, if you have a Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
@@ -97,7 +97,7 @@ Yes, DocumentDB API supports cross-document transactions expressed as JavaScript
 ### What is a collection?
 A collection is a group of documents and their associated JavaScript application logic. A collection is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and storage used. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly based on the provisioned throughput and the storage space used. For more information, see [DocumentDB API  pricing](https://azure.microsoft.com/pricing/details/documentdb/).  
+Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly based on the provisioned throughput and the storage space used. For more information, see [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).  
 
 ### How do I create a database?
 You can create databases using the [Azure portal]() as described in [Add a collection](create-documentdb-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  

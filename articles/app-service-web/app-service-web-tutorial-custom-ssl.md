@@ -1,4 +1,4 @@
-﻿---
+---
 title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs 
 description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
@@ -37,7 +37,8 @@ In this tutorial, you learn how to:
 > 
 
 ## Prerequisites
-Before following this tutorial, make sure that you have done the following:
+
+To complete this tutorial:
 
 - [Create an App Service app](/azure/app-service/)
 - [Map a custom DNS name to your web app](app-service-web-tutorial-custom-domain.md)
@@ -65,9 +66,10 @@ To bind a custom SSL certificate to your web app, your [App Service plan](https:
 
 ### Log in to Azure
 
-Open the Azure portal. To do this, sign in to [https://portal.azure.com](https://portal.azure.com) with your Azure account.
+Open the [Azure portal](https://portal.azure.com).
 
 ### Navigate to your web app
+
 From the left menu, click **App Services**, then click the name of your web app.
 
 ![Select web app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
@@ -114,7 +116,7 @@ If you generated your certificate request using OpenSSL, then you have created a
 openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 ```
 
-If you used IIS or _Certreq.exe_ to generate your certificate request, then first install your certificate to your local machine, then export it to PFX by following the steps at [Export a Certificate with the Private Key](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 ### Upload your SSL certificate
 
@@ -142,8 +144,8 @@ In the **Add SSL Binding** blade, use the dropdowns to select the domain name to
 
 In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
    
-- **SNI based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
-- **IP based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, you must secure them all using the same SSL certificate. This is the traditional option for SSL binding. 
+- **SNI-based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **IP-based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, you must secure them all using the same SSL certificate. This is the traditional option for SSL binding. 
 
 Click **Add Binding**.
 
@@ -157,7 +159,7 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 If you don't use IP-based SSL in your web app, skip to [Test HTTPS for your custom domain](#test). 
 
-By default, your web app uses a shared public IP address. As soon as you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your web app.
+By default, your web app uses a shared public IP address. When you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your web app.
 
 If you have mapped an A record to your web app, update your domain registry with this new, dedicated IP address.
 
@@ -186,7 +188,7 @@ If you still want to allow HTTP access to your web app, skip this step.
 App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, you can define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
 
 > [!NOTE]
-> There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in _web.config_ (see [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
+> There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in _web.config_.
 > 
 > 
 
@@ -204,7 +206,7 @@ This file should be located in _/home/site/wwwroot_. If not, create a _web.confi
   <system.webServer>
     <rewrite>
       <rules>
-        <!-- BEGIN rule TAG FOR HTTPS REDIRECT -->
+        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
         <rule name="Force HTTPS" enabled="true">
           <match url="(.*)" ignoreCase="false" />
           <conditions>
@@ -212,14 +214,14 @@ This file should be located in _/home/site/wwwroot_. If not, create a _web.confi
           </conditions>
           <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
         </rule>
-        <!-- END rule TAG FOR HTTPS REDIRECT -->
+        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
       </rules>
     </rewrite>
   </system.webServer>
 </configuration>
 ```
 
-For an existing _web.config_, you just need to copy the entire `<rule>` tag into your _web.config_'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` tags in your _web.config_, then place the copied `<rule>` tag before the other `<rule>` tags.
+For an existing _web.config_, copy the entire `<rule>` element into your _web.config_'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` elements in your _web.config_, place the copied `<rule>` element before the other `<rule>` elements.
 
 This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
 
@@ -266,7 +268,8 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
-## What you have learned
+
+## Next steps
 
 In this tutorial, you learned how to:
 
@@ -275,3 +278,8 @@ In this tutorial, you learned how to:
 > * Bind your custom SSL certificate to App Service
 > * Enforce HTTPS for your app
 > * Automate SSL certificate binding with scripts
+
+Advance to the next tutorial to learn how to use Azure Content Delivery Network.
+
+> [!div class="nextstepaction"]
+> [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
