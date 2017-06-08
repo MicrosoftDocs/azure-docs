@@ -22,6 +22,7 @@ ms.author: larryfr
 
 Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka on HDInsight. In this example, you stream data using a Scala app in a Jupyter notebook from Spark.
 
+
 > [!NOTE]
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 >
