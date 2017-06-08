@@ -65,17 +65,17 @@
     items: 
      - name: Developer guide
        href: functions-reference.md
-     - name: Testing Azure Functions
+     - name: Testing functions
        href: functions-test-a-function.md
      - name: Develop and debug locally
        href: functions-run-local.md
   - name: Deploy
     items:
-    - name: Continuous deployment for Azure Functions
+    - name: Continuous deployment
       href: functions-continuous-deployment.md
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
-    - name: Run Azure Functions on-premises
+    - name: On-premises deployment
       href: functions-runtime-install.md
   - name: Configure
     href: functions-how-to-use-azure-function-app-settings.md
@@ -125,7 +125,7 @@
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Best practices for Azure Functions
+  - name: Best practices
     href: functions-best-practices.md 
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
