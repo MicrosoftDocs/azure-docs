@@ -7,6 +7,15 @@
 ## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
 # Tutorials
+## Web apps
+### [ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+
+# Concepts
+## [OAuth 2.0 authorization](active-directory-b2c-reference-oauth-code.md)
+## [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
+## [Sign-in for Single-Page Apps](active-directory-b2c-reference-spa.md)
+
+# How-To guides
 ## Mobile and desktop apps
 ### [iOS Swift app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
 ### [iOS app using AppAuth](active-directory-b2c-devquickstarts-ios.md)
@@ -27,13 +36,6 @@
 ### [Call .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [Node.js web API](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
-
-# Concepts
-## [OAuth 2.0 authorization](active-directory-b2c-reference-oauth-code.md)
-## [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
-## [Sign-in for Single-Page Apps](active-directory-b2c-reference-spa.md)
-
-# How-To guides
 ## Configure identity providers
 ### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
 ### [Facebook](active-directory-b2c-setup-fb-app.md)

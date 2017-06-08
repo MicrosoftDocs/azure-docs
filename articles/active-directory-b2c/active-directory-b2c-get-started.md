@@ -33,15 +33,15 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. This account is the same you used to sign up for Azure.
 2. Click the **New** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
 
-   ![Screen shot of finding the Azure AD B2C option](./media/active-directory-b2c-get-started/find-azure-ad-b2c.png)
+   ![Add button highlighted and the text Azure Active Directory B2C in the search the marketplace field](./media/active-directory-b2c-get-started/find-azure-ad-b2c.png)
 3. In the results list, select **Azure Active Directory B2C**.
 
-   ![Screen shot of result for Azure Active Directory B2C](./media/active-directory-b2c-get-started/find-azure-ad-b2c-result.png)
+   ![Azure Active Directory B2C selected in the results list](./media/active-directory-b2c-get-started/find-azure-ad-b2c-result.png)
 4. A blade with details about Azure Active Directory B2C is shown. To begin configuring your new Azure Active Directory B2C tenant, click the **Create** button at the bottom of the blade.
 5. Select **Create a new Azure AD B2C Tenant**.
 6. Enter an **Organization name, Domain name, and Country or Region** for your tenant.
 
-   ![Screen shot of the form for creating a new tenant](./media/active-directory-b2c-get-started/create-new-b2c-tenant.png)
+   ![Azure AD B2C create tenant blade with sample text in the available fields](./media/active-directory-b2c-get-started/create-new-b2c-tenant.png)
 7. Click the **Create** button to create your tenant. Creating the tenant may take a few minutes. You are alerted in your notifications when it is complete.
 
 8. Congratulations, you have created an Azure Active Directory B2C tenant. To switch to your new tenant, click the *manage your new tenant link* in the blade.
@@ -56,50 +56,49 @@ This Quickstart helps you create a Microsoft Azure Active Directory (Azure AD) B
    >
    >
 
-## Navigate to the B2C features blade on the Azure portal
+## Navigate to the B2C settings blade on the Azure portal
 
 1. To switch to your Azure AD B2C tenant, select the B2C directory on the top-right corner of the portal.
 
    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-get-started/switch-to-b2c-tenant.png)
 
-
 2. Expand **More services** below the navigation bar on the bottom-left side of the portal.
 3. Search for **Azure AD B2C** and select **Azure AD B2C** in the result list.
 
-   ![Screen shot of searching in the navigation pane for Azure AD B2C](./media/active-directory-b2c-get-started/navigate-to-azure-ad-b2c.png)
+   ![Screenshot of searching in the navigation pane for Azure AD B2C](./media/active-directory-b2c-get-started/navigate-to-azure-ad-b2c.png)
 
-4. The Azure AD B2C features blade for the tenant is displayed.
-5. Pin this blade to your Startboard for easy access. (The Pin tool is in the upper-right corner of the features blade.)
+4. The Azure AD B2C settings blade for the tenant is displayed.
+5. Use the pin tool to pin this blade to your dashboard for easy access.
    
-    ![Screen shot of the B2C features blade and pin button](./media/active-directory-b2c-get-started/b2c-pin-tenant.png)
+    ![Screenshot of the B2C settings blade and pin button](./media/active-directory-b2c-get-started/b2c-pin-tenant.png)
 
 ## Link your Azure AD B2C tenant to your Azure subscription
 
 If you are planning to use your B2C tenant for production apps, you need to link your Azure AD B2C tenant to your Azure subscription to pay for usage charges. To learn more, read [this article](active-directory-b2c-how-to-enable-billing.md).
 
    > [!IMPORTANT]
-   > If you don't link your Azure AD B2C tenant to your Azure subscription, you see a warning message ("No Subscription linked to this B2C tenant or the Subscription needs your attention.") on the B2C features blade on the Azure portal. It is important that you take this step before you ship your apps into production.
+   > If you don't link your Azure AD B2C tenant to your Azure subscription, you see a warning message ("No Subscription linked to this B2C tenant or the Subscription needs your attention.") on the B2C settings blade on the Azure portal. It is important that you take this step before you ship your apps into production.
    > 
    > 
 
 
-## Easy access to the B2C features blade on the Azure portal
+## Easy access to the B2C settings blade on the Azure portal
 
-To improve discoverability, we've added a shortcut to the B2C features blade on the Azure portal.
+To improve discoverability, we've added a shortcut to the B2C settings blade on the Azure portal.
 
 1. Sign into the Azure portal as the Global Administrator of your Azure AD B2C tenant.
 2. To switch to your Azure AD B2C tenant, by selecting the B2C directory on the top-right corner of the portal.
 
    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-get-started/switch-to-b2c-tenant.png)
-3. In **Search resources** at the top of the portal, enter `Azure AD B2C` and select **Azure AD B2C** in the results list to access the B2C features blade.
+3. In **Search resources** at the top of the portal, enter `Azure AD B2C` and select **Azure AD B2C** in the results list to access the B2C settings blade.
 
     ![Screenshot of Search resources at the top of the portal](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Register your application in a B2C tenant](active-directory-b2c-app-registration.md)
+> [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET web app with sign-up, sign-in, and password reset](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+> [Register your B2C application in a B2C tenant](active-directory-b2c-app-registration.md)
 
