@@ -89,7 +89,7 @@
       href: sql-database-aad-authentication.md
     - name: Logins and users
       href: sql-database-manage-logins.md
-    - name: Multi-factor auth
+    - name: Multi-factor authentication
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditing
       href: sql-database-auditing.md
@@ -255,7 +255,7 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: Configure masking
       href: sql-database-dynamic-data-masking-get-started-portal.md
-    - name: SSMS - MFA
+    - name: Multi-factor authentication
       href: sql-database-ssms-mfa-authentication-configure.md
   - name: Business continuity
     items:
