@@ -52,12 +52,12 @@ Click a chart to choose which metrics it displays, or add a new chart and select
 > **Uncheck all the metrics** to see the full selection that is available. The metrics fall into groups; when any member of a group is selected, only the other members of that group appear.
 
 ## <a name="metrics"></a>What does it all mean? Performance tiles and reports
-There's a variety of performance metrics you can get. Let's start with those that appear by default on the application blade.
+There are various performance metrics you can get. Let's start with those that appear by default on the application blade.
 
 ### Requests
 The number of HTTP requests received in a specified period. Compare this with the results on other reports to see how your app behaves as the load varies.
 
-HTTP requests include all GET or POST requests for pages, data and images.
+HTTP requests include all GET or POST requests for pages, data, and images.
 
 Click on the tile to get counts for specific URLs.
 
@@ -68,7 +68,7 @@ The points show a moving average. If there are a lot of requests, there might be
 
 Look for unusual peaks. In general, expect response time to rise with a rise in requests. If the rise is disproportionate, your app might be hitting a resource limit such as CPU or the capacity of a service it uses.
 
-Click on the tile to get times for specific URLs.
+Click the tile to get times for specific URLs.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-42reqs.png)
 
@@ -91,7 +91,7 @@ To see what other metrics you can display, click a graph, and then deselect all 
 
 ![Deselect all metrics to see the whole set](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
-Selecting any metric will disable the others that can't appear on the same chart.
+Selecting any metric disables the others that can't appear on the same chart.
 
 ## Set alerts
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
@@ -125,19 +125,19 @@ The first step for finding performance issues is to get a list of the slow respo
 
 ### Drill down on specific pages
 
-Once you have a snapshot of your app's performance, you can get more details on specific slow-performing operations. Click on any operation in the list to see the details as shown below. From the chart you can see if the performance was based on a dependency. You can also see the how many users experienced the various response times. 
+Once you have a snapshot of your app's performance, you can get more details on specific slow-performing operations. Click on any operation in the list to see the details as shown below. From the chart you can see if the performance was based on a dependency. You can also see how many users experienced the various response times. 
 
 ![Application Insights operations blade](./media/app-insights-web-monitor-performance/performance5.png)
 
 ### Drill down on a specific time period
 
-After you have identified a point in time to investigate, drill-down even further to look at the specific operations that might have caused the performance slow-down. When you click on a specific point in time you get the details of the page as shown below. In the example below you can see the operations listed for a given time period along with the server response codes and the operation duration. You also have the url for opening a TFS work item if you need to send this information to your development team.
+After you have identified a point in time to investigate, drill down even further to look at the specific operations that might have caused the performance slow-down. When you click on a specific point in time you get the details of the page as shown below. In the example below you can see the operations listed for a given time period along with the server response codes and the operation duration. You also have the url for opening a TFS work item if you need to send this information to your development team.
 
 ![Application Insights time slice](./media/app-insights-web-monitor-performance/performance2.png)
 
-### Drill-down on a specific operation
+### Drill down on a specific operation
 
-After you have identified a point in time to investigate, drill-down even further to look at the specific operations that might have caused the performance slow-down. Click on an operations from the list to see the details of the operations as shown below. In this example you can see that the operation failed, and Application Insights has provided the details of the exception the application threw. Again, you can easily create a TFS work item from this blade.
+After you have identified a point in time to investigate, drill down even further to look at the specific operations that might have caused the performance slow-down. Click on an operation from the list to see the details of the operation as shown below. In this example you can see that the operation failed, and Application Insights has provided the details of the exception the application threw. Again, you can easily create a TFS work item from this blade.
 
 ![Application Insights operation blade](./media/app-insights-web-monitor-performance/performance3.png)
 
