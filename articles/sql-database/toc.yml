@@ -329,6 +329,8 @@
       href: sql-database-elastic-query-getting-started.md
     - name: Query vertical data
       href: sql-database-elastic-query-getting-started-vertical.md
+    - name: SaaS app tutorial
+      href: sql-database-wtp-overview.md
   - name: Develop apps
     items:
     - name: C and C ++
@@ -337,8 +339,6 @@
       href: sql-database-connect-excel.md
     - name: Create DB with C#
       href: sql-database-get-started-csharp.md
-    - name: SaaS app tutorial
-      href: sql-database-wtp-overview.md
 - name: Reference
   items:
   - name: PowerShell
