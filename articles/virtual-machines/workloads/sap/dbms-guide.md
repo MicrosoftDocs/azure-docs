@@ -272,9 +272,11 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability]:../../linux/manage-availability.md
+[virtual-machines-manage-availability-linux]:../../linux/manage-availability.md
+[virtual-machines-manage-availability-windows]:../../windows/manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
 [virtual-machines-sizes]:../../linux/sizes.md
+[virtual-machines-sizes]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
@@ -372,7 +374,7 @@ Since we are discussing IaaS, in general the Windows, Linux and DBMS installatio
 
 In general, the overall areas of difference that this paper will discuss are:
 
-* Planning the proper VM/VHD layout of SAP systems to ensure you have the proper data file layout and can achieve enough IOPS for your workload.
+* Planning the proper VM/disk layout of SAP systems to ensure you have the proper data file layout and can achieve enough IOPS for your workload.
 * Networking considerations when using IaaS.
 * Specific database features to use in order to optimize the database layout.
 * Backup and restore considerations in IaaS.
@@ -382,9 +384,9 @@ In general, the overall areas of difference that this paper will discuss are:
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure of an RDBMS Deployment
 In order to follow this chapter, it is necessary to understand what was presented in [this][deployment-guide-3] chapter of the [Deployment Guide][deployment-guide]. Knowledge about the different VM-Series and their differences and differences of Azure Standard and Premium Storage should be understood and known before reading this chapter.
 
-Until March 2015, Azure VHDs which contain an operating system were limited to 127 GB in size. This limitation got lifted in March 2015 (for more information check <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). From there on VHDs containing the operating system can have the same size as any other VHD. Nevertheless, we still prefer a structure of deployment where the operating system, DBMS and eventual SAP binaries are separate from the database files. Therefore, we expect SAP systems running in Azure Virtual Machines will have the base VM (or VHD) installed with the operating system, database management system executables and SAP executables. The DBMS data and log files will be stored in Azure Storage (Standard or Premium Storage) in separate VHD files and attached as logical disks to the original Azure operating system image VM. 
+Until March 2015, disks which contain an operating system were limited to 127 GB in size. This limitation got lifted in March 2015 (for more information check <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). From there on disks containing the operating system can have the same size as any other disk. Nevertheless, we still prefer a structure of deployment where the operating system, DBMS and eventual SAP binaries are separate from the database files. Therefore, we expect SAP systems running in Azure Virtual Machines will have the base VM (or disk) installed with the operating system, database management system executables and SAP executables. The DBMS data and log files will be stored in Azure Storage (Standard or Premium Storage) in separate disks and attached as logical disks to the original Azure operating system image VM. 
 
-Dependent on leveraging Azure Standard or Premium Storage (e.g. by using the DS-series or GS-series VMs) there are other quotas in Azure which are documented [here][virtual-machines-sizes]. When planning your disk layout, you’ll need to find the best balance of the quotas for the following:
+Dependent on leveraging Azure Standard or Premium Storage (e.g. by using the DS-series or GS-series VMs) there are other quotas in Azure which are documented [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows]. When planning your disk layout, you’ll need to find the best balance of the quotas for the following:
 
 * The number of data files.
 * The number of disks which contain the files.
@@ -519,7 +521,7 @@ As with SAN devices on-premises, sharing requires some monitoring in order to ev
 Another article summarizing best practices around Azure Standard Storage and Azure Standard Storage Accounts can be found here <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
 #### <a name="f42c6cb5-d563-484d-9667-b07ae51bce29"></a>Managed Disks
-Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the Availability Set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. Please read the [overview article](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview) to learn more.
+Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the Availability Set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. Please read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview) to learn more.
 
 SAP currently only supports Premium Managed Disks. Please read SAP Note [1928533] for more details.
 
@@ -560,7 +562,7 @@ Azure offers the following High Availability (HA) and Disaster Recovery (DR) fun
 ### VMs deployed on Azure Nodes
 The Azure Platform does not offer features such as Live Migration for deployed VMs. This means if there is maintenance necessary on a server cluster on which a VM is deployed, the VM needs to get stopped and restarted. Maintenance in Azure is performed using so called Upgrade Domains within clusters of servers. Only one Upgrade Domain at a time is being maintained. During such a restart there will be an interruption of service while the VM is shut down, maintenance is performed and VM restarted. Most DBMS vendors however provide High Availability and Disaster Recovery functionality that will quickly restart the DBMS services on another node if the primary node is unavailable. The Azure Platform offers functionality to distribute VMs, Storage and other Azure services across Upgrade Domains to ensure that planned maintenance or infrastructure failures would only impact a small subset of VMs or services.  With careful planning it is possible to achieve availability levels comparable to on-premises infrastructures.
 
-Microsoft Azure Availability Sets are a logical grouping of VMs or Services that ensures VMs and other services are distributed to different Fault and Upgrade Domains within a cluster such that there would only be one node shutdown at any one point in time (read [this][virtual-machines-manage-availability] article for more details).
+Microsoft Azure Availability Sets are a logical grouping of VMs or Services that ensures VMs and other services are distributed to different Fault and Upgrade Domains within a cluster such that there would only be one node shutdown at any one point in time (read [this (Linux)][virtual-machines-manage-availability-linux] or [this (Windows)][virtual-machines-manage-availability-windows] article for more details).
 
 It needs to be configured by purpose when rolling out VMs as seen here:
 
@@ -657,13 +659,13 @@ SQL Server 2014 opens the possibility to store database files directly on Azure 
 
 [comment]: <> (MSSedusch TODO But this will use network bandwidth and not storage bandwidth, doesn't it?)
 
-Details about this type of deployment are listed here: <https://msdn.microsoft.com/library/dn385720.aspx>
+Details about this type of deployment are listed here: <https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure>
 
 In order to store SQL Server data files directly on Azure Premium Storage, you need to have a minimum SQL Server 2014 patch release which is documented here: <https://support.microsoft.com/kb/3063054>. Storing SQL Server data files on Azure Standard Storage does work with the released version of SQL Server 2014. However, the very same patches contain another series of fixes which make the direct usage of Azure Blob Storage for SQL Server data files and backups more reliable. Therefore we recommend using these patches in general.
 
 ### SQL Server 2014 Buffer Pool Extension
 SQL Server 2014 introduced a new feature which is called Buffer Pool Extension. This functionality extends the buffer pool of SQL Server which is kept in memory with a second level cache that is backed by local SSDs of a server or VM. This enables to keep a larger working set of data ‘in memory’. Compared to accessing Azure Standard Storage the access into the extension of the buffer pool which is stored on local SSDs of an Azure VM is many factors faster.  Therefore, leveraging the local D:\ drive of the VM types that have excellent IOPS and throughput could be a very reasonable way to reduce the IOPS load against Azure Storage and improve response times of queries dramatically. This applies especially when not using Premium Storage. In case of Premium Storage and the usage of the Premium Azure Read Cache on the compute node, as recommended for data files, no big differences are expected. Reason is that both caches (SQL Server Buffer Pool Extension and Premium Storage Read Cache) are using the local disks of the compute nodes.
-For more details about this functionality, please check this documentation: <https://msdn.microsoft.com/library/dn133176.aspx> 
+For more details about this functionality, please check this documentation: <https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension> 
 
 ### Backup/Recovery considerations for SQL Server
 When deploying SQL Server into Azure your backup methodology must be reviewed. Even if the system is not a productive system, the SAP database hosted by SQL Server must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The priority reason for maintaining a proper backup and recovery plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-Tier SAP configuration to a 3-Tier system setup of the same system by restoring a backup.
@@ -679,13 +681,13 @@ This functionality allows you to directly backup to Azure BLOB storage. Without 
 
  ![Using SQL Server 2012 Backup to Microsoft Azure Storage BLOB][dbms-guide-figure-400]
 
-The advantage in this case is that one doesn’t need to spend disks to store SQL Server backups on. So you have fewer disks allocated and the whole bandwidth of disk IOPS can be used for data and log files. Please note that the maximum size of a backup is limited to a maximum of 1 TB as documented in the section ‘Limitations’ in this article: <https://msdn.microsoft.com/library/dn435916.aspx#limitations>. If the backup size, despite using SQL Server Backup compression would exceed 1 TB in size, the functionality described in chapter [SQL Server 2012 SP1 CU3 and earlier releases][dbms-guide-5.5.2] in this document needs to be used.
+The advantage in this case is that one doesn’t need to spend disks to store SQL Server backups on. So you have fewer disks allocated and the whole bandwidth of disk IOPS can be used for data and log files. Please note that the maximum size of a backup is limited to a maximum of 1 TB as documented in the section ‘Limitations’ in this article: <https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#limitations>. If the backup size, despite using SQL Server Backup compression would exceed 1 TB in size, the functionality described in chapter [SQL Server 2012 SP1 CU3 and earlier releases][dbms-guide-5.5.2] in this document needs to be used.
 
-[Related documentation](https://msdn.microsoft.com/library/dn449492.aspx) describing the restore of databases from backups against Azure Blob Store recommend not to restore directly from Azure BLOB store if the backup is >25GB. The recommendation in this article is simply based on performance considerations and not due to functional restrictions. Therefore, different conditions may apply on a case by case basis.
+[Related documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure) describing the restore of databases from backups against Azure Blob Store recommend not to restore directly from Azure BLOB store if the backup is >25GB. The recommendation in this article is simply based on performance considerations and not due to functional restrictions. Therefore, different conditions may apply on a case by case basis.
 
-Documentation on how this type of backup is set up and leveraged can be found in [this](https://msdn.microsoft.com/library/dn466438.aspx) tutorial
+Documentation on how this type of backup is set up and leveraged can be found in [this](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016) tutorial
 
-An example of the sequence of steps can be read [here](https://msdn.microsoft.com/library/dn435916.aspx).
+An example of the sequence of steps can be read [here](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 Automating backups, it is of highest importance to make sure that the BLOBs for each backup are named differently. Otherwise they will be overwritten and the restore chain is broken.
 
@@ -739,12 +741,13 @@ There is a requirement to manage the backups on your own. Since the expectation 
 * Microsoft Visual Studio with Azure SDK installed (<https://azure.microsoft.com/downloads/>)
 * Microsoft Azure Storage Explorer (<https://azure.microsoft.com/downloads/>)
 * 3rd party tools
-FOr a more complete discussion of Backup and SAP on Azure, please refer to [the SAP Backup Guide](sap-hana-backup-guide.md) for more information.
+
+For a more complete discussion of Backup and SAP on Azure, please refer to [the SAP Backup Guide](sap-hana-backup-guide.md) for more information.
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Using a SQL Server image out of the Microsoft Azure Marketplace
 Microsoft offers VMs in the Azure Marketplace which already contain versions of SQL Server. For SAP customers who require licenses for SQL Server and Windows, this might be an opportunity to basically cover the need for licenses by spinning up VMs with SQL Server already installed. In order to use such images for SAP, the following considerations need to be made:
 
-* The SQL Server non-Evaluation versions acquire higher costs than just a ‘Windows-only’ VM deployed from Azure Marketplace. Please see these articles to compare prices: <https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/> and <https://azure.microsoft.com/en-us/pricing/details/virtual-machines/sql-server-enterprise/>. 
+* The SQL Server non-Evaluation versions acquire higher costs than just a ‘Windows-only’ VM deployed from Azure Marketplace. Please see these articles to compare prices: <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> and <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/>. 
 * You only can use SQL Server releases which are supported by SAP, like SQL Server 2012.
 * The collation of the SQL Server instance which is installed in the VMs offered in the Azure Marketplace is not the collation SAP NetWeaver requires the SQL Server instance to run. You can change the collation though with the directions in the following section.
 
@@ -777,7 +780,7 @@ As mentioned earlier in this paper, there is no possibility to create shared sto
 #### SQL Server Log Shipping
 One of the methods of high availability (HA) is SQL Server Log Shipping. If the VMs participating in the HA configuration have working name resolution, there is no problem and the setup in Azure will not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only. With regards to setting up Log Shipping and the principles around Log Shipping please check this documentation:
 
-<https://technet.microsoft.com/library/ms187103.aspx>
+<https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server>
 
 In order to really achieve any high availability, one needs to deploy the VMs which are within such a Log Shipping configuration to be within the same Azure Availability Set.
 
@@ -786,9 +789,9 @@ Database Mirroring as supported by SAP (see SAP Note [965908]) relies on definin
 
 As of Cloud-Only deployments, the easiest method is to have another domain setup in Azure to have those DBMS VMs (and ideally dedicated SAP VMs) within one domain.
 
-If a domain is not possible, one can also use certificates for the database mirroring endpoints as described here: <https://technet.microsoft.com/library/ms191477.aspx>
+If a domain is not possible, one can also use certificates for the database mirroring endpoints as described here: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-A tutorial to set up Database Mirroring in Azure can be found here: <https://technet.microsoft.com/library/ms189852.aspx> 
+A tutorial to set up Database Mirroring in Azure can be found here: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 #### SQL Server Always On
 As Always On is supported for SAP on-premises (see SAP Note [1772688]), it is supported to be used in combination with SAP in Azure. The fact that you are not able to create shared disks in Azure doesn’t mean that one can’t create an Always On Windows Server Failover Cluster (WSFC) configuration between different VMs. It only means that you do not have the possibility to use a shared disk as a quorum in the cluster configuration. Hence you can build an Always On WSFC configuration in Azure and simply not select the quorum type that utilizes shared disk. The Azure environment those VMs are deployed in should resolve the VMs by name and the VMs should be in the same domain. This is true for Azure only and Cross-Premises deployments. There are some special considerations around deploying the SQL Server Availability Group Listener (not to be confused with the Azure Availability Set) since Azure at this point in time does not allow to simply create an AD/DNS object as it is possible on-premises. Therefore, some different installation steps are necessary to overcome the specific behavior of Azure.
@@ -857,7 +860,7 @@ There are many recommendations in this guide and we recommend you read it more t
 ## Specifics to SAP ASE on Windows
 Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
-There is an SLA for the Azure Virtual Machines which can be found here: <https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines>
+There is an SLA for the Azure Virtual Machines which can be found here: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
 We are confident that Microsoft Azure hosted Virtual Machines will perform very well in comparison to other public cloud virtualization offerings, but individual results may vary. SAP sizing SAPS numbers of the different SAP certified VM SKUs will be provided in a separate SAP Note [1928533].
 
@@ -871,7 +874,7 @@ As for installations on-premises, do not download updates for the SAP ASE server
 * [1590719]
 * [1973241]
 
-General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
+General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://www.sap.com/community/topic/ase.html)
 
 ### SAP ASE Configuration Guidelines for SAP-related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment
@@ -1025,7 +1028,7 @@ As for installations on-premises, do not download updates for the SAP ASE server
 * [1590719]
 * [1973241]
 
-General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://scn.sap.com/community/ase)
+General information on running SAP Business Suite on SAP ASE can be found in the [SCN](https://www.sap.com/community/topic/ase.html)
 
 ### SAP ASE Configuration Guidelines for SAP-related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment
@@ -1165,7 +1168,7 @@ Following the general support, the specific scenario of SAP applications leverag
 ### Oracle Version Support
 All details about Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in the following SAP Note [2039619]
 
-General information about running SAP Business Suite on Oracle can be found on SCN: <https://scn.sap.com/community/oracle>
+General information about running SAP Business Suite on Oracle can be found on SCN: <https://www.sap.com/community/topic/oracle.html>
 
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs
 #### Storage configuration
@@ -1179,7 +1182,7 @@ are **NOT** supported for Oracle database files!
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in this document in chapter [Caching for VMs and data disks][dbms-guide-2.1] and [Microsoft Azure Storage][dbms-guide-2.3] apply to deployments with the Oracle Database as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here][virtual-machines-sizes]
+As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
 To identify the supported Azure VM types, please refer to SAP note [1928533]
 
@@ -1205,7 +1208,7 @@ Following the general support, the specific scenario of SAP applications leverag
 ### Oracle Version Support
 All details about Oracle versions and corresponding OS versions which are supported for running SAP on Oracle on Azure Virtual Machines can be found in the following SAP Note [2039619]
 
-General information about running SAP Business Suite on Oracle can be found on SCN: <https://scn.sap.com/community/oracle>
+General information about running SAP Business Suite on Oracle can be found on SCN: <https://www.sap.com/community/topic/oracle.html>
 
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs
 #### Storage configuration
@@ -1219,7 +1222,7 @@ are **NOT** supported for Oracle database files!
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in this document in chapter [Caching for VMs and data disks][dbms-guide-2.1] and [Microsoft Azure Storage][dbms-guide-2.3] apply to deployments with the Oracle Database as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here][virtual-machines-sizes]
+As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
 To identify the supported Azure VM types, please refer to SAP note [1928533]
 
@@ -1240,7 +1243,7 @@ All other general topics like Azure Availability Sets or SAP monitoring apply as
 ## Specifics for the SAP MaxDB Database on Windows
 ### SAP MaxDB Version Support
 SAP currently supports SAP MaxDB version 7.9 for use with SAP NetWeaver-based products in Azure. All updates for SAP MaxDB server, or JDBC and ODBC drivers to be used with SAP NetWeaver-based products are provided solely through the SAP Service Marketplace at <https://support.sap.com/swdc>.
-General information on running SAP NetWeaver on SAP MaxDB can be found at <https://scn.sap.com/community/maxdb>.
+General information on running SAP NetWeaver on SAP MaxDB can be found at <https://www.sap.com/community/topic/maxdb.html>.
 
 ### Supported Microsoft Windows Versions and Azure VM types for SAP MaxDB DBMS
 To find the supported Microsoft Windows version for SAP MaxDB DBMS on Azure, see:
@@ -1401,7 +1404,7 @@ Other SAP Content Server specific settings are transparent to Azure VMs and are 
 
 ## Specifics to IBM DB2 for LUW on Windows
 With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools which are available on-premises.
-General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://scn.sap.com/community/db2-for-linux-unix-windows>.
+General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 For additional information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094]. 
 
@@ -1420,14 +1423,14 @@ Any kind of network drives or remote shares like the following Azure file servic
 
 If you are using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in this document in chapter [Structure of an RDBMS Deployment][dbms-guide-2] also apply to deployments with the IBM DB2 for LUW Database. 
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for disks exist. The exact quotas depend on the VM type used. A list of VM types with their quotas can be found [here][virtual-machines-sizes].
+As explained earlier in the general part of the document, quotas on IOPS throughput for disks exist. The exact quotas depend on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
 As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single mounted disk. 
 
 For performance considerations also refer to chapter “Data Safety and Performance Considerations for Database Directories” in SAP installation guides.
 
 Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 as described in chapter [Software RAID][dbms-guide-2.2] of this document to create one big logical device over multiple disks.
-For the disks containing the DB2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter „-LogicalSectorSizeDefault“. For details see <https://technet.microsoft.com/library/hh848689.aspx>.
+For the disks containing the DB2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter „-LogicalSectorSizeDefault“. For details see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 #### Backup/Restore
 The backup/restore functionality for IBM DB2 for LUW is supported in the same way as on standard Windows Server Operating Systems and Hyper-V.
@@ -1459,7 +1462,7 @@ Also refer to chapter [General SQL Server for SAP on Azure Summary][dbms-guide-5
 
 ## Specifics to IBM DB2 for LUW on Linux
 With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools which are available on-premises. 
-General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://scn.sap.com/community/db2-for-linux-unix-windows>.
+General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 For additional information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094].
 
@@ -1478,7 +1481,7 @@ Any kind of network drives or remote shares like the following Azure file servic
 
 If you are using disks based on Azure Page BLOB Storage, the statements made in this document in chapter [Structure of an RDBMS Deployment][dbms-guide-2] also apply to deployments with the IBM DB2 for LUW Database.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for disks exist. The exact quotas depend on the VM type used. A list of VM types with their quotas can be found [here][virtual-machines-sizes].
+As explained earlier in the general part of the document, quotas on IOPS throughput for disks exist. The exact quotas depend on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
 As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single disk.
 
