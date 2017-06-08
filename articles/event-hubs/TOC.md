@@ -35,9 +35,9 @@
 ## Manage
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### Capture
-#### [Event Hubs Capture](event-hubs-archive-overview.md)
-#### [Enable Event Hubs Capture using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-#### [Use Python to enable Event Hubs Capture](event-hubs-archive-python.md)
+#### [Event Hubs Capture](event-hubs-capture-overview.md)
+#### [Enable Event Hubs Capture using a template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+#### [Use Python to enable Event Hubs Capture](event-hubs-capture-python.md)
 ### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
