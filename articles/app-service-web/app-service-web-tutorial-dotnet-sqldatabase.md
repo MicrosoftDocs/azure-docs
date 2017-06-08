@@ -187,10 +187,6 @@ The **Create App Service** dialog shows the resources you've created. Click **Cr
 
 ![the resources you've created](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
-### Create and publish the web app
-
-Click **Create**. 
-
 Once the wizard finishes creating the Azure resources, it automatically publishes your ASP.NET application to Azure for the first time, and then launches the published Azure web app in your default browser.
 
 Try to add a few to-do items to the empty list.
