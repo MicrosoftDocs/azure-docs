@@ -421,7 +421,7 @@ The wizard guides you through setting the required parameters to create the virt
     * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
     * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
     * **Network security group**: For more information, see [Control network traffic flow with network security groups][virtual-networks-nsg].
-  * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extension in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5] in this guide.
+  * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extensions in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5] in this guide.
   * **High Availability**: Select an availability set, or enter the parameters to create a new availability set. For more information, see [Azure availability sets][planning-guide-3.2.3].
   * **Monitoring**
     * **Boot diagnostics**: You can select **Disable** for boot diagnostics.
@@ -439,15 +439,15 @@ You can create a virtual machine by using one of the SAP templates published in 
 * [**Two-tier configuration (only one virtual machine) template** (sap-2-tier-marketplace-image)][sap-templates-2-tier-marketplace-image]
 
   To create a two-tier system by using only one virtual machine, use this template.
-* [**Two-tier configuration (only one virtual machine) template** (sap-2-tier-marketplace-image-md)][sap-templates-2-tier-marketplace-image-md]
+* [**Two-tier configuration (only one virtual machine) template - Managed Disks** (sap-2-tier-marketplace-image-md)][sap-templates-2-tier-marketplace-image-md]
 
-  To create a two-tier system by using only one virtual machine, use this template.
+  To create a two-tier system by using only one virtual machine and Managed Disks, use this template.
 * [**Three-tier configuration (multiple virtual machines) template** (sap-3-tier-marketplace-image)][sap-templates-3-tier-marketplace-image]
 
   To create a three-tier system by using multiple virtual machines, use this template.
-* [**Three-tier configuration (multiple virtual machines) template** (sap-3-tier-marketplace-image-md)][sap-templates-3-tier-marketplace-image-md]
+* [**Three-tier configuration (multiple virtual machines) template - Managed Disks** (sap-3-tier-marketplace-image-md)][sap-templates-3-tier-marketplace-image-md]
 
-  To create a three-tier system by using multiple virtual machines, use this template.
+  To create a three-tier system by using multiple virtual machines and Managed Disks, use this template.
 
 In the Azure portal, enter the following parameters for the template:
 
@@ -918,7 +918,7 @@ The script output includes the following information:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
 To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
 
-1. Install Azure CLI, as described in [Install the Azure CLI][azure-cli].
+1. Install Azure CLI 1.0, as described in [Install the Azure CLI 1.0][azure-cli].
 2. Sign in with your Azure account:
 
   ```
