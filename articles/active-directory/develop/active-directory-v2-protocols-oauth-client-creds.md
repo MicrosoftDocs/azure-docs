@@ -225,5 +225,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
+This sample is not work for me, and I think /me/messages can not work at all, because this is a daemon app, so the error message "Current authenticated context is not valid for this request" is very clear and reasonable. 
+
+Then I try /users， I got another error message "Insufficient privileges to complete the operation", if I missing something?
+
+
+
 ## Code sample
 To see an example of an application that implements the client credentials grant by using the admin consent endpoint, see our [v2.0 daemon code sample](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
