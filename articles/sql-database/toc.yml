@@ -89,7 +89,7 @@
       href: sql-database-aad-authentication.md
     - name: Logins and users
       href: sql-database-manage-logins.md
-    - name: Multi-factor auth
+    - name: Multi-factor authentication
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditing
       href: sql-database-auditing.md
@@ -141,20 +141,18 @@
       href: sql-database-export.md
   - name: Monitor & manage
     items:
+    - name: Perf recommendations
+      href: sql-database-advisor.md
     - name: Automatic tuning
       href: sql-database-automatic-tuning.md
     - name: Single databases
       href: sql-database-single-database-monitor.md
-    - name: Database advisor
-      href: sql-database-advisor.md
-    - name: Query insight
-      href: sql-database-query-performance.md
+    - name: Perf guidance
+      href: sql-database-performance-guidance.md
     - name: Operate query store
       href: sql-database-operate-query-store.md
     - name: DMVs
       href: sql-database-monitoring-with-dmvs.md
-    - name: Perf guidance
-      href: sql-database-performance-guidance.md
     - name: Extended events
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Compatibility levels
@@ -243,18 +241,18 @@
       href: sql-database-elastic-pool-manage-csharp.md
   - name: Security
     items:
-    - name: SQL Server auth tutorial
-      href: sql-database-control-access-sql-authentication-get-started.md
-    - name: Azure AD auth tutorial
-      href: sql-database-control-access-aad-authentication-get-started.md
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
+    - name: Conditional access
+      href: sql-database-conditional-access.md
     - name: Always encrypted cert store
       href: sql-database-always-encrypted.md
     - name: Always encrypted key vault
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: Configure masking
       href: sql-database-dynamic-data-masking-get-started-portal.md
+    - name: Multi-factor authentication
+      href: sql-database-ssms-mfa-authentication-configure.md
   - name: Business continuity
     items:
     - name: Configure vault - backups
@@ -277,10 +275,12 @@
       href: sql-database-get-started-sql-data-sync.md
   - name: Monitor & manage
     items:
-    - name: Use Database Advisor
-      href: sql-database-advisor-portal.md
-    - name: Use QPI
+    - name: Monitor & improve performance
       href: sql-database-performance.md
+    - name: Use Query Performance Insight
+      href: sql-database-query-performance.md
+    - name: Apply performance recommendations
+      href: sql-database-advisor-portal.md
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
     - name: Create alerts
@@ -295,8 +295,6 @@
       href: sql-database-manage-automation.md
     - name: Azure RemoteApp
       href: sql-database-ssms-remoteapp.md
-    - name: SSMS - MFA
-      href: sql-database-ssms-mfa-authentication-configure.md
   - name: Scale out apps
     items:
     - name: Create sharded app

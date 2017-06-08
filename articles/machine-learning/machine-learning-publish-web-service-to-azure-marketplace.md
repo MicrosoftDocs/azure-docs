@@ -12,12 +12,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.date: 06/02/2017
 ms.author: bharaths
 
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: machine-learning-gallery-experiments
+redirect_document_id: TRUE 
 
 ---
 # (deprecated) Publish Azure Machine Learning Web Service to the Azure Marketplace
