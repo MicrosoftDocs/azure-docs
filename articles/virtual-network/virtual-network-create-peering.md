@@ -145,6 +145,7 @@ The following script:
       --resource-group myResourceGroup \
       --vnet-name myVnet1 \
       --output table
+    #
     ```
 Run the previous command again, replacing *myVnet1* with *myVnet2*. The output of both commands shows **Connected** in the **PeeringState** column.
 4. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
@@ -275,12 +276,22 @@ The steps in the previous sections explained how to create a virtual network pee
     - Register the preview capability for both Azure subscriptions and entering the following commands from PowerShell: 
     
     ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
+      -ProviderNamespace Microsoft.Network
+    Register-AzureRmResourceProvider `
+      -ProviderNamespace Microsoft.Network
+    #
     ```
     Register for the preview while signed in to each subscription. Do not proceed with following steps until the **RegistrationState** output you receive after entering the following command is **Registered** in both subscriptions.
 
-        `Get-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+    ```powershell
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
+      -ProviderNamespace Microsoft.Network
+    #
+    ```
+
 2. Complete steps 1-7 in the [Portal](#portal) section of this article with the following changes:
     - Choose a different subscription (associated to the same Azure Active Directory tenant) for myVnet2 in step 5 than you choose for myVnet1 in step 4.
     - Choose **Classic** in step 3 when creating myVnet2.
@@ -330,11 +341,19 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 ### <a name="delete-cli"></a>Azure CLI
 
-From the Cloud Shell prompt, enter the following command: `az group delete --name myResourceGroup --yes`
+From the Cloud Shell prompt, enter the following command:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
+```
 
 ### <a name="delete-powershell"></a>PowerShell
 
-At the PowerShell command prompt, enter the following command: `Remove-AzureRmResourceGroup -Name myResourceGroup`
+At the PowerShell command prompt, enter the following command:
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
+```
 
 ## Next steps
 
