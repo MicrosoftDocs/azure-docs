@@ -71,7 +71,7 @@
 ## Use files
 ### [Overview](/rest/api/storageservices/File-Service-Concepts)
 ### [Troubleshoot Azure Files - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-### [Troubleshoow Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+### [Troubleshoot Azure Files - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
 ### [Disks and VHDs for Windows VMs](storage-about-disks-and-vhds-windows.md)
