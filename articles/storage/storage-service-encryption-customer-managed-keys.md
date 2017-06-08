@@ -103,6 +103,7 @@ A: No. When you enable SSE while creating the storage account, you can only use 
 A: No, you cannot disable encryption while using SSE with customer managed keys. To disable encryption, you will need to switch to using Microsoft managed keys. You can do this using either the Azure portal or PowerShell.
 
 **Q: Is SSE enabled by default when I create a new storage account?**
+
 A: SSE is not enabled by default; you can use the Azure portal to enable it. You can also programmatically enable this feature using the Storage Resource Provider REST API. 
 
 **Q: I can't enable encryption on my storage account.**
