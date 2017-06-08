@@ -53,7 +53,7 @@ First, create a new SAP CAL account. In **Accounts**, you see three choices for 
 
 Since we want to deploy in the Azure Resource Manager deployment model in the future, our new SAP CAL account needs to associated with **Microsoft Azure**.
 
-![Screenshot of the SAP Cloud Appliance Library Accounts window](media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
 Then, enter the Azure subscription ID that can be found on the Azure portal. 
 
@@ -106,11 +106,11 @@ After some time depending on the size and complexity of the solution (an estimat
 
 If you check on the Azure portal, you can find the Resource Group and all its objects that were created by SAP CAL in an Azure Resource Group that was created by SAP CAL. The virtual machine can be found starting with the same instance name that was given in SAP CAL.
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.png)
+![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 
 Jumping back to SAP CAL, you can go to the deployed instances and press he button 'Connect'. Th pop-up below shows up. 
 
-![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.png)
+![](./media/sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14a.PNG)
 
 
 Before you proceed, you need to click the link of the 'Getting Started Guide' before you can take one of the options to connect to the deployed systems. The documentation names the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords that you can use to log in to the deployed system.
