@@ -88,31 +88,31 @@ The following snippet shows an example of the response:
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from an Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity logs**: You can use [Azure Activity Log](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as Operational Logs and Audit Logs) to view all operations that are submitted to your Azure subscription, and their status. Activity Log entries are collected by default, and you can view them in the Azure portal.
-* **Access logs**: You can use this log to view Application Gateway access pattern and analyze important information including caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance can be identified by 'instanceId' property.
-* **Performance logs**: You can use this log to view how Application Gateway instances are performing. This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count. Performance log is collected every 60 seconds.
-* **Firewall logs**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with web application firewall.
+* **Activity log**: You can use [Azure Activity Log](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational log and audit log) to view all operations that are submitted to your Azure subscription, and their status. Activity Log entries are collected by default, and you can view them in the Azure portal.
+* **Access log**: You can use this log to view Application Gateway access patterns and analyze important information, including caller's IP, URL requested, response latency, return code, and bytes in and out. An access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance can be identified by the instanceId property.
+* **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information on per-instance basis, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds.
+* **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
 
 > [!NOTE]
-> Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) article.
+> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) article.
 
-There are three different options to choose for storing your logs.
+There are three different options to choose for storing your logs:
 
 * Storage account: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-* Event hubs: Event hubs are a great option for integrating with other SEIM tools to get alerts on your resources
-* Log analytics: Log analytics is best used for general real time monitoring of your application or looking at trends.
+* Event hubs: Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
+* Log Analytics: Log Analytics is best used for general real-time monitoring of your application or looking at trends.
 
-### Enable logging with PowerShell
+### Enable logging through PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
 
-1. Note your storage account's Resource ID, where the log data is stored. This value would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. Any storage account in your subscription can be used. You can use the preview portal to find this information.
+1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the preview portal to find this information.
 
-    ![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
+    ![Preview portal: Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Note your application gateway's Resource ID for which logging is to be enabled. This value would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
+2. Note your application gateway's resource ID for which logging will be enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
 
-    ![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
+    ![Preview portal: Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Enable diagnostic logging using the following powershell cmdlet:
 
@@ -123,7 +123,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 > [!TIP] 
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
-### Enable logging with Azure portal
+### Enable logging through the Azure portal
 
 1. In the Azure portal, find your resource and click **Diagnostic logs**.
 
@@ -151,7 +151,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 ### Activity log
 
-Azure generates the activity log (formerly known as the "operational log") by default. The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and activity log](../monitoring-and-diagnostics/insights-debugging-with-events.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and activity log](../monitoring-and-diagnostics/insights-debugging-with-events.md) article.
 
 ### Access log
 
