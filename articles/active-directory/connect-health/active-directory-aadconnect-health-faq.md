@@ -134,6 +134,13 @@ No, auditing does not need to be enabled on the web application proxy servers.
 
 Azure AD Connect Health alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service periodically. For a few alerts, the suppression is time-based. In other words, if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
 
+**Q: I am getting alerted that "Test Authentication Request (Synthetic Transaction) failed to obtain a token." How do I troubleshoot the issue?**
+
+Azure AD Connect Health for AD FS generates this alert when the Health Agent installed on an AD FS server fails to obtain a token as part of a synthetic transaction initiated by the Health Agent. The Health agent uses the local system context and attempts to get a token for a self relying party. This is a catch-all test to ensure that AD FS is in a state of issuing tokens.
+
+Most often this test fails because the Health Agent is unable to resolve the AD FS farm name. This can happen if the AD FS servers are behind a network load balancers and the request gets initiated from a node that's behind the load balancer (as opposed to a regular client that is in front of the load balancer). This can be fixed by updating the "hosts" file located under "C:\Windows\System32\drivers\etc" to include the IP address of the AD FS server or a loopback IP address (127.0.0.1) for the AD FS farm name (such as sts.contoso.com). Adding the host file will short-circuit the network call, thus allowing the Health Agent to get the token.
+
+
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent installation](active-directory-aadconnect-health-agent-install.md)
