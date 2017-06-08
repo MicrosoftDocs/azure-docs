@@ -32,7 +32,7 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
     * Visual Studio 2015 update 4
     * Visual Studio 2013
 * **Microsoft Azure SDK for .NET** version 2.7.1 or above.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-* A **Data Lake Analytics Analytics** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
+* A **Data Lake Analytics Account** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 
 ## Install Azure Data Lake Tools for Visual Studio (ADLToolsForVS)
 
@@ -50,7 +50,7 @@ Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After 
 
 ## Your first U-SQL script
 
-The following text is a very simply U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
+The following text is a very simple U-SQL script. It defines a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
 
 ```
 @a  = 
@@ -127,17 +127,7 @@ You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQ
 ## See also
 To get started with Data Lake Analytics using different tools, see:
 
-* [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
-* [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+* Get started with Data Lake Analytics [using Azure portal](data-lake-analytics-get-started-portal.md) | [using Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
 * [Debug C# code in U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
-
-To learn Data Lake Tools for Visual Studio code, see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
-
-To see more development topics:
-
-* [Analyze weblogs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-* [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+* [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
