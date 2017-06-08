@@ -37,7 +37,7 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 ## Install Azure Data Lake Tools for Visual Studio (ADLToolsForVS)
 
 Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After installation, you will see:
-* A **Data Lake Analytics** node in** Server Explorer > Azure** node. 
+* A **Data Lake Analytics** node in ** Server Explorer > Azure** node. 
 * A **Tools > Data Lake** menu item.
 
 ## Connect to an Azure Data Lake Analytics account
@@ -45,12 +45,12 @@ Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After 
 1. Open Visual Studio.
 2. From the **View > Server Explorer** to open Server Explorer.
 3. Right-click **Azure**. Select **Connect to Microsoft Azure Subscription**, and then follow the instructions.
-4. In **Server Explorer**, select **Azure > Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any.
+4. In **Server Explorer**, select **Azure > Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts.
 
 
 ## Your first U-SQL script
 
-The following text is a very simple U-SQL script. It defines a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
+The following text is a very simple U-SQL script. It defines a small dataset and  writse that dataset to the default Data Lake Store as a file called `/data.csv`.
 
 ```
 @a  = 
@@ -82,7 +82,7 @@ OUTPUT @a
 8. Specify **Job Name**, verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-9. You must click the Refresh button to see the latest job status and refresh the screen. When the job successes, it will show you the **Job Graph**, **Meta Data Operations**, **State History**, **Diagnostics**:
+9. Click the Refresh button to see the latest job status and refresh the screen. When the job succeeds, it will show you the **Job Graph**, **Meta Data Operations**, **State History**, **Diagnostics**:
 
     ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
@@ -91,38 +91,19 @@ OUTPUT @a
    * Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Execution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
    * Metadata Operations. It shows all the metadata operations.
    * State History.
-   * Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information.
+   * Diagnostics. ADLToolsForVS diagnoses job execution automatically. Alerts appear when there are some errors or performance issues in their jobs.
 
 **To check job state**
 
 1. From Server Explorer, select **Azure > Data Lake Analytics**. Expand the Data Lake Analytics account name
-2. Double-click **Jobs** to list the jobs.
-3. Click a job to see the status.
+2. Double-click **Jobs**.
+3. Select a job to see the status.
 
 **To see the job output**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
-2. Double-click **output** to open the folder
+2. Double-click **output**.
 3. Double-click **SearchLog-From-adltools.csv**.
-
-### Job Playback
-Job playback enables you to watch job execution progress and visually detect out performance anomalies and bottlenecks. This feature can be used before the job completes execution and also after the execution has completed. Doing playback during job execution allows the user to play back the progress up to the current time.
-
-**To view job execution progress**  
-
-1. Click **Load Profile** on the upper right corner. See the previous screen shot.
-2. Click the Play button on the bottom left corner to review the job execution progress.
-3. During the playback, click **Pause** to stop it or directly drag the progress bar to specific positions.
-
-### Heat Map
-Data Lake Tools for Visual Studio provides user-selectable color-overlays on job view to indicate progress, data I/O, execution time, I/O throughput of each stage. Through this, users can figure out potential issues and distribution of job properties directly and intuitively. You can choose a data source to display from the drop-down list.  
-
-## Run U-SQL locally
-
-You can use Azure Data Lake Tools for Visual Studio and the Azure Data Lake U-SQL SDK to run U-SQL jobs on your workstation, just as you can in the Azure Data Lake service. These two local-run features save you time in testing and debugging your U-SQL jobs.
-
-* [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
-
 
 ## See also
 To get started with Data Lake Analytics using different tools, see:
