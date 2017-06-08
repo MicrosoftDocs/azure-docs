@@ -673,7 +673,7 @@ azcopy \
 ### Specify the number of concurrent operations to start
 Option `--parallel-level` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. The number of concurrent operations is equal eight times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for --parallel-level to avoid failure caused by resource competition.
 
-[!TIP]
+>[!TIP]
 >To view the complete list of AzCopy parameters, check out 'azcopy --help' menu.
 
 ## Known issues and best practices
