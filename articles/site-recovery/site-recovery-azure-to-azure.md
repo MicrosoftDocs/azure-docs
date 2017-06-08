@@ -120,19 +120,19 @@ By default, Site Recovery automatically creates settings in the target location 
 
 4. To trigger replication of the selected VM, click **Enable replication**.
 
-5. You can track progress of the **Enable protection** job in **Settings** **Jobs** > **Site Recovery Jobs**.
+5. You can track progress of the **Enable protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**.
 
 6. In **Settings** > **Replicated Items**, you can view the status of VMs and the initial replication progress. Click the VM to drill down into its settings.
 
 ## Run a test failover
 
-After you've set everything up, run a test failover to make sure everything's working as expected.
+After you set everything up, run a test failover to make sure everything is working as expected.
 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM **+Test Failover** icon.
 
 2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md). 
 
-3. In **Test Failover**, select the target Azure virtual network to which Azure VMs will be connected after the failover occurs.
+3. In **Test Failover**, select the target Azure virtual network to which Azure VMs are connected after the failover occurs.
 
 4. To start the failover, click **OK**. To track progress, click the VM to open its properties. Or you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
 
@@ -145,7 +145,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 
 ## Next steps
 
-After you've tested the deployment:
+After you test the deployment:
 
 - [Learn more](site-recovery-failover.md) about different types of failovers and how to run them.
 - Learn more about [using recovery plans](site-recovery-create-recovery-plans.md) to reduce RTO.
