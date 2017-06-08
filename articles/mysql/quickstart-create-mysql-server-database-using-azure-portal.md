@@ -35,7 +35,7 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 | *Server name* | myserver4demo  | Server name has to be globally unique. |
 | *Subscription* | mysubscription | Select your subscription from the drop-down. |
 | *Resource group* | myresourcegroup | Create a resource group or use an existing one. |
-| *Server admin login* | myadmin | Setup admin account name. |
+| *Server admin login* | myadmin | Specify an account name to be admin in MySQL engine. |
 | *Password* |  | Set a strong admin account password. |
 | *Confirm password* |  | Confirm the admin account password. |
 | *Location* |  | Select an available region. |
@@ -105,11 +105,10 @@ You can create multiple databases within a MySQL server. There is no limit to th
 Click **Test Connection** to test if all parameters are correctly configured. Click OK to save the connection. 
 
 > [!NOTE]
-> SSL is enforced by default on your server which requires extra configuration in order to connect successfully. See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you want to disable SSL for this quick start, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
+> SSL is enforced by default on your server, and requires extra configuration in order to connect successfully. See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you want to disable SSL for this quick start, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
 
 ## Clean up resources
-If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following:
-
+If you don't need these resources for another quickstart or tutorial, you can delete them by following these steps:
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myresource**. 
 2. On your resource group page, click **Delete**, type **myresource** in the text box, and then click **Delete**.
 
