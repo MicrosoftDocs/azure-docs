@@ -1,6 +1,6 @@
 ---
-title: Using Managed Disks in Azure Resource Manager Templates | Microsoft Docs
-description: Details how to use Managed Disks in Azure Resource Manager templates
+title: Using managed disks in Azure Resource Manager templates | Microsoft Docs
+description: Details how to use managed misks in Azure Resource Manager templates
 services: storage
 documentationcenter:
 author: jboeshart
