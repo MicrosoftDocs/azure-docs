@@ -2,15 +2,15 @@
 title:  Jenkins and Azure  - Tutorials, API Reference | Microsoft Docs
 description: Build and deploy apps into Azure with Jenkins.
 services: multiple
-author: carolz
-manager: carolz
+author: mlearned
+manager: douge
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 04/25/2017
-ms.author: carolz
+ms.author: mlearned
 ---
 <div class="content">
     <h1>Jenkins on Azure</h1> <img src="media/Jenkins.png" alt="Jenkins Logo">
@@ -23,8 +23,8 @@ ms.author: carolz
 <p>Learn how to quickly get started with Jenkins on Azure.</p>
  
 <ol>
-  <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace</li>
-  <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Create a Jenkins pipeline.</a></li>    	
+  <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace.</li>
+  <li><a href="https://plugins.jenkins.io/azure-vm-agents">Use Azure Virtual Machines for Jenkins agents</a></li>
 </ol>
    
 
@@ -32,9 +32,10 @@ ms.author: carolz
 <p>In-depth guides to use Jenkins to build and deploy Azure apps.</p>
 <ol>
     <li>Configure Jenkins to work with <a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Azure Storage</a>.</li>
+    <li>Execute Azure CLI <a href="/azure/jenkins/execute-cli-jenkins-pipeline"> with a Jenkins pipeline.</a></li>
     <li>CI/CD with <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins and Docker on Azure VMs</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Jenkins integration</a> with <a href="/azure/container-service/container-service-kubernetes-walkthrough">Azure Container Service and Kubernetes.</a></li>
-    <li>Execute Azure CLI <a href="/azure/container-service/container-service-kubernetes-jenkins"> with Jenkins.</a></li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Samples</h2>
@@ -46,6 +47,7 @@ ms.author: carolz
 
 <h2 style="margin-top: 36px">Reference</h2>
 <ul>
+  <li><a href="https://azure.microsoft.com/resources/videos/continuous-integration-with-jenkins-using-azure-vm-agents/">CI with Jenkins using Azure VM agents.</a></li>
   <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
   <li>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins.</a></li>
   <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services</a>.</li> 
