@@ -51,11 +51,13 @@
     href: functions-triggers-bindings.md
   - name: Languages
     items:
-    - name: C# functions concepts
+    - name: C# script 
       href: functions-reference-csharp.md
-    - name: F# functions concepts
+    - name: .NET class library
+      href: functions-dotnet-class-library.md
+    - name: F#
       href: functions-reference-fsharp.md
-    - name: JavaScript functions concepts
+    - name: JavaScript
       href: functions-reference-node.md    
 - name: How-to guides
   items:
