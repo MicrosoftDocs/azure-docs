@@ -99,7 +99,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [Power BI Pro](documentation-government-services-intelligenceandanalytics.md#power-bi) | No | No (Office 365 Admin Portal) |
 
 
-## [Internet of Things (IoT)](documentation-government-services-iot-hub.md)
+## [Internet of Things](documentation-government-services-iot-hub.md)
 
 | Service | Resource Manager Enabled | Portal |
 | --- | --- | --- |
@@ -150,6 +150,6 @@ In the following tables, services specified as Resource Manager enabled have res
 
 
 
-## Next Steps
+## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
 
