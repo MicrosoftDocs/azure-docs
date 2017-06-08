@@ -63,23 +63,23 @@ The next step is to authorize SAP CAL to deploy into the Azure subscription you 
 
 Check your Internet Browser since the next screen, which should appear in the same tab in the browser should look like
 
-![Screenshot of IE Cloud Service Login Screen](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.png)
+![Screenshot of IE Cloud Service Login Screen](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic4c.PNG)
 
 There might be more than one user listed. You need to choose the Microsoft account that is linked to be co-admin of the Azure subscription you picked.
 
 As next step, a screen like that should show up in the browser tab:
 
-![Screenshot of IE Cloud Service Confirmation Screen](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.png)
+![Screenshot of IE Cloud Service Confirmation Screen](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
 Press the button 'Accept'. As the Authorization is successful, SAP CAL account definition is displayed again, a message is displayed for short time confirming that the authorization process was successful.
 
 To proceed with the CAL account creation, you need to assign the newly created SAP CAL account to your user. In the screen shown below
 
-![Screenshot of Account to User Association](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.png)
+![Screenshot of Account to User Association](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic8a.PNG)
 
 type your User ID (lower red circle) into the field on the right marked in red and press the button 'add'. this step should associate your SAP CAL account with your user that you use to log in to SAP CAL. **You now must press the button 'Review'** to progress with the account association. In the 'Review' page, you need to press the button 'Create' (marked in red below to create the association between your CAL user and the newly created account.
 
-![Screenshot of SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.png)
+![Screenshot of SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic9b.PNG)
 
 You succeeded now to create an SAP CAL account that is able to:
 
