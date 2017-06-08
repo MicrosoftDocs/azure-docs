@@ -57,7 +57,7 @@ Since we want to deploy in the Azure Resource Manager deployment model in the fu
 
 Then, enter the Azure subscription ID that can be found on the Azure portal. 
 
-![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.png)
+![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/sap-cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 The next step is to authorize SAP CAL to deploy into the Azure subscription you just defined. To initiate that process, press the button 'Authorize' as seen in the screenshot above.
 
