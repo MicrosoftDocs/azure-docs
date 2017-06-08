@@ -370,9 +370,9 @@ After you have restored the disks, use these steps to create and configure the v
 
 4. Attach the OS disk and data disks.
 
-  #### Non-managed, non-encrypted VMs
+#### Non-managed, non-encrypted VMs
 
-  Use the following sample for non-managed, non-encrypted VM
+Use the following sample for non-managed, non-encrypted VM
 
     ```
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -383,9 +383,9 @@ After you have restored the disks, use these steps to create and configure the v
      }
     ```
 
-  #### Non-managed, encrypted VMs
+#### Non-managed, encrypted VMs
   
-  For non-managed, encrypted VMs, you need to restore the key and secret to the key vault before you can attach disks. For more information, please see the article, [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs.
+For non-managed, encrypted VMs, you need to restore the key and secret to the key vault before you can attach disks. For more information, please see the article, [Restore an encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). The following sample shows how to attach OS and data disks for encrypted VMs.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -398,9 +398,10 @@ After you have restored the disks, use these steps to create and configure the v
      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
      }
     ```
-  #### Managed, non-encrypted VMs
+
+#### Managed, non-encrypted VMs
   
-  For managed non-encrypted VMs, you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed non-encrypted VMs.
+For managed non-encrypted VMs, you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed non-encrypted VMs.
 
     ```
     PS C:\> $storageType = "StandardLRS"
@@ -418,10 +419,9 @@ After you have restored the disks, use these steps to create and configure the v
       }
       ```
 
-
-   #### Managed, encrypted VMs
+#### Managed, encrypted VMs
   
-  For managed encrypted VMs, you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed encrypted VMs.
+For managed encrypted VMs, you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed encrypted VMs.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
