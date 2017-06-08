@@ -167,6 +167,8 @@
     items:
     - name: SaaS design patterns
       href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: SaaS app security
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Sharded databases
       href: sql-database-elastic-scale-introduction.md
     - name: Elastic client library
@@ -221,8 +223,6 @@
       href: sql-database-elastic-scale-working-with-dapper.md
     - name: Batching for perf
       href: sql-database-use-batching-to-improve-performance.md
-    - name: SaaS app security
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Connectivity guidance
       href: sql-database-connectivity-issues.md
     - name: Ports - ADO.NET
