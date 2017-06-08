@@ -1,7 +1,7 @@
 ---
-title: Get started with Apache Storm on Azure HDInsight | Microsoft Docs
-description: Get started with big data analytics using Apache Storm and the Storm Starter samples on Linux-based HDInsight. Learn how to use Storm to process data real-time.
-keywords: apache storm,apache storm tutorial,big data analytics,storm starter
+title: Storm-starter examples on Apache Storm on HDInsight - Azure | Microsoft Docs
+description: Learn how to do big data analytics and process data in real-time using Apache Storm and the storm-starter examples on HDInsight.
+keywords: storm-starter, apache storm example
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -17,9 +17,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ---
-#Get started with the Storm Starter samples for big data analytics on Linux-based HDInsight
+#Get started with Apache Storm on HDInsight using the storm-starter examples
+
+Learn how to use Apache Storm in HDInsight using the storm-starter examples.
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
@@ -80,7 +82,7 @@ Use the following steps to create a Storm on HDInsight cluster:
     > [!NOTE]
     > It can take up to 20 minutes to create the cluster.
 
-## Run a Storm Starter sample on HDInsight
+## Run a storm-starter sample on HDInsight
 
 1. Connect to the HDInsight cluster using SSH:
 
@@ -102,9 +104,9 @@ Use the following steps to create a Storm on HDInsight cluster:
     > [!NOTE]
     > When submitting your own topologies to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. Use the `scp` command to copy the file. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
-    > The WordCount example, and other storm starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+    > The WordCount example, and other storm-starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-If you are interested in viewing the source for the storm starter examples, you can find the code at [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). This link is for Storm 1.0.x, which is provided with HDInsight 3.5. For other versions of Storm, use the __Branch__ button at the top of the page to select a different Storm version.
+If you are interested in viewing the source for the storm-starter examples, you can find the code at [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). This link is for Storm 1.0.x, which is provided with HDInsight 3.5. For other versions of Storm, use the __Branch__ button at the top of the page to select a different Storm version.
 
 ## Monitor the topology
 
@@ -119,7 +121,7 @@ Use the following steps to monitor the topology using the Storm UI:
 
 2. Under **Topology summary**, select the **wordcount** entry in the **Name** column. Information about the topology is displayed.
 
-    ![Storm Dashboard with Storm Starter WordCount topology information.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
+    ![Storm Dashboard with storm-starter WordCount topology information.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
     This page provides the following information:
 

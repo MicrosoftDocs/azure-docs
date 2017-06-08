@@ -69,15 +69,7 @@ Submit the script.
 Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"
 ```
 
-## Monitor U-SQL Jobs
-
-List all the jobs in the account. The output includes the currently running jobs and those jobs that have recently completed.
-
-```
-Get-AdlJob -Account $adla
-```
-
-Get the status of a specific job.
+Get the status of a specific job. Keep using this cmdlet until you see the job is done.
 
 ```
 Get-AdlJob -AccountName $adla -JobId $job.JobId
@@ -89,30 +81,10 @@ Instead of calling Get-AdlAnalyticsJob over and over until a job finishes, you c
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-After the job is completed, check if the output file exists by listing the files in a folder.
+Download the output file.
 
 ```
-Get-AdlStoreChildItem -Account $adls -Path "/"
-```
-
-Check for the existence of a file.
-
-```
-Test-AdlStoreItem -Account $adls -Path "/data.csv"
-```
-
-## Uploading and Downloading files
-
-Download the output of the U-SQL script.
-
-```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
-```
-
-Upload a file to be used as an unput to a U-SQL script.
-
-```
-Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## See also

@@ -113,6 +113,7 @@
 ### [Develop Java MapReduce programs](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Develop Scalding MapReduce jobs](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Use HDInsight Tools to create Spark apps](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [Use HDInsight Tools to debug Spark apps remotely](hdinsight-apache-spark-intellij-tool-debug-remotely.md)
 ### [Use empty edge nodes](hdinsight-apps-use-edge-node.md)
 ### [Develop Python streaming programs](hdinsight-hadoop-streaming-python.md)
 ### [Process and analyze JSON documents](hdinsight-using-json-in-hive.md)
