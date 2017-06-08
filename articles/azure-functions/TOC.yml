@@ -53,7 +53,7 @@
     items:
     - name: C# script 
       href: functions-reference-csharp.md
-    - name: .NET class libraries 
+    - name: .NET class library
       href: functions-dotnet-class-library.md
     - name: F#
       href: functions-reference-fsharp.md
