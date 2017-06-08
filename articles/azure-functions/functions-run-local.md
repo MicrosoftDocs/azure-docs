@@ -50,6 +50,8 @@ Created launch.json
 Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
+<a name="local-settings"></a>
+
 ## Local settings file
 
 The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. It has the following structure:
