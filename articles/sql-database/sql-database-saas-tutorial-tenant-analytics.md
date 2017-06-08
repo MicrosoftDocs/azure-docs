@@ -14,7 +14,7 @@ ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 
