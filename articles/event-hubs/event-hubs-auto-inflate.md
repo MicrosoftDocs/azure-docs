@@ -22,14 +22,14 @@ ms.author: shvija;sethm
 
 ## Overview
 
-Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hubs customers often increase their usage after onboarding to the service. This requires increasing the predetermined throughput units (TUs) to scale Event Hubs and handle larger transfer rates. The *Auto-inflate* feature of Event Hubs automatically scales up the number of TUs to meet usage needs. This prevents throttling scenarios, in which:
+Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hubs customers often increase their usage after onboarding to the service. Such increases require increasing the predetermined throughput units (TUs) to scale Event Hubs and handle larger transfer rates. The *Auto-inflate* feature of Event Hubs automatically scales up the number of TUs to meet usage needs. Increasing TUs prevents throttling scenarios, in which:
 
 * Data ingress rates exceed set TUs.
 * Data egress request rates exceed set TUs.
 
 ## How Auto-inflate works
 
-Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units, and scale up automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. This provides the following benefits:
+Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units, and scale up automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. This feature provides the following benefits:
 
 - An efficient scaling mechanism to start small and scale up as you grow.
 - Automatic scale-up to the specified upper limit without throttling issues.
@@ -39,7 +39,7 @@ Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB pe
 
 You can enable or disable Auto-inflate on a namespace using either of the following methods:
 
-1. The [Azure portal](https://portal.azure.com) (available starting June 12 2017).
+1. The [Azure portal](https://portal.azure.com) (available starting June 12, 2017).
 2. An Azure Resource Manager template.
 
 ### Enable Auto-inflate through the portal
