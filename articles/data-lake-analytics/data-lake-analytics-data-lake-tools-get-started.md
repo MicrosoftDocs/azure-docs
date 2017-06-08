@@ -36,9 +36,9 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 
 ## Install Azure Data Lake Tools for Visual Studio (ADLToolsForVS)
 
-Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After installation, you will see:
-* A **Data Lake Analytics** node in ** Server Explorer > Azure** node. 
-* A **Tools > Data Lake** menu item.
+Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After installation:
+* The ** Server Explorer > Azure ** node contains a **Data Lake Analytics** node. 
+* The **Tools** menu has a **Data Lake** item.
 
 ## Connect to an Azure Data Lake Analytics account
 
@@ -50,7 +50,7 @@ Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After 
 
 ## Your first U-SQL script
 
-The following text is a very simple U-SQL script. It defines a small dataset and  writse that dataset to the default Data Lake Store as a file called `/data.csv`.
+The following text is a simple U-SQL script. It defines a small dataset and  writes that dataset to the default Data Lake Store as a file called `/data.csv`.
 
 ```
 @a  = 
@@ -82,7 +82,7 @@ OUTPUT @a
 8. Specify **Job Name**, verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-9. Click the Refresh button to see the latest job status and refresh the screen. When the job succeeds, it will show you the **Job Graph**, **Meta Data Operations**, **State History**, **Diagnostics**:
+9. Click the Refresh button to see the latest job status and refresh the screen. When the job succeeds, it shows the **Job Graph**, **Meta Data Operations**, **State History**, **Diagnostics**:
 
     ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
@@ -95,13 +95,13 @@ OUTPUT @a
 
 **To check job state**
 
-1. From Server Explorer, select **Azure > Data Lake Analytics**. Expand the Data Lake Analytics account name
+1. From **Server Explorer**, select **Azure > Data Lake Analytics**. Expand the Data Lake Analytics account name
 2. Double-click **Jobs**.
-3. Select a job to see the status.
+3. Select a job.
 
-**To see the job output**
+**To see the output of a job**
 
-1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
+1. From **Server Explorer**, select **Azure > Data Lake Analytics**. Expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
 2. Double-click **output**.
 3. Double-click **SearchLog-From-adltools.csv**.
 
