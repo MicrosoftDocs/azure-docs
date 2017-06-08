@@ -35,7 +35,7 @@ Learn about MapReduce examples that are included in jar files on HDInsight and h
 
 * **An SSH client**: For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## The samples
+## The MapReduce examples
 
 **Location**: The samples are located on the HDInsight cluster at `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 

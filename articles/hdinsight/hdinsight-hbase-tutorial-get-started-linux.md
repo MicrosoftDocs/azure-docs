@@ -1,7 +1,7 @@
 ---
 title: Get started with HBase on Azure HDInsight | Microsoft Docs
 description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
-keywords: apache hbase,hbase,hbase shell,hbase tutorial,beeline
+keywords: hbasecommand,hbase example 
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,7 +19,7 @@ ms.date: 05/09/2017
 ms.author: jgao
 
 ---
-# HBase tutorial: Get started using Apache HBase in HDInsight
+# Get started using Apache HBase in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
