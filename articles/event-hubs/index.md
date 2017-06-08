@@ -31,8 +31,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
                     </div>
                     <div class="cardText">
                         <h3>Learn about Azure Event Hubs</h3>
-                    </div>
-                </div>
+                    </div>                </div>
             </div>
         </div>
         </a>
@@ -42,8 +41,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
+                    <div class="cardImageOuter">                        <div class="cardImage">
                             <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
@@ -53,8 +51,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
                 </div>
             </div>
         </div>
-        </a>
-    </li>
+        </a>    </li>
      <li>
         <a href="/azure/event-hubs/event-hubs-programming-guide">
         <div class="cardSize">
@@ -64,8 +61,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
                         <div class="cardImage">
                             <img src="media/index/get-started.svg" alt="" />
                         </div>
-                    </div>
-                    <div class="cardText">
+                    </div>                    <div class="cardText">
                         <h3>Get started with the Event Hubs programming guide</h3>
                     </div>
                 </div>
