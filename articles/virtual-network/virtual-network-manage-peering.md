@@ -43,7 +43,8 @@ Consider the following constraints before peering virtual networks:
 - A peering is established between two virtual networks. Peerings are not transitive. If you create peerings between:
     - Virtual network 1 & virtual network 2
     - Virtual network 2 & virtual network 3
-    There is no peering between virtual network 1 and virtual network 3 through virtual network 2. If you want to set up a peering between virtual network 1 and virtual network 3, you have to create a peering between virtual network 1 and virtual network 3.
+
+  There is no peering between virtual network 1 and virtual network 3 through virtual network 2. If you want to set up a peering between virtual network 1 and virtual network 3, you have to create a peering between virtual network 1 and virtual network 3.
 - You can't resolve names in peered virtual networks using default Azure name resolution. To resolve names in other virtual networks, you must use a custom DNS server. To learn how to set up your own DNS server, read the [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) article.
 - Resources in both virtual networks in the peering can communicate with each other with the same bandwidth and latency as if they were in the same virtual network. Each virtual machine size has its own maximum network bandwidth however. To learn more about maximum network bandwidth for different virtual machine sizes, read the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine sizes articles.
 - You can peer virtual networks deployed through Resource Manager that are in the same, or different subscriptions.
@@ -59,7 +60,6 @@ Consider the following constraints before peering virtual networks:
     ||Classic|[Classic Network Contributor](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
  Learn more about [built-in roles](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom roles](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Resource Manager only).
 - A virtual network can be peered to another virtual network, and also be connected to another virtual network with an Azure virtual network gateway. When virtual networks are connected through both peering and a gateway, traffic between the virtual networks flows through the peering configuration, rather than the gateway.
-- 
 - There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="create-peering"></a>Create a peering
