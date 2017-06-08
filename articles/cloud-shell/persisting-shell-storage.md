@@ -22,15 +22,13 @@ On initial start, Azure Cloud Shell asks for your subscription to create an LRS 
 
 ![](media/storage-prompt.png)
 
+## How it works
 ### Three resources will be created on your behalf in a supported region nearest to you:
 1. Resource Group named: `cloud-shell-storage-<region>`
 2. Storage Account named: `cs-uniqueGuid`
 3. File Share named: `cs-<user>-<domain>-com-uniqueGuid`
 
 This file share will mount as `clouddrive` under your $Home directory. This file share is also used to store a 5-GB image created for you that automatically updates and persists your $Home directory. This is a one-time action and automatically mounts for subsequent sessions.
-
-#### Restrict resource creation with an Azure resource policy
-The storage account is tagged with "ms-resource-usage:azure-cloud-shell". If your organization would like to deny users from creating storage accounts for Cloud Shell, create an [Azure resource policy](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy) triggered by this tag.
 
 ### Cloud Shell persists files with both methods below:
 1. Create a disk image of your $Home directory to persist files within $Home. 
@@ -41,6 +39,9 @@ This disk image is saved in your specified file share as `acc_<User>.img` at `fi
  
 > [!Note]
 > All files in your $Home directory such as SSH keys are persisted in your user disk image stored in your mounted file share. Apply best practices when persisting information in your $Home directory and mounted file share.
+
+### Restrict resource creation with an Azure resource policy
+The storage account is tagged with "ms-resource-usage:azure-cloud-shell". If your organization would like to deny users from creating storage accounts for Cloud Shell, create an [Azure resource policy for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) triggered by this specific key and value.
 
 ## Using clouddrive
 Cloud Shell allows users to run a command called `clouddrive` that enables manually updating the file share mounted to Cloud Shell.
