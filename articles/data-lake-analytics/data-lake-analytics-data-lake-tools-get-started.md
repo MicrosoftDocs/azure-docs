@@ -47,6 +47,24 @@ Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After 
 3. Right-click **Azure**. Select **Connect to Microsoft Azure Subscription**, and then follow the instructions.
 4. In **Server Explorer**, select **Azure > Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any.
 
+
+## Your first U-SQL script
+
+The following text is a very simply U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Store as a file called `/data.csv`.
+
+```
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
+    USING Outputters.Csv();
+```
+
 **Create and submit a Data Lake Analytics job**
 
 1. Click **File > New > Project**.
@@ -54,71 +72,11 @@ Download and install ADLToolsForVS [from here](http://aka.ms/adltoolsvs). After 
 
     ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
-4. Enter the following script into **Script.usql**:
-
-      @a  = 
-          SELECT * FROM 
-              (VALUES
-                  ("Contoso", 1500.0),
-                  ("Woodgrove", 2700.0)
-              ) AS 
-                    D( customer, amount );
-      OUTPUT @a
-          TO "/data.csv"
-          USING Outputters.Csv();
-    
-    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**.
-
-    Don't modify the two paths unless you copied the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
-
-    It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example
-
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-
-    You must use absolute paths to access  files in  linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
-
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
-   > [!NOTE]
-   > Azure Blob container with public blobs or public containers access permissions are not currently supported.  
-   >
-   >
-
-    Notice the following features:
-
-   * **IntelliSense**
-
-       Name auto completed and the members will be shown for Rowset, Classes, Databases, Schemas, and User Defined Objects (UDOs).
-
-       IntelliSense for catalog entities (Databases, Schemas, Tables, UDOs etc.) is related to your compute account. You can check the current active compute account, database and schema in the top toolbar, and switch them through the dropdown lists.
-   * **Expand * columns**
-
-       Click the right of *, you shall see a blue underline beneath the *. Hover your mouse cursor on the blue underline, and then click the down arrow.
-       ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
-
-       Click **Expand Columns**, the tool will replace the * with the column names.
-   * **Auto Format**
-
-       Users can change the indentation of the U-SQL script based on the code structure under Edit->Advanced:
-
-     * Format Document (Ctrl+E, D) : Formats the whole document   
-     * Format Selection (Ctrl+K, Ctrl+F): Formats the selection. If no selection has been made, this shortcut formats the line the cursor is in.  
-
-       All the formatting rules are configurable under Tools->Options->Text Editor->SIP->Formatting.  
-   * **Smart Indent**
-
-       Data Lake Tools for Visual Studio is able to indent expressions automatically while you are writing scripts. This feature is disabled by default, users need to enable it through checking U-SQL->Options and Settings ->Switches->Enable Smart Indent.
-   * **Go To Definition and Find All References**
-
-       Right-clicking the name of a RowSet/parameter/column/UDO etc. and clicking Go To Definition (F12) allows you to navigate to its definition. By clicking Find All References (Shift+F12), will show all the references.
-   * **Insert Azure Path**
-
-       Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right-click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code.
-5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local)** to run the script locally for the testing purpose. For more information, see [Run U-SQL locally](#run-u-sql-locally).
+4. Paste the previous script into the **Script.usql** window.
+5. Specify the Data Lake Analytics account, Database, and Schema. 
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
-    For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
 6. From **Solution Explorer**, right-click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
 7. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**. Optionally, you can also click **Submit** from Script.usql pane.  See the previous screenshot.  Click the down arrow next to the Submit button to submit using the advance options:
 8. Specify **Job Name**, verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
