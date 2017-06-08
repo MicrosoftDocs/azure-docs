@@ -58,7 +58,7 @@ You can troubleshoot errors encountered while using Azure Backup Server with inf
 | Backup | Error while accessing files/shared folders | Try modifying the antivirus settings as suggested [here](https://technet.microsoft.com/library/hh757911.aspx)|
 
 ## Change Passphrase
-| Operation | Error details | Resolution |
+| Operation | Error details | Workaround |
 | --- | --- | --- |
 | Change Passphrase |Security PIN entered is incorrect. (ID: 100130) Provide the correct Security PIN to complete this operation. |**Cause:**<br/> This error comes when you enter invalid or expired Security PIN while performing critical operation (like change passphrase). <br/>**Recommended Action:**<br/> To complete the operation, you must enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
 | Change Passphrase |Operation failed. ID: 120002 |**Cause:**<br/>This error comes when security settings are enabled, you try to change passphrase and you are on unsupported version.<br/>**Recommended Action:**<br/> To change passphrase, you must first update backup agent to minimum version minimum 2.0.9052 and Azure Backup server to minimum update 1, then enter valid Security PIN. To get the PIN, log in to Azure portal and navigate to Recovery Services vault > Settings > Properties > Generate Security PIN. Use this PIN to change passphrase. |
