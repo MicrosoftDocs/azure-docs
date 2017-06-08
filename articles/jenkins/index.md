@@ -24,7 +24,7 @@ ms.author: mlearned
  
 <ol>
   <li><a href="https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins">Install Jenkins</a> from the Azure Marketplace.</li>
-  <li><a href="https://plugins.jenkins.io/azure-vm-agents">Use Azure Virtual Machines for Jenkins agents</a></li>
+  <li>Use Azure Virtual Machines for <a href="https://plugins.jenkins.io/azure-vm-agents">Jenkins agents</a></li>
 </ol>
    
 
@@ -47,7 +47,7 @@ ms.author: mlearned
 
 <h2 style="margin-top: 36px">Reference</h2>
 <ul>
-  <li><a href="https://azure.microsoft.com/resources/videos/continuous-integration-with-jenkins-using-azure-vm-agents/">CI with Jenkins using Azure VM agents.</a></li>
+  <li>CI with Jenkins using <a href="https://azure.microsoft.com/resources/videos/continuous-integration-with-jenkins-using-azure-vm-agents/">Azure VM agents.</a></li>
   <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
   <li>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins.</a></li>
   <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services</a>.</li> 
