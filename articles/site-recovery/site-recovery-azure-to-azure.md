@@ -105,7 +105,7 @@ In **Recovery Services vaults**, click the vault name. In the vault, click the *
 
 ### Step 3. Configure the settings
 
-By default, Site Recovery automatically creates settings in the target location by using settings that are configured in the source location. Source location settings include a target resource group, storage accounts, virtual network, and availability sets. (All the settings are created with the suffix asr.)
+By default, Site Recovery automatically creates settings in the target location by using settings that are configured in the source location. Source location settings include a target resource group, storage accounts, virtual network, and availability sets. (All the settings are created with the suffix "asr.")
 
 1. To override the default target settings and specify the settings of your choice, click **Customize**. For more information, see [Customize target resources](site-recovery-replicate-azure-to-azure.md##customize-target-resources).
 
@@ -126,7 +126,7 @@ By default, Site Recovery automatically creates settings in the target location 
 
 ## Run a test failover
 
-After you set everything up, run a test failover to make sure everything is working as expected.
+After you set everything up, run a test failover to make sure everything is working as expected:
 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM **+Test Failover** icon.
 
