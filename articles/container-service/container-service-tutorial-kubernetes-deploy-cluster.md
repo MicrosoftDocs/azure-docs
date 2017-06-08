@@ -15,8 +15,80 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 06/08/2017
 ms.author: nepeters
 ---
 
 # Azure Container Service tutorial - Deploy Cluster
+
+Kubernetes provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. This quick start details basic steps needed to deploy a Kubernetes cluster. This tutorial covers the following tasks:
+
+> [!div class="checklist"]
+> * Deploy a Kubernetes ACS cluster
+> * Installation of the Kubernees CLI (kubectl)
+> * Configuration of kubectl
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Create Kubernetes cluster
+
+Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+
+The following example creates a cluster named *myK8sCluster* with one Linux master node and two Linux agent nodes. This example creates SSH keys if they don't already exist in the default locations. To use a specific set of keys, use the `--ssh-key-value` option.
+
+```azurecli-interactive 
+az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
+```
+
+After several minutes, the command completes, and shows you information about your deployment.
+
+## Install kubectl
+
+To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. 
+
+If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
+
+The following Azure CLI example installs `kubectl` to your system. If you are running the Azure CLI on macOS or Linux, you might need to run the command with `sudo`.
+
+```azurecli-interactive 
+az acs kubernetes install-cli 
+```
+
+## Connect with kubectl
+
+To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. The following example
+downloads the cluster configuration for your Kubernetes cluster.
+
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+```
+
+To verify the connection to your cluster from your machine, try running:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Output:
+
+```azurecli-interactive
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
+k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
+
+## Next steps
+
+In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Task covered included:
+
+> [!div class="checklist"]
+> * Deploy a Kubernetes ACS cluster
+> * Installation of the Kubernees CLI (kubectl)
+> * Configuration of kubectl
+
+Advance to the next tutorial to learn about running application on the cluster.
+
+> [!div class="nextstepaction"]
+> [Load balance applications](./container-service-tutorial-kubernetes-deploy-application.md)

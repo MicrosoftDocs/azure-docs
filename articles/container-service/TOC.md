@@ -16,7 +16,7 @@
 ### [6 - Scale application](container-service-tutorial-kubernetes-scale-application.md)
 ### [7 - Update application](container-service-tutorial-kubernetes-update-application.md)
 ### [8 - Scale Kubernetes](container-service-tutorial-kubernetes-scale-cluster.md)
-### [9 - Monitor Kubernetes](container-service-tutorial-kubernetes-monitor-cluster)
+### [9 - Monitor Kubernetes](container-service-tutorial-kubernetes-monitor-cluster.md)
 ## DC/OS
 ### [Create / manage cluster](container-service-dcos-manage-tutorial.md)
 ### [Load balance applications](container-service-load-balancing.md)
