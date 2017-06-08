@@ -20,7 +20,7 @@ ms.author: rachelap
 # Build a Node.js RESTful API and deploy it to an API app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-This quickstart shows how to create a simple [Node.js](http://nodejs.org) REST API using the [Express](http://expressjs.com/) framework from a [Swagger](http://swagger.io/) definintion and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You'll create the app using the command line and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) and deploy the app from a local [Git](http://git-scm.com) repo. 
+This quickstart shows how to create a simple [Express](http://expressjs.com/) framework Node.js REST API using from a [Swagger](http://swagger.io/) definintion and deploy it as an [API app](app-service-api-apps-why-best-platform.md)  on Azure. You'll create the app using command line tools, configure resources with the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli),  and deploy the app using Git.  When you've finished, you'll have a working sample REST API running on Azure.
 
 ## Prerequisites
 
