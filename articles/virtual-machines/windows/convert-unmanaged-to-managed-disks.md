@@ -108,6 +108,9 @@ Start-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
 > [!NOTE] 
 > You can also have a mixture of disks that use standard and Premium storage.
 
+> [!IMPORTANT] 
+> The original VHDs and the storage account used by the VM before conversion are not deleted and hence billed. To avoid being billed for these artifacts, please delete the original VHD blobs once you've verified the conversion is complete.
+
 ### Troubleshooting
 In case of an error during conversion - or if you have a Virtual Machine in a Failed state due to a previous conversion that faced issues, please retry it by running the ConvertTo-AzureRmVMManagedDisk cmdlet again.
 A simple retry usually unblocks the situation.
