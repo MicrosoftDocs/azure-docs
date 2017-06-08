@@ -111,11 +111,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. In the **Identifier** textbox, type a URL using the following pattern:
 	`https://ca.ondemand.saml.20.post.<companyname>`
 	
-	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	b. In the **Reply URL** textbox, type as:
 	`https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [CA PPM support team](mailto:catechnicalsupport@ca.com) to get these values.
+	> This value is not real. Update this value with the actual Identifier. Contact [CA PPM support team](mailto:catechnicalsupport@ca.com) to get this value.
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
