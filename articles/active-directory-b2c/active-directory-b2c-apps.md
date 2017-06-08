@@ -119,11 +119,6 @@ In this flow, the app executes [policies](active-directory-b2c-reference-policie
 ## Current limitations
 Azure AD B2C does not currently support the following types of apps, but they are on the roadmap. 
 
-### Daemons/server-side apps
-Apps that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These apps can authenticate and get tokens by using the app's identity (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow.
-
-This flow is not currently supported by Azure AD B2C. These apps can get tokens only after an interactive user flow has occurred.
-
 ### Web API chains (on-behalf-of flow)
 Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end. This then calls a Microsoft online service such as the Azure AD Graph API.
 
