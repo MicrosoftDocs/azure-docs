@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2017
+ms.date: 06/07/2017
 ms.author: curtand
 
 ---
@@ -33,7 +33,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 ## Open a support ticket
 
-If you are unable to find answers by using self-help resources, you can open an online support ticket. Please limit each support ticket to a single issue so that we can connect you to the support engineers who are subject matter experts for your issue. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
+If you are unable to find answers by using self-help resources, you can open an online support ticket. You should open each support ticket for only a single problem, so that we can connect you to the support engineers who are subject matter experts for your problem. Also, Azure Active Directory engineering teams prioritize their work based on incidents that are generated, so you're often contributing to service improvements.
 
 ### How to open a support ticket for Azure AD in the Azure portal
 
@@ -51,7 +51,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 
 5. On the **Problem** blade, select a Severity (linked to [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/)).
   
-6. Select a **Problem type**, and then select a **Category** for that type. At this point, you'll also be offered self-help information for your problem category.
+6. Select a **Problem type**, and then select a **Category** for that type. At this point, you are also offered self-help information for your problem category.
   
 7. Add the rest of your problem information and click **Next**.
   
@@ -79,7 +79,7 @@ If you are unable to find answers by using self-help resources, you can open an 
 
 6. Select one of the offered self-help resources, or select **Yes, continue** or **No, cancel request**.
 
-7. If you continue, you'll be asked for more details and you can attach any files you have that will help, and then select **Next**.
+7. If you continue, you are asked for more details. You can attach any files you have that represent the problem, and then select **Next**.
 
 8. Provide your contact information and select **Submit request**.
 
