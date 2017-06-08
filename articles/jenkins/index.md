@@ -32,7 +32,7 @@ ms.author: mlearned
 <p>In-depth guides to use Jenkins to build and deploy Azure apps.</p>
 <ol>
     <li>Configure Jenkins to work with <a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Azure Storage</a>.</li>
-    <li>Execute<a href="/azure/jenkins/execute-cli-jenkins-pipeline">Azure CLI  with a Jenkins pipeline.</a></li>
+    <li>Execute <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Azure CLI  with a Jenkins pipeline.</a></li>
     <li>CI/CD with <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins and Docker on Azure VMs</a></li>
     <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Jenkins integration</a> with <a href="/azure/container-service/container-service-kubernetes-walkthrough">Azure Container Service and Kubernetes.</a></li>
     
