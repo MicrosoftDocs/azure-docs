@@ -29,10 +29,12 @@ Log Analytics offers the following solutions for monitoring your networks:
  * Azure Network Security Group logs
 
 ## Network Performance Monitor (NPM)
+
 The [Network Performance Monitor](log-analytics-network-performance-monitor.md) management solution is a network monitoring solution, that monitors the health, availability and reachability of networks.  It is used to monitor connectivity between:
-* public cloud and on-premises
-* data centers and user locations (branch offices)
-* subnets hosting various tiers of a multi-tiered application.
+
+* Public cloud and on-premises
+* Data centers and user locations (branch offices)
+* Subnets hosting various tiers of a multi-tiered application.
 
 For more information, see [Network Performance Monitor](log-analytics-network-performance-monitor.md).
 

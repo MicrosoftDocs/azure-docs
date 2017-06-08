@@ -54,7 +54,7 @@ Use the following information to install and configure the solution.
 1. [Set the Run As account for System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
 2. [Configure the System Center Operations Manager Assessment rule](#configure-the-assessment-rule)
 
-# System Center Operations Manager assessment data collection details
+## System Center Operations Manager assessment data collection details
 
 The System Center Operations Manager assessment collects WMI data, Registry data, EventLog data, Operations Manager data through Windows PowerShell, SQL Queries, File information collector using the server that you have enabled.
 

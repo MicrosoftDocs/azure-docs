@@ -47,6 +47,7 @@ This template does the following:
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
 Once you select the deploy button above, you will arrive on the Azure portal with parameters for you to edit. Be sure to create a new resource group if you input a new Log Analytics workspace name:
+
 ![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)

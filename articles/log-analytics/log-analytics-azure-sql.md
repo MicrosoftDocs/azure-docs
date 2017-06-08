@@ -44,9 +44,9 @@ The following table describes the connected sources that are supported by this s
 
 ## Prerequisites
 
-1. An Azure Subscription. If you don't have one, you can create one for [free](https://azure.microsoft.com/free/).
-2. A Log Analytics workspace. You can use an existing one, or you can [create a new one](log-analytics-get-started.md) before you start using this solution.
-3. Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- An Azure Subscription. If you don't have one, you can create one for [free](https://azure.microsoft.com/free/).
+- A Log Analytics workspace. You can use an existing one, or you can [create a new one](log-analytics-get-started.md) before you start using this solution.
+- Enable Azure Diagnostics for your Azure SQL databases and elastic pools and [configure them to send their data to Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
 ## Configuration
 

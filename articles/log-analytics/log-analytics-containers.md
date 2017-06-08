@@ -16,7 +16,7 @@ ms.date: 06/07/2017
 ms.author: banders
 
 ---
-# Containers (Preview) solution Log Analytics
+# Containers (Preview) solution in Log Analytics
 
 ![Containers symbol](./media/log-analytics-containers/containers-symbol.png)
 

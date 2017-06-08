@@ -52,11 +52,11 @@ Use the following steps to configure registry keys to track on Windows computers
 ### Limitations
 The Change Tracking solution does not currently support the following:
 
-* folders (directories)
-* recursion
-* wild cards
-* path variables
-* network file systems
+* Folders (directories)
+* Recursion
+* Wild cards
+* Path variables
+* Network file systems
 
 Other limitations:
 
