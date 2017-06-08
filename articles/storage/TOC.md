@@ -50,6 +50,7 @@
 ### [Add a managed disk to a Linux VM](../virtual-machines/linux/add-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Using managed disks in Resource Manager templates](storage-using-managed-disks-template-deployments.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
@@ -110,6 +111,7 @@
 ## Secure
 ### [Security guide](storage-security-guide.md)
 ### [Encryption for data at rest](storage-service-encryption.md)
+### [Encryption at rest with customer keys](storage-service-encryption-customer-managed-keys.md)
 ### [Shared key authentication](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)

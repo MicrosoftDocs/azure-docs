@@ -29,7 +29,7 @@ Before implementing the policies described in the remainder of this document, th
 ### Recommended email clients
 The following email clients support Modern Authentication and Conditional Access. Azure Information Protection is not yet available for all clients.
 
-|Platform|Client|Version/Notes|Azure Info Protection|
+|Platform|Client|Version/Notes|Azure Information Protection|
 |:-------|:-----|:------------|:--------------------|
 |**Windows**|Outlook|2016, 2013 ([Enable Modern Auth]((https://support.office.com/en-us/article/Enable-Modern-Authentication-for-Office-2013-on-Windows-devices-7dc1c01a-090f-4971-9677-f1b192d6c910))|Yes|
 |**iOS**|Outlook|[Latest](https://itunes.apple.com/us/app/microsoft-outlook-email-and-calendar/id951937596?mt=8)|No|
@@ -81,7 +81,7 @@ The following table contains default protection mechanism recommendations for ea
 |**Enforce MFA**|On medium or above sign-in risk|On low or above sign-in risk|On all new sessions|
 |**Enforce Password Change**|For high risk users|For high risk users|For high risk users|
 |**Enforce Intune Application Protection**|Yes|Yes|Yes|
-|**Enforce Intune Enrollment (COD**|Require a compliant or domain joined device|Require a compliant or domain joined device|Require a compliant or domain joined device|
+|**Enforce Intune Enrollment (COD)**|Require a compliant or domain joined device|Require a compliant or domain joined device|Require a compliant or domain joined device|
 
 ### Device ownership
 The above table reflects the trend for many organizations to support a mix of corporate-owned devices (COD) as well as personal or bring-your-own devices (BYOD) to enable mobile productivity across their workforces. Intune App Protection Policies ensure that email is protected from exfiltrating out of the Outlook mobile app and other Office mobile apps, on both COD and BYOD.  
