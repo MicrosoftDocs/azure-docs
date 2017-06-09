@@ -1,10 +1,10 @@
 ---
-title: Conditional Access with Azure SQL Database and Data Warehouse
-description: Learn how to configure Conditional Access for Azure SQL Database and Data Warehouse.>
+title: Conditional Access - Azure SQL Database and Data Warehouse | Microsoft Doc
+description: Learn how to configure Conditional Access for Azure SQL Database and Data Warehouse.
 services: sql-database
 author: BYHAM
 manager: jhubbard
-
+ms.custom: security
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
@@ -44,4 +44,4 @@ For questions about Azure SQL Database and Data Warehouse regarding multi-factor
 
 ## Next steps  
 
-For a tutorial using Azure Active Directory authentication, see [Azure AD authentication, access, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md).
+For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).

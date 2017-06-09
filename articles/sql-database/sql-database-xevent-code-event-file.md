@@ -10,7 +10,7 @@ tags: ''
 
 ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -40,7 +40,7 @@ This topic presents a two-phase code sample:
 * An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Any database you can create a table in.
   
-  * Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started-portal.md) in minutes.
+  * Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
 * SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
   You can download the latest ssms.exe from:
   

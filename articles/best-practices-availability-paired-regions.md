@@ -31,20 +31,23 @@ Figure 1 – Azure regional pair diagram
 
 | Geography | Paired regions |  |
 |:--- |:--- |:--- |
+| Asia |East Asia |Southeast Asia |
+| Australia |Australia East |Australia Southeast |
+| Brazil |Brazil South (1) |South Central US |
+| Canada |Canada Central |Canada East |
+| China |China North |China East|
+| Europe |North Europe |West Europe |
+| Germany |Germany Central |Germany Northeast |
+| India |Central India |South India |
+| Japan |Japan East |Japan West |
+| Korea |Korea Central |Korea South |
 | North America |North Central US |South Central US |
 | North America |East US |West US |
-| North America |US East 2 |US Central |
+| North America |East US 2 |Central US |
 | North America |West US 2 |West Central US |
-| Europe |North Europe |West Europe |
-| Asia |South East Asia |East Asia |
-| China |East China |North China |
-| Japan |Japan East |Japan West |
-| Brazil |Brazil South (1) |South Central US |
-| Australia |Australia East |Australia Southeast |
+| US DoD |US DoD East |US DoD Central |
 | US Government |US Gov Iowa |US Gov Virginia |
-| India |Central India |South India |
-| Canada |Canada Central |Canada East |
-| UK |UK West |UK South |
+| UK |UK South |UK West |
 
 Table 1 - Mapping of azure regional pairs
 
