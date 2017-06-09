@@ -1,20 +1,19 @@
 ---
 title: 'Azure Cosmos DB tutorial: Create, query, and traverse in Apache TinkerPops Gremlin Console | Microsoft Docs'
 description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Graph API.
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
 ms.date: 05/19/2017
 ms.author: anhoh
-
 ---
 # Azure Cosmos DB: Create, query, and traverse a graph in the Gremlin console
 
@@ -59,6 +58,20 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 4. In your terminal, run *:remote connect tinkerpop.server conf/remote-secure.yaml* to connect to your app service.
 
 Great! Now that we finished the setup, let's start running some console commands.
+
+Let's try a simple count() command. Type the following in to the console at the prompt:
+```
+:> g.V().count()
+```
+
+> [!TIP]
+> Notice the ***:>*** that precedes the g.V().count() text? 
+>
+> This is part of the command you need to type. It is important when using the Gremlin console, with Azure Cosmos DB.  
+>
+> Omitting this :> prefix instructs the console to execute the command locally, often against an in-memory graph.
+> Using this ***:>*** tells the console to execute a remote command, in this case against Cosmos DB (either the localhost emulator, or an > Azure instance).
+
 
 ## Create vertices and edges
 

@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: Perform graph analytics using Spark and Apache TinkerPops Gremlin | Microsoft Docs'
 description: Presents a set up instructions to set up and run graph analytics and parallel computation Azure Cosmos DB with Spark GraphX
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: khdang
 manager: shireest
 editor: ''
 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na

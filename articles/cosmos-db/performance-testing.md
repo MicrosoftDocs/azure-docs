@@ -2,14 +2,14 @@
 title: Azure Cosmos DB scale and performance testing | Microsoft Docs
 description: Learn how to perform scale and performance testing with Azure Cosmos DB
 keywords: performance testing
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -95,7 +95,7 @@ The quickest way to get started is to compile and run the .NET sample below, as 
     DocumentDBBenchmark completed successfully.
 
 
-**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection. If not, increasing the DegreeOfParallelism in small increments may help you reach the limit. If the throughput from your client app plateaus, launching multiple instances of the app on the same or different machines will help you reach the provisioned limit across the different instances. If you need help with this step, please, write an email to askdocdb@microsoft.com or file a support ticket from the [Azure Portal](https://portal.azure.com).
+**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection. If not, increasing the DegreeOfParallelism in small increments may help you reach the limit. If the throughput from your client app plateaus, launching multiple instances of the app on the same or different machines will help you reach the provisioned limit across the different instances. If you need help with this step, please, write an email to askcosmosdb@microsoft.com or file a support ticket from the [Azure Portal](https://portal.azure.com).
 
 Once you have the app running, you can try different [Indexing policies](indexing-policies.md) and [Consistency levels](consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 

@@ -95,7 +95,7 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 
 Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
+ms.date: 06/02/2017
 ms.author: cherylmc
 
 ---
@@ -36,11 +36,6 @@ If you want to connect your on-premises sites securely to a virtual network, you
 The following table can help you decide the best connectivity option for your solution.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
-### <a name="gwrequire"></a>Gateway requirements by VPN type and SKU
-[!INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
-
-For more information about gateway SKUs, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 #### Aggregate throughput by SKU and VPN type
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]

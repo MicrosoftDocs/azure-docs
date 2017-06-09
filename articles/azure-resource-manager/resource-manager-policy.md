@@ -144,7 +144,7 @@ The supported logical operators are:
 
 The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical **Or** operation) requires one or more conditions to be true.
 
-You can nest logical operators. The following example shows a **Not** operation that is nested within an **And** operation. 
+You can nest logical operators. The following example shows a **not** operation that is nested within an **allOf** operation. 
 
 ```json
 "if": {

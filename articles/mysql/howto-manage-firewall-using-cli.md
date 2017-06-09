@@ -56,7 +56,7 @@ az account set --subscription {your subscription id}
 ```azurecli
 az mysql server list --resource-group myResourceGroup
 ```
-Note the name attribute in the listing, which will be used to specify which MySQL server to work on. If needed, confirm the details for that server to using the name attribute to confirm name is correct:
+Note the name attribute in the listing, which will be used to specify which MySQL server to work on. If needed, confirm the details for that server in order to check the validity of the name using the name attribute.
 ```azurecli
 az mysql server show --resource-group myResourceGroup --name mysqlserver4demo
 ```
