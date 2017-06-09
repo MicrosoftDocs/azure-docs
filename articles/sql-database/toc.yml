@@ -215,7 +215,7 @@
       href: sql-database-develop-overview.md
     - name: Connectivity
       href: sql-database-libraries.md
-    - name: Authenticate App 
+    - name: Authenticate app 
       href: sql-database-client-id-keys.md
     - name: Error messages
       href: sql-database-develop-error-messages.md
