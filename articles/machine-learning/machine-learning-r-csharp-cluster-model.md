@@ -1,18 +1,18 @@
 ---
-title: (deprecated) Cluster Model - Azure | Microsoft Docs 
-description: (deprecated) Cluster Model 
-services: machine-learning 
-documentationcenter: '' 
-author: FrancescaLazzeri 
-manager: jhubbard 
-editor: cgronlun 
+title: (deprecated) Cluster Model - Azure | Microsoft Docs
+description: (deprecated) Cluster Model
+services: machine-learning
+documentationcenter: ''
+author: FrancescaLazzeri
+manager: jhubbard
+editor: cgronlun
  
-ms.assetid: 51b8d012-ed44-4312-920c-9c808dfd4ff6 
-ms.service: machine-learning 
-ms.workload: data-services 
-ms.tgt_pltfrm: na 
-ms.devlang: na 
-ms.topic: article 
+ms.assetid: 51b8d012-ed44-4312-920c-9c808dfd4ff6
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
 ms.date: 01/06/2017 
 ms.author: lazzeri
 

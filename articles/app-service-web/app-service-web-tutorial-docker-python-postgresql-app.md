@@ -23,7 +23,7 @@ Azure Web Apps provides a highly scalable, self-patching web hosting service. Th
 
 ![Docker Python Flask app in Azure App Service](./media/app-service-web-tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
-You can follow the steps below on Linux or macOS. Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+You can follow the steps below on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
  
 ## Prerequisites
 
@@ -91,7 +91,8 @@ virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 cd app
-FLASK_APP=app.py;DBHOST="localhost";DBUSER="manager";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
+FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
+FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db run
 ```
 
 When the app is fully loaded, you see something similar to the following message:
@@ -224,7 +225,8 @@ Type *\q* to exit the PostgreSQL client.
 Going back now to the *app* folder of the cloned Github repository, you can run the Python Flask application by updating the database environment variables.
 
 ```bash
-FLASK_APP=app.py;DBHOST="<postgresql_name>.postgres.database.azure.com";DBUSER="manager@<postgresql_name>";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
+FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
+FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
 When the app is fully loaded, you see something similar to the following message:
@@ -502,7 +504,8 @@ Mac / Linux:
 ```bash
 source venv/bin/activate
 cd app
-FLASK_APP=app.py;DBHOST="localhost";DBUSER="manager";DBNAME="eventregistration";DBPASS="supersecretpass";flask db upgrade;flask run
+FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
+FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
 Navigate to http://127.0.0.1:5000 in your browser to view the changes. Create a test registration.
@@ -538,7 +541,7 @@ From the left menu, click **App Services**, then click the name of your Azure we
 
 By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-![App Service blade in Azure portal](./media/app-service-web-tutorial-docker-python-postgresql-app/app-mgmt.png)
+![App Service page in Azure portal](./media/app-service-web-tutorial-docker-python-postgresql-app/app-mgmt.png)
 
 ## Next steps
 
