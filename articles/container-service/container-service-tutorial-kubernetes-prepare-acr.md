@@ -87,28 +87,30 @@ docker login --username=myContainerRegistry1326 --password==N+/=J/=++Rns2==+=Me3
 ```
 
 ```bash
-docker tag e2b3e8542af7 mycontainerregistry1326.azurecr.io/gb-frontend
+REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
+azure-vote-back     latest              dfdc614becea        7 seconds ago        407 MB
+azure-vote-front    latest              67e8582e68a8        About a minute ago   445 MB
+ubuntu              latest              7b9b13f7b9c0        6 days ago           118 MB
+mysql               latest              e799c7f9ae9c        4 weeks ago          407 MB
 ```
 
 ```bash
-docker tag 5f026ddffa27 mycontainerregistry1326.azurecr.io/gb-redisslave
+docker tag dfdc614becea mycontainerregistry1326.azurecr.io/azure-vote-back
 ```
 
 ```bash
-docker tag e5e67996c442 mycontainerregistry1326.azurecr.io/redis
+docker tag 67e8582e68a8 mycontainerregistry1326.azurecr.io/azure-vote-front
+```
+
+
+```bash
+docker push mycontainerregistry1326.azurecr.io/azure-vote-back
 ```
 
 ```bash
-docker push mycontainerregistry1326.azurecr.io/gb-frontend
+docker push mycontainerregistry1326.azurecr.io/azure-vote-back
 ```
 
-```bash
-docker push mycontainerregistry1326.azurecr.io/gb-redisslave
-```
-
-```bash
-docker push mycontainerregistry1326.azurecr.io/redis
-```
 
 ## Next steps
 
@@ -120,4 +122,4 @@ In this tutorial, an Azure Container Registry was prepared for use in an ACS Kub
 
 Advance to the next tutorial to learn about deploying a Kubernetes cluster in Azure.
 > [!div class="nextstepaction"]
-> [Load balance applications](./container-service-tutorial-kubernetes-deploy-cluster.md)
+> [Deploy ACS cluster](./container-service-tutorial-kubernetes-deploy-cluster.md)
