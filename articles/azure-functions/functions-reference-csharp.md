@@ -428,7 +428,7 @@ public static async Task Run(string input, Binder binder)
 
 The following table lists the .NET attributes for each binding type and the packages in which they are defined.
 
-> [!div class="mx-codeBreakAll"]
+>
 | Binding | Attribute | Add reference |
 |------|------|------|
 | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
