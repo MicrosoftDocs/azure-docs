@@ -5,7 +5,7 @@ services: sql-database
 documentationcenter: ''
 author: stevestein
 manager: jhubbard
-reditor: monicar
+editor: monicar
 
 ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
