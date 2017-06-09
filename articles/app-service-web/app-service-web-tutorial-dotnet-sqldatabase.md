@@ -43,7 +43,7 @@ To complete this tutorial:
  - **ASP.NET and web development**
  - **Azure development**
 
-![**ASP.NET and web development and Azure development** (under **Web & Cloud**)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+![ASP.NET and web development and Azure development (under **Web & Cloud**)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
