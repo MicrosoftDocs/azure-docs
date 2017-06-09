@@ -142,7 +142,7 @@ Most often this test fails because the Health Agent is unable to resolve the AD 
 
 **Q: I got an email indicating my machines are NOT patched for the recent ransomeware attacks. Why did I receive this email?**
 
-Azure AD Connect Health service performed a scanned on all the machines it monitors to ensure the required patches were installed. The email was sent to the tenant administrators if at least one machine did not have the critical patches. The following logic was used to make this determination.
+Azure AD Connect Health service scanned all the machines it monitors to ensure the required patches were installed. The email was sent to the tenant administrators if at least one machine did not have the critical patches. The following logic was used to make this determination.
 1. Find all the hotfixes installed on the machine.
 2. Check if at least one of the HotFixes from the defined list is present.
 3. If Yes, the machine is protected. If Not, the machine is at risk for the attack.
