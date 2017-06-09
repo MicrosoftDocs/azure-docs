@@ -30,7 +30,7 @@ You run a test failover to validate your replication strategy or perform a DR dr
 If you have any comments or questions, post them at the bottom of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## Preparing the infrastructure for test failover
+## Prepare the infrastructure for test failover
 If you want to run a test failover by using an existing network, prepare Active Directory, DHCP, and DNS in that network.
 
 If you want to run a test failover by using the option to create VM networks automatically, add a manual step before Group-1 in the recovery plan that you’re going to use for the test failover. Then, add the infrastructure resources to the automatically created network before you run the test failover.
@@ -40,7 +40,7 @@ When you're replicating to a secondary site, the type of network that the replic
 
 In addition, the test failover won't work if the replica network uses no isolation and the test network uses Windows Network Virtualization. This is because the no-isolation network doesn't have the subnets required to create a Windows Network Virtualization network.
 
-The way in which replica virtual machines are connected to mapped VM networks after failover depends on how the VM network is configured in the VMM console.
+How replica virtual machines are connected to mapped VM networks after failover depends on how the VM network is configured in the VMM console.
 
 #### VM network configured with no isolation or VLAN isolation
 If DHCP is defined for the VM network, the replica virtual machine is connected to the VLAN ID through the settings that are specified for the network site in the associated logical network. The virtual machine receives its IP address from the available DHCP server. 
@@ -59,7 +59,7 @@ If you define DHCP, the target VMM server acts as a DHCP server and provides an 
 If the virtual machines involved in test failover use DHCP, create a test DHCP server within the isolated network for the purpose of test failover.
 
 ### Prepare Active Directory
-To run a test failover for application testing, you need a copy of the production Active Directory environment in your test environment. For more details, review the [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations).
+To run a test failover for application testing, you need a copy of the production Active Directory environment in your test environment. For more information, review the [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations).
 
 ### Prepare DNS
 Prepare a DNS server for the test failover as follows:
@@ -85,7 +85,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 ![Test failover blade](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
-1. On the **Test Failover** blade, specify how virtual machines should be connected to networks after the test failover. For more details, see the [network options](#network-options-in-site-recovery).
+1. On the **Test Failover** blade, specify how virtual machines should be connected to networks after the test failover. For more information, see the [network options](#network-options-in-site-recovery).
 1. Track failover progress on the **Jobs** tab.
 1. After failover is complete, verify that the virtual machines start successfully.
 1. When you're done, click **Cleanup test failover** on the recovery plan. In **Notes**, record and save any observations associated with the test failover. This step deletes the virtual machines and networks that were created during test failover.
