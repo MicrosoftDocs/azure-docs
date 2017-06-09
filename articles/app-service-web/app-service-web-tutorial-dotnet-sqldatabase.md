@@ -19,8 +19,6 @@ ms.custom: mvc
 ---
 # Build an ASP.NET app in Azure with SQL Database
 
-
-
 This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
 ![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
@@ -122,41 +120,6 @@ Click **OK**.
 
 You can keep the generated web app name, or change it to another unique name. The web app name is used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`). The web app needs to be unique across all apps in Azure. 
 
-### Create a resource group
-
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
-
-Next to **Resource Group**, click **New**.
-
-![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg.png)
-
-
-<!-- I like this as it warns you not to hit create. Which image should I keep? -->
-
-![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
-
-Name the resource group **myResourceGroup**, and click **OK**.
-
-### Create an App Service plan
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-Next to **App Service Plan**, click **New**. 
-
-In the **Configure App Service Plan** dialog, use the following settings:
-
-- **App Service Plan**: Type **myAppServicePlan**. 
-- **Location**: Choose **West Europe**, or a region near you.
-- **Size**: Choose **Free**. See [pricing tier](https://azure.microsoft.com/pricing/details/app-service/) for features.
-
-Click **OK**.
-
-![Create App Service plan](media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
-
-
-> [!NOTE]
-> Do not click **Create** until you've set up a SQL database.
-
 ### Create a SQL Server instance
 
 Select **Explore additional Azure services**.
@@ -187,7 +150,7 @@ The **Create App Service** dialog shows the resources you've created. Click **Cr
 
 ![the resources you've created](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
-Once the wizard finishes creating the Azure resources, it  publishes your ASP.NET app to Azure. YOu default browser is launched with the URL to the deployed app. 
+Once the wizard finishes creating the Azure resources, it  publishes your ASP.NET app to Azure. Your default browser is launched with the URL to the deployed app. 
 
 Try to add a few to-do items to the empty list.
 
@@ -432,7 +395,10 @@ By default, your web app's blade shows the **Overview** page. This page gives yo
 
 ![App Service blade in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
+## Clean up Resources
+ 
+* From the left menu, select **Resource Groups**, and then select **myResourceGroup**.
+* Select **Delete**, which deletes all the resources you created in the tutorial.
 
 <a name="next"></a>
 
