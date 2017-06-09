@@ -52,7 +52,7 @@ With a managed instance, features like SQL CLR, SQL Server Agent, and cross-data
 > [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4008/player]
 >
 
-A new [Azure Database Migration Service](https://azure.microsoft.com/en-us/blog/azure-database-migration-service-announcement-at-build) was also announced in May 2017 that will make the migration to managed instances automated, risk free, and with down time measured in minutes. This service will streamline moving SQL Server and non-Microsoft database systems such as Oracle to Azure SQL Database.
+A new [Azure Database Migration Service](https://azure.microsoft.com/en-us/blog/azure-database-migration-service-announcement-at-build) was also announced in May 2017 that will make the migration to managed instances automated, risk free, and with down time measured in minutes. This service will streamline moving SQL Server and non-Microsoft database systems such as Oracle to Azure SQL Database. Migration will use native SQL Server backups rather than using a BACPAC file.
 
 For customers in highly regulated industries, managed instances bringing two additional important innovations: 
 
