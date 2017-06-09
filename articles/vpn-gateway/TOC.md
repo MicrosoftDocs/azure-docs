@@ -56,6 +56,7 @@
 ## [Configure a VPN gateway (classic)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
+### [Suggestions for VPN or firewall devices settings](vpn-gateway-third-party-settings.md)
 
 # Reference
 ## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
