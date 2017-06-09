@@ -399,7 +399,7 @@ By default, the portal shows the **Overview** page. This page gives you a view o
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal-web-app.md)]
+[!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
 <a name="next"></a>
 
