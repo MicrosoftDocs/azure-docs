@@ -88,6 +88,8 @@ Once signed in, you're ready to create all the resources you need for your Azure
 
 ### Configure the web app name
 
+![Create app service dialog](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
+
 You can keep the generated web app name, or change it to another unique name. The web app name is used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`). The web app needs to be unique across all apps in Azure. 
 
 ### Create a resource group
@@ -105,7 +107,7 @@ Next to **Resource Group**, click **New**.
 Name the resource group **myResourceGroup**, and click **OK**.
 
 > [!NOTE]
-> Do not click **Create**. You first need to setup a SQL Database in the next step.
+> Do not click **Create**. You first need to set up a SQL Database in a later step.
 
 ### Create an App Service plan
 
@@ -167,7 +169,7 @@ Visual Studio lets you explore and manage your new SQL Database easily in the **
 
 ### Create a database connection
 
-Open **SQL Server Object Explorer** by typing `Ctrl`+`` ` ``, `Ctrl`+`S`.
+From the **View** menu, select **SQL Server Object Explorer**.
 
 At the top of **SQL Server Object Explorer**, click the **Add SQL Server** button.
 
@@ -175,7 +177,7 @@ At the top of **SQL Server Object Explorer**, click the **Add SQL Server** butto
 
 In the **Connect** dialog, expand the **Azure** node. All your SQL Databases in Azure are listed here.
 
-Select the SQL Database that you created earlier. The connection you used earlier is automatically filled at the bottom.
+Select the `DotNetAppSqlDb** SQL Database. The connection you used earlier is automatically filled at the bottom.
 
 Type the database administrator password you used earlier and click **Connect**.
 
@@ -193,7 +195,9 @@ Make sure that **Add my client IP** is selected and click **OK**.
 
 Once Visual Studio finishes creating the firewall setting for your SQL Server instance, your connection shows up in **SQL Server Object Explorer**.
 
-Here, you can perform the most common database operations, such as run queries, create views and stored procedures, and more. The following example shows you how to view database data. 
+Here, you can perform the most common database operations, such as run queries, create views and stored procedures, and more. 
+
+Right-click on the `Todoes` table and select **View Data**. 
 
 ![Explore SQL Database objects](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
