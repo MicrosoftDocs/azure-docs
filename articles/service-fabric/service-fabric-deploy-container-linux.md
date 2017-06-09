@@ -52,10 +52,9 @@ Run the following commands to install docker on your Linux development box (if y
 ```
 
 ## Create the application
-1. In a terminal, type `yo azuresfguest`.
-2. For the framework, choose **Container**.
-3. Name your application - for example, SimpleContainerApp
-4. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
+1. In a terminal, type `yo azuresfcontainer`.
+2. Name your application - for example, mycontainerap
+3. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
@@ -86,10 +85,10 @@ For an example application, [checkout the Service Fabric container code samples 
 
 ## Adding more services to an existing application
 
-To add another container service to an application already created using `yo`, perform the following steps: 
+To add another container service to an application already created using `yo`, perform the following steps:
 
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
-2. Run `yo azuresfguest:AddService`
+2. Run `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 
@@ -130,8 +129,8 @@ Resource governance is a capability of the container that restricts the resource
 
 > [!NOTE]
 > In a future release, support for specifying specific block IO limits such as IOPs, read/write BPS, and others will be included.
-> 
-> 
+>
+>
 
 ```xml
     <ServiceManifestImport>
@@ -204,7 +203,7 @@ If you specify an endpoint, using the `Endpoint` tag in the service manifest of 
     </ServiceManifestImport>
 ```
 
-By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
+By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section.
 
 ## Configure and set environment variables
 Environment variables can be specified for each code package in the service manifest, both for services that are deployed in containers or for services that are deployed as processes/guest executables. These environment variable values can be overridden specifically in the application manifest or specified during deployment as application parameters.

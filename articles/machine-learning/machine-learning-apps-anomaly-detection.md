@@ -9,7 +9,7 @@ editor: cgronlun
  
 ms.service: machine-learning 
 ms.devlang: na 
-ms.topic: article 
+ms.topic: article
 ms.tgt_pltfrm: na 
 ms.workload: multiple 
 ms.date: 01/18/2017 
