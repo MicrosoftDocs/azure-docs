@@ -26,7 +26,7 @@ The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you 
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal as what they can do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaaS VMs.
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
-- PaaS resources will be created and appear in cost tracking; however, VM auto shutdown does not apply to PaaS resources.
+- PaaS resources are created and will appear in cost tracking; however, VM auto shutdown does not apply to PaaS resources.
 - Users have the same VM policy control for environments as they have for single-lab VMs.
 
 Learn more about the many [benefits of using Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) to deploy, update, or delete all of your lab resources in a single operation.
@@ -126,4 +126,5 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
+* View and manage resources in an environment by selecting the environment in the **My virtual machines** list in your lab. 
 * Explore the [Azure Resource Manager templates from Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates)
