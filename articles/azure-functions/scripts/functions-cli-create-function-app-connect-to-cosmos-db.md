@@ -10,11 +10,12 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
+ms.custom: mvc
 ---
 # Create an Azure Function that connects to an Azure Cosmos DB
 
@@ -22,11 +23,15 @@ This sample script creates an Azure Function App and connects to an Azure Cosmos
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
 This sample creates an Azure Function app and adds a Cosmos DB endpoint and access key to app settings.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 
 ## Clean up deployment
 

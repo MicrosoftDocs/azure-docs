@@ -1,6 +1,6 @@
 ---
-title: Install Jupyter notebook locally and connect to an Azure HDInsight Spark cluster | Microsoft Docs
-description: Learn about how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
+title: Install Jupyter locally and connect to an Azure HDInsight Spark cluster | Microsoft Docs
+description: Learn how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Install Jupyter notebook on your computer and connect to Apache Spark cluster on HDInsight
+# Install Jupyter notebook on your computer and connect to Apache Spark on HDInsight
 
 In this article you learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. There can be a number of reasons to install Jupyter on your local computer, and there can be some challenges as well. For more on this, see the section [Why should I install Jupyter on my computer](#why-should-i-install-jupyter-on-my-computer) at the end of this article.
 
@@ -56,7 +56,7 @@ For instructions on how to install the Spark magic, the PySpark and Spark kernel
 
 * For clusters v3.5 and v3.6, install sparkmagic 0.11.2 by executing `pip install sparkmagic==0.11.2`
 
-## Configure Spark magic to access the HDInsight Spark cluster
+## Configure Spark magic to connect to HDInsight Spark cluster
 
 In this section you configure the Spark magic that you installed earlier to connect to an Apache Spark cluster that you must have already created in Azure HDInsight.
 
@@ -114,7 +114,7 @@ In this section you configure the Spark magic that you installed earlier to conn
 
 	a. Create a new notebook. From the right hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**. Click **PySpark**.
 
-	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Create a new Jupyter notebook")
+	![Kernels in Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels in Jupyter notebook")
 
 	b. Run the following code snippet.
 
@@ -157,7 +157,7 @@ There can be a number of reasons why you might want to install Jupyter on your c
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 

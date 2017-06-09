@@ -16,6 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
+ms.custom: mvc
 ---
 
 # Create a VM with a virtual hard disk
@@ -31,6 +32,8 @@ or use your own VHD. The script looks for `~/sample.vhd`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
@@ -41,7 +44,7 @@ or use your own VHD. The script looks for `~/sample.vhd`.
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 

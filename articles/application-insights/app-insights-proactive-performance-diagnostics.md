@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Smart Detection - Performance Anomalies

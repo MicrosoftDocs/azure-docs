@@ -216,6 +216,7 @@ When you click the Cerner Central tile in the Access Panel, you should get autom
 
 ## Additional resources
 
+* [Tutorial: Configuring Cerner Central for automatic user provisioning with Azure Active Directory](active-directory-saas-cernercentral-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

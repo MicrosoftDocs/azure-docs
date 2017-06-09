@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 1/10/2017
+ms.date: 06/05/2017
 ms.author: anoopkv
 ---
 
@@ -78,4 +78,3 @@ The following table lists the minimum hardware, software, and network requiremen
 ## Next steps
 
 Next step involves [setting up your target environment](./site-recovery-prepare-target-physical-to-azure.md) in Azure.
-

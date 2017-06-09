@@ -29,7 +29,7 @@ If these features are important to your app's functionality, use the web socket 
 ## WebSocket
 Microsoft's Cognitive Services WebSocket Speech Recognition API is a WebSocket-based service protocol definition that enables subscribers to build full-featured speech applications that provide a rich user experience. This protocol extends the Microsoft Speech SDK protocol, which powers a wide variety of speech applications throughout the industry.
 
-[Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of websocket protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, create your can create your own implementation based on the [documented protocol](websocketprotocol.md).
+[Javascript SDK](../GetStarted/GettingStartedJSWebsockets.md) is available based on this version of websocket protocol. SDKs for additional languages and platforms are in development. If your language or platform does not yet have an SDK, you can create your own implementation based on the [documented protocol](websocketprotocol.md).
 
 ## Endpoints
 The API endpoints based on user scenario are highlighted here:
@@ -78,6 +78,11 @@ The following characteristics are typical of dictation mode applications:
 * Users often plan ahead of time what they want to say and use more formal language.
 * Users employ full sentences lasting 5-8 seconds.
 
+> [!NOTE]
+> In Dictation & Conversation modes partial results are not returned. More stable, phrase results are.
+> Phrase results are emitted during silence boundaries in the audio stream. In the future, we plan on exposing more 
+> real-time partial results which can be used to improve user-experience generally in realtime dictation scenarios.
+
 ## Recognition Languages
 The following locales are supported by the Speech Recognition API.
 
@@ -124,17 +129,18 @@ Control the phrase result format by specifying the `format` URL query parameter.
 | detailed | A recognition status and N-Best list of phrase results where each phrase result contains all four recognition forms and a confidence score. |
 
 The **detailed** format contains the following four recognition forms:
-### Lexical form
+
+### Lexical Form
 The lexical form is the recognized text exactly how they occurred in the utterance without any punctuation or capitalization. For example, the lexical form of the address `1020 Enterprise Way` would be `ten twenty enterprise way`, assuming it was spoken that way. The lexical form of the sentence `Remind me to buy 5 pencils.` is `remind me to buy five pencils`.
 
 The lexical form is most appropriate for applications that need to perform non-standard text normalization or that otherwise need unprocessed recognition words. Profanity is never masked in the lexical form.
 
-### Inverse text normalization form
+### Inverse Text Normalization (ITN) form
 Text normalization is the process of converting text from one form into another "canonical" form. For example, the phone number `555-1212` might be converted to the canonical form `five five five one two one two`. *Inverse* text normalization (ITN) reverses this process, converting the words `five five five one two one two` to the inverted canonical form `555-1212`. Note that the ITN form of a recognition result does not include any capitalization or punctuation. 
 
 ITN form is most appropriate for applications that take action on the recognized text. For example, an application that allows a user to speak search terms and then uses these search terms in a web search query would use the ITN form of the recognition result. Profanity is never masked in the ITN form; to mask profanity, use the **Masked ITN form**.
 
-### Masked ITN form
+### Masked Inverse Text Normalization (ITN) Form
 Since profanity is naturally a part of spoken language, the Microsoft Speech Service recognizes these words and phrases when they are spoken. Profanity may not, however, be appropriate for all applications, especially those with a restricted, non-adult user audience.
 
 The masked ITN form applies profanity masking to the Inverse text normalization form. To mask profanity, set the value of the profanity parameter value to `masked`. When profanity is masked, words recognized as part of the language's profanity lexicon are replaced with asterisks. For example: `remind me to buy 5 **** pencils`. Note that the Masked ITN form of a recognition result does not include any capitalization or punctuation. 
@@ -157,7 +163,7 @@ The payload format of the `simple` phrase result:
 ```json
 {
   "RecognitionStatus": "Success",
-  "DisplayText": "Remind me to buy 5 iPhones.",
+  "DisplayText": "Remind me to buy 5 pencils.",
   "Offset": "1236645672289",
   "Duration": "1236645672289"
 }
@@ -172,17 +178,17 @@ The payload format of the `detailed` phrase result:
   "N-Best": [
       {
         "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five iphones",
-        "ITN" : "remind me to buy 5 iphones",
-        "MaskedITN" : "remind me to buy 5 iphones",
-        "Display" : "Remind me to buy 5 iPhones.",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
       },
       {
         "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five iphones",
-        "ITN" : "rewind me to buy 5 iphones",
-        "MaskedITN" : "rewind me to buy 5 iphones",
-        "Display" : "Rewind me to buy 5 iPhones.",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }

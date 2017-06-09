@@ -1,5 +1,5 @@
 ---
-title: Use Azure Toolkit for IntelliJ to remote-debug applications on Spark clusters| Microsoft Docs
+title: Azure Toolkit for IntelliJ - Debug applications remotely on HDInsight Spark | Microsoft Docs
 description: Learn how use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug applications running on HDInsight Spark clusters.
 services: hdinsight
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
-# Use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Spark cluster
+# Use Azure Toolkit for IntelliJ to debug applications remotely on HDInsight Spark
 This article provides step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to submit a Spark job on HDInsight Spark cluster and then debug it remotely from your desktop computer. To do so, you must perform the following high-level steps:
 
 1. Create a site-to-site or point-to-site Azure Virtual Network. The steps in this document assume that you use a site-to-site network.
@@ -269,7 +269,7 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 ### Tools and extensions
 * [Use HDInsight Tools in Azure Toolkit for IntelliJ to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

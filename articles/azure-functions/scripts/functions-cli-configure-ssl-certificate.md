@@ -13,13 +13,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
+ms.custom: mvc
 ---
 # Bind a custom SSL certificate to a function app
 
-This sample script creates a function app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you will need:
+This sample script creates a function app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you need:
 
 * Access to your domain registrar's DNS configuration page.
 * A valid .PFX file and its password for the SSL certificate you want to upload and bind.
@@ -28,9 +29,13 @@ To bind an SSL certificate, your function app must be created in an App Service 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

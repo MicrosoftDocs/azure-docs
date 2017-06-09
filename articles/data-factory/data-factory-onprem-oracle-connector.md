@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 
 ---
@@ -551,7 +551,7 @@ You may need to adjust the query string in your copy activity based on how dates
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
-### Type mapping for Oracle
+## Type mapping for Oracle
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
@@ -566,15 +566,15 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal |
-| INTEGER |Decimal |
+| FLOAT |Decimal, String (if precision > 28) |
+| INTEGER |Decimal, String (if precision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |TimeSpan |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal |
+| NUMBER |Decimal, String (if precision > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
