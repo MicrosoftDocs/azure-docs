@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 06/09/2017
 ms.author: billmath
 
 ---
@@ -56,7 +56,7 @@ For information on how you can get your third-party identity provider listed her
 * [Sign&go 5.3](#signgo-53) 
 * [SoftBank Technology Online Service Gate](#softbank)
 * [VMware Workspace One](#vmware-workspace-one)
-* [VMware  Workspace Portal version 2.1](#vmware--workspace-portal-version-21) 
+
 
 
 > [!IMPORTANT]
@@ -360,14 +360,3 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about see [here.](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
 
-## VMware  Workspace Portal version 2.1
-
-The following is the scenario support matrix for this single sign-on experience:
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |Integrated Windows Authentication is not supported |
-| Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
-| Email-rich clients such as Outlook and ActiveSync |Supported |None |
-
-For more information about VMware  Workspace Portal version 2.1, download the pdf [here.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
