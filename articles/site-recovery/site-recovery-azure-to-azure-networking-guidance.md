@@ -60,8 +60,6 @@ login.microsoftonline.com | Required for authorization and authentication to Sit
 
 ## Outbound connectivity for Azure Site Recovery IP ranges
 
-If you are using any IP-based firewall proxy or NSG rules to control outbound connectivity, the following IP ranges need to be whitelisted, depending on the source and target locations of the virtual machines:
-
 >[!NOTE]
 > To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
@@ -69,41 +67,43 @@ If you are using any IP-based firewall proxy or NSG rules to control outbound co
 > * We recommend that you create the required NSG rules on a test network security group and verify that there are no problems before you create the rules on a production network security group.
 > * To create the required number of NSG rules, ensure that your subscription is whitelisted. Contact support to increase the NSG rule limit in your subscription.
 
-- Ensure that all IP ranges corresponding to the source location are whitelisted. (You can download the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653)). Whitelisting is required so that data can be written to the cache storage account form the VM.
+If you are using any IP-based firewall proxy or NSG rules to control outbound connectivity, the following IP ranges need to be whitelisted, depending on the source and target locations of the virtual machines:
 
-- Ensure that all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) are whitelisted.
+- All IP ranges corresponding to the source location. (You can download the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653)). Whitelisting is required so that data can be written to the cache storage account form the VM.
+
+- All IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
     >[!NOTE]
     > If new IPs get added to Office 365 IP ranges in the future, you need to create new NSG rules.
 
-- Ensure that you whitelist Site Recovery service endpoint IPs ([available in an XML file](https://aka.ms/site-recovery-public-ips)) depending on your target location: 
+- Site Recovery service endpoint IPs ([available in an XML file](https://aka.ms/site-recovery-public-ips)), which depend on your target location: 
 
 
-  **Target location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
-   --- | --- | ---
-  East Asia | 52.175.17.132</br>40.83.121.61 | 13.94.47.61
-  Southeast Asia | 52.187.58.193</br>52.187.169.104 | 13.76.179.223
-  Central India | 52.172.187.37</br>52.172.157.193 | 104.211.98.185
-  South India | 52.172.46.220</br>52.172.13.124 | 104.211.224.190
-  North Central US | 23.96.195.247</br>23.96.217.22 | 168.62.249.226
-  North Europe | 40.69.212.238</br>13.74.36.46 | 52.169.18.8
-  West Europe | 52.166.13.64</br>52.166.6.245 | 40.68.93.145
-  East US | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
-  West US | 40.83.179.48</br>13.91.45.163 | 104.40.26.199
-  South Central US | 13.84.148.14</br>13.84.172.239 | 104.210.146.250
-  Central US | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
-  East US 2 | 52.184.158.163</br>52.225.216.31 | 40.79.44.59
-  Japan East | 52.185.150.140</br>13.78.87.185 | 138.91.1.105
-  Japan West | 52.175.146.69</br>52.175.145.200 | 138.91.17.38
-  Brazil South | 191.234.185.172</br>104.41.62.15 | 23.97.97.36
-  Australia East | 104.210.113.114</br>40.126.226.199 | 191.239.64.144
-  Australia Southeast | 13.70.159.158</br>13.73.114.68 | 191.239.160.45
-  Canada Central | 52.228.36.192</br>52.228.39.52 | 40.85.226.62
-  Canada East | 52.229.125.98</br>52.229.126.170 | 40.86.225.142
-  West Central US | 52.161.20.168</br>13.78.230.131 | 13.78.149.209
-  West US 2 | 52.183.45.166</br>52.175.207.234 | 13.66.228.204
-  UK West | 51.141.3.203</br>51.140.226.176 | 51.141.14.113
-  UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
+     **Target location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
+      --- | --- | ---
+     East Asia | 52.175.17.132</br>40.83.121.61 | 13.94.47.61
+     Southeast Asia | 52.187.58.193</br>52.187.169.104 | 13.76.179.223
+     Central India | 52.172.187.37</br>52.172.157.193 | 104.211.98.185
+     South India | 52.172.46.220</br>52.172.13.124 | 104.211.224.190
+     North Central US | 23.96.195.247</br>23.96.217.22 | 168.62.249.226
+     North Europe | 40.69.212.238</br>13.74.36.46 | 52.169.18.8
+     West Europe | 52.166.13.64</br>52.166.6.245 | 40.68.93.145
+     East US | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
+     West US | 40.83.179.48</br>13.91.45.163 | 104.40.26.199
+     South Central US | 13.84.148.14</br>13.84.172.239 | 104.210.146.250
+     Central US | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
+     East US 2 | 52.184.158.163</br>52.225.216.31 | 40.79.44.59
+     Japan East | 52.185.150.140</br>13.78.87.185 | 138.91.1.105
+     Japan West | 52.175.146.69</br>52.175.145.200 | 138.91.17.38
+     Brazil South | 191.234.185.172</br>104.41.62.15 | 23.97.97.36
+     Australia East | 104.210.113.114</br>40.126.226.199 | 191.239.64.144
+     Australia Southeast | 13.70.159.158</br>13.73.114.68 | 191.239.160.45
+     Canada Central | 52.228.36.192</br>52.228.39.52 | 40.85.226.62
+     Canada East | 52.229.125.98</br>52.229.126.170 | 40.86.225.142
+     West Central US | 52.161.20.168</br>13.78.230.131 | 13.78.149.209
+     West US 2 | 52.183.45.166</br>52.175.207.234 | 13.66.228.204
+     UK West | 51.141.3.203</br>51.140.226.176 | 51.141.14.113
+     UK South | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
 
 ## Sample network security group (NSG) configuration
 This section explains the steps to configure NSG rules so that Site Recovery replication can work on a virtual machine. If you are using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP ranges.
@@ -111,7 +111,7 @@ This section explains the steps to configure NSG rules so that Site Recovery rep
 >[!Note]
 > To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
-For example, if your VM's source location is "East US" and your replication target location is "Central US", follow these steps:
+For example, if your VM's source location is "East US" and your replication target location is "Central US", follow the steps in the next two sections:
 
 >[!IMPORTANT]
 > * We recommend that you create the required NSG rules on a test network security group and verify that there are no problems before you create the rules on a production network security group.
@@ -133,11 +133,11 @@ For example, if your VM's source location is "East US" and your replication targ
 
 These rules are required so that replication can be enabled from the target region to the source region post-failover:
 
-* Create rules corresponding to [Central US IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). This is required so that data can be written to the cache storage account from the VM.
+* Rules corresponding to [Central US IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653). These are required so that data can be written to the cache storage account from the VM.
 
-* Create rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+* Rules for all IP ranges corresponding to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Create rules corresponding to the source location:
+* Rules corresponding to the source location:
 
    **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
     --- | --- | ---
@@ -150,7 +150,7 @@ If you have an ExpressRoute or VPN connection between on-premises and the source
 
 ### Forced tunneling configuration
 
-A common customer configuration is to define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through on-premises. This is not ideal. The replication traffic and Site Recovery service communication should not leave the Azure boundary. The solution is to add user-defined routes (UDRs) for [these IP ranges](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
+A common customer configuration is to define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location. We do not recommend this. The replication traffic and Site Recovery service communication should not leave the Azure boundary. The solution is to add user-defined routes (UDRs) for [these IP ranges](#outbound-connectivity-for-azure-site-recovery-ip-ranges) so that the replication traffic doesn’t go on-premises.
 
 ### Connectivity between the target and on-premises location
 
@@ -165,17 +165,17 @@ Follow these guidelines for connections between the target location and the on-p
 Follow these best practices for ExpressRoute configuration:
 
 - You need to create an ExpressRoute circuit in both the source and target regions. Then you need to create a connection between:
-  - The source VNet and the ExpressRoute circuit.
-  - The target VNet and the ExpressRoute circuit.
+  - The source Virtual Network and the ExpressRoute circuit.
+  - The target Virtual Network and the ExpressRoute circuit.
 
 - As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost increase. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
-- We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two VNETs of the same IP ranges at the same time.
+- We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two Azure Virtual Networks of the same IP ranges at the same time.
 
-- You can create VNets with the same IP ranges in both regions and then create ExpressRoute circuits in both regions. In the case of a failover event, disconnect the circuit from the source VNet, and connect the circuit in the target VNet.
+- You can create Virtual Networks with the same IP ranges in both regions and then create ExpressRoute circuits in both regions. In the case of a failover event, disconnect the circuit from the source Virtual Network, and connect the circuit in the target Virtual Network.
 
  >[!IMPORTANT]
- > If the primary region is completely down, the disconnect operation can fail. That will prevent the target VNet from getting ExpressRoute connectivity.
+ > If the primary region is completely down, the disconnect operation can fail. That will prevent the target Virtual Network from getting ExpressRoute connectivity.
 
 ## Next steps
 Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
