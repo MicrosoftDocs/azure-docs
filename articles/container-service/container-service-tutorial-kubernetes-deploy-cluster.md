@@ -82,7 +82,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ## Next steps
 
-In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Task covered included:
+In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Tasks covered included:
 
 > [!div class="checklist"]
 > * Deploy a Kubernetes ACS cluster

@@ -15,26 +15,39 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 06/09/2017
 ms.author: nepeters
 ---
 
 # Azure Container Service tutorial - Prepare App
 
+Throughout the Azure Container Service tutorial set, a sample application will be deployed and managed in Kubernetes cluster. In this tutorial, a sample application will be prepared on your local system for use throughout the remaining tutorials. Steps completed are:
+
+> [!div class="checklist"]
+> * Clone an existing application code repository
+> * Create container images from application
+> * Test the application locally
+
+## Prerequisites
+
+To complete this tutorial, you will need a Docker development environment. Docker provides packages that easily configure a Docker development environment on any Mac or Windows system.
+
+[Docker for Mac]( https://docs.docker.com/docker-for-mac/)
+
+[Docker for Windows](https://docs.docker.com/docker-for-windows/) 
+
+## Create container images
+
 ```bash
-git clone https://github.com/jpoon/voting-app-kubernetes.git
+git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
 ```bash
-docker build ./vote-app-kubernetes/vote -t demo-front
+docker build .\azure-kubernetes-samples\flask-mysql-vote\azure-vote\ -t azure-vote-front
 ```
 
 ```bash
-docker build ./vote-app-kubernetes/worker -t demo-worker
-```
-
-```bash
-docker build ./vote-app-kubernetes/result -t demo-result
+docker build .\azure-kubernetes-samples\flask-mysql-vote\mysql\ -t azure-vote-back
 ```
 
 ```bash
@@ -44,16 +57,55 @@ docker images
 Output:
 
 ```bash
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-demo-result         latest              0963ee8d8f93        3 seconds ago       235 MB
-demo-worker         latest              7daf3e8f529e        2 minutes ago       975 MB
-demo-front          latest              c80264b0b782        4 minutes ago       91.6 MB
+REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
+azure-vote-back     latest              dfdc614becea        7 seconds ago        407 MB
+azure-vote-front    latest              67e8582e68a8        About a minute ago   445 MB
+ubuntu              latest              7b9b13f7b9c0        6 days ago           118 MB
+mysql               latest              e799c7f9ae9c        4 weeks ago          407 MB
 ```
 
-## Create app storage account
+## Test application locally
 
-```azurecli-interactive
-az storage account create --resource-group myResourceGroup --name myappstorage$RANDOM --sku Standard_LRS
+```bash
+docker network create azure-vote
 ```
+
+```bash
+docker run -v /tmp/docker-mysql:/var/lib/mysql -p 3306:3306 -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
+```
+
+```bash
+docker run -d -p 8000:8000 --network=azure-vote -e MYSQL_DATABASE_USER=dbuser -e MYSQL_DATABASE_PASSWORD=Password12 -e MYSQL_DATABASE_DB=azurevote -e MYSQL_DATABASE_HOST=azure-vote-back azure-vote-front
+```
+
+```bash
+docker ps
+```
+
+Output:
+
+```bash
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+ec05f07634d3        azure-vote-front    "/usr/bin/supervis..."   3 seconds ago       Up 2 seconds        0.0.0.0:8000->8000/tcp   romantic_bardeen
+ca2aeaf5eed1        azure-vote-back     "docker-entrypoint..."   20 seconds ago      Up 19 seconds       0.0.0.0:3306->3306/tcp   azure-vote-back
+```
+
+![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
+
+## Next steps
+
+A sample application was prepared and tested in a Docker development environment. Tasks covered included:
+
+> [!div class="checklist"]
+> * Clone an existing application code repository
+> * Create container images from application
+> * Test the application locally
+
+Advance to the next tutorial to learn about storing container images in an Azure Container Registry.
+
+> [!div class="nextstepaction"]
+> [Deploy application in Kubrnetes](./container-service-tutorial-kubernetes-prepare-acr.md)
+
+
 
 
