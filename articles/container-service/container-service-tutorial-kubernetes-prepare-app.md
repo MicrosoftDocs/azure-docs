@@ -43,11 +43,11 @@ git clone https://github.com/neilpeterson/azure-kubernetes-samples.git
 ```
 
 ```bash
-docker build .\azure-kubernetes-samples\flask-mysql-vote\azure-vote\ -t azure-vote-front
+docker build ./azure-kubernetes-samples/flask-mysql-vote/azure-vote/ -t azure-vote-front
 ```
 
 ```bash
-docker build .\azure-kubernetes-samples\flask-mysql-vote\mysql\ -t azure-vote-back
+docker build ./azure-kubernetes-samples/flask-mysql-vote/mysql/ -t azure-vote-back
 ```
 
 ```bash
@@ -70,12 +70,14 @@ mysql               latest              e799c7f9ae9c        4 weeks ago         
 docker network create azure-vote
 ```
 
+Note, in this example the MySQL database file is hosted inside of the container. In a subsequent tutorial, the database file will be moved to a mounted volume which will provide data integrity in the event of container restart / regeneration.
+
 ```bash
-docker run -v /tmp/docker-mysql:/var/lib/mysql -p 3306:3306 -d --network azure-vote -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
+docker run -v /tmp/docker-mysql:/var/lib/mysql -p 3306:3306 -d --network azure-vote --name azure-vote-back -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
 ```
 
 ```bash
-docker run -d -p 8000:8000 --network=azure-vote -e MYSQL_DATABASE_USER=dbuser -e MYSQL_DATABASE_PASSWORD=Password12 -e MYSQL_DATABASE_DB=azurevote -e MYSQL_DATABASE_HOST=azure-vote-back azure-vote-front
+docker run -p 8000:8000 -d --network=azure-vote -e MYSQL_DATABASE_USER=dbuser -e MYSQL_DATABASE_PASSWORD=Password12 -e MYSQL_DATABASE_DB=azurevote -e MYSQL_DATABASE_HOST=azure-vote-back azure-vote-front
 ```
 
 ```bash
@@ -91,6 +93,20 @@ ca2aeaf5eed1        azure-vote-back     "docker-entrypoint..."   20 seconds ago 
 ```
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
+
+## Delete Resources
+
+```bash
+docker rm -f azure-vote-front
+```
+
+```bash
+docker rm -f azure-vote-back
+```
+
+```bash
+docker network rm azure-vote
+```
 
 ## Next steps
 
