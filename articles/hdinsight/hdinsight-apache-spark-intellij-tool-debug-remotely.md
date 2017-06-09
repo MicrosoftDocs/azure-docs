@@ -1,6 +1,7 @@
 ---
-title: Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster | Microsoft Docs
-description: step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug it remotely on HDInsight Cluster
+title: Debug Spark applications remotely – IntelliJ toolkit on HDInsight - Azure | Microsoft Docs
+description: Step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters.
+keywords: remote debugging intellij
 services: hdinsight
 documentationcenter: ''
 author: jejiang
@@ -10,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: 
 ms.devlang: 
@@ -19,9 +20,9 @@ ms.date: 06/05/2017
 ms.author: Jenny Jiang
 
 ---
-# Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster
+# Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ 
 
-This article provides step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug it remotely on HDInsight Cluster.
+This article provides step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on an HDInsight cluster.
 
 **Prerequisites:**
 

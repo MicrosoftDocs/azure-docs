@@ -25,6 +25,8 @@ ms.author: nini
 >
 >
 
+![Service Fabric symbol](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
+
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster.
 
 The Service Fabric solution uses Azure Diagnostics data from your Service Fabric VMs, by collecting this data from your Azure WAD tables. Log Analytics then reads Service Fabric framework events, including **Reliable Service Events**, **Actor Events**, **Operational Events**, and **Custom ETW events**. With the solution dashboard, you are able to view notable issues and relevant events in your Service Fabric environment.
@@ -45,6 +47,7 @@ This template does the following:
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
 Once you select the deploy button above, you will arrive on the Azure portal with parameters for you to edit. Be sure to create a new resource group if you input a new Log Analytics workspace name:
+
 ![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
