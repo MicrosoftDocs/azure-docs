@@ -25,10 +25,10 @@ This document lists all connection string types supported by Azure Database for 
 Server={your_host};Port={your_port};Database={your_database};Uid={your_username};Pwd={your_password};[SslMode=Required;]
 ```
 
-In this example, the server name is **wpdemo**, database name is **wpdb**, user name is **WPAdmin**, password is **mypassword!2**. Then, the connection string should be:
+In this example, the server name is `myserver4demo`, database name is `wpdb`, user name is `WPAdmin`, password is `mypassword!2`. Then, the connection string should be:
 
 ```ado.net
-Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@wpdemo"; Pwd="mypassword!2"; SslMode=Required;
+Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## JDBC
