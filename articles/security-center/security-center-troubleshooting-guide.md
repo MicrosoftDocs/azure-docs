@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 06/09/2017
 ms.author: yurid
 
 ---
@@ -31,12 +31,37 @@ This guide explains how to troubleshoot Security Center related issues. Most of 
 
 The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
 
+## Microsoft Monitoring Agent installation scenarios
+There are three installation scenarios that can produce different results when installing the Microsoft Monitoring Agent on your computer. The supported scenarios are:
+
+* **Agent installed automatically by Security Center**: in this scenario you will be able to view the alerts in both location, Security Center portal and Log search. You will receive e-mail notifications to the email address that was registered on the subscription the resource belongs to.
+* **Agent manually installed on a VM located in Azure**: in this scenario, if you are using an  old agent (from few months ago), you will be able to view the alerts in the Security Center portal only if they filter on the workspace subscription. In case you filter on the resource subscription, you won’t be able to see any alerts. You will receive e-mail notifications to the email address that was registered on the workspace.
+* **Agent manually installed on a computer or VM located on-premises or in another cloud provider**: the expected behavior here is the same as explained in the previous scenario.
+
+>[!NOTE]
+> To avoid the behavior explained in the second and third scenario, make sure you download the latest version of the agent.
+
 ## Troubleshooting monitoring agent installation
 Azure Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
 
 * HealthService.exe
 
+For Windows agents to connect to and register with Security Center, they must have access to network resources, including the port numbers and domain URLs.
+
+- For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings) after the agent is installed.
+- For firewalls that restrict access to the Internet, you or your networking engineers need to configure your firewall to permit access to OMS. No action is needed in agent settings.
+
+The following table shows resources needed for communication.
+
+| Agent Resource | Ports | Bypass HTTPS inspection |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
+
 If you are facing onboarding issues with the agent, make sure to read the article [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
+
 
 ## Troubleshooting endpoint protection not working properly
 
