@@ -2,7 +2,7 @@
 ## [About Azure AD B2C](active-directory-b2c-overview.md)
 
 # Quickstarts
-## [Create an Azure AD B2C Tenant](active-directory-b2c-get-started.md)
+## [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
 ## [Built-In policies](active-directory-b2c-reference-policies.md) 
 
@@ -13,7 +13,7 @@
 # Concepts
 ## [OAuth 2.0 authorization](active-directory-b2c-reference-oauth-code.md)
 ## [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
-## [Sign-in for Single-Page Apps](active-directory-b2c-reference-spa.md)
+## [Sign-in for single-page apps](active-directory-b2c-reference-spa.md)
 
 # How-To guides
 ## Mobile and desktop apps

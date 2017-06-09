@@ -21,7 +21,7 @@ ms.author: joroja
 ## The basics
 
 Identity developers using Azure AD B2C Custom Policies are challenged to configure the Identity Experience Framework in its policy language in the XML format.  This guide is both list of recommended tools and tips to discover and resolve issues quickly.  Learning to write Custom Policies is similar to learning a new language.  
-*This article is focused on troubleshooting your Azure AD B2C Cusutom Policy configuration and not the relying party application or its identity library.*
+*This article is focused on troubleshooting your Azure AD B2C Custom Policy configuration and not the relying party application or its identity library.*
 
 
 
