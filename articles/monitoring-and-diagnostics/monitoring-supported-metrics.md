@@ -340,9 +340,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |JobEndedSuccess|Successful Jobs|Count|Total|Count of successful jobs.|
 |JobEndedFailure|Failed Jobs|Count|Total|Count of failed jobs.|
 |JobEndedCancelled|Cancelled Jobs|Count|Total|Count of cancelled jobs.|
-|JobAUEndedSuccess|Successful AU Hours|Count|Total|Total AU Hours of successful jobs.|
-|JobAUEndedFailure|Failed AU Hours|Count|Total|Total AU Hours of failed jobs.|
-|JobAUEndedCancelled|Cancelled AU Hours|Count|Total|Total AU Hours of cancelled jobs.|
+|JobAUEndedSuccess|Successful AU Time|Seconds|Total|Total AU time for successful jobs.|
+|JobAUEndedFailure|Failed AU Time|Seconds|Total|Total AU time for failed jobs.|
+|JobAUEndedCancelled|Cancelled AU Time|Seconds|Total|Total AU time for cancelled jobs.|
 
 ## Microsoft.DBforMySQL/servers
 
