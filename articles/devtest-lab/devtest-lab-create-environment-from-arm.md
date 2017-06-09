@@ -24,14 +24,15 @@ The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you 
 
 - Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Team Services Git).
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal as what they can do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).
-- Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaasS VMs.
+- Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaaS VMs.
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
-- Users have the same VM policy control for environments as what they have for single-lab VMs.
+- PaaS resources will be created and appear in cost tracking; however, VM auto shutdown does not apply to PaaS resources.
+- Users have the same VM policy control for environments as they have for single-lab VMs.
 
 Learn more about the many [benefits of using Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) to deploy, update, or delete all of your lab resources in a single operation.
 
 > [!NOTE]
-> Deploying resource type Microsoft.DevTestLab/labs (or its nested resource types, e.g. Microsoft.DevTestLab/labs/virtualmachines) through ARM templates is not yet supported in this experience. To deploy a VM, make sure to use Microsoft.Compute/virtualmachines. More ARM template samples can be found at [Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json).
+> When you use a Resource Manager template as a basis to create more lab VMs, there are some differences to keep in mind whether you are creating Multi-VMs or single-VMs. [Use a virtual machine's Azure Resource Manager template](./devtest-lab-use-arm-template.md) explains these differences in greater detail.
 >
 >
 
@@ -111,7 +112,11 @@ Once an Azure Resource Manager template repository has been configured in the la
 	> - GEN-PASSWORD 
  
 1. Select **Add** to create the environment. The environment starts provisioning immediately with the status displaying in the **My virtual machines** list. A new resource group is automatically created by the lab to provision all the resources defined in the Azure Resource Manager template.
-1. Once the environment is created, select the environment in **My virtual machines** list to open the resource group blade and browse the resources provisioned in the environment.
+1. Once the environment is created, select the environment in the **My virtual machines** list to open the resource group blade and browse all of the resources provisioned in the environment.
+	
+	![My virtual machines list](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
+   
+   You can also expand the environment to view just the list of VMs that are provisioned in the environment.
 	
 	![My virtual machines list](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
