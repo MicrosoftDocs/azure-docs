@@ -49,13 +49,21 @@ Each member in the back-end pool is listed on this page (whether it's a NIC, IP,
 
 ![Back-end health][10]
 
-### View back-end health through PowerShell
+### View back-end health with PowerShell
 
 The following PowerShell code shows how to view back-end health by using the `Get-AzureRmApplicationGatewayBackendHealth` cmdlet:
 
 ```powershell
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
+
+### View back-end health with Azure CLI 2.0
+
+```azurecli
+az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
+```
+
+### Results
 
 The following snippet shows an example of the response:
 
