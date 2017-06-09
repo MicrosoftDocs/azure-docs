@@ -20,7 +20,7 @@ ms.custom: mvc
 # Create your first Jenkins Master on a Linux (Ubuntu) VM on Azure
 
 This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. This includes:
-* git for source control
+* Git for source control
 * Azure credential plugin for connecting securely
 * Azure VM Agents plugin for elastic build, test and continuous integration
 * Azure Storage plugin for storing artifacts
@@ -44,13 +44,13 @@ In the **Set up basic settings** tab:
 
 ![Set up basic settings](./media/install-jenkins-solution-template/ap-basic.png)
 
-* Provide a name to your Jenkin instance
-* Select a VM disk type
+* Provide a name to your Jenkin instance.
+* Select a VM disk type.
 * User name: must meet length requirements, and must not include reserved words or unsupported characters. Name like "admin" is not allowed.
 * Authentication type: you can create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, note that it must have 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
-* Select a subscription
-* Create a new resource group or use an existing one
-* Select a location 
+* Select a subscription.
+* Create a new resource group or use an existing one.
+* Select a location.
 
 In the **Configure addtional options** tab:
 
@@ -76,7 +76,7 @@ Install Putty and run this command if you use password to secure Jenkins:
 ```
 putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
-* Enter the password to login
+* Enter the password to login.
 
 ![Enter password to login](./media/install-jenkins-solution-template/jenkins-pwd.png)
 
@@ -87,11 +87,11 @@ putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Do
 
 ### If you are using Linux or Mac:
 
-If you use password to secure your Jenkins master, run this command:
+If you use a password to secure your Jenkins master, run this command:
 ```
 ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
-* Enter the password to login
+* Enter the password to login.
 
 If you use SSH, run this command:
 ```
@@ -101,11 +101,11 @@ ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Doma
 ## Connect to Jenkins
 After you have started your tunnel, navigate to http://localhost:8080/ on your local machine.
 
-You need to unlock the Jenkins dashboard for the first time with the initial admin password.
+You must unlock the Jenkins dashboard for the first time with the initial admin password.
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-unlock.png)
 
-To get this token, SSH into the VM and run sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+To get a token, SSH into the VM and run `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh.png)
 
