@@ -32,17 +32,22 @@ When you're using group-based licensing, the same errors can occur, but they hap
 
 ## How to find license assignment errors
 
-To find users in an error state in a specific group, open the blade for the group. Under **Licenses**, there will be a notification displayed if there are any users in an error state.
+1. To find users in an error state in a specific group, open the blade for the group. Under **Licenses**, there will be a notification displayed if there are any users in an error state.
+
 ![Group, error notification](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
 
-Click the notification to open a list of all affected users. You can click on each user individually to see more details.
+2. Click the notification to open a list of all affected users. You can click on each user individually to see more details.
+
 ![Group, list of users in error state](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-users-with-errors.png)
 
-To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses** and then **Overview**. An info box is displayed when some groups require your attention.
+3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses** and then **Overview**. An info box is displayed when some groups require your attention.
+
 ![Overview, information about groups in error state](media/active-directory-licensing-group-problem-resolution-azure-portal/group-errors-widget.png)
 
-Click on the box to see a list of all groups with errors. You can click each group for more details.
+4. Click on the box to see a list of all groups with errors. You can click each group for more details.
+
 ![Overview, list of groups with errors](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-groups-with-errors.png)
+
 
 Below is a description of each potential problem and the way to resolve it.
 
