@@ -32,6 +32,7 @@ The following table compares Files, Blobs, and Data Disks, and shows example sce
 | **Azure Data Disks** | Provides client libraries and a [REST interface](/rest/api/compute/virtualmachines/virtualmachines-create-or-update) that allows data to be  persistently stored and accessed from an attached virtual hard disk. | You want to lift and shift applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
 
 ## Comparison: Files and Blobs
+
 The following table compares Azure Files with Azure Blobs.  
   
 ||||  
@@ -49,12 +50,12 @@ The following table compares Azure Files with Azure Blobs.
 |Billed capacity|Based on bytes written|Based on file size|  
 |Client libraries|Multiple languages|Multiple languages|  
   
- Azure Files complement Azure Data Disks. A data disk can only be attached to one Azure Virtual Machine at a time. Data disks are fixed format VHDs stored as page blobs in Azure Storage and are used by the virtual machine to store durable data. File shares based on Azure Files can be accessed in the same way as the local disk is accessed (using native file system APIs) and can be shared across many virtual machines.  
-
 ## Comparison: Files and Data Disks
-  
- The following table compares Azure Files with Azure Data Disks.  
-  
+
+Azure Files complement Azure Data Disks. A data disk can only be attached to one Azure Virtual Machine at a time. Data disks are fixed-format VHDs stored as page blobs in Azure Storage, and are used by the virtual machine to store durable data. File shares in Azure Files can be accessed in the same way as the local disk is accessed (by using native file system APIs), and can be shared across many virtual machines.  
+ 
+The following table compares Azure Files with Azure Data Disks.  
+ 
 ||||  
 |-|-|-|  
 |**Attribute**|**Azure Data Disks**|**Azure Files**|  
