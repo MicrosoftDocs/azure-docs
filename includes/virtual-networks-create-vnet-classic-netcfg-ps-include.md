@@ -10,13 +10,13 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
    Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
    ```
    
-  Expected output:
+   Expected output:
   
-   ```
-   XMLConfiguration                                                                                                     
-   ----------------                                                                                                     
-   <?xml version="1.0" encoding="utf-8"?>...
-   ```
+      ```
+      XMLConfiguration                                                                                                     
+      ----------------                                                                                                     
+      <?xml version="1.0" encoding="utf-8"?>...
+      ```
 
 3. Open the file you saved in step 2 using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network is displayed as its own **<VirtualNetworkSite>** element.
 4. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
@@ -44,15 +44,15 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
    Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
    ```
    
-  The returned output looks similar to the following example:
+   Returned output:
    
-   ```
-   OperationDescription OperationId                          OperationStatus
-   -------------------- -----------                          ---------------
-   Set-AzureVNetConfig  <Id>                                 Succeeded 
-   ```
+      ```
+      OperationDescription OperationId                          OperationStatus
+      -------------------- -----------                          ---------------
+      Set-AzureVNetConfig  <Id>                                 Succeeded 
+      ```
    
-  If **OperationStatus** is not *Succeeded* in the returned output, check the xml file for errors and complete step 6 again.
+   If **OperationStatus** is not *Succeeded* in the returned output, check the xml file for errors and complete step 6 again.
 
 7. From the Azure PowerShell console, use the **Get-AzureVnetSite** cmdlet to verify that the new network was added by running the following command: 
 
@@ -60,7 +60,7 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
    Get-AzureVNetSite -VNetName TestVNet
    ```
    
-   The expected (abbreviated) output should include the following example:
+   The returned (abbreviated) output includes the following text:
   
       ```
       AddressSpacePrefixes : {192.168.0.0/16}
