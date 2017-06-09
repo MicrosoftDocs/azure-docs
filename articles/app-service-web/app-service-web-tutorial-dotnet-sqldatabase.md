@@ -432,16 +432,7 @@ By default, your web app's blade shows the **Overview** page. This page gives yo
 
 ![App Service blade in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
-These tabs in the blade show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
-
-- Map a custom DNS name
-- Bind a custom SSL certificate
-- Configure continuous deployment
-- Scale up and out
-- Add user authentication
-
-[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]delete --name myResourceGroup 
-``` 
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-cli.md)]
 
 <a name="next"></a>
 
