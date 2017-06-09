@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 06/11/2017
 ms.author: jeedes
 
 ---
@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_url1.png)
   
-	a. In the **Identifier** textbox, type a URN using the following pattern: `urn:benefithub:<instance name>`
+	a. In the **Identifier** textbox, type: `urn:benefithub:passport`
   	
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<instance name>.benefithub.info/saml/post/ac`
+	b. In the **Reply URL** textbox, type: `https://passport.benefithub.info/saml/post/ac`
 
 	> [!NOTE] 
 	> These values are not real. Update these value with the actual Identifier and Reply URL. Contact [BenefitHub support team](https://www.benefithub.com/Home/ContactUs) to get these values.
@@ -128,15 +128,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |    
 	| organizationid | "9127790711" |
+
+	> [!NOTE]
+	> This attribute value is not real. Update this value with actual organizationid. Contact [BenefitHub support team](https://www.benefithub.com/Home/ContactUs) to get the actual organizationid.
 	
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
 	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_attribute_04.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
 	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_attribute_05.png)
 
+	b. In the **Name** textbox, type the attribute name shown for that row.
+	
 	c. From the **Value** list, type the attribute value shown for that row.
 	
 	d. Click **Ok**.
@@ -148,11 +151,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_general_400.png)
 
-8. On the **BenefitHub Configuration** section, click **Configure BenefitHub** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **BenefitHub Configuration** section, click **Configure BenefitHub** to open **Configure sign-on** window. **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_configure.png) 
 
-9. To configure single sign-on on **BenefitHub** side, you need to send the downloaded **Metadata XML** and **SAML Entity ID** to [BenefitHub support team](https://www.benefithub.com/Home/ContactUs).
+9. To configure single sign-on on **BenefitHub** side, you need to send the downloaded **Metadata XML** and **SAML Single Sign-On Service URL** to [BenefitHub support team](https://www.benefithub.com/Home/ContactUs).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -190,7 +193,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a BenefitHub test user
 
-In this section, you create a user called Britta Simon in BenefitHub. work with [BenefitHub support team](https://www.benefithub.com/Home/ContactUs) to add the users in the BenefitHub platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in BenefitHub. Work with [BenefitHub support team](https://www.benefithub.com/Home/ContactUs) to add the users in the BenefitHub platform. Users must be created and activated before you use single sign-on. 
 
 ### Assigning the Azure AD test user
 
