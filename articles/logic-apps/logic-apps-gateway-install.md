@@ -152,7 +152,7 @@ Create a recovery key, then confirm your recovery key.
       The default region is the region associated with your Azure AD tenant.
 
    2. On the next pane, open the **Select Region** to 
-   choose a different region. 
+   choose a different region.
 
       ![Select another region](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
@@ -172,7 +172,7 @@ Create a recovery key, then confirm your recovery key.
       > If you want to use a different region for your gateway later, 
       > you must set up a new gateway.
 
-     3. When you're ready, choose **Done**.
+  3. When you're ready, choose **Done**.
 
 7. Now follow these steps in the Azure portal so you can 
 [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
@@ -435,7 +435,7 @@ You can find the Data Management Gateway and PowerBIGateway logs under **Applica
 You can see this traffic with the Power BI service from the client machine. 
 This service might show errors and other related information.
 
-## Next Steps
+## Next steps
 	
 * [Connect to on-premises data from logic apps](../logic-apps/logic-apps-gateway-connection.md)
 * [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
