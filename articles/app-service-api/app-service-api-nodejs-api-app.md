@@ -20,7 +20,7 @@ ms.author: rachelap
 # Build a Node.js RESTful API and deploy it to an API app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-This quickstart shows how to create an [Express](http://expressjs.com/) framework Node.js REST API using from a [Swagger](http://swagger.io/) definition and deploy it as an [API app](app-service-api-apps-why-best-platform.md)  on Azure. You create the app using command-line tools, configure resources with the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli),  and deploy the app using Git.  When you've finished, you will have a working sample REST API running on Azure.
+This quickstart shows how to create an [Express](http://expressjs.com/) framework Node.js REST API using from a [Swagger](http://swagger.io/) definition and deploy it as an [API app](app-service-api-apps-why-best-platform.md)  on Azure. You create the app using command-line tools, configure resources with the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli),  and deploy the app using Git.  When you've finished, you have a working sample REST API running on Azure.
 
 ## Prerequisites
 
@@ -57,14 +57,14 @@ This quickstart shows how to create an [Express](http://expressjs.com/) framewor
 
 This section of the tutorial models an API development workflow in which you create Swagger metadata first and use that to scaffold (auto-generate) server code for the API. 
 
-1. Change directory to the *start* folder, then run `yo swaggerize`. Swaggerize creates a new Node.js project for your API from the Swagger definition in *api.json*.
+1. Change directory to the *start* folder, then run `yo swaggerize`. Swaggerize creates a Node.js project for your API from the Swagger definition in *api.json*.
 
     ```bash
     cd start
     yo swaggerize --apiPath api.json --framework express
     ```
 
-    Swaggerize asks a series of questions.  When asked **What to call this project:**, enter **ContactList**.
+     When Swaggerize asks for a project name, use *ContactList*.
    
    ```bash
    Swaggerize Generator
@@ -84,7 +84,7 @@ This section of the tutorial models an API development workflow in which you cre
     cd ContactList
     ```
 
-2. Install the **jsonpath** and **swaggerize-ui** NPM modules. 
+2. Install the `jsonpath` and `swaggerize-ui` NPM modules. 
 
     ```bash
     npm install --save jsonpath swaggerize-ui
@@ -120,7 +120,7 @@ This section of the tutorial models an API development workflow in which you cre
 
     This code lets you use a path variable to return only the contact with a given ID.
 
-5. Replace the code in **server.js** with the following code. 
+5. Replace the code in **server.js** with the following code:
 
     ```javascript
     'use strict';
@@ -194,11 +194,11 @@ This section of the tutorial models an API development workflow in which you cre
     }
     ```
 
-4. Browse to the Swagger web interface at http://localhost:8000/docs to test the API using your web browser.
+4. Test the API using the Swagger web interface at http://localhost:8000/docs.
    
     ![Swagger web interface](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Create a API App
+## <a id="createapiapp"></a> Create an API App
 
 In this section, you use the Azure CLI 2.0 to create the resources to host the API on Azure App Service. 
 
@@ -227,7 +227,7 @@ Deploy your code to the API app by pushing commits from your local Git repositor
     git init .
     ```
 
-3. Exclude the *node_modules* directory created by npm in an earlier step in the tutorial from Git. Open up the *.gitignore* file in the root of your local repo and add the following text on a new line anywhere in the file.
+3. Exclude the *node_modules* directory created by npm in an earlier step in the tutorial from Git. Create a new `.gitignore` file in the current directory and add the following text on a new line anywhere in the file.
 
     ```
     node_modules/
@@ -266,7 +266,7 @@ Deploy your code to the API app by pushing commits from your local Git repositor
 
 2. In a browser, go to the `http://app_name.azurewebsites.net/docs` endpoint to try out the Swagger UI running on Azure.
 
-    ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-azure-ui.png)
+    ![Swagger Ii](media/app-service-api-nodejs-api-app/swagger-azure-ui.png)
 
     You can now deploy updates to the sample API to Azure simply by pushing commits to the Azure Git repository.
 
