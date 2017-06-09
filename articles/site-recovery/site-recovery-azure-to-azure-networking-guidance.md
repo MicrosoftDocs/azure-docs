@@ -75,7 +75,7 @@ If you are using any IP-based firewall proxy or NSG rules to control outbound co
 
     >[!NOTE]
     > If new IPs get added to Office 365 IP ranges in the future, you need to create new NSG rules.
-
+    
 - Site Recovery service endpoint IPs ([available in an XML file](https://aka.ms/site-recovery-public-ips)), which depend on your target location: 
 
    **Target location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
@@ -110,7 +110,7 @@ This section explains the steps to configure NSG rules so that Site Recovery rep
 >[!Note]
 > To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
-For example, if your VM's source location is "East US" and your replication target location is "Central US", follow the steps in the next two sections:
+For example, if your VM's source location is "East US" and your replication target location is "Central US", follow the steps in the next two sections.
 
 >[!IMPORTANT]
 > * We recommend that you create the required NSG rules on a test network security group and verify that there are no problems before you create the rules on a production network security group.
@@ -143,7 +143,7 @@ These rules are required so that replication can be enabled from the target regi
    East US | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
 
 
-## Guidelines for existing Azure to on-premises ExpressRoute/VPN configuration
+## Guidelines for existing Azure-to-on-premises ExpressRoute/VPN configuration
 
 If you have an ExpressRoute or VPN connection between on-premises and the source location in Azure, follow the guidelines in this section.
 
