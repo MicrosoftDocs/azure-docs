@@ -115,7 +115,7 @@ You can run a Docker container inside a Kubernetes *pod*, which contains one or 
 
 This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using the `kubctl apply` command. 
 
-Create a local file named `iis.json` and copy the following text. This file tells Kubernetes to run IIS on Windows Server 2016 Server Core, using a public container image from [Docker Hub](https://hub.docker.com/r/microsoft/iis/). The container uses port 80, but initially is only accessible within the cluster network.
+Create a local file named `iis.json` and copy the following text. This file tells Kubernetes to run IIS on Windows Server 2016 Nano Server, using a public container image from [Docker Hub](https://hub.docker.com/r/nanoserver/iis/). The container uses port 80, but initially is only accessible within the cluster network.
 
  ```JSON
  {
@@ -131,7 +131,7 @@ Create a local file named `iis.json` and copy the following text. This file tell
     "containers": [
       {
         "name": "iis",
-        "image": "microsoft/iis",
+        "image": "nanoserver/iis",
         "ports": [
           {
           "containerPort": 80
@@ -158,7 +158,7 @@ To track the deployment, type:
 kubectl get pods
 ```
 
-While the pod is deploying, the status is `ContainerCreating`. Because of the size of the IIS image, it can take several minutes for the container to enter the `Running` state.
+While the pod is deploying, the status is `ContainerCreating`. It can take a few minutes for the container to enter the `Running` state.
 
 ```azurecli-interactive
 NAME     READY        STATUS        RESTARTS    AGE
