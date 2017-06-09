@@ -29,7 +29,7 @@ ms.author: mlearned
    
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
-<p>In-depth guides for your various scenarios.  <b>Note:  Some of the tutorials below show different ways to install Jenkins.  Instead of those steps, you can use the solution template in the above quickstart to quickly setup a Jenkins instance.</b></p>
+<p>Below are in-depth guides for your various scenarios.  <b>Note:  Some of the tutorials below show different ways to install Jenkins as a prerequisite.  Instead of those steps, you can use the solution template in the above quickstart to quickly setup a Jenkins instance.</b></p>
 <ol>
     <li>Configure Jenkins to work with <a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Azure Storage</a>.</li>
     <li>CI/CD with <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins and Docker on Azure VMs</a></li>
@@ -53,7 +53,6 @@ ms.author: mlearned
   <li><a href="">https://aka.ms/azure-storage</a></li>
   </ul>
   <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services</a>.</li>
-  <li>CI with Jenkins using <a href="https://azure.microsoft.com/resources/videos/continuous-integration-with-jenkins-using-azure-vm-agents/">Azure VM agents. (Video)</a></li>
   <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
   <li><a href="https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/">Securing a Jenkins instance on Azure</a></li>
   
