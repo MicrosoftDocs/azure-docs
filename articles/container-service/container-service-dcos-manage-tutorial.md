@@ -37,9 +37,9 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create a resource group
+## Create DC/OS cluster
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+First, create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -47,9 +47,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-## Create DC/OS cluster
-
-Create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
+Next, create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -97,6 +95,108 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 ```json
 {
+  "id": "demo-app-private",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 32,
+  "disk": 0,
+  "instances": 1,
+  "container": {
+    "docker": {
+      "image": "nginx",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp",
+          "name": "80",
+          "labels": null
+        }
+      ]
+    },
+    "type": "DOCKER"
+  }
+}
+```
+
+Run the following command to schedule the application to run on the DC/OS cluster.
+
+```azurecli-interactive 
+dcos marathon app add marathon-app.json
+```
+
+To see the deployment status for the app, run the following command.
+
+```azurecli-interactive
+dcos marathon app list
+```
+
+When the **TASKS** column value switches from *0/1* to *1/1*, application deployment has completed.
+
+```azurecli-interactive
+ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
+/test   32   1     0/1    ---       ---      False      DOCKER   None
+```
+
+## Scale Marathon application
+
+In the previous example, a single instance application was created. To update this deployment so that three instances of the application are available, open up the **marathon-app.json** file, and update the instance property to 3.
+
+```json
+{
+  "id": "demo-app-private",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 32,
+  "disk": 0,
+  "instances": 3,
+  "container": {
+    "docker": {
+      "image": "nginx",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "protocol": "tcp",
+          "name": "80",
+          "labels": null
+        }
+      ]
+    },
+    "type": "DOCKER"
+  }
+}
+```
+
+Update the application using the `dcos marathon app update` command.
+
+```azurecli-interactive
+dcos marathon app update demo-app-private < marathon-app.json
+```
+
+To see the deployment status for the app, run the following command.
+
+```azurecli-interactive
+dcos marathon app list
+```
+
+When the **TASKS** column value switches from *1/3* to *3/1*, application deployment has completed.
+
+```azurecli-interactive
+ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
+/test   32   1     1/3    ---       ---      False      DOCKER   None
+```
+
+## Run internet accessable app
+
+The ACS DC/OS cluster consists of two node sets, one public which is accessible on the internet, and one private which is not accessible on the internet. The default set is the private nodes, which was used in the last example.
+
+To make an application accessible on the internet, deploy them to the public node set. To do so, give the `acceptedResourceRoles` object a value of `slave_public`.
+
+Create a file named **nginx-public.json** and copy the following contents into it.
+
+```json
+{
   "id": "demo-app",
   "cmd": null,
   "cpus": 1,
@@ -128,23 +228,10 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
 ```azurecli-interactive 
-dcos marathon app add marathon-app.json
+dcos marathon app add nginx-public.json
 ```
 
-To see the deployment status for the app, run the following command.
-
-```azurecli-interactive
-dcos marathon app list
-```
-
-When the **WAITING** column value switches from *True* to *False*, application deployment has completed.
-
-```azurecli-interactive
-ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
-/test   32   1     1/1    ---       ---      False      DOCKER   None
-```
-
-Get the public IP address of the DC/OS cluster agents.
+Get the public IP address of the DC/OS public cluster agents.
 
 ```azurecli-interactive 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
@@ -154,49 +241,9 @@ Browsing to this address returns the default NGINX site.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
-## Scale Marathon application
-
-In the previous example, a single instance application was created. To update this deployment so that three instances of the application are available, open up the **marathon-app.json** file, and update the instance property to 3.
-
-```json
-{
-  "id": "demo-app",
-  "cmd": null,
-  "cpus": 1,
-  "mem": 32,
-  "disk": 0,
-  "instances": 3,
-  "container": {
-    "docker": {
-      "image": "nginx",
-      "network": "BRIDGE",
-      "portMappings": [
-        {
-          "containerPort": 80,
-          "hostPort": 80,
-          "protocol": "tcp",
-          "name": "80",
-          "labels": null
-        }
-      ]
-    },
-    "type": "DOCKER"
-  },
-  "acceptedResourceRoles": [
-    "slave_public"
-  ]
-}
-```
-
-Update the application using the `dcos marathon app update` command.
-
-```azurecli-interactive
-dcos marathon app update demo-app < marathon-app.json
-```
-
 ## Scale DC/OS cluster
 
-In the previous example, a container was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
 
 To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#show) command.
 
