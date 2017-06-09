@@ -106,7 +106,7 @@ A technical profile is the full configuration of the exchange desired with the R
 </ClaimsProvider>
 ```
 
-The `InputClaims` element defines the claims that will be sent from the IEE to the REST service. In the above example, the contents of the claims `givenName` will be sent to the REST service as `playerTag`. In this example, the IEE does not expect claims back, and instead waits for a response from the REST service and acts based on the status codes received.
+The `InputClaims` element defines the claims that will be sent from the IEF to the REST service. In the above example, the contents of the claims `givenName` will be sent to the REST service as `playerTag`. In this example, the IEF does not expect claims back, and instead waits for a response from the REST service and acts based on the status codes received.
 
 ## Step 3 - Include the RESTful service claims exchange in self-asserted technical profile where you wish to validate the user input
 
