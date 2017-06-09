@@ -31,6 +31,9 @@
 ## Azure CLI
 ### [Web Apps](../app-service-web/app-service-cli-samples.md)
 ### [Virtual Machines](../virtual-machines/linux/cli-samples.md)
+## PowerShell
+### [Web Apps](../app-service-web/app-service-powershell-samples.md)
+### [Virtual Machines](../virtual-machines/linux/powershell-samples.md)
 
 # Concepts
 ## [Billing and subscriptions](../billing/billing-getting-started.md)
@@ -67,7 +70,7 @@
 
 ## Scale
 ### [Web and mobile apps](../app-service-web/web-sites-scale.md)
-### Linux VM
+### [Virtual machines](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
 ### Windows VM
 ### [Microservice apps](../service-fabric/service-fabric-concepts-scalability.md)
 
@@ -76,7 +79,7 @@
 
 ## Backup
 ### [Web and mobile apps](../app-service-web/web-sites-backup.md)
-### [VMs](../backup/backup-azure-vms-introduction.md)
+### [Virtual machines](../backup/backup-azure-vms-introduction.md)
 
 ## Monitor
 ### [Web and mobile apps](../app-service-web/web-sites-enable-diagnostic-log.md)
@@ -89,8 +92,6 @@
 ### [Agile web app development](../app-service-web/app-service-agile-software-development.md)
 ### [Scale Linux VM](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM with Chef](../virtual-machines/virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-## Troubleshoot
 
 # Reference
 ## [REST](https://docs.microsoft.com/rest/api/)
