@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/12/2017
 ms.author: jeedes
 
 ---
@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.globalview.adp.com/federate` or `https://<subdomain>.globalview.adp.com/federate2`
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [ADP Globalview support](https://www.adp.com/contact-us/overview.aspx) to get the value.
+	> The value is not real. Update the value with the actual Identifier. Contact [ADP Globalview support](https://www.adp.com/contact-us/overview.aspx) to get the value.
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -129,7 +129,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ------------------- | -------------------- |    
 	| personalimmutableid | user.extensionattribute2 |
 	| email 			  | user.mail |
-	| userid              | user.userprincipalname|	
+	| userid              | user.userprincipalname|
+	
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
