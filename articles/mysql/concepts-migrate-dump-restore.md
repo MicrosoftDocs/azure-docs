@@ -1,6 +1,6 @@
 ---
 title: Migrate your MySQL database using dump and restore in Azure Database for MySQL | Microsoft Docs
-description: Introduces migrating Azure Database for MySQL.
+description: This article explains two common ways to back up and restore databases in your Azure Database for MySQL, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -11,7 +11,7 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/17/2017
+ms.date: 06/09/2017
 ---
 
 # Migrate your MySQL database to Azure Database for MySQL using dump and restore
@@ -27,6 +27,29 @@ To step through this how-to guide, you need to have:
 
 ## Use common tools
 Use common tools such as MySQL Workbench, mysqldump, Toad, or Navicat to remotely connect and restore data into Azure Database for MySQL. Use such tools on your client machine with an internet connection to connect to the Azure Database for MySQL. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MySQL](concepts-ssl-connection-security.md). You do not need to move the dump files to any special cloud location when migrating to Azure Database for MySQL. 
+
+## When to use Dump and Restore techniques instead of Import and Export
+We recommend to use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure MySQL Database in several common scenarios. In other scenarios, you may benefit from using the [Import and Export](concepts-migrate-import-export.md) approach instead.
+
+- Use database dumps when you are migrating the entire database, including **all tables**. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications. Don't use dump / restore method when you are picking and choosing a few tables to migrate.
+- The **InnoDB** storage engine must be used in _all tables_ in the database when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables require alternative storage engines, first convert those into the InnoDB engine format before migration to Azure Database for MySQL.
+   For example, if you have a WordPress or other WebApp which uses non InnoDB engine such as MyISAM, or a custom application that has any non InnoDB tables, you should first convert those tables by migrating the data into InnoDB tables prior to migration. Use the clause `ENGINE=INNODB` to set the engine used when creating a new table, then transfer the data into the compatible table before the migration. 
+   ```sql
+   INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
+   ```
+- Ensure the **same version** and **release level** of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to Azure Database for MySQL configured to run version 5.7. Ensure your existing MySQL Server version is same as your new Azure MySQL Server to avoid any compatibility issue. The `mysql_upgrade` command does not function in an Azure Database for MySQL server, and is not supported. If you require to upgrade across MySQL versions, first dump or export your lower version database into a higher version of MySQL in your own environment to run `mysql_upgrade`, before attempting migration into an Azure Database for MySQL.
+
+## Performance Considerations
+To optimize performance, take notice of these considerations when operating on extremely large databases:
+-	Use the `exclude-triggers` option. Exclude triggers from dump files to avoid those triggering upon restore, since triggers can be added explicitly after restoring is complete. 
+-	Avoid the `single-transaction` option. Dumping tables within a single transaction causes extra storage and memory resources to be consumed during restore and may cause performance delays or resource constraints.
+-	Create clustered indexes and primary keys before loading data. Load data in primary key order. 
+-	Use the `defer-table-indexes` option. When loading data, defer index creation until after loading table rows. Delay creation of secondary indexes until after data is loaded. Create all secondary indexes after loading. 
+-	Disable foreign key constraints before load. Disabling foreign key checks will provide significant performance gains. Enable the constraints and verify the data after the load to ensure referential integrity.
+-	Load data in parallel. Avoid too much parallelism that would cause you to hit a resource limit, and monitor resources using the metrics available in the Azure portal. 
+-	Use partitioned tables when appropriate.
+-	Use multi-value inserts when loading with SQL to minimize statement execution overhead. When using dump files generated by mysqldump utility, this is done automatically. 
+
 
 ## Create a backup file from the command-line using mysqldump
 To back up an existing MySQL database on-prem or in a VM, run the following command: 
@@ -96,6 +119,5 @@ Importing your database is similar to exporting. Do the following actions:
 - Click the Go button. This will export the backup, execute the SQL commands and re-create your database.
 
 ## Next steps
-
 [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) 
 [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
