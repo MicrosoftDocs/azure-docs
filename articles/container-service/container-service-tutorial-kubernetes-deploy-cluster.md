@@ -62,7 +62,7 @@ To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs ku
 downloads the cluster configuration for your Kubernetes cluster.
 
 ```azurecli-interactive 
-az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SCluster
 ```
 
 To verify the connection to your cluster from your machine, try running:
@@ -78,6 +78,7 @@ NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
 k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
+```
 
 ## Next steps
 
@@ -91,4 +92,4 @@ In this tutorial, an Azure Container Service Kubernetes cluster was deployed. Ta
 Advance to the next tutorial to learn about running application on the cluster.
 
 > [!div class="nextstepaction"]
-> [Load balance applications](./container-service-tutorial-kubernetes-deploy-application.md)
+> [Deploy application in Kubrnetes](./container-service-tutorial-kubernetes-deploy-application.md)
