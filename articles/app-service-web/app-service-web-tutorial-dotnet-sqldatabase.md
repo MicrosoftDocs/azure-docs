@@ -400,6 +400,8 @@ By default, your web app's page shows the **Overview** page. This page gives you
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal-web-app.md)]
+
 ## Clean up Resources
  
 * From the left menu, select **Resource Groups**, and then select **myResourceGroup**.
