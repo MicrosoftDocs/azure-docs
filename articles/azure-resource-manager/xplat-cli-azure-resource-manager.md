@@ -41,11 +41,11 @@ To get a list of all resource groups in your subscription and their locations, r
 
 
 ### Resources
- To list all resources in a group, such as one with name *testRG*, use the following command.
+ To list all resources in a group, such as one with name *testRG*, use the following command:
 
     azure resource list testRG
 
-To view an individual resource within the group, such as a VM named *MyUbuntuVM*, use a command like the following.
+To view an individual resource within the group, such as a VM named *MyUbuntuVM*, use a command like the following:
 
     azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
@@ -77,7 +77,7 @@ To add a resource such as a storage account to a resource group, run a command s
 
 In addition to specifying the API version of the resource with the **-o** parameter, use the **-p** parameter to pass a JSON-formatted string with any required or additional properties.
 
-To delete an existing resource such as a virtual machine resource, use a command like the following.
+To delete an existing resource such as a virtual machine resource, use a command like the following:
 
     azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
@@ -106,7 +106,7 @@ Then run the **policy definition create** command:
 
     azure policy definition create MyPolicy -p c:\temp\policy.json
 
-This command shows output similar to the following.
+This command shows output similar to the following:
 
     + Creating policy definition MyPolicy
     data:    PolicyName:             MyPolicy
