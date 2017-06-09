@@ -266,9 +266,9 @@ Deploy your code to the API app by pushing commits from your local Git repositor
 
 2. In a browser, go to the `http://app_name.azurewebsites.net/docs` endpoint to try out the Swagger UI running on Azure.
 
-![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-azure-ui.png)
+    ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-azure-ui.png)
 
-You can now deploy updates to the sample API to Azure simply by pushing commits to the Azure Git repository.
+    You can now deploy updates to the sample API to Azure simply by pushing commits to the Azure Git repository.
 
 ## Clean up
 
