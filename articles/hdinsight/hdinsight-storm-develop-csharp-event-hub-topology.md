@@ -1,6 +1,6 @@
 ---
 title: Process events from Event Hubs with Storm - Azure HDInsight | Microsoft Docs
-description: Learn how to process data from Azure Event Hubs with a C# Storm topology created in Visual Studio, by using the HDInsight Tools for Visual Studio.
+description: Learn how to process data from Azure Event Hubs with a C# Storm topology created in Visual Studio, by using the HDInsight tools for Visual Studio.
 services: hdinsight,notification hubs
 documentationcenter: ''
 author: Blackmist
@@ -22,7 +22,7 @@ ms.author: larryfr
 
 Azure Event Hubs allows you to process massive amounts of data from websites, apps, and devices. The Event Hubs spout makes it easy to use Apache Storm on HDInsight to analyze this data in real time. You can also write data to Event Hubs from Storm by using the Event Hubs bolt.
 
-In this tutorial, you learn how to use the Visual Studio templates installed with HDInsight Tools for Visual Studio to create two topologies that work with Azure Event Hubs.
+In this tutorial, you learn how to use the Visual Studio templates installed with HDInsight tools for Visual Studio to create two topologies that work with Event Hubs.
 
 * **EventHubWriter**: Randomly generates data and writes it to Event Hubs.
 * **EventHubReader**: Reads data from Event Hubs, and logs the data to the Storm logs.
@@ -50,7 +50,7 @@ C# topologies must also target .NET 4.5.
 
 ## How to work with Event Hubs
 
-Microsoft provides a set of Java components that can be used to communicate with Azure Event Hubs from a Storm topology. You can find the Jave archive (JAR) file that contains an HDInsight 3.3 and 3.4 compatible version of these components on [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+Microsoft provides a set of Java components that can be used to communicate with Event Hubs from a Storm topology. You can find the Jave archive (JAR) file that contains an HDInsight 3.3 and 3.4 compatible version of these components on [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
 
 For HDInsight 3.5 or greater, the components are also located on [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
@@ -63,7 +63,7 @@ The following components are used in this example:
 * __EventHubBolt__: Writes data to Event Hubs.
 * __EventHubSpoutConfig__: Used to configure EventHubSpout.
 * __EventHubBoltConfig__: Used to configure EventHubBolt.
-* __UnicodeEventDataScheme__: Used to configure the spout to use UTF-8 encoding when it is reading from Event Hubs. The default encoding is String.
+* __UnicodeEventDataScheme__: Used to configure the spout to use UTF-8 encoding when it is reading from Event Hubs. The default encoding is string.
 
 ### Example spout usage
 
@@ -89,9 +89,9 @@ topologyBuilder.SetEventHubSpout(
 The previous example creates a new spout component named __EventHubSpout__, and configures it to communicate with an Event Hub. The parallelism hint for the component is set to the number of partitions in the Event Hub. This setting allows Storm to create an instance of the component for each partition.
 
 > [!IMPORTANT]
-> As of January 1, 2017, using the **SetEventHubSpout** and **EventHubSpoutConfig** methods create a spout that uses String encoding when reading data from Event Hubs.
+> As of January 1, 2017, using the **SetEventHubSpout** and **EventHubSpoutConfig** methods create a spout that uses string encoding when reading data from Event Hubs.
 
-You can also use the generic **JavaComponentConstructor** method when you create a spout. The following example demonstrates how to create a spout by using the **JavaComponentConstructor** method. It also demonstrates how to configure the spout to read data that uses a UTF-8 encoding instead of String.
+You can also use the generic **JavaComponentConstructor** method when you create a spout. The following example demonstrates how to create a spout by using the **JavaComponentConstructor** method. It also demonstrates how to configure the spout to read data that uses a UTF-8 encoding instead of string.
 
 ```csharp
 // Create an instance of UnicodeEventDataScheme
@@ -176,7 +176,7 @@ You can download a complete version of the project created in this tutorial from
 
 * The [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 
-* The [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* The [HDInsight tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 * Java JDK 1.7 or later on your development environment. JDK downloads are available from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
@@ -210,7 +210,7 @@ Event Hubs is the data source for this example. Use the information in the **Cre
 
 ## Configure the EventHubWriter
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the HDInsight tools for Visual Studio, see [Get started using HDInsight tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Download the solution from [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 

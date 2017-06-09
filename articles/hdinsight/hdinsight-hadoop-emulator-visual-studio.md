@@ -20,7 +20,7 @@ ms.author: larryfr
 ---
 # Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox
 
-Azure Data Lake includes tools for working with generic Hadoop clusters, in addition to tools for working with Azure Data Lake and HDInsight. This document provides the steps needed to use the Azure Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
+Azure Data Lake includes tools for working with generic Hadoop clusters, in addition to tools for working with Data Lake and HDInsight. This document provides the steps needed to use the  Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
 
 Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. Once you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
 
@@ -63,7 +63,7 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in [Get
     ![Screenshot of dialog box, with Update button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
     > [!NOTE]
-    > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Azure Data Lake tools for Visual Studio.
+    > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Data Lake tools for Visual Studio.
 
  6.  Once validation has completed, select **Finish** to complete configuration.
     ![Screenshot of dialog box, with Finish button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
@@ -160,7 +160,7 @@ While Hive provides a SQL-like language for working with structured data, Pig wo
 
 ## View jobs
 
-Azure Data Lake tools also allow you to easily view information about jobs that have been run on Hadoop. Use the following steps to see the jobs that have been run on the local cluster.
+Data Lake tools also allow you to easily view information about jobs that have been run on Hadoop. Use the following steps to see the jobs that have been run on the local cluster.
 
 1. From **Server Explorer**, right-click on the local cluster, and then select **View Jobs**. A list of jobs that have been submitted to the cluster is displayed.
 
