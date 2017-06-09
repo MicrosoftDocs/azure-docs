@@ -143,7 +143,7 @@ Add an administrator username and password, and then select **OK**.
 
 ![Create SQL Server instance](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-The **Configure SQL Database** dialog is displayed:
+The **Configure SQL Database** dialog is displayed: 
 
 * Keep the default generated **Database Name**.
 * In **Connection String Name**, type *MyDbConnection*. This name must match the connection string that is referenced in *Models/MyDatabaseContext.cs*.
@@ -321,10 +321,8 @@ Try adding to-do items again and select **Done**, and they should show up in you
 
 ![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
-> [!NOTE]
->All your existing to-do items are still displayed. When you republish your ASP.NET application, existing data in your SQL Database is not lost. Also, Code First Migrations only changes the data schema and leaves your existing data intact.
->
->
+All your existing to-do items are still displayed. When you republish your ASP.NET application, existing data in your SQL Database is not lost. Also, Code First Migrations only changes the data schema and leaves your existing data intact.
+
 
 ## Stream application logs
 
