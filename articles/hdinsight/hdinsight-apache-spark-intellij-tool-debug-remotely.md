@@ -39,7 +39,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
    - From the right pane, select Java or Scala template based on your preference: **Spark on HDInsight (Scala), Spark on HDInsight (Java), or Spark on HDInsight Cluster Run Sample (Scala)**.
 2. In the next window, provide the project details.
 
-   ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.PNG)
+   ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.png)
    - Provide a project name and project location.
    - For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
    - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This article uses Spark2.0.2(Scala 2.11.8) as an example.
