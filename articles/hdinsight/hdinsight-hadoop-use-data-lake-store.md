@@ -97,11 +97,11 @@ Adding a Data Lake Store account as additional and adding more than one Data Lak
 
 ## Configure Data Lake store access
 
-To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Configure Data Lake Store access](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#configure-data-lake-store-access), and [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal#create-service-principal-with-self-signed-certificate).
+To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Configure Data Lake Store access](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access), and [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
 ## Access files from the cluster
 
-There are a number of ways you can access the files in Data Lake Store from an HDInsight cluster.
+There are several ways you can access the files in Data Lake Store from an HDInsight cluster.
 
 * **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
 
@@ -130,7 +130,7 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 
 ## Next steps
-In this article, you learned how to use HDFS-compatible Azure storage and Azure Data Lake Store with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
+In this article, you learned how to use HDFS-compatible Azure Data Lake Store with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
 
 For more information, see:
 

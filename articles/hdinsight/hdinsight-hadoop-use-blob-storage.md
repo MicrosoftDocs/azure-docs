@@ -295,7 +295,7 @@ While creating an HDInsight cluster you specify the Azure Storage account you wa
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 ## Next steps
-In this article, you learned how to use HDFS-compatible Azure storage and Azure Data Lake Store with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
+In this article, you learned how to use HDFS-compatible Azure storage with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
 
 For more information, see:
 
