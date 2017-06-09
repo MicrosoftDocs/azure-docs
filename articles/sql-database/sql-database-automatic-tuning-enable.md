@@ -9,7 +9,7 @@ editor: vvasic
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na

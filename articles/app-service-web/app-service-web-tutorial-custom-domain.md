@@ -61,11 +61,11 @@ From the left menu, click **App Services**, then click the name of your app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-You have landed in the management blade of your App Service app (_blade_: a portal page that opens horizontally).  
+You have landed in the management page of your App Service app.  
 
 ### Check the pricing tier
 
-In the left-hand navigation of your app blade, scroll to the **Settings** section and select **Scale up (App Service plan)**.
+In the left-hand navigation of your app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -73,7 +73,7 @@ Check to make sure that your app is not in the **Free** tier. Your app's current
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Custom DNS is not supported in the **Free** tier. If you need to scale up, follow the next section. Otherwise, close the **Choose your pricing tier** blade and skip to [Map a CNAME record](#cname) or [Map an A record](#a).
+Custom DNS is not supported in the **Free** tier. If you need to scale up, follow the next section. Otherwise, close the **Choose your pricing tier** page and skip to [Map a CNAME record](#cname) or [Map an A record](#a).
 
 ### Scale up your App Service plan
 
@@ -126,11 +126,11 @@ Your DNS records page show look like the following screenshot:
 
 You're now ready to add your configured DNS name to your app.
 
-In the left-hand navigation of your app blade, click **Custom domains**. 
+In the left-hand navigation of your app page, click **Custom domains**. 
 
 ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-In the **Custom domains** blade of your app, you need to add the fully qualified custom DNS name (`www.contoso.com`) to the list.
+In the **Custom domains** page of your app, you need to add the fully qualified custom DNS name (`www.contoso.com`) to the list.
 
 Click the **+** icon next to **Add hostname**.
 
@@ -164,9 +164,9 @@ In the tutorial example, you want to add an A record for the root domain, `conto
 
 ### Copy your app's IP address
 
-To map an A record, you need your app's external IP address. You can find this IP address in the **Custom domains** blade.
+To map an A record, you need your app's external IP address. You can find this IP address in the **Custom domains** page.
 
-In the left-hand navigation of your app blade, click **Custom domains**. 
+In the left-hand navigation of your app page, click **Custom domains**. 
 
 ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
