@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 06/04/2017
+  ms.date: 06/05/2017
   ms.author: curtand
 
   ms.custom: H1Hack27Feb2017

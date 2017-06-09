@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 
 ---
 # Restore an app in Azure
@@ -35,19 +35,19 @@ backups to be performed than **Standard** tier.
 <a name="PreviousBackup"></a>
 
 ## Restore an app from an existing backup
-1. On the **Settings** blade of your app in the Azure portal, click **Backups** to display the **Backups** blade. Then click **Restore Now** in the command bar.
+1. On the **Settings** blade of your app in the Azure Portal, click **Backups** to display the **Backups** blade. Then click **Restore**.
    
     ![Choose restore now][ChooseRestoreNow]
 2. In the **Restore** blade, first select the backup source.
    
-    ![](./media/web-sites-restore/021ChooseSource.png)
+    ![](./media/web-sites-restore/021ChooseSource1.png)
    
     The **App backup** option shows you all the existing backups of the current app, and you can easily select one.
     The **Storage** option lets you select any backup ZIP file from any existing Azure Storage account and container in your subscription.
     If you're trying to restore a backup of another app, use the **Storage** option.
 3. Then, specify the destination for the app restore in **Restore destination**.
    
-    ![](./media/web-sites-restore/022ChooseDestination.png)
+    ![](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > If you choose **Overwrite**, all existing data in your current app is erased and overwritten. Before you click **OK**,
@@ -55,9 +55,7 @@ backups to be performed than **Standard** tier.
    > 
    > 
    
-    You can select **Existing App** to restore the app backup to another app in the same resoure group. Before you use this option,
-    you should have already created another app in your resource group with mirroring configuration to the one defined
-    in the app backup.
+    You can select **Existing App** to restore the app backup to another app in the same resoure group. Before you use this option, you should have already created another app in your resource group with mirroring database configuration to the one defined in the app backup. You can also Create a **New** app to restore your content to.
 
 4. Click **OK**.
 
@@ -89,7 +87,7 @@ You can backup and restore App Service apps using REST API (see [Use REST to bac
 
 
 <!-- IMAGES -->
-[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow1.png
 [ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
