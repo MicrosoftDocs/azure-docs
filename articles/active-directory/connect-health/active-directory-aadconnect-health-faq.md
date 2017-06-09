@@ -149,9 +149,10 @@ Azure AD Connect Health service performed a scanned on all the machines it monit
 
 You can use the following PowerShell script to perform this check manually. It implements the above logic.
 
-    Function CheckForMS17-010 ()
-   {
-       $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215",     "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217",     "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554",     "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474",     "KB4015219", "KB4019473"
+```
+Function CheckForMS17-010 ()
+{
+    $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
 
     #checks the computer it's run on if any of the listed hotfixes are present
     $hotfix = Get-HotFix -ComputerName $env:computername | Where-Object {$hotfixes -contains $_.HotfixID} | Select-Object -property "HotFixID"
@@ -162,11 +163,12 @@ You can use the following PowerShell script to perform this check manually. It i
         "Found HotFix: " + $hotfix.HotFixID
     } else {
         "Didn't Find HotFix"
-        }
     }
-   CheckForMS17-010`
+}
 
+CheckForMS17-010
 
+```
 
 
 
