@@ -30,6 +30,7 @@ The map below shows the primary and secondary region pairings used for Geo-redun
 > US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region.
 >
 >
+
 ### Checking Secondary Region for RA-GRS and GRS Storage Accounts
 To view the current secondary region of your storage account through the Azure Portal, click the storage account blade then click on the name of the storage account. This will bring up the storage account overview blade which lists the primary and secondary regions.
 
