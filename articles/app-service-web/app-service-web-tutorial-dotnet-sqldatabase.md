@@ -18,7 +18,6 @@ ms.author: cephalin
 ms.custom: mvc
 ---
 
-
 # Build an ASP.NET app in Azure with SQL Database
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
@@ -401,11 +400,6 @@ By default, your web app's page shows the **Overview** page. This page gives you
 ![App Service page in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal-web-app.md)]
-
-## Clean up Resources
- 
-* From the left menu, select **Resource Groups**, and then select **myResourceGroup**.
-* Select **Delete**, which deletes all the resources you created in the tutorial.
 
 <a name="next"></a>
 
