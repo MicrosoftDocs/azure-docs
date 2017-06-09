@@ -280,4 +280,5 @@ The API version corresponds to a version of REST API operations that are release
 ## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* To view the operations for a resource provider, see [Azure REST API](/rest/api/).
 

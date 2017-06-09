@@ -52,7 +52,7 @@ To view an individual resource within the group, such as a VM named *MyUbuntuVM*
 Notice the **Microsoft.Compute/virtualMachines** parameter. This parameter indicates the type of the resource you are requesting information on.
 
 > [!NOTE]
-> When using the **azure resource** commands other than the **list** command, you must specify the API version of the resource with the **-o** parameter. If you're unsure about the API version, consult the template file and find the apiVersion field for the resource. For more about API versions in Resource Manager, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
+> When using the **azure resource** commands other than the **list** command, you must specify the API version of the resource with the **-o** parameter. If you're unsure about the API version, consult the template file and find the apiVersion field for the resource. For more about API versions in Resource Manager, see [Resource providers and types](resource-manager-supported-services.md).
 > 
 > 
 
