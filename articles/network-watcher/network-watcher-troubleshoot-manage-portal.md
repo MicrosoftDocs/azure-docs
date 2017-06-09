@@ -39,9 +39,7 @@ For a list of supported gateway types visit, [Supported Gateway types](/network-
 
 Resource troubleshooting provides the ability troubleshoot issues that arise with Virtual Network Gateways and Connections. When a request is made to resource troubleshooting, logs are being queried and inspected. When inspection is complete, the results are returned. Resource troubleshooting requests are long running requests, which could take multiple minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
 
-![portal][1]
-
-## Troubleshoot a gateway
+## Troubleshoot a gateway or connection
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and click **Networking** > **Network Watcher** > **VPN Diagnostics**
 2. Select a **Subscription**, **Resource Group**, and **Location**.
@@ -50,19 +48,15 @@ Resource troubleshooting provides the ability troubleshoot issues that arise wit
 5. On the **Containers** blade, choose an existing container or click **+ Container** to create a new container. When complete click **Select**
 6. Select the Gateway and Connection resources to troubleshoot and click **Start Troubleshooting**
 
-If multiple resources are selected, troubleshooting is ran on one resource at a time. While VPN Diagnostics are being ran the **TROUBLESHOOTING STATUS** column will show a status of **Running**
+If multiple resources are selected, troubleshooting is ran on one resource at a time. VPN gateways are checked first and then connections. While VPN Diagnostics is running on a resource the **TROUBLESHOOTING STATUS** column will show a status of **Running**
 
-When complete, 
+When complete, the status column changes to **Healthy** or **Unhealthy**.
 
 ![troubleshoot complete][2]
 
-### Details
-
-
-
 ## Understanding the results
 
-#### Status
+In the **Details** section of the window, the **Status** tab shows the status of the last troubleshooting run on the selected resource. Results of the latest diagnostic are shown xx minutes after the last run.
 
 |Property  |Description  |
 |---------|---------|
