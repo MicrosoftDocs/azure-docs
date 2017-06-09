@@ -30,10 +30,12 @@
 # Samples
 ## Azure CLI
 ### [Web Apps](../app-service-web/app-service-cli-samples.md)
-### [Virtual Machines](../virtual-machines/linux/cli-samples.md)
+### [Linux VM](../virtual-machines/linux/cli-samples.md)
+### [Windows VM](../virtual-machines/windows/cli-samples.md)
 ## PowerShell
 ### [Web Apps](../app-service-web/app-service-powershell-samples.md)
-### [Virtual Machines](../virtual-machines/linux/powershell-samples.md)
+### [Linux VM](../virtual-machines/linux/powershell-samples.md)
+### [Windows VM](../virtual-machines/windows/powershell-samples.md)
 
 # Concepts
 ## [Billing and subscriptions](../billing/billing-getting-started.md)
@@ -71,7 +73,6 @@
 ## Scale
 ### [Web and mobile apps](../app-service-web/web-sites-scale.md)
 ### [Virtual machines](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)
-### Windows VM
 ### [Microservice apps](../service-fabric/service-fabric-concepts-scalability.md)
 
 ## Secure

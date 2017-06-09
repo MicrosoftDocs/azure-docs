@@ -320,7 +320,7 @@ Azure Resource Manager lets you assign custom tags to individual resources. Tags
 
 ### Billing
 
-In the move from on-premises computing to cloud-hosted services, tracking and estimating service usage and related costs are significant concerns. It’s important to be able to estimate what new resources cost to run on a monthly basis, and also be able to project how the billing looks for a given month based on the current spending.
+In the move from on-premises computing to cloud-hosted services, tracking and estimating service usage and related costs are significant concerns. It’s important to be able to estimate what new resources cost to run on a monthly basis.You also need to be able to project how the billing looks for a given month based on the current spending.
 
 #### Get resource usage data
 
