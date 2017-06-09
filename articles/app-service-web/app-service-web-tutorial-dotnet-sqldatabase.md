@@ -247,7 +247,7 @@ public bool Done { get; set; }
 
 Next, run a few commands to make updates to your local database. 
 
-From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**. The console is generally opened in the bottom window.
+From the **Tools** menu, click **NuGet Package Manager** > **Package Manager Console**.
 
 Enable Code First Migrations:
 
@@ -277,7 +277,7 @@ Lets make some changes in your code to use the `Done` property. For simplicity i
 
 Open _Controllers\TodosController.cs_.
 
-Find the `Create()` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature should look like the following:
+Find the `Create()` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature should look like the following code:
 
 ```csharp
 public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] Todo todo)
@@ -352,7 +352,7 @@ Try adding to-do items again and select **Done**, and they should show up in you
 ![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 > [!NOTE]
-> Note that all your existing to-do items are still displayed. When you republish your ASP.NET application, existing data in your SQL Database is not lost. Also, Code First Migrations only changes the data schema and leaves your existing data intact.
+>All your existing to-do items are still displayed. When you republish your ASP.NET application, existing data in your SQL Database is not lost. Also, Code First Migrations only changes the data schema and leaves your existing data intact.
 >
 >
 
@@ -420,7 +420,7 @@ To stop the log-streaming service, click the **Stop monitoring** button in the *
 
 Go to the Azure portal to see the web app you created. 
 
-To do this, sign in to [https://portal.azure.com](https://portal.azure.com).
+Sign in to [https://portal.azure.com](https://portal.azure.com).
 
 From the left menu, click **App Service**, then click the name of your Azure web app.
 
