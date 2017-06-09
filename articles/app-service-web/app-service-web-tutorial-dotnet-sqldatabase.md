@@ -97,10 +97,6 @@ You can keep the generated web app name, or change it to another unique name. Th
 
 Next to **Resource Group**, click **New**.
 
-<!-- I like this as it warns you not to hit create. Which image should I keep?
-![Next to Resource Group, click New.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg.png)
- -->
-
 ![Next to Resource Group, click New.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
 Name the resource group **myResourceGroup**.
