@@ -1,6 +1,7 @@
 ---
-title: Run Hadoop MapReduce samples on HDInsight | Microsoft Docs
-description: Get started using MapReduce samples with HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.
+title: Run Hadoop MapReduce examples in jar files on HDInsight - Azure | Microsoft Docs
+description: Get started using MapReduce samples in jar files included in HDInsight. Use SSH to connect to the cluster, and then use the Hadoop command to run sample jobs.
+keywords: hadoop example jar,hadoop examples jar,hadoop mapreduce examples,mapreduce examples
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -10,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,56 +20,56 @@ ms.date: 04/03/2017
 ms.author: larryfr
 
 ---
-# Run the Hadoop samples in HDInsight
+# Run the Mapreduce examples in jar files included in HDInsight
 
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Learn about MapReduce examples that are included with HDInsight.
+Learn about MapReduce examples that are included in jar files on HDInsight and how to run them on a Hadoop cluster.
 
 ## Prerequisites
 
-* **A Linux-based HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+* **An HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * **An SSH client**: For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## The samples
+## The MapReduce examples
 
 **Location**: The samples are located on the HDInsight cluster at `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 
 **Contents**: The following samples are contained in this archive:
 
-* **aggregatewordcount**: An Aggregate based map/reduce program that counts the words in the input files.
-* **aggregatewordhist**: An Aggregate based map/reduce program that computes the histogram of the words in the input files.
-* **bbp**: A map/reduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi.
+* **aggregatewordcount**: An Aggregate based mapreduce program that counts the words in the input files.
+* **aggregatewordhist**: An Aggregate based mapreduce program that computes the histogram of the words in the input files.
+* **bbp**: A mapreduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi.
 * **dbcount**: An example job that counts the pageview logs stored in a database.
-* **distbbp**: A map/reduce program that uses a BBP-type formula to compute exact bits of Pi.
-* **grep**: A map/reduce program that counts the matches of a regex in the input.
+* **distbbp**: A mapreduce program that uses a BBP-type formula to compute exact bits of Pi.
+* **grep**: A mapreduce program that counts the matches of a regex in the input.
 * **join**: A job that performs a join over sorted, equally partitioned datasets.
 * **multifilewc**: A job that counts words from several files.
-* **pentomino**: A map/reduce tile laying program to find solutions to pentomino problems.
-* **pi**: A map/reduce program that estimates Pi using a quasi-Monte Carlo method.
-* **randomtextwriter**: A map/reduce program that writes 10GB of random textual data per node.
-* **randomwriter**: A map/reduce program that writes 10GB of random data per node.
+* **pentomino**: A mapreduce tile laying program to find solutions to pentomino problems.
+* **pi**: A mapreduce program that estimates Pi using a quasi-Monte Carlo method.
+* **randomtextwriter**: A mapreduce program that writes 10 GB of random textual data per node.
+* **randomwriter**: A mapreduce program that writes 10 GB of random data per node.
 * **secondarysort**: An example defining a secondary sort to the reduce phase.
-* **sort**: A map/reduce program that sorts the data written by the random writer.
+* **sort**: A mapreduce program that sorts the data written by the random writer.
 * **sudoku**: A sudoku solver.
 * **teragen**: Generate data for the terasort.
 * **terasort**: Run the terasort.
 * **teravalidate**: Checking results of terasort.
-* **wordcount**: A map/reduce program that counts the words in the input files.
-* **wordmean**: A map/reduce program that counts the average length of the words in the input files.
-* **wordmedian**: A map/reduce program that counts the median length of the words in the input files.
-* **wordstandarddeviation**: A map/reduce program that counts the standard deviation of the length of the words in the input files.
+* **wordcount**: A mapreduce program that counts the words in the input files.
+* **wordmean**: A mapreduce program that counts the average length of the words in the input files.
+* **wordmedian**: A mapreduce program that counts the median length of the words in the input files.
+* **wordstandarddeviation**: A mapreduce program that counts the standard deviation of the length of the words in the input files.
 
 **Source code**: Source code for these samples is included on the HDInsight cluster at `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 > [!NOTE]
 > The `2.2.4.9-1` in the path is the version of the Hortonworks Data Platform for the HDInsight cluster, and may be different for your cluster.
 
-## How to run the samples
+## Run the wordcount example
 
 1. Connect to HDInsight using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -118,7 +119,7 @@ Learn about MapReduce examples that are included with HDInsight.
 
     Each line represents a word and how many times it occurred in the input data.
 
-## Sudoku
+## The Sudoku example
 
 [Sudoku](https://en.wikipedia.org/wiki/Sudoku) is a logic puzzle made up of nine 3x3 grids. Some cells in the grid have numbers, while others are blank, and the goal is to solve for the blank cells. The previous link has more information on the puzzle, but the purpose of this sample is to solve for the blank cells. So our input should be a file that is in the following format:
 
@@ -156,7 +157,7 @@ The results appear similar to the following text:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## Pi (π)
+## Pi (π) example
 
 The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points are placed at random in a unit square. The square also contains a circle. The probability that the points will fall within the circle are equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -168,7 +169,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 The value returned by this should be similar to **3.14159155000000000000**. For references, the first 10 decimal places of pi are 3.1415926535.
 
-## 10GB Greysort
+## 10 GB Greysort example
 
 GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100 TB minimum.
 
