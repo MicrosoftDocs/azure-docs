@@ -81,9 +81,11 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 ### Exceptions
 | Property | Affects | Default |
 | --- | --- | --- |
-| Refresh Token Max Inactive Time (issued for federated users who have insufficient revocation information) |Refresh tokens (issued for federated users who have insufficient revocation information) |12 hours |
+| Refresh Token Max Age (issued for federated users who have insufficient revocation information) |Refresh tokens (issued for federated users who have insufficient revocation information<sup>1</sup>) |12 hours |
 | Refresh Token Max Inactive Time (issued for confidential clients) |Refresh tokens (issued for confidential clients) |90 days |
 | Refresh Token Max Age (issued for confidential clients) |Refresh tokens (issued for confidential clients) |Until-revoked |
+
+* <sup>1</sup>Federated users who have insufficient revocation information include any users who do not have the "LastPasswordChangeTimestamp" attribute synced. These users are given this short Max Age because AAD is unable to verify when to revoke tokens that are tied to an old credential (such as a password that has been changed) and must check back in more frequently to ensure that the user and associated tokens are still in good standing. To improve this experience, tenant admins must ensure that they are syncing the “LastPasswordChangeTimestamp” attribute (this can be set on the user object using Powershell or through AADSync).
 
 ### Policy evaluation and prioritization
 You can create and then assign a token lifetime policy to a specific application, to your organization, and to service principals. Multiple policies might apply to a specific application. The token lifetime policy that takes effect follows these rules:

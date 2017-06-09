@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/31/2017
+ms.date: 06/06/2017
 ms.author: heidist
 
 ---
@@ -32,6 +32,7 @@ Start here if you are new to Azure Search. You can review all of these resources
 | [Query an index](search-get-started-portal.md) | Create and query an index using built-in sample data. Tools in the portal are a fast way to learn about query types and search parameters. | February 2017 |
 | [Next step:<br/> Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough shows you how to connect, index, and query using the Azure Search .NET library. | November 2016 |
 | [Next step:<br/> Code in REST](search-create-index-rest-api.md) | Review REST calls and JSON payloads for creating an Azure Search index on any platform and programming language. | December 2016 |
+| [How full text search works in Azure Search](search-lucene-query-architecture.md) | Architecture and overview of full text search workloads in Azure Search. | March 2017 |
 
 ## Code samples
 
@@ -51,6 +52,7 @@ Fully functional web applications using Azure Search for the search experience. 
 
 | Link | Description |
 |-------|-------------|
+|[Search Analyzer Demo](http://alice.unearth.ai) | A live demo web site showing query output from the Standard Lucene analyzer, Lucene's English analyzer, and Microsoft's natural language processor. For each search term input, you can view a side-by-side comparison of each analyzer's output. |
 |[New York City (NYC) Jobs portal demo for Azure Search](http://aka.ms/azjobsdemo) | A live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative. This app uses the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx). You can modify code to try out the [Lucene syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
 |[Tate Art Gallery Demo](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) | A hosted ASP.NET web site using sample data from the Tate Art Gallery. Try out search terms like "modern", "photo", and "portrait" as a first step.
 |[Azure Search Demo Site](https://searchsamples.azurewebsites.net/#/) | A collection of demo apps for Azure Search. Test-drive media search, geo search and product inventory apps using Azure Search. |
