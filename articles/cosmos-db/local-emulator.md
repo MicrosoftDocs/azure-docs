@@ -136,7 +136,7 @@ When the Azure Cosmos DB emulator launches it will automatically open the Azure 
 ![Azure Cosmos DB local emulator data explorer launcher](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
 ## Checking for updates
-Data Explorer indicates if there is a new update is available for download. 
+Data Explorer indicates if there is a new update available for download. 
 
 > [!NOTE]
 > Data created in one version of the Azure Cosmos DB Emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos DB account, rather than in the Azure Cosmos DB Emulator. 
@@ -316,6 +316,8 @@ Use the following tips to help troubleshoot issues you encounter with the Azure 
 `lodctr /R` 
 
 - If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+- If you receive a **Service Unavailable** message, it means that the emulator is failing to initialize the network stack.  This is typically caused by a network filter driver installed by third party software. Known software that causes this problem is Pulse secure client and Juniper networks client. Typically uninstalling this software fixes the issue.
 
 ### <a id="trace-files"></a>Collect trace files
 
