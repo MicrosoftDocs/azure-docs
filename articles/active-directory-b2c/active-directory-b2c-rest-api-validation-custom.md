@@ -23,7 +23,7 @@ The **Identity Experience Framework** (IEF) underlying Azure AD B2C enables the 
 
 At the end of this walkthrough you will be able to create Azure AD B2C user journeys which interact with RESTful services.
 
-The IEF sends data in claims and receives data back in claims.  The interaction with the API can be designed as a REST API claims exchange, as a validation profile, which happens inside an orchestrations step.
+The IEF sends data in claims and receives data back in claims. The interaction with the API can be designed as a REST API claims exchange, or as a validation profile, which happens inside an orchestrations step.
 
 - This typically validates input from the user
 - If the value from the user is rejected, then the user can try again to enter a valid value with the opportunity to return an error message to the user.
