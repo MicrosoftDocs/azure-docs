@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/11/2017
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.asana.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.asana.com`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Asana Client support team](https://asana.com/guide/help/premium/authentication#gl-saml) to get this value. 
@@ -182,6 +182,7 @@ In this section, you create a user called Britta Simon in Asana.
     ![Creating an Azure AD test user](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png) 
 
 2. Type the email britta.simon@contoso.com in the text box and then select **Invite**.
+
 3. Click **Send Invite**. The new user will receive an email into her email account. She will need to create and validate the account.
 
 ### Assigning the Azure AD test user
