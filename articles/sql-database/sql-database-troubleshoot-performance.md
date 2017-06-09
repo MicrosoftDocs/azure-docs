@@ -20,7 +20,14 @@ ms.author: v-shysun
 
 ---
 # SQL Database performance tuning tips
-You can change the [service tier](sql-database-service-tiers.md) of a standalone database or increase the eDTUs of an elastic pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance. This article provides guidance for performance tuning in SQL Database.
+
+Azure SQL Database is automatically managed and flexible data service where you can easily add or remove resources (CPU, memory, io), find recommendations that can improve performance of your database or let database adapt to your workload and automatically optimize performance.
+
+Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to imporve performance of your workload.
+You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance. 
+Finally, if there are no actionable items that can improve performance of your database, you can change the amount of resources available in Azure SQL Database by changing the [service tier](sql-database-service-tiers.md) of a standalone database or increase the eDTUs of an elastic pool at any time.
+
+This article provides guidance for performance tuning in SQL Database.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
