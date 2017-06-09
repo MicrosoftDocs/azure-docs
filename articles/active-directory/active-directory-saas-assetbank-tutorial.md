@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.assetbank-server.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.assetbank-server.com/<companyname>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.assetbank-server.com/shibboleth`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Asset Bank Client support team](mailto:support@assetbank.co.uk) to get these values. 
