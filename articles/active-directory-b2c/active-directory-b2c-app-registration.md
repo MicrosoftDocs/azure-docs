@@ -35,7 +35,7 @@ To build an application that accepts consumer sign-up and sign-in, you first nee
 
 ## Navigate to the B2C settings blade
 
-First, sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. If you have the B2C settings blade [pinned to your dashboard](active-directory-b2c-get-started.md#navigate-to-the-b2c-settings-blade-on-the-azure-portal), click the B2C tile to open the settings blade.
+First, sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. If you have the B2C settings blade [pinned to your dashboard](active-directory-b2c-get-started.md#navigate-to-the-b2c-settings-in-the-azure-portal), click the B2C tile to open the settings blade.
 
 You can also access the blade by entering `Azure AD B2C` in **Search resources** at the top of the portal. In the results list, select **Azure AD B2C** to access the B2C settings blade.
 
