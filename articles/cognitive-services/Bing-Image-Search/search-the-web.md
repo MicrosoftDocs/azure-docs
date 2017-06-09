@@ -22,21 +22,10 @@ If you're building an images-only search results page to find images that are re
 
 ## Search query term
 
-If you're requesting images from Bing, your user experience must provide a search box where the user enters a search query term. You can determine the maximum term length that you allow, but the maximum length of all your query parameters should be less than 1,500 characters.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
-After the user enters their query term, you need to URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user entered *sailing dinghies*, you would set `q` to *sailing+dinghies* or *sailing%20dinghies*.
+After the user enters their query term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to *sailing+dinghies* or *sailing%20dinghies*.
 
-If the query term contains a spelling mistake, the response includes a [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#querycontext) object. The object shows the original spelling and the corrected spelling that Bing used for the search. 
-
-```
-  "queryContext":{  
-    "originalQuery":"sialing dingies",  
-    "alteredQuery":"sailing dinghies",  
-    "alterationOverrideQuery":"+sialing dingies"  
-  },  
-```
-
-You could use `originalQuery` and `alteredQuery` to let the user know the actual query term that Bing used.
   
 ## Getting images
 
@@ -47,7 +36,7 @@ GET https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=sailing+dinghi
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
 X-Search-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
@@ -59,7 +48,7 @@ Host: api.cognitive.microsoft.com
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 > ```  
@@ -161,7 +150,7 @@ Host: api.cognitive.microsoft.com
 > GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
 > X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357,long:-122.3295,re:100  
+> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 > X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 > Host: api.cognitive.microsoft.com  
 > ```  
@@ -195,7 +184,6 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Sony Surface",  
             "displayText" : "Sony",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Sony+Surface&FORM=IRQBPS",  
-            "webSearchUrlPingSuffix" : "DevEx,5318.1",  
             "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?q=...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=Sony+Surface&pid=Ap..."  
@@ -210,7 +198,6 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Microsoft Surface4",  
             "displayText" : "Surface2",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface...",  
-            "webSearchUrlPingSuffix" : "DevEx,5360.1",  
             "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Microsoft..."  
@@ -220,7 +207,6 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
             "text" : "Microsoft Tablet",  
             "displayText" : "Tablet",  
             "webSearchUrl" : "https:\/\/www.bing.com\/images\/search?q=Microsoft+Tablet&FORM=IRQBPS",  
-            "webSearchUrlPingSuffix" : "DevEx,5362.1",  
             "searchLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v5\/images\/search?...",  
             "thumbnail" : {  
                 "thumbnailUrl" : "https:\/\/tse3.mm.bing.net\/th?q=Microsoft+Tablet..."  

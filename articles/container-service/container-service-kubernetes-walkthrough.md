@@ -39,7 +39,7 @@ To create an Azure Container Service cluster using the Azure CLI 2.0, you must:
 
 Additionally, you need (or you can use the Azure CLI to generate automatically during cluster deployment):
 
-* **SSH RSA public key**: If you want to create Secure Shell (SSH) RSA keys in advance, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. 
+* **SSH RSA keys**: If you want to create Secure Shell (SSH) RSA keys in advance, see the [macOS and Linux](../virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../virtual-machines/linux/ssh-from-windows.md) guidance. If you have or create keys, make sure you run `ssh-add <path to private key>` to add the private key to `ssh-agent` (see [steps](../virtual-machines/linux/create-ssh-keys-detailed.md#using-ssh-agent-to-store-your-private-key-password)).  
 
 * **Service principal client ID and secret**: For steps to create an Azure Active Directory service principal and additional information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
@@ -74,7 +74,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 After several minutes, the command completes, and you should have a working Kubernetes cluster.
 
 > [!IMPORTANT]
-> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to `Insufficient privileges to complete the operation.` For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
+> If your account doesn't have permissions to create the Azure AD service principal, the command generates an error similar to **Insufficient privileges to complete the operation**. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 > 
 
 

@@ -8,7 +8,7 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: slivkins
+ms.author: slivkins;marcozo;alekh
 ---
 
 # Tutorial for Custom Decision Service
@@ -47,7 +47,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
 1. Sign in with your [Microsoft account](https://account.microsoft.com/account). On the ribbon, click **My Portal**.
 
-2. To register a new application, click the **New App** button. 
+2. To register a new application, click the **New App** button.
 
     ![Custom Decision Service portal](./media/custom-decision-service-tutorial/portal.png)
 
@@ -76,14 +76,14 @@ For more information on the feed format, see the [API reference](custom-decision
 Custom Decision Service serves rankings of articles via the Ranking API. To invoke this API, insert the following code into the HTML head of the front page:
 
 ```html
-// Define the "callback function" to render UI
+<!-- Define the "callback function" to render UI -->
 <script> function callback(data) { … } </script>
 
-// call Ranking API after callback() is defined, separately for each app
-<script src="https://ds.microsoft.com/app-politics/rank/feed-politics" async></script>
-<script src="https://ds.microsoft.com/app-sports/rank/feed-sports" async></script>
-<script src="https://ds.microsoft.com/app-recent/rank/feed-politics/feed-sports" async></script>
-// NB: action feeds for 'app-recent' are listed one after another.
+<!--  call Ranking API after callback() is defined, separately for each app -->
+<script src="https://ds.microsoft.com/api/v2/app-politics/rank/feed-politics" async></script>
+<script src="https://ds.microsoft.com/api/v2/app-sports/rank/feed-sports" async></script>
+<script src="https://ds.microsoft.com/api/v2/app-recent/rank/feed-politics/feed-sports" async></script>
+<!-- NB: action feeds for 'app-recent' are listed one after another. -->
 ```
 
 The HTTP response from the Ranking API is a JSONP-formatted string. For app-politics, for example, the string looks like this:
@@ -108,7 +108,7 @@ Clicks on the top article are returned by calling the Reward API. When a click o
 ```javascript
 $.ajax({
     type: "POST",
-    url: '//ds.microsoft.com/<appId>/reward/<eventId>',
+    url: '//ds.microsoft.com/api/v2/<appId>/reward/<eventId>',
     contentType: "application/json" })
 ```
 
@@ -124,7 +124,7 @@ function callback(data) {
                    function() {
                        $.ajax({
                        type: "POST",
-                       url: '//ds.microsoft.com/' + data.appId + '/reward/' + data.eventId,
+                       url: '//ds.microsoft.com/api/v2/' + data.appId + '/reward/' + data.eventId,
                        contentType: "application/json" })}
                 });
 }}
@@ -153,3 +153,7 @@ The Y axis corresponds to rewards. Currently, a ranking is assigned reward 1 if 
 We also provide upper and lower confidence bounds for our counterfactual estimates. To see the upper and lower bounds, select the **bounds** check box in the upper-right corner.
 
 ![Dashboard with confidence bounds](./media/custom-decision-service-tutorial/dashboard-with-bounds.png)
+
+## Next steps
+
+* Consult the [API reference](custom-decision-service-api-reference.md) to learn more about the provided functionality.

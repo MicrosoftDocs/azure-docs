@@ -112,7 +112,7 @@ The **activities** section can have one or more activities defined within it. Ea
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }

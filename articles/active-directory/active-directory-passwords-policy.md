@@ -6,6 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -15,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
+ms.custom: it-pro
 
 ---
 # Password policies and restrictions in Azure Active Directory
