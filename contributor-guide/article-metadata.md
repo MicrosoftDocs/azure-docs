@@ -4,7 +4,7 @@
 The standard Azure metadata section looks like this:
   ```
   ---
-  title: <page title displayed in search results. Include the brand Azure> | Microsoft Docs
+  title: <page title displayed in search results. Include the brand Azure>
   description: <article description that is displayed in search results>
   services: <service slug assigned to your service by ACOM>
   cloud: <optional; cloud value assigned by ACOM for sovereign clouds such as Azure Government and Azure Stack>
@@ -25,7 +25,7 @@ The standard Azure metadata section looks like this:
 
 ## Attributes and values
 
-![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. Title text appears in the browser tab and as the heading in a search result. Use up to 60 characters including spaces and including the site identifier *| Microsoft Docs* (typed as: space pipe space Microsoft Docs). The H1 of an article should expand on the title, not duplicate it. 
+![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. Title text appears in the browser tab and as the heading in a search result. Use up to 60 characters including spaces. Note that the site identifier *| Microsoft Docs* will automatically be added to your title value in the OPS build process. 
 
 ![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionality. The description should be at least 115 characters long to 145 characters maximum including spaces. Describe the purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
