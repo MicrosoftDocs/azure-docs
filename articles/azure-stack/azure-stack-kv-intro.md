@@ -65,5 +65,6 @@ The following table depicts some of the scenarios where Key Vault can help meet 
 **Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
 
 ## Next Steps
-[Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)
-[Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+
+* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
+* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
