@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple system requirements | Microsoft Docs
 description: Describes software, networking, and high availability requirements and best practices for a Microsoft Azure StorSimple solution.
 services: storsimple
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/31/2016
+ms.date: 06/06/2017
 ms.author: alkohli
 
 ---
@@ -32,7 +32,7 @@ The following software requirements are for the storage clients that access your
 
 | Supported operating systems | Version required | Additional requirements/notes |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components). |
+| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Only the software iSCSI initiators present natively in the operating system are supported. Hardware iSCSI initiators are not supported.<br></br>Windows Server 2012 and 2016 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 and 6.0 |Supported with VMWare vSphere as iSCSI client. VAAI-block feature is supported with VMware vSphere on StorSimple devices. |
 | Linux RHEL/CentOS |5, 6, and 7 |Support for Linux iSCSI clients with open-iSCSI initiator versions 5, 6, and 7. |
 | Linux |SUSE Linux 11 | |
@@ -68,7 +68,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 <sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described in [Port routing](#routing-metric), below.
 
-<sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
+<sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet directly or via the configured web proxy. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
 > [!IMPORTANT]
 > Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.

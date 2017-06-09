@@ -3,7 +3,7 @@ title: Using Azure Storage with a Jenkins Continuous Integration Solution | Micr
 description: This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dinesh
+ms.date: 02/28/2017
+ms.author: seguler
 
 ---
 # Using Azure Storage with a Jenkins Continuous Integration solution
@@ -47,6 +47,7 @@ You will need the following to use the Blob service with your Jenkins CI solutio
   2. At a command prompt that is opened to the folder that contains jenkins.war, run:
      
       `java -jar jenkins.war`
+
   3. In your browser, open `http://localhost:8080/`. This will open the Jenkins dashboard, which you will use to install and configure the Azure Storage plugin.
      
       While a typical Jenkins CI solution would be set up to run as a service, running the Jenkins war at the command line will be sufficient for this tutorial.
@@ -83,12 +84,15 @@ For instruction purposes, first we'll need to create a job that will create seve
 2. Name the job **MyJob**, click **Build a free-style software project**, and then click **OK**.
 3. In the **Build** section of the job configuration, click **Add build step** and choose **Execute Windows batch command**.
 4. In **Command**, use the following commands:
-   
-        md text
-        cd text
-        echo Hello Azure Storage from Jenkins > hello.txt
-        date /t > date.txt
-        time /t >> date.txt
+
+	```   
+	md text
+	cd text
+	echo Hello Azure Storage from Jenkins > hello.txt
+	date /t > date.txt
+	time /t >> date.txt
+	```
+
 5. In the **Post-build Actions** section of the job configuration, click **Add post-build action** and choose **Upload artifacts to Azure Blob storage**.
 6. For **Storage account name**, select the storage account to use.
 7. For **Container name**, specify the container name. (The container will be created if it does not already exist when the build artifacts are uploaded.) You can use environment variables, so for this example enter **${JOB_NAME}** as the container name.
@@ -148,4 +152,3 @@ The following provides an overview of the Blob service components.
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
 For more information, also see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
-

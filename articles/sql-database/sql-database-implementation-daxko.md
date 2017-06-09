@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Azure Case Study - Daxko/CSI | Microsoft Docs
 description: Learn about how Daxko/CSI uses SQL Database to accelerate its development cycle and to enhance its customer services and performance
 services: sql-database
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
@@ -28,7 +29,7 @@ Since migrating to Azure, CSI Software needs an operations staff of only two to 
 
 Molina continues, “Our customers felt the change immediately. Before elastic pools, they occasionally had timeouts and other issues during burst periods. With Azure elastic pools, they can burst as needed and use the software without issues.”
 
-In addition to improving performance for customers, Azure elastic database pools freed up CSI Software resources to focus on developing new services and features, instead of dealing with operations and management. Those IT resources helped CSI Software improve its enterprise software offering, SpectrumNG, to help engage gym members, improve staff efficiency, and give staff and members mobile access for interactive tasks and real-time notifications.
+In addition to improving performance for customers, Azure elastic pools freed up CSI Software resources to focus on developing new services and features, instead of dealing with operations and management. Those IT resources helped CSI Software improve its enterprise software offering, SpectrumNG, to help engage gym members, improve staff efficiency, and give staff and members mobile access for interactive tasks and real-time notifications.
 
 Azure has also helped CSI Software accelerate and improve the development and quality-assurance (QA) cycle by enabling automation options. With the company’s Azure implementation, build managers can package up components with the click of a button. As Molina describes, “As part of the release cycle, QA is now able to deploy to a test environment in Azure, which closely mimics our production stack. We can deploy builds immediately to our dev environment to vet changes. That’s a big win for us, because we didn't have parity for testing before that.”
 
@@ -57,13 +58,13 @@ For new customers, CSI Software’s IT staff use the following process to on-boa
 
 Today, about 99 percent of CSI Software customers are hosted in Azure, across four regional datacenters (North Central, South Central, East, and West). By having datacenters in each customer’s geographical region, latency is kept to a minimum.
 
-## Azure elastic database pools free up IT resources
-Several features of Azure have helped CSI Software shift from being infrastructure and operations focused to being feature and development focused. Perhaps the biggest benefit has been from elastic database pools.
+## Azure elastic pools free up IT resources
+Several features of Azure have helped CSI Software shift from being infrastructure and operations focused to being feature and development focused. Perhaps the biggest benefit has been from elastic pools.
 
-CSI Software currently provides about 550 databases for customers. Before elastic pools, it was difficult to manage that many databases within a tier structure. Ops managers had to assign performance tiers based on the burst needs of customers, which required significant IT-resource overhead. With elastic database pools, managers can assign tenants a premium or standard pool, as appropriate, and then move customers based on size and need. Customers felt the effects of the elastic database pools almost immediately; before elastic pools, customers had timeouts and other issues during burst-usage periods, but with elastic pools, customers can experience activity bursts as needed, and they can continue to use SpectrumNG without issues.
+CSI Software currently provides about 550 databases for customers. Before elastic pools, it was difficult to manage that many databases within a tier structure. Ops managers had to assign performance tiers based on the burst needs of customers, which required significant IT-resource overhead. With elastic pools, managers can assign tenants a premium or standard pool, as appropriate, and then move customers based on size and need. Customers felt the effects of the elastic pools almost immediately; before elastic pools, customers had timeouts and other issues during burst-usage periods, but with elastic pools, customers can experience activity bursts as needed, and they can continue to use SpectrumNG without issues.
 
-## Azure Active Geo-Replication accelerates reporting
-Several CSI Software customers are also taking advantage of Azure Active Geo-Replication. With Active Geo-Replication, up to four readable secondary databases can be configured in the same or different datacenter regions. CSI Software makes use of Active Geo-Replication in two ways: first, the secondary databases are available in the case of a datacenter outage or the inability to connect to the primary database; and second, the secondary databases are readable and can be used to offload read-only workloads such as reporting jobs. Some CSI Software customers use this benefit to accelerate reporting workflows.
+## Azure active geo-replication accelerates reporting
+Several CSI Software customers are also taking advantage of Azure active geo-replication. With active geo-replication, up to four readable secondary databases can be configured in the same or different datacenter regions. CSI Software makes use of active geo-replication in two ways: first, the secondary databases are available in the case of a datacenter outage or the inability to connect to the primary database; and second, the secondary databases are readable and can be used to offload read-only workloads such as reporting jobs. Some CSI Software customers use this benefit to accelerate reporting workflows.
 
 ## CSI Software application logic and architecture
 SpectrumNG uses web roles. Because the application is multi-tenant, a WCF service is used to handle the initial connection request from customers. As Molina states, “The request identifies each customer, which then lets us build a connection string out to their databases to do whatever we need to do.”
@@ -83,10 +84,10 @@ The platform uses service-oriented architecture (SOA) to take a single component
 Azure SQL Database isn’t just a boon to SpectrumNG customers, who enjoy the fast, reliable service, it’s also a big win for CSI Software’s IT staff and developers. By offloading ops to Azure in the cloud, CSI Software reduced its overhead for resources and infrastructure, greatly accelerated its development cycles, and no longer needs to micromanage databases to optimize performance for its tenants.
 
 ## More information
-* To learn more about Azure elastic database pools, see [elastic database pools](sql-database-elastic-pool.md).
+* To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
 * To learn more about database tools and elastic scaling, see [elastic database tools and elastic scaling](sql-database-elastic-scale-get-started.md).
-* To learn more about migrating a SQL Server database, see [Azure SQL Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
-* To learn more about Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
+* To learn more about migrating a SQL Server database, see see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
+* To learn more about active geo-replication, see [active geo-replication](sql-database-geo-replication-overview.md).
 * To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale.md).

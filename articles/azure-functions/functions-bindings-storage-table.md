@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Storage Table bindings | Microsoft Docs
-description: Understand how to use Azure Storage triggers and bindings in Azure Functions.
+description: Understand how to use Azure Storage bindings in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -22,7 +22,7 @@ ms.author: chrande
 # Azure Functions Storage table bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Storage table triggers and bindings in Azure Functions. 
+This article explains how to configure and code Azure Storage table bindings in Azure Functions. 
 Azure Functions supports input and output bindings for Azure Storage tables.
 
 The Storage table binding supports the following scenarios:
@@ -45,7 +45,7 @@ The Storage table input to a function uses the following JSON objects in the `bi
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "in"
+    "direction": "in",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to read - see below>",
     "rowKey": "<RowKey of table entity to read - see below>",
@@ -57,10 +57,8 @@ The Storage table input to a function uses the following JSON objects in the `bi
 
 Note the following: 
 
-* Use `partitionKey` and `rowKey` together to read a single entity. These properties are optional.
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+* Use `partitionKey` and `rowKey` together to read a single entity. These properties are optional. 
+* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing one. You can also [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 <a name="inputusage"></a>
 
@@ -169,7 +167,7 @@ The Storage table output for a function uses the following JSON objects in the `
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "out"
+    "direction": "out",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to write - see below>",
     "rowKey": "<RowKey of table entity to write - see below>",
@@ -181,9 +179,7 @@ Note the following:
 
 * Use `partitionKey` and `rowKey` together to write a single entity. These properties are optional. You can also
   specify `PartitionKey` and `RowKey` when you create the entity objects in your function code.
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing one. You can also [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 <a name="outputusage"></a>
 
@@ -197,6 +193,7 @@ You can serialize objects in Node.js or C# functions. In C# functions, you can a
 * Any type that implements `ITableEntity`
 * `ICollector<T>` (to output multiple entities. See [sample](#outcsharp).)
 * `IAsyncCollector<T>` (async version of `ICollector<T>`)
+* `CloudTable` (using the Azure Storage SDK. See [sample](#readmulti).)
 
 <a name="outputsample"></a>
 
@@ -282,22 +279,23 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
 ```javascript
 module.exports = function (context) {
 
-    context.bindings.outputTable = [];
+    context.bindings.tableBinding = [];
 
-    for (i = 1; i < 10; i++) {
-        context.bindings.outputTable.push({
+    for (var i = 1; i < 10; i++) {
+        context.bindings.tableBinding.push({
             PartitionKey: "Test",
             RowKey: i.toString(),
             Name: "Name " + i
         });
-
+    }
+    
     context.done();
 };
 ```
 
 <a name="readmulti"></a>
 
-## Sample: Read multiple table entities in C
+## Sample: Read multiple table entities in C#  #
 The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
 ```json

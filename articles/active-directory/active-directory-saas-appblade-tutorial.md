@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with AppBlade | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AppBlade.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -70,7 +70,7 @@ To configure the integration of AppBlade into Azure AD, you need to add AppBlade
     ![Applications][4]
 6. In the search box, type **AppBlade**.
 
-![Creating an Azure AD test user](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_01.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_01.png)
 
 1. In the results pane, select **AppBlade**, and then click **Complete** to add the application.
    
@@ -153,17 +153,18 @@ The objective of this section is to create a test user in the Azure classic port
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-appblade-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-appblade-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
+    
+    d. In the **Role** list, select **User**.
    
-   d. In the **Role** list, select **User**.
-   
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-appblade-tutorial/create_aaduser_07.png) 

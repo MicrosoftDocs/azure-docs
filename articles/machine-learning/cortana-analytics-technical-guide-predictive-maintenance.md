@@ -1,5 +1,5 @@
-﻿---
-title: Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses | Microsoft Docs
+---
+title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution technical guide | Microsoft Docs
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: cortana-analytics
 documentationcenter: ''
@@ -13,11 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 03/14/2017
 ms.author: fboylu
 
 ---
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
+
+## **Important**
+This article has been deprecated. The information is still relevant to the problem at hand, i.e. Predictive Maintenance in Aerospace, but the latest article with the most up to date information can be found [here](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). 
+
 ## **Acknowledgements**
 This article is authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz and software engineer Dan Grecoe at Microsoft.
 
@@ -43,7 +47,7 @@ at the end.
 > 
 
 ## **Big picture**
-![](media/cortana-analytics-technical-guide-predictive-maintenance\\predictive-maintenance-architecture.png)
+![Predictive maintenance architecture](media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 When the solution is deployed, various Azure services within Cortana
 Analytics Suite are activated (*i.e.* Event Hub, Stream Analytics,
@@ -162,7 +166,7 @@ datasets and one Azure Storage location.
 The Azure Stream Analytics query can be found by:
 
 * Logging into the Azure portal
-* Locating the stream analytics jobs ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-stream-analytics.png) that were
+* Locating the Stream Analytics jobs ![Stream Analytics icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-stream-analytics.png) that were
   generated when the solution was deployed (*e.g.*,
   **maintenancesa02asapbi** and **maintenancesa02asablob** for the
   predictive maintenance solution)
@@ -183,7 +187,7 @@ dashboard that's provided as part of this solution template. Because
 there's implicit knowledge about the incoming data format, these queries
 would need to be altered based on your data format.
 
-The query in the second stream analytics job **maintenancesa02asablob** simply outputs all [Event
+The query in the second Stream Analytics job **maintenancesa02asablob** simply outputs all [Event
 Hub](https://azure.microsoft.com/services/event-hubs/) events to
 [Azure Storage](https://azure.microsoft.com/services/storage/) and
 hence requires no alteration regardless of your data format as the full
@@ -198,12 +202,12 @@ is made up of three
 [pipelines](../data-factory/data-factory-create-pipelines.md)
 that move and process the data using various technologies.  You can access your data factory by opening the the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
-![](media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
+![Data Factory dataset errors](media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
 This section discusses the necessary [pipelines](../data-factory/data-factory-create-pipelines.md) and [activities](../data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
-![](media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
+![Azure Data Factory](media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
 Two of the pipelines of this factory contain
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
@@ -301,16 +305,16 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
  Once the Data Generator is launched, the pipeline begins to get hydrated and the different components of your solution start kicking into action following the commands issued by the Data Factory. There are two ways you can monitor the pipeline.
 
 1. One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it will take you to the [management portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you will see a list of Containers. Click on **maintenancesadata**. In the next panel, you will see the **rawdata** folder. Inside the rawdata folder, you will see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
-2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure portal](https://manage.windowsazure.com/).On the left panel locate SQL DATABASES ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
+2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure portal](https://manage.windowsazure.com/).On the left panel locate SQL DATABASES ![SQL icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
-    ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-manage.png).
+    ![Manage icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
    
     Here, you can click on New Query and query for the number of rows (e.g. select count(*) from PMResult ). As your database grows, the number of rows in the table should  increase.
 
 ## **Power BI Dashboard**
 ### Overview
 This section describes how to set up Power BI dashboard to visualize
-your real time data from Azure stream analytics (hot path), as well as
+your real time data from Azure Stream Analytics (hot path), as well as
 batch prediction results from Azure machine learning (cold path).
 
 ### Setup cold path dashboard
@@ -344,7 +348,7 @@ containing data (*e.g.*. prediction results) for visualization.
      portal page. Click **'Resource groups'** on the left panel.
    * Select the subscription you're using for deploying the solution, and
      then select **'YourSolutionName\_ResourceGroup'**.
-   * In the new pop out panel, click the  ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-sql.png) icon to access your
+   * In the new pop out panel, click the  ![SQL icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) icon to access your
      database. Your database name is next to the this icon (*e.g.*, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
    * Your database **username** and **password** are the same as
      the username and password previously recorded during deployment of the solution.
@@ -355,8 +359,8 @@ containing data (*e.g.*. prediction results) for visualization.
      Generator file, double-click the
      **PowerBI\\PredictiveMaintenanceAerospace.pbix** file. If you see any warning messages when you open the file, ignore them. On the top of the file, click **'Edit Queries'**.
      
-     ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\edit-queries.png)
-   * You'll see two tables, **RemainingUsefulLife** and **PMResult**. Select the first table and click ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-query-settings.png) next to **'Source'** under
+     ![Edit Queries](media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
+   * You'll see two tables, **RemainingUsefulLife** and **PMResult**. Select the first table and click ![Query settings icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) next to **'Source'** under
      **'APPLIED STEPS'** on the right **'Query Settings'** panel. Ignore
      any warning messages that appear.
    * In the pop out window, replace **'Server'** and **'Database'** with
@@ -371,7 +375,7 @@ containing data (*e.g.*. prediction results) for visualization.
      Azure SQL database). In ***Select which level to apply these
      settings to***, check database level option. Then click
      **'Connect'**.
-   * Click on the second table **PMResult** then click ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-navigation.png)
+   * Click on the second table **PMResult** then click ![Navigation icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png)
      next to **'Source'** under
      **'APPLIED STEPS'** on the right **'Query Settings'** panel, and update
      the server and database names as in the above steps and click OK.
@@ -388,18 +392,18 @@ containing data (*e.g.*. prediction results) for visualization.
    * To create a new dashboard: click the **+** sign next to the
      **Dashboards** section on the left pane. Enter the name "Predictive
      Maintenance Demo" for this new dashboard.
-   * Once you open the report, click ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-pin.png) to pin all the
+   * Once you open the report, click ![PIN icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) to pin all the
      visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Go to the dashboard page and
      adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.  Depending on how long you run your data generator, your numbers on the visualizations may be different.
      <br/>
-     ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\final-view.png)
+     ![Final view](media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\icon-elipsis.png) and then choose **Schedule Refresh**.
+   * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![Elipsis icon](media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) and then choose **Schedule Refresh**.
      <br/>
      **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
      <br/>
-     ![](media\\cortana-analytics-technical-guide-predictive-maintenance\\schedule-refresh.png)
+     ![Schedule refresh](media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
    * Expand the **Schedule Refresh** section. Turn on "keep your
      data up-to-date".
@@ -419,7 +423,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
    * You will need to follow the instructions in
      [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you will need to add an output to ASA. When you add the first output (*e.g.* **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message (*e.g.*, "Starting stream analytics job maintenancesa02asapbi succeeded").
+   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you will need to add an output to ASA. When you add the first output (*e.g.* **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message (*e.g.*, "Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](http://www.powerbi.com)
    
    * On the left panel Datasets section in My Workspace, the
@@ -429,7 +433,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      right side of the screen.
 3. Once you have the data flowing into Power BI, you can start visualizing the streaming data. Below is an example dashboard with some hot path visualizations pinned to it. You can create other dashboard tiles based on appropriate datasets. Depending on how long you run your data generator, your numbers on the visualizations may be different.
 
-    ![](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Dashboard view](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
 
 1. Here are some steps to create one of the tiles above –  the "Fleet View of Sensor 11 vs. Threshold 48.26" tile:
    

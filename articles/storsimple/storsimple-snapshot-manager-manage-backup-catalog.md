@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple Snapshot Manager backup catalog | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage the backup catalog.
 services: storsimple

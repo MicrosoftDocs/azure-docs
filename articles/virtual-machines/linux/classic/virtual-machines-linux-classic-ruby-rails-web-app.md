@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -24,7 +24,7 @@ This tutorial shows how to host a Ruby on Rails website on Azure using a Linux v
 This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a different Linux distribution, you might need to modify the steps to install Rails.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../../../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 > 
 > 
 
@@ -123,20 +123,20 @@ To use Azure services from your Ruby application, see:
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
 <!-- WA.com links -->
-[blobs]: ../../../storage/storage-ruby-how-to-use-blob-storage.md
-[cdn-howto]: https://azure.microsoft.com/develop/ruby/app-services/
-[management-portal]: https://manage.windowsazure.com/
-[tables]: ../../../storage/storage-ruby-how-to-use-table-storage.md
-[vm-instructions]: ../../virtual-machines-linux-classic-createportal.md
+[blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
+[cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
+[management-portal]:https://manage.windowsazure.com/
+[tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
+[vm-instructions]:createportal.md
 
 <!-- External Links -->
-[rails-guides]: http://guides.rubyonrails.org/
-[sqlite3]: http://www.sqlite.org/
+[rails-guides]:http://guides.rubyonrails.org/
+[sqlite3]:http://www.sqlite.org/
 
 <!-- Images -->
 
-[default-rails-cloud]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
-[vmlist]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/vmlist.png
-[endpoints]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
-[new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
-[new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
+[default-rails-cloud]:./media/virtual-machines-linux-classic-ruby-rails-web-app/basicrailscloud.png
+[vmlist]:./media/virtual-machines-linux-classic-ruby-rails-web-app/vmlist.png
+[endpoints]:./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
+[new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
+[new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png

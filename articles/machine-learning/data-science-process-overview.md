@@ -1,6 +1,6 @@
-﻿---
+---
 title: Team Data Science Process Lifecycle | Microsoft Docs
-description: An outline of the key components of the Team Data Science Team Lifecycle.
+description: Lifecycle steps and components to structure your data science projects.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: bradsev;hangzh;gokuma
 
 ---

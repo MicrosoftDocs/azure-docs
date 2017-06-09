@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Search performance and optimization considerations | Microsoft Docs
 description: Tune Azure Search performance and configure optimum scale
 services: search
@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 05/01/2017
 ms.author: liamca
 
 ---
@@ -26,7 +26,7 @@ We are all used to search engines such as Bing and Google and the high performan
 1. Pick a target latency (or maximum amount of time) that a typical search request should take to complete.
 2. Create and test a real workload against your search service with a realistic dataset to measure these latency rates.
 3. Start with a low number of queries per second (QPS) and continue to increase the number executed in the test until the query latency drops below the defined target latency.  This is an important benchmark to help you plan for scale as your application grows in usage.
-4. Wherever possible, reuse HTTP connections.  If you are using the Azure Search .NET SDK, this means you should reuse an instance or [SearchIndexClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx) instance, and if you are using the REST API, you should reuse a single HttpClient.
+4. Wherever possible, reuse HTTP connections.  If you are using the Azure Search .NET SDK, this means you should reuse an instance or [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) instance, and if you are using the REST API, you should reuse a single HttpClient.
 
 While creating these test workloads, there are some characteristics of Azure Search to keep in mind:
 
@@ -43,7 +43,7 @@ While creating these test workloads, there are some characteristics of Azure Sea
 ## Scaling Azure Search for high query rates and throttled requests
 When you are receiving too many throttled requests or exceed your target latency rates from an increased query load, you can look to decrease latency rates in one of two ways:
 
-1. **Increase Replicas:**  A replica is like a copy of your data allowing Azure Search to load balance requests against the multiple copies.  All load balancing and replication of data across replicas is managed by Azure Search and you can alter the number of replicas allocated for your service at any time.  You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service.  Replicas can be adjusted either from the [Azure Portal](search-create-service-portal.md) or using the [Azure Search management API](search-get-started-management-api.md).
+1. **Increase Replicas:**  A replica is like a copy of your data allowing Azure Search to load balance requests against the multiple copies.  All load balancing and replication of data across replicas is managed by Azure Search and you can alter the number of replicas allocated for your service at any time.  You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service. Replicas can be adjusted either from the [Azure portal](search-create-service-portal.md) or [PowerShell](search-manage-powershell.md).
 2. **Increase Search Tier:**  Azure Search comes in a [number of tiers](https://azure.microsoft.com/pricing/details/search/) and each of these tiers offers different levels of performance.  In some cases, you may have so many queries that the tier you are on cannot provide sufficiently low latency rates, even when replicas are maxed out.  In this case, you may want to consider leveraging one of the higher search tiers such as the Azure Search S3 tier that is well suited for scenarios with large numbers of documents and extremely high query workloads.
 
 ## Scaling Azure Search for slow individual queries
@@ -51,7 +51,7 @@ Another reason why latency rates can be slow is from a single query taking too l
 
 1. **Increase Partitions** A partition is a mechanism for splitting your data across extra resources.  For this reason, when you add a second partition, your data gets split into two.  A third partition splits your index into three, etc.  This also has the effect that in some cases, slow queries will perform faster due to the parallelization of computation.  There are a few examples of where we have seen this parallelization work extremely well with queries that have low selectivity queries.  This consists of queries that match many documents or when faceting needs to provide counts over large numbers of documents.  Since there is a lot of computation needed to score the relevancy of the documents or to count the numbers of documents, adding extra partitions can help to provide additional computation.  
    
-   There can be a maximum of 12 partitions in Standard search service and 1 partition in the basic search service.  Partitions can be adjusted either from the [Azure Portal](search-create-service-portal.md) or using the [Azure Search management API](search-get-started-management-api.md).
+   There can be a maximum of 12 partitions in Standard search service and 1 partition in the basic search service.  Partitions can be adjusted either from the [Azure portal](search-create-service-portal.md) or [PowerShell](search-manage-powershell.md).
 2. **Limit High Cardinality Fields:** A high cardinality field consists of a facetable or filterable field that has a significant number of unique values, and as a result, takes a lot of resources to compute results over.   For example, setting a Product ID or Description field as facetable/filterable would make for high cardinality because most of the values from document to document are unique. Wherever possible, limit the number of high cardinality fields.
 3. **Increase Search Tier:**  Moving up to a higher Azure Search tier can be another way to improve performance of slow queries.  Each higher tier also provides faster CPU’s and more memory which can have a positive impact on query performance.
 
@@ -73,17 +73,17 @@ The goal of a geo-distributed set of search services is to have two or more inde
    ![Cross-tab of services by region][1]
 
 ### Keeping data in sync across multiple Azure Search services
-There are two options for keeping your distributed search services in sync which consist of either using the [Azure Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Search REST API](https://msdn.microsoft.com/library/dn798935.aspx)).  
+There are two options for keeping your distributed search services in sync which consist of either using the [Azure Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### Azure Search Indexers
-If you are using the Azure Search Indexer, you are already importing data changes from a central datastore such as Azure SQL DB or DocumentDB. When you create a new search Service, you simply also create a new Azure Search Indexer for that service that points to this same datastore. That way, whenever new changes come into the data store, they will then be indexed by the various Indexers.  
+If you are using the Azure Search Indexer, you are already importing data changes from a central datastore such as Azure SQL DB or Azure Cosmos DB. When you create a new search Service, you simply also create a new Azure Search Indexer for that service that points to this same datastore. That way, whenever new changes come into the data store, they will then be indexed by the various Indexers.  
 
 Here is an example of what that architecture would look like.
 
    ![Single data source with distributed indexer and service combinations][2]
 
 ### Push API
-If you are using the Azure Search Push API to [update content in your Azure Search index](https://msdn.microsoft.com/library/dn798930.aspx), you can keep your various search services in sync by pushing changes to all search services whenever an update is required.  When doing this it is important to make sure to handle cases where an update to one search service fails and one or more updates succeed.
+If you are using the Azure Search Push API to [update content in your Azure Search index](https://docs.microsoft.com/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required.  When doing this it is important to make sure to handle cases where an update to one search service fails and one or more updates succeed.
 
 ## Leveraging Azure Traffic Manager
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple Azure Search Services.  One advantage of the Traffic Manager is that it can probe Azure Search to ensure that it is available and route users to alternate search services in the event of downtime.  In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Search.  Here is an example of what the architecture that leverages Traffic Manager.

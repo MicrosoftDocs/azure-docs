@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to model complex data types in Azure Search | Microsoft Docs
 description: Nested or hierarchical data structures can be modeled in an Azure Search index using flattened rowset and Collections data type.
 services: search
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: liamca
 
 ---
@@ -24,7 +24,7 @@ External datasets used to populate an Azure Search index sometimes include hiera
 Complex data types are not natively supported in Azure Search, but a proven workaround includes a two-step process of flattening the structure and then using a **Collection** data type to reconstitute the interior structure. Following the technique described in this article allows the content to be searched, faceted, filtered, and sorted.
 
 ## Example of a complex data structure
-Typically, the data in question resides as a set of JSON or XML documents, or as items in a NoSQL store such as DocumentDB. Structurally, the challenge stems from having multiple child items that need to be searched and filtered.  As a starting point for illustrating the workaround, take the following JSON document that lists a set of contacts as an example:
+Typically, the data in question resides as a set of JSON or XML documents, or as items in a NoSQL store such as Azure Cosmos DB. Structurally, the challenge stems from having multiple child items that need to be searched and filtered.  As a starting point for illustrating the workaround, take the following JSON document that lists a set of contacts as an example:
 
 ~~~~~
 [

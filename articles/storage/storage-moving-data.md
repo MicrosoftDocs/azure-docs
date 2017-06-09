@@ -1,10 +1,10 @@
 ---
-title: Moving Data to and from Azure Storage | Microsoft Docs
-description: This article provides an overview of the different methods for moving data to and from Azure Storage.
+title: Moving large amounts of data to/from cloud storage in Azure | Microsoft Docs
+description: An overview of the different methods for moving data to and from Azure Storage.
 services: storage
 documentationcenter: ''
-author: micurd
-manager: jahogg
+author: JarrettRenshaw
+manager: msmets
 editor: tysonn
 
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: jarrettr
 
 ---
 # Moving data to and from Azure Storage
@@ -71,4 +71,6 @@ See [StorSimple](../storsimple/storsimple-overview.md) to learn more.
 When you have on-premises workloads and applications, you'll need a solution that allows your business to continue running in the event of a disaster. Azure Site Recovery handles replication, failover, and recovery of virtual machines and physical servers. Replicated data is stored in Azure Storage, allowing you to eliminate the need for a secondary on-site datacenter.
 
 See [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to learn more.
-
+### Moving Data FAQ:
+## Can I migrate VHDs from one region to another without copying?
+The only way to copy VHDs between region is to copy the data between storage accounts on each region. You can use AZCopy for this. See Transfer data with the AzCopy Command-Line Utility to learn more. For very large amounts of data, you can also Azure Import/Export. See [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) to learn more.

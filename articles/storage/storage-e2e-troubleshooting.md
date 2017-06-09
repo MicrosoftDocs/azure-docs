@@ -1,10 +1,10 @@
----
-title: End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer | Microsoft Docs
+﻿---
+title: Troubleshooting Azure Storage with diagnostics & Message Analyzer | Microsoft Docs
 description: A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 
 ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
 ms.service: storage
@@ -12,41 +12,40 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 03/15/2017
 ms.author: robinsh
 
 ---
-# End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer
+# End-to-End Troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## Overview
 Diagnosing and troubleshooting is a key skill for building and supporting client applications with Microsoft Azure Storage. Due to the distributed nature of an Azure application, diagnosing and troubleshooting errors and performance issues may be more complex than in traditional environments.
 
-In this tutorial, we will demonstrate how to identify client certain errors that may affect performance, and troubleshoot those errors from end-to-end using tools provided by Microsoft and Azure Storage, in order to optimize the client application.
+In this tutorial, we demonstrate how to identify certain errors that may affect performance, and troubleshoot those errors from end-to-end using tools provided by Microsoft and Azure Storage, in order to optimize the client application.
 
 This tutorial provides a hands-on exploration of an end-to-end troubleshooting scenario. For an in-depth conceptual guide to troubleshooting Azure storage applications, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Tools for troubleshooting Azure Storage applications
 To troubleshoot client applications using Microsoft Azure Storage, you can use a combination of tools to determine when an issue has occurred and what the cause of the problem may be. These tools include:
 
-* **Azure Storage Analytics**. [Azure Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) provides metrics and logging for Azure Storage.
+* **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) provides metrics and logging for Azure Storage.
   
-  * **Storage metrics** tracks transaction metrics and capacity metrics for your storage account. Using metrics, you can determine how your application is performing according to a variety of different measures. See [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx) for more information about the types of metrics tracked by Storage Analytics.
-  * **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](http://msdn.microsoft.com/library/azure/hh343259.aspx) for more information about the request and response data that is written to the logs by Storage Analytics.
+  * **Storage metrics** tracks transaction metrics and capacity metrics for your storage account. Using metrics, you can determine how your application is performing according to a variety of different measures. See [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) for more information about the types of metrics tracked by Storage Analytics.
+  * **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](/rest/api/storageservices/Storage-Analytics-Log-Format) for more information about the request and response data that is written to the logs by Storage Analytics.
 
 > [!NOTE]
 > Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
 > 
 > 
 
-* **Azure Portal**. You can configure metrics and logging for your storage account in the [Azure Portal](https://portal.azure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric.
+* **Azure portal**. You can configure metrics and logging for your storage account in the [Azure portal](https://portal.azure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric.
   
-    See [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure Portal.
+    See [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure portal.
 * **AzCopy**. Server logs for Azure Storage are stored as blobs, so you can use AzCopy to copy the log blobs to a local directory for analysis using Microsoft Message Analyzer. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) for more information about AzCopy.
 * **Microsoft Message Analyzer**. Message Analyzer is a tool that consumes log files and displays log data in a visual format that makes it easy to filter, search, and group log data into useful sets that you can use to analyze errors and performance issues. See [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx) for more information about Message Analyzer.
 
 ## About the sample scenario
-For this tutorial, we'll examine a scenario where Azure Storage metrics indicates a low percent success rate for an application that calls Azure storage. The low percent success rate metric (shown as **PercentSuccess** in the [Azure Portal](https://portal.azure.com) and in the metrics tables) tracks operations that succeed, but that return an HTTP status code that is greater than 299. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**. For more details about the low percent success metric, see [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+For this tutorial, we'll examine a scenario where Azure Storage metrics indicates a low percent success rate for an application that calls Azure storage. The low percent success rate metric (shown as **PercentSuccess** in the [Azure portal](https://portal.azure.com) and in the metrics tables) tracks operations that succeed, but that return an HTTP status code that is greater than 299. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**. For more details about the low percent success metric, see [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Azure Storage operations may return HTTP status codes greater than 299 as part of their normal functionality. But these errors in some cases indicate that you may be able to optimize your client application for improved performance.
 
@@ -85,49 +84,49 @@ In this tutorial, we'll use Message Analyzer to work with three different types 
 * The **HTTP network trace log**, which collects data on HTTP/HTTPS request and response data, including for operations against Azure Storage. In this tutorial, we'll generate the network trace via Message Analyzer.
 
 ### Configure server-side logging and metrics
-First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure Portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
+First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
 
-**Via the Azure Portal**
+**Via the Azure portal**
 
-To configure logging and metrics for your storage account using the [Azure Portal](https://portal.azure.com), follow the instructions at [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md).
+To configure logging and metrics for your storage account using the [Azure portal](https://portal.azure.com), follow the instructions at [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md).
 
 > [!NOTE]
-> It's not possible to set minute metrics using the Azure Portal. However, we recommend that you do set them for the purposes of this tutorial, and for investigating performance issues with your application. You can set minute metrics using PowerShell as shown below, or programmatically using the storage client library.
+> It's not possible to set minute metrics using the Azure portal. However, we recommend that you do set them for the purposes of this tutorial, and for investigating performance issues with your application. You can set minute metrics using PowerShell as shown below, or programmatically using the storage client library.
 > 
-> Note that the Azure Portal cannot display minute metrics, only hourly metrics.
+> Note that the Azure portal cannot display minute metrics, only hourly metrics.
 > 
 > 
 
 **Via PowerShell**
 
-To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-1. Use the [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
+1. Use the [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
    
-```powershell
-    Add-AzureAccount
-```
+	```powershell
+	Add-AzureAccount
+	```
 
 2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 3. Set the default storage account to the storage account you are using for the tutorial by executing these commands in the PowerShell window:
    
-```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-```
+	```powershell
+	$SubscriptionName = 'Your subscription name'
+	$StorageAccountName = 'yourstorageaccount'
+	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+	```
 
 4. Enable storage logging for the Blob service:
    
-```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-```
+	```powershell
+	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+	```
 
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
    
-```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-```
+	```powershell
+	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+	```
 
 ### Configure .NET client-side logging
 To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
@@ -155,9 +154,9 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 5. In the **Advanced Settings** dialog, click the **Provider** tab.
 6. In the **Hostname Filter** field, specify your storage endpoints, separated by spaces. For example, you can specify your endpoints as follows; change `storagesample` to the name of your storage account:
 
-```   
-    storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
-```
+	```   
+	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
+	```
 
 7. Exit the dialog, and click **Restart** to begin collecting the trace with the hostname filter in place, so that only Azure Storage network traffic is included in the trace.
 
@@ -168,15 +167,17 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 
 See [Using the Network Tracing Features](http://technet.microsoft.com/library/jj674819.aspx) on Technet for more details.
 
-## Review metrics data in the Azure Portal
-Once your application has been running for a period of time, you can review the metrics charts that appear in the [Azure Portal](https://portal.azure.com) to observe how your service has been performing. First, navigate to your storage account in the Azure Portal and add a chart for the **Success Percentage** metric.
+## Review metrics data in the Azure portal
+Once your application has been running for a period of time, you can review the metrics charts that appear in the [Azure portal](https://portal.azure.com) to observe how your service has been performing.
 
-In the Azure Portal, you'll now see **Success Percentage** in the monitoring chart, along with any other metrics you may have added. In the the scenario we'll investigate next by analyzing the logs in Message Analyzer, the percent success rate is somewhat below 100%.
+First, navigate to your storage account in the Azure portal. By default, a monitoring chart with the **Success percentage** metric is displayed on the account blade. If you've previously modified the chart to display different metrics, add the **Success percentage** metric.
 
-For more details on adding metrics to the Monitoring page, see [How to: Add metrics to the metrics table](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table).
+You'll now see **Success percentage** in the monitoring chart, along with any other metrics you may have added. In the scenario we'll investigate next by analyzing the logs in Message Analyzer, the percent success rate is somewhat below 100%.
+
+For more details on adding and customizing metrics charts, see [Customize metrics charts](storage-monitor-storage-account.md#customize-metrics-charts).
 
 > [!NOTE]
-> It may take some time for your metrics data to appear in the Azure Portal after you enable storage metrics. This is because hourly metrics for the previous hour are not displayed in the Azure Portal until the current hour has elapsed. Also, minute metrics are not currently displayed in the Azure Portal. So depending on when you enable metrics, it may take up to two hours to see metrics data.
+> It may take some time for your metrics data to appear in the Azure portal after you enable storage metrics. This is because hourly metrics for the previous hour are not displayed in the Azure portal until the current hour has elapsed. Also, minute metrics are not currently displayed in the Azure portal. So depending on when you enable metrics, it may take up to two hours to see metrics data.
 > 
 > 
 
@@ -186,7 +187,7 @@ Azure Storage writes server log data to blobs, while metrics are written to tabl
 You can use the AzCopy command-line tool to download these server-side log files to a location of your choice on your local machine. For example, you can use the following command to download the log files for blob operations that took place on January 2, 2015 to the folder `C:\Temp\Logs\Server`; replace `<storageaccountname>` with the name of your storage account, and `<storageaccountkey>` with your account access key:
 
 ```azcopy
-    AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 ```
 AzCopy is available for download on the [Azure Downloads](https://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
@@ -279,9 +280,11 @@ Next, we'll group and filter the log data to find all errors in the 400 range.
 2. Next, group on the **ClientRequestId** column. You'll see that the data in the Analysis Grid is now organized by status code and by client request ID.
 3. Display the View Filter tool window if it is not already displayed. On the toolbar ribbon, select **Tool Windows**, then **View Filter**.
 4. To filter the log data to display only 400-range errors, add the following filter criteria to the **View Filter** window, and click **Apply**:
-```   
-      (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
-```
+
+	```   
+	(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+	```
+
 The picture below shows the results of this grouping and filter. Expanding the **ClientRequestID** field beneath the grouping for status code 409, for example, shows an operation that resulted in that status code.
 
 ![Azure Storage View Layout](./media/storage-e2e-troubleshooting/400-range-errors1.png)
@@ -305,11 +308,13 @@ The Storage Assets include predefined filters that you can use to narrow log dat
 3. Display the **Library** menu again, and locate and select the **Global Time Filter**.
 4. Edit the timestamps shown in the filter to the range you wish to view. This will help to narrow the range of data to analyze.
 5. Your filter should appear similar to the example below. Click **Apply** to apply the filter to the Analysis Grid.
-```   
-        ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
-        (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
-```
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
+
+	```   
+	((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
+	(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+	```
+
+	![Azure Storage View Layout](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
 
 ### Analyze your log data
 Now that you have grouped and filtered your data, you can examine the details of individual requests that generated 404 errors. In the current view layout, the data is grouped by client request ID, then by log source. Since we are filtering on requests where the StatusCode field contains 404, we'll see only the server and network trace data, not the client log data.
@@ -324,9 +329,11 @@ Next, we'll correlate this client request ID with the client log data to see wha
 2. On the toolbar ribbon, select **New Viewer**, then select **Analysis Grid** to open a new tab. The new tab shows all data in your log files, without grouping, filtering, or color rules.
 3. On the toolbar ribbon, select **View Layout**, then select **All .NET Client Columns** under the **Azure Storage** section. This view layout shows data from the client log as well as the server and network trace logs. By default it is sorted on the **MessageNumber** column.
 4. Next, search the client log for the client request ID. On the toolbar ribbon, select **Find Messages**, then specify a custom filter on the client request ID in the **Find** field. Use this syntax for the filter, specifying your own client request ID:
-```
-        *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
-```
+
+	```
+	*ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+	```
+
 Message Analyzer locates and selects the first log entry where the search criteria matches the client request ID. In the client log, there are several entries for each client request ID, so you may want to group them on the **ClientRequestId** field to make it easier to see them all together. The picture below shows all of the messages in the client log for the specified client request ID.
 
 ![Client log showing 404 errors](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
@@ -361,7 +368,6 @@ For more information about troubleshooting end-to-end scenarios in Azure Storage
 
 * [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 * [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-* [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md)
+* [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
 * [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 * [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)
-

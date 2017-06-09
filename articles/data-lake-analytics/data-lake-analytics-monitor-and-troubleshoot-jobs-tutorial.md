@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -27,8 +27,8 @@ In this tutorial, you will setup a missing source file problem, and use the Azur
 Before you begin this tutorial, you must have the following:
 
 * **Basic knowledge of Data Lake Analytics job process**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
-* **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Copy the sample data to the default Data Lake Store account**.  See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data)
+* **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
+* **Copy the sample data to the default Data Lake Store account**.  See [Prepare source data](data-lake-analytics-get-started-portal.md)
 
 ## Submit a Data Lake Analytics job
 Now you will create a U-SQL job with a bad source file name.  
@@ -38,7 +38,7 @@ Now you will create a U-SQL job with a bad source file name.
 1. From the Azure Portal, click **Microsoft Azure** in the upper left corner.
 2. Click the tile with your Data Lake Analytics account name.  It was pinned here when the account was created.
    If the account is not pinned there, see
-   [Open an Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
+   [Open an Analytics account from portal](data-lake-analytics-manage-use-portal.md).
 3. Click **New Job** from the top menu.
 4. Enter a Job name, and the following U-SQL script:
 
@@ -57,7 +57,7 @@ Now you will create a U-SQL job with a bad source file name.
             TO "/output/SearchLog-from-adls.csv"
         USING Outputters.Csv();
 
-    The source file defined in the script is **/Samples/Data/SearchLog.tsv1**, where it shall be **/Samples/Data/SearchLog.tsv**.
+    The source file defined in the script is **/Samples/Data/SearchLog.tsv1**, where it should be **/Samples/Data/SearchLog.tsv**.
 5. Click **Submit Job** from the top. A new Job Details pane opens. On the title bar, it shows the job status. It takes a few minutes to finish. You can click **Refresh** to get the latest status.
 6. Wait until the job status is changed to **Failed**.  If the job is **Succeeded**, it is because you didn't remove the /Samples folder. See the **Prerequisite** section at the beginning of the tutorial.
 

@@ -15,16 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
+ms.author: plarsen; ladocs
 
 ---
 # Get started with the DB2 connector
 Microsoft connector for DB2 connects Logic Apps to resources stored in an IBM DB2 database. This connector includes a Microsoft client to communicate with remote DB2 server computers across a TCP/IP network. This includes cloud databases, such as IBM Bluemix dashDB or IBM DB2 for Windows running in Azure virtualization, and on-premises databases using the on-premises data gateway. See the [supported list](connectors-create-api-db2.md#supported-db2-platforms-and-versions) of IBM DB2 platforms and versions (in this topic).
-
-> [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA). 
-> 
-> 
 
 The DB2 connector supports the following database operations:
 
@@ -37,7 +32,7 @@ The DB2 connector supports the following database operations:
 
 This topic shows you how to use the connector in a logic app to process database operations.
 
-To learn more about Logic Apps, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To learn more about Logic Apps, see [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Available actions
 The DB2 connector supports the following logic app actions:
@@ -267,133 +262,6 @@ You can define a logic app action to remove one row in a DB2 table. This action 
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
-## Technical Details
-## Actions
-An action is an operation carried out by the workflow defined in a logic app. The DB2 database connector includes the following actions. 
-
-| Action | Description |
-| --- | --- |
-| [GetRow](connectors-create-api-db2.md#get-row) |Retrieves a single row from a DB2 table |
-| [GetRows](connectors-create-api-db2.md#get-rows) |Retrieves rows from a DB2 table |
-| [InsertRow](connectors-create-api-db2.md#insert-row) |Inserts a new row into a DB2 table |
-| [DeleteRow](connectors-create-api-db2.md#delete-row) |Deletes a row from a DB2 table |
-| [GetTables](connectors-create-api-db2.md#get-tables) |Retrieves tables from a DB2 database |
-| [UpdateRow](connectors-create-api-db2.md#update-row) |Updates an existing row in a DB2 table |
-
-### Action Details
-In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
-
-#### Get row
-Retrieves a single row from a DB2 table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table * |Table name |Name of DB2 table |
-| id * |Row id |Unique identifier of the row to retrieve |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-#### Get rows
-Retrieves rows from a DB2 table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of DB2 table |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to retrieve (default = 256) |
-| $filter |Filter Query |An ODATA filter query to restrict the number of entries |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-ItemsList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Insert row
-Inserts a new row into a DB2 table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of DB2 table |
-| item* |Row |Row to insert into the specified table in DB2 |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-#### Delete row
-Deletes a row from a DB2 table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of DB2 table |
-| id* |Row id |Unique identifier of the row to delete |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-None.
-
-#### Get tables
-Retrieves tables from a DB2 database.  
-
-There are no parameters for this call. 
-
-##### Output Details
-TablesList
-
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
-
-#### Update row
-Updates an existing row in a DB2 table.  
-
-| Property Name | Display Name | Description |
-| --- | --- | --- |
-| table* |Table name |Name of DB2 table |
-| id* |Row id |Unique identifier of the row to update |
-| item* |Row |Row with updated values |
-
-An asterisk (*) means the property is required.
-
-##### Output Details
-Item
-
-| Property Name | Data Type |
-| --- | --- |
-| ItemInternalId |string |
-
-### HTTP Responses
-When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
-
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occurred |
-| default |Operation Failed. |
-
 ## Supported DB2 platforms and versions
 This connector supports the following IBM DB2 platforms and versions, as well as IBM DB2 compatible products (e.g. IBM Bluemix dashDB) that support Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 10 and 11:
 
@@ -405,6 +273,10 @@ This connector supports the following IBM DB2 platforms and versions, as well as
 * IBM DB2 for LUW 11
 * IBM DB2 for LUW 10.5
 
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/db2/). 
+
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 

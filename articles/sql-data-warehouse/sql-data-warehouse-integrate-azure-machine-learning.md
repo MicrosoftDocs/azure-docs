@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Azure Machine Learning with SQL Data Warehouse | Microsoft Docs
 description: Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 

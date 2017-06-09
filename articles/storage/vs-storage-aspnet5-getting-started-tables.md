@@ -1,6 +1,6 @@
 ---
-title: How to get started with table storage and Visual Studio connected services (ASP.NET 5) | Microsoft Docs
-description: How to get started with Azure Table storage in an ASP.NET 5 project in Visual Studio after connecting to a storage account using Visual Studio connected services
+title: How to get started with table storage and Visual Studio connected services (ASP.NET Core) | Microsoft Docs
+description: How to get started with Azure Table storage in an ASP.NET Core project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 documentationcenter: ''
 author: TomArcher
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 12/02/2016
 ms.author: tarcher
 
 ---
@@ -21,7 +21,7 @@ ms.author: tarcher
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview
-This article describes how get started using Azure Table storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET 5 project by using the Visual Studio **Add Connected Services** dialog.
+This article describes how get started using Azure Table storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET Core project by using the Visual Studio **Add Connected Services** dialog.
 
 The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL data store that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
@@ -31,10 +31,10 @@ For more general information about using Azure Table storage, see [Get started w
 
 To get started, you first need to create a table in your storage account. We'll show you how to create an Azure table in code. We'll also show you how to perform basic table and entity operations, such as adding, modifying, reading and reading table entities. The samples are written in C\# code and use the Azure Storage Client Library for .NET.
 
-**NOTE** - Some of the APIs that perform calls out to Azure storage in ASP.NET 5 are asynchronous. See [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes Async programming methods are being used.
+**NOTE** - Some of the APIs that perform calls out to Azure storage in ASP.NET Core are asynchronous. See [Asynchronous Programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes Async programming methods are being used.
 
 ## Access tables in code
-To access tables in ASP.NET 5 projects, you need to include the following items to any C# source files that access Azure table storage.
+To access tables in ASP.NET Core projects, you need to include the following items to any C# source files that access Azure table storage.
 
 1. Make sure the namespace declarations at the top of the C# file include these **using** statements.
    

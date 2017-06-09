@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot StorSimple deployment issues | Microsoft Docs
 description: Describes how to diagnose and fix errors that occur when you first deploy StorSimple.
 services: storsimple
@@ -526,7 +526,7 @@ The error could be caused by any of the following:
 2. Make sure that the device is cabled correctly: check the network cabling on the device back plane. The cabling is specific to the device model. For more information, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
    
    > [!NOTE]
-   > If you are using 10 GbE network ports, you will need to use the provided QSFP-SFP adapters and SFP cables. For more information, see the [list of cables, switches, and transceivers recommended by the OEM supplier for Mellanox ports](http://www.mellanox.com/page/cables?mtag=cable_overview).
+   > If you are using 10 GbE network ports, you will need to use the provided QSFP-SFP adapters and SFP cables. For more information, see the [list of cables, switches, and transceivers recommended for the 10 GbE ports](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
    > 
    > 
 3. Verify the health of the network interface:

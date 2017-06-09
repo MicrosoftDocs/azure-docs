@@ -3,8 +3,8 @@ title: Azure Load Balancer overview | Microsoft Docs
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Azure Load Balancer overview
@@ -31,7 +31,7 @@ All resources in the cloud need a public IP address to be reachable from the Int
 
 ## Azure deployment models
 
-It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
+It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../azure-resource-manager/resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
 
 ### Azure classic deployment model
 
@@ -108,7 +108,7 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     For each new outbound connection that a virtual machine initiates, an outbound port is also allocated by the load balancer. The external host sees traffic with a virtual IP (VIP)-allocated port. For scenarios that require a large number of outbound connections, it is recommended to use [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) addresses so that the VMs have a dedicated outbound IP address for SNAT. This reduces the risk of port exhaustion.
 
-    The maximum number of ports that can be used by the VIP or an instance-level public IP (PIP) is 64,000. This is a TCP standard limitation.
+    Please see [outbound connections](load-balancer-outbound-connections.md) article for more details on this topic.
 
 ### Support for multiple load-balanced IP addresses for virtual machines
 You can assign more than one load-balanced public IP address to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. For more information, see [Multiple VIPs per cloud service](load-balancer-multivip.md).

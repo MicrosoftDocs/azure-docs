@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 04/10/2017
 ms.author: eugenesh
 ---
 
@@ -21,7 +21,7 @@ ms.author: eugenesh
 This article shows how to configure Azure Search blob indexer to extract structured content from blobs that contain JSON.
 
 ## Scenarios
-By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want preserve the structure of your JSON documents. For example, given the JSON document
+By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, given the JSON document
 
     {
         "article" : {
@@ -41,26 +41,47 @@ Alternatively, when your blobs contain an **array of JSON objects**, you may wan
         { "id" : "3", "text" : "example 3" }
     ]
 
-you can populate your Azure Search index with 3 separate documents, each with "id" and "text" fields.
+you can populate your Azure Search index with three separate documents, each with "id" and "text" fields.
 
 > [!IMPORTANT]
-> This functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> The JSON array parsing functionality is currently in preview. It is available only in the REST API using version **2015-02-28-Preview**. Remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 >
 >
 
 ## Setting up JSON indexing
-To index JSON blobs, set the `parsingMode` configuration parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain a JSON array):
+Indexing JSON blobs is similar to the regular document extraction. First, create the datasource exactly as you would normally: 
+
+    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+        "name" : "my-blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+    }   
+
+Then create the target search index if you don't already have one. 
+
+Finally create an indexer and set the `parsingMode` parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays, and you need each element of an array to be treated as a separate document):
+
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
 
     {
       "name" : "my-json-indexer",
-      ... other indexer properties
-      "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index.  This is described in detail below.
+If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index, as shown in the next section.
 
 > [!IMPORTANT]
-> When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source will be JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+> When you use `json` or `jsonArray` parsing mode, Azure Search assumes that all blobs in your data source contain JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 >
 >
 
@@ -77,7 +98,7 @@ Coming back to our example JSON document:
         }
     }
 
-Let's say you have a search index with the following fields: `text` of type Edm.String, `date` of type Edm.DateTimeOffset, and `tags` of type Collection(Edm.String). To map your JSON into the desired shape, use the following field mappings:
+Let's say you have a search index with the following fields: `text` of type `Edm.String`, `date` of type `Edm.DateTimeOffset`, and `tags` of type `Collection(Edm.String)`. To map your JSON into the desired shape, use the following field mappings:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -85,7 +106,7 @@ Let's say you have a search index with the following fields: `text` of type Edm.
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-The source field names in the mappings are specified using the [JSON Pointer](http://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then drill into the desired property (at arbitrary level of nesting) by using forward slash-separated path.
+The source field names in the mappings are specified using the [JSON Pointer](http://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then pick the desired property (at arbitrary level of nesting) by using forward slash-separated path.
 
 You can also refer to individual array elements by using a zero-based index. For example, to pick the first element of the "tags" array from the above example, use a field mapping like this:
 
@@ -96,7 +117,7 @@ You can also refer to individual array elements by using a zero-based index. For
 >
 >
 
-If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index:
+If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" directly maps to the corresponding fields in the search index:
 
     {
        "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -104,47 +125,9 @@ If your JSON documents only contain simple top-level properties, you may not nee
        "tags" : [ "search", "storage", "howto" ]    
      }
 
-## Indexing nested JSON arrays
-What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this:
+Here's a complete indexer payload with field mappings:
 
-    {
-        "level1" : {
-            "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
-            ]
-        }
-    }
-
-use this configuration to index the array contained in the "level2" property:
-
-    {
-        "name" : "my-json-array-indexer",
-        ... other indexer properties
-        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
-    }
-
-
-## Request examples
-Putting this all together, here are the complete payloads examples.
-
-Datasource:
-
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
-    }   
-
-Indexer:
-
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -161,5 +144,26 @@ Indexer:
         ]
     }
 
+## Indexing nested JSON arrays
+What if you wish to index an array of JSON objects, but that array is nested somewhere within the document? You can pick which property contains the array using the `documentRoot` configuration property. For example, if your blobs look like this:
+
+    {
+        "level1" : {
+            "level2" : [
+                { "id" : "1", "text" : "Use the documentRoot property" },
+                { "id" : "2", "text" : "to pluck the array you want to index" },
+                { "id" : "3", "text" : "even if it's nested inside the document" }  
+            ]
+        }
+    }
+
+use this configuration to index the array contained in the `level2` property:
+
+    {
+        "name" : "my-json-array-indexer",
+        ... other indexer properties
+        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+    }
+
 ## Help us make Azure Search better
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+If you have feature requests or ideas for improvements, reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).

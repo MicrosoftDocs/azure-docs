@@ -1,19 +1,19 @@
 ---
 title: Microsoft Azure Service Bus quotas and limits | Microsoft Docs
 description: Limits and quotas for Azure Service Bus
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 2b1e266f-be81-48f1-9874-50fcb40ecca2
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 03/23/2017
 ms.author: sethm
 
 ---

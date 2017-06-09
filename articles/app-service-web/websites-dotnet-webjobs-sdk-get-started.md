@@ -4,7 +4,7 @@ description: Create a multi-tier app using ASP.NET MVC and Azure. The front end 
 services: app-service
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: 99cb9917-483a-45f8-a98d-07d19c68c753
@@ -14,11 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 
 ---
 # Create a .NET WebJob in Azure App Service
 This tutorial shows how to write code for a simple multi-tier ASP.NET MVC 5 application that uses the [WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 The purpose of the [WebJobs SDK](websites-webjobs-resources.md) is to simplify the code you write for common tasks that a WebJob can perform, such as image processing, queue processing, RSS aggregation, file maintenance, and sending emails. The WebJobs SDK has built-in features for working with Azure Storage and Service Bus, for scheduling tasks and handling errors, and for many other common scenarios. In addition, it's designed to be extensible, and there's an [open source repository for extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
@@ -41,7 +43,7 @@ The tutorial can be used with Visual Studio 2015, but before you run the applica
 > * You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
 > * You can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 >
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 >
 >
 
@@ -76,14 +78,18 @@ An Azure storage account provides resources for storing queue and blob data in t
 In a real-world application, you typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial you'll use just one account.
 
 1. Open the **Server Explorer** window in Visual Studio.
-2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure**.
+2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure Subscription...**.
+   
    ![Connect to Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+
 3. Sign in using your Azure credentials.
 4. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
+   
    ![Create Storage Account](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+   
 5. In the **Create Storage Account** dialog, enter a name for the storage account.
 
-    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use you'll get a chance to change it.
+    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use, you'll get a chance to change it.
 
     The URL to access your storage account will be *{name}*.core.windows.net.
 6. Set the **Region or Affinity Group** drop-down list to the region closest to you.
@@ -125,7 +131,7 @@ In a real-world application, you typically create separate accounts for applicat
     ![Click Storage Account Properties](./media/websites-dotnet-webjobs-sdk-get-started/storppty.png)
 3. In the **Properties** window, click **Storage Account Keys**, and then click the ellipsis.
 
-    ![New storage account](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
+    ![Storage account keys](./media/websites-dotnet-webjobs-sdk-get-started/stor-account-keys.png)
 4. Copy the **Connection String**.
 
     ![Storage Account Keys dialog](./media/websites-dotnet-webjobs-sdk-get-started/cpak.png)
@@ -161,7 +167,7 @@ In a real-world application, you typically create separate accounts for applicat
 
     ![Console application window showing that the backend is running](./media/websites-dotnet-webjobs-sdk-get-started/backendrunning.png)
 3. In your browser, click  **Create an Ad**.
-4. Enter some test data and select an image to upload, and then click **Create**.
+4. Enter some test data, select an image to upload, and then click **Create**.
 
     ![Create page](./media/websites-dotnet-webjobs-sdk-get-started/create.png)
 
@@ -189,7 +195,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 
 ### Deploy to Web Apps
 1. Close the browser and the console application window.
-2. In **Solution Explorer**, right-click the ContosoAdsWeb project, and then click **Publish**.
+2. In **Solution Explorer**, right-click the ContosoAdsWeb project and then click **Publish**.
 3. In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure web apps**.
 
     ![Select Azure web app publish target](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
@@ -253,7 +259,7 @@ After you've created some ads while running in the cloud, you'll view the WebJob
     You won't be able to use the web app until you set connection strings in the Azure environment in the next section. You'll see either an error page or the home page depending on web app and database creation options you chose earlier.
 
 ### Configure the web app to use your Azure SQL database and storage account.
-It's a security best practice to [avoid putting sensitive information such as connection strings in files that are stored in source code repositories](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure provides a way to do that: you can set connection string and other setting values in the Azure environment, and ASP.NET configuration APIs automatically pick up these values when the app runs in Azure. You can set these values in Azure by using **Server Explorer**, the Azure Portal, Windows PowerShell, or the cross-platform command-line interface. For more information, see [How Application Strings and Connection Strings Work](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+It's a security best practice to [avoid putting sensitive information such as connection strings in files that are stored in source code repositories](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure provides a way to do that: you can set connection string and other setting values in the Azure environment, and ASP.NET configuration APIs automatically pick up these values when the app runs in Azure. You can set these values in Azure by using **Server Explorer**, the Azure Portal, Windows PowerShell, or the cross-platform command-line interface. For more information, see [How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 In this section you use **Server Explorer** to set connection string values in Azure.
 

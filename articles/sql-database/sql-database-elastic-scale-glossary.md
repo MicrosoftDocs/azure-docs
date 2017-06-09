@@ -1,4 +1,4 @@
-﻿---
+---
 title: Elastic Database tools glossary | Microsoft Docs
 description: Explanation of terms used for elastic database tools
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: a23a4e81-6706-452d-afc1-a550e5e47af9
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

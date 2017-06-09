@@ -3,7 +3,7 @@ title: How to create a hybrid collection for Azure RemoteApp | Microsoft Docs
 description: Learn how to create a deployment of RemoteApp that connects to your internal network.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: ''
 
@@ -13,13 +13,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 04/26/2017
+ms.author: mbaldwin
 
 ---
 # How to create a hybrid collection for Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -48,7 +48,7 @@ You need to do the following before creating the collection:
 * [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp.
 * Create a user account in Active Directory to use as the Azure RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 * Gather information about your on-premises network: IP address information and VPN device details.
-* Install the [Azure PowerShell](../powershell-install-configure.md) module.
+* Install the [Azure PowerShell](/powershell/azure/overview) module.
 * Gather information about the users that you want to grant access to. You will need the Azure Active Directory user principal name (for example, name@contoso.com) for each user. Make sure that the UPN matches between Azure AD and Active Directory.
 * Choose your template image. An Azure RemoteApp template image contains the apps and programs that you want to publish for your users. See [Azure RemoteApp image options](remoteapp-imageoptions.md) for more information.
 * Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).
@@ -123,7 +123,7 @@ Now that you have created your collection, you need to add the users that you wa
    
    **Notes:**
    
-   Make sure that you use the “user@domain.com” format.
+   Make sure that you use the *user@domain.com* format.
    
    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing.
 3. Once the users are validated, click **Save**.

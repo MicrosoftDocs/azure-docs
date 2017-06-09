@@ -1,5 +1,5 @@
 ---
-title: Deploying a new Web Service
+title: Deploying a new web service in Azure Machine Learning | Microsoft Docs
 description: The workflow of deploying an ARM based web service
 services: machine-learning
 documentationcenter: ''
@@ -13,8 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: v-donglo
+
+ROBOTS: NOINDEX
+redirect_url: machine-learning-publish-a-machine-learning-web-service
+redirect_document_id: TRUE 
 
 ---
 # Deploy a new web service
@@ -83,12 +87,12 @@ On the Consuming page you can find:
 * Excel and web app templates to kick start your consumption process.
 * Sample code in C#, python, and R to get you started.
 
-For more information on consuming web services, see [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
+For more information on consuming web services, see [How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md).
 
 ## Next Steps
 For more information on consuming web services, see:
 
-[How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md)
+[How to consume an Azure Machine Learning Web service](machine-learning-consume-web-services.md)
 
 [Azure Machine Learning Web Services: Deployment and consumption](machine-learning-deploy-consume-web-service-guide.md)
 

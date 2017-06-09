@@ -1,20 +1,23 @@
 ---
-title: Create an Azure function app and Azure Storage account | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 3: Template deployment | Microsoft Docs'
 description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 services: iot-hub
 documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
+
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 
 ms.assetid: 6c58de85-c5c4-4989-bb5e-08c45c549966
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 
 ---
@@ -32,7 +35,6 @@ In this article, you will learn:
 
 ## What you need
 You must have successfully completed:
-
 * [Get started with Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 * [Create your Azure IoT hub](iot-hub-raspberry-pi-kit-node-get-started.md)
 
@@ -59,15 +61,10 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 * Replace **[your IoT Hub name]** with **{my hub name}** that you specified when you [created your IoT hub and registered Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 * Replace **[prefix string for new resources]** with any prefix you want. The prefix ensures that the resource name is globally unique to avoid conflict. Do not use a dash or number initial in the prefix.
 
-> [!NOTE]
-> You don't need `azure_storage_connection_string` in this article. Keep it as is.
-> 
-> 
-
 After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:
 
 ```bash
-az resource group deployment create --template-file-path arm-template.json --parameters-file-path arm-template-param.json -g iot-sample -n mydeployment
+az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
 ```
 
 It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next article.

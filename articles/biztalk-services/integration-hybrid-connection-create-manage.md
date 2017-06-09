@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and Manage Hybrid Connections | Microsoft Docs
 description: Learn how to create a hybrid connection, manage the connection, and install the Hybrid Connection Manager. MABS, WABS
 services: biztalk-services
@@ -18,6 +18,11 @@ ms.author: ccompy
 
 ---
 # Create and Manage Hybrid Connections
+
+> [!IMPORTANT]
+> BizTalk Hybrid Connections is retired, and replaced by App Service Hybrid Connections. For more information, including how to manage your existing BizTalk Hybrid Connections, see [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md).
+
+
 ## Overview of the Steps
 1. Create a Hybrid Connection by entering the **host name** or **FQDN** of the on-premises resource in your private network.
 2. Link your Azure web apps or Azure mobile apps to the Hybrid Connection.

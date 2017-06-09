@@ -4,7 +4,7 @@ description: Learn what PolyBase is and how to use it for data warehousing scena
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
-manager: barbkess
+manager: jhubbard
 editor: ''
 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
@@ -13,8 +13,10 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.custom: loading
+ms.date: 03/01/2017
 ms.author: cakarst;barbkess
+
 
 ---
 # Load data with PolyBase in SQL Data Warehouse
@@ -26,13 +28,13 @@ ms.author: cakarst;barbkess
 > 
 > 
 
-This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
+This tutorial shows how to load data into SQL Data Warehouse using AzCopy and PolyBase. When finished, you will know how to:
 
 * Use AzCopy to copy data to Azure blob storage
 * Create database objects to define the data
 * Run a T-SQL query to load the data
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 

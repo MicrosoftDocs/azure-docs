@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/02/2016
+ms.date: 4/6/2017
 ms.author: v-six
 
 ---
@@ -28,8 +28,8 @@ You can find the **Properties** pane as follows:
 
 > [!NOTE]
 > You can copy the contents of the **Properties** pane to the clipboard by clicking the icon in the upper-right corner of the pane.
-> 
-> 
+>
+>
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -76,11 +76,10 @@ For more information on how to troubleshoot for this problem, see the blog post 
 
 > [!WARNING]
 > If you recycle your cloud service, you reset the properties for the deployment, effectively erasing the information for the original problem.
-> 
-> 
+>
+>
 
 ## Next steps
 View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
-

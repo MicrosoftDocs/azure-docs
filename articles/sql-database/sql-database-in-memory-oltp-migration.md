@@ -1,4 +1,4 @@
-﻿---
+---
 title: In-Memory OLTP improves SQL txn perf | Microsoft Docs
 description: Adopt In-Memory OLTP to improve transactional performance in an existing SQL database.
 services: sql-database
@@ -9,21 +9,26 @@ editor: MightyPen
 
 ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
 ms.service: sql-database
+ms.custom: develop databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/22/2016
 ms.author: jodebrui
 
 ---
-# Use In-Memory OLTP (preview) to improve your application performance in SQL Database
-[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of OLTP workload in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the performance level.
+# Use In-Memory OLTP to improve your application performance in SQL Database
+[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the pricing tier. 
+
+> [!NOTE] 
+> Learn how [Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+
 
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
-## Step 1: Ensure your Premium database supports In-Memory OLTP
-Premium databases created in November 2015 or later do support the In-Memory feature. You can ascertain whether your Premium database supports the In-Memory feature by running the following Transact-SQL statement. In-Memory is supported if the returned result is 1 (not 0):
+## Step 1: Ensure you are using a Premium database
+In-Memory OLTP is supported only in Premium databases. In-Memory is supported if the returned result is 1 (not 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -31,32 +36,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 *XTP* stands for *Extreme Transaction Processing*
 
-If your existing database must be moved to a new V12 Premium database, you can use the following techniques to export and then import your data.
 
-#### Export steps
-Export your production database to a bacpac by using either:
-
-* The [Export](sql-database-export.md) functionality in the [portal](https://portal.azure.com/).
-* The **Export Data-tier Application** functionality in an [up-to-date SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
-  
-  1. In the **Object Explorer**, expand the **Databases** node.
-  2. Right-click your database node.
-  3. Click **Tasks** > **Export Data-tier Application**.
-  4. Operate the wizard window that is displayed.
-
-#### Import steps
-Import the bacpac into a new Premium database.
-
-1. In the Azure [portal](https://portal.azure.com/),
-   
-   * Navigate to the server.
-   * Select the [Import Database](sql-database-import.md) option.
-   * Select a Premium pricing tier.
-2. Use SSMS to import the bacpac:
-   
-   * In the **Object Explorer**, right-click the **Databases** node.
-   * Click **Import Data-Tier Application**.
-   * Operate the wizard window that is displayed.
 
 ## Step 2: Identify objects to migrate to In-Memory OLTP
 SSMS includes a **Transaction Performance Analysis Overview** report that you can run against a database with an active workload. The report identifies tables and stored procedures that are candidates for migration to In-Memory OLTP.
@@ -71,7 +51,7 @@ For more information, see [Determining if a Table or Stored Procedure Should Be 
 ## Step 3: Create a comparable test database
 Suppose the report indicates your database has a table that would benefit from being converted to a memory-optimized table. We recommend that you first test to confirm the indication by testing.
 
-You need a test copy of your production database. The test database must be at the same service tier level as your production database.
+You need a test copy of your production database. The test database should be at the same service tier level as your production database.
 
 To ease testing, tweak your test database as follows:
 

@@ -1,23 +1,34 @@
-﻿---
-title: 'Forecasting: Autoregressive Integrated Moving Average (ARIMA) | Microsoft Docs'
-description: Forecasting - Autoregressive Integrated Moving Average (ARIMA)
-services: machine-learning
-documentationcenter: ''
-author: yijichen
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 1e0d525f-8a9e-4b42-87e0-c9423f059f8c
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+---
+title: '(deprecated) Forecasting: Autoregressive Integrated Moving Average (ARIMA) - Azure | Microsoft Docs' 
+description: (deprecated) Forecasting - Autoregressive Integrated Moving Average (ARIMA) 
+services: machine-learning 
+documentationcenter: '' 
+author: yijichen 
+manager: jhubbard 
+editor: cgronlun 
+ 
+ms.assetid: 1e0d525f-8a9e-4b42-87e0-c9423f059f8c 
+ms.service: machine-learning 
+ms.workload: data-services 
+ms.tgt_pltfrm: na 
+ms.devlang: na 
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/06/2017 
 ms.author: yijichen
 
+ROBOTS: NOINDEX
+redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE 
+
 ---
-# Forecasting - Autoregressive Integrated Moving Average (ARIMA)
+# (deprecated) Forecasting - Autoregressive Integrated Moving Average (ARIMA)
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
+
 This [service](https://datamarket.azure.com/dataset/aml_labs/arima) implements Autoregressive Integrated Moving Average (ARIMA) to produce predictions based on the historical data provided by the user. Will the demand for a specific product increase this year? Can I predict my product sales for the Christmas season, so that I can effectively plan my inventory? Forecasting models are apt to address such questions. Given the past data, these models examine hidden trends and seasonality to predict future trends. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

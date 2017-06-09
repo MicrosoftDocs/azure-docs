@@ -1,10 +1,10 @@
-﻿---
+---
 title: Settings and data roaming FAQ | Microsoft Docs
 description: Provides answers to some questions IT administrators might have about settings and app data sync.
 services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
-author: femila
+author: tanning
 manager: swadhwa
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 
 ---
 # Settings and data roaming FAQ
@@ -121,17 +121,11 @@ Enterprise State Roaming is supported on Windows 10 client SKUs, but not on serv
 If your organization is already using roaming in Windows 10 with the Azure RMS limited-use free subscription, purchasing a paid Azure RMS subscription will not have any impact on the functionality of the roaming feature, and no configuration changes will be required by your IT administrator.
 
 ## Known issues
-* If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working. Future updates to Windows 10 may resolve this issue.
-* You will need the July cumulative update for Windows 10 (build 10586.494 or higher) for Internet Explorer favorites syncing to work.
-* Data that is protected with Windows Information Protection will not sync through Enterprise State Roaming. In addition, machines that have Windows Information Protection enabled will not experience theme sync.
-* Under certain conditions, Enterprise State Roaming can fail to sync data if Azure Multi-Factor Authentication is configured.
-
-  * If your device is configured to require [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) on the Azure Active Directory portal, you may fail to sync settings while signing in to a Windows 10 device using a password. This type of Multi-Factor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 devices with their [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or by completing Multi-Factor Authentication while accessing other Azure services like Office 365.
-  * Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication conditional access policy and the access token on the device expires.  Ensure that you sign in and sign out using the [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or complete Multi-Factor Authentication while accessing other Azure services like Office 365.
-* If a machine is domain-joined with automatic registration to Azure Active Directory devices, it may experience sync fail if the machine is off-site for extended periods of time, and domain authentication can't complete. To resolve this issue, connect the machine to a corporate network so that sync can resume.
+Please see the documentation in the [troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md) section for a list of known issues. 
 
 ## Related topics
 * [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting Cloud Service allocation failure | Microsoft Docs
 description: Troubleshooting allocation failure when you deploy Cloud Services in Azure
 services: azure-service-management, cloud-services
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 4/6/2017
 ms.author: v-six
 
 ---
@@ -50,22 +50,21 @@ Here are the common allocation scenarios that cause an allocation request to be 
 
 ## Solutions
 1. Redeploy to a new cloud service - This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
-   
+
    * Deploy the workload to a new cloud service  
    * Update the CNAME or A record to point traffic to the new cloud service
    * Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
 2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application.
-   
+
    * Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then
    * Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group.
 3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
-   
+
    * Create a ReservedIP for your existing deployment using Powershell
-     
+
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
    * Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group.
 5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-

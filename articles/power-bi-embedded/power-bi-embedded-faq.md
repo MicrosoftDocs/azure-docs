@@ -1,4 +1,4 @@
-﻿---
+---
 title: FAQ
 description: Power BI Embedded FAQ
 services: power-bi-embedded
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 03/02/2017
 ms.author: asaxton
 
 ---
@@ -49,18 +49,8 @@ Power BI Embedded with Azure standard SLA. See [Service Level Agreements](https:
 ## How is this service priced?
 See [Power BI Embedded Pricing](http://go.microsoft.com/fwlink/?LinkId=760527) for pricing information.
 
-## What is a render and how is it billed?
-> [!NOTE]
-> Discounted per render pricing was offered during the preview of Power BI Embedded and due to user feedback will be discontinued in favor of per session pricing. The transition from per render pricing to per session pricing will take effect on September 1, 2016.
-> 
-> 
-
-A render is a visual element that is displayed to an end user resulting in a query to the service. For example, if a user views a report containing 4 visuals, it would result in 4 renders. If the user refreshes the report and more queries are sent to the service, it would result in 4 more renders. The service owner will have control over the extent to which end users can drive new queries that result in paid renders to limit cost exposure and minimize costs in static data scenarios.
-
-Renders are billed per 1,000 renders. Billing is prorated for render quantities less than 1,000. Customers receive 1,000 free renders per month. Customers who purchase through Volume Licensing agreements should consult their Microsoft partner or seller for pricing information.
-
 ## What is a report session and how is it billed?
-A session is a set of interactions between an end user and a Power BI Embedded report. Each time  a Power BI Embedded report is displayed to a user, a session is initiated and the subscription holder will be charged for a session. Sessions are billed at a flat rate, independent of the number of visual elements in a report or how frequently the report content is refreshed. A session ends when either the user closes the report, or the session times out after one hour.
+A session is a set of interactions between an end user and a Power BI Embedded report. Each time a Power BI Embedded report is displayed to a user, a session is initiated and the subscription holder will be charged for a session. Sessions are billed at a flat rate, independent of the number of visual elements in a report or how frequently the report content is refreshed. A session ends when either the user closes the report, or the session times out after one hour.
 
 ## Do you offer any tools or guidance to help me estimate how many renders/session I should expect? How will I know how many renders have been completed?
 The Azure Portal will provide billing details on how many renders / report sessions have been performed against your subscription.
@@ -82,7 +72,7 @@ The Power BI Embedded service uses App Tokens for authentication and authorizati
 and sends the App Tokens which tells our service to render the requested report. This design does not require your app to use Azure AD for user authentication and authorization, although you can do this. You can learn more about App Tokens [here](power-bi-embedded-app-token-flow.md). We also introduced row-level security feature (RLS) in Power BI Embedded for advanced security filtering scenarios.
 
 ## What data sources are currently supported with Power BI Embedded?
-We are going to support access to cloud data sources that use basic credentials via Direct Query. This means that sources such as Azure SQL DB and Azure SQL DW are supported right now. We will add support for other data sources and access types in the coming months. We’ll announce new supported data sources on the Power BI developer forum at  [https://dev.powerbi.com](https://dev.powerbi.com/).
+We are going to support access to cloud data sources that use basic credentials via Direct Query. This means that sources such as Azure SQL DB and Azure SQL DW are supported right now. We will add support for other data sources and access types in the coming months. For more information, see [Connect to a data source](power-bi-embedded-connect-datasource.md).
 
 ## How does the tenancy model work for Power BI Embedded?
 In the Power BI Embedded model, there is no explicit requirement to have your customers in Azure AD tenants. You can elect to require Azure AD for your customers, or not. As a result, the architecture of your application and infrastructure is what will determine the tenancy model required for Power BI Embedded.
@@ -96,6 +86,10 @@ You can visit the [Power BI Embedded documentation page](http://go.microsoft.com
 You can get started for free now! If you have an Azure subscription, you can now provision Power BI Embedded from the Azure portal directly.  You can also create you [free Azure account](https://azure.microsoft.com/free/). Once you've provisioned the Power BI Embedded service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Samples are provided on how to leverage the developer SDK.
 
 ## See also
-* [What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-* [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
+
+[What is Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
+[Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
+[Get started with sample](power-bi-embedded-get-started-sample.md)   
+[JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
+More questions? [Try the Power BI Community](http://community.powerbi.com/)
 

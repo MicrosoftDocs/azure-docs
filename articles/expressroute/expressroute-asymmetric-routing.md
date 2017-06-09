@@ -1,4 +1,4 @@
-﻿---
+---
 title: Asymmetric routing | Microsoft Docs
 description: This article walks you through the issues a customer might face with asymmetric routing in a network that has multiple links to a destination.
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 
 ---
 # Asymmetric routing with multiple network paths

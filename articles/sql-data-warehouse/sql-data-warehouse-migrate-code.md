@@ -3,7 +3,7 @@ title: Migrate your SQL code to SQL Data Warehouse | Microsoft Docs
 description: Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: sqlmojo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.custom: migrate
+ms.date: 01/30/2017
+ms.author: joeyong;barbkess
 
 ---
 # Migrate your SQL code to SQL Data Warehouse
@@ -28,7 +29,6 @@ The following list summarizes the most common feature which are not supported in
 * [merge statement][merge statement]
 * cross-database joins
 * [cursors][cursors]
-* [SELECT..INTO][SELECT..INTO]
 * [INSERT..EXEC][INSERT..EXEC]
 * output clause
 * inline user-defined functions
@@ -124,7 +124,6 @@ For a complete list of all supported T-SQL statements, see [Transact-SQL topics]
 [Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [cursors]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
 [nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
 [updating through views]: ./sql-data-warehouse-develop-views.md

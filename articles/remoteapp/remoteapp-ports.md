@@ -1,4 +1,3 @@
-﻿
 ---
 title: List of Ports and URLs to whitelist for Azure RemoteApp Deployed in customer virtual network | Microsoft Docs
 description: Learn which ports and URLs you'll need to configure for communication through Azure RemoteApp.
@@ -13,26 +12,26 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
-ms.author: elizapo
+ms.date: 04/26/2017
+ms.author: mbaldwin
 
 ---
 # List of Ports and URLs to permit access for Azure RemoteApp Deployed in customer Virtual Network
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
-The following applies to Azure RemoteApp a cloud or hybrid collection if you are deploying it in a virtual network (VNET). For more information on virtual networks, please read [Virtual Network Overview](../virtual-network/virtual-networks-overview.md). If you have created a network security group (NSG) restricting traffic to your virtual network resources which you have chosen for Azure RemoteApp, please make sure the following are accessible and allowed through the security policies on the virtual network. For more information on network security groups, please read [What is a Network Security Group? (NSG)](../virtual-network/virtual-networks-nsg.md).
+If you are deploying an Azure RemoteApp cloud or hybrid collection in a virtual network (VNET), review the following port information. For more information on virtual networks, read [Virtual Network Overview](../virtual-network/virtual-networks-overview.md). If you have created a network security group (NSG) restricting traffic to the virtual network resources in your collection, make sure the following ports are accessible and allowed through the security policies on the virtual network. For more information on network security groups, read [What is a Network Security Group? (NSG)](../virtual-network/virtual-networks-nsg.md).
 
 ## Azure RemoteApp subnet needs access to these endpoints and URLs:
 * *.servicebus.windows.net
 * *.servicebus.net
-* https://*.remoteapp.windwsazure.com  
+* https://*.remoteapp.windowsazure.com  
 * https://www.remoteapp.windowsazure.com 
 * https://*remoteapp.windowsazure.com  
 * https://*.core.windows.net  
-* Outbound: TCP: 443, TCP: 10101-10175 
+* Outbound: TCP: TCP: 443, 9351, 9352, 10101-10175 
 * Optional – UDP: 10201-10275  
 
 ## Azure RemoteApp clients need access to these endpoints and URLs:

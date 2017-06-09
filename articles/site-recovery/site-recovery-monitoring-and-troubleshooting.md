@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor and troubleshoot protection for virtual machines and physical servers | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  Virtual Machine Manager or Hyper-V site protection.
 services: site-recovery
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2016
+ms.date: 06/05/2017
 ms.author: rajanaki
 
 ---
@@ -32,12 +32,12 @@ To set up database recovery between two on-premises locations, you need to downl
 ![Virtual Machine Manager site deployment for replication between on-premises sites](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### Virtual Machine Manager site deployment for replication between on-premises locations and Azure
-When you set up database recovery between on-premises locations and Azure, you need to download the Azure Site Recovery provider and install it on the Virtual Machine Manager server. You also need to install the Azure Recovery Services Agent, which needs to be installed on each Hyper-V host. Refer to [Understanding site to Azure protection](site-recovery-understanding-site-to-azure-protection.md) for more information.
+When you set up database recovery between on-premises locations and Azure, you need to download the Azure Site Recovery provider and install it on the Virtual Machine Manager server. You also need to install the Azure Recovery Services Agent, which needs to be installed on each Hyper-V host. [Learn more](site-recovery-hyper-v-azure-architecture.md) for more information.
 
 ![Virtual Machine Manager site deployment for replication between on-premises locations and Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### Hyper-V site deployment for replication between on-premises locations and Azure
-This process is similar to Virtual Machine Manager deployment. The only difference is that the Azure Site Recovery provider and Azure Recovery Services Agent get installed on the Hyper-V host itself. Refer to [Understanding site to Azure protection](site-recovery-understanding-site-to-azure-protection.md) for more information.
+This process is similar to Virtual Machine Manager deployment. The only difference is that the Azure Site Recovery provider and Azure Recovery Services Agent get installed on the Hyper-V host itself. [Learn more](site-recovery-hyper-v-azure-architecture.md). .
 
 ## Monitor configuration, protection, and recovery operations
 Every operation in Azure Site Recovery is audited and tracked under the **JOBS** tab. For any configuration, protection, or recovery error, go to the **JOBS** tab and look for failures.
@@ -77,8 +77,8 @@ As shown in the previous screenshot, the virtual machine health is **Critical**.
 
 > [!NOTE]
 > If any active operations are in progress or failed, go to the **JOBS** view as mentioned earlier to view the error for a specific job.
-> 
-> 
+>
+>
 
 ## Troubleshoot on-premises Hyper-V issues
 Connect to the on-premises Hyper-V manager console, select the virtual
@@ -200,4 +200,3 @@ Following are common errors and their resolutions. Each error is documented in a
 If the **Connect** button in the portal is dimmed, and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, you need to create and assign your virtual machine a public IP address before you can use Remote Desktop/Shared Shell. You can then add a Public IP on the network interface of the virtual machine.  
 
 ![Adding a Public IP on the network interface of failed over virtual machine](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-

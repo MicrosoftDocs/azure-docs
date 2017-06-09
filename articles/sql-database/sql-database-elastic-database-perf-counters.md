@@ -4,17 +4,18 @@ description: ShardMapManager class and data dependent routing performance counte
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: SilviaDoomra
+author: ddove
 editor: ''
 
 ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: SilviaDoomra
+ms.author: ddove
 
 ---
 # Performance counters for shard map manager

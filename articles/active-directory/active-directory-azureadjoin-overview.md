@@ -1,10 +1,10 @@
-﻿---
+---
 title: Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Microsoft Docs
 description: Provides a detailed overview of how Windows 10 devices can utilize Azure AD Join to get registered on Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: femila
-manager: swadhwa
+manager: femila
 editor: ''
 tags: azure-classic-portal
 
@@ -14,15 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 05/16/2017
+ms.author: markvi
 
 ---
 # Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join
 ## What is Azure Active Directory Join?
 Azure Active Directory Join (Azure AD Join) is the functionality that registers a company-owned device in Azure Active Directory to enable centralized management of the device. It makes it possible for users such as employees and students to connect to the enterprise cloud through Azure Active Directory. This enables simplified Windows deployments and access to organizational apps and resources from any Windows device, both corporate-owned and personally-owned (BYOD).
 
-Azure AD Join is intended for enterprises that are cloud-first/cloud-only--typically small- and medium-sized businesses that do not have an on-premises Windows Server Active Directory infrastructure. That said, Azure AD Join can and will also be used by large organizations on devices that are incapable of doing a traditional domain join (mobile devices, for example), or for users who primarily need to access Office 365 or other Azure AD SaaS apps.
+Azure AD Join is intended for enterprises that are cloud-first/cloud-only--typically small- and medium-sized businesses that do not have an on-premises Windows Server Active Directory infrastructure. That said, Azure AD Join can and will also be used by large organizations on devices that are incapable of doing a traditional domain join (mobile devices, for example), or for users who primarily need to access Office 365 or other SaaS apps integrated with Azure AD.
 
 Although the traditional domain join still offers the best on-premises experience on devices that are capable of domain joining, Azure AD Join is suitable for devices that cannot domain join. Azure AD Join is also suitable for managing users in the cloud. It does so by using mobile device management capabilities instead of by using traditional domain management tools like Group Policy and System Center Configuration Manager (SCCM).
 
@@ -48,7 +48,7 @@ With Azure AD Join, you get the following:
 ## How do different devices work with Azure AD Join?
 | Corporate device (joined to on-premises domain) | Corporate device  (joined to the cloud) | Personal device |
 | --- | --- | --- |
-| Users can sign into Windows with work credentials (as they do today). |Users can sign in to Windows with work credentials that are managed in Azure AD. This is relevant for corporate devices in three cases: 1)The organization doesn’t have Active Directory on premises (for example, a small business). 2)The organization doesn’t create all user accounts in Active Directory (for example, accounts for students, consultants, or seasonal workers are not created in Active Directory). 3)The organization has corporate devices that can’t be joined to an (on-premises) domain, like phones or tablets running a Mobile SKU (for example, a secondary device taken to a factory/retail floor). Azure AD Join supports joining of corporate devices for both managed and federated organizations. |Users sign in to Windows with their personal Microsoft account credentials (no change). |
+| Users can sign into Windows with work credentials (as they do today). |Users can sign in to Windows with work credentials that are managed in Azure AD. This is relevant for corporate devices in three cases: <ol><li>The organization doesn’t have Active Directory on premises (for example, a small business).</li><li>The organization doesn’t create all user accounts in Active Directory (for example, accounts for students, consultants, or seasonal workers are not created in Active Directory).</li><li>The organization has corporate devices that can’t be joined to an (on-premises) domain, like phones or tablets running a Mobile SKU (for example, a secondary device taken to a factory/retail floor).</li></ol> Azure AD Join supports joining of corporate devices for both managed and federated organizations. |Users sign in to Windows with their personal Microsoft account credentials (no change). |
 | Users have access to roaming settings and the enterprise Windows Store. These services work with work accounts and don't require a personal Microsoft account. This requires organizations to connect their on-premises Active Directory to Azure AD. |Users can do self-service setup. They can go through the first-run experience (FRX) via their work account as an alternative to having IT provision the devices, although both methods are supported. |Users can easily add a work account that’s managed in Active Directory or Azure AD. |
 | Users have SSO ability from the desktop to work apps, websites, and resources--including both on-premises resources and cloud apps that use Azure AD for authentication. |Devices are automatically registered in the enterprise directory (Azure AD) and automatically enrolled in mobile device management. (Azure AD Premium feature). |Users have SSO ability across apps and to websites/resources with this work account. |
 | Users can add their personal Microsoft accounts to access their personal pictures and files without impacting enterprise data. (Roaming settings continue to work with their work accounts.) The Microsoft account enables SSO and no longer drives the roaming of settings. |Users can do a self-service password reset (SSPR) on winlogon, meaning they can reset a forgotten password. (Azure AD Premium feature). |Users have access to the enterprise Windows Store so that they can acquire and use line-of-business apps on their personal devices. |

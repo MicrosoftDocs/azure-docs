@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SuccessFactors | Microsoft Docs'
 description: Learn how to use SuccessFactors with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/16/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -58,23 +58,23 @@ To configure the integration of SuccessFactors into Azure AD, you need to add Su
 
 1. In the Azure classic portal, on the left navigation panel, click **Active Directory**.
    
-   ![Configuring single sign-on][1]
+	![Configuring single sign-on][1]
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
-   ![Configuring single sign-on][2]
+	![Configuring single sign-on][2]
 4. Click **Add** at the bottom of the page.
    
-   ![Applications][3]
+	![Applications][3]
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
-   ![Configuring single sign-on][4]
+	![Configuring single sign-on][4]
 6. In the **search box**, type **SuccessFactors**.
    
-   ![Configuring single sign-on][5]
+	![Configuring single sign-on][5]
 7. In the results panel, select **SuccessFactors**, and then click **Complete** to add the application.
    
-   ![Configuring single sign-on][6]
+	![Configuring single sign-on][6]
 
 ## Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with SuccessFactors based on a test user called "Britta Simon".
@@ -98,47 +98,52 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 1. In the Azure classic portal, on the **SuccessFactors** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
-   ![Configuring single sign-on][7]
+	![Configuring single sign-on][7]
 2. On the **How would you like users to sign on to SuccessFactors** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
    
-   ![Configuring single sign-on][8]
+	![Configuring single sign-on][8]
 3. On the **Configure App URL** page, perform the following steps, and then click **Next**.
    
-   ![Configuring single sign-on][9]
+	![Configuring single sign-on][9]
    
-   a. In the **Sign On URL** textbox, type a URL using one of the following patterns: 
+	a. In the **Sign On URL** textbox, type a URL using one of the following patterns: 
    
-   |  |
-   | --- |
-   | `https://<company name>.successfactors.com/<company name>` |
-   | `https://<company name>.sapsf.com/<company name>` |
-   | `https://<company name>.successfactors.eu/<company name>` |
-   | `https://<company name>.sapsf.eu` |
+	|  |
+	| --- |
+	| `https://<company name>.successfactors.com/<company name>` |
+	| `https://<company name>.sapsf.com/<company name>` |
+	| `https://<company name>.successfactors.eu/<company name>` |
+	| `https://<company name>.sapsf.eu` |
    
-   b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
+	b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
    
-   |  |
-   | --- |
-   | `https://<company name>.successfactors.com/<company name>` |
-   | `https://<company name>.sapsf.com/<company name>` |
-   | `https://<company name>.successfactors.eu/<company name>` |
-   | `https://<company name>.sapsf.eu` |
-   | `https://<company name>.sapsf.eu/<company name>` |
+	|  |
+	| --- |
+	| `https://<company name>.successfactors.com/<company name>` |
+	| `https://<company name>.sapsf.com/<company name>` |
+	| `https://<company name>.successfactors.eu/<company name>` |
+	| `https://<company name>.sapsf.eu` |
+	| `https://<company name>.sapsf.eu/<company name>` |
    
-   c. Click **Next**. 
+	c. Click **Next**. 
 
-    > [AZURE.TIP] Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. To get these values, contact [SuccessFactors support team](https://www.successfactors.com/en_us/support.html).
+    > [!NOTE]
+    > Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. To get these values, contact [SuccessFactors support team](https://www.successfactors.com/en_us/support.html).
 
 1. On the **Configure single sign-on at SuccessFactors** page, click **Download certificate**, and then save the certificate file locally on your computer.
    
-   ![Configuring single sign-on][10]
+	![Configuring single sign-on][10]
+
 2. In a different web browser window, log into your **SuccessFactors admin portal** as an administrator.
+
 3. Visit **Application Security** and native to **Single Sign On Feature**. 
+
 4. Place any value in the **Reset Token** and click **Save Token** to enable SAML SSO.
    
     ![Configuring single sign-on on app side][11]
 
-    > [AZURE.NOTE] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
+    > [!NOTE] 
+    > This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
 
 1. Native to below screenshot and perform the following actions.
    
@@ -162,7 +167,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
     i. Copy the content of the downloaded certificate file, and then paste it into the **SAML Verifying Certificate** textbox.
 
-    > [AZURE.NOTE] The certificate content must have begin certificate and end certificate tags.
+    > [!NOTE] 
+    > The certificate content must have begin certificate and end certificate tags.
 
 1. Navigate to SAML V2, and then perform the following steps:
    
@@ -181,22 +187,23 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     f. In the **Send request as Company-Wide issuer** textbox put the value of **Remote Login URL** from Azure AD application configuration wizard.
 2. Perform these steps if you want to make the login usernames Case Insensitive, .
    
-   a.visit **Company Settings**(near the bottom).
+	a. Visit **Company Settings**(near the bottom).
    
-   b. select checkbox near **Enable Non-Case-Sensitive Username**.
+	b. select checkbox near **Enable Non-Case-Sensitive Username**.
    
-   c.Click **Save**.
+	c.Click **Save**.
    
-   ![Configure Single Sign-On][29]
+	![Configure Single Sign-On][29]
 
-    > [AZURE.NOTE] If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
+    > [!NOTE] 
+    > If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
 
 1. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
-   ![Applications][14]
+	![Applications][14]
 2. On the **Single sign-on confirmation** page, click **Complete**.
    
-   ![Applications][15]
+	![Applications][15]
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the classic portal called Britta Simon.
@@ -226,17 +233,17 @@ The objective of this section is to create a test user in the classic portal cal
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user][21]
+	![Creating an Azure AD test user][21]
    
-   a. In the **First Name** textbox, type **Britta**.  
+	a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+	b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+	c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+	d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+	e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user][22]

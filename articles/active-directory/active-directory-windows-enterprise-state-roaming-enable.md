@@ -1,11 +1,12 @@
-﻿---
+
+---
 title: Enable Enterprise State Roaming in Azure Active Directory | Microsoft Docs
 description: Frequently asked questions about Enterprise State Roaming settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device.
 services: active-directory
 keywords: enterprise state roaming, windows cloud, how to enable enterprise state roaming
 documentationcenter: ''
-author: femila
-manager: swadhwa
+author: tanning
+manager: femila
 editor: curtand
 
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -14,8 +15,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 
 ---
 # Enable Enterprise State Roaming in Azure Active Directory
@@ -72,4 +73,4 @@ been permanently deleted, it will not be recoverable. However, it’s important 
 * [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
+* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)

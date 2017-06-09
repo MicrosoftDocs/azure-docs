@@ -1,4 +1,4 @@
-﻿---
+---
 title: Release Notes for Azure BizTalk Services | Microsoft Docs
 description: Lists the known issues for Azure BizTalk Services
 services: biztalk-services
@@ -18,6 +18,9 @@ ms.author: deonhe
 
 ---
 # Release Notes for Azure BizTalk Services
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.
 
 ## What’s new in the November update of BizTalk Services

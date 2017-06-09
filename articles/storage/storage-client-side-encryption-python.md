@@ -3,7 +3,7 @@ title: Client-Side Encryption with Python for Microsoft Azure Storage | Microsof
 description: The Azure Storage Client Library for Python supports client-side encryption for maximum security for your Azure Storage applications.
 services: storage
 documentationcenter: python
-author: dineshmurthy
+author: lakasa
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 05/11/2017
+ms.author: lakasa
 
 ---
 # Client-Side Encryption with Python for Microsoft Azure Storage
@@ -45,7 +45,7 @@ Decryption via the envelope technique works in the following way:
 
 1. The client library assumes that the user is managing the key encryption key (KEK) locally. The user does not need to know the specific key that was used for encryption. Instead, a key resolver, which resolves different key identifiers to keys, can be set up and used.
 2. The client library downloads the encrypted data along with any encryption material that is stored on the service.
-3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom provider’s unwrapping algorithm.
+3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom provider's unwrapping algorithm.
 4. The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism
@@ -72,7 +72,9 @@ Since queue messages can be of any format, the client library defines a custom f
 
 During encryption, the client library generates a random IV of 16 bytes along with a random CEK of 32 bytes and performs envelope encryption of the queue message text using this information. The wrapped CEK and some additional encryption metadata are then added to the encrypted queue message. This modified message (shown below) is stored on the service.
 
-    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
+<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+```
 
 During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable.
 
@@ -144,82 +146,91 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 ### Blob service encryption
 Set the encryption policy fields on the blockblobservice object. Everything else will be handled by the client library internally.
 
-    # Create the KEK used for encryption.
-    # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-    kek = KeyWrapper('local:key1') # Key identifier
+```python
+# Create the KEK used for encryption.
+# KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
+kek = KeyWrapper('local:key1') # Key identifier
 
-    # Create the key resolver used for decryption.
-    # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
-    key_resolver = KeyResolver()
-    key_resolver.put_key(kek)
+# Create the key resolver used for decryption.
+# KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
+key_resolver = KeyResolver()
+key_resolver.put_key(kek)
 
-    # Set the KEK and key resolver on the service object.
-    my_block_blob_service.key_encryption_key = kek
-    my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
+# Set the KEK and key resolver on the service object.
+my_block_blob_service.key_encryption_key = kek
+my_block_blob_service.key_resolver_funcion = key_resolver.resolve_key
 
-    # Upload the encrypted contents to the blob.
-    my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
+# Upload the encrypted contents to the blob.
+my_block_blob_service.create_blob_from_stream(container_name, blob_name, stream)
 
-    # Download and decrypt the encrypted contents from the blob.
-    blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
+# Download and decrypt the encrypted contents from the blob.
+blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
+```
 
 ### Queue service encryption
 Set the encryption policy fields on the queueservice object. Everything else will be handled by the client library internally.
 
-    # Create the KEK used for encryption.
-    # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-    kek = KeyWrapper('local:key1') # Key identifier
+```python
+# Create the KEK used for encryption.
+# KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
+kek = KeyWrapper('local:key1') # Key identifier
 
-    # Create the key resolver used for decryption.
-    # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
-    key_resolver = KeyResolver()
-    key_resolver.put_key(kek)
+# Create the key resolver used for decryption.
+# KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
+key_resolver = KeyResolver()
+key_resolver.put_key(kek)
 
-    # Set the KEK and key resolver on the service object.
-    my_queue_service.key_encryption_key = kek
-    my_queue_service.key_resolver_funcion = key_resolver.resolve_key
+# Set the KEK and key resolver on the service object.
+my_queue_service.key_encryption_key = kek
+my_queue_service.key_resolver_funcion = key_resolver.resolve_key
 
-    # Add message
-    my_queue_service.put_message(queue_name, content)
+# Add message
+my_queue_service.put_message(queue_name, content)
 
-    # Retrieve message
-    retrieved_message_list = my_queue_service.get_messages(queue_name)
+# Retrieve message
+retrieved_message_list = my_queue_service.get_messages(queue_name)
+```
 
 ### Table service encryption
 In addition to creating an encryption policy and setting it on request options, you must either specify an **encryption_resolver_function** on the **tableservice**, or set the encrypt attribute on the EntityProperty.
 
 ### Using the resolver
-    # Create the KEK used for encryption.
-    # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
-    kek = KeyWrapper('local:key1') # Key identifier
 
-    # Create the key resolver used for decryption.
-    # KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
-    key_resolver = KeyResolver()
-    key_resolver.put_key(kek)
+```python
+# Create the KEK used for encryption.
+# KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
+kek = KeyWrapper('local:key1') # Key identifier
 
-    # Define the encryption resolver_function.
-    def my_encryption_resolver(pk, rk, property_name):
-            if property_name == 'foo':
-                    return True
-            return False
+# Create the key resolver used for decryption.
+# KeyResolver is the provided sample implementation, but the user may use whatever implementation they choose so long as the function set on the service object behaves appropriately.
+key_resolver = KeyResolver()
+key_resolver.put_key(kek)
 
-    # Set the KEK and key resolver on the service object.
-    my_table_service.key_encryption_key = kek
-    my_table_service.key_resolver_funcion = key_resolver.resolve_key
-    my_table_service.encryption_resolver_function = my_encryption_resolver
+# Define the encryption resolver_function.
+def my_encryption_resolver(pk, rk, property_name):
+        if property_name == 'foo':
+                return True
+        return False
 
-    # Insert Entity
-    my_table_service.insert_entity(table_name, entity)
+# Set the KEK and key resolver on the service object.
+my_table_service.key_encryption_key = kek
+my_table_service.key_resolver_funcion = key_resolver.resolve_key
+my_table_service.encryption_resolver_function = my_encryption_resolver
 
-    # Retrieve Entity
-    # Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
-    my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
+# Insert Entity
+my_table_service.insert_entity(table_name, entity)
+
+# Retrieve Entity
+# Note: No need to specify an encryption resolver for retrieve, but it is harmless to leave the property set.
+my_table_service.get_entity(table_name, entity['PartitionKey'], entity['RowKey'])
+```
 
 ### Using attributes
 As mentioned above, a property may be marked for encryption by storing it in an EntityProperty object and setting the encrypt field.
 
-    encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
+```python
+encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
+```
 
 ## Encryption and performance
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional metadata must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
@@ -227,4 +238,3 @@ Note that encrypting your storage data results in additional performance overhea
 ## Next steps
 * Download the [Azure Storage Client Library for Java PyPi package](https://pypi.python.org/pypi/azure-storage)
 * Download the [Azure Storage Client Library for Python Source Code from GitHub](https://github.com/Azure/azure-storage-python)
-

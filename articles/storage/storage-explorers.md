@@ -1,9 +1,9 @@
-﻿---
-title: Azure Storage Client Tools | Microsoft Docs
+---
+title: Tools for working with Azure Storage | Microsoft Docs
 description: A list of tools that allow you to view/interact with your Azure Storage data.
 services: storage
 documentationcenter: ''
-author: micurd
+author: dineshmurthy
 manager: jahogg
 editor: tysonn
 
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: micurd
+ms.date: 05/11/2017
+ms.author: dineshmurthy
 
 ---
 # Azure Storage Client Tools
-Users of Azure Storage frequently want to be able to view/interact with their data using an Azure Storage client tool. In the tables below, we list a number of tools that allow you to do this. We put an “X” in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the tools is free or not. “Trial” indicates that there is a free trial, but the full product is not free. “Y/N” indicates that a version is available for free, while a different version is available for purchase.
+Users of Azure Storage frequently want to be able to view/interact with their data using an Azure Storage client tool. In the tables below, we list a number of tools that allow you to do this. We put an "X" in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the tools is free or not. "Trial" indicates that there is a free trial, but the full product is not free. "Y/N" indicates that a version is available for free, while a different version is available for purchase.
 
-We've only provided a snapshot of the available Azure Storage client tools. These tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we’d be happy to add them.
+We've only provided a snapshot of the available Azure Storage client tools. These tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we'd be happy to add them.
 
 **Microsoft Azure Storage Client Tools**
 

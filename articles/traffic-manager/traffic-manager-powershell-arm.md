@@ -1,10 +1,10 @@
----
-title: Azure Resource Manager support for Traffic Manager | Microsoft Docs
+﻿---
+title: Using PowerShell to manage Traffic Manager in Azure | Microsoft Docs
 description: Using PowerShell for Traffic Manager with Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 
 ms.assetid: bc247448-1d2e-4104-ac03-42b59ebde065
 ms.service: traffic-manager
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
-ms.author: sewhee
+ms.date: 03/16/2017
+ms.author: kumud
 ---
 
-# Azure Resource Manager support for Azure Traffic Manager
+# Using PowerShell to manage Traffic Manager
 
 Azure Resource Manager is the preferred management interface for services in Azure. Azure Traffic Manager profiles can be managed using Azure Resource Manager-based APIs and tools.
 
@@ -28,28 +28,11 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
     https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
 
-## Comparison with the Azure Traffic Manager classic API
-
-The Azure Resource Manager support for Traffic Manager uses different terminology than the classic deployment model. The following table shows the differences between the Resource Manager and Classic terms:
-
-| Resource Manager term | Classic term |
-| --- | --- |
-| Traffic-routing method |Load-balancing method |
-| Priority method |Failover method |
-| Weighted method |Round-robin method |
-| Performance method |Performance method |
-
-Based on customer feedback, we changed the terminology to improve clarity and reduce common misunderstandings. There is no difference in functionality.
-
-## Limitations
-
-When referencing an endpoint of type 'AzureEndpoints' for a Web App, Traffic Manager endpoints can only reference the default (production) [Web App slot](../app-service-web/web-sites-staged-publishing.md). Custom slots are not supported. As a workaround, custom slots can be configured using the 'ExternalEndpoints' type.
-
 ## Setting up Azure PowerShell
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+* [How to install and configure Azure PowerShell](/powershell/azure/overview)
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 
@@ -124,11 +107,10 @@ In all three cases, endpoints can be added in two ways:
 
 ## Adding Azure Endpoints
 
-Azure endpoints reference services hosted in Azure. Three types of Azure endpoints are supported:
+Azure endpoints reference services hosted in Azure. Two types of Azure endpoints are supported:
 
 1. Azure Web Apps
-2. 'Classic' cloud services (which can contain either a PaaS service or IaaS virtual machines)
-3. Azure PublicIpAddress resources (which can be attached to a load-balancer or a virtual machine NIC). The PublicIpAddress must have a DNS name assigned to be used in Traffic Manager.
+2. Azure PublicIpAddress resources (which can be attached to a load-balancer or a virtual machine NIC). The PublicIpAddress must have a DNS name assigned to be used in Traffic Manager.
 
 In each case:
 
@@ -149,17 +131,7 @@ $webapp2 = Get-AzureRMWebApp -Name webapp2
 Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-
-### Example 2: Adding a 'classic' cloud service endpoint using `New-AzureRmTrafficManagerEndpoint`
-
-In this example, a 'classic' Cloud Service endpoint is added to a Traffic Manager profile. In this example, we specified the profile using the profile and resource group names, rather than passing a profile object. Both approaches are supported.
-
-```powershell
-$cloudService = Get-AzureRmResource -ResourceName MyCloudService -ResourceType "Microsoft.ClassicCompute/domainNames" -ResourceGroupName MyCloudService
-New-AzureRmTrafficManagerEndpoint -Name MyCloudServiceEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $cloudService.Id -EndpointStatus Enabled
-```
-
-### Example 3: Adding a publicIpAddress endpoint using `New-AzureRmTrafficManagerEndpoint`
+### Example 2: Adding a publicIpAddress endpoint using `New-AzureRmTrafficManagerEndpoint`
 
 In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
 

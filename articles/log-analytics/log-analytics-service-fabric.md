@@ -1,6 +1,6 @@
 ---
-title: Optimize your environment with the Service Fabric solution in Log Analytics | Microsoft Docs
-description: You can use the Service Fabric solution to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
+title: Assess Service Fabric applications with Azure Log Analytics using PowerShell | Microsoft Docs
+description: You can use the Service Fabric solution in Log Analytics using PowerShell to assess the risk and health of your Service Fabric applications, micro-services, nodes and clusters.
 services: log-analytics
 documentationcenter: ''
 author: niniikhena
@@ -17,12 +17,15 @@ ms.date: 09/21/2016
 ms.author: nini
 
 ---
-# Service Fabric Solution in Log Analytics
+# Assess Azure Service Fabric applications and micro-services with PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
+
+
+![Service Fabric symbol](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster, by getting visibility into how your Service Fabric nodes are performing, and how your applications and micro-services are running.
 
@@ -40,8 +43,8 @@ In this section, you'll learn how to configure OMS to retrieve Service Fabric lo
 
 > [!NOTE]
 > The Azure Diagnostics extension must be configured to upload the logs to storage tables that match what OMS will look for. See [How to collect logs with Azure Diagnostics](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) for more information about how to collect logs. The configuration settings examples in this article show you what the names of the storage tables should be. Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to configure OMS to collect these logs.
-> 
-> 
+>
+>
 
 Ensure that you update the **EtwEventSourceProviderConfiguration** section in the **template.json** file to add entries for the new EventSources before you apply the configuration update by running **deploy.ps1**. The table for upload is the same as (ETWEventTable). At the moment, OMS can only read application ETW events from that table. However, support for custom ETW tables is in development.
 
@@ -366,8 +369,8 @@ The following table shows data collection methods and other details about how da
 
 > [!NOTE]
 > You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or 6 hours. Or, you can select **Custom** to specify a custom date range.
-> 
-> 
+>
+>
 
 ## Troubleshoot your Service Fabric and OMS configuration
 If you need to verify your OMS configuration because you are unable to view event data in OMS, use the script below. It reads your Service Fabric diagnostics configuration, checks for data being written into the tables, and it verifies that OMS is configured to read from the tables.
@@ -539,7 +542,7 @@ function Check-ServiceFabricScaleSetDiagnostics {
         Write-Debug ("Found WADcfg")
         Write-Debug $scaleSetDiagnostics.WadCfg
         $serviceFabricProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwEventSourceProviderConfiguration
-        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration 
+        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration
     } else
     {
         Write-Error "Unable to parse Azure Diagnostics setting for $id"
@@ -633,4 +636,3 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 ## Next steps
 * Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data.
-

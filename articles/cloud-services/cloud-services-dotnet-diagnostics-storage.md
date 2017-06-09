@@ -1,4 +1,4 @@
-﻿---
+---
 title: Store and View Diagnostic Data in Azure Storage | Microsoft Docs
 description: Get Azure diagnostics data into Azure Storage and view it
 services: cloud-services

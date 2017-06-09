@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Azure Case Study - Umbraco | Microsoft Docs
 description: Learn about how Umbraco uses SQL Database to quickly provision and scale services for thousands of tenants in the cloud
 services: sql-database
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
@@ -26,7 +27,7 @@ Umbraco is a popular open-source content-management system (CMS) that can run an
 > 
 > — Morten Christensen, Technical Lead, Umbraco
 > 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-Umbraco/player]
 > 
 > 
 
@@ -50,7 +51,7 @@ With Azure SQL Database and other Azure services, Umbraco customers can self-pro
    Implementation is fully automated using C# management libraries and Azure Service Bus queues.
 2. Utilize
    
-   Customers use one to three environments (for production, staging, and/or development), each with its own database. Customer databases are in elastic database pools, which enables Umbraco to provide efficient scaling without having to over-provision.
+   Customers use one to three environments (for production, staging, and/or development), each with its own database. Customer databases are in elastic pools, which enables Umbraco to provide efficient scaling without having to over-provision.
    
    ![Umbraco project overview](./media/sql-database-implementation-umbraco/figure2.png)
    
@@ -64,17 +65,17 @@ With Azure SQL Database and other Azure services, Umbraco customers can self-pro
    Umbraco monitors database activity using dashboards within the Azure portal, along with custom email alerts.
 4. Disaster recovery
    
-   Azure provides two disaster-recovery (DR) options: Active Geo-Replication and Geo-Restore. The DR option that a company should select depends on its [business-continuity objectives](sql-database-business-continuity.md).
+   Azure provides two disaster-recovery (DR) options: active geo-replication and geo-restore. The DR option that a company should select depends on its [business-continuity objectives](sql-database-business-continuity.md).
    
-   Active Geo-Replication provides the fastest level of response in the event of downtime. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions, and you can then initiate failover to any of the secondaries in the event of a failure.
+   active geo-replication provides the fastest level of response in the event of downtime. Using active geo-replication, you can create up to four readable secondaries on servers in different regions, and you can then initiate failover to any of the secondaries in the event of a failure.
    
-   Umbraco doesn’t require Geo-Replication, but it does take advantage of Azure Geo-Restore to help ensure minimum downtime in the event of an outage. Geo-Restore relies on database backups in geo-redundant Azure storage. That allows users to restore from a backup copy when there is an outage in the primary region.
+   Umbraco doesn’t require geo-replication, but it does take advantage of Azure geo-restore to help ensure minimum downtime in the event of an outage. geo-restore relies on database backups in geo-redundant Azure storage. That allows users to restore from a backup copy when there is an outage in the primary region.
 5. De-provision
    
    When a project environment is deleted, any associated databases (development, staging, or live) are removed during Azure Service Bus queue cleanup. This automated process restores the unused databases to Umbraco’s elastic database-availability pool, making them available for future provisioning while maintaining maximum utilization.
 
 ## Elastic pools allow UaaS to scale with ease
-By taking advantage of Azure elastic database pools, Umbraco can optimize performance for its customers without having to over- or under-provision. Umbraco currently has nearly 3,000 databases across 19 elastic database pools, with the ability to easily scale as needed to accommodate any of their existing 325,000 customers or new customers who are ready to deploy a CMS in the cloud.
+By taking advantage of Azure elastic pools, Umbraco can optimize performance for its customers without having to over- or under-provision. Umbraco currently has nearly 3,000 databases across 19 elastic pools, with the ability to easily scale as needed to accommodate any of their existing 325,000 customers or new customers who are ready to deploy a CMS in the cloud.
 
 In fact, according to Morten Christensen, Technical Lead at Umbraco, “UaaS is now experiencing growth of about 30 new customers per day. Our customers are delighted with the convenience of being able to provision new projects in seconds, instantly publish updates to their live sites from a development environment using ‘one-click deployment,’ and make changes just as quickly if they find errors.”
 
@@ -87,7 +88,7 @@ Figure 3. UaaS deployment architecture on Microsoft Azure
 ## The path from datacenter to cloud
 When the Umbraco developers initially made the decision to move to a SaaS model, they knew that they would need a cost-effective and scalable way to build out the service.
 
-> “Elastic database pools are a perfect fit for our SaaS offering because we can dial capacity up and down as needed. Provisioning is easy, and with our setup, we can keep utilization at a maximum.”
+> “elastic pools are a perfect fit for our SaaS offering because we can dial capacity up and down as needed. Provisioning is easy, and with our setup, we can keep utilization at a maximum.”
 > 
 > — Morten Christensen, Technical Lead, Umbraco
 > 
@@ -106,11 +107,11 @@ To meet all of its criteria, Umbraco looked for a cloud partner with the followi
 * Presence in all of the geographic markets in which UaaS competes (businesses need to ensure that they can access their data quickly and that their data is stored in a location that meets their regional regulatory requirements)
 
 ## Why Umbraco chose Azure for UaaS
-According to Morten Christensen “After considering all our options, we selected Azure because it met all our criteria, from manageability and scalability to familiarity and cost-effectiveness. We set up the environments on Azure VMs, and each environment has its own Azure SQL Database instance, with all the instances in elastic database pools. By separating databases between development, staging, and live environments, we can offer our customers robust performance isolation matched to scale—a huge win.”
+According to Morten Christensen “After considering all our options, we selected Azure because it met all our criteria, from manageability and scalability to familiarity and cost-effectiveness. We set up the environments on Azure VMs, and each environment has its own Azure SQL Database instance, with all the instances in elastic pools. By separating databases between development, staging, and live environments, we can offer our customers robust performance isolation matched to scale—a huge win.”
 
 Morten continues, “Before, we had to provision servers for web databases manually. Now, we don’t have to think about it. Everything is automated—from provisioning to cleanup.”
 
-Morten is also happy with the scaling capabilities provided by Azure. “Elastic database pools are a perfect fit for our SaaS offering because we can dial capacity up and down as needed. Provisioning is easy, and with our setup, we can keep utilization at a maximum.” Morten states, “The simplicity of elastic pools, along with the assurance of service-tier-based DTUs, gives us the power to provision new resource pools on demand. Recently, one of our larger customers peaked to 100 DTUs in its live environment. Using Azure, our elastic pools provided the customer’s databases with the resources that they needed in real time without having to predict DTU requirements. Simply put, our customers get the turn-around time that they expect, and we can meet our performance service-level agreements.”
+Morten is also happy with the scaling capabilities provided by Azure. “elastic pools are a perfect fit for our SaaS offering because we can dial capacity up and down as needed. Provisioning is easy, and with our setup, we can keep utilization at a maximum.” Morten states, “The simplicity of elastic pools, along with the assurance of service-tier-based DTUs, gives us the power to provision new resource pools on demand. Recently, one of our larger customers peaked to 100 DTUs in its live environment. Using Azure, our elastic pools provided the customer’s databases with the resources that they needed in real time without having to predict DTU requirements. Simply put, our customers get the turn-around time that they expect, and we can meet our performance service-level agreements.”
 
 Mikkel Madsen sums it up: “We’ve embraced the powerful Azure algorithm that connects a common SaaS scenario (onboarding new customers in real time at scale) to our application pattern (pre-provisioning databases, both development and live) on top of the underlying technology (using Azure Service Bus queues in conjunction with Azure SQL Database).”
 
@@ -118,7 +119,7 @@ Mikkel Madsen sums it up: “We’ve embraced the powerful Azure algorithm that 
 Since choosing Azure as its cloud partner, Umbraco has been able to provide UaaS customers with optimized content-management performance, without the IT-resource investment required from a self-hosted solution. As Morten says, “We love the developer convenience and scalability that Azure gives us, and our customers are thrilled with the features and reliability. Overall, it’s been a great win for us!”
 
 ## More information
-* To learn more about Azure elastic database pools, see [elastic database pools](sql-database-elastic-pool.md).
+* To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
 * To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about virtual networking, see [virtual networking](https://azure.microsoft.com/documentation/services/virtual-network/).    

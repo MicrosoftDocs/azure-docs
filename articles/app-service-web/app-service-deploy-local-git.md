@@ -1,10 +1,10 @@
----
+﻿---
 title: Local Git Deployment to Azure App Service
 description: Learn how to enable local Git deployment to Azure App Service.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
@@ -31,7 +31,7 @@ To complete this tutorial, you need:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
 > 
 > 
 
@@ -131,6 +131,15 @@ The following are errors or problems commonly encountered when using Git to publ
     git push azure master
 
 - - -
+**Symptom**: RPC failed; result=22, HTTP code = 502.
+
+**Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
+
+**Resolution**: Change the git configuration on the local machine to make the postBuffer bigger
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **Symptom**: Error - Changes committed to remote repository but your web app not updated.
 
 **Cause**: This error can occur if you are deploying a Node.js app containing a package.json file that specifies additional required modules.
@@ -149,8 +158,8 @@ The following are errors or problems commonly encountered when using Git to publ
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
-* [How to use PowerShell for Azure](../powershell-install-configure.md)
-* [How to use the Azure Command-Line Interface](../xplat-cli-install.md)
+* [How to use PowerShell for Azure](/powershell/azure/overview)
+* [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
 [Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/

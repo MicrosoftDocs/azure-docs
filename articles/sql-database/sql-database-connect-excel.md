@@ -10,27 +10,22 @@ editor: ''
 
 ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/05/2016
-ms.author: joseidz
+ms.topic: article
+ms.date: 03/10/2017
+ms.author: jhubbard
 
 ---
-# SQL Database tutorial: Connect Excel to an Azure SQL database and create a report
-> [!div class="op_single_selector"]
-> * [Visual Studio](sql-database-connect-query.md)
-> * [SSMS](sql-database-connect-query-ssms.md)
-> * [Excel](sql-database-connect-excel.md)
-> 
-> 
+# Connect Excel to an Azure SQL database and create a report
 
-Learn how to connect Excel to a SQL database in the cloud so you can import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
+Connect Excel to a SQL database in the cloud and import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
 
-You'll need a SQL database in Azure before you get started. If you don't have one, see [Create your first SQL database](sql-database-get-started.md) to get a database with sample data up and running in a few minutes. In this article, you'll import sample data into Excel from that article, but you can follow similar steps on your own data.
+You'll need a SQL database in Azure before you get started. If you don't have one, see [Create your first SQL database](sql-database-get-started-portal.md) to get a database with sample data up and running in a few minutes. In this article, you'll import sample data into Excel from that article, but you can follow similar steps with your own data.
 
-You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/en-US/).
+You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/).
 
 ## Connect Excel to a SQL database and create an odc file
 1. To connect Excel to SQL database, open Excel and then create a new workbook or open an existing Excel workbook.

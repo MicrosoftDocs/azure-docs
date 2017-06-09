@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Mobile Engagement - Key features
 description: Describes the key features of Azure Mobile Engagement
 services: mobile-engagement

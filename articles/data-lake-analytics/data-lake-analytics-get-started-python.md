@@ -30,7 +30,7 @@ In this tutorial, you develop a job that reads a tab separated values (TSV) file
 Before you begin this tutorial, you must have the following items:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **An Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+- **An Azure Active Directory Application**. You use the Azure AD application to authenticate the Data Lake Store application with Azure AD. There are different approaches to authenticate with Azure AD, which are end-user authentication or service-to-service authentication. For instructions and more information on how to authenticate, see [End-user authentication](../data-lake-store/data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 - **[Python](https://www.python.org/downloads/)**. You must use the 64-bit version. This article uses Python version 3.5.2.
 
 
@@ -38,12 +38,13 @@ Before you begin this tutorial, you must have the following items:
 
 To work with Data Lake Store using Python, you need to install three modules.
 
-The azure module includes the Azure Data Lake Store account management operations, in addition to other Azure modules for Active Directory, etc.
+The azure-mgmt-datalake-store module includes the Azure Data Lake Store account management operations. The azure-mgmt-resource module includes other Azure modules for Active Directory, etc.
 The azure-datalake-store module includes the Azure Data Lake Store filesystem operations. The azure-datalake-analytics module includes the Azure Data Lake Analytics operations. Use the following commands to install the modules.
 
-	pip install azure
+	pip install azure-mgmt-resource
+	pip install azure-mgmt-datalake-store
+	pip install azure-mgmt-datalake-analytics
 	pip install azure-datalake-store
-	pip install azure-datalake-analytics
 
 ## Create a Python application
 
@@ -62,14 +63,15 @@ The azure-datalake-store module includes the Azure Data Lake Store filesystem op
 		from azure.mgmt.resource.resources.models import ResourceGroup
 
 		## Required for Azure Data Lake Store account management
-		from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-		from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+		from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+		from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
 		## Required for Azure Data Lake Store filesystem management
 		from azure.datalake.store import core, lib, multithread
 
 		## Required for Azure Data Lake Analytics account management
-		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeAnalyticsAccountProperties, DataLakeStoreAccountInfo
+		from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
+		from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInfo
 
 		## Required for Azure Data Lake Analytics job management
 		from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient
@@ -89,7 +91,7 @@ Use one of the following methods to authenticate:
 
 ### End-user authentication for account management
 
-Use this method to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). You must provide username and password for an Azure AD user. The user account cannot be configured for multi-factor authentication, and the account cant'n be a Microsoft account / Live ID, for example, @outlook.com, and @live.com.
+Use this method to authenticate with Azure AD for account management operations (create/delete Data Lake Store account, etc.). You must provide username and password for an Azure AD user. The user account cannot be configured for multi-factor authentication, and the account can't be a Microsoft account / Live ID, for example, @outlook.com, and @live.com.
 
 	user = input('Enter the user to authenticate with that has permission to subscription: ')
 	password = getpass.getpass()

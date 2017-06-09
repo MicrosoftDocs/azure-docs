@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Azure Case Study - Snelstart | Microsoft Docs
 description: Learn about how SnelStart uses SQL Database to rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
 services: sql-database
@@ -9,20 +9,21 @@ editor: ''
 
 ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
 ms.service: sql-database
+ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
 # With Azure, SnelStart has rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
-SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic database pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
+SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-Case-Study-SnelStart/player]
 > 
 > 
 
@@ -51,7 +52,7 @@ In 1995, SnelStart released its first bookkeeping application for Windows. The a
 Today, SnelStart is a major provider of a line-of-business (LOB) and business-administration application targeted at Dutch SMBs and self-employed entrepreneurs. As Carlo Kuip, IT architect, says, “Our goal is to provide 100-percent automation of business-administration services for our customers.”
 
 ## Optimizing performance and cost with elastic pools
-SnelStart was a large-scale early adopter of elastic database pools. Elastic pools help the company limit costs and manage performance requirements more efficiently. According to Been, “By using elastic database pools, we can optimize performance based on the needs of our customers, without over-provisioning. If we had to provision based on peak load, it would be quite costly. Instead, the option to share resources between multiple, low-usage databases allows us to create a solution that performs well and is cost effective.”
+SnelStart was a large-scale early adopter of elastic pools. Elastic pools help the company limit costs and manage performance requirements more efficiently. According to Been, “By using elastic pools, we can optimize performance based on the needs of our customers, without over-provisioning. If we had to provision based on peak load, it would be quite costly. Instead, the option to share resources between multiple, low-usage databases allows us to create a solution that performs well and is cost effective.”
 
 ## Azure SQL Databases help containerize data for isolation and security
 Azure SQL Database enables SnelStart to easily and transparently move customers’ on-premises business-administration data to Azure. The Azure SQL Database is a convenient container that provides isolation, a boundary for authentication, authorization, and easy backup and restore capabilities. Databases provide a well-suited conceptual model for business administration. According to Carlo Kuip, IT architect, “Items within this container boundary contain sensitive data that is crucial to a business, and storing those items in an isolated database keeps them well protected. We can manage authorization at the database level, and even automate the management and scale-out of these databases without requiring database administrators (DBAs) on staff.”
@@ -59,7 +60,7 @@ Azure SQL Database enables SnelStart to easily and transparently move customers�
 Azure SQL Data Warehouse also plays a role in the SnelStart security and management story by helping the company gather telemetry data, such as intrusion detection, user activity logging, and connectivity.
 
 ## Azure removes overhead so that developers can spend more time delivering value
-The Azure platform model removed infrastructure overhead and enabled SnelStart to automate deployments using C# management libraries. As Kuip states, “We were able to grow our current operations with a very small staff while simultaneously increasing scalability, speed, and disaster recovery options for our clients. The shift to services development freed up resources to focus on new services and features, instead of just updating existing code to keep up with new regulations or tax codes.” He adds, “By automating management and using the SaaS offering, we are able to deliver more value for our clients without having to make large investments in operational staff.” For example, by using Azure and elastic database pools, SnelStart was able to add a variety of new features, including more robust customer-data integration with banks, new billing services, small-business background checks, and email services.
+The Azure platform model removed infrastructure overhead and enabled SnelStart to automate deployments using C# management libraries. As Kuip states, “We were able to grow our current operations with a very small staff while simultaneously increasing scalability, speed, and disaster recovery options for our clients. The shift to services development freed up resources to focus on new services and features, instead of just updating existing code to keep up with new regulations or tax codes.” He adds, “By automating management and using the SaaS offering, we are able to deliver more value for our clients without having to make large investments in operational staff.” For example, by using Azure and elastic pools, SnelStart was able to add a variety of new features, including more robust customer-data integration with banks, new billing services, small-business background checks, and email services.
 
 > "In just the first few months of 2016, we expanded our Azure SQL Database deployments from about 5,500 to more than 12,000, and we’re currently adding about 1,000 databases per month.”
 > 
@@ -84,7 +85,7 @@ In addition, SnelStart web services allow both customers and accountants to easi
 
 ![SnelStart architecture](./media/sql-database-implementation-snelstart/figure1.png)
 
-Figure 1. As of June 2016, SnelStart has more than 11,000 databases and more than 50 elastic database pools
+Figure 1. As of June 2016, SnelStart has more than 11,000 databases and more than 50 elastic pools
 
 ## Simplicity from the cloud
 Since moving to an Azure cloud-based solution, SnelStart has been able to support rapid customer growth while offering innovative features and services. According to Been, “With Azure, we can deliver near-continuous updates for our customers, without expanding our operations staff. And we get all the other great Azure features—like scalability and disaster recovery—bundled in.”
@@ -99,7 +100,7 @@ SnelStart also appreciates the strong partnership they’ve developed with the M
 The immediate goal for SnelStart is to keep growing its satisfied customer base. As Been states, “Without the technical and resource limitations that we had as an ISV, there’s no limit to how far we can grow.”
 
 ## More information
-* To learn more about Azure elastic database pools, see [elastic database pools](sql-database-elastic-pool.md).
+* To learn more about Azure elastic pools, see [elastic pools](sql-database-elastic-pool.md).
 * To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
 * To learn more about Azure SQL Data Warehouse,see [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * To learn more about SnelStart, see [SnelStart](http://www.snelstart.nl).

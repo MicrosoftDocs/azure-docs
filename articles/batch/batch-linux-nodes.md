@@ -1,9 +1,9 @@
 ---
-title: Linux nodes in Azure Batch pools | Microsoft Docs
+title: Run Linux on virtual machine compute nodes - Azure Batch | Microsoft Docs
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -13,24 +13,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 09/08/2016
-ms.author: marsma
+ms.date: 05/22/2017
+ms.author: tamram
+ms.custom: H1Hack27Feb2017
 
 ---
-# Provision Linux compute nodes in Azure Batch pools
+# Provision Linux compute nodes in Batch pools
+
 You can use Azure Batch to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service by using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
 > [!NOTE]
 > [Application packages](batch-application-packages.md) are currently unsupported on Linux compute nodes.
-> 
-> 
+>
+>
 
 ## Virtual machine configuration
 When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: Cloud Services Configuration and Virtual Machine Configuration.
 
 **Cloud Services Configuration** provides Windows compute nodes *only*. Available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and available operating systems are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md). When you create a pool that contains Azure Cloud Services nodes, you need to specify only the node size and its "OS family," which are found in the previously mentioned articles. For pools of Windows compute nodes, Cloud Services is most commonly used.
 
-**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). When you create a pool that contains Virtual Machine Configuration nodes, you must specify the size of the nodes, the virtual machine image reference, and the Batch node agent SKU to be installed on the nodes.
+**Virtual Machine Configuration** provides both Linux and Windows images for compute nodes. Available compute node sizes are listed in [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) and [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). When you create a pool that contains Virtual Machine Configuration nodes, you must specify the size of the nodes, the virtual machine image reference, and the Batch node agent SKU to be installed on the nodes.
 
 ### Virtual machine image reference
 The Batch service uses [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) to provide Linux compute nodes. The operating system images for these virtual machines are provided by the [Azure Marketplace][vm_marketplace]. When you configure a virtual machine image reference, you specify the properties of a Marketplace virtual machine image. The following properties are required when you create a virtual machine image reference:
@@ -43,9 +45,9 @@ The Batch service uses [Virtual machine scale sets](../virtual-machine-scale-set
 | Version |latest |
 
 > [!TIP]
-> You can learn more about these properties and how to list Marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Note that not all Marketplace images are currently compatible with Batch. For more information, see [Node agent SKU](#node-agent-sku).
-> 
-> 
+> You can learn more about these properties and how to list Marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Note that not all Marketplace images are currently compatible with Batch. For more information, see [Node agent SKU](#node-agent-sku).
+>
+>
 
 ### Node agent SKU
 The Batch node agent is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when you create a Virtual Machine Configuration, you first specify the virtual machine image reference, and then you specify the node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
@@ -56,8 +58,8 @@ The Batch node agent is a program that runs on each node in the pool and provide
 
 > [!IMPORTANT]
 > Not all virtual machine images that are available in the Marketplace are compatible with the currently available Batch node agents. You must use the Batch SDKs to list the available node agent SKUs and the virtual machine images with which they are compatible. See the [List of Virtual Machine images](#list-of-virtual-machine-images) later in this article for more information.
-> 
-> 
+>
+>
 
 ## Create a Linux pool: Batch Python
 The following code snippet shows an example of how to use the [Microsoft Azure Batch Client Library for Python][py_batch_package] to create a pool of Ubuntu Server compute nodes. Reference documentation for the Batch Python module can be found at [azure.batch package ][py_batch_docs] on Read the Docs.
@@ -159,7 +161,7 @@ List<NodeAgentSku> nodeAgentSkus =
 Func<ImageReference, bool> isUbuntu1404 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.SkuId.Contains("14.04");
+    imageRef.Sku.Contains("14.04");
 
 // Obtain the first node agent SKU in the collection that matches
 // Ubuntu Server 14.04. Note that there are one or more image
@@ -174,9 +176,7 @@ ImageReference imageReference =
 // Create the VirtualMachineConfiguration for use when actually
 // creating the pool
 VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration(
-        imageReference: imageReference,
-        nodeAgentSkuId: ubuntuAgentSku.Id);
+    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
 
 // Create the unbound pool object using the VirtualMachineConfiguration
 // created above
@@ -184,10 +184,10 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     virtualMachineSize: vmSize,
     virtualMachineConfiguration: virtualMachineConfiguration,
-    targetDedicated: nodeCount);
+    targetDedicatedComputeNodes: nodeCount);
 
 // Commit the pool to the Batch service
-pool.Commit();
+await pool.CommitAsync();
 ```
 
 Although the previous snippet uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to dynamically list and select from supported image and node agent SKU combinations (recommended), you can also configure an [ImageReference][net_imagereference] explicitly:
@@ -196,7 +196,7 @@ Although the previous snippet uses the [PoolOperations][net_pool_ops].[ListNodeA
 ImageReference imageReference = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    skuId: "14.04.2-LTS",
+    sku: "14.04.2-LTS",
     version: "latest");
 ```
 
@@ -205,36 +205,33 @@ The following table lists the Marketplace virtual machine images that are compat
 
 > [!WARNING]
 > The following list may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the compatible virtual machine and node agent SKUs when you run your Batch jobs.
-> 
-> 
+>
+>
 
 | **Publisher** | **Offer** | **Image SKU** | **Version** | **Node agent SKU ID** |
-| --- | --- | --- | --- | --- |
-| Canonical |UbuntuServer |14.04.0-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.1-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.2-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.3-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.4-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.5-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |16.04.0-LTS |latest |batch.node.ubuntu 16.04 |
-| Credativ |Debian |8 |latest |batch.node.debian 8 |
-| OpenLogic |CentOS |7.0 |latest |batch.node.centos 7 |
-| OpenLogic |CentOS |7.1 |latest |batch.node.centos 7 |
-| OpenLogic |CentOS-HPC |7.1 |latest |batch.node.centos 7 |
-| OpenLogic |CentOS |7.2 |latest |batch.node.centos 7 |
-| Oracle |Oracle-Linux |7.0 |latest |batch.node.centos 7 |
-| SUSE |openSUSE |13.2 |latest |batch.node.opensuse 13.2 |
-| SUSE |openSUSE-Leap |42.1 |latest |batch.node.opensuse 42.1 |
-| SUSE |SLES-HPC |12 |latest |batch.node.opensuse 42.1 |
-| SUSE |SLES |12-SP1 |latest |batch.node.opensuse 42.1 |
-| microsoft-ads |standard-data-science-vm |standard-data-science-vm |latest |batch.node.windows amd64 |
-| microsoft-ads |linux-data-science-vm |linuxdsvm |latest |batch.node.centos 7 |
-| MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |latest |batch.node.windows amd64 |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |latest |batch.node.windows amd64 |
-| MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |latest |batch.node.windows amd64 |
-| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |latest |batch.node.windows amd64 |
+| ------------- | --------- | ------------- | ----------- | --------------------- |
+| Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 16.04.0-LTS | latest | batch.node.ubuntu 16.04 |
+| Credativ | Debian | 8 | latest | batch.node.debian 8 |
+| OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.2 | latest | batch.node.centos 7 |
+| SUSE | openSUSE | 13.2 | latest | batch.node.opensuse 13.2 |
+| SUSE | openSUSE-Leap | 42.1 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12-SP1 | latest | batch.node.opensuse 42.1 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
 
-## Connect to Linux nodes
+## Connect to Linux nodes using SSH
 During development or while troubleshooting, you may find it necessary to sign in to the nodes in your pool. Unlike Windows compute nodes, you cannot use Remote Desktop Protocol (RDP) to connect to Linux nodes. Instead, the Batch service enables SSH access on each node for remote connection.
 
 The following Python code snippet creates a user on each node in a pool, which is required for remote connection. It then prints the secure shell (SSH) connection information for each node.

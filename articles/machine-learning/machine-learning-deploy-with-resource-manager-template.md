@@ -1,5 +1,5 @@
-﻿---
-title: Deploy Machine Learning Workspace Using Azure Resource Manager Template | Microsoft Docs
+---
+title: Deploy a Machine Learning workspace with Azure Resource Manager | Microsoft Docs
 description: How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 3/15/2017
 ms.author: ahgyger
 
 ---
@@ -136,7 +136,7 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 After the workspace is provisioned, you can also automate many Azure Machine Learning Studio tasks using the [PowerShell Module for Azure Machine Learning](http://aka.ms/amlps).
 
 ## Next Steps
-* Learn more about [authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md). 
+* Learn more about [authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). 
 * Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates). 
 * Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 

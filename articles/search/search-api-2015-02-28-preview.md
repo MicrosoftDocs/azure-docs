@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Docs
 description: Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches.
 services: search
@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: brjohnst
 
 ---
@@ -254,7 +254,7 @@ The following attributes can be set when creating an index. For details about sc
 
 `name` - Sets the name of the field.
 
-`type` - Sets the data type for the field. See [Supported Data Types](#DataTypes) for a list of supported types.
+`type` - Sets the data type for the field.
 
 `searchable` - Marks the field as full-text search-able. This means it will undergo analysis such as word-breaking during indexing. If you set a `searchable` field to a value like "sunny day", internally it will be split into the individual tokens "sunny" and "day". This enables full-text searches for these terms. Fields of type `Edm.String` or `Collection(Edm.String)` are `searchable` by default. Fields of other types cannot be `searchable`.
 
@@ -1116,7 +1116,7 @@ The response body is in the following format:
 ## Document Operations
 In Azure Search, an index is stored in the cloud and populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
-Your application code must either generate JSON documents to upload to Azure Search or you can use an [indexer](https://msdn.microsoft.com/library/dn946891.aspx) to load documents if the data source is either Azure SQL Database or DocumentDB. Typically, indexes are populated from a single dataset that you provide.
+Your application code must either generate JSON documents to upload to Azure Search or you can use an [indexer](https://msdn.microsoft.com/library/dn946891.aspx) to load documents if the data source is either Azure SQL Database or Azure Cosmos DB. Typically, indexes are populated from a single dataset that you provide.
 
 You should plan on having one document for each item that you want to search. A movie rental application might have one document per movie, a storefront application might have one document per SKU, an online courseware application might have one document per course, a research firm might have one document for each academic paper in their repository, and so on.
 
@@ -1456,7 +1456,7 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 > 
 > 
 
-`$filter=[string]` (optional) - A structured search expression in standard OData syntax. See [OData Expression Syntax](#ODataExpressionSyntax) for details on the subset of the OData expression grammar that Azure Search supports.
+`$filter=[string]` (optional) - A structured search expression in standard OData syntax.
 
 > [!NOTE]
 > When calling **Search** using POST, this parameter is named `filter` instead of `$filter`.

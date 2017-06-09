@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 
 ---
@@ -101,14 +101,14 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Configure App Settings][8] 
    
-     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your QuickHelp site (e.g.:* https://quickhelp.com/bsiazure/*).
+	a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your QuickHelp site (e.g.:* https://quickhelp.com/bsiazure/*).
    
-   > [!NOTE]
-   > Please contact your QuickHelp support team if you don't know the value of the Sign On URL.
-   > 
-   > 
+	> [!NOTE]
+	> Please contact your QuickHelp support team if you don't know the value of the Sign On URL.
+	> 
+	> 
    
-     b. Click **Next**.
+    b. Click **Next**.
 4. On the **Configure single sign-on at QuickHelp** page, perform the following steps:click **Download metadata**, and then save the metadata file locally on your computer.
    
     ![What is Azure AD Connect][9] 
@@ -171,19 +171,19 @@ In the Users list, select **Britta Simon**.
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps: 
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+	a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+	b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+	c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
-   e. Click **Next**.
+	d. In the **Role** list, select **User**.
+	e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
 
-![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) 
 
 1. On the **Get temporary password** dialog page, perform the following steps:
    

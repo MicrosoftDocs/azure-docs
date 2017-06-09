@@ -3,8 +3,8 @@ title: PowerShell script to create an Application Insights resource | Microsoft 
 description: Automate creation of Application Insights resources.
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
-ms.author: awills
+ms.date: 11/19/2016
+ms.author: cfreeman
 
 ---
 # PowerShell script to create an Application Insights resource
@@ -48,7 +48,7 @@ See the relevant cmdlet specs:
 # If running manually, uncomment before the first 
 # execution to login to the Azure Portal:
 
-# Add-AzureRmAccount
+# Add-AzureRmAccount / Login-AzureRmAccount
 
 # Set the name of the Application Insights Resource
 
@@ -66,17 +66,18 @@ $resourceGroupName = "MyAppResourceGroup"
 # Create the Resource and Output the name and iKey
 ###################################################
 
-#Select the azure subscription
+# Select the azure subscription
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
 # Create the App Insights Resource
 
+
 $resource = New-AzureRmResource `
   -ResourceName $appInsightsName `
-  -ResourceGroupName Fabrikam `
-  -Tag @{ applicationType = "web", applicationName = $applicationTagName} `
+  -ResourceGroupName $resourceGroupName `
+  -Tag @{ applicationType = "web"; applicationName = $applicationTagName} `
   -ResourceType "Microsoft.Insights/components" `
-  -Location "Central US" `
+  -Location "East US" `  # or North Europe, West Europe, South Central US
   -PropertyObject @{"Application_Type"="web"} `
   -Force
 
@@ -88,7 +89,7 @@ New-AzureRmRoleAssignment `
   -Scope $resource.ResourceId 
 
 
-#Display iKey
+# Display iKey
 Write-Host "App Insights Name = " $resource.Name
 Write-Host "IKey = " $resource.Properties.InstrumentationKey
 

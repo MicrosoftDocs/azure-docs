@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 
 ---
@@ -115,7 +115,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     a. Click **Download certificate**, and then save the file on your computer.
    
     b. Click **Next**.
+
 2. To get SSO configured for your application, contact your Insperity ExpensAble technical support team. Once the case is assigned then email the downloaded certificate file. Also please do provide the Issuer URL and Single Sign On Service URL so that they can be configured for SSO integration. 
+
 3. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
@@ -151,17 +153,18 @@ The objective of this section is to create a test user in the Azure classic port
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-insperityexpensable-tutorial/create_aaduser_07.png) 

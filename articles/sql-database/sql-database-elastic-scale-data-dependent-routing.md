@@ -1,6 +1,6 @@
-﻿---
-title: Data dependent routing | Microsoft Docs
-description: How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of elastic databases for Azure SQL Database
+---
+title: Data dependent routing with Azure SQL Database | Microsoft Docs
+description: How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of sharded databases in  Azure SQL Database
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
@@ -9,12 +9,13 @@ editor: ''
 
 ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
+ms.date: 03/27/2017
+ms.author: ddove
 
 ---
 # Data dependent routing
@@ -38,7 +39,7 @@ Applications should instantiate the **ShardMapManager** during initialization, u
 If an application is not manipulating the shard map itself, the credentials used in the factory method should have just read-only permissions on the **Global Shard Map** database. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md). 
 
 ## Call the OpenConnectionForKey method
-The **[ShardMap.OpenConnectionForKey method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx))** returns an ADO.Net connection ready for issuing commands to the appropriate database based on the value of the **key** parameter. Shard information is cached in the application by the **ShardMapManager**, so these requests do not typically involve a database lookup against the **Global Shard Map** database. 
+The **[ShardMap.OpenConnectionForKey method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)** returns an ADO.Net connection ready for issuing commands to the appropriate database based on the value of the **key** parameter. Shard information is cached in the application by the **ShardMapManager**, so these requests do not typically involve a database lookup against the **Global Shard Map** database. 
 
     // Syntax: 
     public SqlConnection OpenConnectionForKey<TKey>(
@@ -86,7 +87,7 @@ A best practice in developing data access applications in the cloud is to ensure
 
 Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 
-### Example – data dependent routing with transient fault handling
+### Example - data dependent routing with transient fault handling
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 

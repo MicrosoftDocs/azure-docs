@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upload large amounts of data into Data Lake Store by using offline methods | Microsoft Docs
 description: Use the AdlCopy tool to copy data from Azure Storage blobs to Data Lake Store
 services: data-lake-store
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/07/2016
+ms.date: 05/10/2017
 ms.author: nitinme
 
 ---
@@ -27,7 +27,7 @@ Before you begin, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure storage account**.
-* **An Azure Data Lake Analytics account (optional)**. For instructions on how to create this account, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Preparing the data
 Before using the Import/Export service, break the data file to be transferred **into copies that are less than 200 GB** in size. The import tool does not work with files greater than 200 GB. In this tutorial, we split the file into chunks of 100 GB each. You can do this by using [Cygwin](https://cygwin.com/install.html). Cygwin supports Linux commands. In this case, use the following command:
@@ -50,7 +50,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/st
 1. Procure a hard disk that meets the requirement to be used for the Azure Import/Export service.
 2. Identify an Azure storage account where the data will be copied after it is shipped to the Azure datacenter.
 3. Use the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command-line utility. Here's a sample snippet that shows how to use the tool.
-   
+
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
@@ -184,7 +184,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
     }
 }
 ````
-For more information, see [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store).
+For more information, see [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
 
 ## Reconstruct the data files in Azure Data Lake Store
 We started with a file that was 319 GB, and broke it down into files of smaller size so that it could be transferred by using the Azure Import/Export service. Now that the data is in Azure Data Lake Store, we can reconstruct the file to its original size. You can use the following Azure PowerShell cmldts to do so.
@@ -208,4 +208,3 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-

@@ -1,10 +1,10 @@
 ---
-title: Troubleshooting Analytics - the powerful search tool of Application Insights | Microsoft Docs
+title: Troubleshoot Analytics in Azure Application Insights | Microsoft Docs
 description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights
 documentationcenter: ''
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
-ms.author: awills
+ms.author: cfreeman
 
 ---
 # Troubleshoot Analytics in Application Insights
@@ -103,8 +103,6 @@ The URL is invalid.
 ## <a name="cookies"></a>Enable third-party cookies
   See [how to disable third party cookies](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
 
-## <a name="e-x"></a>If all else fails
-[Contact us](app-insights-get-dev-support.md).
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

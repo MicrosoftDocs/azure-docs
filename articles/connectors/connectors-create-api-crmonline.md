@@ -1,259 +1,187 @@
 ---
-title: Add the Dynamics CRM Online connector to your Logic Apps | Microsoft Docs
-description: Create Logic apps with Azure App service. The Dynamics CRM Online Connection Provider provides an API to work with entities on Dynamics CRM Online.
+title: Connect to Dynamics 365 (online) from Azure Logic Apps | Microsoft Docs
+description: Create logic app workflows that manage Dynamics 365 (online) entities through the API provided by the Dynamics 365 connector
 services: logic-apps
-documentationcenter: ''
-author: MandiOhlinger
+cloud: Azure Stack
+author: Mattp123
 manager: anneta
-editor: ''
+documentationcenter:
 tags: connectors
 
 ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
 ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 11/07/2016
-ms.author: mandia
-
+ms.date: 02/10/2017
+ms.author: matp; LADocs
 ---
-# Get started with the Dynamics CRM Online connector
-Connect to Dynamics CRM Online to create a new record, update an item, and more. With CRM Online, you can:
 
-* Build your business flow based on the data you get from CRM Online. 
-* Use actions that delete a record, get entities, and more. These actions get a response, and then make the output available for other actions. For example, when an item is updated in CRM, you can send an email using Office 365.
+# Connect to Dynamics 365 from logic app workflows
 
-This topic shows you how to use the Dynamics CRM Online connector in a logic app, and also lists the triggers and actions.
+With Logic Apps, you can connect to Dynamics 365 (online) 
+and create useful business flows that create records, 
+update items, or return a list of records. With the 
+Dynamics 365 connector, you can:
 
-> [!NOTE]
-> This version of the article applies to Logic Apps general availability (GA).
-> 
-> 
+* Build your business flow based on the data you get from Dynamics 365 (online).
+* Use actions that get a response and then make the output available for other actions. For example, when an item is updated in Dynamics 365 (online), you can send an email using Office 365.
 
-To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+This topic shows you how to create a logic app that creates a task in Dynamics 365 whenever a new lead is created in Dynamics 365.
 
-## Connect to Dynamics CRM Online
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Dynamics, you first need a Dynamics CRM Online *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Dynamics, enter the credentials to your Dynamics CRM Online account to create the connection.
+## Prerequisites
+* An Azure account.
+* A Dynamics 365 (online) account.
 
-### Create the connection
-> [!INCLUDE [Steps to create a connection to Dynamics CRM Online Connection Provider](../../includes/connectors-create-api-crmonline.md)]
-> 
-> 
+## Create a task when a new lead is created in Dynamics 365
 
-## Use a trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+1.	[Sign in to Azure](https://portal.azure.com).
 
-1. In the logic app, type "dynamics" to get a list of the triggers:  
-   
-    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-2. Select **Dynamics CRM Online - When a record is created**. If a connection already exists, then select an organization and entity from the drop-down list.
-   
-    ![](./media/connectors-create-api-crmonline/select-organization.png)
-   
-    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-crmonline.md#create-the-connection) in this topic lists the steps. 
-   
-   > [!NOTE]
-   > In this example, the logic app runs when a record is created. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 *Send an email* action that emails you when the new record is added. 
-   > 
-   > 
-3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
-   
-    ![](./media/connectors-create-api-crmonline/edit-properties.png)
-4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+2.	In the Azure search box, type `Logic apps`, and press ENTER.
 
-## Use an action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+      ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
-   
-    ![](./media/connectors-create-api-crmonline/add-action.png)
-2. Choose **Add an action**.
-3. In the text box, type “dynamics” to get a list of all the available actions.
-   
-    ![](./media/connectors-create-api-crmonline/dynamics-actions.png)
-4. In our example, choose **Dynamics CRM Online - Update a record**. If a connection already exists, then choose the **Organization Name**, **Entity Name**, and other properties:  
-   
-    ![](./media/connectors-create-api-crmonline/sample-action.png)
-   
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-crmonline.md#create-the-connection) in this topic describes these properties. 
-   
-   > [!NOTE]
-   > In this example, we update an existing record in CRM Online. You can use output from another trigger to update the record. For example, add the SharePoint *When an existing item is modified* trigger. Then add the CRM Online *Update a record* action that uses the SharePoint fields to update the existing record in CRM Online. 
-   > 
-   > 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+3.	Under **Logic apps**, click **Add**.
 
-## Technical Details
-## Triggers
-| Trigger | Description |
-| --- | --- |
-| [When a record is created](connectors-create-api-crmonline.md#when-a-record-is-created) |Triggers a flow when an object is created in CRM. |
-| [When a record is updated](connectors-create-api-crmonline.md#when-a-record-is-updated) |Triggers a flow when an object is modified in CRM. |
-| [When a record is deleted](connectors-create-api-crmonline.md#when-a-record-is-deleted) |Triggers a flow when an object is deleted in CRM. |
+      ![LogicApp add](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-## Actions
-| Action | Description |
-| --- | --- |
-| [List records](connectors-create-api-crmonline.md#list-records) |This operation gets the records for an entity. |
-| [Create a new record](connectors-create-api-crmonline.md#create-a-new-record) |This operation creates a new record of an entity. |
-| [Get record](connectors-create-api-crmonline.md#get-record) |This operation gets the specified record for an entity. |
-| [Delete a record](connectors-create-api-crmonline.md#delete-a-record) |This operation deletes a record from an entity collection. |
-| [Update a record](connectors-create-api-crmonline.md#update-a-record) |This operation updates an existing record for an entity. |
+4.	To create the logic app, complete the **Name**, **Subscription**, **Resource Group**, and **Location** fields, 
+and then click **Create**.
 
-### Trigger and Action details
-In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
+5.	Select the new logic app. When you receive the **Deployment Succeeded** notification, click **Refresh**.
 
-#### When a record is created
-Triggers a flow when an object is created in CRM. 
+6.	Under **Development Tools**, click **Logic App Designer**. 
+In the template list, click **Blank Logic App**.
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to get (default = 256) |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
+7.	In the search box, type `Dynamics 365`. From the Dynamics 365 triggers list, 
+select **Dynamics 365 – When a record is created**.
 
-An asterisk (*) means the property is required.
+8.	If you are prompted to sign in to Dynamics 365, do so now.
 
-##### Output Details
-ItemsList
+9.	In the trigger details, enter the following information:
 
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
+  * **Organization Name**. Select the Dynamics 365 instance that you want the logic app to listen to.
 
-#### When a record is updated
-Triggers a flow when an object is modified in CRM. 
+  * **Entity Name**. Select the entity that you want to listen to. This event acts as a trigger to start the logic app. 
+  In this walkthrough, **Leads** is selected.
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to get (default = 256) |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
+  * **How often do you want to check for items?** These values set how often the logic app checks for updates related to the trigger. The default setting is to check for updates every three minutes.
 
-An asterisk (*) means the property is required.
+    * **Frequency**. Select seconds, minutes, hours, or days.
 
-##### Output Details
-ItemsList
+    * **Interval**. Enter the number of seconds, minutes, hours, or days that you want to pass before the next check.
 
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
+      ![Logic App Trigger details](./media/connectors-create-api-crmonline/trigger-details.png)
 
-#### When a record is deleted
-Triggers a flow when an object is deleted in CRM. 
+10. Click **New step**, and then click **Add an action**.
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to get (default = 256) |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
+11. In the search box, type `Dynamics 365`. 
+From the actions list, select **Dynamics 365 – Create a new record**.
 
-An asterisk (*) means the property is required.
+12. Enter the following information:
 
-##### Output Details
-ItemsList
+    * **Organization Name**. Select the Dynamics 365 instance where you want the flow to create the record. 
+    Notice that this instance doesn’t have to be the same instance where the event is triggered from.
 
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
+    * **Entity Name**. Select the entity that you want to create a record when the event is triggered. 
+    In this walkthrough, **Tasks** is selected.
 
-#### List records
-This operation gets the records for an entity. 
+13. Click in the **Subject** box that appears. From the dynamic content list that appears, 
+you can select either of these fields:
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
-| $skip |Skip Count |Number of entries to skip (default = 0) |
-| $top |Maximum Get Count |Maximum number of entries to get (default = 256) |
-| $filter |Filter Query |An ODATA filter query to restrict the entries returned |
-| $orderby |Order By |An ODATA orderBy query for specifying the order of entries |
+    * **Last Name**. Selecting this field inserts the last name for the lead into the Subject field for the task, when the task record is created.
+    * **Topic**. Selecting this field inserts the Topic field for the lead into the Subject field for the task, when the task record is created. 
+    Click **Topic** to add that to the **Subject** box.
 
-An asterisk (*) means the property is required.
+      ![Logic App Create new record details](./media/connectors-create-api-crmonline/create-record-details.png)
 
-##### Output Details
-ItemsList
+14. On the Logic App Designer toolbar, click **Save**.
 
-| Property Name | Data Type |
-| --- | --- |
-| value |array |
+    ![Logic App Designer toolbar Save](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
 
-#### Create a new record
-This operation creates a new record of an entity. 
+15. To start the Logic App, click **Run**.
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
+    ![Logic App Designer toolbar Save](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
-An asterisk (*) means the property is required.
+16. Now create a lead record in Dynamics 365 for Sales and see your flow in action!
 
-##### Output Details
-None.
+## Set advanced options for a logic app step
 
-#### Get record
-This operation gets the specified record for an entity. 
+To specify how to filter data in a logic app step, 
+click **Show advanced options** in that step, 
+then add a filter or order by query.
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
-| id* |Item identifier |Specify the Identifier for the record |
+For example, you can use a filter query to get only active accounts and order by the account name. 
+To perform this task, enter the OData filter query `statuscode eq 1`, 
+and select **Account Name** from the dynamic content list. 
+More information: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) 
+and [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
 
-An asterisk (*) means the property is required.
+![Logic app advanced options](./media/connectors-create-api-crmonline/advanced-options.png)
 
-##### Output Details
-None.
+### Best practices when using advanced options
 
-#### Delete a record
-This operation deletes a record from an entity collection. 
+When you add a value to a field, you must match the field type whether 
+you type a value or select a value from the dynamic content list.
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
-| id* |Item identifier |Specify the identifier for the record |
+Field type  |How to use  |Where to find  |Name  |Data type  
+---------|---------|---------|---------|---------
+Text fields|Text fields require a single line of text or dynamic content that is a text type field. Examples include the Category and Sub-Category fields.|Settings > Customizations > Customize the System > Entities > Task > Fields |category |Single Line of Text        
+Integer fields | Some fields require integer or dynamic content that is an integer type field. Examples include Percent Complete and Duration. |Settings > Customizations > Customize the System > Entities > Task > Fields |percentcomplete |Whole Number         
+Date fields | Some fields require a date entered in mm/dd/yyyy format or dynamic content that is a date type field. Examples include Created On, Start Date, Actual Start, Last on Hold Time, Actual End, and Due Date. | Settings > Customizations > Customize the System > Entities > Task > Fields |createdon |Date and Time
+Fields that require both a record ID and lookup type |Some fields that reference another entity record require both the record ID and the lookup type. |Settings > Customizations > Customize the System > Entities > Account > Fields  | accountid  | Primary Key
 
-An asterisk (*) means the property is required.
+### More examples of fields that require both a record ID and lookup type
+Expanding on the previous table, here are more examples of fields that don't work with values selected from the dynamic content list. Instead, these fields require both a record ID and lookup type entered into the fields in PowerApps.  
+* Owner and Owner Type. The Owner field must be a valid user or team record ID. The Owner Type must be either **systemusers** or **teams**.
+* Customer and Customer Type. The Customer field must be a valid account or contact record ID. The Owner Type must be either **accounts** or **contacts**.
+* Regarding and Regarding Type. The Regarding field must be a valid record ID, such as an account or contact record ID. The Regarding Type must be the lookup type for the record, such as **accounts** or **contacts**.
 
-#### Update a record
-This operation updates an existing record for an entity. 
+The following task creation action example adds an account record that corresponds to the record ID adding it to the regarding field of the task.
 
-| Property name | Display name | Description |
-| --- | --- | --- |
-| dataset* |Organization Name |Name of the CRM organization like Contoso |
-| table* |Entity Name |Name of the entity |
-| id* |Record identifier |Specify the identifier for the record |
+![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-account.png)
 
-An asterisk (*) means the property is required.
+This example also assigns the task to a specific user based on the user's record ID.
 
-##### Output Details
-None.
+![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid-type-user.png)
 
-## HTTP responses
-The actions and triggers can return one or more of the following HTTP status codes: 
+To find a record's ID, see the following section: *Find the record ID*
 
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Unauthorized |
-| 403 |Forbidden |
-| 404 |Not Found |
-| 500 |Internal Server Error. Unknown error occurred. |
-| default |Operation Failed. |
+## Find the record ID
 
-## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+1. Open a record, such as an account record.
 
+2. On the actions toolbar, click **Pop Out** ![popout record](./media/connectors-create-api-crmonline/popout-record.png).
+Alternatively, on the actions toolbar, to copy the full URL into your default email program, click **EMAIL A LINK**.
+
+   The record ID is displayed in between the %7b and %7d encoding characters of the URL.
+
+   ![Flow recordId and type account](./media/connectors-create-api-crmonline/recordid.png)
+
+## Troubleshooting
+To troubleshoot a failed step in a logic app, view the status details of the event.
+
+1. Under **Logic Apps**, select your logic app, and then click **Overview**. 
+
+   The Summary area is shown and provides the run status for the logic app. 
+
+   ![Logic app run status](./media/connectors-create-api-crmonline/tshoot1.png)
+
+2. To view more information about any failed runs, click the failed event. 
+To expand a failed step, click that step.
+
+   ![Expand failed step](./media/connectors-create-api-crmonline/tshoot2.png)
+
+   The step details appear and can help troubleshoot the cause of the failure.
+
+   ![Failed step details](./media/connectors-create-api-crmonline/tshoot3.png)
+
+For more information about troubleshooting logic apps, see [Diagnosing logic app failures](../logic-apps/logic-apps-diagnosing-failures.md).
+
+## Connector-specific details
+
+View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/crm/). 
+
+## Next steps
+Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).

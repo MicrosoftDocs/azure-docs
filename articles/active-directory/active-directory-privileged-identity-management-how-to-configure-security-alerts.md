@@ -3,7 +3,7 @@ title: How to configure security alerts | Microsoft Docs
 description: Learn how to configure security alerts for Azure Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/02/2016
-ms.author: kgremban
-
+ms.date: 06/06/2017
+ms.author: billmath
+ms.custom: pim
 ---
 # How to configure security alerts in Azure AD Privileged Identity Management
 ## Security alerts
@@ -56,7 +56,6 @@ This alert triggers if a user goes a certain amount of time without activating a
 
 * **Number of days**: Specify the number of days, from 0 to 100, that a user can go without activating a role.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

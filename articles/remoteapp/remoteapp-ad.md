@@ -1,25 +1,23 @@
-﻿
 ---
 title: Azure AD + Active Directory requirements for Azure RemoteApp | Microsoft Docs
 description: Learn how to set up Active Directory to work with Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
-
 ms.assetid: 66366b25-6012-45fa-a4f6-da0ddfe0b486
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 04/26/2017
+ms.author: mbaldwin
 
 ---
 # Azure AD + Active Directory requirements for Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 
@@ -33,7 +31,7 @@ Note - Directory synchronization is required for hybrid collections.
 ### Make sure your "@domain.com" match
 Before you get started, make sure that the UPN for your on-premises forest matches the suffix of your Azure AD domain. 
 
-After you set up the UPN domain suffix in Azure AD, all users logging into Azure RemoteApp will log in as “user@<the suffix you set up>”. Make sure that users can also log in with the same user@suffix into the on-premises domain. In certain cases you can set up one domain name in Azure AD while specifying a different domain suffix for the user on-prem. In this case, your users won't be able to connect to any domain-joined computers or resources through Azure RemoteApp.
+After you set up the UPN domain suffix in Azure AD, all users logging into Azure RemoteApp will log in as "user@<the suffix you set up>." Make sure that users can also log in with the same user@suffix into the on-premises domain. In certain cases you can set up one domain name in Azure AD while specifying a different domain suffix for the user on-prem. In this case, your users won't be able to connect to any domain-joined computers or resources through Azure RemoteApp.
 
 For example, if you set up your UPN domain suffix in AAD as contoso.com, but some users on premises/AD are configured to log in with @contoso.uk, then those users will not be able to correctly log into the ARA collection. Users UPN in AAD and AD must be the same for the login to be possible”
 

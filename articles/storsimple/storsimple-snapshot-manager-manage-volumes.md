@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple Snapshot Manager and volumes | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups.
 services: storsimple

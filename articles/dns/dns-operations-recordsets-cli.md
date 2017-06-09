@@ -1,6 +1,6 @@
 ---
-title: Manage DNS record sets and records on Azure DNS using Azure CLI | Microsoft Docs
-description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All CLI commands for operations on record sets and records.
+title: Manage DNS records in Azure DNS using the Azure CLI 2.0 | Microsoft Docs
+description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All CLI 2.0 commands for operations on record sets and records.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -8,194 +8,292 @@ manager: carmonm
 
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
-ms.author: jtuliani
+ms.date: 02/27/2017
+ms.author: jonatul
 ---
 
-# Manage DNS records and record sets by using CLI
+# Manage DNS records and recordsets in Azure DNS using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI](dns-operations-recordsets-cli.md)
+> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-This article shows you how to manage record sets and records for your DNS zone by using the cross-platform Azure command-line interface (CLI).
+This article shows you how to manage DNS records for your DNS zone by using the cross-platform Azure command-line interface (CLI) 2.0, which is available for Windows, Mac and Linux. You can also manage your DNS records using [Azure PowerShell](dns-operations-recordsets.md) or the [Azure portal](dns-operations-recordsets-portal.md).
 
-It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-cli.md).
+## CLI versions to complete the task
 
-## Configure the cross-platform Azure CLI
+You can complete the task using one of the following CLI versions:
 
-Azure DNS is an Azure Resource Manager-only service. It does not have an Azure Service Management API. Make sure that the Azure CLI is configured to use Resource Manager mode, by using the `azure config mode arm` command.
+* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
+* [Azure CLI 2.0](dns-operations-recordsets-cli.md) - our next generation CLI for the resource management deployment model.
 
-If you see **error: 'dns' is not an azure command**, it's most likely because you are using Azure CLI in Azure Service Management mode, not in Resource Manager mode.
+The examples in this article assume you have already [installed the Azure CLI 2.0, signed in, and created a DNS zone](dns-operations-dnszones-cli.md).
 
-## Create a new record set and record
+## Introduction
 
-To create a new record set in the Azure portal, see [Create a record set and records](dns-getstarted-create-recordset-cli.md).
+Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
-## Retrieve a record set
+[!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-To retrieve an existing record set, use `azure network dns record-set show`. Specify the resource group, zone name, record set relative name, and record type. Use the example below, replacing the values with your own.
+For more information about DNS records in Azure DNS, see [DNS zones and records](dns-zones-records.md).
+
+## Create a DNS record
+
+To create a DNS record, use the `az network dns record-set <record-type> add-record` command (where `<record-type>` is the type of record, i.e a, srv, txt, etc.) For help, see `az network dns record-set --help`.
+
+When creating a record, you need to specify the resource group name, zone name, record set name, the record type, and the details of the record being 
+created. The record set name given must be a *relative* name, meaning it must exclude the zone name.
+
+If the record set does not already exist, this command creates it for you. If the record set already exists, this command adds the record you specify to the existing record set.
+
+If a new record set is created, a default time-to-live (TTL) of 3600 is used. For instructions on how to use different TTLs, see [Create a DNS record set](#create-a-dns-record-set).
+
+The following example creates an A record called *www* in the zone *contoso.com* in the resource group *MyResourceGroup*. The IP address of the A record is *1.2.3.4*.
 
 ```azurecli
-azure network dns record-set show myresourcegroup contoso.com www A
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+```
+
+To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "@", including the quotation marks:
+
+```azurecli
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+```
+
+## Create a DNS record set
+
+In the above examples, the DNS record was either added to an existing record set, or the record set was created *implicitly*. You can also create the record set *explicitly* before adding records to it. Azure DNS supports 'empty' record sets, which can act as a placeholder to reserve a DNS name before creating DNS records. Empty record sets are visible in the Azure DNS control plane, but do not appear on the Azure DNS name servers.
+
+Record sets are created using the `az network dns record-set <record-type> create` command. For help, see `az network dns record-set <record-type> create --help`.
+
+Creating the record set explicitly allows you to specify record set properties such as the [Time-To-Live (TTL)](dns-zones-records.md#time-to-live) and metadata. [Record set metadata](dns-zones-records.md#tags-and-metadata) can be used to associate application-specific data with each record set, as key-value pairs.
+
+The following example creates an empty record set of type 'A' with a 60-second TTL, by using the `--ttl` parameter (short form `-l`):
+
+```azurecli
+az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --ttl 60
+```
+
+The following example creates a record set with two metadata entries, "dept=finance" and "environment=production", by using the `--metadata` parameter :
+
+```azurecli
+az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
+```
+
+Having created an empty record set, records can be added using `azure network dns record-set <record-type> add-record` as described in [Create a DNS record](#create-a-dns-record).
+
+## Create records of other types
+
+Having seen in detail how to create 'A' records, the following examples show how to create record of other record types supported by Azure DNS.
+
+The parameters used to specify the record data vary depending on the type of the record. For example, for a record of type "A", you specify the IPv4 address with the parameter `--ipv4-address <IPv4 address>`. The parameters for each record type can be listed using `az network dns record-set <record-type> add-record --help`.
+
+In each case, we show how to create a single record. The record is added to the existing record set, or a record set created implicitly. For more information on creating record sets and defining record set parameter explicitly, see [Create a DNS record set](#create-a-dns-record-set).
+
+We do not give an example to create an SOA record set, since SOAs are created and deleted with each DNS zone and cannot be created or deleted separately. However, [the SOA can be modified, as shown in a later example](#to-modify-an-SOA-record).
+
+### Create an AAAA record
+
+```azurecli
+az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+```
+
+### Create a CNAME record
+
+> [!NOTE]
+> The DNS standards do not permit CNAME records at the apex of a zone (`--Name "@"`), nor do they permit record sets containing more than one record.
+> 
+> For more information, see [CNAME records](dns-zones-records.md#cname-records).
+
+```azurecli
+az network dns record-set cname add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
+```
+
+### Create an MX record
+
+In this example, we use the record set name "@" to create the MX record at the zone apex (in this case, "contoso.com").
+
+```azurecli
+az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
+```
+
+### Create an NS record
+
+```azurecli
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+```
+
+### Create a PTR record
+
+In this case, 'my-arpa-zone.com' represents the ARPA zone representing your IP range. Each PTR record set in this zone corresponds to an IP address within this IP range.  The record name '10' is the last octet of the IP address within this IP range represented by this record.
+
+```azurecli
+az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
+```
+
+### Create an SRV record
+
+When creating an [SRV record set](dns-zones-records.md#srv-records), specify the *\_service* and *\_protocol* in the record set name. There is no need to include "@" in the record set name when creating an SRV record set at the zone apex.
+
+```azurecli
+az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
+```
+
+### Create a TXT record
+
+The following example shows how to create a TXT record. For more information about the maximum string length supported in TXT records, see [TXT records](dns-zones-records.md#txt-records).
+
+```azurecli
+az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
+```
+
+## Get a record set
+
+To retrieve an existing record set, use `az network dns record-set <record-type> show`. For help, see `az network dns record-set <record-type> show --help`.
+
+As when creating a record or record set, the record set name given must be a *relative* name, meaning it must exclude the zone name. You also need to specify the record type, the zone containing the record set, and the resource group containing the zone.
+
+The following example retrieves the record *www* of type A from zone *contoso.com* in resource group *MyResourceGroup*:
+
+```azurecli
+az network dns record-set a show --resource-group myresourcegroup --zone-name contoso.com --name www
 ```
 
 ## List record sets
 
-You can list all records in a DNS zone by using the `azure network dns record-set list` command. You need to specify the resource group name and zone name.
+You can list all records in a DNS zone by using the `az network dns record-set list` command. For help, see `az network dns record-set list --help`.
 
-### To list all record sets
-
-This example returns all record sets, regardless of name or record type:
+This example returns all record sets in the zone *contoso.com*, in resource group *MyResourceGroup*, regardless of name or record type:
 
 ```azurecli
-azure network dns record-set list myresourcegroup contoso.com
+az network dns record-set list --resource-group myresourcegroup --zone-name contoso.com
 ```
 
-### To list record sets of a given type
-
-This example returns all record sets that match the given record type (in this case, "A" records):
+This example returns all record sets that match the given record type (in this case, 'A' records):
 
 ```azurecli
-azure network dns record-set list myresourcegroup contoso.com A
+az network dns record-set a list --resource-group myresourcegroup --zone-name contoso.com 
 ```
 
-## Add a record to a record set
+## Add a record to an existing record set
 
-You add records to record sets by using the `azure network dns record-set add-record`command. The parameters for adding records to a record set vary depending on the type of the record that's being set. For example, when you use a record set of type "A", you can only specify records with the parameter `-a <IPv4 address>`.
+You can use `az network dns record-set <record-type> add-record` both to create a record in a new record set, or to add a record to an existing record set.
 
-To create a record set, use the `azure network dns record-set create`command. Specify the resource group, zone name, record set relative name, record type, and time to live (TTL). If the `--ttl` parameter is not defined, the value (in seconds) defaults to four.
+For more information, see [Create a DNS record](#create-a-dns-record) and [Create records of other types](#create-records-of-other-types) above.
+
+## Remove a record from an existing record set.
+
+To remove a DNS record from an existing record set, use `az network dns record-set <record-type> remove-record`. For help, see `az network dns record-set <record-type> remove-record -h`.
+
+This command deletes a DNS record from a record set. If the last record in a record set is deleted, the record set itself is also deleted. To keep the empty record set instead, use the `--keep-empty-record-set` option.
+
+You need to specify the record to be deleted and the zone it should be deleted from, using the same parameters as when creating a record using `az network dns record-set <record-type> add-record`. These parameters are described in [Create a DNS record](#create-a-dns-record) and [Create records of other types](#create-records-of-other-types) above.
+
+The following example deletes the A record with value '1.2.3.4' from the record set named *www* in the zone *contoso.com*, in the resource group *MyResourceGroup*.
 
 ```azurecli
-azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
+az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "www" --ipv4-address 1.2.3.4
 ```
 
-After you create the "A" record set, add the IPv4 address by using the `azure network dns record-set add-record`command.
+## Modify an existing record set
+
+Each record set contains a [time-to-live (TTL)](dns-zones-records.md#time-to-live), [metadata](dns-zones-records.md#tags-and-metadata), and DNS records. The following sections explain how to modify each of these properties.
+
+### To modify an A, AAAA, MX, NS, PTR, SRV, or TXT record
+
+To modify an existing record of type A, AAAA, MX, NS, PTR, SRV, or TXT, you should first add a new record and then delete the existing record. For detailed instructions on how to delete and add records, see the earlier sections of this article.
+
+The following example shows how to modify an 'A' record, from IP address 1.2.3.4 to IP address 5.6.7.8:
 
 ```azurecli
-azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1
+az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
+az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-The following examples show how to create a record set of each record type. Each record set contains a single record.
+You cannot add, remove, or modify the records in the automatically created NS record set at the zone apex (`--Name "@"`, including quote marks). For this record set, the only changes permitted are to modify the record set TTL and metadata.
 
-[!INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
+### To modify a CNAME record
 
-## Update a record in a record set
+Unlike most other record types, a CNAME record set can only contain a single record.  Therefore, you cannot replace the current value by adding a new record and removing the existing record, as for other record types.
 
-### To add another IP address (1.2.3.4) to an existing "A" record set ("www"):
+Instead, to modify a CNAME record, use `az network dns record-set cname set-record`. For help, see `az network dns record-set cname set-record --help`
 
-    azure network dns record-set add-record  myresourcegroup contoso.com  A
-    -a 1.2.3.4
-    info:    Executing command network dns record-set add-record
-    Record set name: www
-    + Looking up the dns zone "contoso.com"
-    + Looking up the DNS record set "www"
-    + Updating DNS record set "www"
-    data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/a/www
-    data:    Name                            : www
-    data:    Type                            : Microsoft.Network/dnszones/a
-    data:    Location                        : global
-    data:    TTL                             : 4
-    data:    A records:
-    data:        IPv4 address                : 192.168.1.1
-    data:        IPv4 address                : 1.2.3.4
-    data:
-    info:    network dns record-set add-record command OK
-
-### To remove an existing value from a record set
-
-Use `azure network dns record-set delete-record`.
-
-    azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
-    info:    Executing command network dns record-set delete-record
-    + Looking up the DNS record set "www"
-    Delete DNS record? [y/n] y
-    + Updating DNS record set "www"
-    data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
-    data:    Name                            : www
-    data:    Type                            : Microsoft.Network/dnszones/A
-    data:    Location                        : global
-    data:    TTL                             : 4
-    data:    A records:
-    data:    IPv4 address                    : 192.168.1.1
-    data:
-    info:    network dns record-set delete-record command OK
-
-## Remove a record from a record set
-
-Records can be removed from a record set by using `azure network dns record-set delete-record`. The record that is being removed must be an exact match with an existing record across all parameters.
-
-Removing the last record from a record set does not delete the record set. For more information, see the section of this article called [Delete a record set](#delete).
+The example modifies the CNAME record set *www* in the zone *contoso.com*, in resource group *MyResourceGroup*, to point to 'www.fabrikam.net' instead of its existing value:
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
+az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.fabrikam.net
+``` 
 
-azure network dns record-set delete myresourcegroup contoso.com www A
-```
+### To modify an SOA record
 
-### Remove an AAAA record from a record set
+Unlike most other record types, a CNAME record set can only contain a single record.  Therefore, you cannot replace the current value by adding a new record and removing the existing record, as for other record types.
 
-```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com test-aaaa  AAAA -b "2607:f8b0:4009:1803::1005"
-```
+Instead, to modify the SOA record, use `az network dns record-set soa update`. For help, see `az network dns record-set soa update --help`.
 
-### Remove a CNAME record from a record set
+The following example shows how to set the 'email' property of the SOA record for the zone *contoso.com* in the resource group *MyResourceGroup*:
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com test-cname CNAME -c www.contoso.com
+az network dns record-set soa update --resource-group myresourcegroup --zone-name contoso.com --email admin.contoso.com
 ```
 
-### Remove an MX record from a record set
+### To modify NS records at the zone apex
+
+The NS record set at the zone apex is automatically created with each DNS zone. It contains the names of the Azure DNS name servers assigned to the zone.
+
+You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers.
+
+Note that this applies only to the NS record set at the zone apex. Other NS record sets in your zone (as used to delegate child zones) can be modified without constraint.
+
+The following example shows how to add an additional name server to the NS record set at the zone apex:
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com "@" MX -e "mail.contoso.com" -f 5
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
-### Remove an NS record from record set
+### To modify the TTL of an existing record set
+
+To modify the TTL of an existing record set, use `azure network dns record-set <record-type> update`. For help, see `azure network dns record-set <record-type> update --help`.
+
+The following example shows how to modify a record set TTL, in this case to 60 seconds:
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
+az network dns record-set a update --resource-group myresourcegroup --zone-name contoso.com --name www --set ttl=60
 ```
 
-### Remove a PTR record from a record set
+### To modify the metadata of an existing record set
 
-In this case 'my-arpa-zone.com' represents the ARPA zone representing your IP range.  Each PTR record set in this zone corresponds to an IP address within this IP range.
+[Record set metadata](dns-zones-records.md#tags-and-metadata) can be used to associate application-specific data with each record set, as key-value pairs. To modify the metadata of an existing record set, use `az network dns record-set <record-type> update`. For help, see `az network dns record-set <record-type> update --help`.
+
+The following example shows how to modify a record set with two metadata entries, "dept=finance" and "environment=production". Note that any existing metadata is *replaced* by the values given.
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
+az network dns record-set a update --resource-group myresourcegroup --zone-name contoso.com --name www --set metadata.dept=finance metadata.environment=production
 ```
 
-### Remove an SRV record from a record set
+## Delete a record set
+
+Record sets can be deleted by using the `az network dns record-set <record-type> delete` command. For help, see `azure network dns record-set <record-type> delete --help`. Deleting a record set also deletes all records within the record set.
+
+> [!NOTE]
+> You cannot delete the SOA and NS record sets at the zone apex (`--name "@"`).  These are created automatically when the zone was created, and are deleted automatically when the zone is deleted.
+
+The following example deletes the record set named *www* of type A from the zone *contoso.com* in resource group *MyResourceGroup*:
 
 ```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com"
+az network dns record-set a delete --resource-group myresourcegroup --zone-name contoso.com --name www
 ```
 
-### Remove a TXT record from a record set
-
-```azurecli
-azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
-```
-
-## <a name="delete"></a>Delete a record set
-
-Record sets can be deleted by using the `Remove-AzureRmDnsRecordSet` cmdlet. You cannot delete the SOA and NS record sets at the zone apex (name = "@") that were created automatically when the zone was created. They will be deleted automatically if the zone is deleted.
-
-In the following example, the "A" record set "test-a" will be removed from the "contoso.com" DNS zone:
-
-```azurecli
-azure network dns record-set delete myresourcegroup contoso.com  "test-a" A
-```
-
-The optional `-q` switch can be used to suppress the confirmation prompt.
+You are prompted to confirm the delete operation. To suppress this prompt, use the `--yes` switch.
 
 ## Next steps
 
-For more information about Azure DNS, see [Azure DNS overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
-
-If you want to work with reverse DNS records, see [How to manage reverse DNS records for your services using the Azure CLI](dns-reverse-dns-record-operations-cli.md).
+Learn more about [zones and records in Azure DNS](dns-zones-records.md).
+<br>
+Learn how to [protect your zones and records](dns-protect-zones-recordsets.md) when using Azure DNS.

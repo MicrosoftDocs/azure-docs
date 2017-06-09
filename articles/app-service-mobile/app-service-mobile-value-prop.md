@@ -103,7 +103,7 @@ For more information on the Azure App Service platform, see [Azure App Service].
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an
-> Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where
+> Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/mobile/), where
 > you can immediately create a short-lived starter web app in App Service. No credit cards required;
 > no commitments.
 > 
@@ -113,7 +113,7 @@ For more information on the Azure App Service platform, see [Azure App Service].
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Get Started]: app-service-mobile-ios-get-started.md
-[Azure Table Storage]: ../storage/storage-getting-started-guide.md
+[Azure Table Storage]: ../storage/storage-dotnet-how-to-use-tables.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [data features]: ./app-service-mobile-offline-data-sync.md

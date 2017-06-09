@@ -1,5 +1,5 @@
 ---
-title: Move Data to and from Azure Blob Storage using Azure Storage Explorer | Microsoft Docs
+title: Move Data to and from Blob Storage with Azure Storage Explorer | Microsoft Docs
 description: Move Data to and from Azure Blob Storage using Azure Storage Explorer
 services: machine-learning,storage
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
-# Move Data to and from Azure Blob Storage using Azure Storage Explorer
+# Move data to and from Azure Blob Storage using Azure Storage Explorer
 Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
@@ -43,12 +43,12 @@ This document assumes that you have an Azure subscription, a storage account, an
 The following steps document how to upload/download data using Azure Storage Explorer. 
 
 1. Launch Microsoft Azure Storage Explorer.
-2. To bring up the **Sign in to your account...** wizard, select **Azure account settings** icon, then **Add an account** and enter you credentials. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. To bring up the **Connect to Azure Storage** wizard, select the **Connect to Azure storage** icon. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Enter the access key from your Azure storage account on the **Connect to Azure Storage** wizard and then **Next**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
-5. Enter storage account name in the **Account name** box and then select **Next**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
+2. To bring up the **Sign in to your account...** wizard, select **Azure account settings** icon, then **Add an account** and enter you credentials. ![Add an Azure storage account](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
+3. To bring up the **Connect to Azure Storage** wizard, select the **Connect to Azure storage** icon. ![Connect to Azure storage](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Enter the access key from your Azure storage account on the **Connect to Azure Storage** wizard and then **Next**. ![Connect to Azure storage](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+5. Enter storage account name in the **Account name** box and then select **Next**. ![Attach external storage](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. The storage account added should now be listed. To create a blob container in a storage account, right-click the **Blob Containers** node in that account, select **Create Blob Container**, and enter a name.
-7. To upload data to a container, select the target container and click the **Upload** button.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
-8. Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
-9. To download data, selecting the blob in the corresponding container to download and click **Download**. ![](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
+7. To upload data to a container, select the target container and click the **Upload** button.![Storage accounts](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
+8. Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Upload files](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
+9. To download data, selecting the blob in the corresponding container to download and click **Download**. ![Download files](./media/machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
 

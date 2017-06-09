@@ -1,4 +1,3 @@
-﻿
 ---
 title: How to use Azure RemoteApp with Office 365 user accounts | Microsoft Docs
 description: Learn how to use Azure RemoteApp with my Office 365 user accounts
@@ -13,13 +12,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 04/26/2017
+ms.author: mbaldwin
 
 ---
 # How to use Azure RemoteApp with Office 365 user accounts
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

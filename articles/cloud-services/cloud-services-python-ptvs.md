@@ -19,17 +19,14 @@ ms.author: adegeo
 ---
 # Python web and worker roles with Python Tools for Visual Studio
 
-> [!div class="op_single_selector"]
-> * [.NET](cloud-services-dotnet-get-started.md)
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [Python](cloud-services-python-ptvs.md)
-
 This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][Python Tools for Visual Studio]. You will learn how to use Visual Studio to create and deploy a basic Cloud Service that uses Python.
 
 ## Prerequisites
-* Visual Studio 2013 or 2015
+* [Visual Studio 2013, 2015, or 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015]
+* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] or  
+[Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] or  
+[Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.5 32-bit][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -345,7 +342,7 @@ For more details about using Azure services from your web and worker roles, such
 
 [What is a Cloud Service?]: cloud-services-choose-me.md
 [execution model-web sites]: ../app-service-web/app-service-web-overview.md
-[execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
+[execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
@@ -361,7 +358,8 @@ For more details about using Azure services from your web and worker roles, such
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/

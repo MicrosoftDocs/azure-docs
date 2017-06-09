@@ -1,5 +1,5 @@
-﻿---
-title: Use Apache Phoenix and SQuirreL in HDInsight | Microsoft Docs
+---
+title: Use Apache Phoenix and SQuirreL with Windows-based Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 05/25/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
-# Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDinsight
+# Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDInsight
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].
+> For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
 >
-> The information in this document is specific to Windows-based HDInsight clusters. For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+
+> [!IMPORTANT]
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
->
+
+
 
 ## Use SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) is a command line utility to execute SQL.
@@ -53,7 +57,7 @@ Before you can use SQLLine, you must have the following:
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     The commands used in the sample:
 
@@ -75,12 +79,8 @@ This section shows you how to install and configure SQuirreL on your workstation
 ### Prerequisites
 Before following the procedures, you must have the following:
 
-* An HBase cluster deployed to an Azure virtual network with a DNS virtual machine.  For instructions, see [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet].
+* An HBase cluster deployed to an Azure virtual network with a DNS virtual machine.  For instructions, see [Create HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > You must install a DNS server to the virtual network. For instructions, see [Configure DNS between two Azure virtual networks](hdinsight-hbase-geo-replication-configure-dns.md)
-  >
-  >
 * Get the HBase cluster cluster Connection-specific DNS suffix. To get it, RDP into the cluster, and then run IPConfig.  The DNS suffix is similar to:
 
         myhbase.b7.internal.cloudapp.net
@@ -152,7 +152,7 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
     Both the root certificate and the client certificate are stored in your Personal certificate store on your computer. Use certmgr.msc to verify.
 
-    ![Azure virtual network point-to-site vpn certificate][img-certificate]
+    ![Azure virtual network point-to-site VPN certificate][img-certificate]
 
     A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc.
 
@@ -196,9 +196,11 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 2. Open/run the jar file. It requires the [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Click **Next** twice.
 4. Specify a path where you have the write permission, and then click **Next**.
-    >[AZURE.NOTE] The default installation folder is in the C:\Program Files\squirrel-sql-3.6 folder.  In order to write to this path, the installer must be granted the administrator privilege. You can open a command prompt as administrator, navigate to Java's bin folder, and then run
-    >
-    >     java.exe -jar [the path of the SQuirreL jar file]
+
+  > [!NOTE]
+  > The default installation folder is in the C:\Program Files\squirrel-sql-3.6 folder.  In order to write to this path, the installer must be granted the administrator privilege. You can open a command prompt as administrator, navigate to Java's bin folder, and then run:
+  >
+  >     java.exe -jar [the path of the SQuirreL jar file]
 5. Click **OK** to confirm creating the target directory.
 6. The default setting is to install the Base and Standard packages.  Click **Next**.
 7. Click **Next** twice, and then click **Done**.
@@ -266,7 +268,7 @@ In this article, you have learned how to use Apache Phoenix in HDInsight.  To le
   HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 * [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]:
   With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.
-* [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md): Learn how to configure HBase replication across two Azure datacenters.
+* [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md): Learn how to configure HBase replication across two Azure datacenters.
 * [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]:
   Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data by using HBase in a Hadoop cluster in HDInsight.
 

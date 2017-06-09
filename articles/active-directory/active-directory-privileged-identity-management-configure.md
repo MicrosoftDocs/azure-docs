@@ -1,9 +1,9 @@
----
-title: Azure AD Privileged Identity Management | Microsoft Docs
+﻿---
+title: Configure Azure AD Privileged Identity Management | Microsoft Docs
 description: A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
-ms.author: kgremban
-
+ms.date: 05/04/2017
+ms.author: billmath
+ms.custom: pim ; H1Hack27Feb2017
 ---
-# Azure AD Privileged Identity Management
+
+# What is Azure AD Privileged Identity Management?
 With Azure Active Directory (AD) Privileged Identity Management, you can manage, control, and monitor access within your organization. This includes access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.  
 
 > [!NOTE]
 > Privileged Identity Management is available only with the Premium P2 edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-> 
-> 
 
 Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious user getting that access. However, users still need to carry out privileged operations in Azure, Office 365, or SaaS apps. Organizations give users privileged access in Azure AD without monitoring what those users are doing with their admin privileges. Azure AD Privileged Identity Management helps to resolve this risk.  
 
@@ -34,7 +33,7 @@ Azure AD Privileged Identity Management helps you:
 * Get reports about administrator access history and changes in administrator assignments
 * Get alerts about access to a privileged role
 
-Azure AD Privileged Identity Management can manage the built-in Azure AD organizational roles, including:  
+Azure AD Privileged Identity Management can manage the built-in Azure AD organizational roles, including (but not limited to):  
 
 * Global Administrator
 * Billing Administrator
@@ -50,8 +49,6 @@ You can start using Azure AD Privileged Identity Management in the [Azure portal
 
 > [!NOTE]
 > You must be a global administrator with an organizational account (for example, @yourdomain.com), not a Microsoft account (for example, @outlook.com), to enable Azure AD Privileged Identity Management for a directory.
-> 
-> 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your directory.
 2. If your organization has more than one directory, select your username in the upper right-hand corner of the Azure portal. Select the directory where you will use Azure AD Privileged Identity Management.
@@ -103,6 +100,9 @@ There are two ways to track how your employees and admins are using privileged r
 ![PIM activation history - screenshot][6]
 
 The second option is to set up regular [access reviews](active-directory-privileged-identity-management-how-to-start-security-review.md). These access reviews can be performed by and assigned reviewer (like a team manager) or the employees can review themselves. This is the best way to monitor who still requires access, and who no longer does.
+
+## Azure AD PIM at subscription expiration
+Prior to reaching general availability Azure AD PIM was in preview and there were no license checks for a tenant to preview Azure AD PIM.  Now that Azure AD PIM has reached general availability, a trial or paid subscription must be present in the tenant to continue using PIM after December 2016.  If your organization does not purchase Azure AD Premium P2 or your subscription expires, then Azure AD PIM will no longer be available in your tenant.  You can read more in the [Azure AD PIM subscription requirements](./privileged-identity-management/subscription-requirements.md)
 
 ## Next steps
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]

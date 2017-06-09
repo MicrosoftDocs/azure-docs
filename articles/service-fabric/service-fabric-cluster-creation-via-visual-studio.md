@@ -3,7 +3,7 @@ title: Setting up a Service Fabric cluster using Visual Studio | Microsoft Docs
 description: Describes how to set up a Service Fabric cluster by using Azure Resource Manager template created by an Azure Resource Group project in Visual Studio
 services: service-fabric
 documentationcenter: .net
-author: karolz-ms
+author: mikkelhegn
 manager: adegeo
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/06/2016
-ms.author: karolz@microsoft.com
+ms.date: 02/21/2017
+ms.author: mikhegn
 
 ---
 # Set up a Service Fabric cluster by using Visual Studio

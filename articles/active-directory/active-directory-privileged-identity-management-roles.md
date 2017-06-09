@@ -1,9 +1,9 @@
 ﻿---
-title: Roles in PIM | Microsoft Docs
+title: Roles in Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
-
+ms.date: 02/27/2017
+ms.author: billmath
+ms.custom: pim ; H1Hack27Feb2017
 ---
-# Roles in Azure AD Privileged Identity Management
+# Different administrative role in Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 You can assign users in your organization to different administrative roles in Azure AD. These role assignments control which tasks, such as adding or removing users or changing service settings, the users are able to perform on Azure AD, Office 365 and other Microsoft Online Services and connected applications.  
@@ -60,7 +60,7 @@ If you want to give another user access to manage in PIM itself, the roles which
 ## Roles not managed in PIM
 Roles within Exchange Online or SharePoint Online, except for those mentioned above, are not represented in Azure AD and so are not visible in PIM. For more information on changing fine-grained role assignments in these Office 365 services, see [Permissions in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC see [Azure Role-Based Access Control](role-based-access-control-configure.md).
+Azure subscriptions and resource groups are also not represented in Azure AD. To manage Azure subscriptions, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md) and for more information on Azure RBAC see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -68,7 +68,7 @@ Azure subscriptions and resource groups are also not represented in Azure AD. To
 ## User roles and signing in
 For some Microsoft services and applications, assigning a user to a role may not be sufficient to enable that user to be an administrator.
 
-Access to the Azure classic portal requires the user be a service administrator or co-administrator on an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD in the classic portal, a user must be both a global administrator in Azure AD and a subscription co-administrator on an Azure subscription.  To learn how to add users to Azure subscriptions, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md).
+Access to the Azure classic portal requires the user be a service administrator or co-administrator on an Azure subscription, even if the user does not need to manage the Azure subscriptions.  For example, to manage configuration settings for Azure AD in the classic portal, a user must be both a global administrator in Azure AD and a subscription co-administrator on an Azure subscription.  To learn how to add users to Azure subscriptions, see [How to add or change Azure administrator roles](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Access to Microsoft Online Services may require the user also be assigned a license before they can open the service's portal or perform administrative tasks.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Advanced encoding with Media Encoder Premium Workflow | Microsoft Docs
 description: Learn how to encode with Media Encoder Premium Workflow. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
@@ -20,18 +20,18 @@ ms.author: juliako
 # Advanced encoding with Media Encoder Premium Workflow
 > [!NOTE]
 > Media Encoder Premium Workflow media processor discussed in this topic is not available in China.
-> 
-> 
+>
+>
 
 For premium encoder questions, email mepd at Microsoft.com.
 
 ## Overview
-Microsoft Azure Media Services is introducing the **Media Encoder Premium Workflow** media processor. This processor offers advance encoding capabilities for your premium on-demand workflows. 
+Microsoft Azure Media Services is introducing the **Media Encoder Premium Workflow** media processor. This processor offers advance encoding capabilities for your premium on-demand workflows.
 
-The following topics outline details related to **Media Encoder Premium Workflow**: 
+The following topics outline details related to **Media Encoder Premium Workflow**:
 
 * [Formats Supported by the Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
-* The [compare encoders](media-services-encode-asset.md#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow** and **Media Encoder Standard**.
+* [Overview and comparison of Azure on demand media encoders](media-services-encode-asset.md) compares the encoding capabilities of **Media Encoder Premium Workflow** and **Media Encoder Standard**.
 
 This topic demonstrates how to encode with **Media Encoder Premium Workflow** using .NET.
 
@@ -44,29 +44,29 @@ You can also get the default workflow files [here](https://github.com/Azure/azur
 
 The workflow files need to be uploaded to your Media Services account as an Asset, and this Asset should be passed in to the encoding Task.
 
-The following example demonstrates how to encode with **Media Encoder Premium Workflow**. 
+The following example demonstrates how to encode with **Media Encoder Premium Workflow**.
 
-The following steps are performed: 
+The following steps are performed:
 
-1. Create an asset and upload a workflow file. 
+1. Create an asset and upload a workflow file.
 2. Create an asset and upload a source media file.
 3. Get the “Media Encoder Premium Workflow” media processor.
-4. Create a job and a task. 
-   
+4. Create a job and a task.
+
     In most cases, the configuration string for the task is empty (like in the following example). There are some advanced scenarios (that require you to to set runtime properties dynamically) in which case you would provide an XML string to the encoding task. Examples of such scenarios are: creating an overlay, parallel or sequential media stitching, subtitling.
 5. Add two input assets to the task.
-   
+
     a. 1st – the workflow asset.
-   
+
     b. 2nd – the video asset.
-   
-    **Note**: The workflow asset must be added to the task before the media asset. 
-   The configuration string for this task should be empty. 
+
+    **Note**: The workflow asset must be added to the task before the media asset.
+   The configuration string for this task should be empty.
 6. Submit the encoding job.
 
 The following is a complete example. For information on how to set up with Media Services .NET development, see [Media Services development with .NET](media-services-dotnet-how-to-use.md).
 
-     using System; 
+     using System;
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -113,7 +113,7 @@ The following is a complete example. For information on how to set up with Media
 
                 var workflowAsset = CreateAssetAndUploadSingleFile(_workflowFilePath);
                 var videoAsset = CreateAssetAndUploadSingleFile(_singleMP4InputFilePath);
-                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset); 
+                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset);
 
             }
 
@@ -128,18 +128,10 @@ The following is a complete example. For information on how to set up with Media
 
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
-                                                                    AccessPermissions.Write | AccessPermissions.List);
-
-                var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
-
                 Console.WriteLine("Upload {0}", assetFile.Name);
 
                 assetFile.Upload(singleFilePath);
                 Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                locator.Delete();
-                accessPolicy.Delete();
 
                 return asset;
             }
@@ -148,7 +140,7 @@ The following is a complete example. For information on how to set up with Media
             {
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
@@ -161,9 +153,9 @@ The following is a complete example. For information on how to set up with Media
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(workflow);
                 task.InputAssets.Add(video); // we add one asset
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // Add an output asset to contain the results of the job.
+                // This output is specified as AssetCreationOptions.None, which
+                // means the output asset is not encrypted.
                 task.OutputAssets.AddNew("Output asset",
                     AssetCreationOptions.None);
 
@@ -174,12 +166,12 @@ The following is a complete example. For information on how to set up with Media
                 // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish. 
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
                 progressJobTask.Wait();
 
-                // If job state is Error the event handling 
-                // method for job progress should log errors.  Here we check 
+                // If job state is Error the event handling
+                // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)
                 {
@@ -273,4 +265,3 @@ For premium encoder questions, email mepd at Microsoft.com.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

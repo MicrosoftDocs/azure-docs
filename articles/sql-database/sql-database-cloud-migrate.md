@@ -1,6 +1,6 @@
 ---
-title: SQL Server database migration to SQL Database | Microsoft Docs
-description: Learn how about on-premises SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration.
+title: SQL Server database migration to Azure SQL Database | Microsoft Docs
+description: Learn how about SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration.
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 documentationcenter: ''
@@ -10,50 +10,95 @@ editor: ''
 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
+ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: carlrab
 
 ---
 # SQL Server database migration to SQL Database in the cloud
-In this article, you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this database migration process, you migrate your schema and your data from the SQL Server database in your current environment into SQL Database. To succeed, the existing database must first pass a compatibility test. With [SQL Database V12](sql-database-v12-whats-new.md), there are few remaining compatibility issues, other than issue related to server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) need some re-engineering to fix these incompatibilities before the SQL Server database can be migrated.
+In this article, you learn about the two primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
 
-To migrate, the following are the steps you to take:
-
-* **Test for Compatibility**: Validate database compatibility with [SQL Database V12](sql-database-v12-whats-new.md). 
-* **Fix Compatibility Issues, if any**: If validation fails, you must fix the validation errors.  
-* **Perform the migration** Once your database is compatible, you can use one or several methods to perform the migration. 
-
-SQL Server provides several methods to accomplish each of these tasks. This article provides an overview of the available methods for each task. The following diagram illustrates the steps and the methods.
-
-  ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+In both cases, you need to ensure that the source database is compatible with Azure SQL Database using the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 is approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
 
 > [!NOTE]
-> To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
-> 
-> 
-
-## Database migration tools test SQL Server database compatibility with SQL Database
-To test for SQL Database compatibility issues before you start the database migration process, use one of the following methods:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-> * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
+> To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
-* [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT uses the most recent compatibility rules to detect SQL Database V12 incompatibilities. If incompatibilities are detected, you can fix detected issues directly in this tool. This method is the recommended method to test and fix SQL Database V12 compatibility issues. 
-* [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is a command-line utility that tests for compatibility issues and generates a report containing detected compatibility issues. If you use this tool, make sure you use the most recent version to use the most recent compatibility rules. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended.  
-* [The Export Data Tier application wizard in SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md): This wizard detects and reports errors to the screen. If not errors are detected, you can continue and complete the migration to SQL Database. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended.
-* [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW is a codeplex tool that uses the Azure SQL Database V11 compatibility rules to detect Azure SQL Database V12 incompatibilities. If incompatibilities are detected, some issues can be fixed directly in this tool. This tool may find incompatibilities that do not need to be fixed. It was the first Azure SQL Database migration assistance tool available and is actively supported by the SQL Server community. Also, this tool can complete the migration from within the tool itself. 
+## Method 1: Migration with downtime during the migration
 
-## Fix database migration compatibility issues
-If compatibility issues are detected, you must fix them before proceeding with the SQL Server database migration. There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you are migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
+ Use this method if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
+
+The following list contains the general workflow for a SQL Server database migration using this method.
+
+  ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
+
+1. Assess the database for compatibility using the latest version of [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+2. Prepare any necessary fixes as Transact-SQL scripts.
+3. Make a transactionally consistent copy of the source database being migrated - and ensure no further changes are being made to the source database (or you can manually apply any such changes after the migration completes). There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
+4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
+5. [Export](sql-database-export.md) the database copy to a .BACPAC file on a local drive.
+6. [Import](sql-database-import.md) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
+
+### Optimizing data transfer performance during migration 
+
+The following list contains recommendations for best performance during the import process.
+
+* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
+* Minimize the distance between your .BACPAC file and the destination data center.
+* Disable auto-statistics during migration
+* Partition tables and indexes
+* Drop indexed views, and recreate them once finished
+* Remove rarely queried historical data to another database and migrate this historical data to a separate Azure SQL database. You can then query this historical data using [elastic queries](sql-database-elastic-query-overview.md).
+
+### Optimize performance after the migration completes
+
+[Update statistics](https://msdn.microsoft.com/library/ms187348.aspx) with full scan after the migration is completed.
+
+## Method 2: Use Transactional Replication
+
+When you cannot afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this method, the source database must meet the [requirements for transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) and be compatible for Azure SQL Database. 
+
+To use this solution, you configure your Azure SQL Database as a subscriber to the SQL Server instance that you wish to migrate. The transactional replication distributor synchronizes data from the database to be synchronized (the publisher) while new transactions continue occur. 
+
+With transactional replication, all changes to your data or schema show up in your Azure SQL Database. Once the synchronization is complete and you are ready to migrate, change the connection string of your applications to point them to your Azure SQL Database. Once transactional replication drains any changes left on your source database and all your applications point to Azure DB, you can uninstall transactional replication. Your Azure SQL Database is now your production system.
+
+ ![SeedCloudTR diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
+
+> [!TIP]
+> You can also use transactional replication to migrate a subset of your source database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. For each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
+>
+
+### Migration to SQL Database using Transaction Replication workflow
+
+> [!IMPORTANT]
+> Use the latest version of SQL Server Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> 
+
+1. Set up Distribution
+   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. Create Publication
+   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Create Subscription
+   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+### Some tips and differences for migrating to SQL Database
+
+1. Use a local distributor 
+   - This causes a performance impact on the server. 
+   - If the performance impact is unacceptable, you can use another server but it adds complexity in management and administration.
+2. When selecting a snapshot folder, make sure the folder you select is large enough to hold a BCP of every table you want to replicate. 
+3. Snapshot creation locks the associated tables until it is complete, so schedule your snapshot appropriately. 
+4. Only push subscriptions are supported in Azure SQL Database. You can only add subscribers from the source database.
+
+## Resolving database migration compatibility issues
+There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you are migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
 
 * [SQL Server database features not supported in Azure SQL Database](sql-database-transact-sql-information.md)
 * [Discontinued Database Engine Functionality in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
@@ -64,50 +109,11 @@ If compatibility issues are detected, you must fix them before proceeding with t
 
 In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](http://stackoverflow.com/).
 
-Use one of the following database migration tools to fix the issues detected:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
-> 
-
-* Use [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): To use SSDT, you import your database schema into SQL Server Data Tools for Visual Studio "SSDT") and build the project for a SQL Database V12 deployment. You then fix all detected compatibility issues in SSDT. When complete, you synchronize the changes back to the source database (or a copy of the source database. SSDT is currently the recommended method to test and fix SQL Database V12 compatibility issues. Follow the link for a [walk-through using SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
-* Use [SQL Server Management Studio ("SSMS")](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): To use SSMS, you execute Transact-SQL commands to fix the errors detected using another tool. This method is primarily for advanced users to modify the database schema directly in the source database. 
-* Use [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): To use SAMW, you generate a Transact-SQL script from the source database. The wizard transforms the script, whenever possible, to make the schema compatible with the SQL Database V12. When complete, SAMW can connect to SQL Database V12 to execute the script. This tool also analyzes trace files to determine compatibility issues. The script can be generated with schema only or can include data in BCP format.
-
-## Migrate a compatible SQL Server database to SQL Database
-To migrate a compatible SQL Server database, Microsoft provides several migration methods for various scenarios. The method you choose depends upon your tolerance for downtime, the size and complexity of your SQL Server database, and your connectivity to the Microsoft Azure cloud.  
-
-> [!div class="op_single_selector"]
-> * [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-> * [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-> * [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
-> 
-> 
-
-To choose your migration method, the first question to ask is if you can afford to take the database out of production during the migration. Migrating a database while active transactions are occurring can result in database inconsistencies and possible database corruption. There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
-
-To migrate with minimal downtime, use [SQL Server transaction replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md) if your database meets the requirements for transactional replication. If you can afford some downtime or you are performing a test migration of a production database for later migration, consider one of the following three methods:
-
-* [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): For small to medium databases, migrating a compatible SQL Server 2005 or later database is as simple as running the [Deploy Database to Microsoft Azure Database Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) in SQL Server Management Studio.
-* [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) and then [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): If you have connectivity challenges (no connectivity, low bandwidth, or timeout issues) and for medium to large databases, use a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. With this method, you export the SQL Server schema and data to a BACPAC file. You then import the BACPAC file into SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio or the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
-* Use BACPAC and BCP together: Use a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file and [BCP](https://msdn.microsoft.com/library/ms162802.aspx) for much larger databases to achieve greater parallelization for increases performance, albeit with greater complexity. With this method, migrate the schema and the data separately.
-  
-  * [Export the schema only to a BACPAC file](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
-  * [Import the schema only from the BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) into SQL Database.
-  * Use [BCP](https://msdn.microsoft.com/library/ms162802.aspx) to extract the data into flat files and then [parallel load](https://technet.microsoft.com/library/dd425070.aspx) these files into Azure SQL Database.
-    
-     ![SQL Server database migration - migrate SQL database to the cloud.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
-
 ## Next steps
-* [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-* [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+* Use the script on the Azure SQL EMEA Engineers blog to [Monitor tempdb usage during migration](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
+* Use the script on the Azure SQL EMEA Engineers blog to [Monitor the transaction log space of your database while migration is occurring](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+* For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* For information about working with UTC time after migration, see [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
+* For information about changing the default language of a database after migration, see [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
 
-## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
-  [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-* [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

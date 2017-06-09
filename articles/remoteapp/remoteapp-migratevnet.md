@@ -1,9 +1,9 @@
-﻿---
+---
 title: How to migrate from a RemoteApp VNET to an Azure VNET | Microsoft Docs
 description: Learn how to migrate from a RemoteApp VNET to an Azure VNET
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: baea5d29-353b-48f8-b47f-806f2163e067
@@ -12,13 +12,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # How to migrate a hybrid collection from a RemoteApp VNET to an Azure VNET
 > [!IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+> Azure RemoteApp is being discontinued on August 31, 2017. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 > 
 > 
 

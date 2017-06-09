@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -21,7 +21,7 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -51,9 +51,7 @@ The following are general steps involved in creating common live streaming appli
    
     Use this URL to verify that your channel is properly receiving the live stream.
 5. Create an event/program (that will also create an asset). 
-6. Publish the event (that will create an  OnDemand locator for the associated asset).  
-   
-    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+6. Publish the event (that will create an  OnDemand locator for the associated asset).    
 7. Start the event when you are ready to start streaming and archiving.
 8. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 9. Stop the event whenever you want to stop streaming and archiving the event.
@@ -62,13 +60,12 @@ The following are general steps involved in creating common live streaming appli
 ## In this tutorial
 In this tutorial, the Azure portal is used to accomplish the following tasks: 
 
-1. Configure streaming endpoints.
-2. Create a channel that is enabled to perform live encoding.
-3. Get the Ingest URL in order to supply it to live encoder. The live encoder will use this URL to ingest the stream into the Channel. .
-4. Create an event/program (and an asset)
-5. Publish the asset and get streaming URLs  
-6. Play your content 
-7. Cleaning up
+1. Create a channel that is enabled to perform live encoding.
+2. Get the Ingest URL in order to supply it to live encoder. The live encoder will use this URL to ingest the stream into the Channel.
+3. Create an event/program (and an asset).
+4. Publish the asset and get streaming URLs.  
+5. Play your content.
+6. Cleaning up.
 
 ## Prerequisites
 The following are required to complete the tutorial.
@@ -78,29 +75,7 @@ The following are required to complete the tutorial.
 * A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 * A webcam and an encoder that can send a single bitrate live stream.
 
-## Configure streaming endpoints
-Media Services provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
-
-To take advantage of dynamic packaging, you need to get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.  
-
-To create and change the number of streaming reserved units, do the following:
-
-1. Log in at the [Azure portal](https://portal.azure.com/) and select your AMS account.
-2. In the **Settings** window, click **Streaming endpoints**. 
-3. Click on the default streaming endpoint. 
-   
-    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
-4. To specify the number of streaming units, slide the **Streaming units** slider.
-   
-    ![Streaming units](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Click the **Save** button to save your changes.
-   
-   > [!NOTE]
-   > The allocation of any new units can take up to 20 minutes to complete.
-   > 
-   > 
-
-## Create a CHANNEL
+## Create a channel
 1. In the [Azure portal](https://portal.azure.com/), select Media Services and then click on your Media Services account name.
 2. Select **Live Streaming**.
 3. Select **Custom create**. This option will let you create a channel that is enabled for live encoding.
@@ -169,6 +144,9 @@ If you do want to retain the archived content, but not have it available for str
 ### Create/start/stop events
 Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
 
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+
 There are two ways to start event: 
 
 1. From the **Channel** page, press **Live Event** to add a new event.
@@ -213,7 +191,7 @@ To manage your assets, select **Setting** and click **Assets**.
 
 ## Considerations
 * Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
-* Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+* Make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 
 ## Next step
 Review Media Services learning paths.

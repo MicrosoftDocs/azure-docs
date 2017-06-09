@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -29,6 +29,7 @@ Microsoft Azure Media Services (AMS) enables you to secure your media from the t
 AMS provides a service for delivering DRM licenses and AES clear keys to authorized clients. The Azure portal enables you to create one **key/license authorization policy** for all types of encryptions.
 
 This article demonstrates how to configure content protection policies with the Azure portal. The article also shows how to apply dynamic encryption to your assets.
+
 
 > [!NOTE]
 > If you used the Azure classic portal to create protection policies, the policies may not appear in the [Azure portal](https://portal.azure.com/). However, all the old polices still exist. You can examine them using the Azure Media Services .NET SDK or the [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) tool (to see the policies, right-click on the asset -> Display information (F4)->click on Content keys tab-> click on the key). 
@@ -90,10 +91,7 @@ To enable FairPlay encryption, you need to provide the App Certificate and Appli
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## Apply dynamic encryption to your asset
-To take advantage of dynamic encryption, you need to do the following:
-
-* Encode your source file into a set of adaptive-bitrate MP4 files.
-* Get at least one on-demand streaming unit for the streaming endpoint from which you plan to deliver your content. For more information, see [How to scale on-demand streaming reserved units](media-services-portal-manage-streaming-endpoints.md).
+To take advantage of dynamic encryption, you need to encode your source file into a set of adaptive-bitrate MP4 files.
 
 ### Select an asset that you want to encrypt
 To see all your assets, select **Settings** > **Assets**.

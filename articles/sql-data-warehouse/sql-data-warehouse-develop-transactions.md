@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 
@@ -178,7 +179,7 @@ To learn more about optimizing transactions, see [Transactions best practices][T
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[DWU]: ./sql-data-warehouse-overview-what-is.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 [Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md

@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/azure-stack/azure-stack-provision-vm
 title: Azure Stack POC key tasks | Microsoft Docs
 description: Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine.
 services: azure-stack

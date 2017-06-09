@@ -1,5 +1,5 @@
-﻿---
-title: How to set up the Business Glossary for governed tagging | Microsoft Docs
+---
+title: Set up the business glossary for governed tagging in Azure Data Catalog | Microsoft Docs
 description: How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets.
 services: data-catalog
 documentationcenter: ''
@@ -14,75 +14,69 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 05/15/2017
 ms.author: maroche
 
 ---
-# How to set up the Business Glossary for Governed Tagging
+# Set up the business glossary for governed tagging
 ## Introduction
-Azure Data Catalog provides capabilities for data source discovery, enabling users to easily discover and understand the data sources they need to perform analysis and make decisions. These discovery capabilities make the biggest impact when users can find and understand the broadest range of available data sources.
+Azure Data Catalog enables data-source discovery, so you can easily discover and understand the data sources that you need to perform analysis and make decisions. These capabilities make the biggest impact when you can find and understand the broadest range of available data sources.
 
-One Data Catalog feature that promotes greater understanding of assets data is tagging. Tagging allows users to associate keywords with an asset or a column, which in turn makes it easier to discover the asset via searching or browsing, and allows users to more easily understand the context and intent of the asset.
+One Data Catalog feature that promotes greater understanding of assets data is tagging. By using tagging, you can associate keywords with an asset or a column, which in turn makes it easier to discover the asset via searching or browsing. Tagging also helps you more easily understand the context and intent of the asset.
 
-However, tagging can sometimes cause problems of its own. Some examples of problems that can be introduced by tagging are:
+However, tagging can sometimes cause problems of its own. Some examples of problems that tagging can introduce are:
 
-1. Users using abbreviations on some assets and expanded text on others while tagging. This inconsistency hinders the discovery of assets even though the intent was to tag the assets with the same tag.
-2. Tags which mean different things in different contexts. For example, a tag called "Revenue" on a customer data set might mean revenue by customer, but the same tag on a quarterly sales dataset could mean quarterly revenue for the company.  
+* The use of abbreviations on some assets and expanded text on others. This inconsistency hinders the discovery of assets, even though the intent was to tag the assets with the same tag.
+* Potential variations in meaning, depending on context. For example, a tag called *Revenue* on a customer data set might mean revenue by customer, but the same tag on a quarterly sales dataset might mean quarterly revenue for the company.  
 
-To help address these and other similar challenges, Data Catalog includes a Business Glossary.
+To help address these and other similar challenges, Data Catalog includes a business glossary.
 
-The Data Catalog Business Glossary allows organizations to document key business terms and their definitions to create a common business vocabulary. This governance enables consistency in data usage across the organization. Once terms are defined in the business glossary, they can be assigned to data assets in the catalog, using the same approach as tagging, thereby enabling *governed tagging*.
-
-> [!NOTE]
-> The functionality described in this article are available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
-> 
-> 
+By using the Data Catalog business glossary, an organization can document key business terms and their definitions to create a common business vocabulary. This governance enables consistency in data usage across the organization. After a term is defined in the business glossary, it can be assigned to a data asset in the catalog. This approach, *governed tagging*, is the same approach as tagging.
 
 ## Glossary availability and privileges
-*The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*
+The business glossary is available only in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary, and it does not provide capabilities for governed tagging.
 
-The business glossary can be accessed via the "Glossary" option in the Data Catalog portal's navigation menu.  
+You can access the business glossary via the **Glossary** option in the Data Catalog portal's navigation menu.  
 
 ![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
-Data Catalog administrators and members of the Glossary Administrators role can create, edit and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions, and can tag assets with glossary terms.
+Data Catalog administrators and members of the glossary administrators role can create, edit, and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions and tag assets with glossary terms.
 
 ![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## Creating glossary terms
-Data Catalog administrators and Glossary administrators can create new glossary terms by clicking on the New Term’ button to create glossary terms with the following fields:
+Data Catalog administrators and glossary administrators can create glossary terms by clicking the **New Term** button. Each glossary term contains the following fields:
 
 * A business definition for the term
-* A description which captures the intended use or business rules for the asset/column
+* A description that captures the intended use or business rules for the asset or column
 * A list of stakeholders who know the most about the term
 * The parent term, which defines the hierarchy in which the term is organized
 
 ## Glossary term hierarchies
-The Data Catalog business glossary provides the ability to describe your business vocabulary as a hierarchy of terms. This allows organizations to create a classification of terms which better represents their business taxonomy.
+By using the Data Catalog business glossary, an organization can describe its business vocabulary as a hierarchy of terms, and it can create a classification of terms that better represents its business taxonomy.
 
-The name of a term must be unique at a given level of hierarchy - duplicate names are not allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
+A term must be unique at a given level of hierarchy. Duplicate names are not allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
 
-The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms will create a flat (non-hierarchical) list of terms in the glossary.  
+The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms creates a flat (non-hierarchical) list of terms in the glossary.  
 
 ## Tagging assets with glossary terms
-Once glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as the user types their tag. The Data Catalog portal displays a list of matching glossary terms for the user to choose from. If the user selects a glossary term from the list it is added to the asset as a tag (a.k.a. glossary tag). The user can also choose to create a new tag by typing a term which is not in the glossary (a.k.a. user tag).
+After glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as a user types a tag. The Data Catalog portal displays a list of matching glossary terms to choose from. If the user selects a glossary term from the list, the term is added to the asset as a tag (also called a glossary tag). The user can also choose to create a new tag by typing a term that's not in the glossary (also called a user tag).
 
 ![Data asset tagged with one user tag and two glossary tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
 > [!NOTE]
-> User Tags are the only type of tag supported in the Free Edition of Data Catalog.
-> 
-> 
+> User tags are the only type of tag supported in the Free Edition of Data Catalog.
+>
+>
 
 ### Hover behavior on tags
-In the Data Catalog portal the two types of tags are visually distinct, with different hover behaviors. When the user hovers over a user tag they can see the tag text and the user or users who have added the tag. When the user hovers over a glossary tag, they also see the definition of the glossary term and a link to open the business glossary to view the full definition of the term.
+In the Data Catalog portal, the two types of tags are visually distinct and present different hover behaviors. When you hover over a user tag, you can see the tag text and the user or users who have added the tag. When you hover over a glossary tag, you also see the definition of the glossary term and a link to open the business glossary to view the full definition of the term.
 
 ### Search filters for tags
-Both glossary tags and user tags are searchable, and can be applied as filters in a search.
+Glossary tags and user tags are both searchable, and you can apply them as filters in a search.
 
 ## Summary
-The business glossary in Azure Data Catalog, and the governed tagging it enables, allow data assets to be identified, managed, and discovered in a consistent manner. The business glossary can promote learning of the business vocabulary amongst users of an organization and supports meaningful meta-data to be captured, making asset discovery and understanding a breeze.
+By using the business glossary in Azure Data Catalog, and the governed tagging it enables, you can identify, manage, and discover data assets in a consistent manner. The business glossary can promote learning of the business vocabulary by organization members. The glossary also supports capturing meaningful metadata, which simplifies asset discovery and understanding.
 
-## See Also
+## Next steps
 * [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
-
