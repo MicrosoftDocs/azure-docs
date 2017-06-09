@@ -172,7 +172,7 @@ Create a recovery key, then confirm your recovery key.
       > If you want to use a different region for your gateway later, 
       > you must set up a new gateway.
 
-    3. When you're ready, choose **Done**.
+   3. When you're ready, choose **Done**.
 
 7. Now follow these steps in the Azure portal so you can 
 [create an Azure resource for your gateway](../logic-apps/logic-apps-gateway-connection.md). 
