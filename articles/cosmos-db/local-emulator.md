@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 06/09/2017
 ms.author: arramac
 
 ---
@@ -317,7 +317,7 @@ Use the following tips to help troubleshoot issues you encounter with the Azure 
 
 - If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- If you receive a **Service Unavailable** message, it means that the emulator is failing to initialize the network stack.  This is typically caused by a network filter driver installed by third party software. Known software that causes this problem is Pulse secure client and Juniper networks client. Typically uninstalling this software fixes the issue.
+- If you receive a **Service Unavailable** message, the emulator might be failing to initialize the network stack. Check to see if you have the Pulse secure client or Juniper networks client installed, as their network filter drivers may cause the problem. Uninstalling third party network filter drivers typically fixes the issue.
 
 ### <a id="trace-files"></a>Collect trace files
 
