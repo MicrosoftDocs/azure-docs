@@ -20,6 +20,7 @@ You can use the Bing Speech Recognition API with cURL to convert spoken audio to
 The Speech Recognition web example demonstrates the following features when you use a .wav file or an external microphone input:
  * Access-token generation
  * Short-form recognition
+ 
 This example assumes that cURL is available in your bash environment.
 
 ## <a name="Prerequisites"></a>Prerequisites
