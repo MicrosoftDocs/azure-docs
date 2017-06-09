@@ -1,5 +1,5 @@
 ---
-title: Run Hadoop MapReduce samples on HDInsight | Microsoft Docs
+title: Run Hadoop MapReduce samples on HDInsight - Azure | Microsoft Docs
 description: Get started using MapReduce samples with HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.
 services: hdinsight
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Develop Python MapReduce jobs with HDInsight | Microsoft Docs
+title: Develop Python MapReduce jobs with HDInsight - Azure | Microsoft Docs
 description: Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters.
 services: hdinsight
 documentationcenter: ''
