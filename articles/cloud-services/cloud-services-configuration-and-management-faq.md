@@ -122,12 +122,12 @@ We recommend that customers install the full certificate chain (leaf cert, inter
 To set up a static IP address, you need to create a reserved IP. This reserved IP can be associated to a new cloud service or to an existing deployment. See the following documents for details:
 * [How to create a reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
 * [Reserve the IP address of an existing cloud service](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Associate a reserved IP to a new cloud service](..virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Associate a reserved IP to a new cloud service](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
 * [Associate a reserved IP to a running deployment](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
 * [Associate a reserved IP to a cloud service by using a service configuration file](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ## What is the quota limit for my cloud service?
-See [Service-specific limits](../../azure-subscription-service-limits.md#subscription-limits).
+See [Service-specific limits](../azure-subscription-service-limits.md#subscription-limits).
 
 ## Why does the drive on my cloud service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %uproot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
