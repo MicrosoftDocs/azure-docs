@@ -26,7 +26,7 @@ If you have existing Linux VMs in Azure that use unmanaged disks in storage acco
 > [!IMPORTANT] 
 > During the conversion, you deallocate the VM. The VM receives a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, use a reserved IP.
 
-## Prepare Availability Set for conversion
+## Prepare availability set for conversion
 
 > [!NOTE] 
 > Skip this step if your VM is not in an availability set.
@@ -62,7 +62,7 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 }
 ```
 
-## Convert VMs Not in an availability set
+## Convert VMs not in an availability set
 For a VM that is not in an availability set, you just need to deallocate the VM and then convert to managed disk.
 
 ```powershell
