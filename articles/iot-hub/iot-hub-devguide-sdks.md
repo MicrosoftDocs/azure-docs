@@ -68,7 +68,7 @@ The following Azure IoT service SDKs are available to download from GitHub:
 
 ## Azure IoT Edge
 
-Azure IoT Edge contains the infrastructure and modules to create IoT gateway solutions. You can extend the IoT Edge to create gateways tailored to any end-to-end scenario.
+Azure IoT Edge contains the infrastructure and modules to create IoT gateway solutions. You can extend IoT Edge to create gateways tailored to any end-to-end scenario.
 
 You can download [Azure IoT Edge][lnk-iot-edge] from GitHub.
 

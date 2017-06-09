@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 6/07/2017
 ms.author: johnkem
 
 ---
@@ -332,6 +332,17 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
 |CustomerInsightsApiCalls|CustomerInsightsApiCalls|Count|Total||
+
+## Microsoft.DataLakeAnalytics/accounts
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|
+|---|---|---|---|---|
+|JobEndedSuccess|Successful Jobs|Count|Total|Count of successful jobs.|
+|JobEndedFailure|Failed Jobs|Count|Total|Count of failed jobs.|
+|JobEndedCancelled|Cancelled Jobs|Count|Total|Count of cancelled jobs.|
+|JobAUEndedSuccess|Successful AU Time|Seconds|Total|Total AU time for successful jobs.|
+|JobAUEndedFailure|Failed AU Time|Seconds|Total|Total AU time for failed jobs.|
+|JobAUEndedCancelled|Cancelled AU Time|Seconds|Total|Total AU time for cancelled jobs.|
 
 ## Microsoft.DBforMySQL/servers
 

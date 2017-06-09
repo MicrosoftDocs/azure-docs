@@ -1,7 +1,8 @@
 ---
-title: Develop Python MapReduce jobs with HDInsight | Microsoft Docs
-description: Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters.
+title: Develop Python streaming MapReduce jobs with HDInsight - Azure | Microsoft Docs
+description: Learn how to use Python in streaming MapReduce jobs. Hadoop provides a streaming API for MapReduce for writing in languages other than Java.
 services: hdinsight
+keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: ''
 author: Blackmist
 manager: jhubbard
@@ -10,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -19,9 +20,9 @@ ms.date: 05/03/2017
 ms.author: larryfr
 
 ---
-# Develop Python streaming programs for HDInsight
+# Develop Python streaming MapReduce programs for HDInsight
 
-Learn how to use Python in MapReduce operations. Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
+Learn how to use Python in streaming MapReduce operations. Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
 
 ## Prerequisites
 
@@ -160,7 +161,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 3. To ensure the mapper.py and reducer.py have the correct line endings, use the following commands:
 
     ```bash
-    perl -pi -e 's/\r\n/\n/g' mappery.py
+    perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 
