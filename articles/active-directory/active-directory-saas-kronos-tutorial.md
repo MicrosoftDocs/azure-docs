@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 06/11/2017
 ms.author: jeedes
 
 ---
@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.kronos.net/wfc/navigator/logonWithUID`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [Kronos support team](https://www.kronos.in/contact/en-in/form) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Kronos support team](https://www.kronos.in/contact/en-in/form) to get these values.
  
  4. Your Kronos application expects the SAML assertions in a specific format. Work with [Kronos support team](https://www.kronos.in/contact/en-in/form) first to identify the correct user identifier, which is mapped into the application. 
 
@@ -124,10 +124,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-kronos-tutorial/tutorial_kronos_attribute.png)
 
 5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
-		| Attribute Name | Attribute Value |
-		| ------------------- | -------------------- |    
-		| NameIdentifier      | ExtractMailPrefix(userprincipalname) |	
+
+	| Attribute Name | Attribute Value |
+	| ------------------- | -------------------- |    
+	| NameIdentifier      | ExtractMailPrefix (userprincipalname) |	
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 			
@@ -153,7 +153,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -191,9 +190,6 @@ The objective of this section is to create a test user in the Azure portal calle
 In this section, you create a user called Britta Simon in Kronos. Kronos application needs all the users to be provisioned in the application before doing SSO. 
 
 Work with the [Kronos support team](https://www.kronos.in/contact/en-in/form) to provision all these users into the application. 
-
->[!NOTE]
->If you need to create a user manually or batch of users, you need to contact the [Kronos support team](https://www.kronos.in/contact/en-in/form). 
 
 ### Assigning the Azure AD test user
 
@@ -235,8 +231,6 @@ When you click the Kronos tile in the Access Panel, you should get automatically
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
