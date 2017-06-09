@@ -1,5 +1,5 @@
 ---
-title: Use Hive with Hadoop for website log analysis| Microsoft Docs
+title: Use Hive with Hadoop for website log analysis - Azure HDInsight | Microsoft Docs
 description: Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data.
 services: hdinsight
 documentationcenter: ''
