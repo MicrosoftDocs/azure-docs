@@ -1,5 +1,5 @@
 ---
-title: Enable heap dumps for Hadoop services on HDInsight | Microsoft Docs
+title: Enable heap dumps for Hadoop services on HDInsight - Azure | Microsoft Docs
 description: Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
 services: hdinsight
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Use a Java user-defined function (UDF) with Hive in HDInsight | Microsoft Docs
+title: Use a Java user-defined function (UDF) with Hive in HDInsight - Azure | Microsoft Docs
 description: Learn how to create and use a Java user-defined function (UDF) from Hive in HDInsight.
 services: hdinsight
 documentationcenter: ''

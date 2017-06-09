@@ -1,5 +1,5 @@
 ---
-title: Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Docs
+title: Use Hue with Hadoop on HDInsight Linux clusters - Azure | Microsoft Docs
 description: Learn how to install and use Hue with Hadoop clusters on HDInsight Linux.
 services: hdinsight
 documentationcenter: ''
