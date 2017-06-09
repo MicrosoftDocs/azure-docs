@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.asana.com`
+    In the **Sign-on URL** textbox, type a URL: `https://app.asana.com`
 
 	> [!NOTE] 
 	> This value is not real. Update this value with the actual Sign-On URL. Contact [Asana Client support team](https://asana.com/guide/help/premium/authentication#gl-saml) to get this value. 
