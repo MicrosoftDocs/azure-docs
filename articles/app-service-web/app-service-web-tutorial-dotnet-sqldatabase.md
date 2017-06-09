@@ -291,7 +291,7 @@ That's all you need to see the changes in the `Index` and `Create` views.
 
 Type `Ctrl+F5` to run the app.
 
-You can now to add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
+You can now add a to-do item and check **Done**. Then it should show up in your homepage as a completed item. Remember that the `Edit` view doesn't show the `Done` field, because you didn't change the `Edit` view.
 
 ### Enable Code First Migrations in Azure
 
@@ -317,7 +317,10 @@ Now that you enabled Code First Migrations in your Azure web app, publish your c
 
 In the publish page, click **Publish**.
 
-Try adding to-do items again and select **Done**, and they should show up in your homepage as a completed item.
+Try adding to-do items again andgit status
+git add .
+git commit -am "fix"
+git push origin ra/dn-sql select **Done**, and they should show up in your homepage as a completed item.
 
 ![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
