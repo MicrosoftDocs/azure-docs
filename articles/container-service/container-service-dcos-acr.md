@@ -183,7 +183,7 @@ To use an image from the ACR registry, create a file names *acrDemo.json* and co
       "maxConsecutiveFailures": 10
   }],
   "uris":  [
-       "file:///mnt/share/dcos/docker.tar.gz"
+       "file:///mnt/share/dcosshare/docker.tar.gz"
    ]
 }
 ```
