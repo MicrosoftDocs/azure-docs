@@ -74,7 +74,7 @@
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ## Troubleshoot
 ### [Collect logs](site-recovery-monitoring-and-troubleshooting.md)
-### [Azure VM replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Azure to Azure replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Reference
