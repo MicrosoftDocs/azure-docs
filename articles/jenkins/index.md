@@ -46,9 +46,8 @@ ms.author: mlearned
 <h2 style="margin-top: 36px">Reference</h2>
 <ul>
   <li>Install Jenkins from <a href="https://azure.microsoft.com/en-us/resources/videos/host-jenkins-on-azure/">from the Azure Marketplace. (Video)</a>
-  <li>CI with Jenkins using <a href="https://azure.microsoft.com/resources/videos/continuous-integration-with-jenkins-using-azure-vm-agents/">Azure VM agents.</a></li>
+  <li>CI with Jenkins using <a href="https://azure.microsoft.com/resources/videos/continuous-integration-with-jenkins-using-azure-vm-agents/">Azure VM agents. (Video)</a></li>
   <li>Jenkins with <a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM agents</a></li>
-  <li>Find Azure Jenkins <a href="https://plugins.jenkins.io/">plugins.</a></li>
   <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services</a>.</li> 
   <li>DevOps with <a href="https://blogs.msdn.microsoft.com/mikerichter/2016/06/29/devops-on-windows-with-jenkins-and-azure-resource-manager/">Jenkins and Azure Resource Manager</a></li>
 </ul>
