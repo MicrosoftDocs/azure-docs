@@ -41,6 +41,7 @@ ms.author: mlearned
 <p>Samples to use with your scenarios.</p>
 <ul>
     <li><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/201-jenkins-acr">Jenkins to Azure Container Registry template</a></li>
+    <li>Jenkins <a href="https://github.com/jenkinsci/pipeline-examples">pipeline examples</a>
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
