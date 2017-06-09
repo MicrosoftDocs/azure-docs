@@ -131,7 +131,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add three claims named **department**, **firstname**, and **lastname** and the value is to be mapped with **user.department**, **user.givenname**, and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
-	| --- | --- |    
+	| --- | --- |
+	| email| user.mail |    
 	| department| user.department |
 	| firstname| user.givenname |
 	| lastname| user.surname |
