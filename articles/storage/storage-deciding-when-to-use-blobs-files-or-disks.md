@@ -21,7 +21,7 @@ ms.author: robinsh
 
 Microsoft Azure provides several features in Azure Storage for storing and accessing your data in the cloud. This article covers Azure Files, Blobs, and Data Disks, and is designed to help you choose between these features.
 
-## Example use cases
+## Scenarios
 
 The following table compares Files, Blobs, and Data Disks, and shows example scenarios appropriate for each.
 
@@ -30,9 +30,6 @@ The following table compares Files, Blobs, and Data Disks, and shows example sce
 | **Azure Files** | Provides an SMB interface, client libraries, and a [REST interface](/rest/api/storageservices/file-service-rest-api) that allows access from anywhere to stored files. | You want to "lift and shift" an application to the cloud which already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to store development and debugging tools that need to be accessed from many virtual machines. |
 | **Azure Blobs** | Provides client libraries and a [REST interface](/rest/api/storageservices/blob-service-rest-api) that allows unstructured data to  be stored and accessed at a massive scale in block blobs. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere. |
 | **Azure Data Disks** | Provides client libraries and a [REST interface](/rest/api/compute/virtualmachines/virtualmachines-create-or-update) that allows data to be  persistently stored and accessed from an attached virtual hard disk. | You want to lift and shift applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
-
-> [!NOTE]
->  For more information about using client libraries with storage services, see [Introduction to Microsoft Azure Storage](storage-introduction.md).  
 
 ## Comparison: Files and Blobs
 The following table compares Azure Files with Azure Blobs.  
@@ -43,7 +40,7 @@ The following table compares Azure Files with Azure Blobs.
 |Durability options|LRS, ZRS, GRS (and RA-GRS for higher availability)|LRS, GRS|  
 |Accessibility|REST APIs|REST APIs<br /><br /> SMB 2.1 and SMB 3.0 (standard file system APIs)|  
 |Connectivity|REST APIs -- Worldwide|REST APIs - Worldwide<br /><br /> SMB 2.1 -- Within region<br /><br /> SMB 3.0 -- Worldwide|  
-|Endpoints|http://myaccount.blob.core.windows.net/mycontainer/myblob|\\\myaccount.file.core.windows.net\myshare\myfile.txt<br /><br /> http://myaccount.file.core.windows.net/myshare/myfile.txt|  
+|Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directories|Flat namespace|True directory objects|  
 |Case sensitivity of names|Case sensitive|Case insensitive, but case preserving|  
 |Capacity|Up to 500 TB containers|5 TB file shares|  
@@ -70,9 +67,11 @@ The following table compares Azure Files with Azure Blobs.
 |Max Size|1 TB disk|5 TB File Share and 1 TB file within share|  
 |Max 8KB IOps|500 IOps|1000 IOps|  
 |Throughput|Up to 60 MB/s per Disk|Up to 60 MB/s per File Share|  
+
+## Next steps
+
+When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
   
- When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).  
+Some SMB features are not applicable to the cloud. For more information, see [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
- Some SMB features are not applicable to the cloud. For more information, see [Features Not Supported By the Azure File Service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).  
-  
- For more information about data disks, see [Managing Disks and Images](storage-about-disks-and-vhds-linux.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md).
+For more information about data disks, see [Managing disks and images](storage-about-disks-and-vhds-linux.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/windows/classic/attach-disk.md).
