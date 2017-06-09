@@ -5,6 +5,7 @@
 # Get Started
 ## [Create a registry in the portal](container-registry-get-started-portal.md)
 ## [Create a registry with the Azure CLI 2.0](container-registry-get-started-azure-cli.md)
+## [Create a registry with Azure PowerShell](container-registry-get-started-powershell.md)
 ## [Push and pull an image](container-registry-get-started-docker-cli.md)
 ## [View repositories](container-registry-repositories.md)
 
