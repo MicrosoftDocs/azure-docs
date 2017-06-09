@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/09/2017
 ms.author: terrylan
 
 ---
@@ -35,6 +35,8 @@ The following table displays roles and allowed actions in Security Center. An X 
 | Resource Group Owner | -- | X | -- | -- | X |
 | Resource Group Contributor | -- | X | -- | -- | X |
 | Reader | -- | -- | -- | X | X |
+| Security Administrator | X | -- | X | X | X |
+| Security Reader | -- | -- | -- | X | X |
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.
