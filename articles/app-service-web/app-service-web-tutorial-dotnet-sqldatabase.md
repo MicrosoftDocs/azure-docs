@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* [Visual Studio 2017 Home page installer](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* Install [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 
 Run the installer and select the following workloads under **Web & Cloud**:
  - **ASP.NET and web development**
@@ -86,6 +86,10 @@ In the **Create App Service** dialog, click **Add an account**, and then sign in
 
 Once signed in, you're ready to create all the resources you need for your Azure web app in this dialog.
 
+### Configure the web app name
+
+You can keep the generated web app name, or change it to another unique name. The web app name is used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`). The web app needs to be unique across all apps in Azure. 
+
 ### Create a resource group
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
@@ -99,6 +103,9 @@ Next to **Resource Group**, click **New**.
 ![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
 Name the resource group **myResourceGroup**, and click **OK**.
+
+> [!NOTE]
+> Do not click **Create**. You first need to setup a SQL Database in the next step.
 
 ### Create an App Service plan
 
@@ -116,10 +123,6 @@ Click **OK**.
 
 ![Create App Service plan](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-### Configure the web app name
-
-You can keep the generated web app name, or change it to another unique name. The web app name is used as part of the default DNS name for your app (`<app_name>.azurewebsites.net`). The web app needs to be unique across all apps in Azure. 
-
 ### Create a SQL Server instance
 
 Select **Explore additional Azure services**.
@@ -132,7 +135,7 @@ In the **Services** tab, click the **+** icon next to **SQL Database**.
 
 In the **Configure SQL Database** dialog, click **New** next to **SQL Server**. 
 
-A unique server name is generated. This name is used as part of the default DNS name for your database server, `<server_name>.database.windows.net`. It must be unique across all SQL Server instances in Azure. 
+A unique server name is generated. This name is used as part of the default DNS name for your database server, `<server_name>.database.windows.net`. It must be unique across all SQL Server instances in Azure. You can change the server name, but for this tutorial, keep the generated value.
 
 Add an administrator username and password, and then select **OK**.
 
