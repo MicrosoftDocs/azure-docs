@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2017
+ms.date: 06/11/2017
 ms.author: jeedes
 
 ---
@@ -110,8 +110,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.domo.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.domo.com`
+	b. In the **Identifier** textbox, type a URL using the following patterns: 	   
 
+	| |
+	|--|	
+	| `https://<companyname>.domo.com` |
+	| `https://<companyname>.beta.domo.com` |
+	| `https://<companyname>.demo.domo.com` |
+	| `https://<companyname>.dev.domo.com` | 
+	| `https://<companyname>.fastage1.domo.com` |       
+	| `https://<companyname>.frdev.domo.com` |       
+	| `https://<companyname>.gastage.domo.com` |       
+	| `https://<companyname>.load.domo.com` |       
+	| `https://<companyname>.local.domo.com` |       
+	| `https://<companyname>.qa.domo.com` |
+	| `https://<companyname>.stage.domo.com` |
+	
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Domo Client support team](mailto:support@domo.com) to get these values.
 
@@ -130,10 +144,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_attribute_04.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
 	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_attribute_05.png)
 
+	b. In the **Name** textbox, type the attribute name shown for that row.
+	
 	c. From the **Value** list, type the attribute value shown for that row.
 	
 	d. Click **Ok**. 
@@ -146,7 +160,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **Domo** side, you need to send the downloaded **Certificate** to [Domo support team](mailto:support@domo.com). They set this setting to have the SAML SSO connection set properly on both sides.
+
+8. On the **Domo Configuration** section, click **Configure Domo** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**	
+
+   ![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_configure.png) 
+
+9. To configure single sign-on on **Domo** side, you need to send the downloaded **Certificate**, **SAML Entity ID**, the **SAML Single Sign-On Service URL** and the **Sign-Out URL** to [Domo support team](mailto:support@domo.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
