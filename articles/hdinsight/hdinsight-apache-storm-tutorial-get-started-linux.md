@@ -17,7 +17,7 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: larryfr
 
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ---
 #Get started with Apache Storm on HDInsight using the storm-starter examples
 
