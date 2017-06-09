@@ -89,7 +89,7 @@ Also, gateway performance might suffer over a wireless network.
 [work or school account](https://docs.microsoft.com/azure/active-directory/sign-up-organization) 
 that's managed by Azure Active Directory (Azure AD), not a Microsoft account. 
 
-  You must use the same work or school account later in the Azure portal when you create 
+  You have to use the same work or school account later in the Azure portal when you create 
   and associate a gateway resource with your gateway installation. You then select this 
   gateway resource when you create the connection between your logic app and the 
   on-premises data source. [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
@@ -131,8 +131,8 @@ Choose **Register a new gateway on this computer**.
    The gateway cloud service encrypts and stores your 
    data source credentials and gateway details. 
    The service also routes queries and their results 
-   between users in the cloud, like your logic app, 
-   the on-premises data gateway, and your data source on premises.
+   between your logic app, the on-premises data gateway, 
+   and your data source on premises.
 
 6. Provide a name for your gateway installation. 
 Create a recovery key, then confirm your recovery key. 
@@ -293,8 +293,7 @@ In some cases, the Azure Service Bus connections are made with IP Address rather
 <a name="gateway-cloud-service"></a>
 ## How does the data gateway work?
 
-The data gateway facilitates quick and secure communication 
-between a user in the cloud, like your logic app, 
+The data gateway facilitates quick and secure communication between your logic app, 
 the gateway cloud service, and your on-premises data source. 
 
 ![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
