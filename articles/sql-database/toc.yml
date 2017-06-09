@@ -143,7 +143,7 @@
     items:
     - name: Overview
       href: sql-database-troubleshoot-performance.md
-    - name: Monitor perf 
+    - name: Perf monitoring 
       href: sql-database-single-database-monitor.md
     - name: Perf recommendations
       href: sql-database-advisor.md
