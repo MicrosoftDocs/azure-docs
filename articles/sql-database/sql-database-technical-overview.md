@@ -4,7 +4,7 @@ description: 'Get an introduction to SQL Database: technical details and capabil
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
 documentationcenter: ''
-author: shontnew
+author: CarlRabeler
 manager: jhubbard
 editor: cgronlun
 
@@ -15,11 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/17/2017
-ms.author: shkurhek
+ms.date: 06/09/2017
+ms.author: carlrab
 ---
-# What is SQL Database? Introduction to SQL Database
-SQL Database is a relational database service in the Microsoft cloud based on the market-leading Microsoft SQL Server engine and capable of handling mission-critical workloads. SQL Database delivers predictable performance at multiple service levels, dynamic scalability with no downtime, built-in business continuity, and data protection — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. Because SQL Database is based on the [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) engine, SQL Database supports existing SQL Server tools, libraries, and APIs. As a result, it is easy for you to develop new solutions, to move your existing SQL Server solutions, and to extend your existing SQL Server solutions to the Microsoft cloud without having to learn new skills.
+# What is the Azure SQL Database service? 
+
+The Azure SQL Database is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud ("Azure") and is based on the [Microsoft SQL Server engine](https://docs.microsoft.com/en-us/sql/sql-server/sql-server-technical-documentation). This service is currently in 38 data centers around the world and is managing millions of production databases running a wide range of applications and workloads - from straightforward transactional data to the most data-intensive, mission-critical applications requiring advanced data processing at global scale. SQL Database supports existing [SQL Server tools, libraries, and APIs](sql-database-manage-overview.md). As a result, it is easy for you to develop new solutions, to move your existing SQL Server solutions, and to extend your existing SQL Server solutions to the Microsoft cloud without having to learn new skills.
+
+SQL Database delivers predictable performance at multiple service levels, dynamic scalability with no downtime, built-in business continuity, and data protection — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. 
 
 This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. See these quick starts to get you started:
  - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  
@@ -29,6 +32,24 @@ This article is an introduction to SQL Database core concepts and features relat
 For a set of Azure CLI and PowerShell samples, see:
  - [Azure CLI samples for Azure SQL Database](sql-database-cli-samples.md)
  - [Azure PowerShell samples for Azure SQL Database](sql-database-powershell-samples.md)
+
+## Managed databases and managed instances
+
+Since the inception of the Azure SQL Database service in 2010, an Azure SQL database is conceptually a contained database - or a managed database. In May, 2017, the concept of a [managed instance was announced](https://azure.microsoft.com/blog/new-options-to-modernize-your-application-with-azure-sql-database). A managed instance offers near 100% SQL Server compatibility with the benefits of platform as a service. Managed instances are currently in [private preview](https://sqldatabase-migrationpreview.azurewebsites.net/). 
+
+### Managed database
+
+With a managed database, each database is isolated from each other and portable, each with its own performance level - known as a [service tier](sql-database-service-tiers.md). With a managed database, you can perform all management functions from within the database itself. For managability, databases are associated with logical servers that enable you to perform administrative tasks across multiple databases - including [logins](sql-database-manage-logins.md), [firewalls](sql-database-firewall-configure.md), [auditing](sql-database-auditing.md), [threat detection](sql-database-auditing.md), and [failover groups](sql-database-geo-replication-overview.md).
+
+However, since databases are isolated from each other, features such as cross-database querying, jobs, and transactions are implemented using new techniques that require recoding of existing applications. Also, features such as SQL Server Agent, CLR, and three-part names are not supported.
+
+### Managed instance
+
+With a managed instance, features like SQL CLR, SQL Server Agent and cross-database querying will be fully supported. 
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4008/player]
+>
+
 
 ## Adjust performance and scale without downtime
 The SQL Database service offers three service tiers: Basic, Standard, Premium, and Premium RS. Each service tier offers [different levels of performance and capabilities](sql-database-service-tiers.md) to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few bucks a month and then [change its service tier](sql-database-service-tiers.md) manually or programmatically at any time to meet the needs of your solution. You can do this without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
