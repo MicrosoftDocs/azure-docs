@@ -37,7 +37,7 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
    * **Subscription**: The Azure subscription used for the account.
    * **Resource Group**: The Azure resource group in which to create the account. 
    * **Location**: The Azure datacenter for the Data Lake Analytics account. 
-   * **Data Lake Store**: The default Azure Data Lake Store to be used for the Data Lake Analytics account. The Data Lake Store account and the Data Lake Analytics account must be in the same location.
+   * **Data Lake Store**: The default store to be used for the Data Lake Analytics account. The Data Lake Store account and the Data Lake Analytics account must be in the same location.
 4. Click **Create**. 
 
 ### Delete a Data Lake Analytics account
@@ -94,7 +94,7 @@ The **Add User Wizard** let's you easily provision new Data Lake users.
 3. Select a user, and click **Select**.
 4. Select a role, and click **Select**. To enable a new developer to use Azure Data Lake, select the **Data Lake Analytics Developer** role.
 5. Select the ACLs for the U-SQL databases. When you're satisfied with the choices, click **Select**.
-6. Select the ACLs for files. For the default Data Lake Store, don't change the ACLs for the root folder "/" and for the /system folder. Click **Select**.
+6. Select the ACLs for files. For the default store, don't change the ACLs for the root folder "/" and for the /system folder. Click **Select**.
 7. Review all the changes to be made by the wizard, and then click **Run**.
 8. After the wizard is finished, click **Done**.
 
@@ -103,9 +103,9 @@ The **Add User Wizard** let's you easily provision new Data Lake users.
 Like other Azure services, you can use Role-Based Access Control (RBAC) to control how users interact with the service.
 
 The standard RBAC roles have the following capabilities:
-* **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account
-* **Contributor**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account
-* **Reader**: Can monitor jobs
+* **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.
+* **Contributor**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.
+* **Reader**: Can monitor jobs.
 
 Use the Data Lake Analytics Developer role to enable U-SQL developers to use the Data Lake Analytics service. You can use the Data Lake Analytics Developer role to:
 * Submit jobs.
@@ -123,7 +123,7 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 5. Click **OK**.
 
 >[!NOTE]
->If this user or a security group needs to submit jobs, they need permission on the Data Lake Store as well. For more information, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
+>If this user or a security group needs to submit jobs, they need permission on the store as well. For more information, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
 >
 
 <!-- ################################ -->
