@@ -17,25 +17,28 @@
 
 # How-To guides
 ## Mobile and desktop apps
-### [iOS Swift app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
 ### [iOS app using AppAuth](active-directory-b2c-devquickstarts-ios.md)
-### [Android app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
 ### [Android app using AppAuth](active-directory-b2c-devquickstarts-android.md)
 ### [.NET desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Xamarin forms app](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
+### Code samples
+#### [iOS Swift app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
+#### [Android app using MSAL](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
+#### [Xamarin forms app](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## Web apps
 ### [ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
-## Single page apps
+### Code samples
+#### [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+## Single page app code samples
 ### [JavaScript using MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript using Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web APIs
 ### [.NET web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [.NET Core web API](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Call .NET web API](active-directory-b2c-devquickstarts-web-api-dotnet.md)
-### [Node.js web API](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Secure a Node.js web API](active-directory-b2c-devquickstarts-api-node.md)
+### Code samples
+#### [.NET Core web API](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
+#### [Node.js web API](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ## Configure identity providers
 ### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
 ### [Facebook](active-directory-b2c-setup-fb-app.md)
