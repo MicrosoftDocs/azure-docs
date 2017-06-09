@@ -136,6 +136,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
+	| email| user.mail |
 	| department| user.department |
 	| firstname| user.givenname |
 	| lastname| user.surname |
