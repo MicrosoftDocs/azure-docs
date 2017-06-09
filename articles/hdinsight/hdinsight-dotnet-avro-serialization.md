@@ -17,6 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: jgao
 
+ms.custom: hdiseo17may2017
+
 ---
 # Serialize data in Hadoop with the Microsoft Avro Library
 This topic shows how to use the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> to serialize objects and other data structures into streams in order to persist them to memory, a database, or a file, and also how to deserialize them to recover the original objects.

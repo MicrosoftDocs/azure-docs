@@ -45,25 +45,25 @@ To download an older HDP version sandbox, expand the archive:
 
 1. Open Oracle VM VirtualBox.
 2. From the **File** menu, click **Import Appliance**, and then specify the Hortonworks Sandbox image.
-1. Select the Hortonworks Sandbox, click **Start**, and then **Normal Start**. Once the virtual machine has finished the boot process, it will display login instructions.
+1. Select the Hortonworks Sandbox, click **Start**, and then **Normal Start**. Once the virtual machine has finished the boot process, it displays login instructions.
    
     ![Normal start](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
 2. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
 
 ## Set Sandbox passwords
 
-1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
+1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to log in to the sandbox using SSH. Use the name and password provided.
    
    > [!NOTE]
    > If you do not have an SSH client installed, you can use the web-based SSH provided at by the virtual machine at **http://localhost:4200/**.
    > 
    
-    The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you login using SSH in the future.
+    The first time you connect using SSH, you are prompted to change the password for the root account. Enter a new password, which you use when you log in using SSH.
 2. Once logged in, enter the following command:
    
         ambari-admin-password-reset
    
-    When prompted, provide a password for the Ambari admin account. This will be used when you access the Ambari Web UI.
+    When prompted, provide a password for the Ambari admin account. This is used when you access the Ambari Web UI.
 
 ## Use Hive commands
 
