@@ -68,7 +68,7 @@ The following Azure IoT service SDKs are available to download from GitHub:
 
 ## Azure IoT Edge
 
-Azure IoT Edge contains the infrastructure and modules to create IoT gateway solutions. You can extend the IoT Edge to create gateways tailored to any end-to-end scenario.
+Azure IoT Edge contains the infrastructure and modules to create IoT gateway solutions. You can extend IoT Edge to create gateways tailored to any end-to-end scenario.
 
 You can download [Azure IoT Edge][lnk-iot-edge] from GitHub.
 
@@ -90,7 +90,7 @@ The following list contains links to online API reference documentation for Azur
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for device twins and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query]
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 

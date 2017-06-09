@@ -10,18 +10,18 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/24/2017
 ms.author: billgib; sstein
 
 ---
 # Run ad-hoc analytics queries across all Wingtip SaaS tenants
 
-In this tutorial, you create an ad-hoc analytics database and run several queries across all tenants. These queries can extract insights buried in the day-to-day operational data of the WTP app.
+In this tutorial, you create an ad-hoc analytics database and run several queries across all tenants. These queries can extract insights buried in the day-to-day operational data of the Wingtip SaaS app.
 
 To run ad-hoc analytics queries (across multiple tenants), the Wingtip SaaS app uses [Elastic Query](sql-database-elastic-query-overview.md) along with an analytics database.
 

@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -69,7 +69,7 @@ While pools can be cost-effective with just two S3 databases, the more databases
 
 If you already provisioned a batch of tenants in a prior tutorial, skip to the [Simulate usage on all tenant databases](#simulate-usage-on-all-tenant-databases) section.
 
-1. Open …\\Learning Modules\\Provision and Catalog\\*Demo-PerformanceMonitoringAndManagement.ps1* in the *PowerShell ISE*. Keep this script open as you'll run several scenarios during this tutorial.
+1. Open …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* in the *PowerShell ISE*. Keep this script open as you'll run several scenarios during this tutorial.
 1. Set **$DemoScenario** = **1**, **Provision a batch of tenants**
 1. Press **F5** to run the script.
 
@@ -91,11 +91,11 @@ The *Demo-PerformanceMonitoringAndManagement.ps1* script is provided that simula
 
 The load generator applies a *synthetic* CPU-only load to every tenant database. The generator starts a job for each tenant database, which calls a stored procedure periodically that generates the load. The load levels (in eDTUs), duration, and intervals are varied across all databases, simulating unpredictable tenant activity.
 
-1. Open …\\Learning Modules\\Provision and Catalog\\*Demo-PerformanceMonitoringAndManagement.ps1* in the *PowerShell ISE*. Keep this script open as you'll run several scenarios during this tutorial.
+1. Open …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* in the *PowerShell ISE*. Keep this script open as you'll run several scenarios during this tutorial.
 1. Set **$DemoScenario** = **2**, *Generate normal intensity load*.
 1. Press **F5** to apply a load to all your tenant databases.
 
-Wingtip is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the load pattern to emerge, so run the load generator for about 10-20 minutes before attempting to monitor the load in the following sections. Set the *$DurationMinutes* to accomodate and go have a nice meal!
+Wingtip is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the load pattern to emerge, so run the load generator for 3-5 minutes before attempting to monitor the load in the following sections.
 
 > [!IMPORTANT]
 > The load generator is running as a series of jobs in your local PowerShell session. Keep the *Demo-PerformanceMonitoringAndManagement.ps1* tab open! If you close the tab, or suspend your machine, the load generator stops. The load generator remains in a *job-invoking* state where it generates load on any new tenants that are provisioned after the generator is started. Use *Ctrl-C* to stop invoking new jobs and exit the script. The load generator will continue to run, but only on existing tenants.
@@ -152,7 +152,6 @@ You can simulate a busy pool by increasing the load produced by the generator. C
 1. Set *$DemoScenario* = **3**, _Generate load with longer and more frequent bursts per database_ to increase the intensity of the aggregate load on the pool without changing the peak load required by each database.
 1. Press **F5** to apply a load to all your tenant databases.
 
-
 1. Go to **Pool1** in the portal.
 
 Monitor the increased pool eDTU usage on the upper chart. It takes a few minutes for the new higher load to kick in, but you should quickly see the pool start to hit max utilization, and as the load steadies into the new pattern, it rapidly overloads the pool.
@@ -197,7 +196,7 @@ If a single database in a pool experiences a sustained high load, depending on t
 
 This exercise simulates the effect of Contoso Concert Hall experiencing a high load when tickets go on sale for a popular concert.
 
-1. Open the …\\*Demo-PerformanceManagementAndMonitoring.ps1* script.
+1. Open the …\\*Demo-PerformanceMonitoringAndManagement.ps1* script.
 1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approx. 95 DTU).**
 1. Set **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute the script using **F5**.

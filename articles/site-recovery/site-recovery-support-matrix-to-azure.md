@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/25/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
 
 ---
-# Azure Site Recovery support matrix for replicating to Azure
+# Azure Site Recovery support matrix for replicating from on-premises to Azure
 
 > [!div class="op_single_selector"]
-> * [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
+> * [Replicate from Azure to Azure](site-recovery-support-matrix-azure-to-azure.md)
+> * [Replicate from on-premises to Azure](site-recovery-support-matrix-to-azure.md)
 > * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 

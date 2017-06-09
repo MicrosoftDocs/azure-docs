@@ -2,19 +2,19 @@
 title: Connecting Apache Spark to Azure Cosmos DB | Microsoft Docs
 description: Use this tutorial to learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB to perform distributed aggregations and data sciences on Microsoft's multi-tenant globally distributed database system designed for the cloud.
 keywords: apache spark
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
 author: dennyglee
 manager: jhubbard
 editor: ''
 
 ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/05/2017
 ms.author: denlee
 
 ---
@@ -27,7 +27,7 @@ For working with Spark GraphX and Azure Cosmos DB's Gremlin graph APIs, see [Per
 
 ## Download
 
-Get started by downloading the Spark to Azure Cosmos DB connector (preview) from the [azure-cosmosdb-spark](https://github.com/Azure/azure-documentdb-spark/) repo on GitHub.
+Get started by downloading the Spark to Azure Cosmos DB connector (preview) from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) repo on GitHub.
 
 ## Connector components
 
@@ -244,15 +244,15 @@ df.show()
 
 Connecting Spark to Cosmos DB using the connector is typically for scenarios where:
 
-* You want to use Scala (and update it to include a Python wrapper as noted in [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-documentdb-spark/issues/3)).
+* You want to use Scala (and update it to include a Python wrapper as noted in [Issue 3: Add Python wrapper and examples](https://github.com/Azure/azure-cosmosdb-spark/issues/3)).
 * You have a large amount of data to transfer between Apache Spark and Cosmos DB.
 
-To give you an idea of the query performance difference, see the [Query Test Runs wiki](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs).
+To give you an idea of the query performance difference, see the [Query Test Runs wiki](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs).
 
 ## Distributed aggregation example
 This section provides some examples of how you can do distributed aggregations and analytics using Apache Spark and Azure Cosmos DB together.  Note, Azure Cosmos DB already has support for aggregations, as discussed in the [Planet scale aggregates with Azure Cosmos DB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/), so here is how you can take it to the next level with Apache Spark.
 
-Note, these aggregations are in reference to the [Spark to Cosmos DB Connector notebook](https://github.com/Azure/azure-documentdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb).
+Note, these aggregations are in reference to the [Spark to Cosmos DB Connector notebook](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-DocumentDB_Connector.ipynb).
 
 ### Connecting to flights sample data
 For these aggregations examples, we are accessing some flight performance data stored in our **DoctorWho** Cosmos DB database.  To connect to it, you need to utilize the following code snippet:
@@ -339,10 +339,10 @@ order by percentile_approx(delay, 0.5)
 
 ## Next steps
 
-If you haven't already, download the Spark to Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-documentdb-spark) GitHub repository and explore the additional resources in the repo:
+If you haven't already, download the Spark to Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub repository and explore the additional resources in the repo:
 
-* [Distributed Aggregations Examples](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
-* [Sample Scripts and Notebooks](https://github.com/Azure/azure-documentdb-spark/tree/master/samples)
+* [Distributed Aggregations Examples](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
+* [Sample Scripts and Notebooks](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
 You may also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) article.
 

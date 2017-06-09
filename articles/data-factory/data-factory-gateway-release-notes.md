@@ -24,8 +24,18 @@ See the following articles for detailed information about Data Management Gatewa
 *  [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## CURRENT VERSION (2.9.6313.2)
+## CURRENT VERSION (2.10.6347.7)
 
+### Enhancements-
+- You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
+- HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
+- Fixed: Issue with gateway offline during update (due to clock skew)
+
+
+
+## Earlier versions
+
+## 2.9.6313.2
 ### Enhancements-
 -	You can add DNS entries to whitelist Service Bus rather than whitelisting all Azure IP addresses from your firewall (if needed). More details here.
 -	You can now copy data to/from a single block blob up to 4.75TB, which is the max supported size of block blob. (earlier limit was 195GB).
@@ -33,9 +43,6 @@ See the following articles for detailed information about Data Management Gatewa
 -	Fixed: Index out of range issue while copying from Document DB to on premise SQL with idempotency feature.
 -	Fixed: SQL cleanup script doesn't work with on premise SQL from Copy Wizard.
 -	Fixed: Column name with space at the end does not work in copy activity.
-
-
-## Earlier versions
 
 ## 2.8.66283.3
 ### Enhancements-
@@ -91,10 +98,10 @@ See the following articles for detailed information about Data Management Gatewa
 
 ## 2.1.6040.
 
-*  DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
-*  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 
+*  DB2 driver is included in the gateway installation package now. You do not need to install it separately.
+*  DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows).
 *  Supports using Azure Cosmos DB as a source or destination for on-premises data stores
-*  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account. 
+*  Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account.
 *  Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
 
 ## 2.0.6013.1

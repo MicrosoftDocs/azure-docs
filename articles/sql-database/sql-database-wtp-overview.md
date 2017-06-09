@@ -1,5 +1,5 @@
 ---
-title: Introduction to the Wingtip SaaS application that uses Azure SQL Database | Microsoft Docs 
+title: Introduction to a multi-tenant application that uses Azure SQL Database - Wingtip SaaS | Microsoft Docs 
 description: "Learn by using a sample multi-tenant application that uses Azure SQL Database, the Wingtip SaaS app"
 keywords: sql database tutorial
 services: sql-database
@@ -7,7 +7,7 @@ author: stevestein
 manager: jhubbard
 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,7 +18,7 @@ ms.author: sstein
 ---
 # Introduction to the Wingtip SaaS application
 
-The *Wingtip SaaS* application is a sample multi-tenant app, that demonstrates the unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including several SaaS design and management patterns. To quickly get up and running, [the Wingtip SaaS app deploys in less than five minutes](sql-database-saas-tutorial.md)!
+The *Wingtip SaaS* application is a sample multi-tenant app, that demonstrates the unique advantages of SQL Database. The app uses a database-per-tenant, SaaS application pattern, to service multiple tenants. The app is designed to showcase features of Azure SQL Database that enable SaaS scenarios, including several SaaS design and management patterns. To quickly get up and running, the Wingtip SaaS app deploys in less than five minutes!
 
 Application source code and management scripts are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. To run the scripts, [download the Learning Modules folder](#download-the-wingtip-saas-scripts) to your local computer.
 
@@ -29,6 +29,7 @@ After deploying the app, explore the following tutorials that build upon the ini
 
 | Tutorial | Description | Script location |
 |:--|:--|:--|
+|[Deploy the Wingtip SaaS application](sql-database-saas-tutorial.md)| **START HERE!** Deploy the Wingtip SaaS application to your Azure subscription. | See the [deployment tutorial](sql-database-saas-tutorial.md) |
 |[Provision and catalog tenants](sql-database-saas-tutorial-provision-and-catalog.md)| Learn how the application manages tenants using a catalog database, and how the catalog maps tenants to their data. | [Learning Modules/Provision and Catalog/](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Provision%20and%20Catalog) |
 |[Monitor and manage performance](sql-database-saas-tutorial-performance-monitoring.md)| Learn how to use monitoring features of SQL Database, and how to set alerts when performance thresholds are exceeded. | [Learning Modules/Performance Monitoring and Management/](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management) |
 |[Restore a single tenant](sql-database-saas-tutorial-restore-single-tenant.md)| Learn how to restore a tenant database to a previous point in time. Steps to restore to a parallel database, leaving the existing tenant database online, are also included. | [Learning Modules/Business Continuity and Disaster Recovery/RestoreTenant/](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Business%20Continuity%20and%20Disaster%20Recovery/RestoreTenant) |
@@ -55,14 +56,16 @@ While the application is somewhat complete and compelling as a sample applicatio
 1. Click **Clone or download**.
 1. Click **Download ZIP** and save the file.
 
-**IMPORTANT**: Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run:
+### Unblock the scripts
+
+Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the repo or Learning Modules from a zip file, make sure you unblock the .zip file before extracting to ensure the scripts are allowed to run:
 
 1. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
 1. Select **Unblock**, and click **Apply**.
 1. Click **OK**.
-1. You can now extract the files.
+1. Extract the files.
 
-Scripts are located in the *...\\WingtipSaaS-master\\Learning Modules* folder.
+Scripts are located in the *..\\WingtipSaaS-master\\Learning Modules* folder.
 
 ## Working with the Wingtip SaaS PowerShell Scripts
 

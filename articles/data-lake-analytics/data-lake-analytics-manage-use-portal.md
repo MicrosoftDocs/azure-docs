@@ -36,7 +36,7 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
    * **Name**: The name of the Data Lake Analytics account.
    * **Subscription**: The Azure subscription used for the account.
    * **Resource Group**: The Azure resource group in which to create the account. 
-   * **Location**: The Azure data center for the Data Lake Analytics account. 
+   * **Location**: The Azure datacenter for the Data Lake Analytics account. 
    * **Data Lake Store**: The default Azure Data Lake Store to be used for the Data Lake Analytics account. The Data Lake Store account and the Data Lake Analytics account must be in the same location.
 4. Click **Create**. 
 
@@ -74,7 +74,7 @@ You can use the Data Explorer to browse data sources and perform basic file mana
 
 ## Set up firewall rules
 
-Data Lake Analytics enables you to further lock down access to your Data Lake Analytics account at the network level. You can enable a firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within the defined range can connect to the store.
+You can use Data Lake Analytics to further lock down access to your Data Lake Analytics account at the network level. You can enable a firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within the defined range can connect to the store.
 
 If other Azure services, such as Azure Data Factory, or VMs connect to the Data Lake Analytics account, make sure that **Allow Azure Services** is turned **On**. 
 
@@ -82,16 +82,30 @@ If other Azure services, such as Azure Data Factory, or VMs connect to the Data 
 
 1. Open the Data Lake Analytics account in the portal.
 
-2. On the menu on the left, click **Settings** > **Firewall**.
+2. On the menu on the left, click  **Settings** >  **Firewall**.
 
-## Manage role-based access control
+## Add a new user
 
-Like other Azure services, you can use Azure Role-Based Access Control (RBAC) to control how users interact with the service.
+The **Add User Wizard** let's you easily provision new Data Lake users.
 
-The standard RBAC roles have the following capabilities for Data Lake Analytics:
-* **Owner**: You can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
-* **Contributor**: You can submit jobs, monitor jobs, and cancel jobs from any user and configure the account.
-* **Reader**: You can monitor jobs.
+1. Open an Azure Data Lake Analytics account in the portal.
+
+2. On the left under **Getting Started**, click **Add User Wizard**.
+3. Select a user, and click **Select**.
+4. Select a role, and click **Select**. To enable a new developer to use Azure Data Lake, select the **Data Lake Analytics Developer** role.
+5. Select the ACLs for the U-SQL databases. When you're satisfied with the choices, click **Select**.
+6. Select the ACLs for files. For the default Data Lake Store, don't change the ACLs for the root folder "/" and for the /system folder. Click **Select**.
+7. Review all the changes to be made by the wizard, and then click **Run**.
+8. After the wizard is finished, click **Done**.
+
+## Manage Role-Based Access Control
+
+Like other Azure services, you can use Role-Based Access Control (RBAC) to control how users interact with the service.
+
+The standard RBAC roles have the following capabilities:
+* **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account
+* **Contributor**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account
+* **Reader**: Can monitor jobs
 
 Use the Data Lake Analytics Developer role to enable U-SQL developers to use the Data Lake Analytics service. You can use the Data Lake Analytics Developer role to:
 * Submit jobs.
@@ -120,6 +134,7 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Submit a job
 
 1. Open the Data Lake Analytics account in the portal.
+
 2. Click **New Job**. For each job, you can configure:
 
     * **Job Name**: The name of the job.
