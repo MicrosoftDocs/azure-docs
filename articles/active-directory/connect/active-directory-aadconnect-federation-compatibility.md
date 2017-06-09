@@ -6,7 +6,6 @@ documentationcenter: ''
 author: billmath
 manager: femila
 editor: curtand
-
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
 ms.workload: identity
@@ -374,17 +373,3 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about see [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
 
-<<<<<<< HEAD
-=======
-## VMware  Workspace Portal version 2.1
-
-The following is the scenario support matrix for this single sign-on experience:
-
-| Client | Support | Exceptions |
-| --- | --- | --- |
-| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |Integrated Windows Authentication is not supported |
-| Rich client applications such as Lync, Office Subscription, CRM |Supported |Integrated Windows Authentication is not supported |
-| Email-rich clients such as Outlook and ActiveSync |Supported |None |
-
-For more information about VMware  Workspace Portal version 2.1, download the pdf [VMware Workspace Portal](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
->>>>>>> 7dc26fa62d73849e866830edd642ca0d68ee5490
