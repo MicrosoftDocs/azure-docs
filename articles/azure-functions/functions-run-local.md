@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2016
+ms.date: 06/08/2016
 ms.author: donnam
 
 ---
@@ -32,7 +32,7 @@ Azure Functions Core Tools is [open source and hosted on GitHub](https://github.
 
 ## Create a local Functions project
 
-When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+When running locally, a Functions project is a directory that has the files host.json and local.settings.json. This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 At a command prompt, run the following command:
 
@@ -49,6 +49,8 @@ Writing local.settings.json
 Created launch.json
 Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
+
+To opt out of creating a Git repository, use the option `--no-source-control [-n]`.
 
 <a name="local-settings"></a>
 
@@ -103,7 +105,7 @@ To set a value for connection strings, you can do one of the following:
 
 ## Create a function
 
-To create a new function, run `func new`. This command has the following optional arguments:
+To create a function, run `func new`. This command has the following optional arguments:
 
 - `--language [-l]`. The template programming language, such as C#, F#, or JavaScript.
 - `--template [-t]`. The template name.
@@ -123,7 +125,7 @@ func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 
 ## Run functions locally
 
-To run a Functions project, run the Functions host. This sets all triggers for all functions in the project:
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
 ```
 func host start
@@ -137,7 +139,7 @@ You can use the following options with `func host start`:
 - `--nodeDebugPort [-n]`. The port for the node debugger to use. Default: A value from launch.json or 5858.
 - `--debugLevel [-d]`. The console trace level (off, verbose, info, warning, or error). Default: Info.
 - `--timeout [-t]`. The timeout for the Functions host to start, in seconds. Default: 20 seconds.
-- `--useHttps`. Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this creates a trusted certificate on your computer.
+- `--useHttps`. Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.
 - `--pause-on-error`. Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
@@ -168,14 +170,15 @@ Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Fun
 
 ### Call a function by using test data
 
-You can also invoke a function directly by using `func run <FunctionName>`. This is similar to the **Test** tab in the Azure portal, where you can specify input for the function. This command launches the entire Functions host.
+You can also invoke a function directly by using `func run <FunctionName>`. This command is similar to the **Test** tab in the Azure portal, where you can provide input data for the function. This command launches the entire Functions host.
 
 You can use the following options with `func run`:
 
 - `--content [-c]`. Inline content.
 - `--debug [-d]`. Attach a debugger to the host process before running the function.
-- `--timeout [-t]`. Time (in seconds) to wait until the local Functions host is ready.
+- `--timeout [-t]`. Time to wait (in seconds) until the local Functions host is ready.
 - `--file [-f]`. The file name to use as content.
+- `--no-interactive`. Does not prompt for input. Useful for automation scenarios.
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
@@ -183,15 +186,20 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-## Publish a Functions app
+## Publish a function app
 
-To publish a Functions project to a Functions app in Azure, use the `publish` command:
+To publish a Functions project to a function app in Azure, use the `publish` command:
 
 ```
 func azure functionapp publish <FunctionAppName>
 ```
 
-The `publish` command uploads the contents of the Functions project directory, but it does not delete files that have been deleted locally. To delete these files, in the Azure Functions portal, use Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
+You can use the following options:
+
+- `--publish-local-settings [-i]`.  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.
+- `--overwrite-settings [-y]`. Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.
+
+The `publish` command uploads the contents of the Functions project directory. If you delete files locally, this command does not delete them from Azure. To delete these files, in the Azure Functions portal, use Kudu. To start Kudu, in the Azure Functions portal, select **Platform Features** > **Advanced Tools (Kudu)**. 
 
 
 <!-- LINKS -->

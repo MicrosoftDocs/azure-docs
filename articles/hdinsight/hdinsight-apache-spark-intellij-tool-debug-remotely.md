@@ -1,6 +1,7 @@
 ---
-title: Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster | Microsoft Docs
-description: step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug it remotely on HDInsight Cluster
+title: Debug Spark applications remotely – IntelliJ toolkit on HDInsight - Azure | Microsoft Docs
+description: Step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters.
+keywords: remote debugging intellij
 services: hdinsight
 documentationcenter: ''
 author: jejiang
@@ -10,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: 
 ms.devlang: 
@@ -19,9 +20,9 @@ ms.date: 06/05/2017
 ms.author: Jenny Jiang
 
 ---
-# Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster
+# Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ 
 
-This article provides step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug it remotely on HDInsight Cluster.
+This article provides step-by-step guidance on how to use the HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on an HDInsight cluster.
 
 **Prerequisites:**
 
@@ -38,7 +39,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
    - From the right pane, select Java or Scala template based on your preference: **Spark on HDInsight (Scala), Spark on HDInsight (Java), or Spark on HDInsight Cluster Run Sample (Scala)**.
 2. In the next window, provide the project details.
 
-   ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.PNG)
+   ![Selecting the Spark SDK](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.png)
    - Provide a project name and project location.
    - For **Project SDK**, Use Java 1.8 for spark 2.x cluster, Java 1.7 for spark 1.x cluster.
    - For **Spark Version**, Scala project creation wizard integrates proper version for Spark SDK and Scala IDE. If the spark cluster version is lower 2.0, choose spark 1.x. Otherwise, you should select spark2.x. This article uses Spark2.0.2(Scala 2.11.8) as an example.

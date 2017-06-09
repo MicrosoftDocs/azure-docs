@@ -20,7 +20,7 @@ ms.author: nachandr
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. Support for running the patch orchestration app on a standalone cluster is coming later.
+The patch orchestration application is a Azure Service Fabric application that automates operating system patching on a Service Fabric cluster on Azure without downtime.
 
 The patch orchestration app provides the following:
 
@@ -50,15 +50,19 @@ The patch orchestration app is composed of the following subcomponents:
 
 ## Prerequisites
 
-### Run Service Fabric version 5.5 or later on the cluster 
+### Minimum supported Service Fabric runtime version
 
-The patch orchestration app must be run on clusters that have Service Fabric runtime version 5.5 or later.
+#### Azure clusters
+The patch orchestration app must be run on Azure clusters that have Service Fabric runtime version v5.5 or later.
+
+#### Standalone On-Premise Clusters
+The patch orchestration app must be run on Standalone clusters that have Service Fabric runtime version v5.6 or later.
 
 ### Enable the repair manager service (if it's not running already)
 
 The patch orchestration app requires the repair manager system service to be enabled on the cluster.
 
-#### Enable the repair manager service on Azure clusters
+#### Azure clusters
 
 Azure clusters in the silver durability tier have the repair manager service enabled by default. Azure clusters in the gold durability tier might or might not have the repair manager service enabled, depending on when those clusters were created. Azure clusters in the bronze durability tier, by default, do not have the repair manager service enabled. If the service is already enabled, you can see it running in the system services section in the Service Fabric Explorer.
 
@@ -93,8 +97,33 @@ To enable the repair manager service:
 
 ### Standalone on-premises clusters
 
-> [!NOTE]
-> Support for standalone clusters is coming later.
+You can use the [Configuration settings for standalone Windows cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest) to enable the repair manager service on new and existing Service Fabric cluster.
+
+To enable the repair manager service:
+
+1. First check that the `apiversion` in [General cluster configurations](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest#general-cluster-configurations) is set to `04-2017` or higher:
+
+    ```json
+    {
+        "name": "SampleCluster",
+        "clusterConfigurationVersion": "1.0.0",
+        "apiVersion": "04-2017",
+        ...
+    }
+    ```
+
+2. Now enable repair manager service by adding the following `addonFeaturres` section after the `fabricSettings` section as shown below:
+
+    ```json
+    "fabricSettings": [
+        ...      
+        ],
+        "addonFeatures": [
+            "RepairManager"
+        ],
+    ```
+
+3. Update you cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
 ### Disable automatic Windows Update on all nodes
 
@@ -102,7 +131,10 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 ### Optional: Enable Azure Diagnostics
 
-Logs for the patch orchestration app collect locally on each of the cluster nodes. We recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
+Logs for the patch orchestration app collect locally on each of the cluster nodes. 
+Additionally for clusters running Service Fabric runtime version `5.6.220.9494` and above, logs would be collected as part of Service Fabric logs.
+
+For clusters running Service Fabric runtime version less than `5.6.220.9494`, we recommend that you configure Azure Diagnostics to upload logs from all nodes to a central location.
 
 For information on enabling Azure Diagnostics, see [Collect logs by using Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
@@ -116,7 +148,7 @@ Logs for the patch orchestration app are generated on the following fixed provid
 Inside the `WadCfg` section in the Resource Manager template, add the following section: 
 
 ```json
-"PatchOrchestrationApplication": \[
+"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -145,7 +177,7 @@ Inside the `WadCfg` section in the Resource Manager template, add the following 
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
   },
-\]
+]
 ```
 
 > [!NOTE]
@@ -259,7 +291,8 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ### Collect patch orchestration app logs
 
-Patch orchestration app logs collect as part of Service Fabric logs. Until that time, logs can be collected by using one of the following methods.
+Patch orchestration app logs are collected as part of Service Fabric logs from runtime version `5.6.220.9494` and above.
+For clusters running Service Fabric runtime version less than `5.6.220.9494`, Logs can be collected by using one of the following methods.
 
 #### Locally on each node
 
@@ -306,11 +339,7 @@ In the following example, the cluster went to an error state temporarily because
 
 If the issue persists, refer to the Troubleshooting section.
 
-Q. **Can I use the patch orchestration app for standalone clusters?**
-
-A. No. Support for standalone clusters is coming later.
-
-Q. **Why is the patch orchestration app in a warning state?**
+Q. **Patch orchestration app is in warning state**
 
 A. Check to see if a health report posted against the application is the root cause. Usually, the warning contains details of the problem. If the issue is transient, the application is expected to auto-recover from this state.
 
