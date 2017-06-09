@@ -1,5 +1,5 @@
 ## How to create a virtual network using a network config file from PowerShell
-Azure uses an xml file to define all virtual networks available to a subscription. You can download this file, edit it to modify or delete existing virtual networks, and create new virtual networks. In this article, you learn how to download this file, referred to as network configuration (or netcgf) file, and edit it to create a new virtual network. To learn more about the network configuration file, see the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+Azure uses an xml file to define all virtual networks available to a subscription. You can download this file, edit it to modify or delete existing virtual networks, and create new virtual networks. In this tutorial, you learn how to download this file, referred to as network configuration (or netcfg) file, and edit it to create a new virtual network. To learn more about the network configuration file, see the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 To create a virtual network with a netcfg file using PowerShell, complete the following steps:
 
@@ -44,7 +44,7 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
    Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
    ```
    
-  The returned output looks similar to the following:
+  The returned output looks similar to the following example:
    
    ```
    OperationDescription OperationId                          OperationStatus
@@ -52,7 +52,7 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
    Set-AzureVNetConfig  <Id>                                 Succeeded 
    ```
    
-  If **OperationStatus** is not *Succeeded* in the returned ouput, check the xml file for errors and complete step 6 again.
+  If **OperationStatus** is not *Succeeded* in the returned output, check the xml file for errors and complete step 6 again.
 
 7. From the Azure PowerShell console, use the **Get-AzureVnetSite** cmdlet to verify that the new network was added by running the following command: 
 
@@ -60,7 +60,7 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
    Get-AzureVNetSite -VNetName TestVNet
    ```
    
-   The expected (abbreviated) output should include the following:
+   The expected (abbreviated) output should include the following example:
   
       ```
       AddressSpacePrefixes : {192.168.0.0/16}
