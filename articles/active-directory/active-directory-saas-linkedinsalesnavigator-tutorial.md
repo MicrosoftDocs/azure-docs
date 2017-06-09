@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 06/09/2017
 ms.author: jeedes
 
 ---
@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
 	
-9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add three claims named **department**, **firstname**, and **lastname** and the value is to be mapped with **user.department**, **user.givenname**, and **user.surname** respectively
+9. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add four claims named **department**, **firstname**, and **lastname** and the value is to be mapped with **user.department**, **user.givenname**, and **user.surname** respectively
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
