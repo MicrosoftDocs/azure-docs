@@ -26,7 +26,7 @@ Azure SQL Database learns and adapts with your application and provides customiz
 > Recommended way of using recommendations is by enabling ‘Automatic tuning’ on your database. For details, see [Automatic tuning](sql-database-automatic-tuning.md).
 >
 
-## Create Index recommendations
+## Create index recommendations
 Azure SQL Database continuously monitors the queries being executed and identifies the indexes that could improve the performance. Once enough confidence is built that a certain index is missing, a new **Create index** recommendation will be created. Azure SQL Database builds confidence by estimating performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as High, Medium,  or Low. 
 
 Indexes created using recommendations are always flagged as auto_created indexes. You can see which indexes are auto_created by looking at sys.indexes view. Auto created indexes don’t block ALTER/RENAME commands. If you try to drop the column that has an auto created index over it, the command passes and the auto created index is dropped with the command as well. Regular indexes would block the ALTER/RENAME command on columns that are indexed.
@@ -35,7 +35,7 @@ Once the create index recommendation is applied, Azure SQL Database will compare
 
 Any **Create index** recommendation has a back off policy that won’t allow applying the recommendation if the database or pool DTU usage was above 80% in last 20 minutes or if the storage is above 90% of usage. In this case, the recommendation will be postponed.
 
-## Drop Index recommendations
+## Drop index recommendations
 In addition to detecting a missing index, Azure SQL Database continuously analyzes the performance of existing indexes. If index is not used, Azure SQL Database will recommend dropping it. Dropping an index is recommended in two cases:
 * Index is a duplicate of another index (same indexed and included column, partition schema, and filters)
 * Index is unused for a prolonged period (93 days)
