@@ -49,7 +49,7 @@ There can be many global administrators per AAD tenant:
 
 ### Domain user
 
-There can be many domain users per AAD tenant.
+There can be many domain users per AAD tenant:
 
 * A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. By default, the domain user is granted the **Admin** role in the provisioned application.
 * A domain user can create an application using the build.cmd script in the [azure-iot-remote-monitoring][lnk-rm-github-repo],  [azure-iot-predictive-maintenance][lnk-pm-github-repo], or [azure-iot-connected-factory][lnk-cf-github-repo] repository. However, the default role granted to the domain user is **ReadOnly**, because a domain user does not have permission to assign roles.
@@ -60,7 +60,7 @@ There can be many domain users per AAD tenant.
 
 There can be many guest users per AAD tenant. Guest users have a limited set of rights in the AAD tenant. As a result, guest users cannot provision a preconfigured solution in the AAD tenant.
 
-For more information, see the following resources:
+For more information about users and roles in AAD, see the following resources:
 
 * [Create users in Azure AD][lnk-create-edit-users]
 * [Assign users to apps][lnk-assign-app-roles]
