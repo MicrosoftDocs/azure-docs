@@ -341,7 +341,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 ### <a name="delete-cli"></a>Azure CLI
 
-From the Cloud Shell prompt, enter the following command:
+From a Linux, macOS, or Windows command shell, enter the command that follows. Alternatively, click the Try It button at the top right of the following code block to launch the Cloud Shell. Then, use the Copy button to copy and paste the sample code into the Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
