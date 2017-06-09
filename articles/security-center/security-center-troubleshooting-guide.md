@@ -40,6 +40,7 @@ There are three installation scenarios that can produce different results when i
 
 >[!NOTE]
 > To avoid the behavior explained in the second and third scenario, make sure you download the latest version of the agent.
+> 
 
 ## Troubleshooting monitoring agent installation
 Azure Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
