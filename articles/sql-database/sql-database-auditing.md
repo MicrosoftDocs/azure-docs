@@ -19,11 +19,11 @@ ms.author: giladm
 
 ---
 # Get started with SQL database auditing
-Azure SQL database auditing tracks database events and writes them to an audit log in your Azure storage account.
+Azure SQL database auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
 
-Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+* Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
-Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+* Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 ## <a id="subheading-1"></a>Azure SQL database auditing overview
 SQL database auditing allows you to:
@@ -45,7 +45,7 @@ An auditing policy can be defined for a specific database or as a default server
 
 * If *server blob auditing is enabled*, it *always applies to the database* (that is, the database will be audited), regardless of the database auditing settings.
 
-* Enabling blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server blob auditing. Both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the server policy and once by the database policy).
+* Enabling blob auditing on the database, in addition to enabling it on the server, will *not* override or change any of the settings of the server blob auditing. Both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the server policy and once by the database policy).
 
    > [!NOTE]
    > You should avoid enabling both server blob auditing and database blob auditing together, unless:
