@@ -26,7 +26,7 @@ This quickstart shows how to use the Jenkins Azure VM Agents plugin to create a 
 To complete this quickstart, you will need:
 
 * a Jenkins Continuous Integration. You can start with the [Solution Template](install-jenkins-solution-template.md) if you don't already have one. 
-* Azure service principal. Refer to [Create an Azure Service principal with Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) for more information.
+* an Azure service principal. Refer to [Create an Azure Service principal with Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) for more information.
 
 ## Install Azure VM Agents plugin
 
@@ -36,13 +36,13 @@ Otherwise, install the **Azure VM Agents** plugin from within the Jenkins dashbo
 
 ## Configure the plugin
 
-* Within the Jenkins dashboard, click **Manage Jenkins -> Configure System ->** Scroll to the bottom of the page and find the section with the dropdown **Add new cloud** -> click and select **Microsoft Azure VM Agents**
-* Select an existing account from the Azure Credentials drop down or add new **Microsoft Azure Service Principal** in the Credentials Management page by filling out the Subscription ID, Client ID, Client Secret and the OAuth 2.0 Token Endpoint.
+* Within the Jenkins dashboard, click **Manage Jenkins -> Configure System ->**. Scroll to the bottom of the page and find the section with the dropdown **Add new cloud**. From the menu, select **Microsoft Azure VM Agents**
+* Select an existing account from the Azure Credentials dropdown or add a new **Microsoft Azure Service Principal** from the Credentials Management page by filling out the Subscription ID, Client ID, Client Secret and OAuth 2.0 Token Endpoint.
 
 ![Azure Credentials](./media/jenkins-azure-vm-agents/service-principal.png)
 
-* Click **Verify configuration** to make sure that the profile configuration is done correctly.
-* Save and continue with the next step
+* Click **Verify configuration** to make sure that the profile configuration is correct.
+* Save the configuration, and continue with the next step.
 
 ## Template configuration
 
@@ -51,7 +51,7 @@ Next, configure a template for use to define an Azure VM agent.
 
 * Click **Add** to add a template. 
 * Provide a name for your new template. 
-* For label, enter  "ubuntu" which will be used during the job configuration.
+* For the label, enter  "ubuntu". This label will be used during the job configuration.
 * Select the desired region from the combo box.
 * Select the desired VM size.
 * Specify the Azure Storage account name or leave it blank to use the default name "jenkinsarmst".
@@ -61,7 +61,7 @@ Next, configure a template for use to define an Azure VM agent.
 
 ### Image configuration
 
-To create a Linux (Ubuntu) agent, select **Image reference** and use following as an example. Please refer to [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) for the latest Azure supported images.
+To create a Linux (Ubuntu) agent, select **Image reference** and use the following configuration as an example. Please refer to [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) for the latest Azure supported images.
 
 * Image Publisher: Canonical
 * Image Offer: UbuntuServer
@@ -85,19 +85,18 @@ sudo apt-get install -y openjdk-7-jdk
 
 ## Create a new job in Jenkins
 
-* Within the Jenkins dashboard, click **New Item** 
-* Enter a name and select **Freestyle project** and click **OK**
+* Within the Jenkins dashboard, click **New Item**. 
+* Enter a name and select **Freestyle project** and click **OK**.
 * In the **General** tab, select "Retrict where project can be run" and type "ubuntu" in Label Expression. You should see "ubuntu" in the dropdown.
-* Click **Save**
+* Click **Save**.
 
 ![Set up job](./media/jenkins-azure-vm-agents/job-config.png)
 
 ## Build your new project
 
-* Go back to the Jenkins dashboard
-* Right click the new job you just created and click **Build now**
-* A build will be kicked off. 
-* Once the build is complete, go to the **Console output**, you will see that it was built remotely on Azure.
+* Go back to the Jenkins dashboard.
+* Right-click the new job you just created, then click **Build now**. A build will be kicked off. 
+* Once the build is complete, go to **Console output**. You will see that the build was performed remotely on Azure.
 
 ![Console output](./media/jenkins-azure-vm-agents/console-output.png)
 
