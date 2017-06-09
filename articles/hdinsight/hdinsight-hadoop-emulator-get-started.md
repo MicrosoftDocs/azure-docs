@@ -11,7 +11,7 @@ tags: azure-portal
 
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -31,7 +31,7 @@ Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to
 
 ## Download and install the virtual machine
 1. Browse to the [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
-2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hrotonworks Sandbox on a VM. You will be prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
+2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hortonworks Sandbox on a VM. You are prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
    
     ![Link image for download Hortonworks Sandbox for VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
 3. From the same web page, click the **Import on Virtual Box** link to download a PDF containing installation instructions for the virtual machine.
