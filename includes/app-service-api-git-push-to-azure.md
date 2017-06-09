@@ -6,10 +6,8 @@ giturl=$(az webapp deployment source config-local-git -n $app_name \ -g myResour
 git remote add azure $giturl
 ```
 
-Push to the Azure remote to deploy your app. You are prompted for the password you created earlier when you created the deployment user. Make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
+Push to the Azure remote to deploy your app. You are prompted for the password you created earlier when you created the deployment user. Make sure that you enter the password you created in earlier in the quickstart, and not the password you use to log in to the Azure portal.
 
 ```bash
 git push azure master
 ```
-
-The preceding command displays information similar to the following example:

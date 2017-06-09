@@ -24,11 +24,9 @@ This quickstart shows how to create a simple [Express](http://expressjs.com/) fr
 
 ## Prerequisites
 
-To complete this quickstart:
-
-* [Install Git](https://git-scm.com/)
-* [Install Node.js and NPM](https://nodejs.org/)
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Git](https://git-scm.com/)
+* [Node.js and NPM](https://nodejs.org/)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,12 +43,10 @@ To complete this quickstart:
 2. Change to the directory that contains the sample code.
 
     ```bash
-    cd app-serfvice-api-node-contact-list
+    cd app-service-api-node-contact-list
     ```
 
-3. Install [Swaggerize](https://www.npmjs.com/package/swaggerize-express) on your local machine.
-
-    Swaggerize is a tool that generates Node.js code for your REST API from a Swagger definition.
+3. Install [Swaggerize](https://www.npmjs.com/package/swaggerize-express) on your local machine. Swaggerize is a tool that generates Node.js code for your REST API from a Swagger definition.
 
     ```bash
     npm install -g yo
@@ -61,14 +57,14 @@ To complete this quickstart:
 
 This section of the tutorial models an API development workflow in which you create Swagger metadata first and use that to scaffold (auto-generate) server code for the API. 
 
-1. Change directory to the *start* folder, then run `yo swaggerize`. 
+1. Change directory to the *start* folder, then run `yo swaggerize`. This will create a new Node.js project for your API from the Swagger definition in *api.json*.
 
     ```bash
     cd start
     yo swaggerize --apiPath api.json --framework express
     ```
 
-    Swaggerize will ask a series of questions.  For **What to call this project**, enter "ContactList". 
+    Swaggerize will ask a series of questions.  For **What to call this project**, enter *ContactList*
    
    ```bash
    Swaggerize Generator
@@ -79,13 +75,7 @@ This section of the tutorial models an API development workflow in which you cre
    ? Your email: frank@fabrikam.net
    ```
    
-2. Install the **jsonpath** and **swaggerize-ui** NPM modules. 
-
-    ```bash
-    npm install --save jsonpath swaggerize-ui
-    ```
-
-### Customize the generated code
+### Customize the project code
 
 1. Copy the *lib* folder into the *ContactList* folder created by `yo swaggerize`, then change directory into *ContactList*.
 
@@ -94,7 +84,13 @@ This section of the tutorial models an API development workflow in which you cre
     cd ContactList
     ```
 
-2. Replace the code in the *handlers/contacts.js* with the following code. 
+2. Install the **jsonpath** and **swaggerize-ui** NPM modules. 
+
+    ```bash
+    npm install --save jsonpath swaggerize-ui
+    ```
+
+3. Replace the code in the *handlers/contacts.js* with the following code. 
     ```javascript
     'use strict';
 
@@ -106,9 +102,9 @@ This section of the tutorial models an API development workflow in which you cre
         }
     };
     ```
-    This code uses the JSON data stored in the *lib/contacts.json* file that is served by *lib/contactRepository.js*. The new *contacts.js* code responds to HTTP requests to get all of the contacts and return them as a JSON payload. 
+    This code uses the JSON data stored in *lib/contacts.json* served by *lib/contactRepository.js*. The new *contacts.js* code responds to HTTP requests to get all of the contacts and return them as a JSON payload. 
 
-3. Replace the code in the **handlers/contacts/{id}.js** file with the following code. 
+4. Replace the code in the **handlers/contacts/{id}.js** file with the following code. 
 
     ```javascript
     'use strict';
@@ -122,18 +118,20 @@ This section of the tutorial models an API development workflow in which you cre
     };
     ```
 
-4. Replace the code in **server.js** with the following code. 
+    This code lets you use a path variable to return only the contact with a given ID.
+
+5. Replace the code in **server.js** with the following code. 
 
     ```javascript
     'use strict';
 
-    var port = process.env.PORT || 8000; // first change
+    var port = process.env.PORT || 8000; 
 
     var http = require('http');
     var express = require('express');
     var bodyParser = require('body-parser');
     var swaggerize = require('swaggerize-express');
-    var swaggerUi = require('swaggerize-ui'); // second change
+    var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
 
     var app = express();
@@ -143,9 +141,9 @@ This section of the tutorial models an API development workflow in which you cre
     app.use(bodyParser.json());
 
     app.use(swaggerize({
-        api: path.resolve('./config/swagger.json'), // third change
+        api: path.resolve('./config/swagger.json'),
         handlers: path.resolve('./handlers'),
-        docspath: '/swagger' // fourth change
+        docspath: '/swagger' 
     }));
 
     // change four
@@ -153,18 +151,20 @@ This section of the tutorial models an API development workflow in which you cre
         docs: '/swagger'  
     }));
 
-    server.listen(port, function () { // fifth and final change
+    server.listen(port, function () { 
     });
     ```   
+
+    This code makes some small changes to let it work with Azure App Service and exposes an interactive web interface for your API.
 
 ### Test the API locally
 
 1. Start up the Node.js app
     ```bash
-    node server.js
+    npm start
     ```
     
-2. Browse to http://localhost:8000/contacts to view the  JSON output of the contact list.
+2. Browse to http://localhost:8000/contacts to view the JSON for the entire contact list.
    
    ```json
     {
@@ -184,7 +184,7 @@ This section of the tutorial models an API development workflow in which you cre
     }
    ```
 
-3. Browse to http://localhost:8000/contacts/2 to view the contact represented by that id value of 2.
+3. Browse to http://localhost:8000/contacts/2 to view the contact with an `id` of two.
    
     ```json
     { 
@@ -221,15 +221,15 @@ Deploy your code to the API app by pushing commits from your local Git repositor
 
 1. [!INCLUDE [Configure your deployment credentials](../../includes/app-service-api-configure-local-git.md)] 
 
-2 . Initialize a new repo in the *ContactList* directory. 
+2. Initialize a new repo in the *ContactList* directory. 
 
     ```bash
     git init .
     ```
 
-3. (Optional) Update the .gitignore to exclude the *node_modules* directory created by npm in an earlier step in the tutorial. Open up the *.gitignore* file in the root of your local repo and add the following text on a new line anywhere in the file.
+3. Update the .gitignore to exclude the *node_modules* directory created by npm in an earlier step in the tutorial. Open up the *.gitignore* file in the root of your local repo and add the following text on a new line anywhere in the file.
 
-    ```gitignore
+    ```
     node_modules/
     ```
     Confirm the `node_modules` folder is being ignored with  `git status`.
@@ -245,24 +245,26 @@ Deploy your code to the API app by pushing commits from your local Git repositor
 ## Test the API  in Azure
 
 1. Open a browser to http://app_name.azurewebsites.net/contacts. You'll see the same JSON returned as when you made the request locally:
-    ```json
-    {
-        "id": 1,
-        "name": "Barney Poland",
-        "email": "barney@contoso.com"
-    },
-    {
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    },
-    {
-        "id": 3,
-        "name": "Lora Riggs",
-        "email": "lora@contoso.com"
-    }
-    ```
-3. In a browser, go to the `http://app_name.azurewebsites.net/docs` endpoint to try out the Swagger UI running on Azure.
+
+   ```json
+   {
+       "id": 1,
+       "name": "Barney Poland",
+       "email": "barney@contoso.com"
+   },
+   {
+       "id": 2,
+       "name": "Lacy Barrera",
+       "email": "lacy@contoso.com"
+   },
+   {
+       "id": 3,
+       "name": "Lora Riggs",
+       "email": "lora@contoso.com"
+   }
+   ```
+
+2. In a browser, go to the `http://app_name.azurewebsites.net/docs` endpoint to try out the Swagger UI running on Azure.
 
 You can now deploy updates to the sample API to Azure simply by pushing commits to the Azure Git repository.
 
