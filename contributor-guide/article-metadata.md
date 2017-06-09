@@ -19,7 +19,7 @@ The standard Azure metadata section looks like this:
   ms.author: <your microsoft alias, one value only, alias only>
 ---
   ```
-##Usage
+## Usage
 
 - The element name and attribute names are case sensitive.
 
@@ -32,9 +32,9 @@ The standard Azure metadata section looks like this:
 - This text may be displayed as the description or abstract paragraph in search results on Google.
 - This text is displayed in [the article index results](https://azure.microsoft.com/documentation/articles/).
 
-![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. This value is usually referred to as the "service slug". This value is assigned by the ACOM team, and is used across the azure.microsoft.com site and in URLs for the service. List the applicable services, separated by commas.
+![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. This value is usually referred to as the "service slug". This value is determined by the ACOM team; we continue to use this value on docs.microsoft.com to support correct functioning of the azure.microsoft.com search feature so documentation can be surfaced there. List the applicable services, separated by commas.
 
-![](./media/article-metadata/checkmark-small.png)**cloud**: Required only for sovereign clouds such as Azure Government and Azure Stack. This value is assigned by the ACOM team, and is used across the azure.microsoft.com site and in URLs for the service. List the applicable services
+![](./media/article-metadata/checkmark-small.png)**cloud**: Required only for sovereign clouds such as Azure Government and Azure Stack. This value is determined by the ACOM team; we continue to use this value on docs.microsoft.com to support correct functioning of the azure.microsoft.com search feature so documentation can be surfaced there. List the applicable clouds, separated by commas.
 
 ![](./media/article-metadata/checkmark-small.png)**author**: Required, one value only. List the GitHub account for the primary author or article SME. Get the capitalization right, it matters!
 
