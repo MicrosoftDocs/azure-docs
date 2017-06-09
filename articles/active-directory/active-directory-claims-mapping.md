@@ -439,30 +439,37 @@ To get started, do the following steps:
 
 1. Download the latest [Azure AD PowerShell Module Public Preview release](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127).
 2.	Run the Connect command to sign in to your Azure AD admin account. Run this command each time you start a new session.
-	``` powershell
-    Connect-AzureAD -Confirm
+	
+	 ``` powershell
+	Connect-AzureAD -Confirm
+	
 	```
 3.	To see all policies that have been created in your organization, run the following command. We recommend that you run this command after most operations in the following scenarios to check that your policies are being created as expected.
+   
     ``` powershell
-	Get-AzureADPolicy
-    ```
+		Get-AzureADPolicy
+    
+	```
 #### Example: Create and Assign a policy to omit the Basic Claims from tokens issued to a Service Principal.
 In this example, you create a policy that removes the Basic Claim set from tokens issued to linked Service Principals.
 
 
 1. Create a Claims Mapping policy. This policy, that will be linked to specific Service Principals, removes the basic claim set from tokens.
 	1. To create the policy, run this command: 
-	``` powershell
+	
+	 ``` powershell
 	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
 	```
 	2. To see your new policy, and to get the policy ObjectId, run the following command:
-	``` powershell
+	
+	 ``` powershell
 	Get-AzureADPolicy
 	```
 2.	Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
 	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
 	2.	When you have the ObjectId of your service principal, run the following command:  
-	``` powershell
+	 
+	 ``` powershell
 	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
 	```
 #### Example: Create and assign a policy to include the EmployeeID and TenantCountry as claims in tokens issued to a Service Principal.
@@ -470,17 +477,17 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
 
 1. Create a Claims Mapping policy. This policy, that will be linked to specific Service Principals, adds the EmployeeID and TenantCountry claims to tokens.
 	1. To create the policy, run this command:  
-	``` powershell
+	 ``` powershell
 	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
 	```
 	2. To see your new policy, and to get the policy ObjectId, run the following command:
-	``` powershell  
+	 ``` powershell  
 	Get-AzureADPolicy
 	```
 2.	Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
 	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
 	2.	When you have the ObjectId of your service principal, run the following command:  
-	``` powershell
+	 ``` powershell
 	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
 	```
 #### Example: Create and assign a policy utilizing a Claims Transformation in tokens issued to a Service Principal.
@@ -489,16 +496,16 @@ In this example, you create a policy that emits a custom claim “JoinedData” 
 
 1. Create a Claims Mapping policy. This policy, that will be linked to specific Service Principals, adds the EmployeeID and TenantCountry claims to tokens.
 	1. To create the policy, run this command: 
-	``` powershell
+	 ``` powershell
 	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
 	```
 	2. To see your new policy, and to get the policy ObjectId, run the following command: 
-	``` powershell
+	 ``` powershell
 	Get-AzureADPolicy
 	```
 2.	Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
 	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
 	2.	When you have the ObjectId of your service principal, run the following command: 
-	``` powershell 
+	 ``` powershell
 	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
 	```
