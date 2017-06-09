@@ -71,7 +71,7 @@ Service Fabric provides complete flexibility in how you communicate with reliabl
 In the Service Remoting approach (modeled on remote procedure calls or RPCs), you define an interface to act as the public contract for the service. Then, you use that interface to generate a proxy class for interacting with the service.
 
 ### Create the remoting interface
-Let's start by creating the interface to act as the contract between the stateful service and othe services, in this case the ASP.NET Core web project. This interface must be shared by all services that use it to make RPC calls, so we'll create it in its own Class Library project.
+Let's start by creating the interface to act as the contract between the stateful service and other services, in this case the ASP.NET Core web project. This interface must be shared by all services that use it to make RPC calls, so we'll create it in its own Class Library project.
 
 1. In Solution Explorer, right-click your solution and choose **Add** > **New Project**.
 
