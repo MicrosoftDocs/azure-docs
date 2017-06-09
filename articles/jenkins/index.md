@@ -24,7 +24,7 @@ ms.author: mlearned
  
 <ol>
   <li><a href="/azure/jenkins/install-jenkins-solution-template">Install Jenkins</a> from the Azure Marketplace.</li>
-  <li>Use Azure Virtual Machines as <a href="/azure/jenkins/jenkins-azure-vm-agents">Jenkins agents</a></li>
+  <li>Use Azure Virtual Machines as <a href="/azure/jenkins/jenkins-azure-vm-agents">Jenkins agents.</a></li>
 </ol>
    
 
