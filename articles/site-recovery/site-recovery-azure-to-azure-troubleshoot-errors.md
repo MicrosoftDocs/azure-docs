@@ -17,7 +17,7 @@ ms.date: 05/13/2017
 ms.author: sujayt
 
 ---
-# Troubleshoot Azure to Azure VM Replication issues
+# Troubleshoot Azure to Azure VM Replication issues 
 
 This article details the common issues in Azure Site Recovery (ASR) when replicating and recovering Azure virtual machines from one region to another region and how to troubleshoot them. Refer to [support matrix for replicating Azure VMs](site-recovery-support-matrix-to-azure.md) for more details about supported configurations
 
