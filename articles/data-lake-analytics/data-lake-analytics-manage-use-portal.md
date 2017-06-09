@@ -30,7 +30,6 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 ### Create an account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
 2. Click **New** > **Intelligence + analytics** > **Data Lake Analytics**.
 3. Select values for the following items: 
    * **Name**: The name of the Data Lake Analytics account.
@@ -45,7 +44,6 @@ Learn how to manage Azure Data Lake Analytics accounts, account data sources, us
 Before you delete a Data Lake Analytics account, delete its default Data Lake Store account.
 
 1. Open the Data Lake Analytics account in the portal.
-
 2. Click **Delete**.
 3. Type the account name.
 4. Click **Delete**.
@@ -65,7 +63,6 @@ You can use the Data Explorer to browse data sources and perform basic file mana
 ### Add a data source
 
 1. Open the Data Lake Analytics account in the portal.
-
 2. Click **Settings** > **Data Sources**.
 3. Click **Add Data Source**.
     
@@ -74,22 +71,20 @@ You can use the Data Explorer to browse data sources and perform basic file mana
 
 ## Set up firewall rules
 
-You can use Data Lake Analytics to further lock down access to your Data Lake Analytics account at the network level. You can enable a firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within the defined range can connect to the store.
+You can use Data Lake Analytics to further lock down access to your Data Lake Analytics account at the network level. You can enable a firewall, specify an IP address, or define an IP address range for your trusted clients. After you enable these measures, only clients that have the IP addresses within the defined range can connect to the store.
 
 If other Azure services, such as Azure Data Factory, or VMs connect to the Data Lake Analytics account, make sure that **Allow Azure Services** is turned **On**. 
 
 ### Set up a firewall rule
 
 1. Open the Data Lake Analytics account in the portal.
-
 2. On the menu on the left, click  **Settings** >  **Firewall**.
 
 ## Add a new user
 
-The **Add User Wizard** let's you easily provision new Data Lake users.
+The **Add User Wizard** lets you easily provision new Data Lake users.
 
 1. Open an Azure Data Lake Analytics account in the portal.
-
 2. On the left under **Getting Started**, click **Add User Wizard**.
 3. Select a user, and click **Select**.
 4. Select a role, and click **Select**. To enable a new developer to use Azure Data Lake, select the **Data Lake Analytics Developer** role.
@@ -116,7 +111,6 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Add users or security groups to a Data Lake Analytics account
 
 1. Open the Data Lake Analytics account in the portal.
-
 2. Click **Settings** > **Users** > **Add**.
 3. Select a role.
 4. Add a user.
@@ -146,7 +140,6 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Monitor jobs
 
 1. Open the Data Lake Analytics account in the portal.
-
 2. Click **View All Jobs**. Now you can see a list of all the active and recently finished jobs in the account.
 3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author**. 
 
