@@ -255,8 +255,8 @@ You can also create a rule that selects device objects for membership in a group
 | isRooted |true false null |(device.isRooted -eq true) |
 | managementType |any string value |(device.managementType -eq "") |
 | organizationalUnit |any string value |(device.organizationalUnit -eq "") |
-| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
-| objectId |a valid AAD objectId |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d" |
+| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId |a valid AAD objectId |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
