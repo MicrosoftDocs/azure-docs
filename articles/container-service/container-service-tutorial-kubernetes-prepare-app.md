@@ -77,7 +77,7 @@ docker run -v /tmp/docker-mysql:/var/lib/mysql -p 3306:3306 -d --network azure-v
 ```
 
 ```bash
-docker run -p 8000:8000 -d --network=azure-vote -e MYSQL_DATABASE_USER=dbuser -e MYSQL_DATABASE_PASSWORD=Password12 -e MYSQL_DATABASE_DB=azurevote -e MYSQL_DATABASE_HOST=azure-vote-back azure-vote-front
+docker run -p 8000:8000 -d --network=azure-vote --name azure-vote-front -e MYSQL_DATABASE_USER=dbuser -e MYSQL_DATABASE_PASSWORD=Password12 -e MYSQL_DATABASE_DB=azurevote -e MYSQL_DATABASE_HOST=azure-vote-back azure-vote-front
 ```
 
 ```bash
@@ -91,6 +91,10 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ec05f07634d3        azure-vote-front    "/usr/bin/supervis..."   3 seconds ago       Up 2 seconds        0.0.0.0:8000->8000/tcp   romantic_bardeen
 ca2aeaf5eed1        azure-vote-back     "docker-entrypoint..."   20 seconds ago      Up 19 seconds       0.0.0.0:3306->3306/tcp   azure-vote-back
 ```
+
+Browse to `http://localhost:8000` to see the running application. 
+
+Note, in this example the application is exposed on port 8000 which is default to the Python Gunicorn HTTP server. In subsequent tutorials, an ingress controller will be utilized to route incoming traffic and will also expose the application on port 80, or a different port of your choosing. 
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app.png)
 

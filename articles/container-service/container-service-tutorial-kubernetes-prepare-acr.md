@@ -25,6 +25,7 @@ In this article, we explore how to use Azure Container Registry with <update>. U
 
 > [!div class="checklist"]
 > * Deploy Azure Container Registry
+> * Tagging container images for ACR
 > * Uploading an image to the Azure Container Registry
 
 This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -80,11 +81,23 @@ az acr credential show --name myContainerRegistry23489
 
 For more information on Azure Container Registry, see [Introduction to private Docker container registries](../container-registry/container-registry-intro.md). 
 
-## Push image to ACR
+## Tag images for ACR
+
+Substitute the value for `--username` with the name of the container registry. Substitute the value for `--password` with the collected password. Substitute the fully qualified name, in the example `mycontainerregistry1326.azurecr.io` with the loginServer of the registry.
+
+The command will return a 'Login Succeeded’ message once completed.
 
 ```bash
 docker login --username=myContainerRegistry1326 --password==N+/=J/=++Rns2==+=Me3/EM0Xvw0Fis mycontainerregistry1326.azurecr.io
 ```
+
+Each container image needs to be tagged with the loginServer of the registry, when doing so, the image ID is required. Run `docker images` to return each image id.
+
+```bash
+docker images
+```
+
+Output:
 
 ```bash
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
@@ -94,23 +107,50 @@ ubuntu              latest              7b9b13f7b9c0        6 days ago          
 mysql               latest              e799c7f9ae9c        4 weeks ago          407 MB
 ```
 
-```bash
-docker tag dfdc614becea mycontainerregistry1326.azurecr.io/azure-vote-back
-```
+Tag the *azure-vote-front* image with the loginServer of the container registry. Using the following example, replace the image ID, `dfdc614becea` in this case, with the image ID from your environment. Replace, the ACR login server, `mycontainerregistry1326.azurecr.io`, with the loginServer from your environment.
 
 ```bash
 docker tag 67e8582e68a8 mycontainerregistry1326.azurecr.io/azure-vote-front
 ```
 
+Perform the same operation on the *azure-vote-back* image.
+
 
 ```bash
-docker push mycontainerregistry1326.azurecr.io/azure-vote-back
+docker tag dfdc614becea mycontainerregistry1326.azurecr.io/azure-vote-back
 ```
+
+Once tagged, run `docker images` to verify the operation.
 
 ```bash
-docker push mycontainerregistry1326.azurecr.io/azure-vote-back
+docker images
 ```
 
+Output:
+
+```bash
+REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
+azure-vote-back                                       latest              716b3b642782        28 minutes ago      407 MB
+mycontainerregistry3433.azurecr.io/azure-vote-back    latest              716b3b642782        28 minutes ago      407 MB
+azure-vote-front                                      latest              2e214fdaeb1b        30 minutes ago      445 MB
+mycontainerregistry3433.azurecr.io/azure-vote-front   latest              2e214fdaeb1b        30 minutes ago      445 MB
+ubuntu                                                latest              7b9b13f7b9c0        7 days ago          118 MB
+mysql                                                 latest              e799c7f9ae9c        4 weeks ago         407 MB
+```
+
+## Push images to ACR
+
+Push the *azure-vote-front* image to the registry. Using the following example, replace the ACR loginServer name with the loginServer from your environment.
+
+```bash
+docker push mycontainerregistry3433.azurecr.io/azure-vote-front 
+```
+
+Perform the same operation on the *azure-vote-back* image.
+
+```bash
+docker push mycontainerregistry3433.azurecr.io/azure-vote-back
+```
 
 ## Next steps
 
@@ -118,6 +158,7 @@ In this tutorial, an Azure Container Registry was prepared for use in an ACS Kub
 
 > [!div class="checklist"]
 > * Deploy Azure Container Registry
+> * Tagging container images for ACR
 > * Uploading an image to the Azure Container Registry
 
 Advance to the next tutorial to learn about deploying a Kubernetes cluster in Azure.

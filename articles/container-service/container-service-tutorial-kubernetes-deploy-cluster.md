@@ -50,10 +50,10 @@ To connect to the Kubernetes cluster from your client computer, use [`kubectl`](
 
 If you're using Azure CloudShell, `kubectl` is already installed. If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.
 
-The following Azure CLI example installs `kubectl` to your system. If you are running the Azure CLI on macOS or Linux, you might need to run the command with `sudo`.
+The following Azure CLI example installs `kubectl` to your system.
 
 ```azurecli-interactive 
-az acs kubernetes install-cli 
+sudo az acs kubernetes install-cli 
 ```
 
 ## Connect with kubectl
