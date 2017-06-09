@@ -94,15 +94,16 @@ OUTPUT @a
 
 **To check job state**
 
-1. From **Server Explorer**, select **Azure > Data Lake Analytics**. Expand the Data Lake Analytics account name
-2. Double-click **Jobs**.
-3. Select the job you previously submitted.
+1. From **Server Explorer**, select **Azure > Data Lake Analytics**. 
+2. Expand the Data Lake Analytics account name
+3. Double-click **Jobs**.
+4. Select the job you previously submitted.
 
 **To see the output of a job**
 
-1. From **Server Explorer**, select **Azure > Data Lake Analytics**. 
-2. Expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
-3. Open the `"/data.csv"` file.
+1. Using **Server Explorer** navigate to the job you submitted.
+2. Click on the **Data** tab.
+3. In the **Job Outputs** tab, click the `"/data.csv"` file.
 
 ## Next steps
 
