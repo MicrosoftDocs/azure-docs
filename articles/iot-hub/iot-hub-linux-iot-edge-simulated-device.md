@@ -176,4 +176,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-physical-device]: iot-hub-iot-edge-physical-device.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-securing]: iot-hub-security-ground-up.md
-
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
+[lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
