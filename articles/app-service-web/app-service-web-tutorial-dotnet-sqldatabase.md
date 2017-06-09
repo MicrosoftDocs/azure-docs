@@ -39,10 +39,10 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) with the following workloads:
- - **ASP.NET and web development**
- - **Azure development**
+  - **ASP.NET and web development**
+  - **Azure development**
 
-![ASP.NET and web development and Azure development (under **Web & Cloud**)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+  ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -98,10 +98,10 @@ You can keep the generated web app name, or change it to another unique name. Th
 Next to **Resource Group**, click **New**.
 
 <!-- I like this as it warns you not to hit create. Which image should I keep?
-![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg.png)
+![Next to Resource Group, click New.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg.png)
  -->
 
-![Next to **Resource Group**, click **New**.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
+![Next to Resource Group, click New.](media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
 Name the resource group **myResourceGroup**.
 
@@ -114,9 +114,9 @@ Name the resource group **myResourceGroup**.
 
 Next to **App Service Plan**, click **New**. 
 
-![Create App Service plan](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
-
 In the **Configure App Service Plan** dialog, configure the new App Service plan with the following settings:
+
+![Create App Service plan](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
 | Setting  | Value | For more information |
 | ----------------- | ------------ | ----|
@@ -132,7 +132,7 @@ Select **Explore additional Azure services**.
 
 In the **Services** tab, click the **+** icon next to **SQL Database**. 
 
-![In the **Services** tab, click the **+** icon next to **SQL Database**.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![In the Services tab, click the + icon next to SQL Database.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
 
 In the **Configure SQL Database** dialog, click **New** next to **SQL Server**. 
 
@@ -395,7 +395,7 @@ From the left menu, click **App Service**, then click the name of your Azure web
 
 You have landed in your web app's page. 
 
-By default, your web app's page shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open. 
+By default, the portal shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open. 
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
 
@@ -415,7 +415,7 @@ In this tutorial, you learned how to:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to it.
+Advance to the next tutorial to learn how to map a custom DNS name to the web app.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
