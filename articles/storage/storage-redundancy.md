@@ -120,6 +120,11 @@ When you create a storage account, you select the primary region for the account
 
 For up-to-date information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/regions/).
 
+[!NOTE]  
+> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region. 
+> 
+> 
+
 ## Read-access geo-redundant storage
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS.
 
