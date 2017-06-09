@@ -44,6 +44,7 @@
 ## Virtual machines
 ### [Linux VMs](../virtual-machines/virtual-machines-linux-azure-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VMs](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Service Fabric overview](../service-fabric/service-fabric-overview.md)
 
 # How to guides
 ## Plan
