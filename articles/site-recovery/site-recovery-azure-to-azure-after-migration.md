@@ -64,7 +64,7 @@ The following table provides additional information about installing the VM agen
 | Validating the VM agent installation |1. Navigate to the C:\WindowsAzure\Packages folder in the Azure VM. You should see the WaAppAgent.exe file. <br>2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. |N/A |
 
 
-### Step 3 - Remove Mobility service from the migrated virtual machine
+### Step 3 - Remove the Mobility service from the migrated virtual machine
 
 If you have migrated your on-premises VMware machines or physical servers on Windows/Linux, you need to manually remove/uninstall the Mobility service from the migrated virtual machine.
 
