@@ -22,9 +22,27 @@ ms.author: nepeters
 # Azure Container Service tutorial - Deploy Application
 
 TODO - figure out service discovery (currently hard coded pod address)
+
 TODO - integrate secrets for env variables.
+
 TODO - integrate Azure disk driver and move MySQL file.
+
 TODO - integrate ACR
+
+Secrets:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: azure-vote-front-secret
+type: Opaque
+data:
+  MYSQL_DATABASE_USER: ZGJ1c2VyCg==
+  MYSQL_DATABASE_PASSWORD: UGFzc3dvcmQxMgo=
+  MYSQL_DATABASE_DB: VUdGemMzZHZjbVF4TWdvPQo=
+  MYSQL_DATABASE_HOST: MTAuMjQ0LjMuMgo=
+```
 
 ```yaml
 apiVersion: apps/v1beta1
