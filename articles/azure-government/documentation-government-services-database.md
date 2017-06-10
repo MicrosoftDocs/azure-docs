@@ -6,7 +6,6 @@ cloud: gov
 documentationcenter: ''
 author: zakramer
 manager: liki
-editor: ''
 
 ms.assetid: a1e173a9-996a-4091-a2e3-6b1e36da9ae1
 ms.service: azure-government
@@ -74,8 +73,8 @@ The URLs for accessing and managing Azure Redis Cache in Azure Government are di
 
 > [!NOTE]
 > All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
-> 
-> 
+>
+>
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Redis Cache:
