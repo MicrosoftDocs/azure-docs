@@ -21,13 +21,13 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Deploy Application
 
-TODO - figure out service discovery (currently hard coded pod address)
-
 TODO - integrate Azure disk driver and move MySQL file.
 
 TODO - integrate ACR
 
 TODO - Create secret and new deployment for MySQL
+
+TODO (completed) - figure out service discovery (currently hard coded pod address)
 
 TODO (completed) - integrate secrets for env variables.
 
@@ -45,8 +45,8 @@ echo -n Password12 | base64
 # MYSQL_DATABASE_DB
 echo -n azurevote | base64
 
-# MYSQL_DATABASE_HOST
-echo -n 10.244.3.3 | base64
+# MYSQL_DATABASE_HOST - this name will equal a service created for the MySQL deployment.
+echo -n azure-vote-back | base64
 ```
 
 Create front-end secret definition.
@@ -102,7 +102,7 @@ spec:
           value: azurevote
 ```
 
-Create fron-end deployment definition - secrets have been integrated here.
+Create front-end deployment definition - secrets have been integrated here.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -149,5 +149,18 @@ Deploy application:
 ```bash
 kubectl create -f ./azure-front-end.yaml
 kubectl create -f ./azure-back-end.yaml
+```
+
+## Expose application
+
+The MySQL deployment is exposed internally, and the Python deployment (azure-vote-front) externally.
+
+```bash
+kubectl expose deployment azure-vote-back
+kubectl expose deployment azure-vote-front --type LoadBalancer --name azure-vote-front
+```
+
+```bash
+kubectl get service -w
 ```
 
