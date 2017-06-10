@@ -11,7 +11,7 @@ keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
 ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
+ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -23,13 +23,33 @@ ms.author: nepeters
 
 TODO - figure out service discovery (currently hard coded pod address)
 
-TODO - integrate secrets for env variables.
-
 TODO - integrate Azure disk driver and move MySQL file.
 
 TODO - integrate ACR
 
-Secrets:
+TODO - Create secret and new deployment for MySQL
+
+TODO (completed) - integrate secrets for env variables.
+
+## Create secrets
+
+Base64 encode secrets for front-end.
+
+```bash
+# MYSQL_DATABASE_USER
+echo -n dbuser | base64
+
+# MYSQL_DATABASE_PASSWORD
+echo -n Password12 | base64
+
+# MYSQL_DATABASE_DB
+echo -n azurevote | base64
+
+# MYSQL_DATABASE_HOST
+echo -n 10.244.3.3 | base64
+```
+
+Create front-end secret definition.
 
 ```yaml
 apiVersion: v1
@@ -38,39 +58,21 @@ metadata:
   name: azure-vote-front-secret
 type: Opaque
 data:
-  MYSQL_DATABASE_USER: ZGJ1c2VyCg==
-  MYSQL_DATABASE_PASSWORD: UGFzc3dvcmQxMgo=
-  MYSQL_DATABASE_DB: VUdGemMzZHZjbVF4TWdvPQo=
-  MYSQL_DATABASE_HOST: MTAuMjQ0LjMuMgo=
+  MYSQL_DATABASE_USER: ZGJ1c2Vy
+  MYSQL_DATABASE_PASSWORD: UGFzc3dvcmQxMg==
+  MYSQL_DATABASE_DB: YXp1cmV2b3Rl
+  MYSQL_DATABASE_HOST: MTAuMjQ0LjMuMw==
 ```
 
-```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      containers:
-      - name: azure-vote-front
-        image: neilpeterson/azure-vote-front
-        ports:
-        - containerPort: 8000
-        env:
-        - name: MYSQL_DATABASE_USER
-          value: dbuser 
-        - name: MYSQL_DATABASE_PASSWORD
-          value: Password12 
-        - name: MYSQL_DATABASE_DB
-          value: azurevote
-        - name: MYSQL_DATABASE_HOST
-          value: 10.244.3.7
+Create front-end secret.
+
+```bash
+kubectl create -f secret.yaml
 ```
+
+## Deploy application
+
+Create back-end deployment definition
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -98,5 +100,54 @@ spec:
           value: Password12
         - name: MYSQL_DATABASE
           value: azurevote
+```
+
+Create fron-end deployment definition - secrets have been integrated here.
+
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-front
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front
+    spec:
+      containers:
+      - name: azure-vote-front
+        image: neilpeterson/azure-vote-front
+        ports:
+        - containerPort: 8000
+        env:
+        - name: MYSQL_DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: azure-vote-front-secret
+              key: MYSQL_DATABASE_USER
+        - name: MYSQL_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: azure-vote-front-secret
+              key: MYSQL_DATABASE_PASSWORD
+        - name: MYSQL_DATABASE_DB
+          valueFrom:
+            secretKeyRef:
+              name: azure-vote-front-secret
+              key: MYSQL_DATABASE_DB
+        - name: MYSQL_DATABASE_HOST
+          valueFrom:
+            secretKeyRef:
+              name: azure-vote-front-secret
+              key: MYSQL_DATABASE_HOST
+```
+
+Deploy application:
+
+```bash
+kubectl create -f ./azure-front-end.yaml
+kubectl create -f ./azure-back-end.yaml
 ```
 
