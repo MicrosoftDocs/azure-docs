@@ -153,7 +153,7 @@ Run the previous command again, replacing *myVnet1* with *myVnet2*. The output o
 
 Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
  
-## <a name="powershell"></a>Create peering - Powershell
+## <a name="powershell"></a>Create peering - PowerShell
 
 1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. To start a PowerShell session, go to **Start**, enter **powershell**, and then click **PowerShell**.
@@ -341,7 +341,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 ### <a name="delete-cli"></a>Azure CLI
 
-From the Cloud Shell prompt, enter the following command:
+From a Linux, macOS, or Windows command shell, enter the command that follows. Alternatively, click the Try It button at the top right of the following code block to launch the Cloud Shell. Then, use the Copy button to copy and paste the sample code into the Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
