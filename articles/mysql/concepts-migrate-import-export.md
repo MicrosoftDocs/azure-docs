@@ -40,7 +40,7 @@ It is recommended to use MySQL utilities such to export and import databases int
 -	When migrating data from external data sources other than a MySQL database, create flat files and import them using the mysqlimport utility. For more information, see: https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html
 
 - The **InnoDB** storage engine must be used in _all tables_ in the database when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables require alternative storage engines, be sure to convert the export scripts  InnoDB engine format before migration to Azure Database for MySQL.
-   For example, if you have a WordPress which uses non-InnoDB engine such as MyISAM, you should first convert those tables by migrating the data into InnoDB tables before the migration. Use the clause `ENGINE=INNODB` to set the engine used when creating a new table, then transfer the data into the compatible table before the migration. 
+   For example, if you have a WordPress application, which uses non-InnoDB engine such as MyISAM, you should first convert those tables by migrating the data into InnoDB tables before the migration. Use the clause `ENGINE=INNODB` to set the engine used when creating a new table, then transfer the data into the compatible table before the migration. 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
@@ -57,32 +57,31 @@ It is recommended to use MySQL utilities such to export and import databases int
 ## Import and Export using MySQL Workbench
 There are two ways to export and import data in MySQL Workbench, each serving a different purpose. 
 
-## Table Data Export and Import Wizard using Object Browser context menu
+### Table Data Export and Import Wizard using Object Browser context menu
 ![MySQL Workbench Import Export using Object Browser context menu](./media/concepts-migrate-import-export/p1.png)
 
 This wizard supports import and export operations using CSV and JSON files, and includes several configuration options (separators, column selection, encoding selection, and more). The wizard can be performed against local or remotely connected MySQL servers, and the import action includes table, column, and type mapping. 
 The wizard is accessible from the object browser's context menu by right-clicking on a table. Then choose either **Table Data Export Wizard** or **Table Data Import Wizard**. 
 
-## Table Data Export Wizard
+#### Table Data Export Wizard
 The following example exports the table to a CSV file. 
-- Right click the Table of the Database to be exported. 
+- Right-click the Table of the Database to be exported. 
 - Select **Table Data Export Wizard**. Select the Columns to be exported, Row Offset (if any), Count (if any). 
 - Click **Next** on 'select data for export' window. Select the File Path, CSV or JSON file type, Line separator, Enclose Strings in and Field Separator. 
 - Select **Next** on 'Select output file location' window and Select Next on 'Export Data' window.
 
-
-## Table Data Import Wizard
+#### Table Data Import Wizard
 The following example imports the table from a CSV file.
-- Right click the Table of the Database to be imported. 
+- Right-click the Table of the Database to be imported. 
 - Browse and select the CSV file to be imported and then Next button. 
 - Select the Destination Table (new or existing) and select or deselect the check box 'Truncate table before import' and click the Next button.
 - Select encoding and the columns to be imported and select Next button. 
 - Select Next on Import data Window and it imports the data accordingly.
 
-## SQL Data Export and Import Wizard from Management Navigator
-Use this wizard to either export or import SQL generated from MySQL Workbench or with the mysqldump command. Access these wizards from either the Navigator panel, or by selecting Server from the main menu, and then either Data Import or Data Export. 
+### SQL Data Export and Import Wizard from Management Navigator
+Use this wizard to either export or import SQL generated from MySQL Workbench or with the mysqldump command. Access these wizards from  the Navigator panel or by selecting Server from the main menu. Then select Data Import or Data Export. 
 
-## Data Export
+#### Data Export
 ![MySQL Workbench Data Export using Management Navigator](./media/concepts-migrate-import-export/p2.png)
 
 This tab allows you to export your MySQL data. 
@@ -94,7 +93,7 @@ This tab allows you to export your MySQL data.
 - Click **Start Export** to begin the export process. 
 
 
-## Data Import
+#### Data Import
 ![MySQL Workbench Data Import using Management Navigator](./media/concepts-migrate-import-export/p3.png)
 
 This tab allows import or restore the exported data from the Data Export operation, or from other exported data from the mysqldump command. 
@@ -102,4 +101,4 @@ This tab allows import or restore the exported data from the Data Export operati
 - Click **Start Import** to begin the import process.
 
 ## Next steps
-As an another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL ](concepts-migrate-dump-restore.md) 
+As another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL ](concepts-migrate-dump-restore.md) 
