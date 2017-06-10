@@ -36,7 +36,7 @@ This tutorial assumes you are already familiar with using Azure PowerShell. In p
 To log in with a subscription name:
 
 '''
-Login-AzureRmAccount -SubscriptionName "MySubscriptionName"
+Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
 '''
 
 Instead of the subscription name, you can also use a subscription id to log in:
@@ -52,7 +52,7 @@ Environment           : AzureCloud
 Account               : joe@contoso.com
 TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 SubscriptionId        : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-SubscriptionName      : ADLTrainingMS
+SubscriptionName      : ContosoSubscription
 CurrentStorageAccount :
 ```
 
