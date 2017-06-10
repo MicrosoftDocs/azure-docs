@@ -42,10 +42,7 @@ Login-AzureRmAccount -SubscriptionName "MySubscriptionName"
 Instead of the subscription name, you can also use a subscription id to log in:
 
 '''
-Login-AzureRmAccount -SubscriptionId "00000000-0000-0000-0000-000000000000"
 Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-46
-
 '''
 
 When successful, the output of this command looks like the following:
