@@ -1,62 +1,57 @@
 
+Each endpoint has a *public port* and a *private port*:
 
-## Multi and Single Instance VMs
-Many customers running on Azure count it critical that they can schedule when their VMs undergo planned maintenance due to the downtime--about 15 minutes--that occurs during maintenance. You can use availability sets to help control when provisioned VMs receive planned maintenance.
+* The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
+* The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
 
-There are two possible configurations for VMs running on Azure. VMs are either configured as multi-instance or single-instance. If VMs are in an availability set, then they are configured as multi-instance. Note, even single VMs can be deployed in an availability set, so that they are treated as multi-instance. If VMs are NOT in an availability set, then they are configured as single-instance.  For details on availability sets, see [Manage the Availability of your Windows Virtual Machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the Availability of your Linux Virtual Machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
 
-Planned maintenance updates to single-instance and multi-instance VMs happen separately. By reconfiguring your VMs to be single-instance (if they are multi-instance) or to be multi-instance (if they are single-instance), you can control when their VMs receive the planned maintenance. See [Planned maintenance for Azure Linux virtual machines](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Planned maintenance for Azure Windows virtual machines](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on planned maintenance for Azure VMs.
+After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
 
-## For Multi-instance Configuration
-You can select the time planned maintenance impacts your VMs that are deployed in an Availability Set configuration by removing these VMs from availability sets.
+> [!NOTE]
+> Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
+>
+>
 
-1. An email is sent to you seven calendar days before the planned maintenance to your VMs in a Multi-instance configuration. The subscription IDs and names of the affected Multi-instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instances are updated by removing your multi-instance VMs in that region from their availability set. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. You can remove the VM from its availability set in the Azure portal.
+## Create an endpoint
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
+2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
+3. Click **Endpoints** in the **Settings** group. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
 
-   1. In the portal, select the VM to remove from the Availability Set.  
+   <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
+   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
-   2. Under **settings**, click **Availability set**.
+4. In the command bar above the endpoint entries, click **Add**.
+5. On the **Add endpoint** page, type a name for the endpoint in **Name**.
+6. In **Protocol**, choose either **TCP** or **UDP**.
+7. In **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 6) and private port.
+10. Click **Ok**.
 
-      ![Availability Set Selection](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
+The new endpoint will be listed on the **Endpoints** page.
 
-   3. In the availability set dropdown menu, select “Not part of an availability set.”
+![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
 
-      ![Remove from Set](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
+## Manage the ACL on an endpoint
+To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
 
-   4. At the top, click **Save**. Click **Yes** to acknowledge that this action restarts the VM.
+> [!NOTE]
+> If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+>
+>
 
-   >[!TIP]
-   >You can reconfigure the VM to multi-instance later by selecting one of the listed availability sets.
+If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
 
-4. VMs removed from availability sets are moved to Single-Instance hosts and are not updated during the planned maintenance to Availability Set Configurations.
-5. Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should add the VMs back into their availability sets. Becoming part of an Availability set reconfigures the VMs as multi-instance, and results in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
+1. If you haven't already done so, sign in to the Azure portal.
+2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
+3. Click **Endpoints**. From the list, select the appropriate endpoint. The ACL list is at the bottom of the page.
 
-Removing a VM from an availability set can also be achieved using Azure PowerShell:
+   ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-```
-Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
-```
+5. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is `10.1.0.0/8`.
 
-## For Single-instance Configuration
-You can select the time planned maintenance impacts you VMs in a Single-instance configuration by adding these VMs into availability sets.
-
-Step-by-step
-
-1. An email is sent to you seven calendar days before the planned maintenance to VMs in a Single-instance configuration. The subscription IDs and names of the affected Single-Instance VMs are included in the body of the email.
-2. During those seven days, you can choose the time your instance reboots by adding your Single-instance VMs to an availability set in that same region. This change in configuration causes a reboot, as the Virtual Machine is moving from one physical host, targeted for maintenance, to another physical host that isn’t targeted for maintenance.
-3. Follow instructions here to add existing VMs into availability sets using the Azure portal and Azure PowerShell. (See the Azure PowerShell sample that follows these steps.)
-4. Once these VMs are reconfigured as Multi-instance, they are excluded from the planned maintenance to Single-instance VMs.
-5. Once the single-instance VM update completes (according to schedule in the original email), you can return the VMs to single-instance by removing the VMs from their availability sets.
-
-Adding a VM to an availability set also can be achieved using Azure PowerShell:
-
-    Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
-
-<!--Anchors-->
+![New ACL entry](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
+You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
 
-<!--Link references-->
-[Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
-[Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../articles/virtual-network/virtual-networks-acl.md).
