@@ -39,11 +39,11 @@ To prepare migrated machines for setting up replication to another Azure region:
 
 These steps are described in more detail in the following sections.
 
-### Step 1 - Migrate workloads running on Hyper-V VMs, VMware VMs, and physical servers to run on Azure VMs:
+### Step 1 - Migrate workloads running on Hyper-V VMs, VMware VMs, and physical servers to run on Azure VMs
 
 To set up replication and migrate your on-premises Hyper-V, VMware, and physical workloads to Azure, follow the steps in the [Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery](site-recovery-migrate-to-azure.md) article. 
 
-After migration, you don't need to commit or delete a failover. Instead, select the **Complete Migration** option for each machine you want to migrate.
+After migration, you don't need to commit or delete a failover. Instead, select the **Complete Migration** option for each machine you want to migrate:
 1. In **Replicated Items**, right-click the VM, and click **Complete Migration**. Click **OK** to complete. You can track progress in the VM properties by monitoring the Complete Migration job in **Site Recovery jobs**.
 2. The **Complete Migration** action completes the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
 
