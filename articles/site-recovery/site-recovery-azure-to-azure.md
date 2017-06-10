@@ -1,6 +1,6 @@
 ---
-title: Replicate Azure VMs between Azure sites | Microsoft Docs
-description: Summarizes the steps you need for replicating Azure VMs between Azure regions with the Site Recovery service
+title: Replicate Azure VMs between Azure regions Disaster Recovery (DR) needs - Azure to Azure| Microsoft Docs
+description: Summarizes the steps you need for replicating Azure VMs between Azure regions (Azure to Azure DR) with the Site Recovery service for Disaster recovery (DR) needs.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
