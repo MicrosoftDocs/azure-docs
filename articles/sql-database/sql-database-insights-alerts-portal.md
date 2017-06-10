@@ -1,7 +1,7 @@
 ---
 title: Use Azure portal to create SQL Database alerts | Microsoft Docs
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
-author: aamalvea
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 services: sql-database
@@ -9,19 +9,19 @@ documentationcenter: ''
 
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
-ms.author: aamalvea
+ms.date: 02/01/2017
+ms.author: carlrab
 
 ---
-# Use Azure portal to create alerts for Azure SQL Database and Data Warehouse
+# Use Azure portal to create alerts for Azure SQL Database
 
 ## Overview
-This article shows you how to set up Azure SQL Database and Data Warehouse alerts using the Azure portal. This article also provides best practices for setting alert periods.    
+This article shows you how to set up Azure SQL Database alerts using the Azure portal. This article also provides best practices for values and thresholds.    
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
@@ -33,6 +33,7 @@ You can configure an alert to do the following when it triggers:
 * send email notifications to the service administrator and co-administrators
 * send email to additional emails that you specify.
 * call a webhook
+* start execution of an Azure runbook (only from the Azure portal)
 
 You can configure and get information about alert rules using
 
@@ -43,16 +44,9 @@ You can configure and get information about alert rules using
 
 ## Create an alert rule on a metric with the Azure portal
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
-2. This step is different for SQL DB and elastic pools versus SQL DW: 
-
-   - **SQL DB & Elastic Pools ONLY**: Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
+2. Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
    
-     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
-  
-   - **SQL DW ONLY**: Select **Monitoring** under the COMMON TASKS section. Click the **DWU Usage** graph.
-
-     ![COMMON TASKS](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
+    ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
 3. Select the **Add alert** command and fill in the fields.
    
     ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
@@ -61,7 +55,8 @@ You can configure and get information about alert rules using
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
 7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com*
 8. Put in a valid URI in the **Webhook** field if you want it called when the alert fires.
-9. Select **OK** when done to create the alert.   
+9. If you use Azure Automation, you can select a Runbook to be run when the alert fires.
+10. Select **OK** when done to create the alert.   
 
 Within a few minutes, the alert is active and triggers as previously described.
 
@@ -73,7 +68,7 @@ Once you have created an alert, you can select it and:
 * **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert.
 
 
-## SQL Database alert values
+## SQL Database alert values and thresholds
 
 | Resource Type	| Metric Name | Friendly Name | Aggregation Type | Minimum alert time window|
 | --- | --- | --- | --- | --- |
@@ -92,18 +87,7 @@ Once you have created an alert, you can select it and:
 | SQL database | sessions_percent | Sessions percent | Average | 5 minutes |
 | SQL database | dtu_limit | DTU limit | Average | 5 minutes |
 | SQL database | dtu_used | DTU used | Average | 5 minutes |
-||||||
-| Elastic pool | cpu_percent | CPU percentage | Average | 5 minutes |
-| Elastic pool | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
-| Elastic pool | log_write_percent | Log IO percentage | Average | 5 minutes |
-| Elastic pool | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
-| Elastic pool | storage_percent | Storage percentage | Average | 5 minutes |
-| Elastic pool | workers_percent | Workers percentage | Average | 5 minutes |
-| Elastic pool | eDTU_limit | eDTU limit | Average | 5 minutes |
-| Elastic pool | storage_limit | Storage limit | Average | 5 minutes |
-| Elastic pool | eDTU_used | eDTU used | Average | 5 minutes |
-| Elastic pool | storage_used | Storage used | Average | 5 minutes |
-|||||| 	 	 	 	 
+||||||	 	 	 
 | SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
 | SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
 | SQL data warehouse | storage | Total database size | Maximum | 10 minutes |
@@ -114,11 +98,24 @@ Once you have created an alert, you can select it and:
 | SQL data warehouse | dwu_limit | dwu limit | Maximum | 10 minutes |
 | SQL data warehouse | dwu_consumption_percent | DWU percentage | Average | 10 minutes |
 | SQL data warehouse | dwu_used | DWU used | Average | 10 minutes |
+|||||| 	 	 	 	 
+| Elastic pool | cpu_percent | CPU percentage | Average | 5 minutes |
+| Elastic pool | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
+| Elastic pool | log_write_percent | Log IO percentage | Average | 5 minutes |
+| Elastic pool | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
+| Elastic pool | storage_percent | Storage percentage | Average | 5 minutes |
+| Elastic pool | workers_percent | Workers percentage | Average | 5 minutes |
+| Elastic pool | eDTU_limit | eDTU limit | Average | 5 minutes |
+| Elastic pool | storage_limit | Storage limit | Average | 5 minutes |
+| Elastic pool | eDTU_used | eDTU used | Average | 5 minutes |
+| Elastic pool | storage_used | Storage used | Average | 5 minutes |
 ||||||
 
 
 ## Next steps
 * [Get an overview of Azure monitoring](../monitoring-and-diagnostics/monitoring-overview.md) including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
 * Get an [overview of diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+
