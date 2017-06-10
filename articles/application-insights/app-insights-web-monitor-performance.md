@@ -119,7 +119,7 @@ You can use the new Application Insights interactive performance investigation t
 
 ### Create a list of slow performing pages 
 
-The first step for finding performance issues is to get a list of the slow responding pages. The screen shot below demonstrates using the Performance blade to get a list of potential pages to investigate further. You can quickly see from this page that there was a slow-down in the response time of the app at approximately 6:00 PM and again at 11:13 PM. You can also see that the GET customer/index operation is the longest running operation, with a median response time of 329.19 milliseconds. 
+The first step for finding performance issues is to get a list of the slow responding pages. The screen shot below demonstrates using the Performance blade to get a list of potential pages to investigate further. You can quickly see from this page that there was a slow-down in the response time of the app at approximately 6:00 PM and again at approximately 10 PM. You can also see that the GET customer/details operation had some long running operations with a median response time of 507.05 milliseconds. 
 
 ![Application Insights Interactive Performance](./media/app-insights-web-monitor-performance/performance1.png)
 
