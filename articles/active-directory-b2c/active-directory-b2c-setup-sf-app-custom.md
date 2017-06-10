@@ -111,7 +111,8 @@ You need to upload the signing certificate to your Azure AD B2C tenant. To do th
 1. Click **+Add**
     * Select **Options > Upload**
     * Enter a **Name** (for example `SAMLSigningCert`). The prefix B2C_1A_ will be added automatically to the name of your key.
-    * Use the **upload file control** to select your certificate and provide the certificate's password.
+    * Use the **upload file control** to select your certificate
+    * Enter the certificate's password that you set in the PowerShell script.
 1. Click **Create**
 1. Confirm you've created a key (for example `B2C_1A_SAMLSigningCert`). Take note of the full name (with B2C_1A_) as you will refer to this in the policy later.
 
