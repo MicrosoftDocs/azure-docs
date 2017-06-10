@@ -31,7 +31,7 @@ Before you begin this tutorial, you must have the following information:
 
 ## Log in to Azure
 
-This tutorial assumes you are already familiar with using Azure PowerShell. In particular you need to know how to log in to Azure. This See the [Azure PowerShell Gettting Started guide](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) if you need help.
+This tutorial assumes you are already familiar with using Azure PowerShell. In particular, you need to know how to log in to Azure. See the [Get started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) if you need help.
 
 To log in with a subscription name:
 
@@ -48,7 +48,7 @@ Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 '''
 
-When successful, the output of this command looks like this:
+When successful, the output of this command looks like the following:
 
 ```
 Environment           : AzureCloud
