@@ -58,7 +58,7 @@ The following information identifies the Azure Government boundary for Azure Cos
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| All data stored and processed in Azure Cosmos DB can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: DB name, Subscription name, Resource groups, Resource tags. |
+| All data stored and processed in Azure Cosmos DB can contain Azure Government-regulated data. |Azure Cosmos DB metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: DB name, Subscription name, Resource groups, Resource tags. |
 
 
 ## Azure Redis Cache
