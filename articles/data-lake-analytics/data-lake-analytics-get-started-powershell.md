@@ -45,7 +45,7 @@ Instead of the subscription name, you can also use a subscription id to log in:
 Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 '''
 
-When successful, the output of this command looks like the following:
+If  successful, the output of this command looks like the following text:
 
 ```
 Environment           : AzureCloud
