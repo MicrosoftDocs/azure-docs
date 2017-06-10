@@ -88,6 +88,7 @@ In the following tables, services specified as Resource Manager enabled have res
 | [SQL Database](documentation-government-services-database.md#sql-database) | Yes | Yes |
 | SQL Data Warehouse | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
+| [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
 | [Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
 
 
