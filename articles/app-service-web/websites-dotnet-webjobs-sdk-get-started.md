@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 6/9/2017
 ms.author: glenga
 
 ---
@@ -24,7 +24,7 @@ This tutorial shows how to write code for a simple multi-tier ASP.NET MVC 5 appl
 
 The purpose of the [WebJobs SDK](websites-webjobs-resources.md) is to simplify the code you write for common tasks that a WebJob can perform, such as image processing, queue processing, RSS aggregation, file maintenance, and sending emails. The WebJobs SDK has built-in features for working with Azure Storage and Service Bus, for scheduling tasks and handling errors, and for many other common scenarios. In addition, it's designed to be extensible, and there's an [open source repository for extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
-The sample application is an advertising bulletin board. Users can upload images for ads, and a backend process converts the images to thumbnails. The ad list page shows the thumbnails, and the ad details page shows the full size image. Here's a screenshot:
+The sample application is an advertising bulletin board. Users can upload images for ads, and a backend process converts the images to thumbnails. The ad list page shows the thumbnails, and the ad details page shows the full-size image. Here's a screenshot:
 
 ![Ad list](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
@@ -33,15 +33,13 @@ This sample application works with [Azure queues](http://www.asp.net/aspnet/over
 ## <a id="prerequisites"></a>Prerequisites
 The tutorial assumes that you know how to work with [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) projects in Visual Studio.
 
-The tutorial was written for Visual Studio 2013. If you don't have Visual Studio already, it will be installed for you automatically when you install the Azure SDK for .NET.
-
-The tutorial can be used with Visual Studio 2015, but before you run the application locally you have to change the `Data Source` part of the SQL Server LocalDB connection string in the Web.config and App.config files from `Data Source=(localdb)\v11.0` to `Data Source=(LocalDb)\MSSQLLocalDB`.
+The tutorial was originally written for Visual Studio 2013, but can be used with later versions of Visual Studio. If you are using Visual Studio 2015 or 2017, make note that before you run the application locally, you must change the `Data Source` part of the SQL Server LocalDB connection string in the Web.config and App.config files from `Data Source=(localdb)\v11.0` to `Data Source=(LocalDb)\MSSQLLocalDB`.
 
 > [!NOTE]
-> <a name="note"></a>You need an Azure account to complete this tutorial:
+> <a name="note"></a>You must have an Azure account to complete this tutorial:
 >
-> * You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
-> * You can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+> * You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits that you can use to try out paid Azure services, and even after they're used up, you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+> * You can [activate Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your subscription gives you credits every month that you can use for paid Azure services.
 >
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 >
@@ -50,7 +48,7 @@ The tutorial can be used with Visual Studio 2015, but before you run the applica
 ## <a id="learn"></a>What you'll learn
 The tutorial shows how to do the following tasks:
 
-* Enable your machine for Azure development by installing the Azure SDK.
+* Enable your machine for Azure development by installing the Azure SDK (only for Visual Studio 2013 and 2015 users).
 * Create a Console Application project that automatically deploys as an Azure WebJob when you deploy the associated web project.
 * Test a WebJobs SDK backend locally on the development computer.
 * Publish an application with a WebJobs backend to a web app in App Service.
@@ -70,12 +68,14 @@ When a user uploads an image, the web app stores the image in an [Azure blob](ht
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
+If you're using [Visual Studio 2017](https://www.visualstudio.com/vs/azure-tools/), Azure SDK is included.   
+
 The tutorial instructions apply to Azure SDK for .NET 2.7.1 or later.
 
 ## <a id="storage"></a>Create an Azure Storage account
 An Azure storage account provides resources for storing queue and blob data in the cloud. It's also used by the WebJobs SDK to store logging data for the dashboard.
 
-In a real-world application, you typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial you'll use just one account.
+In a real-world application, you typically create separate accounts for application data versus logging data and separate accounts for test data versus production data. For this tutorial, you'll use just one account.
 
 1. Open the **Server Explorer** window in Visual Studio.
 2. Right-click the **Azure** node, and then click **Connect to Microsoft Azure Subscription...**.
@@ -138,7 +138,7 @@ In a real-world application, you typically create separate accounts for applicat
 5. Replace the storage connection string in the *Web.config* file with the connection string you just copied. Make sure you select everything inside the quotation marks but not including the quotation marks before pasting.
 6. Open the *App.config* file in the ContosoAdsWebJob project.
 
-    This file has two storage connection strings, one for application data and one for logging. You can use separate storage accounts for application data and logging, and you can use [multiple storage accounts for data](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). For this tutorial you'll use a single storage account. The connection strings have placeholders for the storage account keys.
+    This file has two storage connection strings, one for application data and one for logging. You can use separate storage accounts for application data and logging, and you can use [multiple storage accounts for data](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). For this tutorial, you'll use a single storage account. The connection strings have placeholders for the storage account keys.
 
       <pre class="prettyprint">&lt;configuration&gt;
     &lt;connectionStrings&gt;
@@ -202,15 +202,15 @@ After you've created some ads while running in the cloud, you'll view the WebJob
 ### Configure the web app to use your Azure SQL database and storage account.
 It's a security best practice to [avoid putting sensitive information such as connection strings in files that are stored in source code repositories](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure provides a way to do that: you can set connection string and other setting values in the Azure environment, and ASP.NET configuration APIs automatically pick up these values when the app runs in Azure. You can set these values in Azure by using **Server Explorer**, the Azure Portal, Windows PowerShell, or the cross-platform command-line interface. For more information, see [How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
-In this section you use **Server Explorer** to set connection string values in Azure.
+In this section, you use **Server Explorer** to set connection string values in Azure.
 
 1. In **Server Explorer**, right-click your web app under **Azure > App Service > {your resource group}**, and then click **View Settings**.
 
     The **Azure Web App** window opens on the **Configuration** tab.
-2. Change the name of the DefaultConnection connection string to the name you chose when you configured the SQL database in the [Publish to Azure with SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase#publish-to-azure-with-sql-database) steps.
+2. Change the name of the DefaultConnection connection string to the name you chose when you configured the SQL database in the [Publish to Azure with SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase#publish-to-azure-with-sql-database) article.
 
     Azure automatically created this connection string when you created the web app with an associated database, so it already has the right connection string value. You're changing just the name to what your code is looking for.
-3. Add two new connection strings, named AzureWebJobsStorage and AzureWebJobsDashboard. Set type to Custom, and set the connection string value to the same value that you used earlier for the *Web.config* and *App.config* files. (Be sure you include the entire connection string, not just the access key, and don't include the quotation marks.)
+3. Add two new connection strings, named AzureWebJobsStorage and AzureWebJobsDashboard. Set the database type to **Custom**, and set the connection string value to the same value that you used earlier for the *Web.config* and *App.config* files. (Be sure you include the entire connection string, not just the access key, and don't include the quotation marks.)
 
     These connection strings are used by the WebJobs SDK, one for application data and one for logging. As you saw earlier, the one for application data is also used by the web front end code.
 4. Click **Save**.
@@ -228,10 +228,10 @@ In this section you use **Server Explorer** to set connection string values in A
    The Index page shows without a thumbnail at first.
 9. Refresh the page after a few seconds and the thumbnail appears.
 
-   If the thumbnail doesn't appear, you might have to wait a minute or so for the WebJob to restart. If after a while, you still don't see the thumbnail when you refresh the page, the WebJob might not have started automatically. In that case, go to the App Services blade in the [Azure portal](https://portal.azure.com/), locate your web app, and then click **Start**.
+   If the thumbnail doesn't appear, you might have to wait a minute or so for the WebJob to restart. If after a while, you still don't see the thumbnail when you refresh the page, the WebJob might not have started automatically. In that case, go to the **App Services** blade in the [Azure portal](https://portal.azure.com/), locate your web app, and then click **Start**.
 
 ### View the WebJobs SDK dashboard
-1. In the [Azure portal](https://portal.azure.com/), select the App Services blade, locate your web app, and select **WebJobs**.
+1. In the [Azure portal](https://portal.azure.com/), select the **App Services blade**, locate your web app, and select **WebJobs**.
 3. Select the **Logs** tab.
 
     ![Logs tab](./media/websites-dotnet-webjobs-sdk-get-started/log-tab.png)
@@ -249,6 +249,7 @@ In this section you use **Server Explorer** to set connection string values in A
 > When you're finished testing, consider deleting the web app, storage account, and your SQL Database instance. The web app is free, but the SQL storage account and database instance accrue charges (albeit, minimal due to the small size). Also, if you leave the web app running, anyone who finds your URL can create and view ads. 
 >
 >
+
 ### Delete your web app
 In the portal, go to the **App Services** blade, locate and select your web app, and then click **Delete**. If you just want to temporarily prevent others from accessing the web app, click **Stop** instead. In that case, charges will continue to accrue for the SQL Database and Storage account.
 
@@ -270,28 +271,25 @@ In this section you'll do the following tasks:
 * Review the parts of the code that work with Azure blobs and queues and the WebJobs SDK.
 
 ### Create a Visual Studio solution with a web project and class library project
-1. In Visual Studio, choose **New** > **Project** from the **File** menu.
-2. In the **New Project** dialog, choose **Visual C#** > **Web** > **ASP.NET Web Application**.
+1. In Visual Studio, choose **File** > **New** > **Project**.
+2. In the **New Project** dialog, choose **Visual C#** > **Web** > **ASP.NET Web Application (.NET Framework)**.
 3. Name the project ContosoAdsWeb, name the solution ContosoAdsWebJobsSDK (change the solution name if you're putting it in the same folder as the downloaded solution), and then click **OK**.
 
     ![New Project](./media/websites-dotnet-webjobs-sdk-get-started/newproject.png)
-4. In the **New ASP.NET Project** dialog, choose the MVC template, and clear the **Host in the cloud** check box under **Microsoft Azure**.
-
-    Selecting **Host in the cloud** enables Visual Studio to automatically create a new Azure web app and SQL Database. Since you already created these earlier, you don't need to do so now while creating the project. If you want to create a new one, select the check box. You can then configure the new web app and SQL database the same way you did earlier when you deployed the application.
-5. Click **Change Authentication**.
+4. In the **New ASP.NET Web Application** dialog, choose the MVC template, and select **Change Authentication**.
 
     ![Change Authentication](./media/websites-dotnet-webjobs-sdk-get-started/chgauth.png)
-6. In the **Change Authentication** dialog, choose **No Authentication**, and then click **OK**.
+5. In the **Change Authentication** dialog, choose **No Authentication**, and then click **OK**.
 
     ![No Authentication](./media/websites-dotnet-webjobs-sdk-get-started/noauth.png)
-7. In the **New ASP.NET Project** dialog, click **OK**.
+6. In the **New ASP.NET Web Application** dialog, click **OK**.
 
     Visual Studio creates the solution and the web project.
-8. In **Solution Explorer**, right-click the solution (not the project), and choose **Add** > **New Project**.
-9. In the **Add New Project** dialog, choose **Visual C#** > **Windows Desktop** > **Class Library** template.  
-10. Name the project *ContosoAdsCommon*, and then click **OK**.
+7. In **Solution Explorer**, right-click the solution (not the project), and choose **Add** > **New Project**.
+8. In the **Add New Project** dialog, choose **Visual C#** > **Windows Classic Desktop** > **Class Library (.NET Framework)** template.  
+9. Name the project *ContosoAdsCommon*, and then click **OK**.
 
-    This project will contain the Entity Framework context and the data model which both the front end and back end will use. As an alternative you could define the EF-related classes in the web project and reference that project from the WebJob project. But then your WebJob project would have a reference to web assemblies which it doesn't need.
+    This project will contain the Entity Framework context and the data model which both the front end and back end will use. As an alternative, you could define the EF-related classes in the web project and reference that project from the WebJob project. But, then your WebJob project would have a reference to web assemblies, which it doesn't need.
 
 ### Add a Console Application project that has WebJobs deployment enabled
 1. Right-click the web project (not the solution or the class library project), and then click **Add** > **New Azure WebJob Project**.
@@ -325,14 +323,15 @@ One of the WebJobs SDK dependencies that is installed automatically in the WebJo
 ### Set project references
 Both web and WebJob projects work with the SQL database, so both need a reference to the ContosoAdsCommon project.
 
-1. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. (Right-click the ContosoAdsWeb project, and then click **Add** > **Reference**. In the **Reference Manager** dialog box, select **Solution** > **Projects** > **ContosoAdsCommon**, and then click **OK**.)
-2. In the ContosoAdsWebJob project, set a reference to the ContosAdsCommon project.
-
+1. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. (Right-click the ContosoAdsWeb project, and then click **Add** > **Reference**. 
+2. In the **Reference Manager** dialog box, select **Projects** > **Solution** > **ContosoAdsCommon**, and then click **OK**.)
+   
     The WebJob project needs references for working with images and for accessing connection strings.
-3. In the ContosoAdsWebJob project, set a reference to `System.Drawing` and `System.Configuration`.
+
+4. In the ContosoAdsWebJob project, set a reference to `System.Drawing` and `System.Configuration`.
 
 ### Add code and configuration files
-This tutorial does not show how to [create MVC controllers and views using scaffolding](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), how to [write Entity Framework code that works with SQL Server databases](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc), or [the basics of asynchronous programming in ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async). So all that remains to do is copy code and configuration files from the downloaded solution into the new solution. After you do that, the following sections show and explain key parts of the code.
+This tutorial does not show how to [create MVC controllers and views using scaffolding](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started), how to [write Entity Framework code that works with SQL Server databases](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc), or [the basics of asynchronous programming in ASP.NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async). So, all that remains to do is copy code and configuration files from the downloaded solution into the new solution. After you do that, the following sections show and explain key parts of the code.
 
 To add files to a project or a folder, right-click the project or folder and click **Add** > **Existing Item**. Select the files you want and click **Add**. If asked whether you want to replace existing files, click **Yes**.
 
