@@ -5,7 +5,7 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid:
 ms.service: mysql-database
 ms.devlang: na
