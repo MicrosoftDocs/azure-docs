@@ -36,9 +36,9 @@ Post any comments at the bottom of this article, or ask questions in the [Azure 
 
 ## Architectural components
 
-The following graphic provides a high-level view of an Azure VM environment in a specific region (in this example, the East United States location). In an Azure VM environment:
+The following diagram provides a high-level view of an Azure VM environment in a specific region (in this example, the East US location). In an Azure VM environment:
 - Apps can be running on VMs with disks spread across storage accounts.
-- The VMs can be included in one or more subnets, within a virtual network.
+- The VMs can be included in one or more subnets within a virtual network.
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
@@ -48,7 +48,7 @@ Learn about the deployment prerequisites and requirements in the [support matrix
 
 ### Step 1
 
-When you enable Azure VM replication in the Azure portal, the resources shown in the following graphic and table are automatically created in the target region. By default, resources are created based on source region settings. You can customize the target settings as required. For more information, see the [Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery](site-recovery-replicate-azure-to-azure.md) article.
+When you enable Azure VM replication in the Azure portal, the resources shown in the following diagram and table are automatically created in the target region. By default, resources are created based on source region settings. You can customize the target settings as required. For more information, see the [Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery](site-recovery-replicate-azure-to-azure.md) article.
 
 ![Enable replication process, step 1](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -56,7 +56,7 @@ When you enable Azure VM replication in the Azure portal, the resources shown in
 --- | ---
 **Target resource group** | The resource group to which replicated VMs belong after failover.
 **Target virtual network** | The virtual network in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.
-**Cache storage accounts** | Changes on source VMs are tracked and sent to the cache storage account, before they're replicated to the target storage account, in the target location. This ensures minimal impact on production apps running on the VM.
+**Cache storage accounts** | Before changes on source VMs are replicated to the target storage account, they are tracked and sent to the cache storage account in the target location. This ensures minimal impact on production apps running on the VM.
 **Target storage accounts**  | Storage accounts in the target location to which the data is replicated.
 **Target availability sets**  | Availability sets in which the replicated VMs are located after failover.
 
@@ -66,7 +66,7 @@ As replication is enabled, the Site Recovery extension Mobility service is autom
 
 1. The VM is registered with Site Recovery.
 
-2. Continuous replication is configured for the VM. Data writes on the VM disks are continuously transferred to the cache storage account, in the source location.
+2. Continuous replication is configured for the VM. Data writes on the VM disks are continuously transferred to the cache storage account in the source location.
 
    ![Enable replication process, step 2](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-2.png)
 
