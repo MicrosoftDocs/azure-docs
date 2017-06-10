@@ -43,7 +43,7 @@ a. Sign in to your Azure Stack POC instance, close all the active PowerShell ses
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-b. Sign in to your Azure Stack POC instance, delete all the folders that start with Azure* from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules`.
+b. Sign in to your Azure Stack POC instance, delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules from the "AzureStackAdmin" and "global" user scopes. 
 
 Now,use the following steps to install PowerShell for Azure Stack:  
 
