@@ -38,7 +38,7 @@ The following information identifies the Azure Government boundary for Azure SQL
 | All data stored and processed in Microsoft Azure SQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure SQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags |
 
 ## Azure Cosmos DB
-For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.md).
+For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
 
 ### Variations
 Azure Cosmos DB is generally available in Azure Government. Features that are not currently available in Cosmos DB for Azure Government are:
