@@ -41,11 +41,11 @@ You can also modify the value of a certain server configuration parameter, and t
 
 To update the **log\_min\_messages** server configuration parameter of server **mypgserver-20170401.postgres.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
-az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401 --value INFO
+az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401 --value INFO
 ```
 If you want to reset the value of a configuration parameter, you simply choose to leave out the optional `--value` parameter, and the service will apply the default value. In above example, it would look like:
 ```azurecli-interactive
-az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
+az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
 ```
 This will reset the **log\_min\_messages** configuration to the default value **WARNING**. For further details on server configuration and permissible values, see PostgreSQL documentation on [Server Configuration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
