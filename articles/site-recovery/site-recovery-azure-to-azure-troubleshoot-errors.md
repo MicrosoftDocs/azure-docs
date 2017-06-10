@@ -108,7 +108,26 @@ New disk attached to the VM must be initialized
 150039<br></br>***Message -***  Azure data disk (DiskName) (DiskURI) with logical unit number (LUN) (LUNValue) was not mapped to a corresponding disk being reported from within the VM that has the same LUN value. | 1. A new data disk was attached to the VM but it has not been initialized.</br>2. The data disk inside the VM is not correctly reporting the LUN value at which the disk was attached to the VM.| Ensure that the data disks have been initialized and then retry the operation.</br> For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)</br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)
 
 #### How to fix it?
-Ensure that the data disks have been initialized and then retry the operation. For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)</br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux). If the problem persists, contact support
+Ensure that the data disks have been initialized and then retry the operation.
+
+- For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)
+- For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+
+If the problem persists, contact support.
+
+
+## Unable to see Azure VM for selection in 'Enable replication'
+
+You might not see your Azure VM for selection in ['Enable replication - Step 2'] (./site-recovery-azure-to-azure.md#step-2---select-virtual-machines). This issue could be due to stale Azure Site Recovery (ASR) configuraiton left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases.
+
+- You enabled replication for the Azure VM using ASR and then deleted the ASR vault without explicitly disabling replication on the VM
+- You enabled replication for the Azure VM using ASR and then deleted the resource group containing ASR vault without explicitly disabling replication on the VM.
+
+#### How to fix stale configuration issue
+
+You can use ['Remove stale ASR configuration script'](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale ASR confguration on the Azure VM. You should see the VM in ['Enable replication - Step 2'] (./site-recovery-azure-to-azure.md#step-2---select-virtual-machines) after removing the stale configuration.
+
+
 
 ## Next steps
 - [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
