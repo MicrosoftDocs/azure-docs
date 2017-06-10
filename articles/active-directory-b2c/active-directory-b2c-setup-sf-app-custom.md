@@ -21,7 +21,7 @@ ms.author: parakhj
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable login for users from a specific Salesforce organization through the use of [custom policies](active-directory-b2c-overview-custom.md).
+This article shows you how to enable login for users from a specific Salesforce organization by using [custom policies](active-directory-b2c-overview-custom.md).
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ This tutorial assumes you already have:
 
 ## Configure Salesforce to allow users to federate
 
-In order to help Azure AD B2C communicate with Salesforce, you will need to obtain the Salesforce metadata URL.
+To help Azure AD B2C communicate with Salesforce, you will need to obtain the Salesforce metadata URL.
 
 ### Enable Salesforce as an identity provider
 
@@ -64,11 +64,11 @@ In order to help Azure AD B2C communicate with Salesforce, you will need to obta
 1. Click on **Service Providers are now created via Connected Apps. Click here.**
 1. Provide the required **Basic Information** for your Connected App.
 1. In the **Web App Settings** section, check **Enable SAML**.
-1. Enter the following URL in the **Entity ID** field, make sure your replace the `tenantName`.
+1. Enter the following URL in the **Entity ID** field, make sure you replace the `tenantName`.
       ```Console
       https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
-1. Enter the following URL in the **ACS URL** field, make sure your replace the `tenantName`.
+1. Enter the following URL in the **ACS URL** field, make sure you replace the `tenantName`.
       ```Console
       https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -88,7 +88,7 @@ In order to help Azure AD B2C communicate with Salesforce, you will need to obta
 
 ## Generate a signing certificate for Azure AD B2C
 
-Requests sent to Salesforce need to be signed by Azure AD B2C. To generate a signing certificate, open PowerShell and run the commands below.
+Requests sent to Salesforce need to be signed by Azure AD B2C. To generate a signing certificate, open PowerShell and run the following commands:
 
 **Make sure to update the tenant name and password in the top two lines.**
 
@@ -113,12 +113,12 @@ You need to upload the signing certificate to your Azure AD B2C tenant. To do th
     * Enter a **Name** (for example `SAMLSigningCert`). The prefix B2C_1A_ will be added automatically to the name of your key.
     * Use the **upload file control** to select your certificate
     * Enter the certificate's password that you set in the PowerShell script.
-1. Click **Create**
+1. Click **Create**.
 1. Confirm you've created a key (for example `B2C_1A_SAMLSigningCert`). Take note of the full name (with B2C_1A_) as you will refer to this in the policy later.
 
 ## Create the Salesforce SAML claims provider in your base policy
 
-In order to allow users to log in using Salesforce, you need to define Salesforce as a claims provider. In other words, you need to specify the endpoint that Azure AD B2C will communicate with. The endpoint will *provide* a set of *claims* that are used by Azure AD B2C to verify that a specific user has authenticated. You can do this by adding a `<ClaimsProvider>` for Salesforce in the extension file of your policy.
+To allow users to log in using Salesforce, you need to define Salesforce as a claims provider. In other words, you need to specify the endpoint that Azure AD B2C will communicate with. The endpoint will *provide* a set of *claims* that are used by Azure AD B2C to verify that a specific user has authenticated. You can do this by adding a `<ClaimsProvider>` for Salesforce in the extension file of your policy.
 
 1. Open the extension file from your working directory (TrustFrameworkExtensions.xml).
 1. Find the section `<ClaimsProviders>`. If it does not exist, add it under the root node.
@@ -166,7 +166,7 @@ In order to allow users to log in using Salesforce, you need to define Salesforc
 
 Under the `<ClaimsProvider>` node:
 
-* Update the value for `<Domain>` to an unique value that can be used to distinguish from other identity providers.
+* Update the value for `<Domain>` to a unique value that can be used to distinguish from other identity providers.
 * Update the value for `<DisplayName>` to a friendly name for the claims provider. This value is not currently used.
 
 ### Update the technical profile
@@ -204,7 +204,7 @@ You now need to add the Salesforce SAML identity provider into one of your user 
 
 ### Display the "button"
 
-The `<ClaimsProviderSelection>` element is analagous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Salesforce, a new button will show up when a user lands on the page. To do this:
+The `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in screen. By adding an `<ClaimsProviderSelection>` element for Salesforce, a new button will show up when a user lands on the page. To do this:
 
 1. Find the `<OrchestrationStep>` with `Order="1"` in the `<UserJourney>` that you just created.
 1. Add the following:
@@ -238,7 +238,7 @@ You are done modifying the extension file. Save and upload this file and ensure 
 You now need to update the RP file that will initiate the user journey that you just created.
 
 1. Make a copy of SignUpOrSignIn.xml in your working directory and rename it (e.g. SignUpOrSignInWithAAD.xml).
-1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with an unique value. This will be the name of your policy (e.g. SignUpOrSignInWithAAD).
+1. Open the new file and update the `PolicyId` attribute for `<TrustFrameworkPolicy>` with a unique value. This will be the name of your policy (e.g. SignUpOrSignInWithAAD).
 1. Modify the `ReferenceId` attribute in `<DefaultUserJourney>` to match the id of the new user journey that you created (e.g. SignUpOrSignUsingContoso).
 1. Save your changes and upload the file.
 
