@@ -19,7 +19,7 @@ ms.author: zsk0646
 ---
 # Azure Government Databases
 ## SQL Database
-Refer to the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database documentation](../sql-database/index.yml) for additional guidance on metadata visibility configuration, and protection best practices.
+For more information, see the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database documentation](../sql-database/index.yml) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 SQL V12 Database is generally available in Azure Government.
@@ -35,7 +35,7 @@ The following information identifies the Azure Government boundary for Azure SQL
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| All data stored and processed in Microsoft Azure SQL can contain Azure Government-regulated data. You must use database tools for data transfer of Azure Government-regulated data. |Azure SQL metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags |
+| All data stored and processed in Microsoft Azure SQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure SQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags |
 
 ## Azure Cosmos DB
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.md).
@@ -43,8 +43,8 @@ For details on this service and how to use it, see [Azure Cosmos DB documentatio
 ### Variations
 Azure Cosmos DB is generally available in Azure Government. Features that are not currently available in Cosmos DB for Azure Government are:
 
-* **Add Azure Search** - This will not work because Azure Search is not yet deployed in Azure Government.
-* **Metrics** - Charts will not currently populate.  This will be enabled as part of an upcoming deployment.
+* **Add Azure Search** - Does not work because Azure Search is not yet deployed in Azure Government.
+* **Metrics** - Charts do not populate.  This feature will be enabled as part of an upcoming deployment.
 
 The URLs for accessing and Cosmos DB in Azure Government are different:
 
@@ -58,7 +58,7 @@ The following information identifies the Azure Government boundary for Azure Cos
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| All data stored and processed in Azure Cosmos DB can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export controlled data. Do not enter regulated/controlled data into the following fields: DB name, Subscription name, Resource groups, Resource tags. |
+| All data stored and processed in Azure Cosmos DB can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: DB name, Subscription name, Resource groups, Resource tags. |
 
 
 ## Azure Redis Cache
@@ -72,7 +72,7 @@ The URLs for accessing and managing Azure Redis Cache in Azure Government are di
 | Cache endpoint |*.redis.cache.windows.net |*.redis.cache.usgovcloudapi.net |
 
 > [!NOTE]
-> All of your scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+> All scripts and code needs to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 >
 >
 
@@ -81,8 +81,7 @@ The following information identifies the Azure Government boundary for Azure Red
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| All data stored and processed in Azure Redis Cache can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export controlled data. Do not enter regulated/controlled data into the following fields: Cache name, Subscription name, Resource groups, Resource tags, Redis properties. |
-
+| All data stored and processed in Azure Redis Cache can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: Cache name, Subscription name, Resource groups, Resource tags, Redis properties. |
 ## Next Steps
 For supplemental information and updates subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
