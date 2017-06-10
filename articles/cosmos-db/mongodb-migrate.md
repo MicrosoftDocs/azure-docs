@@ -50,7 +50,7 @@ The right pane contains all the information you need to successfully connect to 
 
     ![The "Connection String" blade](./media/mongodb-migrate/ConnectionStringBlade.png)
 
-## Import data to API for MongoDB with mongoimport
+## Import data to MongoDB API with mongoimport
 
 To import data to your Azure Cosmos DB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.  
 
@@ -73,6 +73,79 @@ Template:
 Example:
 
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+    
+## Guide for a successful migration
+
+1. Pre-create your collections
+        
+        * By default, Azure Cosmos DB will provision a new MongoDB collection with 1,000 RUs. Before the migration using Mongoimport, Mongorestore, or Mongomirror, pre-create all your collections from the [Azure Portal](https://portal.azure.com) or MongoDB drivers, tools, etc.
+
+2. Scale your collections 
+
+        * Increase your collections' throughput from 1,000 RUs for the migration. With the higher throughput you will be able to avoid throttling and migrate in a shorter period of time. With Azure Cosmos DB's hourly billing, you can reduce the throughput immediately after the migration and save costs.
+
+3. Calculate the approximate RU charge for a single document write
+
+    * Connect to your Azure Cosmos DB mongodb database from the MongoDB Shell. Instructions can be found here.
+    
+    * Run a sample insert command using a sample document from the Mongo Shell
+    
+        Ex. ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
+        
+    * Following the insert, run ```db.runCommand({getLastRequestStatistics: 1})``` and you will receive a response as such
+        ```
+        globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
+        {
+            "_t": "GetRequestStatisticsResponse",
+            "ok": 1,
+            "CommandName": "insert",
+            "RequestCharge": 10,
+            "RequestDurationInMilliSeconds": NumberLong(50)
+        }
+        ```
+        
+    * Take note of the Request Charge
+    
+4. Determine the latency from your machine to the Azure Cosmos DB cloud service.
+    
+    * Enable verbosing logging from the MongoDB Shell with the command: ```setVerboseShell(true)```
+    
+    * Run a simple query against the database: ```db.coll.find().limit(1)``` and you will receive a response as such
+        ```
+        Fetched 1 record(s) in 100(ms)
+        ```
+        
+5. Make sure to remove the inserted document before the migration to ensure no duplicate documents. You can remove the documents with a ```db.coll.remove({})```.
+
+6. Calculating the approximate *batchSize* and *numInsertionWorkers*
+
+    * For the *batchSize*, divide the total provisioned RUs by the RUs consumed from your single document write in Step 3.
+    
+    * If the calculated *batchSize* <= 24, you use that number as your *batchSize*
+    
+    * If the calculated *batchSize* > 24, you shoud set the *batchSize* to 24.
+    
+    * For the *numInsertionWorkers*, use this equation:
+        *numInsertionWorkers =  (provisioned throughput * latency in seconds) / (batch size * consumed RUs for a single write)*
+        
+    |Property|Value|
+    |--------|-----|
+    |batchSize| 24 |
+    |RUs provisioned | 10000 |
+    |Latency | 0.100s |
+    |RU charged for 1 doc write | 10 RUs |
+    |numInsertionWorkers | ? |
+    
+    *numInsertionWorkers = (10000RUs x 0.1s) / (24 x 10 RUs) = 4.1666*
+
+7. Final migration command:
+
+```
+mongoimport.exe --host anhoh-mongodb.documents.azure.com:10255 -u anhoh-mongodb 
+-p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== 
+--ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName 
+--file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+```
 
 ## Next steps
 
