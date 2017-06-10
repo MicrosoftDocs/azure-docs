@@ -24,7 +24,7 @@ ms.author: ponatara
 
 ## Overview
 
-This article helps you prepare Azure virtual machines for replication between two Azure regions after these machines have been migrated from an on-premises environment to Azure by using Azure Site Recovery (ASR).
+This article helps you prepare Azure virtual machines for replication between two Azure regions after these machines have been migrated from an on-premises environment to Azure by using Azure Site Recovery.
 
 ## Disaster recovery and compliance
 Today, more and more enterprises are moving their workloads to Azure. With enterprises moving mission-critical on-premises production workloads to Azure, setting up disaster recovery for these workloads is mandatory for compliance and to safeguard against any disruptions in an Azure region.
