@@ -12,5 +12,5 @@
 ## [Deploy an ARM template with Jenkins](/azure/jenkins/deploy-arm-template-jenkins)
 ## [Publish a Docker image to ACS with Jenkins](/azure/jenkins/publish-docker-image-jenkins)
 # Reference
-## [Jenkins Azure VM Agents](https://plugins.jenkins.io/azure-vm-agents)
-## [Jenkins plugins](https://plugins.jenkins.io/)
+## [Jenkins Azure VM Agents plugin](https://plugins.jenkins.io/azure-vm-agents)
+## [Jenkins Azure Storage plugin](https://plugins.jenkins.io/)
