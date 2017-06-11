@@ -48,7 +48,6 @@ ms.author: mlearned
     <li><a href="https://aka.ms/azjenkinsagents">Azure VM Agents</a></li>
     <li><a href="https://aka.ms/azure-storage">Azure Storage</a></li>
   </ul>
-  <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services.</a></li>
   <li><a href="https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/">Securing a Jenkins instance on Azure.</a></li>
 </ul>
  
