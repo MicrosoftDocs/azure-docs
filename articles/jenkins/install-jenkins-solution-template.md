@@ -19,18 +19,20 @@ ms.custom: mvc
 ---
 # Create your first Jenkins Master on a Linux (Ubuntu) VM on Azure
 
-This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. This includes:
-* Git for source control
-* Azure credential plugin for connecting securely
-* Azure VM Agents plugin for elastic build, test and continuous integration
-* Azure Storage plugin for storing artifacts
-* Azure CLI to deploy apps using scripts
+This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. These include:
+<ul>
+<li>Git for source control</li>
+<li>Azure credential plugin for connecting securely</li>
+<li>Azure VM Agents plugin for elastic build, test and continuous integration</li>
+<li>Azure Storage plugin for storing artifacts></li>
+<li>Azure CLI to deploy apps using scripts</li>
+</ul>
 
 ## Prerequisites
 
-To complete this quickstart, you will need:
+To complete this quickstart, you need:
 
-* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
+*  An Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
 
 ## Create the VM in Azure by deploying the solution template
 
@@ -44,15 +46,15 @@ In the **Set up basic settings** tab:
 
 ![Set up basic settings](./media/install-jenkins-solution-template/ap-basic.png)
 
-* Provide a name to your Jenkin instance.
+* Provide a name to your Jenkins instance.
 * Select a VM disk type.
-* User name: must meet length requirements, and must not include reserved words or unsupported characters. Name like "admin" is not allowed.
+* User name: must meet length requirements, and must not include reserved words or unsupported characters. Names like "admin" are not allowed.
 * Authentication type: you can create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, note that it must have 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
 * Select a subscription.
 * Create a new resource group or use an existing one.
 * Select a location.
 
-In the **Configure addtional options** tab:
+In the **Configure additional options** tab:
 
 ![Set up additional options](./media/install-jenkins-solution-template/ap-addtional.png)
 
@@ -60,7 +62,7 @@ In the **Configure addtional options** tab:
 
 Click **OK** to go to the next step. 
 
-Once validation passed, click **OK** to download the template and parameters. 
+Once validation passes, click **OK** to download the template and parameters. 
 
 Next, select **Purchase** to provision all the resources.
 
@@ -115,7 +117,7 @@ You will be asked to install the suggested plugins.
 
 Next, create an admin user for your Jenkins master.
 
-Your Jenkins instance is now ready to use! You can access a read-only view by going to http://<Public DNS name of instance you just created>.
+Your Jenkins instance is now ready to use! You can access a read-only view by going to http://&lt;Public DNS name of instance you just created>.
 
 ![Jenkins is ready!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
