@@ -21,11 +21,13 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Deploy Application
 
+TODO - Ok, now vote app creates table, however these is now a startup dependency. The MySQL POD and service must be created before the App. Appears to be no native solution for handling dependencies with Kubernete API resource definition. 
+
 TODO - Create secret and new deployment for MySQL.
 
-TODO - Create complete deployment / consolidate YAML, include in app repository.
-
 TODO - Try premium storage for volume mount (perf issue).
+
+TODO (completed) - Create complete deployment / consolidate YAML, include in app repository.
 
 TODO (completed) - Convert expose command to YAML definitions.
 
