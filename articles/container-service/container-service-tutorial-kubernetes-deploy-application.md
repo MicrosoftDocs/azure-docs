@@ -21,8 +21,6 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Deploy Application
 
-TODO - Move create DB operation into app. This remove the need to manage two images.
-
 TODO - Create secret and new deployment for MySQL.
 
 TODO - Create complete deployment / consolidate YAML, include in app repository.
@@ -30,6 +28,8 @@ TODO - Create complete deployment / consolidate YAML, include in app repository.
 TODO - Convert expose command to YAML definitions.
 
 TODO - Try premium storage for volume mount (perf issue).
+
+TODO (completed) - Move create DB operation into app. This remove the need to manage two images.
 
 TODO (completed) - Integrate Azure Container Registry.
 
@@ -152,7 +152,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-back
-        image: mycontainerregistry22269.azurecr.io/azure-vote-back
+        image: mysql:latest
         args: ["--ignore-db-dir=lost+found"]
         ports:
         - containerPort: 3306

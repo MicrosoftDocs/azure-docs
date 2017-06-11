@@ -101,7 +101,6 @@ Output:
 
 ```bash
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back     latest              dfdc614becea        7 seconds ago        407 MB
 azure-vote-front    latest              67e8582e68a8        About a minute ago   445 MB
 ubuntu              latest              7b9b13f7b9c0        6 days ago           118 MB
 mysql               latest              e799c7f9ae9c        4 weeks ago          407 MB
@@ -111,13 +110,6 @@ Tag the *azure-vote-front* image with the loginServer of the container registry.
 
 ```bash
 docker tag 67e8582e68a8 mycontainerregistry1326.azurecr.io/azure-vote-front
-```
-
-Perform the same operation on the *azure-vote-back* image.
-
-
-```bash
-docker tag dfdc614becea mycontainerregistry1326.azurecr.io/azure-vote-back
 ```
 
 Once tagged, run `docker images` to verify the operation.
@@ -130,8 +122,6 @@ Output:
 
 ```bash
 REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                                       latest              716b3b642782        28 minutes ago      407 MB
-mycontainerregistry3433.azurecr.io/azure-vote-back    latest              716b3b642782        28 minutes ago      407 MB
 azure-vote-front                                      latest              2e214fdaeb1b        30 minutes ago      445 MB
 mycontainerregistry3433.azurecr.io/azure-vote-front   latest              2e214fdaeb1b        30 minutes ago      445 MB
 ubuntu                                                latest              7b9b13f7b9c0        7 days ago          118 MB
@@ -144,12 +134,6 @@ Push the *azure-vote-front* image to the registry. Using the following example, 
 
 ```bash
 docker push mycontainerregistry3433.azurecr.io/azure-vote-front 
-```
-
-Perform the same operation on the *azure-vote-back* image.
-
-```bash
-docker push mycontainerregistry3433.azurecr.io/azure-vote-back
 ```
 
 ## Next steps

@@ -47,10 +47,6 @@ docker build ./azure-kubernetes-samples/flask-mysql-vote/azure-vote/ -t azure-vo
 ```
 
 ```bash
-docker build ./azure-kubernetes-samples/flask-mysql-vote/mysql/ -t azure-vote-back
-```
-
-```bash
 docker images
 ```
 
@@ -58,10 +54,8 @@ Output:
 
 ```bash
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back     latest              dfdc614becea        7 seconds ago        407 MB
 azure-vote-front    latest              67e8582e68a8        About a minute ago   445 MB
 ubuntu              latest              7b9b13f7b9c0        6 days ago           118 MB
-mysql               latest              e799c7f9ae9c        4 weeks ago          407 MB
 ```
 
 ## Test application locally
@@ -73,7 +67,7 @@ docker network create azure-vote
 Note, in this example the MySQL database file is hosted inside of the container. In a subsequent tutorial, the database file will be moved to a mounted volume which will provide data integrity in the event of container restart / regeneration.
 
 ```bash
-docker run -v /tmp/docker-mysql:/var/lib/mysql -p 3306:3306 -d --network azure-vote --name azure-vote-back -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote azure-vote-back 
+docker run -v /tmp/docker-mysql:/var/lib/mysql -p 3306:3306 -d --network azure-vote --name azure-vote-back -e MYSQL_ROOT_PASSWORD=Password12 -e MYSQL_USER=dbuser -e MYSQL_PASSWORD=Password12 -e MYSQL_DATABASE=azurevote mysql:latest
 ```
 
 ```bash
