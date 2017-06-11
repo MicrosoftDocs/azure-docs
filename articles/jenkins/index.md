@@ -36,7 +36,7 @@ ms.author: mlearned
     <li><a href="https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/services/jenkins">Integrate Jenkins and Visual Studio Team Services (VSTS).</a></li>
     <li><a href="/azure/jenkins/deploy-to-app-service-jenkins">Deploy to Azure AppService from Jenkins.</li></a>
     <li><a href="/azure/jenkins/deploy-arm-template-jenkins">Deploy an Azure Resource Manager template from Jenkins.</li></a>
-    <li><a href="/azure/jenkins/publish-docker-image-jenkins">Publish a Docker image using Azure Container Service from Jenkins.</li></a>
+    <li><a href="/azure/jenkins/publish-docker-image-jenkins">Publish a Docker image to Azure Container Service from Jenkins.</li></a>
 </ol>
 
 <h2 style="margin-top: 36px">Reference</h2>
