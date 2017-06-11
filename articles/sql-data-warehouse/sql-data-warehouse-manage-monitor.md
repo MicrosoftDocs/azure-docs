@@ -171,7 +171,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
 
 ## Monitor tempdb
-High tempdb utilization can be the root cause for slow performance and out of memory issues. Please first check if you have data skew or poor quality groups and take the appropriate actions. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following describes how to identify tempdb usage per query on each node. 
+High tempdb utilization can be the root cause for slow performance and out of memory issues. Please first check if you have data skew or poor quality rowgroups and take the appropriate actions. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following describes how to identify tempdb usage per query on each node. 
 
 Create the following view to associate the appropriate node id for sys.dm_pdw_sql_requests. This will enable you to leverage other pass-through DMVs and join those tables with sys.dm_pdw_sql_requests.
 
@@ -255,7 +255,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## Monitor transaction log size
-The following query returns the transaction log size on each distribution. Please check if you have data skew or poor quality rowgroups and take the appropriate actions. If one of the log files is reaching 160GB, you should consider scaling up your instance. 
+The following query returns the transaction log size on each distribution. Please check if you have data skew or poor quality rowgroups and take the appropriate actions. If one of the log files is reaching 160GB, you should consider scaling up your instance or limiting your transaction size. 
 ```sql
 -- Transaction log size
 SELECT
