@@ -228,7 +228,7 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 	AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
-## Monitor Memory Consumption
+## Monitor memory consumption
 
 Memory can be the root cause for slow performance and out of memory issues. Please first check if you have data skew or poor quality rowgroups and take the appropriate actions. Consider scaling your data warehouse if you find SQL Server memory usage reaching its limits during query execution.
 
