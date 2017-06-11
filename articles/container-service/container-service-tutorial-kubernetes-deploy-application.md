@@ -15,13 +15,13 @@ ms.devlang: aurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/10/2017
+ms.date: 06/11/2017
 ms.author: nepeters
 ---
 
 # Azure Container Service tutorial - Deploy Application
 
-TODO - Integrate Azure Container Registry.
+TODO - Move create DB operation into app. This remove the need to manage two images.
 
 TODO - Create secret and new deployment for MySQL.
 
@@ -30,6 +30,8 @@ TODO - Create complete deployment / consolidate YAML, include in app repository.
 TODO - Convert expose command to YAML definitions.
 
 TODO - Try premium storage for volume mount (perf issue).
+
+TODO (completed) - Integrate Azure Container Registry.
 
 TODO (completed) - integrate Azure disk driver and move MySQL file.
 
@@ -60,7 +62,7 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 8Gi
+      storage: 1Gi
 ```
 
 ## Create secrets
@@ -91,7 +93,7 @@ data:
   MYSQL_DATABASE_USER: ZGJ1c2Vy
   MYSQL_DATABASE_PASSWORD: UGFzc3dvcmQxMg==
   MYSQL_DATABASE_DB: YXp1cmV2b3Rl
-  MYSQL_DATABASE_HOST: MTAuMjQ0LjMuMw==
+  MYSQL_DATABASE_HOST: YXp1cmUtdm90ZS1iYWNr
 ```
 
 ## Create deployments
@@ -110,7 +112,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: neilpeterson/azure-vote-front
+        image: mycontainerregistry22269.azurecr.io/azure-vote-front
         ports:
         - containerPort: 8000
         env:
@@ -150,7 +152,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-back
-        image: neilpeterson/azure-vote-back
+        image: mycontainerregistry22269.azurecr.io/azure-vote-back
         args: ["--ignore-db-dir=lost+found"]
         ports:
         - containerPort: 3306
