@@ -170,7 +170,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 
 If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
 
-## Monitor tempdb utilization during query exectuion
+## Monitor tempdb
 High tempdb utilization can be the root cause for slow performance and out of memory issues. Please first check if you have data skew or poor quality groups and take the appropriate actions. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following describes how to identify tempdb usage per query on each node. 
 
 Create the following view to associate the appropriate node id for sys.dm_pdw_sql_requests. This will enable you to leverage other pass-through DMVs and join those tables with sys.dm_pdw_sql_requests.
@@ -228,7 +228,7 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 	AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
-## Monitor memory consumption
+## Monitor memory
 
 Memory can be the root cause for slow performance and out of memory issues. Please first check if you have data skew or poor quality rowgroups and take the appropriate actions. Consider scaling your data warehouse if you find SQL Server memory usage reaching its limits during query execution.
 
