@@ -25,9 +25,9 @@ TODO - Create secret and new deployment for MySQL.
 
 TODO - Create complete deployment / consolidate YAML, include in app repository.
 
-TODO - Convert expose command to YAML definitions.
-
 TODO - Try premium storage for volume mount (perf issue).
+
+TODO (completed) - Convert expose command to YAML definitions.
 
 TODO (completed) - Move create DB operation into app. This remove the need to manage two images.
 
@@ -96,7 +96,60 @@ data:
   MYSQL_DATABASE_HOST: YXp1cmUtdm90ZS1iYWNr
 ```
 
-## Create deployments
+## Create deployments and services
+
+### Back-end (MySQL)
+
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      containers:
+      - name: azure-vote-back
+        image: mysql:latest
+        args: ["--ignore-db-dir=lost+found"]
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: Password12
+        - name: MYSQL_USER
+          value: dbuser
+        - name: MYSQL_PASSWORD
+          value: Password12
+        - name: MYSQL_DATABASE
+          value: azurevote
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+```
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-back
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: azure-vote-back
+```
+
+### Front-end (Python)
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -139,47 +192,14 @@ spec:
 ```
 
 ```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: azure-vote-back
+  name: azure-vote-front
 spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      containers:
-      - name: azure-vote-back
-        image: mysql:latest
-        args: ["--ignore-db-dir=lost+found"]
-        ports:
-        - containerPort: 3306
-          name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: Password12
-        - name: MYSQL_USER
-          value: dbuser
-        - name: MYSQL_PASSWORD
-          value: Password12
-        - name: MYSQL_DATABASE
-          value: azurevote
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
-```
-
-## Expose application
-
-TODO - Convert these to YAML definitions.
-
-```bash
-kubectl expose deployment azure-vote-back
-kubectl expose deployment azure-vote-front --type LoadBalancer --name azure-vote-front
+  type: LoadBalancer
+  ports:
+  - port: 8000
+  selector:
+    app: azure-vote-front
 ```

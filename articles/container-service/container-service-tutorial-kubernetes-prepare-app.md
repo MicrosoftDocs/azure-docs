@@ -82,8 +82,8 @@ Output:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-ec05f07634d3        azure-vote-front    "/usr/bin/supervis..."   3 seconds ago       Up 2 seconds        0.0.0.0:8000->8000/tcp   romantic_bardeen
-ca2aeaf5eed1        azure-vote-back     "docker-entrypoint..."   20 seconds ago      Up 19 seconds       0.0.0.0:3306->3306/tcp   azure-vote-back
+1ca1c3b27791        azure-vote-front    "/usr/bin/supervis..."   9 seconds ago       Up 7 seconds        0.0.0.0:8000->8000/tcp   azure-vote-front
+478e4de611e0        mysql:latest        "docker-entrypoint..."   30 seconds ago      Up 28 seconds       0.0.0.0:3306->3306/tcp   azure-vote-back
 ```
 
 Browse to `http://localhost:8000` to see the running application. 
