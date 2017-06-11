@@ -21,15 +21,47 @@ ms.author: nepeters
 
 # Azure Container Service tutorial - Deploy Application
 
-TODO - integrate Azure disk driver and move MySQL file.
+TODO - Integrate Azure Container Registry.
 
-TODO - integrate ACR
+TODO - Create secret and new deployment for MySQL.
 
-TODO - Create secret and new deployment for MySQL
+TODO - Create complete deployment / consolidate YAML, include in app repository.
 
-TODO (completed) - figure out service discovery (currently hard coded pod address)
+TODO - Convert expose command to YAML definitions.
 
-TODO (completed) - integrate secrets for env variables.
+TODO - Try premium storage for volume mount (perf issue).
+
+TODO (completed) - integrate Azure disk driver and move MySQL file.
+
+TODO (completed) - figure out service discovery (currently hard coded pod address).
+
+TODO (completed) - integrate secrets for environment variables.
+
+## Create storage resources
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+ name: slow
+provisioner: kubernetes.io/azure-disk
+parameters:
+ skuName: Standard_LRS
+ location: eastus
+```
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+```
 
 ## Create secrets
 
@@ -49,8 +81,6 @@ echo -n azurevote | base64
 echo -n azure-vote-back | base64
 ```
 
-Create front-end secret definition.
-
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -64,45 +94,7 @@ data:
   MYSQL_DATABASE_HOST: MTAuMjQ0LjMuMw==
 ```
 
-Create front-end secret.
-
-```bash
-kubectl create -f secret.yaml
-```
-
-## Deploy application
-
-Create back-end deployment definition
-
-```yaml
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      containers:
-      - name: azure-vote-front
-        image: neilpeterson/azure-vote-back
-        ports:
-        - containerPort: 3306
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: Password12
-        - name: MYSQL_USER
-          value: dbuser
-        - name: MYSQL_PASSWORD
-          value: Password12
-        - name: MYSQL_DATABASE
-          value: azurevote
-```
-
-Create front-end deployment definition - secrets have been integrated here.
+## Create deployments
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -144,23 +136,48 @@ spec:
               key: MYSQL_DATABASE_HOST
 ```
 
-Deploy application:
-
-```bash
-kubectl create -f ./azure-front-end.yaml
-kubectl create -f ./azure-back-end.yaml
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: azure-vote-back
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-vote-back
+    spec:
+      containers:
+      - name: azure-vote-back
+        image: neilpeterson/azure-vote-back
+        args: ["--ignore-db-dir=lost+found"]
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: Password12
+        - name: MYSQL_USER
+          value: dbuser
+        - name: MYSQL_PASSWORD
+          value: Password12
+        - name: MYSQL_DATABASE
+          value: azurevote
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
 ```
 
 ## Expose application
 
-The MySQL deployment is exposed internally, and the Python deployment (azure-vote-front) externally.
+TODO - Convert these to YAML definitions.
 
 ```bash
 kubectl expose deployment azure-vote-back
 kubectl expose deployment azure-vote-front --type LoadBalancer --name azure-vote-front
 ```
-
-```bash
-kubectl get service -w
-```
-
