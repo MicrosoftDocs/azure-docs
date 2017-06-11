@@ -24,31 +24,23 @@ ms.author: mlearned
 <p>Learn how to quickly get started with Jenkins on Azure.</p>
 <ol>
   <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine.</a></li>
-  <li><a href="/azure/jenkins/jenkins-azure-vm-agents">Scale Jenkins by using Azure Virtual Machines as slave nodes.</a></li>
-  <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Deploy Jenkins to Azure Container Service.</a></li>
-  <li><a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Using Azure Storage with a Jenkins pipeline.</a></li>
+  <li><a href="/azure/jenkins/jenkins-azure-vm-agents">Scale Jenkins using Azure Virtual Machines as agents.</a></li>
+  <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Jenkins integration with Azure Container Service and Kubernetes.</a></li>
+  <li><a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Use Azure Storage with Jenkins.</a></li>
   <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Use the Azure CLI in a Jenkins pipeline.</a></li>
 </ol>
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Below are in-depth guides to integrate Jenkins with Azure tools and services.</p> 
 <ol>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a continuous delivery pipeline using GitHub, Docker, and Azure Virtual Machines.</a></li>
-    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Create continuous delivery pipeline with Azure Container Service and Kubernetes.</a></li>
     <li><a href="https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/services/jenkins">Integrate Jenkins and Visual Studio Team Services (VSTS).</a></li>
-    <li>Deploy to Azure AppService from Jenkins.</li>
-    <li>Configure on-premise Jenkins masters to use Azure Virtual Machine agents.</li>
+    <li><a href="/azure/jenkins/deploy-to-app-service-jenkins">Deploy to Azure AppService from Jenkins.</li></a>
+    <li><a href="/azure/jenkins/deploy-arm-template-jenkins">Deploy an Azure Resource Manager template from Jenkins.</li></a>
+    <li><a href="/azure/jenkins/publish-docker-image-jenkins">Publish a Docker image using Azure Container Service from Jenkins.</li></a>
 </ol>
 
-<h2 style="margin-top: 36px">Samples</h2>
-<p>The following samples show to author Jenkins pipelines that use Azure. Additional pipeline examples are available on the <a href="https://jenkins.io/doc/pipeline/examples/">Jenkins project page.</a></p>
-<ul>
-    <li>Build and publish Docker images to Azure Container Registry.</li>
-    <li>Bake a custom VM image and deploy to Virtual Machine Scale Sets.</li>
-    <li>Validate and deploy an Azure Resource Manager template.</li>
-    <li>Deploy build outputs to Azure Storage.</li>
-</ul>
-
 <h2 style="margin-top: 36px">Reference</h2>
+<p>See below for additonal reference materials for working with Jenkins on Azure.</p>
 <ul>
   <li>Azure Friday video:  CI with Jenkins using <a href="https://azure.microsoft.com/en-us/resources/videos/host-jenkins-on-azure/">Azure VM agents.</a></li>
   <li>Azure Jenkins plugins:</li>
