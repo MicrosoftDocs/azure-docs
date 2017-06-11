@@ -24,17 +24,17 @@ ms.author: mlearned
 <p>Learn how to quickly get started with Jenkins on Azure.</p>
 <ol>
   <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine.</a></li>
-  <li><a href="/azure/jenkins/jenkins-azure-vm-agents">Scale a Jenkins cluster using agents on Azure Virtual Machines.</a></li>
+  <li><a href="/azure/jenkins/jenkins-azure-vm-agents">Scale Jenkins by using Azure Virtual Machines as slave nodes.</a></li>
   <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Deploy Jenkins to Azure Container Service.</a></li>
-  <li><a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Copy build artifacts to and from Azure Storage</a>.</li>
-  <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Use the Azure CLI in a Jenkins pipeline</a>.</li>
+  <li><a href="/azure/storage/storage-java-jenkins-continuous-integration-solution">Using Azure Storage with a Jenkins pipeline.</a></li>
+  <li><a href="/azure/jenkins/execute-cli-jenkins-pipeline">Use the Azure CLI in a Jenkins pipeline.</a></li>
 </ol>
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Below are in-depth guides to integrate Jenkins with Azure tools and services.</p> 
 <ol>
     <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a continuous delivery pipeline using GitHub, Docker, and Azure Virtual Machines.</a></li>
-    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Create continuous delivery pipeline with Azure Container Service and Kubernetes</a>.</li>
-    <li><a href="https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/services/jenkins">Integrate Jenkins and Visual Studio Team Services (VSTS)</a>.</li>
+    <li><a href="/azure/container-service/container-service-kubernetes-jenkins">Create continuous delivery pipeline with Azure Container Service and Kubernetes.</a></li>
+    <li><a href="https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/services/jenkins">Integrate Jenkins and Visual Studio Team Services (VSTS).</a></li>
     <li>Deploy to Azure AppService from Jenkins.</li>
     <li>Configure on-premise Jenkins masters to use Azure Virtual Machine agents.</li>
 </ol>
@@ -56,8 +56,8 @@ ms.author: mlearned
     <li><a href="https://aka.ms/azjenkinsagents">Azure VM Agents</a></li>
     <li><a href="https://aka.ms/azure-storage">Azure Storage</a></li>
   </ul>
-  <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services</a>.</li>
-  <li><a href="https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/">Securing a Jenkins instance on Azure</a></li>
+  <li>Integrate your Jenkins environment with <a href="https://blogs.msdn.microsoft.com/visualstudioalm/2017/04/25/vsts-visual-studio-team-services-integration-with-jenkins/">Visual Studio Team Services.</a></li>
+  <li><a href="https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/">Securing a Jenkins instance on Azure.</a></li>
 </ul>
  
 </div>
