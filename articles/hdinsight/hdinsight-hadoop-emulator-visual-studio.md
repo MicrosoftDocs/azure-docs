@@ -99,7 +99,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     ![Screenshot of Job View dialog box, with Job State highlighted](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Once the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by the default execution engine for Hive on the local cluster (called Tez).
+    Once the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez when processing the Hive query. Tez is the default execution engine for Hive on the local cluster.
 
     > [!NOTE]
     > Tez is also the default when you are using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight. To use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
