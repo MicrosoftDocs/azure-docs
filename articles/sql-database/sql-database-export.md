@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
-ms.custom: move data
+ms.custom: load & move data
 ms.devlang: NA
 ms.date: 04/05/2017
 ms.author: carlrab

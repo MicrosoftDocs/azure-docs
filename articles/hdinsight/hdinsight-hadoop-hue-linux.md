@@ -1,6 +1,7 @@
 ---
-title: Use Hue with Hadoop on HDInsight Linux clusters | Microsoft Docs
-description: Learn how to install and use Hue with Hadoop clusters on HDInsight Linux.
+title: Hue with Hadoop on HDInsight Linux-based clusters - Azure | Microsoft Docs
+description: Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue. Use Hue to browse storage and run Hive or Pig.
+keywords: hue hadoop
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -9,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +27,7 @@ Learn how to install Hue on HDInsight clusters and use tunneling to route the re
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## What is Hue?
-Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are available with Hue installations on an HDInsight Hadoop cluster.
+Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, and so on. The following components are available with Hue installations on an HDInsight Hadoop cluster.
 
 * Beeswax Hive Editor
 * Pig
@@ -46,7 +47,7 @@ Hue is a set of Web applications used to interact with a Hadoop cluster. You can
 
 The script to install Hue on a Linux-based HDInsight cluster is available at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Store as default storage.
 
-This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal.
+This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.
 
 > [!NOTE]
 > Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
@@ -99,7 +100,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 4. Use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
 
    > [!NOTE]
-   > When you log in for the first time, you will be prompted to create an account to log into the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
+   > When you log in for the first time, you will be prompted to create an account to log in to the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
    >
    >
 

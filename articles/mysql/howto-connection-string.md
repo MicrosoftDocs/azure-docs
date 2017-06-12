@@ -1,23 +1,23 @@
 ---
 title: How to connect applications to Azure Database for MySQL | Microsoft Docs
-description: This document lists all currently supported connection strings for applications to connect with Azure Database for MySQL
+description: This document lists the currently supported connection strings for applications to connect with Azure Database for MySQL, including ADO.Net (C#), JDBC, Node.JS, ODBC, PHP, Python, Ruby.
 services: mysql
-author: wuta
+author: mswutao 
 ms.author: wuta
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
 ms.assetid: 
 ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ---
 
 # How to connect applications to Azure Database for MySQL
 This document lists all connection string types supported by Azure Database for MySQL, together with templates and examples. You may have different parameters and different settings in your connection string.
 
-- Please refer to document [How to configure SSL](./howto-configure-ssl.md) to obtain the cert
+- Refer to this document [How to configure SSL](./howto-configure-ssl.md) to obtain the certificate.
 - {your_host} = <servername>.mysql.database.azure.com
 
 ## ADO.NET
@@ -25,12 +25,10 @@ This document lists all connection string types supported by Azure Database for 
 Server={your_host};Port={your_port};Database={your_database};Uid={your_username};Pwd={your_password};[SslMode=Required;]
 ```
 
-For example, assuming server name is **wpdemo**, database name is **wpdb**, user name is **WPAdmin**, password is **orcas!2**.
-
-Then, the connection string shoud be:
+In this example, the server name is `myserver4demo`, database name is `wpdb`, user name is `WPAdmin`, password is `mypassword!2`. Then, the connection string should be:
 
 ```ado.net
-Server= "wpdemo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@wpdemo"; Pwd="orcas!2"; SslMode=Required;
+Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## JDBC
@@ -67,7 +65,7 @@ client = Mysql2::Client.new(username: {your_username}, password: {your_password}
 In [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL and click **Connection strings** to get your string list for your instance:
 ![connection strings on portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-The string provides details such as the driver, server, and other database connection parameters. Copy the connection string in your demand, then modify with your own parameters like database name, password, etc. Then you can use this string to connect to server.
+The string provides details such as the driver, server, and other database connection parameters. Modify these examples using your own parameters, such as database name, password, etc. You can then use this string to connect to the server from your code and applications.
 
 ## Next steps
-- For more information regarding connection library, please refer to [Concepts - Connection libraries](./concepts-connection-libraries.md)
+- For more information regarding connection library, see [Concepts - Connection libraries](./concepts-connection-libraries.md)
