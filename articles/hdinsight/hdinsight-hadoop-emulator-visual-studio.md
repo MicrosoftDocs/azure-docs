@@ -20,9 +20,9 @@ ms.author: larryfr
 ---
 # Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox
 
-Azure Data Lake includes tools for working with generic Hadoop clusters, in addition to tools for working with Data Lake and HDInsight. This document provides the steps needed to use the  Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
+Azure Data Lake includes tools for working with generic Hadoop clusters, in addition to tools for working with Data Lake and Azure HDInsight. This document provides the steps needed to use the  Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
 
-Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. Once you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
+Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. After you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
 
 ## Prerequisites
 
@@ -58,14 +58,14 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in [Get
 
     Select **Next** to continue.
 
-5. Wait for validation of the services to complete. In some cases, validation may fail and prompt you to update the configuration. If validation fails, select **Update**, and wait for the configuration and verification for the service to complete.
+5. Wait for validation of the services to finish. In some cases, validation may fail and prompt you to update the configuration. If validation fails, select **Update**, and wait for the configuration and verification for the service to finish.
 
     ![Screenshot of dialog box, with Update button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
     > [!NOTE]
     > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Data Lake tools for Visual Studio.
 
- 6.  Once validation has completed, select **Finish** to complete configuration.
+ 6.  After validation has finished, select **Finish** to complete configuration.
     ![Screenshot of dialog box, with Finish button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
      >[!NOTE]
@@ -75,9 +75,9 @@ After following these steps, you now have an **HDInsight local cluster** entry i
 
 ## Write a Hive query
 
-Hive provides a SQL-like query language (HiveQL) for working with structured data. Use the following steps to learn how to run ad-hoc queries against the local cluster.
+Hive provides a SQL-like query language (HiveQL) for working with structured data. Use the following steps to learn how to run ad hoc queries against the local cluster.
 
-1. In **Server Explorer**, right-click on the entry for the local cluster that you added previously, and then select **Write a Hive Query**.
+1. In **Server Explorer**, right-click the entry for the local cluster that you added previously, and then select **Write a Hive Query**.
 
     ![Screenshot of Server Explorer, with Write a Hive Query highlighted](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
@@ -95,11 +95,11 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     ![Screenshot of Submit Script dialog box](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. Once you submit the query, the job status appears. The job status displays information about the job as it is processed by Hadoop. **Job State** provides the status of the job. The state is updated periodically, or you can use the refresh icon to refresh the state manually.
+3. After you submit the query, the job status appears. The job status displays information about the job as it is processed by Hadoop. **Job State** provides the status of the job. The state is updated periodically, or you can use the refresh icon to refresh the state manually.
 
     ![Screenshot of Job View dialog box, with Job State highlighted](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Once the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez when processing the Hive query. Tez is the default execution engine for Hive on the local cluster.
+    After the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez when processing the Hive query. Tez is the default execution engine for Hive on the local cluster.
 
     > [!NOTE]
     > Tez is also the default when you are using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight. To use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
@@ -113,7 +113,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
     An interactive query streams the output log generated during processing to the **HiveServer2 Output** window.
 
     > [!NOTE]
-    > The information is the same that is available from the **Job Log** link after a job has completed.
+    > The information is the same that is available from the **Job Log** link after a job has finished.
 
     ![Screenshot of output log](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
@@ -162,7 +162,7 @@ While Hive provides a SQL-like language for working with structured data, Pig wo
 
 Data Lake tools also allow you to easily view information about jobs that have been run on Hadoop. Use the following steps to see the jobs that have been run on the local cluster.
 
-1. From **Server Explorer**, right-click on the local cluster, and then select **View Jobs**. A list of jobs that have been submitted to the cluster is displayed.
+1. From **Server Explorer**, right-click the local cluster, and then select **View Jobs**. A list of jobs that have been submitted to the cluster is displayed.
 
     ![Screenshot of Server Explorer, with View Jobs highlighted](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
