@@ -19,7 +19,7 @@ ms.author: curtand
 ---
 
 # Set expiration properties for an Office 365 group and send expiration notifications
-With administrators and information workers able to create and administer their own groups, as scale increases, you there need the ability to set the global options in a tenant for the default expiration behaviors of groups. You can use this functionality to automatically reclaim resource space and prevent address book pollution with groups that are no longer actively used. For example, groups with one or zero members.
+Now administrators and information workers are able to create and administer their own groups. As scale increases, it can be useful to set expiration policies for groups. You can use this feature to automatically reclaim resource space and prevent address book pollution with groups that are no longer actively used. For example, groups with one or zero members.
 
 1. Open the [Azure portal](https://portal.azure.com) with an account that is a global administrator in your Azure AD tenant.
 
@@ -31,9 +31,9 @@ With administrators and information workers able to create and administer their 
 
   - Set the default group expiration interval.
   - Specify an email address where the expiration notifications should be sent when a group has no owner.
-  - Select which groups expire. You can enable expiration for **All** groups, you can select from among the groups, or you select **None** to disable expirationfor all groups.
+  - Select which groups expire. You can enable expiration for **All** groups, you can select from among the groups, or you select **None** to disable expiration for all groups.
 
-When a group expires, the group is deleted one day after the expiration date, and can still be restored as described in [Restore a deleted Office 365 group in Azure Active Directory] (https://docs.microsoft.com/azure/active-directory/active-directory-groups-restore-azure-portal).
+When a group expires, the group is deleted one day after the expiration date. The group can be restored as described in [Restore a deleted Office 365 group in Azure Active Directory] (https://docs.microsoft.com/azure/active-directory/active-directory-groups-restore-azure-portal).
     
 
 ## Next steps
