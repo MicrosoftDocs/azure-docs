@@ -52,6 +52,8 @@ There are the three Azure SQL Database service tiers that you can choose from (p
 
 The service level that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 
+### Service tier capabilities and limits
+
 At each service tier, you set the performance level, so you have the flexibility to pay only for the capacity you need. You can [adjust capacity](sql-database-service-tiers.md), up or down, as workload changes. For example, if your database workload is high during the back-to-school shopping season, you might increase the performance level for the database for a set time, July through September. You can reduce it when your peak season ends. You can minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while it does test runs, and then release that capacity when they finish testing. In a capacity request model, you pay for capacity as you need it, and avoid spending on dedicated resources that you might rarely use.
 
 ### Why service tiers?
