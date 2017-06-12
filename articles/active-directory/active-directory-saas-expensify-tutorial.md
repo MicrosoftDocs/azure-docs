@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 06/12/2017
 ms.author: jeedes
 
 ---
@@ -108,10 +108,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-expensify-tutorial/tutorial_expensify_url.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.expensify.com/authentication/saml/login`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.expensify.com/authentication/saml/login`
+
+	b. In the **Identifier URL** textbox, type a URL using the following pattern:
+	`https://www.<companyname>.expensify.com/` 
 
 	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Expensify Client support team](mailto:help@expensify.com) to get this value. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier URL. Contact [Expensify Client support team](mailto:help@expensify.com) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
