@@ -44,6 +44,10 @@ Azure SQL Database makes building and maintaining applications easier and more p
 
 Azure SQL Database manages all of the work of setting up SQL Server and managing the physical infrastructure. 
 
+### Supports Microsoft and non-Microsoft technologies
+
+Azure SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby as well as .NET on the MacOS, Linux, and Windows. 
+
 ## Choose between managed databases and managed instances
 
 Since the inception of the Azure SQL Database service in 2010, an Azure SQL database is conceptually a contained database - or a managed database. In May 2017, the concept of a [managed instance was announced](https://azure.microsoft.com/blog/new-options-to-modernize-your-application-with-azure-sql-database). A managed instance offers near 100% SQL Server compatibility with the benefits of platform as a service. Managed instances are currently in [private preview](https://sqldatabase-migrationpreview.azurewebsites.net/). Public preview is planned to be announced by the end of 2017.
