@@ -1,5 +1,5 @@
 ---
-title: Domain-joined Azure HDInsight architecture| Microsoft Docs
+title: Domain-joined Azure HDInsight architecture | Microsoft Docs
 description: Learn how to plan domain-joined HDInsight.
 services: hdinsight
 documentationcenter: ''

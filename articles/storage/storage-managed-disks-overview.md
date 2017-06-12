@@ -124,11 +124,8 @@ There are two kinds of encryption to discuss in reference to managed disks. The 
 
 ### Storage Service Encryption (SSE)
 
-Azure Storage supports automatically encrypting the data written to a storage account. For more details, please refer to [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md). What about the data on your managed disks? Currently, you can not enable Storage Service Encryption for Managed Disks. However, it will be released in the future. In the meantime, you need to be aware of how to use a VHD file that resides in an encrypted storage account and has itself been encrypted.
+[Azure Storage Service Encryption](storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](storage-faq-for-disks.md#managed-disks-and-storage-service-encryption-sse) for more details.
 
-SSE encrypts data as it is written to the storage account. If you have a VHD file that has ever been encrypted with SSE, you cannot use that VHD file to create a VM that uses Managed Disks. You also can't convert an encrypted unmanaged disk into a managed disk. And finally, if you disable encryption on that storage account, it does not go back and decrypt the VHD file.
-
-To use a disk that has been encrypted, you must first copy the VHD file to a storage account that has never been encrypted. Then you can create a VM with Managed Disks and specify that VHD file during creation, or attach the copied VHD file to a running VM with Managed Disks.
 
 ### Azure Disk Encryption (ADE)
 
