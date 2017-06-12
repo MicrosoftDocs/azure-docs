@@ -6,6 +6,7 @@ keywords:
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
@@ -15,7 +16,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: joflore
-ms.editor: gahug
 ms.custom: it-pro
 
 ---

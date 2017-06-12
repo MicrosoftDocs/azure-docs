@@ -1,5 +1,5 @@
 ---
-title: Run the Hadoop samples in HDInsight | Microsoft Docs
+title: Run the Hadoop samples in HDInsight - Azure | Microsoft Docs
 description: Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters.
 services: hdinsight
 documentationcenter: ''

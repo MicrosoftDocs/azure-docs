@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -20,7 +20,7 @@ ms.author: jovanpop
 ---
 # Automatic tuning
 
-Azure SQL Database is fully managed data service that monitors the queries that are executed on the database and can automatically improve performance of the workload. Azure SQL Database has a built-in intelligence mechanism that can automatically tune and improve performance of your queries by dynamically adapting the database to your workload. Automatic tuning in Azure SQL Database might be one of the most important features that you can enable on Azure SQL Database to optimize performance of your queries.
+Azure SQL Database is a fully managed data service that monitors the queries that are executed on the database and can automatically improve performance of the workload. Azure SQL Database has a built-in intelligence mechanism that can automatically tune and improve performance of your queries by dynamically adapting the database to your workload. Automatic tuning in Azure SQL Database might be one of the most important features that you can enable on Azure SQL Database to optimize performance of your queries.
 
 See this article for the steps to [enable automatic tuning](sql-database-automatic-tuning-enable.md) using the Azure portal.
 
