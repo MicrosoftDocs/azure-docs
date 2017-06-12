@@ -130,7 +130,7 @@ Microsoft's Speech Recognition API supports the following languages in **interac
 | fr-CA | Spanish (Mexico) | zh-TW | Chinese (Mandarin, Taiwanese)|
 | fr-FR | French (France) | ||
 
-### Conversational modeO
+### Conversational mode
 Microsoft's Speech Recognition API supports the following languages in **conversation** modes. 
 
 |Code||Code||
