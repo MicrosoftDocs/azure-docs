@@ -17,7 +17,7 @@ ms.date: 3/8/2017
 ms.author: renash
 ---
 # Use Azure File Storage with Linux
-[Azure File Storage](storage-file-storage.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
+[Azure File Storage](storage-dotnet-how-to-use-files.md) is Microsoft's easy to use cloud file system. Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/). This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
 > [!NOTE]  
 > In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.x. As of the time of publishing, Samba support for SMB 3.x is incomplete as it does not yet support encryption. Status on SMB 3.x compatibility can be viewed on the [Samba wiki](https://wiki.samba.org/index.php/SMB3_kernel_status#Security_Features).
