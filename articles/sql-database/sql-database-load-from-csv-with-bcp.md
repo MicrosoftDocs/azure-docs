@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: move data
+ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

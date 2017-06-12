@@ -285,7 +285,7 @@ For more information, see [Map Azure CDN content to a custom domain](../cdn/cdn-
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Next Steps
+## Next steps
 
 What you learned:
 

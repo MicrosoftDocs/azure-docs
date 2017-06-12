@@ -26,7 +26,7 @@ Learn about the features in Azure Search.
 
 ### Full text search and text analysis
 
-[Full text search](https://en.wikipedia.org/wiki/Full_text_search) is a primary use case for most search-based apps. In Azure search, queries can be formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
+[Full text search](search-lucene-query-architecture.md) is a primary use case for most search-based apps. In Azure search, queries can be formulated using the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports [custom lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
 ### Language support
 
