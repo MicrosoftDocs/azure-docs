@@ -19,7 +19,7 @@ ms.author: sujayt
 ---
 # Troubleshoot Azure to Azure VM replication issues
 
-This article details the common issues in Azure Site Recovery (ASR) when replicating and recovering Azure virtual machines from one region to another region and how to troubleshoot them. Refer to [support matrix for replicating Azure VMs](site-recovery-support-matrix-to-azure.md) for more details about supported configurations
+This article details the common issues in Azure Site Recovery (ASR) when replicating and recovering Azure virtual machines from one region to another region and how to troubleshoot them. Refer to [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md) for more details about supported configurations
 
 ## Azure resource quota issues (Error code - 150097)
 Your subscription should be enabled to create Azure VMs in the target region which you plan to use as DR region. Also, your subscription should have sufficient quota enabled to create VMs of specific size. By default, ASR picks the same size as source VM for the target VM. If the matching size is not available, the closest possible size is auto picked. If there is no matching size that supports source VM configuration, the below error message will be seen.
