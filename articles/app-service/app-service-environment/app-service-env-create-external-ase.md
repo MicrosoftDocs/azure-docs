@@ -1,5 +1,4 @@
 ---
-
 title="Create an External Azure App Service Environment" 
 description="Explains how to create an Azure App Service Environment while creating an app or standalone" 
 services: app-service
@@ -16,7 +15,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-
 ---
 # Create an external App Service Environment #
 
