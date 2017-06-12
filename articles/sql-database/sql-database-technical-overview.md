@@ -34,17 +34,27 @@ For a set of Azure CLI and PowerShell samples, see:
  - [Azure CLI samples for Azure SQL Database](sql-database-cli-samples.md)
  - [Azure PowerShell samples for Azure SQL Database](sql-database-powershell-samples.md)
 
-## Managed databases and managed instances
+## Easy to use
+
+### Use tools you know
+
+Azure SQL Database makes building and maintaining applications easier and more productive. SQL Database allows you to focus on what you do best: building great apps. Develop your app and connect to SQL Database with the [SQLCMD](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility), [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms), or [Visual Studio Code](https://code.visualstudio.com/docs). You can also write and execute Transact-SQL scripts against an Azure SQL database directly in the Azure portal using the [SQL Database Query Editor](https://azure.microsoft.com/en-us/blog/t-sql-query-editor-in-browser-azure-portal).
+
+### No physical administration
+
+Azure SQL Database manages all of the work of setting up SQL Server and managing the physical infrastructure. 
+
+## Choose between managed databases and managed instances
 
 Since the inception of the Azure SQL Database service in 2010, an Azure SQL database is conceptually a contained database - or a managed database. In May 2017, the concept of a [managed instance was announced](https://azure.microsoft.com/blog/new-options-to-modernize-your-application-with-azure-sql-database). A managed instance offers near 100% SQL Server compatibility with the benefits of platform as a service. Managed instances are currently in [private preview](https://sqldatabase-migrationpreview.azurewebsites.net/). Public preview is planned to be announced by the end of 2017.
 
-### Managed database
+### Managed databases
 
 With a managed database, each database is isolated from each other and portable, each with its own performance level - known as a [service tier](sql-database-service-tiers.md). With a managed database, you can perform all management functions from within the database itself. For manageability, databases are associated with logical servers that enable you to perform administrative tasks across multiple databases - including [logins](sql-database-manage-logins.md), [firewalls](sql-database-firewall-configure.md), [auditing](sql-database-auditing.md), [threat detection](sql-database-auditing.md), and [failover groups](sql-database-geo-replication-overview.md).
 
 However, since databases are isolated from each other, features such as cross-database querying, jobs, and transactions are implemented using new techniques that require recoding of existing applications. Also, features such as SQL Server Agent, CLR, and three-part names are not supported.
 
-### Managed instance
+### Managed instances
 
 With a managed instance, features like SQL CLR, SQL Server Agent, and cross-database querying will be fully supported. Furthermore, a managed instance will have of the current capabilities of managed databases, including automatic backups, built-in HA, and continuous improvement and release of features in the Microsoft cloud-first development model. These capabilities are introduced in the remainder of this article.
 
@@ -59,7 +69,7 @@ For customers in highly regulated industries, managed instances bringing two add
 - VNETs with support for private IP addresses: With VNETs, customers will be able to completely isolate their database tier from the public internet and join it to their other cloud VNETs or on-premise networks where their application and users reside.
 - Controlled service updates.  With controlled service updates, customers can run their test environment deployed in a regular Azure public cloud subscription, where they will receive continuous service updates. After they have validated their application with the latest updates, they will be able to apply the updates in a scheduled manner to the production-managed instance environment.
 
-## Built-in intelligent optimization
+## Provides built-in intelligent optimization
 
 With Azure SQL Database, you get built-in intelligence that helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application. Running millions of customer workloads around-the-clock, Azure SQL Database collects and processes a massive amount of telemetry data, while also fully respecting customer privacy behind the scenes. Various algorithms are continuously evaluating the telemetry data so that the service can learn and adapt with your application. Based on this analysis, the service comes up with performance improving recommendations tailored to your specific workload. 
 
@@ -78,7 +88,7 @@ There are two automatic tuning aspects that are available in Azure SQL Database:
 
 We are also adding the adaptive query processing family of features to Azure SQL Database, including [interleaved execution for multi-statement table-valued functions, batch mode memory grant feedback](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-interleaved-execution-for-multi-statement-table-valued-functions/), and [batch mode adaptive joins](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-batch-mode-adaptive-joins/). Each of these adaptive query processing features applies similar “learn and adapt” techniques, helping further address performance issues related to historically intractable query optimization problems.
 
-## Global scalability and availability
+## Provides global scalability and availability
 
 Azure's industry leading 99.99% availability service level agreement [(SLA)](http://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. In addition, Azure SQL Database provides out-of-the-box [business continuity and global scalability](sql-database-business-continuity.md) features, including [automatic backups](sql-database-automated-backups.md), [point-in-time restores](sql-database-recovery-using-backups.md), and [Active Geo-Replication](sql-database-geo-replication-overview.md), which allows you to configure up to four readable secondary databases in either the same or globally distributed Azure data centers.  For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, with Active Geo-Replication you can enable global read scale and remove bottlenecks on the primary that were due to read workloads. What’s more, with recently released auto-failover groups you can enable high availability and load balancing at global scale, including transparent geo-replication and failover of large sets of databases and elastic pools. This enables creation of globally distributed SaaS applications with minimal administration overhead leaving all the complex monitoring, routing, and failover orchestration to SQL Database.
 
@@ -86,7 +96,7 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 > [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
 >
 
-## Built-in security and compliance
+## Included built-in security and compliance
 
 Azure SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements. 
 
@@ -110,7 +120,7 @@ Users of Azure SQL Database benefit from single sign-on through Azure Active Dir
 
 Azure SQL Database participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
 
-## Dynamic scalability and elastic data pools
+## Is dynamicly scalable and support data pools for resource sharing
 
 Azure SQL Database service provides different performance levels for different needs, and enables databases to be pooled to maximize the use of resources - and save money.
 
@@ -126,7 +136,7 @@ For many businesses and apps, being able to create single databases and dial per
 
 Either way you go — single databases or elastic pools — you are not locked in. You can blend single databases with elastic pools, and change the service tiers of single databases and elastic pools quickly and easily to adapt to your situation. Moreover, with the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
-### Monitoring and alerting
+## Provide extensive monitoring and alerting capabilities
 
 But how can you compare the relative performance of single databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings based on [Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic pools](sql-database-what-is-a-dtu.md). Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md) for details.
 
