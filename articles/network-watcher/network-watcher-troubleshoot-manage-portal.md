@@ -75,5 +75,4 @@ The **Action** tab provides general guidance on how to resolve the issue. If an 
 If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that may be in question.
 
 
-[1]: ./media/network-watcher-troubleshoot-manage-portal/portal.png
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png
