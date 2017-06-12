@@ -27,14 +27,14 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
 ## Prepare the environment
 ### Step 1: Assumptions
 
-*   To perform the backup and recovery process, you need to create a Linux VM with an installed instance of Oracle Database 12c. The Marketplace image you use to create the VMs is "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
+*   To perform the backup and recovery process, you need to create a Linux VM with an installed instance of Oracle Database 12c. The Marketplace image you use to create the VMs is called *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
     For instructions on how to create an Oracle database, see [Oracle database quick create guide](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
 ### Step 2: Connect to the VM
 
-*   To create an SSH session with the VM, use the following command. Replace the IP address and hostname combination with the `publicIpAddress` value for your VM.
+*   To create a Secure Shell (SSH) session with the VM, use the following command. Replace the IP address and the host name combination with the `publicIpAddress` value for your VM.
 
     ```bash 
     ssh <publicIpAddress>
@@ -218,8 +218,6 @@ To restore the deleted files, complete the following procedure:
     > [!IMPORTANT]
     > In the next example, ensure that you update the IP address and folder values. The values have to map to the folder where the file is saved.
 
-
-
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
@@ -366,9 +364,11 @@ search for and select **myVMip**, and then click **Associate**.
 ### Step 4: Connect to the VM
 
 *   Use the following script to connect:
+
 ```bash 
 ssh <publicIpAddress>
 ```
+
 ### Step 5: Test whether the database is accessible
 *   Use the following script to test the accessibility:
 
