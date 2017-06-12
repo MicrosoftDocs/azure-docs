@@ -68,16 +68,14 @@ OUTPUT @a
 **Submit a Data Lake Analytics job**
 
 1. Click **File > New > Project**.
-2. Select the **U-SQL Project** type.
-
-    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
+2. Select the **U-SQL Project** type and click **OK**.
+3. Visual Studio creates a solution with a **Script.usql** file.
 4. Paste the previous script into the **Script.usql** window.
-5. Specify the Data Lake Analytics account, Database, and Schema. 
+5. Specify the Data Lake Analytics account at the top left of the **Script.usql** window. 
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
-6. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**. 
+6. At the top left of the **Script.usql** window, click **Submit**.
 7. Verify the **Analytics Account**, and then click **Submit**. Submission results are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 
     ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
