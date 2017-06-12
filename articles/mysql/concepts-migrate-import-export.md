@@ -41,6 +41,7 @@ It is recommended to use MySQL utilities such to export and import databases int
 
 - The **InnoDB** storage engine must be used in _all tables_ in the database when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables require alternative storage engines, be sure to convert the export scripts  InnoDB engine format before migration to Azure Database for MySQL.
    For example, if you have a WordPress application, which uses non-InnoDB engine such as MyISAM, you should first convert those tables by migrating the data into InnoDB tables before the migration. Use the clause `ENGINE=INNODB` to set the engine used when creating a new table, then transfer the data into the compatible table before the migration. 
+
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
