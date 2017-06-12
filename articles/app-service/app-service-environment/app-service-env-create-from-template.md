@@ -1,14 +1,12 @@
 ---
-
-title="Creating an Azure App Service Environment using a resource manager template" 
-description="Explains how to create an External or ILB Azure App Service Environment using a resource manager template" 
+title: Creating an Azure App Service Environment using a resource manager template
+description: Explains how to create an External or ILB Azure App Service Environment using a resource manager template
 services: app-service
-documentationcenter: ''
+documentationcenter: na
 author: ccompy
 manager: stefsch
-editor: ''
 
-ms.assetid: 
+ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-
 ---
 # How To Create an ASE Using Azure Resource Manager Templates
 
