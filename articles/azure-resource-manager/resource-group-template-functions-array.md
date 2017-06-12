@@ -53,6 +53,10 @@ Converts the value to an array.
 |:--- |:--- |:--- |:--- |
 | convertToArray |Yes |int, string, array, or object |The value to convert to an array. |
 
+### Return value
+
+An array.
+
 ### Examples
 
 The following example shows how to use the array function with different types.
@@ -94,9 +98,13 @@ The following example shows how to use the array function with different types.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["a"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 <a id="coalesce" />
 
@@ -112,6 +120,10 @@ Returns first non-null value from the parameters. Empty strings, empty arrays, a
 | arg1 |Yes |int, string, array, or object |The first value to test for null. |
 | additional args |No |int, string, array, or object |Additional values to test for null. |
 
+### Return value
+
+The value of the first non-null parameters, which can be a string, int, array, or object. Null if all parameters are null. 
+
 ### Examples
 
 The following example shows the output from different uses of coalesce.
@@ -123,7 +135,14 @@ The following example shows the output from different uses of coalesce.
     "parameters": {
         "objectToTest": {
             "type": "object",
-            "defaultValue": {"first": null, "second": null}
+            "defaultValue": {
+                "null1": null, 
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
         }
     },
     "resources": [
@@ -131,27 +150,37 @@ The following example shows the output from different uses of coalesce.
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 'fallback')]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
         },
         "intOutput": {
             "type": "int",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 1)]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
         },
         "objectOutput": {
             "type": "object",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, parameters('objectToTest'))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
         },
         "arrayOutput": {
             "type": "array",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, array(1))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
         }
     }
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-The value of the first non-null parameters, which can be a string, int, array, or object. Null if all parameters are null. 
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| stringOutput | String | default |
+| intOutput | Int | 1 |
+| objectOutput | Object | {"first": "default"} |
+| arrayOutput | Array | [1] |
+| emptyOutput | Bool | True |
 
 <a id="concat" />
 
@@ -168,6 +197,9 @@ Combines multiple arrays and returns the concatenated array, or combines multipl
 | additional arguments |No |array or string |Additional arrays or strings in sequential order for concatenation. |
 
 This function can take any number of arguments, and can accept either strings or arrays for the parameters.
+
+### Return value
+A string or array of concatenated values.
 
 ### Examples
 
@@ -206,6 +238,12 @@ The following example shows how to combine two arrays.
 }
 ```
 
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+
 The following example shows how to combine two string values and return a concatenated string.
 
 ```json
@@ -221,15 +259,18 @@ The following example shows how to combine two string values and return a concat
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
 
-### Return value
-A string or array of concatenated values.
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 <a id="contains" />
 
@@ -244,6 +285,10 @@ Checks whether an array contains a value, an object contains a key, or a string 
 |:--- |:--- |:--- |:--- |
 | container |Yes |array, object, or string |The value that contains the value to find. |
 | itemToFind |Yes |string or int |The value to find. |
+
+### Return value
+
+**True** if the item is found; otherwise, **False**.
 
 ### Examples
 
@@ -298,9 +343,16 @@ The following example shows how to use contains with different types:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-**True** if the item is found; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| stringTrue | Bool | True |
+| stringFalse | Bool | False |
+| objectTrue | Bool | True |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | False |
 
 <a id="createarray" />
 
@@ -315,6 +367,10 @@ Creates an array from the parameters.
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |String, Integer, Array, or Object |The first value in the array. |
 | additional arguments |No |String, Integer, Array, or Object |Additional values in the array. |
+
+### Return value
+
+An array.
 
 ### Examples
 
@@ -357,9 +413,14 @@ The following example shows how to use createArray with different types:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 <a id="empty" />
 
@@ -374,6 +435,10 @@ Determines if an array, object, or string is empty.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Yes |array, object, or string |The value to check if it is empty. |
+
+### Return value
+
+Returns **True** if the value is empty; otherwise, **False**.
 
 ### Examples
 
@@ -416,9 +481,13 @@ The following example checks whether an array, object, and string are empty.
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-Returns **True** if the value is empty; otherwise, **False**.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 <a id="first" />
 
@@ -432,6 +501,10 @@ Returns the first element of the array, or first character of the string.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or string |The value to retrieve the first element or character. |
+
+### Return value
+
+The type (string, int, array, or object) of the first element in an array, or the first character of a string.
 
 ### Examples
 
@@ -462,9 +535,12 @@ The following example shows how to use the first function with an array and stri
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-The type (string, int, array, or object) of the first element in an array, or the first character of a string.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 <a id="intersection" />
 
@@ -480,6 +556,10 @@ Returns a single array or object with the common elements from the parameters.
 | arg1 |Yes |array or object |The first value to use for finding common elements. |
 | arg2 |Yes |array or object |The second value to use for finding common elements. |
 | additional arguments |No |array or object |Additional values to use for finding common elements. |
+
+### Return value
+
+An array or object with the common elements.
 
 ### Examples
 
@@ -522,9 +602,12 @@ The following example shows how to use intersection with arrays and objects:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array or object with the common elements.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object | {"one": "a", "three": "c"} |
+| arrayOutput | Array | ["two", "three"] |
 
 <a id="last" />
 
@@ -538,6 +621,10 @@ Returns the last element of the array, or last character of the string.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or string |The value to retrieve the last element or character. |
+
+### Return value
+
+The type (string, int, array, or object) of the last element in an array, or the last character of a string.
 
 ### Examples
 
@@ -568,9 +655,12 @@ The following example shows how to use the last function with an array and strin
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-The type (string, int, array, or object) of the last element in an array, or the last character of a string.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 <a id="length" />
 
@@ -584,6 +674,10 @@ Returns the number of elements in an array, or characters in a string.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or string |The array to use for getting the number of elements, or the string to use for getting the number of characters. |
+
+### Return value
+
+An int. 
 
 ### Examples
 
@@ -621,6 +715,13 @@ The following example shows how to use length with an array and string:
 }
 ```
 
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
+
 You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
 ```json
@@ -631,10 +732,6 @@ You can use this function with an array to specify the number of iterations when
 ```
 
 For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-
-### Return value
-
-An int. 
 
 <a id="min" />
 
@@ -648,6 +745,10 @@ Returns the minimum value from an array of integers or a comma-separated list of
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the minimum value. |
+
+### Return value
+
+An int representing the minimum value.
 
 ### Examples
 
@@ -677,9 +778,12 @@ The following example shows how to use min with an array and a list of integers:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An int representing the minimum value.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 <a id="max" />
 
@@ -693,6 +797,10 @@ Returns the maximum value from an array of integers or a comma-separated list of
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the maximum value. |
+
+### Return value
+
+An int representing the maximum value.
 
 ### Examples
 
@@ -722,9 +830,12 @@ The following example shows how to use max with an array and a list of integers:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An int representing the maximum value.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 <a id="range" />
 
@@ -739,6 +850,10 @@ Creates an array of integers from a starting integer and containing a number of 
 |:--- |:--- |:--- |:--- |
 | startingInteger |Yes |int |The first integer in the array. |
 | numberofElements |Yes |int |The number of integers in the array. |
+
+### Return value
+
+An array of integers.
 
 ### Examples
 
@@ -768,9 +883,11 @@ The following example shows how to use the range function:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array of integers.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| rangeOutput | Array | [5, 6, 7] |
 
 <a id="skip" />
 
@@ -785,6 +902,10 @@ Returns an array with all the elements after the specified number in the array, 
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
 | numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it is larger than the length of the array or string, an empty array or string is returned. |
+
+### Return value
+
+An array or string.
 
 ### Examples
 
@@ -830,9 +951,12 @@ The following example skips the specified number of elements in the array, and t
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array or string.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Array | ["three"] |
+| stringOutput | String | two three |
 
 <a id="take" />
 
@@ -847,6 +971,10 @@ Returns an array with the specified number of elements from the start of the arr
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to take the elements from. |
 | numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned. |
+
+### Return value
+
+An array or string.
 
 ### Examples
 
@@ -892,9 +1020,12 @@ The following example takes the specified number of elements from the array, and
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array or string.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| arrayOutput | Array | ["one", "two"] |
+| stringOutput | String | on |
 
 <a id="union" />
 
@@ -911,6 +1042,10 @@ Returns a single array or object with all elements from the parameters. Duplicat
 | arg2 |Yes |array or object |The second value to use for joining elements. |
 | additional arguments |No |array or object |Additional values to use for joining elements. |
 
+### Return value
+
+An array or object.
+
 ### Examples
 
 The following example shows how to use union with arrays and objects:
@@ -926,7 +1061,7 @@ The following example shows how to use union with arrays and objects:
         },
         "secondObject": {
             "type": "object",
-            "defaultValue": {"four": "d", "five": "e", "six": "f"}
+            "defaultValue": {"three": "c", "four": "d", "five": "e"}
         },
         "firstArray": {
             "type": "array",
@@ -934,7 +1069,7 @@ The following example shows how to use union with arrays and objects:
         },
         "secondArray": {
             "type": "array",
-            "defaultValue": ["four", "five"]
+            "defaultValue": ["three", "four"]
         }
     },
     "resources": [
@@ -952,11 +1087,14 @@ The following example shows how to use union with arrays and objects:
 }
 ```
 
-### Return value
+The output from the preceding example with the default values is:
 
-An array or object.
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
-## Next Steps
+## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
