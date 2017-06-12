@@ -99,7 +99,7 @@ In this article you will learn how to install the community (free) version of RS
            wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
 *    If you created a Spark cluster with R, use this command.
 
-                    wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
+           wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 11. In RStudio, you will see the test script you downloaded. Double click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane.
 
    ![Test the installation](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Test the installation")
