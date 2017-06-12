@@ -25,7 +25,7 @@ ms.author: mlearned
 <ol>
   <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine.</a></li>
   <li><a href="/azure/jenkins/jenkins-azure-vm-agents">Scale Jenkins using Azure Virtual Machines as agents.</a></li>
-  <li><a href="/azure/jenkins/securing-jenkins-on-Azure">Securing Jenkins on Azure</a>
+  <li><a href="/azure/jenkins/securing-jenkins-on-Azure">Secure a Jenkins implementation on Azure.</a>
 </ol>
 <h2 style="margin-top: 36px">Tutorials</h2>
 <p>Below are guides to integrate Jenkins with Azure tools and services.</p> 
