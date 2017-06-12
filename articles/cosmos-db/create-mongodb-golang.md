@@ -44,8 +44,8 @@ In other words, your Golang application only knows that it’s connecting to a d
 
 ### Setting up your application
 
-It’s time to play with the code. Open your favorite editor (Gogland, VS Code
-or Atom). For this article, I will use Gogland editor.
+It’s time to play with the code. Open your favorite editor (Gogland, Visual Studio Code,
+or Atom). In this article, I use Gogland editor.
 
 1.  Create folder CosmosDBAcces folder inside GOROOT\src folder.
 2.  Run below command to get the mgo package.
@@ -178,8 +178,7 @@ if err != nil {
 
 ### Get the complete Golang tutorial solution
 
-Please have a look at the entire source code at
-[GitHub](https://github.com/Golang-Coach/Lessons/tree/master/CosmosDBAccess).
+The entire source code at for this quickstart is provided on [GitHub](https://github.com/Golang-Coach/Lessons/tree/master/CosmosDBAccess).
 
 ### Next steps
 
