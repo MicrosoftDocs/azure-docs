@@ -28,7 +28,7 @@ There is information provided along the way to help you understand the reasons b
 Please take note that most of these steps involve the configuration of the event hub and Key Vault.  
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
-- [Event hubs](../event-hubs/event-hubs-what-is-event-hubs,md)
+- [Event hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Azure Log Integration](security-azure-log-integration-overview.md).
 
 
