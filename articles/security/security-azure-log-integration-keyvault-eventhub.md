@@ -38,8 +38,8 @@ Before you can complete the steps in this article you will need the following:
 
 - A system with access to the internet that meets the requirements for installing Azure Log Integration
 - [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) Installed
-- You will also need the latest version of Azure PowerShell
-- Access to an Azure subscription
+- You will also need the latest version of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0)
+- Access to an [Azure subscription](https://azure.microsoft.com/free)
 - An account with subscription administrator rights
 
 ### Install Azure Log Integration
@@ -51,9 +51,9 @@ Use remote desktop to connect to the system that you will be using to go through
 There are two ways to get Azure PowerShell installed.
 
 - Using the web platform installer
-- Using the ```install-module``` CmdLet available in PowerShell 5.0
+- Using the ```Install-Module``` CmdLet available in PowerShell 5.0
 
-We recommend that you use the install-module CmdLet if at all possible because it will allow you to also use update-module at a later time. Update-module will install the latest version of the Azure module when you run ```update-module azure```
+We recommend that you use the install-module CmdLet if at all possible because it will allow you to also use update-module at a later time. Update-module will install the latest version of the Azure module when you run ```Update-Module Azure```
 
 For additional information on installing Azure PowerShell you should review the article titled [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
 
@@ -66,7 +66,7 @@ You should see something like what appears in the figure below. </br>
 
     ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Type **login-azurermaccount** and hit enter. This will launch a login window. Enter the credential information for the subscription that you will be using for this tutorial.
+3. Type **Login-AzureRmAccount** and hit enter. This will launch a login window. Enter the credential information for the subscription that you will be using for this tutorial.
 
     >[!NOTE]
     If this is the first time that you log to Azure from this machine then you will see a message about allowing Microsoft to collect PowerShell usage data. We recommend that you enable this because it will be used to improve Azure PowerShell.
@@ -78,8 +78,8 @@ You should see something like what appears in the figure below. </br>
     - Type each of the PowerShell lines below and hit **Enter** after each one. Pay attention to the comments next to each. You may need to adjust the values to match your environment:
         - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name may be different and you could see it as part of the output of the previous command)
         - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this to be any other location of your choosing)
-        - ```$random = get-random```
-        - ``` $name = 'azlogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
+        - ```$random = Get-Random```
+        - ``` $name = 'Azlogtest' + $random``` (The name could be anything but it should only include lower case letters and numbers)
         - ``` $storageName = $name``` (This will be used for the storage account name)
         - ```$rgname = $name ``` (This will be used for the resource group name)
         - ``` $eventHubNameSpaceName = $name``` (This is the event hub name space name)
