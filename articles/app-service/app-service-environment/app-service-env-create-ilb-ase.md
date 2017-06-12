@@ -1,14 +1,12 @@
 ---
-
-title="Create and Use an Internal Load Balancer with an Azure App Service Environment" 
-description="Details on creating and using an internet isolated Azure App Service Environment" 
+title: Create and Use an Internal Load Balancer with an Azure App Service Environment
+description: Details on creating and using an internet isolated Azure App Service Environment
 services: app-service
-documentationcenter: ''
+documentationcenter: na
 author: ccompy
 manager: stefsch
-editor: ''
 
-ms.assetid: 
+ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,9 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-
 ---
-
 # Create and Use an Internal Load Balancer with an App Service Environment #
 
 The App Service Environment (ASE) is a deployment of the Azure App Service into a subnet in your Azure Virtual Network (VNet). There are two ways to deploy an ASE: 
