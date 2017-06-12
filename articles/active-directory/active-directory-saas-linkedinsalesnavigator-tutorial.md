@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 
 ---
@@ -155,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	d. Click **Ok**
 
-10. Perform the following steps on two attributes i.e. **name** and **email**-
+10. Perform the following steps on the **name** attribute-
 
 	a. Click on the attribute to open the **Edit Attribute** window.
 
