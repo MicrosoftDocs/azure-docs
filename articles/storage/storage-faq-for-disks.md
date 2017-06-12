@@ -152,7 +152,7 @@ You can find created time of Managed Disks from Azure portal, CLI and PowerShell
 
 **How can I encrypt my existing disks created before June 10th, 2017?**
 
-For existing Managed Disks, SSE will encrypt newly written data after June 9th, 2017. We are also planning to encrypt existing data as well and the encryption will happen asynchronously in the background. If you must encrypt existing data now, then a workaround is to create copy of your disks. New Disks will be encrypted.
+Starting June 10th 2017, new data written to existing Managed Disks will be automatically encrypted. We are also planning to encrypt existing data as well and the encryption will happen asynchronously in the background. If you must encrypt existing data now, then a workaround is to create copy of your disks. New Disks will be encrypted.
 
 [Copy Managed Disks using CLI](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 
