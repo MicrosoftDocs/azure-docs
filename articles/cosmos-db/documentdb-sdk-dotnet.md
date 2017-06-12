@@ -3,7 +3,8 @@ title: Azure DocumentDB .NET SDK & Resources | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
-author: rnagpalmanager: jhubbard
+author: rnagpal
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
@@ -13,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: rnagpalms.custom: H1Hack27Feb2017
+ms.author: rnagpal
+ms.custom: H1Hack27Feb2017
 
 ---
 # DocumentDB .NET SDK: Download and release notes
@@ -23,7 +25,9 @@ ms.author: rnagpalms.custom: H1Hack27Feb2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
+
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
