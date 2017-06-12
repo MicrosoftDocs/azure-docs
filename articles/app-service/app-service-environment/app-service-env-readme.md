@@ -1,22 +1,19 @@
 ---
-
-title="Azure App Service Environment Readme" 
-description="Lists the documentation that describes the Azure App Service Environment" 
+title: Azure App Service Environment Readme
+description: Lists the documentation that describes the Azure App Service Environment
 services: app-service
-documentationcenter: ''
+documentationcenter: na
 author: ccompy
 manager: stefsch
-editor: ''
 
-ms.assetid: 
+ms.assetid: 77452413-5193-4762-8b3d-5fa8e4edf1ca
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: ccompy
-
 ---
 
 # App Service Environment Documentation
