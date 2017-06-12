@@ -47,11 +47,11 @@ If the virtual machine is in an Azure virtual network, we recommend network secu
 
    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-5. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is `10.1.0.0/8`.
+4. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is `10.1.0.0/8`.
 
-![New ACL entry](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+ ![New ACL entry](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../articles/virtual-network/virtual-networks-acl.md).
+The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List](../articles/virtual-network/virtual-networks-acl.md).
