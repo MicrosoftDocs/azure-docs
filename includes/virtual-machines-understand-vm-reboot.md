@@ -8,7 +8,7 @@ To provide this level of redundancy to your application, we recommend that you g
 For more informaiton abot availability set, see the following articles:
 
 - [Manage the availability of VMs](../articles/virtual-machines/windows/manage-availability.md)
-- [Configure availability of VMs](../articles/virtual-machineswindows/classic/configure-availability.md)
+- [Configure availability of VMs](../articles/virtual-machines/windows/classic/configure-availability.md)
 
 ## Resource Health Information 
 Azure Resource Health is a service that exposes the health of individual Azure resources and provides actionable guidance for troubleshooting problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal for Resource Health is to reduce the time that customers spend on troubleshooting. Particularly, the time that spent determining if the root of the problem lies in the application or is caused by an event inside the Azure platform. For more information,  see [Understand and use Resource Health](../articles/resource-health/resource-health-overview.md)
