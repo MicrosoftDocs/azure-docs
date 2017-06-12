@@ -122,5 +122,4 @@ Importing your database is similar to exporting. Do the following actions:
 - Click the Go button. This will export the backup, execute the SQL commands and re-create your database.
 
 ## Next steps
-[Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) 
-[Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
+[Connect applications to Azure Database for MySQL](./howto-connection-string.md)
