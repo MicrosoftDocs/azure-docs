@@ -937,26 +937,26 @@ If using XML preset:
 * Preserve the order of elements: KeyFrameInterval, followed by SceneChangeDetection, followed by StretchMode.
 
 	. . .
-	  <Encoding>  
-	    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
-	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
-	      <SceneChangeDetection>true</SceneChangeDetection>  
-	      <StretchMode>AutoSize</StretchMode>
-	      <H264Layers>  
-		<H264Layer>  
-		  . . .
-		</H264Layer>  
-	      </H264Layers>  
-	      <Chapters />  
-	    </H264Video>  
-	    <AACAudio Condition="InsertSilenceIfNoAudio" >  
-	      <Profile>AACLC</Profile>  
-	      <Channels>2</Channels>  
-	      <SamplingRate>48000</SamplingRate>  
-	      <Bitrate>128</Bitrate>  
-	    </AACAudio>  
-	  </Encoding>  
-	. . . 
+	<Encoding>  
+	<H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+	  <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	  <SceneChangeDetection>true</SceneChangeDetection>  
+	  <StretchMode>AutoSize</StretchMode>
+	  <H264Layers>  
+	<H264Layer>  
+	  . . .
+	</H264Layer>  
+	  </H264Layers>  
+	  <Chapters />  
+	</H264Video>  
+	<AACAudio Condition="InsertSilenceIfNoAudio" >  
+	  <Profile>AACLC</Profile>  
+	  <Channels>2</Channels>  
+	  <SamplingRate>48000</SamplingRate>  
+	  <Bitrate>128</Bitrate>  
+	</AACAudio>  
+	</Encoding>  
+	. . .
 
 ### Inserting video at all output bitrates
 Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This ensures that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
@@ -981,26 +981,27 @@ If using XML preset:
 * Preserve the order of elements: KeyFrameInterval, followed by SceneChangeDetection, followed by StretchMode.
 
 	. . .
-	  <Encoding>  
-	    <H264Video Condition="InsertBlackIfNoVideo">  
-	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
-	      <SceneChangeDetection>true</SceneChangeDetection>  
-	      <StretchMode>AutoSize</StretchMode>
-	      <H264Layers>  
-		<H264Layer>  
-		  . . .
-		</H264Layer>  
-	      </H264Layers>  
-	      <Chapters />  
-	    </H264Video>  
-	    <AACAudio Condition="InsertSilenceIfNoAudio" >  
-	      <Profile>AACLC</Profile>  
-	      <Channels>2</Channels>  
-	      <SamplingRate>48000</SamplingRate>  
-	      <Bitrate>128</Bitrate>  
-	    </AACAudio>  
-	  </Encoding>  
-	. . . 
+	<Encoding>  
+	<H264Video Condition="InsertBlackIfNoVideo">  
+	  <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	  <SceneChangeDetection>true</SceneChangeDetection>  
+	  <StretchMode>AutoSize</StretchMode>
+	  <H264Layers>  
+	<H264Layer>  
+	  . . .
+	</H264Layer>  
+	  </H264Layers>  
+	  <Chapters />  
+	</H264Video>  
+	<AACAudio Condition="InsertSilenceIfNoAudio" >  
+	  <Profile>AACLC</Profile>  
+	  <Channels>2</Channels>  
+	  <SamplingRate>48000</SamplingRate>  
+	  <Bitrate>128</Bitrate>  
+	</AACAudio>  
+	</Encoding>  
+	. . .  
+	
 ## <a id="rotate_video"></a>Rotate a video
 The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 0/90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming video file and compensate for it. Include the following **Sources** element to one of the presets defined in [this](media-services-mes-presets-overview.md) section:
 
