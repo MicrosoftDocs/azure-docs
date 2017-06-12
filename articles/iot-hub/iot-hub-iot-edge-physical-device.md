@@ -75,6 +75,18 @@ The following block diagram illustrates the device command data flow pipeline:
 1. The BLE module picks up this message and executes the I/O instruction by communicating with the BLE device.
 1. The logger module logs all messages from the broker to a disk file.
 
+## Prerequisites
+
+To complete this tutorial, you need an active Azure subscription.
+
+> [!NOTE]
+> If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+
+You need SSH client on your desktop machine to enable you to remotely access the command line on the Raspberry Pi.
+
+- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
+- Most Linux distributions and Mac OS include the command-line SSH utility. For more information, see [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+
 ## Prepare your hardware
 
 This tutorial assumes you are using a [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) device connected to a Raspberry Pi 3 running Raspbian.
@@ -85,6 +97,24 @@ You can use either of the following options to install Raspbian on your Raspberr
 
 * To install the latest version of Raspbian, use the [NOOBS][lnk-noobs] graphical user interface.
 * Manually [download][lnk-raspbian] and write the latest image of the Raspbian operating system to an SD card.
+
+### Sign in and access the terminal
+
+You have two options to access a terminal environment on your Raspberry Pi:
+
+* If you have a keyboard and monitor connected to your Raspberry Pi, you can use the Raspbian GUI to access a terminal window.
+
+* Access the command line on your Raspberry Pi using SSH from your desktop machine.
+
+#### Use a terminal Window in the GUI
+
+The default credentials for Raspbian are username **pi** and password **raspberry**. In the task bar in the GUI, you can launch the **Terminal** utility using the icon that looks like a monitor.
+
+#### Sign in with SSH
+
+You can use SSH for command-line access to your Raspberry Pi. The article [SSH (Secure Shell)][lnk-pi-ssh] describes how to configure SSH on your Raspberry Pi, and how to connect from [Windows][lnk-ssh-windows] or [Linux & Mac OS][lnk-ssh-linux].
+
+Sign in with username **pi** and password **raspberry**.
 
 ### Install BlueZ 5.37
 
@@ -257,14 +287,13 @@ Use the following commands to clone IoT Edge and all its submodules to your home
 
 ```sh
 cd ~
-git clone --recursive https://github.com/Azure/iot-edge.git
-cd iot-edge
-git submodule update --init --recursive
+git clone https://github.com/Azure/iot-edge.git
 ```
 
 When you have a complete copy of the IoT Edge repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK:
 
 ```sh
+cd ~/iot-edge
 ./tools/build.sh
 ```
 
@@ -541,3 +570,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md 
+[lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
+[lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
+[lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
