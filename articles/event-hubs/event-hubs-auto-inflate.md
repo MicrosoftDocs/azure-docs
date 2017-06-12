@@ -1,6 +1,6 @@
 ---
-title: Automatically scale up Azure Event Hubs Throughput Units | Microsoft Docs
-description: Enable auto-inflate on your namespace to automatically scale up your throughput units
+title: Automatically scale up Azure Event Hubs throughput units | Microsoft Docs
+description: Enable Auto-inflate on a namespace to automatically scale up throughput units
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 06/12/2017
 ms.author: shvija;sethm
 
 ---
@@ -29,17 +29,17 @@ Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hu
 
 ## How Auto-inflate works
 
-Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units, and scale up automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. This feature provides the following benefits:
+Event Hubs traffic is controlled by throughput units. A single TU allows 1 MB per second of ingress and twice that amount of egress. Standard Event Hubs can be configured with 1-20 throughput units. Auto-inflate enables you to start small with the minimum required throughput units. The feature then scales automatically to the maximum limit of throughput units you need, depending on the increase in your traffic. Auto-inflate provides the following benefits:
 
 - An efficient scaling mechanism to start small and scale up as you grow.
-- Automatic scale-up to the specified upper limit without throttling issues.
+- Automatically scale to the specified upper limit without throttling issues.
 - More control over scaling, as you control when and how much to scale.
 
 ## Enable Auto-inflate on a namespace
 
 You can enable or disable Auto-inflate on a namespace using either of the following methods:
 
-1. The [Azure portal](https://portal.azure.com) (available starting June 12, 2017).
+1. The [Azure portal](https://portal.azure.com).
 2. An Azure Resource Manager template.
 
 ### Enable Auto-inflate through the portal
