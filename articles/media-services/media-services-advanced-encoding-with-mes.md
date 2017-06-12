@@ -24,6 +24,10 @@ ms.author: juliako
 
 This topic shows how to customize Media Encoder Standard presets. The [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) topic shows how to use .NET to create an encoding task and a job that executes this task. Once you customize a preset, supply the custom presets to the encoding task. 
 
+>[!NOTE]
+> If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval, followed by SceneChangeDetection, followed by StretchMode.
+>
+
 In this topic, the custom presets that perform the following encoding tasks are demonstrated.
 
 ## Support for relative sizes
@@ -931,32 +935,29 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
 
 #### XML preset
 
-When using XML: 
-
-* Use Condition="InsertBlackIfNoVideoBottomLayerOnly" as an attribute to the **H264Video** element and  Condition="InsertSilenceIfNoAudio" as an attribute to **AACAudio**.
-* Preserve the order of elements: KeyFrameInterval, followed by SceneChangeDetection, followed by StretchMode.
+When using XML, use Condition="InsertBlackIfNoVideoBottomLayerOnly" as an attribute to the **H264Video** element and  Condition="InsertSilenceIfNoAudio" as an attribute to **AACAudio**.
 	
-		. . .
-		<Encoding>  
-		<H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
-		  <KeyFrameInterval>00:00:02</KeyFrameInterval>
-		  <SceneChangeDetection>true</SceneChangeDetection>  
-		  <StretchMode>AutoSize</StretchMode>
-		  <H264Layers>  
-		<H264Layer>  
-		  . . .
-		</H264Layer>  
-		  </H264Layers>  
-		  <Chapters />  
-		</H264Video>  
-		<AACAudio Condition="InsertSilenceIfNoAudio" >  
-		  <Profile>AACLC</Profile>  
-		  <Channels>2</Channels>  
-		  <SamplingRate>48000</SamplingRate>  
-		  <Bitrate>128</Bitrate>  
-		</AACAudio>  
-		</Encoding>  
-		. . .
+	. . .
+	<Encoding>  
+	<H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+	  <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	  <SceneChangeDetection>true</SceneChangeDetection>  
+	  <StretchMode>AutoSize</StretchMode>
+	  <H264Layers>  
+	<H264Layer>  
+	  . . .
+	</H264Layer>  
+	  </H264Layers>  
+	  <Chapters />  
+	</H264Video>  
+	<AACAudio Condition="InsertSilenceIfNoAudio" >  
+	  <Profile>AACLC</Profile>  
+	  <Channels>2</Channels>  
+	  <SamplingRate>48000</SamplingRate>  
+	  <Bitrate>128</Bitrate>  
+	</AACAudio>  
+	</Encoding>  
+	. . .
 
 ### Inserting video at all output bitrates
 Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This ensures that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
@@ -975,33 +976,30 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
 
 #### XML preset
 
-When using XML: 
+When using XML, use Condition="InsertBlackIfNoVideo" as an attribute to the **H264Video** element and  Condition="InsertSilenceIfNoAudio" as an attribute to **AACAudio**.
 
-* Use Condition="InsertBlackIfNoVideo" as an attribute to the **H264Video** element and  Condition="InsertSilenceIfNoAudio" as an attribute to **AACAudio**.
-* Preserve the order of elements: KeyFrameInterval, followed by SceneChangeDetection, followed by StretchMode.
+	. . .
+	<Encoding>  
+	<H264Video Condition="InsertBlackIfNoVideo">  
+	  <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	  <SceneChangeDetection>true</SceneChangeDetection>  
+	  <StretchMode>AutoSize</StretchMode>
+	  <H264Layers>  
+	<H264Layer>  
+	  . . .
+	</H264Layer>  
+	  </H264Layers>  
+	  <Chapters />  
+	</H264Video>  
+	<AACAudio Condition="InsertSilenceIfNoAudio" >  
+	  <Profile>AACLC</Profile>  
+	  <Channels>2</Channels>  
+	  <SamplingRate>48000</SamplingRate>  
+	  <Bitrate>128</Bitrate>  
+	</AACAudio>  
+	</Encoding>  
+	. . .  
 
-		. . .
-		<Encoding>  
-		<H264Video Condition="InsertBlackIfNoVideo">  
-		  <KeyFrameInterval>00:00:02</KeyFrameInterval>
-		  <SceneChangeDetection>true</SceneChangeDetection>  
-		  <StretchMode>AutoSize</StretchMode>
-		  <H264Layers>  
-		<H264Layer>  
-		  . . .
-		</H264Layer>  
-		  </H264Layers>  
-		  <Chapters />  
-		</H264Video>  
-		<AACAudio Condition="InsertSilenceIfNoAudio" >  
-		  <Profile>AACLC</Profile>  
-		  <Channels>2</Channels>  
-		  <SamplingRate>48000</SamplingRate>  
-		  <Bitrate>128</Bitrate>  
-		</AACAudio>  
-		</Encoding>  
-		. . .  
-	
 ## <a id="rotate_video"></a>Rotate a video
 The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 0/90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming video file and compensate for it. Include the following **Sources** element to one of the presets defined in [this](media-services-mes-presets-overview.md) section:
 
