@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 06/12/2017
 ms.author: tomfitz
 ---
 
@@ -21,11 +21,11 @@ ms.author: tomfitz
 
 When deploying resources, you frequently need to retrieve information about the resource providers and types. In this article, you learn to:
 
-1. Check registration status of a resource provider
-2. Register a resource provider
-3. View resource types for a resource provider
-4. View valid locations for a resource type
-5. View valid API versions for a resource type
+* Check registration status of a resource provider
+* Register a resource provider
+* View resource types for a resource provider
+* View valid locations for a resource type
+* View valid API versions for a resource type
 
 You can perform these steps through the portal, PowerShell, or Azure CLI.
 
