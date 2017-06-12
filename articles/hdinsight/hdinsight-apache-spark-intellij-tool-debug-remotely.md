@@ -59,7 +59,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 7. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH user name or password, or use a private key file. To save it, select **Ok**.
 
    ![Enable Spark remote debug](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-enable-spark-remote-debug.png)
-8. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations** . 
+8. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
 9. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
 
 ## Learn how to perform remote debugging and remote run
@@ -107,28 +107,28 @@ In this section, we show you how to dynamically update the variable value by usi
         }
 
 
-*** To perform remote debugging and bug fixing
+#### To perform remote debugging and bug fixing
 1. Set up two breaking points, and then click the **Debug** icon to start the remote debugging process.
 
 2. The code stops at the first breaking point, and the parameter and variable information are shown in the **Variable** window. 
 
 3. Click the **Resume Program** icon to continue. The code stops at the second point. The exception is being caught as expected.
 
-![Throw error](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-throw-error.png) 
+  ![Throw error](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-throw-error.png) 
 
 4. Click the **Resume Program** icon again. The **HDInsight Spark Submission** window displays a job run failed error.
 
-![Error submission](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-error-submission.png) 
+  ![Error submission](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-error-submission.png) 
 
 5. To dynamically update the variable value using the IntelliJ debugging capability, select **Debug** again. The variable windows appears again. 
 
 6. Right-click the target on the **Debug** tab, and then select **Set Value**. Next, input a new value for the variable. Then select **Enter** to save the value. 
 
-![Set value](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-set-value.png) 
+  ![Set value](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-set-value.png) 
 
 7. Click the **Resume Program** icon to continue running the program. This time, the exception is not being caught. You can see that the project runs successfully without any exceptions.
 
-![Debug without exception](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-without-exception.png)
+  ![Debug without exception](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-without-exception.png)
 
 ### Demo
 * Remote Debug (Video): [Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster](https://www.youtube.com/watch?v=wQtj_wjn1Ac)
