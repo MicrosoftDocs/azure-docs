@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/12/2017
 ms.author: juliako
 
 ---
@@ -906,15 +906,21 @@ Update your custom preset with ids of the assets that you want to concatenate, a
 See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) topic.
 
 ## <a id="no_video"></a>Insert a video track when input has no video
+
 By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario.
 
 > [!NOTE]
 > Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.
 >
->
 
 ### Inserting video at only the lowest bitrate
-Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the "InsertBlackIfNoVideoBottomLayerOnly" flag.
+
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to use the **InsertBlackIfNoVideoBottomLayerOnly** flag.
+
+If using XML: 
+
+* Use Condition="InsertBlackIfNoVideoBottomLayerOnly" as an attribute to the **H264Video** element and  Condition="InsertSilenceIfNoAudio" as an attribute to **AACAudio**.
+* Preserve the order of elements: KeyFrameInterval, followed by SceneChangeDetection, followed by StretchMode.
 
 You can take any of the MES presets documented in [this](media-services-mes-presets-overview.md) section, and make the following modification:
 
@@ -929,9 +935,29 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
     }
 
 #### XML preset
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+	. . .
+	  <Encoding>  
+	    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <SceneChangeDetection>true</SceneChangeDetection>  
+	      <StretchMode>AutoSize</StretchMode>
+	      <H264Layers>  
+		<H264Layer>  
+		  . . .
+		</H264Layer>  
+	      </H264Layers>  
+	      <Chapters />  
+	    </H264Video>  
+	    <AACAudio Condition="InsertSilenceIfNoAudio" >  
+	      <Profile>AACLC</Profile>  
+	      <Channels>2</Channels>  
+	      <SamplingRate>48000</SamplingRate>  
+	      <Bitrate>128</Bitrate>  
+	    </AACAudio>  
+	  </Encoding>  
+
+	. . . 
 
 ### Inserting video at all output bitrates
 Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This ensures that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
