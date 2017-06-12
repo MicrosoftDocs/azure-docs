@@ -27,7 +27,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
 3. Verify your IP address before saving the configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Therefore, you may need to change the Start IP and End IP to make the rule function as expected.
 
-Use a search engine or other online tool to check your own IP address (for example, search "what is my IP address").
+   Use a search engine or other online tool to check your own IP address (for example, search "what is my IP address").
 
    ![Bing for What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
