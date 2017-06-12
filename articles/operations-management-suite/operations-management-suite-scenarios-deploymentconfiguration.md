@@ -68,6 +68,14 @@ The Azure CLI lets you deploy and configure Azure resources from a Windows or Li
 ## Azure Automation
 
 
+## Integrating with existing monitoring
+
+### Virtual Machine Manager
+System Center Virtual Machine Manager (VMM) is used by many customers for deployment of on-premise 
+
+does allow you to [add an Azure subscription,](https://docs.microsoft.com/system-center/vmm/azure-subscription.md), but this has minimal functionality to expose Azure information in the VMM console.  It does not provide functionality such as deploying or managing Azure resources.
+
+### SCCM
 
 
 ## Next steps
