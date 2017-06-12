@@ -70,10 +70,10 @@ Although Azure SQL Database service tiers are designed to improve performance st
 * **Applications that have suboptimal queries**. Applications, especially those in the data access layer, that have poorly tuned queries might not benefit from a higher performance level. This includes queries that lack a WHERE clause, have missing indexes, or have outdated statistics. These applications benefit from standard query performance-tuning techniques. For more information, see [Missing indexes](#missing-indexes) and [Query tuning and hinting](#query-tuning-and-hinting).
 * **Applications that have suboptimal data access design**. Applications that have inherent data access concurrency issues, for example deadlocking, might not benefit from a higher performance level. Consider reducing round trips against the Azure SQL Database by caching data on the client side with the Azure Caching service or another caching technology. See [Application tier caching](#application-tier-caching).
 
-## Tuning techniques
+## Tune your database
 In this section, we look at some techniques that you can use to tune Azure SQL Database to gain the best performance for your application and run it at the lowest possible performance level. Some of these techniques match traditional SQL Server tuning best practices, but others are specific to Azure SQL Database. In some cases, you can examine the consumed resources for a database to find areas to further tune and extend traditional SQL Server techniques to work in Azure SQL Database.
 
-### Azure portal tools
+### Identify performance issues using Azure portal
 The following tools in the Azure portal can help you analyze and fix performance issues with your SQL database:
 
 * [Query Performance Insight](sql-database-query-performance.md)
@@ -81,7 +81,9 @@ The following tools in the Azure portal can help you analyze and fix performance
 
 The Azure portal has more information about both of these tools and how to use them. To efficiently diagnose and correct problems, we recommend that you first try the tools in the Azure portal. We recommend that you use the manual tuning approaches that we discuss next, for missing indexes and query tuning, in special cases.
 
-### Missing indexes
+Find more information about identifying issues in Azure SQL Database on [performance monitoring](sql-database-single-database-monitor.md) article.
+
+### Identifying and adding missing indexes
 A common problem in OLTP database performance relates to the physical database design. Often, database schemas are designed and shipped without testing at scale (either in load or in data volume). Unfortunately, the performance of a query plan might be acceptable on a small scale but degrade substantially under production-level data volumes. The most common source of this issue is the lack of appropriate indexes to satisfy filters or other restrictions in a query. Often, missing indexes manifests as a table scan when an index seek could suffice.
 
 In this example, the selected query plan uses a scan when a seek would suffice:
