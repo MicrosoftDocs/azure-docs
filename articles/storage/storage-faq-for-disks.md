@@ -150,7 +150,7 @@ No. It is available in all the regions where Managed Disks are available. Manage
 
 You can find created time of Managed Disks from Azure portal, CLI and PowerShell. If created time is greater than June 9th, 2017 then your disks are encrypted. 
 
-**How can I encrypt my existing disks created before June 10th , 2017?**
+**How can I encrypt my existing disks created before June 10th, 2017?**
 
 For existing Managed Disks, SSE will encrypt newly written data after June 9th, 2017. We are also planning to encrypt existing data as well and the encryption will happen asynchronously in the background. If you must encrypt existing data now, then a workaround is to create copy of your disks. New Disks will be encrypted.
 
