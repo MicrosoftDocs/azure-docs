@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 06/12/2017
 ms.author: tarcher
 
 ---
@@ -31,7 +31,7 @@ Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Azure target environments.
 
-You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services] .
+You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services].
 
 Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you
@@ -64,7 +64,7 @@ TFS Build Definition, as described in the next section. For more
 information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
 1. If Visual Studio is installed on the build server, locate and choose
-   **Visual Studio Commmand Prompt** in the **Visual Studio Tools**
+   **Visual Studio Command Prompt** in the **Visual Studio Tools**
    folder in Windows.
 
    If Visual Studio is not installed on the build server, open a
@@ -186,7 +186,7 @@ your custom build automation. It can also be called from Process
 Template workflow activities in Visual Studio TFS Team Build.
 
 1. Install the [Azure PowerShell cmdlets][Azure PowerShell cmdlets] (v0.6.1 or higher).
-   During the cmdlet setup phase choose to install as a snap-in. Note
+   During the cmdlet setup phase, choose to install as a snap-in. Note
    that this officially supported version replaces the older version
    offered through CodePlex, although the previous versions were numbered 2.x.x.
 2. Start Azure PowerShell using the Start menu or Start page. If you start in this way,
