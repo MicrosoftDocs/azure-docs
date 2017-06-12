@@ -90,7 +90,7 @@ To get connected, locate the connection information on the Properties page in yo
 ![Find the connection information in the Azure portal](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
 
 Add the connection information into your MySQL Workbench.
-![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/p4.png)
+![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 
 ## Restore your MySQL database using command-line or MySQL Workbench
