@@ -168,7 +168,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      * **Auto-provision security role**, select **Standard User with SAML**.
      * **Auto-provision security config**, select **Standard User Configuration**.
      
-     h. Enter the following information:
+    h. Enter the following information:
 
      * In the Email attribute textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
      * In the **First name attribute** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
