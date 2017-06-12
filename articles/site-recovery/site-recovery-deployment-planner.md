@@ -202,8 +202,8 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 | -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines can be placed to a single storage account is calculated based on if managed disk is selected for Failover/Test failover. |
 
-to a single storage account placement is caculated considering Failover/Test Test failover of virtual machines is done on Managed Disk instead of Unmanaged disk. |
-<!---Loc Comment: Above sentence is incomplete.---->
+The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk.
+
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
