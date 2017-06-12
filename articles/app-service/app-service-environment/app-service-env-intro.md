@@ -1,14 +1,12 @@
 ---
-
-title="Introduction to the Azure App Service Environment" 
-description="Brief overview on the Azure App Service Environment" 
+title: Introduction to the Azure App Service Environment
+description: Brief overview on the Azure App Service Environment
 services: app-service
-documentationcenter: ''
+documentationcenter: na
 author: ccompy
 manager: stefsch
-editor: ''
 
-ms.assetid: 
+ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,10 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-
 ---
-
-
 # Introduction to the App Service Environment #
  
 ## Overview ##
