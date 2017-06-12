@@ -52,25 +52,26 @@ To optimize performance, take notice of these considerations when operating on e
 
 
 ## Create a backup file from the command-line using mysqldump
-To back up an existing MySQL database on-prem or in a VM, run the following command: 
+To back up an existing MySQL database on the local on-premises server or in a virtual machine, run the following command: 
 ```bash
-$ mysqldump -h=servername.mysql.database.azure.com -u user@servername -ppassword db_name > backupfile.sql
+$ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
 
 The parameters to provide are:
-- user: Your server administrator login 
-- password: The password for your login (note there is no space between -p and the password) 
-- db_name: The name of your database 
-- backupfile.sql: The filename for your database backup 
+- [uname] Your database username 
+- [pass] The password for your database (note there is no space between -p and the password) 
+- [dbname] The name of your database 
+- [backupfile.sql] The filename for your database backup 
+- [--opt] The mysqldump option 
 
-For example, to back up a database named 'testdb' with the username 'myadmin' and with no password to a file testdb_backup.sql, use the following command. This command will back up the 'testdb' database into a file called testdb_backup.sql which will contain all the SQL statements needed to re-create the database. 
+For example, to back up a database named 'testdb' on your MySQL server with the username 'testuser' and with no password to a file testdb_backup.sql, use the following command. This command will back up the 'testdb' database into a file called testdb_backup.sql which will contain all the SQL statements needed to re-create the database. 
 
 ```bash
-$ mysqldump --host=myserver4demo.mysql.database.azure.com  -u myadmin@myserver4demo -ppassword testdb > testdb_backup.sql
+$ mysqldump -u root -p testdb > testdb_backup.sql
 ```
 To select specific tables in your database to back up, list the table names separated by spaces. For example, to back up only table1 and table2 tables from the 'testdb', follow this example: 
 ```bash
-$ mysqldump --host=myserver4demo.mysql.database.azure.com  -u root -p testdb table1 table2 > testdb_tables_backup.sql
+$ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
 
 To back up more than one database at once, use the --database switch and list the database names separated by spaces. 
@@ -93,11 +94,11 @@ You must create an empty database on the target Azure Database for MySQL server 
 ## Restore your MySQL database using command-line or MySQL Workbench
 Once you have created the target database, you can use the mysql command or MySQL Workbench to restore the data into the specific newly created database from the dump file.
 ```bash
-mysql -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
+mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
-In this example, we will restore the data to the newly created database testdb3 on target server.
+In this example, we will restore the data to the newly created database testdb on target Azure Database for MySQL server.
 ```bash
-$ mysql -u root -p testdb3 < testdb_backup.sql
+$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
 ```
 
 ## Export using PHPMyAdmin
@@ -120,4 +121,3 @@ Importing your database is similar to exporting. Do the following actions:
 ## Next steps
 [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) 
 [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
- 
