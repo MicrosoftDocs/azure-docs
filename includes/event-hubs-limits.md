@@ -1,4 +1,4 @@
-The following table lists quotas and limits specific to Azure Event Hubs. For information about Event Hubs pricing, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+The following table lists quotas and limits specific to Azure Event Hubs. For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Limit | Scope | Type | Behavior when exceeded | Value |
 | --- | --- | --- | --- | --- |
@@ -10,5 +10,5 @@ The following table lists quotas and limits specific to Azure Event Hubs. For in
 | Maximum size of an Event Hub name |Entity |Static |- |50 characters |
 | Number of non-epoch receivers per consumer group |Entity |Static |- |5 |
 | Maximum retention period of event data |Entity |Static |- |1-7 days |
-| Maximum throughput units |Namespace |Static |Exceeding the throughput unit limit will cause your data to be throttled and generate a **ServerBusyException**. You can request a larger number of throughput units for a Standard tier by filing a support ticket. Additional throughput units are available in blocks of twenty on a committed purchase basis. |20 |
+| Maximum throughput units |Namespace |Static |Exceeding the throughput unit limit will cause your data to be throttled and generate a **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. You can request a larger number of throughput units for a Standard tier by filing a [support request](/azure/azure-supportability/how-to-create-azure-support-request). [Additional throughput units](event-hubs-auto-inflate.md) are available in blocks of twenty on a committed purchase basis. |20 |
 
