@@ -32,8 +32,8 @@ Use common tools such as MySQL Workbench, mysqldump, Toad, or Navicat to remotel
 Use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure MySQL Database in several common scenarios. In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.
 
 - Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications. 
--  Make sure all tables in the database must use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, first convert those into the InnoDB engine format before migration to Azure Database for MySQL.
-   For example, if you have a WordPress or other WebApp using the MyISAM engine, you should first convert those tables by migrating the data into InnoDB tables before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
+-  Make sure all tables in the database must use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, first convert them to use the InnoDB engine format before migration to Azure Database for MySQL.
+   For example, if you have a WordPress or WebApp using the MyISAM engine, first convert the tables by migrating the data into InnoDB tables before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
@@ -105,8 +105,8 @@ $ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p te
 ## Export using PHPMyAdmin
 To export, you can use the common tool phpMyAdmin, which you may already have installed locally in your environment. To export your MySQL database using PHPMyAdmin:
 - Open phpMyAdmin.
-- Select your database. Click on the database name in the list on the left of the screen. 
-- Click the **Export** link. A new page appears that lets you View the dump of database. 
+- Select your database. Click the database name in the list on the left. 
+- Click the **Export** link. A new page appears to view the dump of database.
 - In the Export area, click the **Select All** link to choose the tables in your database. 
 - In the SQL options area, click the appropriate options. 
 - Click the **Save as file** option and the corresponding compression option and then click the **Go** button. A dialog box should appear prompting you to save the file locally.
