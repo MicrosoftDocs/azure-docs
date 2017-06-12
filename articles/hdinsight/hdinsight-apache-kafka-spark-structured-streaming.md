@@ -87,7 +87,7 @@ Once the resources have been created, you are redirected to the resource group b
 
 ## Get the Kafka brokers
 
-The code in this example connects to the Kafka broker hosts in the Kafka cluster. To find the Kafka broker hosts, use one of the following commands:
+The code in this example connects to the Kafka broker hosts in the Kafka cluster. To find the Kafka broker hosts, use the following PowerShell or Bash example:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
