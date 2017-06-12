@@ -29,14 +29,14 @@ The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies r
 
 ## Prerequisites
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, you need the following prerequisites:
 
 * [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
 * An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
 ## Create an Event Hubs namespace and an event hub
 
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps.
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
 ## Create an Azure Storage account
 
@@ -49,7 +49,7 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
 3. In the **Create storage account** blade, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
-4. In the list of storage accounts, click the newly-created storage account.
+4. In the list of storage accounts, click the newly created storage account.
 5. In the storage account blade, click **Access keys**. Copy the value of **key1** to use later in this tutorial.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
@@ -119,7 +119,7 @@ To use the [Event Processor Host][EventProcessorHost], you must have an [Azure S
   }
   ```
     
-  This class will be called by the **EventProcessorHost** to process events received from the event hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
+  This class is called by the **EventProcessorHost** to process events received from the event hub. The `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This processing ensures that, if the receiver is restarted, it loses no more than five minutes of processing work.
 6. In the **Program** class, add the following `using` statement at the top of the file:
     
   ```csharp
