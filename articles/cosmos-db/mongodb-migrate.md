@@ -80,7 +80,7 @@ Example:
         
     * By default, Azure Cosmos DB will provision a new MongoDB collection with 1,000 RUs. Before the migration using Mongoimport, Mongorestore, or Mongomirror, pre-create all your collections from the [Azure Portal](https://portal.azure.com) or MongoDB drivers, tools, etc. If your collection is greater than 10GB, make sure to create a [sharded / partitioned collection](partition-data.md) with an appropriate shard key.
 
-    * From the [Azure Portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs for the migration. With the higher throughput you will be able to avoid throttling and migrate in a shorter period of time. With Azure Cosmos DB's hourly billing, you can reduce the throughput immediately after the migration and save costs.
+    * From the [Azure Portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs for a single partition collection / 2,500 RUs for a sharded collection just for the migration. With the higher throughput you will be able to avoid throttling and migrate in a shorter period of time. With Azure Cosmos DB's hourly billing, you can reduce the throughput immediately after the migration to save costs.
 
 2. Calculate the approximate RU charge for a single document write
 
