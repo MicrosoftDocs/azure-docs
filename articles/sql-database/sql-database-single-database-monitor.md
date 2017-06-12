@@ -48,50 +48,7 @@ The same metrics that are exposed in the portal are also available through syste
 >
 >
 
-### Maximum concurrent requests
-To see the number of concurrent requests, run this Transact-SQL query on your SQL database:
-
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
-
-To analyze the workload of an on-premises SQL Server database, modify this query to filter on the specific database you want to analyze. For example, if you have an on-premises database named MyDatabase, this Transact-SQL query returns the count of concurrent requests in that database:
-
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
-    INNER JOIN sys.databases D ON D.database_id = R.database_id
-    AND D.name = 'MyDatabase'
-
-This is just a snapshot at a single point in time. To get a better understanding of your workload and concurrent request requirements, you'll need to collect many samples over time.
-
-### Maximum concurrent logins
-You can analyze your user and application patterns to get an idea of the frequency of logins. You also can run real-world loads in a test environment to make sure that you're not hitting this or other limits we discuss in this article. There isn’t a single query or dynamic management view (DMV) that can show you concurrent login counts or history.
-
-If multiple clients use the same connection string, the service authenticates each login. If 10 users simultaneously connect to a database by using the same username and password, there would be 10 concurrent logins. This limit applies only to the duration of the login and authentication. If the same 10 users connect to the database sequentially, the number of concurrent logins would never be greater than 1.
-
-> [!NOTE]
-> Currently, this limit does not apply to databases in elastic pools.
-> 
-> 
-
-### Maximum sessions
-To see the number of current active sessions, run this Transact-SQL query on your SQL database:
-
-    SELECT COUNT(*) AS [Sessions]
-    FROM sys.dm_exec_connections
-
-If you're analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This query helps you determine possible session needs for the database if you are considering moving it to Azure SQL Database.
-
-    SELECT COUNT(*)  AS [Sessions]
-    FROM sys.dm_exec_connections C
-    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-    WHERE D.name = 'MyDatabase'
-
-Again, these queries return a point-in-time count. If you collect multiple samples over time, you’ll have the best understanding of your session use.
-
-For SQL Database analysis, you can get historical statistics on sessions by querying the [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view and reviewing the **active_session_count** column. 
-
-## Monitor resource use
+### Monitor resource use
 
 You can monitor resource usage using [SQL Database Query Performance Insight](sql-database-query-performance.md) and [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
@@ -100,7 +57,7 @@ You can also monitor usage using these two views:
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### sys.dm_db_resource_stats
+#### sys.dm_db_resource_stats
 You can use the [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view in every SQL database. The **sys.dm_db_resource_stats** view shows recent resource use data relative to the service tier. Average percentages for CPU, data I/O, log writes, and memory are recorded every 15 seconds and are maintained for 1 hour.
 
 Because this view provides a more granular look at resource use, use **sys.dm_db_resource_stats** first for any current-state analysis or troubleshooting. For example, this query shows the average and maximum resource use for the current database over the past hour:
@@ -118,7 +75,7 @@ Because this view provides a more granular look at resource use, use **sys.dm_db
 
 For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### sys.resource_stats
+#### sys.resource_stats
 The [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view in the **master** database has additional information that can help you monitor the performance of your SQL database at its specific service tier and performance level. The data is collected every 5 minutes and is maintained for approximately 35 days. This view is useful for a longer-term historical analysis of how your SQL database uses resources.
 
 The following graph shows the CPU resource use for a Premium database with the P2 performance level for each hour in a week. This graph starts on a Monday, shows 5 work days, and then shows a weekend, when much less happens on the application.
@@ -202,8 +159,48 @@ The next example shows you different ways that you can use the **sys.resource_st
     If this query returns a value less than 99.9 percent for any of the three resource dimensions, consider either moving to the next higher performance level or use application-tuning techniques to reduce the load on the SQL database.
 4. This exercise also considers your projected workload increase in the future.
 
-
-
-
-
 For elastic pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
+
+
+### Maximum concurrent requests
+To see the number of concurrent requests, run this Transact-SQL query on your SQL database:
+
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
+
+To analyze the workload of an on-premises SQL Server database, modify this query to filter on the specific database you want to analyze. For example, if you have an on-premises database named MyDatabase, this Transact-SQL query returns the count of concurrent requests in that database:
+
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
+    INNER JOIN sys.databases D ON D.database_id = R.database_id
+    AND D.name = 'MyDatabase'
+
+This is just a snapshot at a single point in time. To get a better understanding of your workload and concurrent request requirements, you'll need to collect many samples over time.
+
+### Maximum concurrent logins
+You can analyze your user and application patterns to get an idea of the frequency of logins. You also can run real-world loads in a test environment to make sure that you're not hitting this or other limits we discuss in this article. There isn’t a single query or dynamic management view (DMV) that can show you concurrent login counts or history.
+
+If multiple clients use the same connection string, the service authenticates each login. If 10 users simultaneously connect to a database by using the same username and password, there would be 10 concurrent logins. This limit applies only to the duration of the login and authentication. If the same 10 users connect to the database sequentially, the number of concurrent logins would never be greater than 1.
+
+> [!NOTE]
+> Currently, this limit does not apply to databases in elastic pools.
+> 
+> 
+
+### Maximum sessions
+To see the number of current active sessions, run this Transact-SQL query on your SQL database:
+
+    SELECT COUNT(*) AS [Sessions]
+    FROM sys.dm_exec_connections
+
+If you're analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This query helps you determine possible session needs for the database if you are considering moving it to Azure SQL Database.
+
+    SELECT COUNT(*)  AS [Sessions]
+    FROM sys.dm_exec_connections C
+    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+    WHERE D.name = 'MyDatabase'
+
+Again, these queries return a point-in-time count. If you collect multiple samples over time, you’ll have the best understanding of your session use.
+
+For SQL Database analysis, you can get historical statistics on sessions by querying the [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view and reviewing the **active_session_count** column. 
