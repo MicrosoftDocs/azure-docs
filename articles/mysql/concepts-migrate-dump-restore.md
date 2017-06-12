@@ -34,6 +34,7 @@ Use MySQL utilities such as mysqldump and mysqlpump to dump and load databases i
 - Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications. 
 -  Make sure all tables in the database must use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, first convert them to use the InnoDB engine format before migration to Azure Database for MySQL.
    For example, if you have a WordPress or WebApp using the MyISAM engine, first migrate the data into tables configured as InnoDB before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
+
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
