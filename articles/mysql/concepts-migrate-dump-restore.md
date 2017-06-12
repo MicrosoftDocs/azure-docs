@@ -33,7 +33,7 @@ You may use MySQL utilities such as mysqldump and mysqlpump to dump and load dat
 
 - Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications. 
 -  Make sure all tables in the database use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.
-   For example, if you have a WordPress or WebApp using the MyISAM engine, first convert those tables by migrating the tables into InnoDB format before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
+   For example, if you have a WordPress or WebApp using the MyISAM tables, first convert those tables by migrating into InnoDB format before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
@@ -119,7 +119,7 @@ Importing your database is similar to exporting. Do the following actions:
 - Create an appropriately named database and select it on the left of the screen. To rewrite the existing database, click the database name, select all the check boxes beside the table names, and select **Drop** to delete the  existing tables. 
 - Click the **SQL** link to show the page where you can type in SQL commands, or upload your SQL file. 
 - Use the **browse** button to find the database file. 
-- Click the **Go** button to exports the backup, execute the SQL commands, and re-create your database.
+- Click the **Go** button to export the backup, execute the SQL commands, and re-create your database.
 
 ## Next steps
 [Connect applications to Azure Database for MySQL](./howto-connection-string.md)
