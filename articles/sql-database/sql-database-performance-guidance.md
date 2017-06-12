@@ -20,9 +20,9 @@ ms.author: carlrab
 ---
 # Tuning performance in Azure SQL Database
 
-Azure SQL Database provides [recommendations](sql-database-advisor.md) that you can use to improve performance of your database, or you can let Azure SQL Database automatically adapt to your application and apply changes that will improve performance of your workload.
+Azure SQL Database provides [recommendations](sql-database-advisor.md) that you can use to improve performance of your database, or you can let Azure SQL Database [automatically adapt to your application](sql-database-automatic-tuning.md) and apply changes that will improve performance of your workload.
 
-In you don't have any applicable recommendations, and you still have performance issues, you might use the following method to improve performances:
+In you don't have any applicable recommendations, and you still have performance issues, you might use the following methods to improve performances:
 1. Increase [service tiers](sql-database-service-tiers.md) and provide more resources to your database.
 2. Tune your application and apply some best practices that can improve performance. 
 3. Tune the database by changing indexes and queries to more efficiently work with data.
