@@ -19,11 +19,11 @@ ms.custom: mvc
 ---
 # Create your first Jenkins Master on a Linux (Ubuntu) VM on Azure
 
-This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the tools and plugins configured to work with Azure. These include:
+This quickstart shows how to install the latest stable Jenkins version on a Linux (Ubuntu 14.04 LTS) VM along with the following tools and plugins configured to work with Azure:
 <ul>
 <li>Git for source control</li>
 <li>Azure credential plugin for connecting securely</li>
-<li>Azure VM Agents plugin for elastic build, test and continuous integration</li>
+<li>Azure VM Agents plugin for elastic build, test, and continuous integration</li>
 <li>Azure Storage plugin for storing artifacts></li>
 <li>Azure CLI to deploy apps using scripts</li>
 </ul>
@@ -42,16 +42,16 @@ In Azure Portal, click **Create**.
    
 ![Azure Portal dialog](./media/install-jenkins-solution-template/ap-create.png)
 
-In the **Set up basic settings** tab:
+In the **Configure basic settings** tab:
 
-![Set up basic settings](./media/install-jenkins-solution-template/ap-basic.png)
+![Configure basic settings](./media/install-jenkins-solution-template/ap-basic.png)
 
 * Provide a name to your Jenkins instance.
 * Select a VM disk type.
 * User name: must meet length requirements, and must not include reserved words or unsupported characters. Names like "admin" are not allowed.
-* Authentication type: you can create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, note that it must have 3 of the following: 1 lower case character, 1 upper case character, 1 number and 1 special character.
+* Authentication type: create an instance that is secured by a password or [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you use a password, note that it must satisfy 3 of the following requirement: one lower case character, one upper case character, one number and one special character.
 * Select a subscription.
-* Create a new resource group or use an existing one.
+* Create a resource group or use an existing one.
 * Select a location.
 
 In the **Configure additional options** tab:
@@ -70,15 +70,15 @@ Next, select **Purchase** to provision all the resources.
 
 By default the Jenkins instance is using the http protocol and listens on port 8080. Users shouldn't authenticate over unsecured protocols.
 	
-You need to setup port forwarding to view the Jenkins UI on your local machine.
+You need to set up port forwarding to view the Jenkins UI on your local machine.
 
 ### If you are using Windows:
 
-Install Putty and run this command if you use password to secure Jenkins:
+Install PuTTY and run this command if you use password to secure Jenkins:
 ```
 putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
-* Enter the password to login.
+* Enter the password to log in.
 
 ![Enter password to login](./media/install-jenkins-solution-template/jenkins-pwd.png)
 
@@ -93,7 +93,7 @@ If you use a password to secure your Jenkins master, run this command:
 ```
 ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
-* Enter the password to login.
+* Enter the password to log in.
 
 If you use SSH, run this command:
 ```
@@ -103,7 +103,7 @@ ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Doma
 ## Connect to Jenkins
 After you have started your tunnel, navigate to http://localhost:8080/ on your local machine.
 
-You must unlock the Jenkins dashboard for the first time with the initial admin password.
+Unlock the Jenkins dashboard for the first time with the initial admin password.
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-unlock.png)
 
@@ -111,7 +111,7 @@ To get a token, SSH into the VM and run `sudo cat /var/lib/jenkins/secrets/initi
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh.png)
 
-You will be asked to install the suggested plugins.
+You are asked to install the suggested plugins.
 
 ![Install plugins](./media/install-jenkins-solution-template/jenkins-plugins.png)
 
