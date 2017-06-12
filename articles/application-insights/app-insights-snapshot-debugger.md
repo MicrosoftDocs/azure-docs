@@ -63,7 +63,7 @@ Snapshots are collected on exceptions that are visible only to the Application I
 
 Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
 
-To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target the Applicaton Insights resource or its resource group or subscription.
+To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Applicaton Insights resource or its resource group or subscription.
 
 1. On the Application Insights navigation menu, select **Access Control (IAM)**.
 2. Click **Roles** > **Application Insights Snapshot Debugger**.
