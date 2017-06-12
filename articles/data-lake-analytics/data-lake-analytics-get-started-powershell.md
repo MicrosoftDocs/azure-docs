@@ -48,9 +48,10 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## Submit a U-SQL job
 
-Create a text file with following U-SQL script.
+Create a variable to folde the script
 
 ```
+$script = @"
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -61,9 +62,17 @@ Create a text file with following U-SQL script.
 OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
+
+"@
 ```
 
 Submit the script.
+
+```
+Submit-AdlJob -AccountName $adla –Script $script
+```
+
+Alternatively, you could save the script as a file and submit with the following command:
 
 ```
 Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"
