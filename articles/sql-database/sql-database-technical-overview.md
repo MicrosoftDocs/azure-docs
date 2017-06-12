@@ -36,9 +36,11 @@ For a set of Azure CLI and PowerShell samples, see:
 
 ## Easy to use
 
+Azure SQL Database makes building and maintaining applications easier and more productive. SQL Database allows you to focus on what you do best: building great apps. 
+
 ### Use tools you know
 
-Azure SQL Database makes building and maintaining applications easier and more productive. SQL Database allows you to focus on what you do best: building great apps. Develop your app and connect to SQL Database with the [SQLCMD](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility), [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms), or [Visual Studio Code](https://code.visualstudio.com/docs). You can also write and execute Transact-SQL scripts against an Azure SQL database directly in the Azure portal using the [SQL Database Query Editor](https://azure.microsoft.com/en-us/blog/t-sql-query-editor-in-browser-azure-portal).
+Develop your app and connect to SQL Database with the [SQLCMD](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility), [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms), or [Visual Studio Code](https://code.visualstudio.com/docs). You can also write and execute Transact-SQL scripts against an Azure SQL database directly in the Azure portal using the [SQL Database Query Editor](https://azure.microsoft.com/en-us/blog/t-sql-query-editor-in-browser-azure-portal).
 
 ### No physical administration
 
