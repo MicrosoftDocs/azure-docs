@@ -278,7 +278,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### Response
 
-The following is the example response from running the previous cmdlet. As the test was successful, the `ConnectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following json is the example response from running the previous cmdlet. As the test was successful, the `ConnectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```
 ConnectionStatus : Reachable

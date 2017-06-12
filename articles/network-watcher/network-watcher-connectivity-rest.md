@@ -1,6 +1,6 @@
 ---
-title: Test connectivity with Azure Network Watcher - zure REST API | Microsoft Docs
-description: This page explains how to test connectivity with Network Watcher using zure REST API
+title: Test connectivity with Azure Network Watcher - Azure REST API | Microsoft Docs
+description: This page explains how to test connectivity with Network Watcher using Azure REST API
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -16,7 +16,7 @@ ms.date: 06/02/2017
 ms.author: gwallace
 ---
 
-# Test connectivity with Azure Network Watcher using zure REST API
+# Test connectivity with Azure Network Watcher using Azure REST API
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
@@ -139,7 +139,7 @@ null
 
 ### Response
 
-The following response is from the previous example.  In this response the `connectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
+The following response is from the previous example.  In this response, the `connectionStatus` is **Unreachable**. You can see that all the probes sent failed. The connectivity failed at the virtual appliance due to a `NetworkSecurityRule` named **UserRule_Port80**. This information can be used to research connection issues.
 
 ```json
 {
@@ -255,7 +255,7 @@ null
 
 ### Response
 
-In the following example the `connectionStatus` is shown as **Unreachable**. In the `hops` details you can see under `issues` that the traffic was blocked due to a `UserDefinedRoute`.
+In the following example, the `connectionStatus` is shown as **Unreachable**. In the `hops` details, you can see under `issues` that the traffic was blocked due to a `UserDefinedRoute`.
 
 ```json
 {
@@ -351,7 +351,7 @@ null
 
 ### Response
 
-In the following response, you can see the `connectionStatus` shows as **Reachable**. When a connection is successful latency values are provided.
+In the following response, you can see the `connectionStatus` shows as **Reachable**. When a connection is successful, latency values are provided.
 
 ```json
 {
@@ -438,7 +438,7 @@ null
 
 ### Response
 
-The following is the example response from running the previous API call. As the test was successful the `connectionStatus` property shows as **Reachable**.  You are provided the details in regards to the number of hops required to reach the storage blob as well as latency.
+The following is the example response from running the previous API call. As the test was successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 {
@@ -475,7 +475,7 @@ The following is the example response from running the previous API call. As the
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in orr out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 
 <!-- Image references -->
 

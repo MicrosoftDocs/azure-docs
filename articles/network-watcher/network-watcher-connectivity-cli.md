@@ -25,7 +25,6 @@ ms.author: gwallace
 
 Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
 
-
 This article takes you through the different types of tests that can be ran with connectivity.
 
 * [**Test virtual machine connectivity**](#test-virtual-machine-connectivity)
@@ -240,7 +239,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### Response
 
-The following is the example response from running the previous cmdlet. As the test was successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
+The following json is the example response from running the previous cmdlet. As the test was successful, the `connectionStatus` property shows as **Reachable**.  You are provided the details regarding the number of hops required to reach the storage blob and latency.
 
 ```json
 {
