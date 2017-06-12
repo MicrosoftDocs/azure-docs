@@ -22,7 +22,7 @@ This article explains two common ways to back up and restore databases in your A
 ## Before you begin
 To step through this how-to guide, you need to have:
 - [Create Azure Database for MySQL server - Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine
+- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine.
 - MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), Toad, Navicat, or other third-party MySQL tool to do dump and restore commands.
 
 ## Use common tools
@@ -33,11 +33,11 @@ Use MySQL utilities such as mysqldump and mysqlpump to dump and load databases i
 
 - Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications. 
 -  Make sure all tables in the database must use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, first convert them to use the InnoDB engine format before migration to Azure Database for MySQL.
-   For example, if you have a WordPress or WebApp using the MyISAM engine, first convert the tables by migrating the data into InnoDB tables before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
+   For example, if you have a WordPress or WebApp using the MyISAM engine, first migrate the data into tables configured as InnoDB before restoring to Azure Database for MySQL. Use the clause `ENGINE=InnoDB` to set the engine used when creating a new table, then transfer the data into the compatible table before the restore. 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- Ensure the same version of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to Azure Database for MySQL configured to run version 5.7. Ensure your existing MySQL Server version is same as your new Azure MySQL Server to avoid any compatibility issue. The `mysql_upgrade` command does not function in an Azure Database for MySQL server, and is not supported. If you need to upgrade across MySQL versions, first dump or export your lower version database into a higher version of MySQL in your own environment. Then run `mysql_upgrade`, before attempting migration into an Azure Database for MySQL.
+- To avoid any compatibility issues, ensure the same version of MySQL is used on the source and destination systems when dumping databases. For example, if your existing MySQL server is version 5.7, then you should migrate to Azure Database for MySQL configured to run version 5.7. The `mysql_upgrade` command does not function in an Azure Database for MySQL server, and is not supported. If you need to upgrade across MySQL versions, first dump or export your lower version database into a higher version of MySQL in your own environment. Then run `mysql_upgrade`, before attempting migration into an Azure Database for MySQL.
 
 ## Performance Considerations
 To optimize performance, take notice of these considerations when dumping large databases:
