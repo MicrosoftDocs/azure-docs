@@ -17,7 +17,7 @@ ms.date: 06/12/2017
 ms.author: andbuc
 
 ---
-# Use Azure IoT Edge to send device-to-cloud messages with a physical device (Linux)
+# Use Azure IoT Edge on a Raspberry Pi to forward device-to-cloud messages to IoT Hub
 
 This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use [Azure IoT Edge][lnk-sdk] to:
 
