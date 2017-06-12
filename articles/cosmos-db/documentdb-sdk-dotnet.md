@@ -26,7 +26,6 @@ ms.custom: H1Hack27Feb2017
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
