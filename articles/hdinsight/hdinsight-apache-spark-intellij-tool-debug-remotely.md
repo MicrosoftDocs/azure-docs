@@ -47,7 +47,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
    - For **Project SDK**, use **Java 1.8** for **Spark 2.x** cluster or **Java 1.7** for **Spark 1.x** cluster.
    - For **Spark Version**, the Scala project creation wizard integrates the correct version for Spark SDK and Scala IDE. If the spark cluster version is lower than 2.0, choose **Spark 1.x**. Otherwise, select **Spark 2.x.** This article uses **Spark 2.0.2 (Scala 2.11.8)** as an example.
 3. Select **src** > **main** > **scala** to open your code in the project. This article uses the **SparkCore_wasbloTest** script as an example.
-4. Select the icon in the upper right corner to access the **Edit Configurations** menu. From this menu, you can create or edit the configurations for remote debugging.
+4. To access the **Edit Configurations** menu, select the icon in the upper right corner. From this menu, you can create or edit the configurations for remote debugging.
 
    ![Edit configurations](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-edit-configurations.png) 
 5. In the **Run/Debug Configurations** window, click the plus sign (**+**). Then select the **Submit Spark Job** option.
@@ -59,7 +59,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 7. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH user name or password, or use a private key file. To save it, select **Ok**.
 
    ![Enable Spark remote debug](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-enable-spark-remote-debug.png)
-8. Click **OK** to save it in the **Run/Debug configurations** dialog box. The configuration is now saved with the name you provided. To view the configuration details, can select the configuration name.To make changesor, select **Edit Configurations** . 
+8. Click **OK** to save it in the **Run/Debug configurations** dialog box. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name.To make changes, select **Edit Configurations** . 
 9. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
 
 ## Learn how to perform remote debugging and remote run
@@ -76,7 +76,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 1. Set up a breaking point, and then select the **Debug** icon.
 
     ![Click the debug icon](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debug-icon.png)
-2. When the program execution reaches the breaking point, you  see a **Debugger** tab in the bottom pane, along with view parameter and variable information in the **Variable** window. Click the **Step Over** icon to proceed to the next line of code. Then you can further step through the code. Select the **Resume Program** icon to continue running the code. You can review the execution status in the **HDInsight Spark Submission** window. 
+2. When the program execution reaches the breaking point, you  see a **Debugger** tab in the bottom pane. You also see the view parameter and variable information in the **Variable** window. Click the **Step Over** icon to proceed to the next line of code. Then you can further step through the code. Select the **Resume Program** icon to continue running the code. You can review the execution status in the **HDInsight Spark Submission** window. 
 
    ![Debugging tab](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-debugger-tab.png)
 
@@ -92,7 +92,7 @@ In this section, we show you how to dynamically update the variable value by usi
             val sc = new SparkContext(conf)
             val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-            // Find the rows that have only one digit in the 6th column.
+            // Find the rows that have only one digit in the sixth column.
             val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 
             try {
