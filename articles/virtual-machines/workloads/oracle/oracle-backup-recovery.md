@@ -114,6 +114,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
 4.  Verify or change the backup file location and size:
 
     ```bash
+    $ sqlplus / as sysdba
     SQL> show parameter db_recovery
     NAME                                 TYPE        VALUE
     ------------------------------------ ----------- ------------------------------
@@ -124,14 +125,12 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
 
     ```bash
     $ rman target /
-    RMAN> back up database plus archivelog;
+    RMAN> backup database plus archivelog;
     ```
 
 ### Step 4: Use Azure Recovery Services vaults to back up the VM
 
-> [!NOTE]
-> Use Azure Backup to create [application consistent back ups for Linux VMs](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
->
+
 
 1.  Sign in to the Azure portal, and then search for a Recovery Services vaults instance.
 ![Recovery Services vaults page](./media/oracle-backup-recovery/recovery_service_01.png)
@@ -177,6 +176,7 @@ To view the status of the back up job, click **Jobs**.
 Later in this article you learn how to test the recovery process. Before you can test the recovery process, you have to remove the database files.
 
 1.  Remove the tablespace and backup files:
+
     ```bash
     $ sudo su - oracle
     $ cd /u01/app/oracle/oradata/cdb1
@@ -184,16 +184,13 @@ Later in this article you learn how to test the recovery process. Before you can
     $ cd /u01/app/oracle/fast_recovery_area/CDB1/backupset
     $ rm -rf *
     ```
+    
 2.  Shut down the Oracle instance (Optional step):
 
     ```bash
     $ sqlplus / as sysdba
-    SQL> shutdown immediate
-    ORA-01116: error in opening database file 1
-    ORA-01110: data file 1: '/u01/app/oracle/oradata/cdb1/system01.dbf'
-    ORA-27041: unable to open file
-    Linux-x86_64 Error: 2: No such file or directory
-    Additional information: 3
+    SQL> shutdown abort
+    ORACLE instance shut down.
     ```
 
 ## Restore the deleted files from Recovery Services vaults
@@ -283,6 +280,7 @@ To restore the deleted files, complete the following procedure:
     # chown oracle:oinstall *.dbf
     ```
 9. In the following script, use RMAN to recover the database:
+
     ```bash
     # sudo su - oracle
     $ rman target /
@@ -292,6 +290,7 @@ To restore the deleted files, complete the following procedure:
     RMAN> alter database open resetlogs;
     RMAN> SELECT * FROM scott.scott_table;
     ```
+    
 10. Unmount the disk.
 
     In the Azure portal, click **Unmount Disks**.
