@@ -45,12 +45,13 @@ Azure Cosmos DB is generally available in Azure Government. Features that are no
 
 * **Add Azure Search** - Does not work because Azure Search is not yet deployed in Azure Government.
 * **Metrics** - Charts do not populate.  This feature will be enabled as part of an upcoming deployment.
+* **Gremlin API (Graph)** - Cosmos DB accounts using Gremlin cannot be created at this time.
 
 The URLs for accessing and Cosmos DB in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| Cosmos DB |*.documents.azure.com |*.documents.azure.us |
+| Cosmos DB | *.documents.azure.com | *.documents.azure.us |
 
 
 ### Considerations
