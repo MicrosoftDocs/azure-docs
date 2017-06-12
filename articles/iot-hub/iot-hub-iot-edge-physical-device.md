@@ -97,7 +97,7 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
 
     `sudo apt-get update`
 
-    `sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev`
+    `sudo apt-get install bluetooth bluez-tools build-essential autoconf libtool glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev`
 
 1. Download the BlueZ source code from bluez.org:
 
