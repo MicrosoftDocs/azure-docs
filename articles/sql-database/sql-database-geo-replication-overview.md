@@ -95,7 +95,6 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 ## Best practices of building highly available service
 
 To build a highly available service that uses Azure SQL database the customers should follow these guidelines:
-- **Failover group**: One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as unit in case all or some primary databases become unavailable due to an outage in the primary region.
 - **Use auto-failover groups**: It creates geo-secondary database with the same service objective as the primary. If you add an existing geo-replication relationship to the failover group make sure the geo-secondary is configured with the same service level objective as the primary.
 - Use **ApplicationIntent=ReadOnly**: If you have the read-only portions of the workload that is tolerant to certain staleness of data, indicate in connection string read intent by using **ApplicationIntent=ReadOnly** and the connection is automatically directed to the secondary. 
 - If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by **GracePeriodWithDataLossHours**. 
