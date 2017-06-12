@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/09/2017
 ms.author: curtand                       
 
 ---
@@ -21,13 +21,9 @@ ms.author: curtand
 # Set expiration properties for an Office 365 group and send expiration notifications
 With administrators and information workers able to create and administer their own groups, as scale increases, you there need the ability to set the global options in a tenant for the default expiration behaviors of groups. You can use this functionality to automatically reclaim resource space and prevent address book pollution with groups that are no longer actively used. For example, groups with one or zero members.
 
-1. Open the [Azure portal](https://portal.azure.com) with an account What creds are required?
+1. Open the [Azure portal](https://portal.azure.com) with an account that is a global administrator in your Azure AD tenant.
 
-2. Open Azure AD, select **More services**, and then select **Users and groups**.
-
-3. on the **Users and groups** blade, select **Group settings** and then in **Users and groups - Group settings** select **Lifecycle**.
-
-  ![Group settings menu](media/active-directory-groups-lifecycle-azure-portal/group-settings-menu.png)
+2. Open Azure AD, select **Users and groups**.
 
 3. Select **Group settings** and then select **Lifecycle** to open the Lifecycle settings.
 
