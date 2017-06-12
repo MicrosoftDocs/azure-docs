@@ -20,7 +20,8 @@ ms.author: yurid
 # Set security policies in Azure Security Center
 This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
 
->[!NOTE] Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>[!NOTE] 
+>Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
 >
 
 ## What are security policies?
