@@ -65,7 +65,7 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in [Get
     > [!NOTE]
     > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Data Lake tools for Visual Studio.
 
- 6.  After validation has finished, select **Finish** to complete configuration.
+6. After validation has finished, select **Finish** to complete configuration.
     ![Screenshot of dialog box, with Finish button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
      >[!NOTE]
