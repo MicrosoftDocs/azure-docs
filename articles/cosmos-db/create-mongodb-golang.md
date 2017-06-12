@@ -4,7 +4,7 @@ description: Presents a Golang code sample you can use to connect to and query A
 services: cosmosdb
 documentationcenter: ''
 author: durgaprasad
-manager: ''
+manager: jhubbard
 editor: ''
 
 ms.assetid: 
@@ -14,108 +14,52 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: golang
 ms.topic: hero-article
-ms.date: 05/26/2017
-ms.author: durgaprasad
+ms.date: 06/12/2017
+ms.author: mimig
 
 ---
 
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database
-service. You can quickly create and query document, key/value, and graph
-databases, all of which benefit from the global distribution and horizontal
-scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This quick-start demonstrates how to use an existing
-[MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction)
-app written in Golang and connect it to your Azure Cosmos DB database, which
-supports MongoDB client connections.
+This quick-start demonstrates how to use an existing [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections.
 
-In other words, your Golang application only knows that it’s connecting to a
-database using MongoDB APIs. It is transparent to the application that the data
-is stored in Azure Cosmos DB.
+In other words, your Golang application only knows that it’s connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
-We’ll cover:
+### Prerequisites
 
-* Prerequisites for this tutorial
-* Creating and connecting to an Azure Cosmos DB account
-* Setting up your application
-* Connect to an Azure Cosmos DB account
-* CRUD Operations
+1.  Basic knowledge of [GO](https://golang.org/) language.
+2.  Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+3.  IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains or [Visual Studio Code](https://code.visualstudio.com/) by Microsoft or [Atom](https://atom.io/).
 
-### Prerequisites for the Golang tutorial
+<a id="create-account"></a>
+## Create a database account
 
-1.  Basic knowledge of [GO ](https://golang.org/)language
-1.  Azure subscription. (If you don’t have an Azure subscription, create a [free
-account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you
-begin.)
-1.  IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains or [Visual Studio
-Code](https://code.visualstudio.com/) by Microsoft or [Atom](https://atom.io/)
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-### Creating and connecting to an Azure Cosmos DB account
+7. Click **Quick start** in the left navigation menu, and then click **Other** to get the connection string information required by client applications.
 
-1.  In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-1.  In the left menu, click **New**, click **Databases**, and then click **Azure
-Cosmos DB**.
-
-![](https://cdn-images-1.medium.com/max/800/1*e-QMvThW-2QZ3hEH3VvUQQ.png)
-
-3. In the **New account** blade, specify the desired configuration for the Azure
-Cosmos DB account.
-
-With Azure Cosmos DB, you can choose one of four programming models: Gremlin
-(graph), MongoDB, SQL (DocumentDB), and Table (key-value).
-
-In this quick start we’ll be programming against the MongoDB API so you’ll
-choose **MongoDB** as you fill out the form. But if you have graph data for a
-social media mes New app, document data from a catalog app, or key/value (table)
-data, realize that Azure Cosmos DB can provide a highly available,
-globally-distributed database service platform for all your mission-critical
-applications.
-
-Fill out the New account blade using the information in the screenshot as a
-guide . You will choose unique values as you set up your account so your values
-will not match the screenshot exactly
-
-![](https://cdn-images-1.medium.com/max/800/1*XdFlpeNKLe7o3FOtCZ17AQ.png)
-
-4. Click **Create** to create the account.
-
-5. On the toolbar, click **Notifications** to monitor the deployment process.
-
-![](https://cdn-images-1.medium.com/max/800/1*WTGVkPwkSTxjUzKm2u09Eg.png)
-
-6. Click on **golang-couch** resources.
-
-7. Get connection string information which will be required by client
-applications.
-
-![](https://cdn-images-1.medium.com/max/800/1*XoslPMsWsv5vqK2vhYAJPw.png)
+![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
 
 ### Setting up your application
 
-It’s time to make our hands dirty. Open your favorite editor (Gogland, VS Code
+It’s time to play with the code. Open your favorite editor (Gogland, VS Code
 or Atom). For this article, I will use Gogland editor.
 
-1.  Create folder CosmosDBAcces folder inside GOROOT\src folder
-1.  Run below command to get mgo package
+1.  Create folder CosmosDBAcces folder inside GOROOT\src folder.
+2.  Run below command to get the mgo package.
 
+    ```
     go get gopkg.in/mgo.v2
-
+    ```
 ### Connect to an Azure Cosmos DB account
 
-[mgo](http://labix.org/mgo) (pronounced as *mango*) is a
-[MongoDB](http://www.mongodb.org/) driver for the [Go
-language](http://golang.org/) that implements a rich and well tested selection
-of features under a very simple API following standard Go idioms.
+The [mgo](http://labix.org/mgo) driver (pronounced as *mango*) is a [MongoDB](http://www.mongodb.org/) driver for the [Go language](http://golang.org/) that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
 
-Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled
-MongoDB, we need to define the **DialServer** function in
-[mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo), and make use of the
-[tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) to perform the connection.
+Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled MongoDB, you need to define the **DialServer** function in [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
 
-The following code Golang code snippet connects Go app with Azure  MongoDB. 
-*DialInfo* holds options for establishing a session with a MongoDB cluster.
+The following Golang code snippet connects the Go app with Azure Cosmos DB MongoDB API. The *DialInfo* class holds options for establishing a session with a MongoDB cluster.
 
 ```go
 // DialInfo holds options for establishing a session with a MongoDB cluster.
@@ -131,7 +75,7 @@ dialInfo := &mgo.DialInfo{
 }
 
 // Create a session which maintains a pool of socket connections
-// to our MongoDB.
+// to our Azure Cosmos DB MongoDB database.
 session, err := mgo.DialWithInfo(dialInfo)
 
 if err != nil {
@@ -142,20 +86,21 @@ if err != nil {
 defer session.Close()
 
 // SetSafe changes the session safety mode.
-// If the safe parameter is nil, the session is put in unsafe mode, // and writes become fire-and-forget,
+// If the safe parameter is nil, the session is put in unsafe mode, 
+// and writes become fire-and-forget,
 // without error checking. The unsafe mode is faster since operations won't hold on waiting for a confirmation.
 // 
 session.SetSafe(&mgo.Safe{})
 ```
-**mgo.Dial()** method is used when there is no SSL connection and for SSL
-connection **mgo.DialWithInfo()** method is required.
 
-Instance of **DialWIthInfo{}** object will be used to create session object.
-Once session is established, we can access collection by following code snippet
+The **mgo.Dial()** method is used when there is no SSL connection. For an SSL connection, the **mgo.DialWithInfo()** method is required.
+
+An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 
 ```go
    collection := session.DB(“golang-couch”).C(“package”)
 ```
+
 ### CRUD Operations
 
 #### 1. Create Document
@@ -189,12 +134,10 @@ if err != nil {
 
 #### 2. Query/Read Document
 
-Azure Cosmos DB supports rich queries against JSON documents stored in each
-collection. The following sample code shows a query that you can run against the
-documents in your collection.
+Azure Cosmos DB supports rich queries against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your collection.
 
 ```go
-// Get Document from collection
+// Get a Document from the collection
 result := Package{}
 err = collection.Find(bson.M{"fullname": "react"}).One(&result)
 if err != nil {
@@ -209,7 +152,7 @@ fmt.Println("Description:", result.Description)
 #### 3. Update Document
 
 ```go
-// update document
+// Update a document
 updateQuery := bson.M{"_id": result.Id}
 change := bson.M{"$set": bson.M{"fullname": "react-native"}}
 err = collection.Update(updateQuery, change)
@@ -224,7 +167,7 @@ if err != nil {
 Azure Cosmos DB supports deleting JSON documents.
 
 ```go
-// delete document
+// Delete a document
 query := bson.M{"_id": result.Id}
 err = collection.Remove(query)
 if err != nil {
@@ -237,3 +180,10 @@ if err != nil {
 
 Please have a look at the entire source code at
 [GitHub](https://github.com/Golang-Coach/Lessons/tree/master/CosmosDBAccess).
+
+### Next steps
+
+In this quickstart, you've learned how to create an Azure Cosmos DB account and run a Golang app using the API for MongoDB. You can now import additional data to your Cosmos DB account. 
+
+> [!div class="nextstepaction"]
+> [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
