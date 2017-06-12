@@ -20,7 +20,7 @@ ms.author: mlearned
             <p>Jenkins, a popular open source automation server, integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD).  Start with the quickstarts to install, configure, and quickly get started with Jenkins on Azure. The tutorials describe how to use Jenkins with Azure tools and services, such as <a href="/azure/storage/">Azure Storage</a>, <a href="/azure/container-service">Azure Container Service</a>, <a href="/azure/app-service">Azure App Service</a>, and the <a href="/azure/cli/">Azure Command Line Interface (CLI).</a>
         </div>
     </div>
-<h2>Deploying and configuring Jenkins on Azure</h2>
+<h2>Deploy and configure Jenkins on Azure</h2>
 <p>Learn how to quickly deploy Jenkins on Azure.</p>
 <ol>
   <li><a href="/azure/jenkins/install-jenkins-solution-template">Create a Jenkins master on an Azure Virtual Machine.</a></li>
