@@ -7,7 +7,7 @@ author: stevestein
 manager: jhubbard
 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na

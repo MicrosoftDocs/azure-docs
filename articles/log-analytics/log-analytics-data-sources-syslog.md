@@ -1,9 +1,9 @@
 ---
 title: Collect and analyze Syslog messages in OMS Log Analytics | Microsoft Docs
-description: Syslog is an event logging protocol that is common to Linux.   This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create in the OMS repository.
+description: Syslog is an event logging protocol that is common to Linux. This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create in the OMS repository.
 services: log-analytics
 documentationcenter: ''
-author: bwren
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
-ms.author: bwren
+ms.date: 06/12/2017
+ms.author: magoedte;bwren
 
 ---
 # Syslog data sources in Log Analytics
 Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the OMS Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Log Analytics where a corresponding record is created in the OMS repository.  
 
 > [!NOTE]
-> Log Analytics supports collection of messages sent by rsyslog or syslog-ng. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
+> Log Analytics supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
 > 
 > 
 
@@ -132,20 +132,50 @@ You can remove a facility by removing its section of the configuration file.  Yo
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
 
-### Changing the Syslog port
-The OMS agent listens for Syslog messages on the local client at port 25224.  You can change this port by adding the following section to the OMS agent configuration file located at **/etc/opt/microsoft/omsagent/conf/omsagent.conf**.  Replace 25224 in the **port** entry with the port number that you want.  Note that you will also need to modify the configuration file for the Syslog daemon to send messages to this port.
+### Collecting data from additional Syslog ports
+The OMS agent listens for Syslog messages on the local client on port 25224.  When the agent is installed, a default syslog configuration is applied and found in the following location: 
 
-    <source>
-      type syslog
-      port 25224
-      bind 127.0.0.1
-      protocol_type udp
-      tag oms.syslog
-    </source>
+* Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
+* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
+You can change the port number by creating two configuration files: a FluentD config file and a rsyslog-or-syslog-ng file depending on the Syslog daemon you have installed.  
 
-## Data collection
-The OMS agent listens for Syslog messages on the local client at port 25224. The configuration file for the Syslog daemon forwards Syslog messages sent from application to this port where they are collected by Log Analytics.
+* The FluentD config file should be a new file located in: `/etc/opt/microsoft/omsagent/conf/omsagent.d` and replace the value in the **port** entry with your custom port number.
+
+        <source>
+          type syslog
+          port %SYSLOG_PORT%
+          bind 127.0.0.1
+          protocol_type udp
+          tag oms.syslog
+        </source>
+        <filter oms.syslog.**>
+          type filter_syslog
+        </filter>
+
+* For rsyslog, you should create a new configuration file located in: `/etc/rsyslog.d/` and replace the value %SYSLOG_PORT% with your custom port number.  
+
+    > [!NOTE]
+    > If you modify this value in the configuration file `95-omsagent.conf`, it will be overwritten when the agent applies a default configuration.
+    > 
+
+        # OMS Syslog collection for workspace %WORKSPACE_ID%
+        kern.warning              @127.0.0.1:%SYSLOG_PORT%
+        user.warning              @127.0.0.1:%SYSLOG_PORT%
+        daemon.warning            @127.0.0.1:%SYSLOG_PORT%
+        auth.warning              @127.0.0.1:%SYSLOG_PORT%
+
+* The syslog-ng config should be modified by copying the example configuration shown below and adding the custom modified settings to the end of the syslog-ng.conf configuration file located in `/etc/syslog-ng/`.  Do **not** use the default label **%WORKSPACE_ID%_oms** or **%WORKSPACE_ID_OMS**, define a custom label to help distinguish your changes.  
+
+    > [!NOTE]
+    > If you modify the default values in the configuration file, they will be overwritten when the agent applies a default configuration.
+    > 
+
+        filter f_custom_filter { level(warning) and facility(auth; };
+        destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
+        log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
+
+After completing the changes, the Syslog and the OMS agent service needs to be restarted to ensure the configuration changes take effect.   
 
 ## Syslog record properties
 Syslog records have a type of **Syslog** and have the properties in the following table.

@@ -152,6 +152,17 @@ The global administrator has access to all administrative features. By default, 
 ## Assign or remove administrator roles
 To learn how to assign administrative roles to a user in Azure Active Directory, see [Assign a user to administrator roles in Azure Active Directory preview](active-directory-users-assign-role-azure-portal.md).
 
+## Deprecated roles
+
+The following roles should not be used. They been deprecated and will be removed from Azure AD in the future.
+
+* AdHoc License Administrator
+* Email Verified User Creator
+* Device Join
+* Device Managers
+* Device Users
+* Workplace Device Join
+
 ## Next steps
 
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)

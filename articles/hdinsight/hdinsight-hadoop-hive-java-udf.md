@@ -1,6 +1,6 @@
 ---
-title: Use a Java user-defined function (UDF) with Hive in HDInsight | Microsoft Docs
-description: Learn how to create and use a Java user-defined function (UDF) from Hive in HDInsight.
+title: Java user-defined function (UDF) with Hive in HDInsight - Azure | Microsoft Docs
+description: Learn how to create a Java-based user-defined function (UDF) that works with Hive. This example UDF converts a table of text strings to lowercase.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -9,7 +9,7 @@ editor: cgronlun
 
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -20,16 +20,16 @@ ms.author: larryfr
 ---
 # Use a Java UDF with Hive in HDInsight
 
-Learn how to create a Java-based user-defined function (UDF) that works with Hive.
+Learn how to create a Java-based user-defined function (UDF) that works with Hive. The Java UDF in this example converts a table of text strings to all-lowercase characters.
 
 ## Requirements
 
-* An HDInsight cluster (Windows or Linux-based)
+* An HDInsight cluster 
 
     > [!IMPORTANT]
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
-    Most steps in this document work on both cluster types. However, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
+    Most steps in this document work on both Windows- and Linux-based clusters. However, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)
 
@@ -40,7 +40,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
     > [!IMPORTANT]
     > If you are using a Linux-based HDInsight server, but creating the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character using utilities on the HDInsight cluster.
 
-## Create an example UDF
+## Create an example Java UDF 
 
 1. From a command line, use the following to create a new Maven project:
 

@@ -54,16 +54,16 @@ To collect alerts from a Zabbix server, you need to specify a user and password 
 
 Perform the following steps on the Nagios server to collect alerts.
 
-2.	Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out.  Change the user name and password to values for your Zabbix environment.
+1. Modify the configuration file at (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Ensure the following entries are present and not commented out.  Change the user name and password to values for your Zabbix environment.
 
-	    <source>
+        <source>
 	     type zabbix_alerts
 	     run_interval 1m
 	     tag oms.zabbix
 	     zabbix_url http://localhost/zabbix/api_jsonrpc.php
 	     zabbix_username Admin
 	     zabbix_password zabbix
-	    </source>
+        </source>
 
 2. Restart the omsagent daemon
 
