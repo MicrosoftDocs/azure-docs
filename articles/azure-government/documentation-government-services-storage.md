@@ -21,7 +21,7 @@ ms.author: ryansoc
 ## Azure Storage
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
-### Storage Pairing in Azure Government
+### Storage pairing in Azure Government
 The map below shows the primary and secondary region pairings used for Geo-redundant storage (GRS) and Read-access geo-redundant storage (RA-GRS) accounts in Azure Government
 
 ![alt text](./media/documentation-government-services-storage.PNG)
@@ -31,13 +31,13 @@ The map below shows the primary and secondary region pairings used for Geo-redun
 >
 >
 
-### Checking Secondary Region for RA-GRS and GRS Storage Accounts
+### Checking secondary region for RA-GRS and GRS storage accounts
 To view the current secondary region of your storage account through the Azure Portal, click the storage account blade then click on the name of the storage account. This will bring up the storage account overview blade which lists the primary and secondary regions.
 
 ![alt text](./media/documentation-government-services-storage-accountoverview.png)
 
 
-### Storage Service Availability by Azure Government Region
+### Storage service availability by Azure Government region
 
 | Service | USGov Virginia | USGov Iowa | Notes
 | --- | --- | --- | --- |
@@ -71,7 +71,7 @@ The URLs for storage accounts in Azure Government are different:
 >
 >
 
-For more information on APIs, see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
+For more information on APIs, see the <a href="https://msdn.microsoft.com/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
 
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
