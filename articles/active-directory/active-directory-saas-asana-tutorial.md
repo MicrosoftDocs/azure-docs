@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2017
+ms.date: 06/12/2017
 ms.author: jeedes
 
 ---
@@ -109,9 +109,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/active-directory-saas-asana-tutorial/tutorial_asana_url.png)
 
     In the **Sign-on URL** textbox, type a URL: `https://app.asana.com`
-
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Asana Client support team](https://asana.com/guide/help/premium/authentication#gl-saml) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
