@@ -462,12 +462,12 @@ Another key aspect to Redis success is the healthy, vibrant open source ecosyste
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](index.md).
 
 ### Managed Cache service
-[Managed Cache service has been retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 To view archived documentation, see [Archived Managed Cache Service Documentation](https://msdn.microsoft.com/library/azure/dn386094.aspx).
 
 ### In-Role Cache
-[In-Role Cache has been retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 To view archived documentation, see [Archived In-Role Cache Documentation](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
