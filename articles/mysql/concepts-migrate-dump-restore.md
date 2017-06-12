@@ -83,7 +83,7 @@ To back up all the databases in the server at one time, you should use the --all
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## Create a database on the target Azure MySQL server
+## Create a database on the target Azure Database for MySQL server
 You must create an empty database on the target Azure Database for MySQL server where you want to migrate the data using MySQL Workbench, Toad, Navicat or any third-party tool for MySQL. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
 
 To get connected, locate the connection information on the Properties page in your Azure Database for MySQL.
@@ -122,5 +122,4 @@ Importing your database is similar to exporting. Do the following actions:
 - Click the Go button. This will export the backup, execute the SQL commands and re-create your database.
 
 ## Next steps
-[Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) 
-[Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
+[Connect applications to Azure Database for MySQL](./howto-connection-string.md)
