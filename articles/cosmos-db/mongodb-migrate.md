@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
 ---
@@ -76,15 +76,13 @@ Example:
     
 ## Guide for a successful migration
 
-1. Pre-create your collections
+1. Pre-create and scale your collections
         
-        * By default, Azure Cosmos DB will provision a new MongoDB collection with 1,000 RUs. Before the migration using Mongoimport, Mongorestore, or Mongomirror, pre-create all your collections from the [Azure Portal](https://portal.azure.com) or MongoDB drivers, tools, etc.
+    * By default, Azure Cosmos DB will provision a new MongoDB collection with 1,000 RUs. Before the migration using Mongoimport, Mongorestore, or Mongomirror, pre-create all your collections from the [Azure Portal](https://portal.azure.com) or MongoDB drivers, tools, etc. If your collection is greater than 10GB, make sure to create a [sharded / partitioned collection](partition-data.md) with an appropriate shard key.
 
-2. Scale your collections 
+    * From the [Azure Portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs for the migration. With the higher throughput you will be able to avoid throttling and migrate in a shorter period of time. With Azure Cosmos DB's hourly billing, you can reduce the throughput immediately after the migration and save costs.
 
-        * Increase your collections' throughput from 1,000 RUs for the migration. With the higher throughput you will be able to avoid throttling and migrate in a shorter period of time. With Azure Cosmos DB's hourly billing, you can reduce the throughput immediately after the migration and save costs.
-
-3. Calculate the approximate RU charge for a single document write
+2. Calculate the approximate RU charge for a single document write
 
     * Connect to your Azure Cosmos DB mongodb database from the MongoDB Shell. Instructions can be found here.
     
@@ -106,7 +104,7 @@ Example:
         
     * Take note of the Request Charge
     
-4. Determine the latency from your machine to the Azure Cosmos DB cloud service.
+3. Determine the latency from your machine to the Azure Cosmos DB cloud service.
     
     * Enable verbosing logging from the MongoDB Shell with the command: ```setVerboseShell(true)```
     
@@ -115,9 +113,9 @@ Example:
         Fetched 1 record(s) in 100(ms)
         ```
         
-5. Make sure to remove the inserted document before the migration to ensure no duplicate documents. You can remove the documents with a ```db.coll.remove({})```.
+4. Make sure to remove the inserted document before the migration to ensure no duplicate documents. You can remove the documents with a ```db.coll.remove({})```.
 
-6. Calculating the approximate *batchSize* and *numInsertionWorkers*
+5. Calculating the approximate *batchSize* and *numInsertionWorkers*
 
     * For the *batchSize*, divide the total provisioned RUs by the RUs consumed from your single document write in Step 3.
     
@@ -132,19 +130,16 @@ Example:
     |--------|-----|
     |batchSize| 24 |
     |RUs provisioned | 10000 |
-    |Latency | 0.100s |
+    |Latency | 0.100 s |
     |RU charged for 1 doc write | 10 RUs |
     |numInsertionWorkers | ? |
     
     *numInsertionWorkers = (10000RUs x 0.1s) / (24 x 10 RUs) = 4.1666*
 
-7. Final migration command:
+6. Final migration command:
 
 ```
-mongoimport.exe --host anhoh-mongodb.documents.azure.com:10255 -u anhoh-mongodb 
--p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== 
---ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName 
---file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+mongoimport.exe --host anhoh-mongodb.documents.azure.com:10255 -u anhoh-mongodb -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
 ```
 
 ## Next steps
