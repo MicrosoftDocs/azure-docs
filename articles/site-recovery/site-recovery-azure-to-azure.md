@@ -93,14 +93,14 @@ In **Recovery Services vaults**, click the vault name. In the vault, click **+Re
 
     ![Source](./media/site-recovery-azure-to-azure/source.png)
 
-## Step 2 - Select virtual machines
+### Step 2 - Select virtual machines
 
 1. Site Recovery retrieves VMs in the resource group or cloud service.
 2. Select the VMs you want to replicate, and then click **OK**.
 
     ![Select VMs](./media/site-recovery-azure-to-azure/vms.png)
 
-## Step 3 - Configure settings
+### Step 3 - Configure settings
 
 1. By default, Site Recovery automatically creates settings in the target location using settings that are configured in the source location, including a target resource group, storage accounts, virtual network, and availability sets (all are created with the suffix **asr**).
 
