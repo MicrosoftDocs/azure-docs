@@ -1,5 +1,5 @@
 ---
-title: Ports used by HDInsight | Microsoft Docs
+title: Ports used by Hadoop services on HDInsight - Azure | Microsoft Docs
 description: A list of ports used by Hadoop services running on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/17/2017
+ms.date: 06/02/2017
 ms.author: larryfr
 
 ---
-# Ports and URIs used by HDInsight
+# Ports used by Hadoop services on HDInsight
 
 This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
 
@@ -100,8 +100,8 @@ All services publicly exposed on the internet must be authenticated:
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |Head nodes |10001 |Thrift |Service for programmatically connecting to Hive (Thrift/JDBC) |
-| Hive Metastore |Head nodes |9083 |Thrift |Service for programmatically connecting to Hive metadata (Thrift/JDBC) |
+| HiveServer2 |Head nodes |10001 |Thrift |Service for connecting to Hive (Thrift/JDBC) |
+| Hive Metastore |Head nodes |9083 |Thrift |Service for connecting to Hive metadata (Thrift/JDBC) |
 
 ### WebHCat ports
 
@@ -147,3 +147,8 @@ All services publicly exposed on the internet must be authenticated:
 | Broker |Worker nodes |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Used for client communication |
 | &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
 
+### Spark ports
+
+| Service | Nodes | Port | Protocol | Description |
+| --- | --- | --- | --- | --- |
+| Spark Thrift servers |Head nodes |10002 |Thrift |Service for  connecting to Spark SQL (Thrift/JDBC) |

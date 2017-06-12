@@ -1,7 +1,7 @@
 ---
 
   title: Assign licenses to a group in Azure Active Directory | Microsoft Docs
-  description: How to assign licenses by using Azure Active Directory group-based licensing
+  description: How to assign licenses to users by means of Azure Active Directory group licensing
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
@@ -15,24 +15,24 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/27/2017
+  ms.date: 06/05/2017
   ms.author: curtand
 
   ms.custom: H1Hack27Feb2017
 
 ---
 
-# Assign licenses to a group of users in Azure Active Directory
+# Assign licenses to users by group membership in Azure Active Directory
 
-In this article, we're going to walk through a basic scenario of assigning product licenses to a group of users in Azure Active Directory (Azure AD), and then verifying that all members of the group are correctly licensed.
+This article walks through assigning product licenses to a group of users in Azure Active Directory (Azure AD), and then verifying that they're licensed correctly.
 
-In this example, the tenant contains a security group called *HR Department*. This group includes all members of the human resources department (in this case, around 1,000 users). The administrator wants to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product needs to be temporarily disabled until a later time when the department is ready to start using it. The admin also wants to deploy Enterprise Mobility + Security licenses to the same group of users.
+In this example, the tenant contains a security group called *HR Department*. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
 
 ## Step 1: Assign the required licenses
 
-1. Sign in to the [**Azure portal**](https://portal.azure.com) with an administrator account. For you to be able to manage licenses, the account needs either the Global Administrator role or the User Account Administrator role.
+1. Sign in to the [**Azure portal**](https://portal.azure.com) with an administrator account. To manage licenses, the account must be a Global Administrator role or User Account Administrator.
 
-2. Select **More services** in the left navigation pane, and then select **Azure Active Directory**. You can “favorite” this blade by clicking the star icon or by pinning it to the portal dashboard.
+2. Select **More services** in the left navigation pane, and then select **Azure Active Directory**. You can add this blade to your Favorites or by pin it to the portal dashboard.
 
 3. On the **Azure Active Directory** blade, select **Licenses**. This opens a blade where you can see and manage all licensable products in the tenant.
 

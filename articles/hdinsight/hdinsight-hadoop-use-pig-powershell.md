@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with PowerShell in HDInsight | Microsoft Docs
+title: Use Hadoop Pig with PowerShell in HDInsight - Azure | Microsoft Docs
 description: Learn how to submit Pig jobs to a Hadoop cluster on HDInsight using Azure PowerShell.
 services: hdinsight
 documentationcenter: ''

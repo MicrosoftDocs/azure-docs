@@ -7,7 +7,7 @@ manager: ytkuo
 
 ms.service: cognitive-services 
 ms.technology: computer-vision 
-ms.topic: article 
+ms.topic: article
 ms.date: 02/20/2017 
 ms.author: juliakuz 
 ---
@@ -511,6 +511,7 @@ Upon success, the OCR results returned include text, bounding box for regions, l
 ```
 
 ## Text Recognition with Computer Vision API Using C# <a name="RecognizeText"> </a>
+
 Use the [RecognizeText method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### Handwriting Recognition C# Example

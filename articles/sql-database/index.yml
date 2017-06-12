@@ -57,6 +57,7 @@ sections:
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: <a href="/azure/sql-database/sql-database-performance-tutorial">Improve SQL Database performance</a>
     - html: <a href="/azure/sql-database/sql-database-multi-tenant-application">Implement a multi-tenant SaaS application using SQL DB</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implement a geo-distributed database</a>
 - title: Free PluralSight Video Training
   items:
   - type: list

@@ -47,7 +47,7 @@ The advanced rule that you can create for the dynamic memberships for groups is 
 * Binary operator
 * Right constant
 
-A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where the opening and closing parenthesis are required for the entire binary expression, double quotes are required for the right constant, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
+A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where the opening and closing parenthesis are optional for the entire binary expression, double quotes are optional as well, only required for the right constant when it is string, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
 
 The following are examples of a properly constructed advanced rule:
 
@@ -77,6 +77,37 @@ The following table lists all the supported expression rule operators and their 
 | Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
+| In | -in |
+| Not In | -notIn |
+
+## Operator precedence
+
+All Operators are listed below per precedence from lower to higher, operator in same line are in equal precedence
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+
+All operators can be used with or without hyphen prefix.
+
+Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
+For example:
+
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+is equivalent to:
+
+   (user.department –eq "Marketing") –and (user.country –eq "US")
+
+## Using the -In and -notIn operators
+
+If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
+
+	user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+Note the use of the "[" and "]" at the beginning and end of the list of values. This condition evaluates to True of the value of user.department equals one of the values in the list.
+
 
 ## Query error remediation
 The following table lists potential errors and how to correct them if they occur
@@ -100,8 +131,8 @@ Allowed operators
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
-| accountEnabled |true false |user.accountEnabled -eq true) |
-| dirSyncEnabled |true false null |(user.dirSyncEnabled -eq true) |
+| accountEnabled |true false |user.accountEnabled -eq true |
+| dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### Properties of type string
 Allowed operators
@@ -114,6 +145,8 @@ Allowed operators
 * -notContains
 * -match
 * -notMatch
+* -in
+* -notIn
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
@@ -129,6 +162,7 @@ Allowed operators
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
 | mobile |Any string value or $null |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Any string value or $null |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Any string value or $null |(user.postalCode -eq "value") |
@@ -153,6 +187,14 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Use of Null values
+
+To specify a null value in a rule, you can use "null" or $null. Example:
+
+   user.mail –ne null
+is equivalent to
+   user.mail –ne $null
+
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
 
@@ -167,6 +209,12 @@ An example of a rule that uses a custom attribute is
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
 The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
+
+## Support for multi-value properties
+
+To include a multi-value property in a rule, use the "-any" operator, as in
+
+  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
 
 ## Direct Reports Rule
 You can now populate members in a group based on the manager attribute of a user.
@@ -188,22 +236,21 @@ You can also create a rule that selects device objects for membership in a group
 
 | Properties              | Allowed values                  | Usage                                                       |
 |-------------------------|---------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
 | displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
 | deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
 | deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
-| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
-| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
-| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
 | deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
 | deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
 | deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
 | deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
 | domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
 | managementType          | any string value                | (device.managementType -eq "")                              |
 | organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
-| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | a valid AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 
 
