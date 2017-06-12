@@ -334,7 +334,7 @@ Here are some command line samples to import from Azure Cosmos DB:
     dt.exe /s:CosmosDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
 
 > [!TIP]
-> The Azure Cosmos DB Data Import Tool also supports import of data from the [Azure Cosmos DB Emulator](local-emulator.md). When importing data from a local emulator, set the endpoint to https://localhost:<port>. 
+> The Azure Cosmos DB Data Import Tool also supports import of data from the [Azure Cosmos DB Emulator](local-emulator.md). When importing data from a local emulator, set the endpoint to `https://localhost:<port>`. 
 > 
 > 
 
