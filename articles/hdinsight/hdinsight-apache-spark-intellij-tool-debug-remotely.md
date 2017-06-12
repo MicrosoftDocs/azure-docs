@@ -59,7 +59,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 7. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH user name or password, or use a private key file. To save it, select **Ok**.
 
    ![Enable Spark remote debug](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-enable-spark-remote-debug.png)
-8. Click **OK** to save it in the **Run/Debug configurations** dialog box. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name.To make changes, select **Edit Configurations** . 
+8. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations** . 
 9. After you complete the configurations settings, you can run the project against the remote cluster or perform remote debugging.
 
 ## Learn how to perform remote debugging and remote run
@@ -107,6 +107,7 @@ In this section, we show you how to dynamically update the variable value by usi
         }
 
 
+*** To perform remote debugging and bug fixing
 1. Set up two breaking points, and then click the **Debug** icon to start the remote debugging process.
 
 2. The code stops at the first breaking point, and the parameter and variable information are shown in the **Variable** window. 
