@@ -63,6 +63,7 @@ These are the best places to get help with developing on Azure Active Directory.
 |---|
 |[Stack Overflow's `azure-active-directory` and `adal` tags](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
 |[Feedback on Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
+| [Try out Microsoft Dev Chat (free for a limited time)](http://aka.ms/devchat) |
 
 <br />
 
