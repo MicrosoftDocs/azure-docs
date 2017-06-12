@@ -41,9 +41,9 @@ To run the deployment automatically, click the following button:
 [![Deploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## Parameters
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value in the template defines the resources that are deployed.
+With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. You should define a parameter for those values that will vary, based on the project you are deploying or based on the environment to which you are deploying. Do not define parameters for values that always stay the same. Each parameter value in the template defines the resources that are deployed.
 
-The template defines the following parameters.
+The template defines the following parameters:
 
 ### eventHubNamespaceName
 The name of the Event Hubs namespace to create.
