@@ -27,35 +27,63 @@ This quick-start demonstrates how to use an existing [MongoDB](https://docs.micr
 
 In other words, your Golang application only knows that it’s connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
-### Prerequisites
+## Prerequisites
 
-1.  Basic knowledge of [GO](https://golang.org/) language.
-2.  Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-3.  IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains or [Visual Studio Code](https://code.visualstudio.com/) by Microsoft or [Atom](https://atom.io/).
+1.  [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
+2.  Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+3.  IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
 
 <a id="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-7. Click **Quick start** in the left navigation menu, and then click **Other** to get the connection string information required by client applications.
-
-![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
-
-### Setting up your application
+## Set up your application
 
 It’s time to play with the code. Open your favorite editor (Gogland, Visual Studio Code,
 or Atom). In this article, I use Gogland editor.
 
-1.  Create folder CosmosDBAcces folder inside GOROOT\src folder.
-2.  Run below command to get the mgo package.
+1.  Create folder CosmosDBAcces folder inside GOROOT\src folder, which is C:\Go\ by default.
+2.  Run below command using the Goglang editor, or a git terminal window such as git bash, to get the mgo package. You may need to restart any open command prompts if you just installed Go.
 
     ```
     go get gopkg.in/mgo.v2
     ```
-### Connect to an Azure Cosmos DB account
 
 The [mgo](http://labix.org/mgo) driver (pronounced as *mango*) is a [MongoDB](http://www.mongodb.org/) driver for the [Go language](http://golang.org/) that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
+
+## Clone the sample application
+
+Now let's clone the Go app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+
+- Run the following command to clone the sample repository into the CosmosDBAccess folder. 
+
+    ```bash
+    git clone https://github.com/Golang-Coach/Lessons.git
+    ```
+<a id="connection-string"></a>
+## Update your connection string
+
+Now go back to the Azure portal to get your connection string information and copy it into the app.
+
+1. Click **Quick start** in the left navigation menu, and then click **Other** to view the connection string information required by the Go application.
+
+    ![Quick start pane, Other tab in the Azure portal showing the connection string information](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+
+2. Open the main.go file in the GOROOT\CosmosDBAccess\Lessons\CosmosDBAccess directory and update the following lines of code using the information from the Azure portal. The Database name is the prefix of the **Host** value in the Azure portal connection string pane. For the account shown in the image, the Database name is golang-couchdb.
+
+    ```go
+    Database: "The prefix of the Host value in the Azure portal",
+    Username: "The Username in the Azure portal",
+    Password: "The Password in the Azure portal",
+    ```
+3. Save the main.go file.
+
+## Review the code
+
+Let's make a quick review of what's happening in the app. In the main.go file you'll find the following code. 
+
+### Connect the Go app with Azure Cosmos DB
 
 Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled MongoDB, you need to define the **DialServer** function in [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
 
@@ -101,9 +129,7 @@ An instance of the **DialWIthInfo{}** object is used to create the session objec
    collection := session.DB(“golang-couch”).C(“package”)
 ```
 
-### CRUD Operations
-
-#### 1. Create Document
+### Create a document
 
 ```go
 // Model
@@ -132,7 +158,7 @@ if err != nil {
 }
 ```
 
-#### 2. Query/Read Document
+### Query or read a document
 
 Azure Cosmos DB supports rich queries against JSON documents stored in each collection. The following sample code shows a query that you can run against the documents in your collection.
 
@@ -149,7 +175,7 @@ fmt.Println("Description:", result.Description)
 ```
 
 
-#### 3. Update Document
+### Update a document
 
 ```go
 // Update a document
@@ -162,7 +188,7 @@ if err != nil {
 }
 ```
 
-#### 4. Delete Document
+### Delete a document
 
 Azure Cosmos DB supports deleting JSON documents.
 
@@ -175,12 +201,32 @@ if err != nil {
     return
 }
 ```
+    
+## Run the web app
 
-### Get the complete Golang tutorial solution
+1. In your IDE, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-The entire source code at for this quickstart is provided on [GitHub](https://github.com/Golang-Coach/Lessons/tree/master/CosmosDBAccess).
+2. In the NuGet **Browse** box, type *MongoDB.Driver*.
 
-### Next steps
+3. From the results, install the **MongoDB.Driver** library. This installs the MongoDB.Driver package as well as all dependencies.
+
+4. Click CTRL + F5 to run the application. Your app displays in your browser. 
+
+5. Click **Create** in the browser and create a few new tasks in your task list app.
+
+
+## Review SLAs in the Azure portal
+
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+
+## Clean up resources
+
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
+2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+
+## Next steps
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account and run a Golang app using the API for MongoDB. You can now import additional data to your Cosmos DB account. 
 
