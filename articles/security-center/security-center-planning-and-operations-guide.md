@@ -73,7 +73,11 @@ Security Center enables these individuals to meet these various responsibilities
 * Investigate attacks
 * Remediates alerts or works with Cloud Workload Owner to apply remediation 
 
-Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. 
+Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
+
+- **Security reader**: user that belongs to this role will be able to view rights to Security Center, which includes recommendations, alerts, policy, and health, but it won't be able to make changes.
+- **Security Admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
+
 
 > [!NOTE]
 > A user needs to be at least a subscription, resource group owner or contributor to be able to see Security Center in Azure.
