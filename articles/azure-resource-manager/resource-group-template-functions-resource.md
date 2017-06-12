@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/12/2017
 ms.author: tomfitz
 
 ---
@@ -65,29 +65,6 @@ Any operation that starts with **list** can be used as a function in your templa
 
 Specify the resource by using either the [resourceId function](#resourceid), or the format `{providerNamespace}/{resourceType}/{resourceName}`.
 
-### Examples
-
-The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountId": {
-            "type": "string"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "storageKeysOutput": {
-            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
-            "type" : "object"
-        }
-    }
-}
-``` 
-
 ### Return value
 
 The returned object from listKeys has the following format:
@@ -111,6 +88,29 @@ The returned object from listKeys has the following format:
 
 Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example template. 
 
+### Examples
+
+The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountId": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "storageKeysOutput": {
+            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
+            "type" : "object"
+        }
+    }
+}
+``` 
+
 <a id="providers" />
 
 ## providers
@@ -124,6 +124,20 @@ Returns information about a resource provider and its supported resource types. 
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Yes |string |Namespace of the provider |
 | resourceType |No |string |The type of resource within the specified namespace. |
+
+### Return value
+
+Each supported type is returned in the following format: 
+
+```json
+{
+    "resourceType": "{name of resource type}",
+    "locations": [ all supported locations ],
+    "apiVersions": [ all supported API versions ]
+}
+```
+
+Array ordering of the returned values is not guaranteed.
 
 ### Examples
 
@@ -142,20 +156,6 @@ The following example shows how to use the provider function:
     }
 }
 ```
-
-### Return value
-
-Each supported type is returned in the following format: 
-
-```json
-{
-    "resourceType": "{name of resource type}",
-    "locations": [ all supported locations ],
-    "apiVersions": [ all supported API versions ]
-}
-```
-
-Array ordering of the returned values is not guaranteed.
 
 <a id="reference" />
 
@@ -178,6 +178,10 @@ The reference function derives its value from a runtime state, and therefore can
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the dependsOn property. The function is not evaluated until the referenced resource has completed deployment.
 
 To see the property names and values for a resource type, create a template that returns the object in the outputs section. If you have an existing resource of that type, your template returns the object without deploying any new resources. 
+
+### Return value
+
+Every resource type returns different properties for the reference function. The function does not return a single, predefined format. To see the properties for a resource type, return the object in the outputs section as shown in the example.
 
 ### Examples
 
@@ -252,16 +256,29 @@ Typically, you use the reference function to return a particular value from an o
 }
 ```
 
-### Return value
-
-Every resource type returns different properties for the reference function. The function does not return a single, predefined format. To see the properties for a resource type, return the object in the outputs section as shown in the example.
-
 <a id="resourcegroup" />
 
 ## resourceGroup
 `resourceGroup()`
 
 Returns an object that represents the current resource group. 
+
+### Return value
+
+The returned object is in the following format:
+
+```json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+  "name": "{resourceGroupName}",
+  "location": "{resourceGroupLocation}",
+  "tags": {
+  },
+  "properties": {
+    "provisioningState": "{status}"
+  }
+}
+```
 
 ### Examples
 
@@ -295,23 +312,6 @@ A common use of the resourceGroup function is to create resources in the same lo
 ]
 ```
 
-### Return value
-
-The returned object is in the following format:
-
-```json
-{
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-  "name": "{resourceGroupName}",
-  "location": "{resourceGroupLocation}",
-  "tags": {
-  },
-  "properties": {
-    "provisioningState": "{status}"
-  }
-}
-```
-
 <a id="resourceid" />
 
 ## resourceId
@@ -328,6 +328,14 @@ Returns the unique identifier of a resource. You use this function when the reso
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
 | resourceName2 |No |string |Next resource name segment if resource is nested. |
+
+### Return value
+
+The identifier is returned in the following format:
+
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
 
 ### Examples
 
@@ -399,20 +407,25 @@ Often, you need to use this function when using a storage account or virtual net
 }
 ```
 
-### Return value
-
-The identifier is returned in the following format:
-
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
-
 <a id="subscription" />
 
 ## subscription
 `subscription()`
 
 Returns details about the subscription for the current deployment. 
+
+### Return value
+
+The function returns the following format:
+
+```json
+{
+    "id": "/subscriptions/{subscription-id}",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}",
+    "displayName": "{name-of-subscription}"
+}
+```
 
 ### Examples
 
@@ -429,19 +442,6 @@ The following example shows the subscription function called in the outputs sect
             "type" : "object"
         }
     }
-}
-```
-
-### Return value
-
-The function returns the following format:
-
-```json
-{
-    "id": "/subscriptions/{subscription-id}",
-    "subscriptionId": "{subscription-id}",
-    "tenantId": "{tenant-id}",
-    "displayName": "{name-of-subscription}"
 }
 ```
 

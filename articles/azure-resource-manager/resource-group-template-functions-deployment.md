@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/12/2017
 ms.author: tomfitz
 
 ---
@@ -33,32 +33,6 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 `deployment()`
 
 Returns information about the current deployment operation.
-
-### Examples
-
-The following example returns the deployment object:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "subscriptionOutput": {
-            "value": "[deployment()]",
-            "type" : "object"
-        }
-    }
-}
-```
-
-The following example shows how to use deployment() to link to another template based on the URI of the parent template.
-
-```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
-}
-```  
 
 ### Return value
 
@@ -108,7 +82,31 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
 }
 ```
 
+### Examples
 
+The following example returns the deployment object:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "subscriptionOutput": {
+            "value": "[deployment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+The following example shows how to use deployment() to link to another template based on the URI of the parent template.
+
+```json
+"variables": {  
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+}
+```  
 
 <a id="parameters" />
 
@@ -122,6 +120,10 @@ Returns a parameter value. The specified parameter name must be defined in the p
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | parameterName |Yes |string |The name of the parameter to return. |
+
+### Return value
+
+The value of the specified parameter.
 
 ### Examples
 
@@ -143,10 +145,6 @@ The following example shows a simplified use of the parameters function.
 ]
 ```
 
-### Return value
-
-The type of the parameter.
-
 <a id="variables" />
 
 ## variables
@@ -159,6 +157,10 @@ Returns the value of variable. The specified variable name must be defined in th
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | variableName |Yes |String |The name of the variable to return. |
+
+### Return value
+
+The value of the specified variable.
 
 ### Examples
 
@@ -176,10 +178,6 @@ The following example uses a variable value.
   }
 ],
 ```
-
-### Return value
-
-The type of the variable.
 
 ## Next Steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
