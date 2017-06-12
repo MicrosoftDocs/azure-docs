@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 06/12/2017
 ms.author: yurid
 
 ---
@@ -39,7 +39,7 @@ For a period of time (typically a few days), both agents will run side by side t
  
 It is not recommended that you manually uninstall the Azure Monitoring Agent during the migration as gaps in security data could result. Please consult [Microsoft Customer Service and Support](https://support.microsoft.com/contactus/) if you need further assistance. 
 
-The Microsoft Monitoring Agent for Windows requires use TCP port 443, read [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md) for more information.
+The Microsoft Monitoring Agent for Windows requires use TCP port 443, read [Azure Security Center Troubleshooting Guide](security-center-troubleshooting-guide.md) for more information.
 
 
 > [!NOTE] 

@@ -13,12 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 06/12/2017
 ms.author: yurid
 
 ---
 # Set security policies in Azure Security Center
 This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
+
+>[!NOTE] Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>
 
 ## What are security policies?
 A security policy defines the set of controls, which are recommended for resources within the specified subscription. In Security Center, you define policies for your Azure subscriptions according to your company security needs and the type of applications or sensitivity of the data in each subscription.
