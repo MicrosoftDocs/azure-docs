@@ -59,7 +59,7 @@ The DocumentDB .NET Core SDK has feature parity with the latest version of the [
 
 ### <a name="1.3.1"/>1.3.1
 
-*	Fixed an issue which affected x64 machines that don’t support SSE4 instruction and throw SEHException when running DocumentDB queries.
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw SEHException when running DocumentDB queries.
 
 ### <a name="1.3.0"/>1.3.0
 
