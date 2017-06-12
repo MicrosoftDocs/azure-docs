@@ -129,7 +129,9 @@ Select the **+** icon next to **Add hostname**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Type the fully qualified domain name that you added a CNAME record for (such as `www.contoso.com`), and then select **Validate**.
+Type the fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`. 
+
+Select **Validate**.
 
 The **Add hostname** button is activated. 
 
@@ -169,7 +171,7 @@ In the **Custom domains** page, copy the app's IP address.
 
 ### Create the A record
 
-In a browser, go to your domain provider's page for managing DNS records, as you did in [Map a CNAME record](#cname).
+Go to your domain provider's page for managing DNS records, as you did in [Map a CNAME record](#cname).
 
 To map an A record to your app, App Service requires **two** DNS records:
 
@@ -197,7 +199,9 @@ Select the **+** icon next to **Add hostname**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-Type the fully qualified domain name that you configured the A record for (such as `contoso.com`), and then select **Validate**.
+Type the fully qualified domain name that you configured the A record for, such as `contoso.com`.
+
+Select **Validate**.
 
 The **Add hostname** button is activated. 
 
@@ -223,7 +227,7 @@ In this step, you map a [wildcard DNS name](https://en.wikipedia.org/wiki/Wildca
 
 ### Create the CNAME record
 
-In a browser, go to your domain provider's page for managing DNS records, as you did in [Map a CNAME record](#cname).
+Go to your domain provider's page for managing DNS records, as you did in [Map a CNAME record](#cname).
 
 Add a CNAME record to map a wildcard name to your app's default hostname (`<app_name>.azurewebsites.net`).
 
