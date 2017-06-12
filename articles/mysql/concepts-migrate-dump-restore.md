@@ -86,9 +86,11 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## Create a database on the target Azure MySQL server
 You must create an empty database on the target Azure Database for MySQL server where you want to migrate the data using MySQL Workbench, Toad, Navicat or any third-party tool for MySQL. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
 
-![Azure Database for MySQL Connection String](./media/concepts-migrate-import-export/p5.png)
+To get connected, locate the connection information on the Properties page in your Azure Database for MySQL.
+![Find the connection information in the Azure portal](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
 
-![MySQL Workbench Connection String](./media/concepts-migrate-import-export/p4.png)
+Add the connection information into your MySQL Workbench.
+![MySQL Workbench Connection String](./media/concepts-migrate-dump-restore/p4.png)
 
 
 ## Restore your MySQL database using command-line or MySQL Workbench
@@ -113,6 +115,7 @@ To export, you can use the common tool phpMyAdmin which you may already have ins
 ## Import using PHPMyAdmin
 Importing your database is similar to exporting. Do the following actions:
 - Open phpMyAdmin. 
+- In the phpMyAdmin setup page, click Add to add your Azure Database for MySQL server. Provide the connection details and login information.
 - Create an appropriately named database and select it by clicking the database name in the list on the left of the screen. If you would like to rewrite the import over an existing database then click on the database name, select all the check boxes next to the table names and select Drop to delete all existing tables in the database. 
 - Click the SQL link. This should bring up a new screen where you can type in SQL commands, or upload your SQL file. 
 - Use the browse button to find the database file. 
