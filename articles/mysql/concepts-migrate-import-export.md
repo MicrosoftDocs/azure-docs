@@ -40,7 +40,6 @@ Use MySQL utilities such to export and import databases into an Azure MySQL Data
 -	When you need to selectively choose a few tables to import from existing MySQL database into an Azure MySQL database, it is best to use the import and export technique.  By doing so, you can omit any unneeded tables from the migration in effort to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switches with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) and `--tables` switch with the [mysqldump utility](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - When moving the database objects other than tables, explicitly create those. Include constraints (primary key, foreign key, indexes), views, functions, procedures, triggers, and any other database objects you wish to migrate.
 - When migrating data from external data sources other than a MySQL database, create flat files and import them using the mysqlimport utility. For more information, see: https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html
-
 - Make sure all tables in the database must use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables require alternative storage engines, be sure to convert to use InnoDB engine format before migration to Azure Database for MySQL. For example, if you have a WordPress or WebApp using the MyISAM engine, first convert the tables by migrating the data into InnoDB tables before restoring to Azure Database for MySQL. Use the clause `ENGINE=INNODB` to set the engine used when creating a new table, then transfer the data into the compatible table before the migration. 
 
    ```sql
@@ -70,15 +69,15 @@ The following example exports the table to a CSV file.
 - Right-click the Table of the Database to be exported. 
 - Select **Table Data Export Wizard**. Select the Columns to be exported, Row Offset (if any), Count (if any). 
 - Click **Next** on 'select data for export' window. Select the File Path, CSV or JSON file type, Line separator, Enclose Strings in and Field Separator. 
-- Select **Next** on 'Select output file location' window and Select Next on 'Export Data' window.
+- Select **Next** on 'Select output file location' window and Select **Next** on 'Export Data' window.
 
 #### Table Data Import Wizard
 The following example imports the table from a CSV file.
 - Right-click the Table of the Database to be imported. 
-- Browse and select the CSV file to be imported and then Next button. 
-- Select the Destination Table (new or existing) and select or deselect the check box 'Truncate table before import' and click the Next button.
-- Select encoding and the columns to be imported and select Next button. 
-- Select Next on Import data Window and it imports the data accordingly.
+- Browse and select the CSV file to be imported and then **Next** button. 
+- Select the Destination Table (new or existing) and select or deselect the check box 'Truncate table before import' and click the **Next** button.
+- Select encoding and the columns to be imported and select **Next** button. 
+- Select **Next** on Import data Window and it imports the data accordingly.
 
 ### SQL Data Export and Import Wizard from Management Navigator
 Use this wizard to either export or import SQL generated from MySQL Workbench or with the mysqldump command. Access these wizards from  the Navigator panel or by selecting Server from the main menu. Then select Data Import or Data Export. 
