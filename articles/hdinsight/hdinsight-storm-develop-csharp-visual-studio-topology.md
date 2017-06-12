@@ -21,12 +21,12 @@ ms.author: larryfr
 ---
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
 
-Learn how to create a C# Storm topology by using the Data Lake (Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
+Learn how to create a C# Storm topology by using the Azure Data Lake (Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on Azure HDInsight cluster.
 
 You also learn how to create hybrid topologies that use C# and Java components.
 
 > [!NOTE]
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after October 28, 2016 support SCP.NET topologies.
+> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after October 28, 2016, support SCP.NET topologies.
 
 To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or later. The version of the package must also match the major version of Storm installed on HDInsight.
 
@@ -58,7 +58,7 @@ To install Data Lake tools for Visual Studio, follow the steps in [Get started u
 
 ## Install Java
 
-When you submit a Storm topology from Visual Studio, SCP.NET generates a zip file containing the topology and dependencies. Java is used to create these zip files, as it uses a format that is more compatible with Linux-based clusters.
+When you submit a Storm topology from Visual Studio, SCP.NET generates a zip file that contains the topology and dependencies. Java is used to create these zip files, because it uses a format that is more compatible with Linux-based clusters.
 
 1. Install the Java Developer Kit (JDK) 7 or later on your development environment. You can get the Oracle JDK from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). You can also use [other Java distributions](http://openjdk.java.net/).
 
@@ -478,7 +478,7 @@ Consider the following when you are creating and submitting a hybrid topology:
 
 ### Azure Event Hubs
 
-SCP.NET version 0.9.4.203 introduces a new class and method specifically for working with the Event Hub spout (a Java spout that reads from Event Hub.) When you create a topology that uses an Event Hub spout, use the following methods:
+SCP.NET version 0.9.4.203 introduces a new class and method specifically for working with the Event Hub spout (a Java spout that reads from Event Hubs). When you create a topology that uses an Event Hub spout, use the following methods:
 
 * **EventHubSpoutConfig** class: Creates an object that contains the configuration for the spout component.
 
@@ -572,7 +572,7 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
    > [!NOTE]
    > Remember to change the **Output type** back to **Class Library** before you deploy the topology to a cluster.
 
-2. In **Solution Explorer**, right-click the project, then select **Add** > **New Item**. Select **Class**, and enter **LocalTest.cs** as the class name. Finally, click **Add**.
+2. In **Solution Explorer**, right-click the project, and then select **Add** > **New Item**. Select **Class**, and enter **LocalTest.cs** as the class name. Finally, click **Add**.
 
 3. Open **LocalTest.cs**, and add the following **using** statement at the top:
 
@@ -703,7 +703,7 @@ Context.Logger.Info("Component started");
 Logged information can be viewed from the **Hadoop Service Log**, which is found in **Server Explorer**. Expand the entry for your Storm on HDInsight cluster, and then expand **Hadoop Service Log**. Finally, select the log file to view.
 
 > [!NOTE]
-> The logs are stored in the Azure Storage account that is used by your cluster. To view the logs in Visual Studio, you must sign in to the Azure subscription that owns the storage account.
+> The logs are stored in the Azure storage account that is used by your cluster. To view the logs in Visual Studio, you must sign in to the Azure subscription that owns the storage account.
 
 ### View error information
 
@@ -739,7 +739,7 @@ If the `hdinsight-scpwebapi.out` log contains a `FileNotFoundException`, this mi
 
 ## Next steps
 
-For an example of processing data from Event Hubs, see [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
+For an example of processing data from Event Hubs, see [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 For an example of a C# topology that splits stream data into multiple streams, see [C# Storm example](https://github.com/Blackmist/csharp-storm-example).
 
