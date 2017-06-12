@@ -1,14 +1,14 @@
 ---
-title: Understand a system reboot for Azure Windows VM | Microsoft Docs
-description: Lists the events that can cause the Windows VM to reboot
-services: virtual-machines-windows
+title: Understand a system reboot for Azure Linux VM | Microsoft Docs
+description: Lists the events that can cause the Linux VM to reboot
+services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
 manager: willchen
 editor: ''
 tags: ''
 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
