@@ -35,7 +35,7 @@ Before running this sample, you must have the following:
 * [Azure Functions Core Tools] (https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28)
 * Install the Azure development workload installed.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a functions app project in Visual Studio
 
@@ -45,15 +45,15 @@ Open Visual Studio and launch the **New Project** dialog. You'll find the Azure 
 
 Visual Studio creates a project containing a `local.settings.json` and [`host.json`](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) file. The `local.settings.json` file contains application settings for the storage account and dashboard connections. Storage accounts hold unstructured data, and the SDK uses the dashboard to manage triggers and bindings. 
 
-Now that you have a fresh Azure Functions queue triggered project, you now must create one or more Azure functions.
+Now that you have created a function project, which represents a function app, create an HTTP triggered function.
 
 ## Create a new function
 
-You can either use the File menu to add a new file or right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**. Choose **Azure Function** from the dialog box.
+Right mouse click on the project node in **Solution Explorer**, then choose **Add** > **New Item**. Choose **Azure Function** from the dialog box.
 
 ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-A new dialog appears giving you more options. Select **HttpTrigger** and provide the following information in the next dialog box:
+Select **HttpTrigger** and provide the following information in the next dialog box:
 
 | Setting      | Suggested value  | Description                                        |
 | ------------ |  ------- | -------------------------------------------------- |
@@ -64,21 +64,21 @@ A new dialog appears giving you more options. Select **HttpTrigger** and provide
 
 ## Test the function locally
 
-Just as you would with other Visual Studio projects, you can use the built-in debugging tools to test your function.
+Like other Visual Studio Projects, Azure Functions projects support the use of the built-in debugging tools to test your function.
 
-Click **Start** > **Debug** or press **F5** to run the application. This causes Visual Studio to launch a command window that prepares a local environment in which to run and test your function. 
+Right-click the project node in **Solution Explorer** and select **Debug** > **Start new instance**. 
 
 ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
+You can obtain the endpoint for your function by examining the output of the functions runtime as shown above. The local runtime displays the local URL, port, and path to where the function is listening. You can then open a browser and navigate to the function's local URL to verify the function works. Don't forget to append a query string named *name* and a value, for example, "http://localhost:7071/api/HttpTriggerCSharp?name=Azure". The output in the browser window should display the name "Azure". 
+
 When you run the function, the build process creates a `function.json` file with the required bindings for the function's trigger, input, and output bindings.  Visual Studio creates the `function.json` file from the attributes applied to the `Run` method in your code. In the previous example, the bindings are defined in the `HttpTrigger` attribute.
 
-You can obtain the endpoint for your function by examining the output of the functions runtime. The local runtime displays the local URL, port, and path to where the function is listening. You can then open a browser and navigate to the function's local URL to verify the function works.
-
-To stop debugging, click the **Stop** button on the Visual Studio toolbar, or click **Debug** > **Stop Debugging**.
+To stop debugging, click the **Stop** button on the Visual Studio toolbar.
 
 ## Publish the function to Azure
 
-From the **Build** menu you can select **Publish** to launch the **Publish** dialog box. After that, select **Azure Function App** as your publish target. 
+Right click the project node in **Solution Explorer** and choose **Publish**. This displays a dialog where you configure what you want to publish.
 
 Choose **Create New** to publish this as a new function in a new Function App to publish this function. When ready, click the **Publish**. You'll be presented with the **Create App Service** dialog. 
 
