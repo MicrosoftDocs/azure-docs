@@ -84,7 +84,7 @@ Example:
 
 2. Calculate the approximate RU charge for a single document write
 
-    * Connect to your Azure Cosmos DB mongodb database from the MongoDB Shell. Instructions can be found here.
+    * Connect to your Azure Cosmos DB mongodb database from the MongoDB Shell. Instructions can be found [here](connect-mongodb-account.md).
     
     * Run a sample insert command using a sample document from the Mongo Shell
     
