@@ -9,7 +9,7 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 06/12/2017
 ms.author: Barclayn
 ms.custom: azlog
 
@@ -18,14 +18,18 @@ ms.custom: azlog
 
 # Azure Log integration tutorial - Processing KeyVault events using Eventhubs
 
-You can use Azure log integration to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of getting Azure Log integration to take KeyVault events in an event hub and make them available as JSON files. You can then configure your SIEM to process the JSON files.
+Azure log integration (Azlog) allows you to retrieve logged events and make them available to your Security information and event management (SIEM). This tutorial walks you through the process of taking KeyVault activity logged to an event hub and make it available as JSON files to your SIEM. You can then configure your SIEM to process the JSON files.
 
 >[!NOTE]
 Most of the steps involved in this tutorial involve configuring KeyVault, storage accounts and event hubs. The specific Azure Log integration steps are at the end of this document.
 
-There is information provided along the way to help you understand the reasons behind each step and when appropriate links will be included to other articles that may provide you with more detail on certain topics.
+There is information provided along the way to help you understand the reasons behind each step and when appropriate links will be included to other articles to give you more detail on certain topics.
 
-You should notice that most of these steps involve the configuration of the event hub and Key Vault.  In this document you will go over the necessary steps to configure [Azure Key Vault](../key-vault/key-vault-whatis.md)  with [Event hubs](../event-hubs/event-hubs-what-is-event-hubs,md) as the source of event information for [Azure Log Integration](security-azure-log-integration-overview.md). You can then use the information provided in this document to help you in your own scenarios.
+Please take note that most of these steps involve the configuration of the event hub and Key Vault.  
+
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
+- [Event hubs](../event-hubs/event-hubs-what-is-event-hubs,md)
+- [Azure Log Integration](security-azure-log-integration-overview.md).
 
 
 ## Preliminary setup
@@ -33,7 +37,7 @@ You should notice that most of these steps involve the configuration of the even
 Before you can complete the steps in this article you will need the following:
 
 - A system with access to the internet that meets the requirements for installing Azure Log Integration
-- Azure Log Integration Installed
+- [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) Installed
 - You will also need the latest version of Azure PowerShell
 - Access to an Azure subscription
 - An account with subscription administrator rights
@@ -47,16 +51,16 @@ Use remote desktop to connect to the system that you will be using to go through
 There are two ways to get Azure PowerShell installed.
 
 - Using the web platform installer
-- Using the install-module CmdLet available in PowerShell 5.0
+- Using the ```install-module``` CmdLet available in PowerShell 5.0
 
-We recommend that you use the install-module CmdLet if at all possible because it will allow you to also update-module at a later time. Update-module will install the latest version of the Azure module when you run ```update-module azure```
+We recommend that you use the install-module CmdLet if at all possible because it will allow you to also use update-module at a later time. Update-module will install the latest version of the Azure module when you run ```update-module azure```
 
-For additional information on installing Azure PowerShell you can review the article titled [Install and Configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
+For additional information on installing Azure PowerShell you should review the article titled [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)
 
 
 ## Creating supporting infrastructure elements
 
-1. Open an elevated PowerShell window and navigate to c:\Program Files\Microsoft Azure Log Integration
+1. Open an elevated PowerShell window and navigate to **c:\Program Files\Microsoft Azure Log Integration**
 2. The first step you need to take is to get the AzLog Cmdlets imported. You can do that by running the script LoadAzlogModule.ps1 (notice the “.\” in the following command). Type **.\LoadAzlogModule.ps1** and press ENTER.
 You should see something like what appears in the figure below. </br>
 
@@ -70,7 +74,7 @@ You should see something like what appears in the figure below. </br>
 4. After you decide how to proceed at the data collection prompt and you successfully authenticate you will be logged on and some information will be displayed on the screen as shown below. Take note of the subscription information.
 
     ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. You will create a few variables to store some values that you will use later
+5. You need to create a few variables to store some values that will be used later
     - Type each of the PowerShell lines below and hit **Enter** after each one. Pay attention to the comments next to each. You may need to adjust the values to match your environment:
         - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name may be different and you could see it as part of the output of the previous command)
         - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this to be any other location of your choosing)
