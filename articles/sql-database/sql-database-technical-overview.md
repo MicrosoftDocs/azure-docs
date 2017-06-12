@@ -36,7 +36,7 @@ For a set of Azure CLI and PowerShell samples, see:
 
 ## Managed databases and managed instances
 
-Since the inception of the Azure SQL Database service in 2010, an Azure SQL database is conceptually a contained database - or a managed database. In May 2017, the concept of a [managed instance was announced](https://azure.microsoft.com/blog/new-options-to-modernize-your-application-with-azure-sql-database). A managed instance offers near 100% SQL Server compatibility with the benefits of platform as a service. Managed instances are currently in [private preview](https://sqldatabase-migrationpreview.azurewebsites.net/). 
+Since the inception of the Azure SQL Database service in 2010, an Azure SQL database is conceptually a contained database - or a managed database. In May 2017, the concept of a [managed instance was announced](https://azure.microsoft.com/blog/new-options-to-modernize-your-application-with-azure-sql-database). A managed instance offers near 100% SQL Server compatibility with the benefits of platform as a service. Managed instances are currently in [private preview](https://sqldatabase-migrationpreview.azurewebsites.net/). Public preview is planned to be announced by the end of 2017.
 
 ### Managed database
 
@@ -61,17 +61,18 @@ For customers in highly regulated industries, managed instances bringing two add
 
 ## Built-in intelligent optimization
 
-With Azure SQL Database, you get built-in intelligence that helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application.  Under this feature umbrella, we have [SQL Database Advisor](sql-database-advisor.md), [automatic tuning](sql-database-automatic-tuning.md), and adaptive query processing.
+With Azure SQL Database, you get built-in intelligence that helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application. Running millions of customer workloads around-the-clock, Azure SQL Database collects and processes a massive amount of telemetry data, while also fully respecting customer privacy behind the scenes. Various algorithms are continuously evaluating the telemetry data so that the service can learn and adapt with your application. Based on this analysis, the service comes up with performance improving recommendations tailored to your specific workload. 
 
-### SQL Database Advisor
+### Automatic performance tuning
 
-Running millions of customer workloads around-the-clock, Azure SQL Database collects and processes a massive amount of telemetry data, while also fully respecting customer privacy behind the scenes. Various algorithms are continuously evaluating the telemetry data so that the service can learn and adapt with your application. Based on this analysis, the service comes up with [performance improving recommendations](sql-database-advisor.md) tailored to your specific workload. 
+Azure SQL Database provides detailed insight into the queries and indexes that you need to monitor. You can consume Azure SQL Database's performance tuning recommendations using [SQL Database Advisor](sql-database-advisor.md), reviewing all tuning actions before they get applied. However, constantly monitoring database is a hard and tedious task, especially when dealing with many databases. Managing a huge number of databases might be impossible to do efficiently even with all available tools and reports that Azure SQL Database and Azure portal provide. Instead of monitoring and tuning your database manually, you might consider delegating some of the monitoring and tuning actions to Azure SQL Database using automatic tuning feature. Azure SQL Database automatically tests and verifies each of its tuning actions to ensure the performance keeps improving. This means that the performance of your database is carefully monitored and compared before and after every tuning action, and if the performance doesn’t improve, the tuning action is reverted.
 
-How exactly is this built-in intelligence surfaced? Azure SQL Database automatically identifies the right non-clustered indexes to create or drop and serve them to customers as actionable recommendations, or proactively implements the changes to the database, if the customer opts into [automatic tuning mode](sql-database-automatic-tuning.md). The feature also automatically tests and verifies each of its actions to ensure the performance keeps improving. This means that the performance of your database is carefully monitored and compared before and after every tuning action, and if the performance doesn’t improve, the tuning action is reverted.
+Today, many of our partners running [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of Azure SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, since part of their customer base also uses SQL Server, they are using the same indexing recommendations provided by Azure SQL Database to help their SQL Server customers.
 
-### Automatic tuning
+There are two automatic tuning aspects that are available in Azure SQL Database:
 
-In addition to automatic index tuning, which is already available through SQL Database Advisor, Azure SQL Database will soon be receiving a new array of adaptability features. For example, the automatic tuning for query plans feature provides a “safety net” for query plan choices, helping your databases always run at top performance by automatically correcting plan regressions. Today, many of our partners running [SaaS multi-tenant apps](sql-database-design-patterns-multi-tenancy-saas-applications.md) on top of Azure SQL Database are relying on automatic performance tuning to make sure their applications always have stable and predictable performance. For them, this feature tremendously reduces the risk of having a performance incident in the middle of the night. In addition, since part of their customer base also uses SQL Server, they are using the same indexing recommendations provided by Azure SQL Database to help their SQL Server customers.
+- [Automatic index management](sql-database-automatic-tuning.md#automatic-index-management) that identifies indexes that should be added in your database, and indexes that should be removed.
+- [Automatic plan correction](sql-database-automatic-tuning.md#automatic-plan-choice-correction) (coming soon, already available in SQL Server 2017) that identifies problematic plans and fixes SQL plan performance problems.
 
 ### Adaptive query processing
 
@@ -85,21 +86,29 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 > [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
 >
 
-### Transparent Data Encryption
+## Built-in security and compliance
+
+Azure SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements. 
+
+### Data encryption at rest
 
 Azure SQL Database [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application. Starting in May 2017, all newly created Azure SQL databases are automatically protected with transparent data encryption (TDE). TDE is SQL’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media. Customers can manage the TDE encryption keys and other secrets in a secure and compliant management using Azure Key Vault.
 
-### SQL Threat Detection
-
- [SQL Threat Detection](sql-database-threat-detection.md) continuously monitors databases for potentially harmful attempts to access sensitive data. SQL threat detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users will receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, and anomalous database access patterns. SQL threat detection alerts provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Users can explore the suspicious events using [SQL Database Auditing](sql-database-auditing.md) to determine if they result from an attempt to access, breach, or exploit data in the database. Threat detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
-
-### Always Encrypted
+### Data encryption in motion
 
 Azure SQL Database is the only database system to offer protection of sensitive data in flight, at rest and during query processing with [Always Encrypted]((https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, customers’ credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data.
 
-### Multi-Factor Authentication
+### SQL threat detection and security alerts
+
+ [SQL Threat Detection](sql-database-threat-detection.md) continuously monitors databases for potentially harmful attempts to access sensitive data. SQL threat detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users will receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, and anomalous database access patterns. SQL threat detection alerts provide details of suspicious activity and recommend action on how to investigate and mitigate the threat. Users can explore the suspicious events using [SQL Database Auditing](sql-database-auditing.md) to determine if they result from an attempt to access, breach, or exploit data in the database. Threat detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
+
+### Multi-factor authentication
 
 Users of Azure SQL Database benefit from single sign-on through Azure Active Directory Authentication, which now also supports [multi-factor authentication](sql-database-ssms-mfa-authentication.md) (MFA). MFA is an authentication option that works for a growing number of tools and services across SQL Server and Azure SQL Database, such as SSMS or Visual Studio.
+
+### Compliance certification
+
+Azure SQL Database participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
 
 ## Dynamic scalability and elastic data pools
 
@@ -120,6 +129,14 @@ Either way you go — single databases or elastic pools — you are not locked i
 ### Monitoring and alerting
 
 But how can you compare the relative performance of single databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings based on [Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic pools](sql-database-what-is-a-dtu.md). Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md) for details.
+
+Additionally, Azure SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure Azure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
+
+- Azure Storage: For archiving vast amounts of telemetry for a small price
+- Azure Event Hub: For integrating Azure SQL Database telemetry with your custom monitoring solution or hot pipelines
+- Azure Log Analytics: For out of the box monitoring solution with reporting, alerting, and mitigating capabilities
+
+    ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## Next steps
 Now that you've read an introduction to SQL Database and answered the question "What is SQL Database?", you're ready to:
