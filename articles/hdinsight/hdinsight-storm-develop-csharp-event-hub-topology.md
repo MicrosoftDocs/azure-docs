@@ -35,7 +35,7 @@ In this tutorial, you learn how to use the Visual Studio templates installed wit
 These projects use SCP.NET, a NuGet package that makes it easy to create C# topologies and components for use with Storm on HDInsight.
 
 > [!IMPORTANT]
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. Only Linux-based clusters created after October 28, 2016 support SCP.NET topologies.
+> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. Only Linux-based clusters created after October 28, 2016, support SCP.NET topologies.
 
 ### Cluster versioning
 
@@ -50,7 +50,7 @@ C# topologies must also target .NET 4.5.
 
 ## How to work with Event Hubs
 
-Microsoft provides a set of Java components that can be used to communicate with Event Hubs from a Storm topology. You can find the Jave archive (JAR) file that contains an HDInsight 3.3 and 3.4 compatible version of these components on [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+Microsoft provides a set of Java components that can be used to communicate with Event Hubs from a Storm topology. You can find the Java archive (JAR) file that contains an HDInsight 3.3 and 3.4 compatible version of these components on [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
 
 For HDInsight 3.5 or greater, the components are also located on [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
@@ -76,20 +76,20 @@ topologyBuilder.SetEventHubSpout(
         // the shared access signature name and key used to read the data
         ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"],
         ConfigurationManager.AppSettings["EventHubSharedAccessKey"],
-        // The namespace that contains the Event Hub to read from
+        // The namespace that contains the event hub to read from
         ConfigurationManager.AppSettings["EventHubNamespace"],
-        // The Event Hub name to read from
+        // The event hub name to read from
         ConfigurationManager.AppSettings["EventHubEntityPath"],
-        // The number of partitions in the Event Hub
+        // The number of partitions in the event hub
         eventHubPartitions),
     // Parallelism hint for this component. Should be set to the partition count.
     eventHubPartitions);
 ```
 
-The previous example creates a new spout component named __EventHubSpout__, and configures it to communicate with an Event Hub. The parallelism hint for the component is set to the number of partitions in the Event Hub. This setting allows Storm to create an instance of the component for each partition.
+The previous example creates a new spout component named __EventHubSpout__, and configures it to communicate with an event hub. The parallelism hint for the component is set to the number of partitions in the event hub. This setting allows Storm to create an instance of the component for each partition.
 
 > [!IMPORTANT]
-> As of January 1, 2017, using the **SetEventHubSpout** and **EventHubSpoutConfig** methods create a spout that uses string encoding when reading data from Event Hubs.
+> As of January 1, 2017, using the **SetEventHubSpout** and **EventHubSpoutConfig** methods creates a spout that uses string encoding when reading data from Event Hubs.
 
 You can also use the generic **JavaComponentConstructor** method when you create a spout. The following example demonstrates how to create a spout by using the **JavaComponentConstructor** method. It also demonstrates how to configure the spout to read data that uses a UTF-8 encoding instead of string.
 
@@ -104,11 +104,11 @@ var eventHubSpoutConfig = new JavaComponentConstructor(
         // the shared access signature name and key used to read the data
         Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"]),
         Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKey"]),
-        // The namespace that contains the Event Hub to read from
+        // The namespace that contains the event hub to read from
         Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubNamespace"]),
-        // The Event Hub name to read from
+        // The event hub name to read from
         Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubEntityPath"]),
-        // The number of partitions in the Event Hub
+        // The number of partitions in the event hub
         Tuple.Create<string, object>("int", eventHubPartitions),
         // The encoding scheme to use when reading
         Tuple.Create<string, object>("com.microsoft.eventhubs.spout.IEventDataScheme", schemeConstructor)
@@ -127,7 +127,7 @@ topologyBuilder.SetJavaSpout("EventHubSpout", eventHubSpout, eventHubPartitions)
 ```
 
 > [!IMPORTANT]
-> **UnicodeEventDataScheme** is only available in version 9.5 of the Event Hub components, which is available from [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+> **UnicodeEventDataScheme** is only available in version 9.5 of the Event Hubs components, which is available from [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
 
 ### Example bolt usage
 
@@ -143,7 +143,7 @@ JavaComponentConstructor constructor =
     // The policy name and key used to read from Event Hubs
     ConfigurationManager.AppSettings["EventHubPolicyName"],
     ConfigurationManager.AppSettings["EventHubPolicyKey"],
-    // The namespace that contains the Event Hub
+    // The namespace that contains the event hub
     ConfigurationManager.AppSettings["EventHubNamespace"],
     "servicebus.windows.net", //suffix for the namespace fqdn
     // The Evetn Hub Name)
@@ -172,7 +172,7 @@ You can download a complete version of the project created in this tutorial from
     > [!WARNING]
     > The example used in this document requires Storm on HDInsight version 3.5. This does not work with older versions of HDInsight, due to breaking class name changes. For a version of this example that works with older clusters, see [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
 
-* An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* An [Azure event hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
 * The [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 
@@ -183,7 +183,7 @@ You can download a complete version of the project created in this tutorial from
   * The **JAVA_HOME** environment variable must point to the directory that contains Java.
   * The **%JAVA_HOME%/bin** directory must be in the path.
 
-## Download the Event Hub components
+## Download the Event Hubs components
 
 The spout and bolt are distributed as a single JAR file named **eventhubs-storm-spout-#.#-jar-with-dependencies.jar**, where #.# is the version of the file.
 
@@ -195,7 +195,7 @@ Create a directory named `eventhubspout`, and save the file into the directory.
 
 ## Configure Event Hubs
 
-Event Hubs is the data source for this example. Use the information in the **Create an Event Hub** section of [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+Event Hubs is the data source for this example. Use the information in the "Create an event hub" section of [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
 1. After the event hub has been created, view the **EventHub** blade in the Azure portal, and select **Shared access policies**. Select **+ Add** to add the following policies:
 
@@ -214,15 +214,15 @@ Event Hubs is the data source for this example. Use the information in the **Cre
 
 2. Download the solution from [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. In the **EventHubWriter** project, open the **App.config** file. Use the information from the Event Hub that you configured earlier to fill in the value for the following keys:
+3. In the **EventHubWriter** project, open the **App.config** file. Use the information from the event hub that you configured earlier to fill in the value for the following keys:
 
    | Key | Value |
    | --- | --- |
    | EventHubPolicyName |writer (If you used a different name for the policy with *Send* permission, use it instead.) |
    | EventHubPolicyKey |The key for the writer policy. |
-   | EventHubNamespace |The namespace that contains your Event Hub. |
-   | EventHubName |Your Event Hub name. |
-   | EventHubPartitionCount |The number of partitions in your Event Hub. |
+   | EventHubNamespace |The namespace that contains your event hub. |
+   | EventHubName |Your event hub name. |
+   | EventHubPartitionCount |The number of partitions in your event hub. |
 
 4. Save and close the **App.config** file.
 
@@ -230,15 +230,15 @@ Event Hubs is the data source for this example. Use the information in the **Cre
 
 1. Open the **EventHubReader** project.
 
-2. Open the **App.config** file for the **EventHubReader**. Use the information from the Event Hub that you configured earlier to fill in the value for the following keys:
+2. Open the **App.config** file for the **EventHubReader**. Use the information from the event hub that you configured earlier to fill in the value for the following keys:
 
    | Key | Value |
    | --- | --- |
    | EventHubPolicyName |reader (If you used a different name for the policy with *listen* permission, use it instead.) |
    | EventHubPolicyKey |The key for the reader policy. |
-   | EventHubNamespace |The namespace that contains your Event Hub. |
-   | EventHubName |Your Event Hub name. |
-   | EventHubPartitionCount |The number of partitions in your Event Hub. |
+   | EventHubNamespace |The namespace that contains your event hub. |
+   | EventHubName |Your event hub name. |
+   | EventHubPartitionCount |The number of partitions in your event hub. |
 
 3. Save and close the **App.config** file.
 
@@ -284,7 +284,7 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ## Next steps
 
-In this document, you have learned how to use the Java Event Hubs spout and bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following:
+In this document, you have learned how to use the Java Event Hubs spout and bolt from a C# topology to work with data in Azure Event Hubs. To learn more about creating C# topologies, see the following:
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [SCP programming guide](hdinsight-storm-scp-programming-guide.md)
