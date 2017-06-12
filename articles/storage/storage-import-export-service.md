@@ -467,9 +467,12 @@ No. All drives are encrypted with BitLocker.
 
 No. You will need to ship your own drives for both import and export jobs.
 
+** How can I access data that is imported by this service**
+The data under your Azure storage account can be accessed via the Azure Portal or using a standalone tool called Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+
 **After the import job completes, what will my data look like in the storage account? Will my directory hierarchy be preserved?**
 
-When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files.
+When preparing a hard drive for an import job, the destination is specified by the DstBlobPathOrPrefix field in dataset CSV. This is the destination container in the storage account to which data from the hard drive is copied. Within this destination container, virtual directories are created for folders from the hard drive and blobs are created for files. 
 
 **If the drive has files that already exist in my storage account, will the service overwrite existing blobs in my storage account?**
 
