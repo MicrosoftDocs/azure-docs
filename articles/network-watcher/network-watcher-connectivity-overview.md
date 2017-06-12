@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 06/02/2017
+ms.date: 06/12/2017
 ms.author: gwallace
 ---
 
 # Introduction to connectivity in Azure Network Watcher
 
-The connectivity feature of Network Watcher provides the capability to test a direct TCP connection from a virtual machine to a VM, FQDN, or URI. Network scenarios are complex, they are implemented using Network Security Groups, firewalls, User-defined routes, and more. This complexity makes troubleshooting connection issues tough. Network Watcher helps reduce the amount of time to find and detect mis-configurations and connectivity issues.
+The connectivity feature of Network Watcher provides the capability to test a direct TCP connection from a virtual machine to a VM, fully qualified domain name (FQDN), or URI. Network scenarios are complex, they are implemented using Network Security Groups, firewalls, User-defined routes, and more resources provided by Azure. This complexity makes troubleshooting connection issues tough. Network Watcher helps reduce the amount of time to find and detect mis-configurations and connectivity issues. The results returned can provided insight into whether or not a connection issues is due to a platform issue or is a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
-## Heuristics
+## Fault types
 
-The connectivity test returns heuristics about the connection. The following table provides a list of the current heuristics ran and possible actions to take to resolve the issues found.
+The connectivity test returns fault types about the connection. The following table provides a list of the current fault types returned.
 
 |Heuristic Name  |Description  |
 |---------|---------|
@@ -68,16 +68,4 @@ Learn how to verify connectivity to a resource by visiting: [Test connectivity w
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
-
 
