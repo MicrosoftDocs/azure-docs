@@ -40,7 +40,7 @@ ARMclient is used to call the REST API using PowerShell. ARMClient is found on c
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
-For a list of supported gateway types visit, [Supported Gateway types](/network-watcher-troubleshoot-overview.md#supported-gateway-types).
+For a list of supported gateway types visit, [Supported Gateway types](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## Overview
 
