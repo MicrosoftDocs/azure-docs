@@ -189,10 +189,7 @@ The **Overview** page appears. This page gives you a view of how the app is doin
 
 ![App Service page in Azure portal](media/app-service-web-get-started-java/web-app-blade.png)
 
-### Clean up resources
-
-1. From the left menu, select **Resource Groups**, and then select the resource group that you created for this quickstart.
-2. Select **Delete**, which deletes all the resources that you created in the quickstart.
+[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
 ## Next steps
 
