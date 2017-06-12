@@ -219,13 +219,13 @@ Template workflow activities in Visual Studio TFS Team Build.
    deployment is being created.
 
    * To create a new cloud service, you can call this script or use
-     the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The cloud service name
+     the [Azure portal](https://portal.azure.com). The cloud service name
      will be used as a prefix in a fully qualified domain name and
      hence it must be unique.
 
          New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
    * To create a new storage account, you can call this script or use
-     the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). The storage account name
+     the [Azure portal](https://portal.azure.com). The storage account name
      will be used as a prefix in a fully qualified domain name and
      hence it must be unique. You can try using the same name as the
      cloud service.
@@ -249,7 +249,7 @@ Template workflow activities in Visual Studio TFS Team Build.
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
    This is typically followed up by test run verification and a VIP
-   swap. The VIP swap can be done via the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) or
+   swap. The VIP swap can be done via the [Azure portal](https://portal.azure.com) or
    by using the Move-Deployment cmdlet.
 
    **Example scenario 2:** continuous deployment to the production
@@ -285,7 +285,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 
    Alternatively you can export the certificate file PFX with private
    key and upload certificates to each target cloud service using the
-   [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+   [Azure portal](https://portal.azure.com).
 
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
