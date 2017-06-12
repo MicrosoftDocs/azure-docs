@@ -165,9 +165,9 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
 
 10. Repeat steps 8 and 9 above to add a new Scala object called `SparkSample`. To this class add the following code. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the seventh column in the CSV, and writes the output to **/HVACOut** under the default storage container for the cluster.
 
-       import org.apache.spark.SparkContext
+        import org.apache.spark.SparkContext
 
-       object SparkSample {
+        object SparkSample {
          def executeJob (sc: SparkContext, input: String, output: String): Unit = {
            val rdd = sc.textFile(input)
 
@@ -183,10 +183,10 @@ You should also create an Apache Spark cluster on Azure HDInsight that is part o
         }
 11. Repeat steps 8 and 9 above to add a new class called `RemoteClusterDebugging`. This class implements the Spark test framework that is used for debugging applications. Add the following code to the `RemoteClusterDebugging` class.
 
-       import org.apache.spark.{SparkConf, SparkContext}
-       import org.scalatest.FunSuite
+        import org.apache.spark.{SparkConf, SparkContext}
+        import org.scalatest.FunSuite
 
-       class RemoteClusterDebugging extends FunSuite {
+        class RemoteClusterDebugging extends FunSuite {
 
          test("Remote run") {
            val conf = new SparkConf().setAppName("SparkSample")
