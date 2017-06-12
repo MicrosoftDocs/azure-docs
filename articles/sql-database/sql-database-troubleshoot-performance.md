@@ -41,7 +41,7 @@ See the [performance guidance topic](sql-database-performance-guidance.md) to fi
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 >
 
-## Improving performance of your database
+## Optimize database to improve performance
 
 Azure SQL Database enables you to identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload.
 You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance. 
@@ -56,7 +56,7 @@ Finally, if there are no actionable items that can improve performance of your d
 1. For standalone databases, you can [change service tiers](sql-database-service-tiers.md) on-demand to improve database performance.
 2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 
-## Tune applicaton or database code
+## Tune and refactor application or database code
 
 You can change application code to more optimally use the database, change indexes, force plans, or use hints to manually adapt the database to your workload. Find some guidance and tips for manual tuning and rewriting the code in the [performance guidance topic](sql-database-performance-guidance.md) article.
 
