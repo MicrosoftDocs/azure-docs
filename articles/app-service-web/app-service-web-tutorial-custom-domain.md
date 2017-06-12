@@ -37,9 +37,9 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 
 To complete this tutorial:
 
-* You need to own a domain name and have access to the DNS registry for your domain provider (such as GoDaddy).
+* Purchase a domain name and make sure you have access to the DNS registry for your domain provider (such as GoDaddy).
 
-  For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain. 
+  For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 
   > [!NOTE]
   > If you don't have an existing domain name, consider [purchasing a domain using the Azure portal](custom-dns-web-site-buydomains-web-app.md). 
@@ -129,7 +129,7 @@ Select the **+** icon next to **Add hostname**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Type the fully qualified domain name for which you configured the CNAME record earlier (e.g. `www.contoso.com`), and then select **Validate**.
+Type the fully qualified domain name that you added a CNAME record for (such as `www.contoso.com`), and then select **Validate**.
 
 The **Add hostname** button is activated. 
 
@@ -197,7 +197,7 @@ Select the **+** icon next to **Add hostname**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-Type the fully qualified domain name for which you configured the A record earlier (for example, `contoso.com`), and then select **Validate**.
+Type the fully qualified domain name that you configured the A record for (such as `contoso.com`), and then select **Validate**.
 
 The **Add hostname** button is activated. 
 
@@ -245,7 +245,7 @@ Select the **+** icon next to **Add hostname**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Type the fully qualified domain name for a subdomain that matches your wildcard domain (for example, `sub1.contoso.com`), and then select **Validate**.
+Type a fully qualified domain name that matches your wildcard domain (for example, `sub1.contoso.com`), and then select **Validate**.
 
 The **Add hostname** button is activated. 
 
