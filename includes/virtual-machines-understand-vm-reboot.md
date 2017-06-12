@@ -1,25 +1,3 @@
----
-title: Understand a system reboot for Azure VM | Microsoft Docs
-description: Lists the events that can cause the VM to reboot
-services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: ''
-author: genlin
-manager: willchen
-editor: ''
-tags: ''
-
-ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
-ms.author: genli
-
----
-
-# Understand a system reboot for Azure VM
-
 Sometimes an Azure virtual machine (VM) may reboot for no apparent reason, with no evidence of a user initiating the reboot operation. This article lists the acitons and events that can cause VMs to reboot and provides insight into how to avoid unexpected reboot issues or reduce the impact of the issue.
 
 ## Configure the VMs for high availability
