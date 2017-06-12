@@ -108,9 +108,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.answerhub.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.demo.answerhub.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company>.answerhub.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company>.demo.answerhub.com`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [AnswerHub Client support team](mailto:success@answerhub.com) to get these values. 
@@ -148,7 +148,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
      b. In **IDP Logout URL** textbox, paste **Sign-Out URL** value which you have copied from Azure portal.
 	 
-     c. In **IDP Name Identifier Format** textbox, enter the user Identifier value same as selected in Azure portal in **User Attributes** section.
+     c. In **IDP Name Identifier Format** textbox, enter the user Identifier value same as selected in Azure portal under **User Attributes** section.
   
      d. Click **Keys and Certificates**.
 
