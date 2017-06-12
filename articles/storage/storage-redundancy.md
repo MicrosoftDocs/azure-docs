@@ -107,8 +107,8 @@ When you create a storage account, you select the primary region for the account
 | India West |India South |
 | US Gov Iowa |US Gov Virginia |
 | US Gov Virginia |US Gov Texas |
-| US Gov Texas |US Gov Arizona|
-| US Gov Arizona |US Gov Texas|
+| US Gov Texas |US Gov Arizona |
+| US Gov Arizona |US Gov Texas |
 | Canada Central |Canada East |
 | Canada East |Canada Central |
 | UK West |UK South |
@@ -120,7 +120,7 @@ When you create a storage account, you select the primary region for the account
 
 For up-to-date information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/regions/).
 
-[!NOTE]  
+>[!NOTE]  
 > US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region. 
 > 
 > 
