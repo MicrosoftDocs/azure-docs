@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/12/2017
 ms.author: billmath
 
 # Managing guest access with access reviews
@@ -98,6 +98,11 @@ In some organizations, guests may not be aware of their group
 4. Once the reviewers have given input, stop the access review. Read more at [how to complete an access review](active-directory-azure-ad-controls-how-to-complete-access-review.md).
 5. Remove the guest access for guests who were denied, did not complete the review, or had not previously accepted their invite.   If some of the guests are contacts who were selected to participate in the review as they had not previously accepted an invite, then you may wish to disable their account from sign on, using the Azure portal or PowerShell.  If the guest no longer needs access and is not a contact, then their user object can be removed from your directory, using the Azure portal or PowerShell.
 
+## Next Steps
+
+- [How to review your access](active-directory-azure-ad-controls-how-to-perform-access-review.md)
+- [How to complete an access review of members of a group or access to an application](active-directory-azure-ad-controls-how-to-complete-access-review.md)
+- [How to create an access review for members of a group or access to an application](active-directory-azure-ad-controls-how-to-create-access-review.md)
 
 
 

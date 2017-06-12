@@ -1,6 +1,6 @@
 ---
 title: How to complete an access review of members of a group or users with access to an application| Microsoft Docs
-description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Dorectory. 
+description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
 author: mwahl
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/12/2017
 ms.author: billmath
 
 
-# How to complete an access review of members of a group or access to an application
+# How to complete an access review of members of a group or access to an application in Azure AD
 
 Administrators can ask for a review of group members or users assigned to an application by [creating an access review](active-directory-azure-ad-controls-how-to-create-access-review.md). Azure AD will automatically send the reviewers an email prompting them to review  access. If a user did not get an email, you can send them the instructions
 in [how to review access](active-directory-azure-ad-controls-how-to-perform-access-review.md).  After the access review period is over, or the administrator has stopped the access review, follow the steps in this article to see and apply the results.
@@ -51,6 +51,8 @@ If you are not interested in the review any further, delete it. The **Delete** b
 
 
 
-
+## Next Steps
+- [How to review your access](active-directory-azure-ad-controls-how-to-perform-access-review.md)
+- [How to create an access review for members of a group or access to an application](active-directory-azure-ad-controls-how-to-create-access-review.md)
 
 

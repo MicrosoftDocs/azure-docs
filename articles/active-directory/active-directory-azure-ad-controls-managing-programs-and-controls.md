@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/12/2017
 ms.author: billmath
 ---
 
@@ -28,4 +28,8 @@ There is one program, "Default Program", always present.  If you are in a global
 
 If you no longer need a program, and it does not have any controls linked to it, you can delete it.
 
+## Next Steps
 
+- [How to review your access](active-directory-azure-ad-controls-how-to-perform-access-review.md)
+- [How to complete an access review of members of a group or access to an application](active-directory-azure-ad-controls-how-to-complete-access-review.md)
+- [How to create an access review for members of a group or access to an application](active-directory-azure-ad-controls-how-to-create-access-review.md)

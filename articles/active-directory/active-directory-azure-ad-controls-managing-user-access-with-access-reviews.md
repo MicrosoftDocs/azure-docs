@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 06/12/2017
 ms.author: billmath
 
 
@@ -42,7 +42,14 @@ You can have one or more users as participate in an access review, in six steps.
 6. Once the reviewers have given input, stop the access review and apply the changes. Read more at [how to complete an access review](active-directory-azure-ad-controls-how-to-complete-access-review.md).
 
 
+## Next Steps
 
+
+
+
+- [How to review your access](active-directory-azure-ad-controls-how-to-perform-access-review.md)
+- [How to complete an access review of members of a group or access to an application](active-directory-azure-ad-controls-how-to-complete-access-review.md)
+- [How to create an access review for members of a group or access to an application](active-directory-azure-ad-controls-how-to-create-access-review.md)
 
 
 
