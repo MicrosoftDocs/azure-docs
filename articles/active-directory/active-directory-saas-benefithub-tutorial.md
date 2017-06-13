@@ -112,22 +112,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   	
 	b. In the **Reply URL** textbox, type: `https://passport.benefithub.info/saml/post/ac`
 
-	> [!NOTE] 
-	> These values are not real. Update these value with the actual Identifier and Reply URL. Contact [BenefitHub support team](https://www.benefithub.com/Home/ContactUs) to get these values.
- 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
-
-	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_certificate.png) 
-
-5. The BenefitHub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
+4. The BenefitHub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_attribute.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
 	
 	| Attribute Name | Attribute Value |
 	| ------------------- | -------------------- |    
-	| organizationid | "< organizationid >" |
+	| organizationid | < organizationid > |
 
 	> [!NOTE]
 	> This attribute value is not real. Update this value with actual organizationid. Contact [BenefitHub support team](https://www.benefithub.com/Home/ContactUs) to get the actual organizationid.
@@ -146,6 +139,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	> [!NOTE] 
 	> Before you can configure the SAML assertion, you need to contact your [BenefitHub support](https://www.adp.com/contact-us/overview.aspx) and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application.
+
+6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+
+	![Configure Single Sign-On](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_certificate.png) 
 
 7. Click **Save** button.
 
