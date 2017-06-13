@@ -181,11 +181,11 @@ Traffic manager cannot provide any certificate validation, including:
 
 ### Can I use Traffic Manager even if my application does not have support for HTTP or HTTPS?
 
-	Yes. You can specify TCP as the monitoring protocol and Traffic Manager can initiate a TCP connection and wait for a response from the endpoint. If the endpoint replies to the connection request with a response to establish the connection, within the timeout period, then that endpoint is marked as healthy.
+Yes. You can specify TCP as the monitoring protocol and Traffic Manager can initiate a TCP connection and wait for a response from the endpoint. If the endpoint replies to the connection request with a response to establish the connection, within the timeout period, then that endpoint is marked as healthy.
 
 ### What specific responses are required from the endpoint when using TCP monitoring?
 
-	When TCP monitoring is used, Traffic Manager starts a three-way TCP handshake by sending a SYN request to endpoint at the specified port. It then waits for a period of time (as specified in the timeout settings) for a response from the endpoint. If the endpoint responds to the SYN request with a SYN-ACK response within the timeout period specified in the monitoring settings, then that endpoint is considered healthy. If the SYN-ACK response is received, the Traffic Manager resets the connection by responding back with a RST.
+When TCP monitoring is used, Traffic Manager starts a three-way TCP handshake by sending a SYN request to endpoint at the specified port. It then waits for a period of time (as specified in the timeout settings) for a response from the endpoint. If the endpoint responds to the SYN request with a SYN-ACK response within the timeout period specified in the monitoring settings, then that endpoint is considered healthy. If the SYN-ACK response is received, the Traffic Manager resets the connection by responding back with a RST.
 
 ### How fast does Traffic Manager move my users away from an unhealthy endpoint?
 
