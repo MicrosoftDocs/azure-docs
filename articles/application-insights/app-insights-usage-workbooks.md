@@ -17,11 +17,12 @@ ms.author: cfreeman
 
 # Share results with your team using Workbooks that combine live data and text in Application Insights
 
-TBD
-
 TBD - have a link to [Azure Application Insights](app-insights-overview.md).
 
-## Get started
+TBD - When to use Workbooks versus other things?
+
+
+## Getting Started
 
 TBD
 
@@ -31,9 +32,27 @@ TBD - provided you have [instrumented it](app-insights-javascript.md).
 
     A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](app-insights-api-custom-events-metrics.md#trackevent).
 
-## TBD
+## Editing Workbook Items
+
+TBD
+
+## Adding Usage Analytics Items
+
+TBD
+
+## Adding Application Insights Analytics Items
+
+TBD
+
+## Adding Text and Markdown Items
+
+TBD - link to explaining Markdown
+
+## Sharing Workbooks with Your Team
 
 TBD. 
+
+TBD - mention Pin to Dashbaord
 
 ![TBD - photo](./media/app-insights-usage-workbooks/tbd.png)
 
