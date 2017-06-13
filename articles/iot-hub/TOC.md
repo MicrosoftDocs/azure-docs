@@ -153,7 +153,7 @@
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js SDKs](http://azure.github.io/azure-iot-sdk-node/)
-## [C&nbsp;device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
+## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
