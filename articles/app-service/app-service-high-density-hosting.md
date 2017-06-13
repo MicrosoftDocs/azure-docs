@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 06/12/2017
 ms.author: byvinyal
 
 ---
@@ -23,7 +23,7 @@ allocated to it by two concepts:
 
 * **The Application:** Represents the app and its runtime configuration. For 
 example, it includes the version of .NET that the runtime should load, the 
-app settings, etc.
+app settings.
 * **The App Service Plan:** Defines the characteristics of the capacity, 
 available feature set, and locality of the application. For example, 
 characteristics might be large (four cores) machine, four instances, Premium
@@ -46,8 +46,7 @@ App Service plan level and then used per application.
 
 Per app scaling scales an app independently from the
 App Service plan that hosts it. This way, an App Service plan
-can be configured to provide 10 instances, but an app can be set to scale to
-only 5 of them.
+can be scaled to 10 instances, but an app can be set to use only five.
 
    >[!NOTE]
    >Per app scaling is available only for **Premium** SKU App Service plans
@@ -55,7 +54,7 @@ only 5 of them.
 
 ### Per app scaling using PowerShell
 
-You can create a new plan configured as a *Per app scaling* plan 
+You can create a plan configured as a *Per app scaling* plan 
 by passing in the ```-perSiteScaling $true``` attribute to the 
 ```New-AzureRmAppServicePlan``` commandlet
 
@@ -73,34 +72,36 @@ If you want to update an existing App Service plan to use this feature:
 - posting your changes back to azure ```Set-AzureRmAppServicePlan``` 
 
 ```
-    # Get the new App Service Plan and modify the "PerSiteScaling" property.
-    $newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-    $newASP
+# Get the new App Service Plan and modify the "PerSiteScaling" property.
+$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
+$newASP
 
-    #Modify the local copy to use "PerSiteScaling" property.
-    $newASP.PerSiteScaling = $true
-    $newASP
+#Modify the local copy to use "PerSiteScaling" property.
+$newASP.PerSiteScaling = $true
+$newASP
     
-    #Post updated app service plan back to azure
-    Set-AzureRmAppServicePlan $newASP
+#Post updated app service plan back to azure
+Set-AzureRmAppServicePlan $newASP
 ```
 
-Once you have a plan that has been configured, you can set the maximum number 
-of instances that each of the apps.
+At the app level, we need to configure the number of instances the app can use in the app service plan.
 
-In the example below, the app is limited to two instances maximum regardless 
+In the example below, the app is limited to two instances regardless 
 of how many instances the underlying app service plan scales out to.
 
 ```
-    # Get the app we want to configure to use "PerSiteScaling"
-    $newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
+# Get the app we want to configure to use "PerSiteScaling"
+$newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
     
-    # Modify the NumberOfWorkers setting to the desired value.
-    $newapp.SiteConfig.NumberOfWorkers = 2
+# Modify the NumberOfWorkers setting to the desired value.
+$newapp.SiteConfig.NumberOfWorkers = 2
     
-    # Post updated app back to azure
-    Set-AzureRmWebApp $newapp
+# Post updated app back to azure
+Set-AzureRmWebApp $newapp
 ```
+
+> [!IMPORTANT]
+> $newapp.SiteConfig.NumberOfWorkers is different form $newapp.MaxNumberOfWorkers. Per app scaling uses $newapp.SiteConfig.NumberOfWorkers to determine the scale characteristics of the app.
 
 ### Per app scaling using Azure Resource Manager
 
@@ -114,54 +115,54 @@ to true ```"perSiteScaling": true```. The app is setting the **number of workers
 to use to 5 ```"properties": { "numberOfWorkers": "5" }```.
 
 ```
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters":{
-            "appServicePlanName": { "type": "string" },
-            "appName": { "type": "string" }
-         },
-        "resources": [
-        {
-            "comments": "App Service Plan with per site perSiteScaling = true",
-            "type": "Microsoft.Web/serverFarms",
-            "sku": {
-                "name": "P1",
-                "tier": "Premium",
-                "size": "P1",
-                "family": "P",
-                "capacity": 10
-                },
-            "name": "[parameters('appServicePlanName')]",
-            "apiVersion": "2015-08-01",
-            "location": "West US",
-            "properties": {
-                "name": "[parameters('appServicePlanName')]",
-                "perSiteScaling": true
-            }
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":{
+        "appServicePlanName": { "type": "string" },
+        "appName": { "type": "string" }
         },
-        {
-            "type": "Microsoft.Web/sites",
-            "name": "[parameters('appName')]",
-            "apiVersion": "2015-08-01-preview",
-            "location": "West US",
-            "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
-            "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
-            "resources": [ {
-                    "comments": "",
-                    "type": "config",
-                    "name": "web",
-                    "apiVersion": "2015-08-01",
-                    "location": "West US",
-                    "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
-                    "properties": { "numberOfWorkers": "5" }
-             } ]
-         }]
-    }
+    "resources": [
+    {
+        "comments": "App Service Plan with per site perSiteScaling = true",
+        "type": "Microsoft.Web/serverFarms",
+        "sku": {
+            "name": "P1",
+            "tier": "Premium",
+            "size": "P1",
+            "family": "P",
+            "capacity": 10
+            },
+        "name": "[parameters('appServicePlanName')]",
+        "apiVersion": "2015-08-01",
+        "location": "West US",
+        "properties": {
+            "name": "[parameters('appServicePlanName')]",
+            "perSiteScaling": true
+        }
+    },
+    {
+        "type": "Microsoft.Web/sites",
+        "name": "[parameters('appName')]",
+        "apiVersion": "2015-08-01-preview",
+        "location": "West US",
+        "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
+        "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
+        "resources": [ {
+                "comments": "",
+                "type": "config",
+                "name": "web",
+                "apiVersion": "2015-08-01",
+                "location": "West US",
+                "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
+                "properties": { "numberOfWorkers": "5" }
+            } ]
+        }]
+}
 ```
 
 ## Recommended configuration for high density hosting
-Per app scaling is a feature that is enabled in both public Azure regions
+Per app scaling is a feature that is enabled in both global Azure regions
 and App Service Environments. However, the recommended strategy is to
 use App Service Environments to take advantage of their advanced features and the larger
 pools of capacity.  
@@ -170,14 +171,14 @@ Follow these steps to configure
 high density hosting for your apps:
 
 1. Configure the App Service Environment and choose a worker pool that is dedicated to the high density hosting scenario.
-2. Create a single App Service plan, and scale it to use all the available
+1. Create a single App Service plan, and scale it to use all the available
    capacity on the worker pool.
-3. Set the PerSiteScaling flag to true on the App Service plan.
-4. New apps are created and assigned to that App Service plan with the
+1. Set the PerSiteScaling flag to true on the App Service plan.
+1. New apps are created and assigned to that App Service plan with the
    **numberOfWorkers** property set to **1**. Using this configuration yields the 
    highest density possible on this worker pool.
-5. The number of workers can be configured independently per app to grant
-   additional resources as needed. For example, a high-use app might set
-   **numberOfWorkers** to **3** to have more processing capacity for that app, while
-   low-use apps would set **numberOfWorkers** to **1**.
-
+1. The number of workers can be configured independently per app to grant
+   additional resources as needed. For example:
+    - A high-use app can set **numberOfWorkers** to **3** to have more 
+      processing capacity for that app. 
+    - low-use apps would set **numberOfWorkers** to **1**.
