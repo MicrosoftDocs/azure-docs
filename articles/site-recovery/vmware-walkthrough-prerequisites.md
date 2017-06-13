@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: raynew
-
 ---
+
 # Step 2: Review the prerequisites for VMware to Azure replication
 
 
