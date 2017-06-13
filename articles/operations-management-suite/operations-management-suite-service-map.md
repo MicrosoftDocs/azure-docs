@@ -62,35 +62,42 @@ Depending on the severity of the status badges, machine node borders can be colo
 Machine Groups allow you to see maps centered around a set of servers, not just one so you can see all the members of a multi-tier application or server cluster in one map.
 
 Users select which servers belong in a group together and choose a name for the group.  You can then choose to view the group with all of its processes and connections, or view it with only the processes and connections that directly relate to the other members of the group.
+
 ![Machine Group](media/oms-service-map/machine-group.png)
 
 ### Creating a Machine Group
 To create a group, select the machine or machines you want in the Machines list and click **Add to group**.
+
 ![Create Group](media/oms-service-map/machine-groups-create.png)
 
 There, you can choose **Create new** and give the group a name.
+
 ![Name Group](media/oms-service-map/machine-groups-name.png)
 
 ### Viewing a Group
 Once you’ve created some groups, you can view them by choosing the Groups tab.
+
 ![Groups tab](media/oms-service-map/machine-groups-tab.png)
 
 Then select the Group name to view the map for that Machine Group.
 ![Machine Group](media/oms-service-map/machine-group.png) 
+The machines that belong to the group are outlined in white in the map.
 
 Expanding the Group will list the machines that make up the Machine Group.
-![Machine Group machines](media/oms-service-map/machine-groups-machines.png)
 
-The machines that belong to the group are outlined in white in the map.
+![Machine Group machines](media/oms-service-map/machine-groups-machines.png)
 
 ### Filter by processes
 You can toggle the map view between showing all processes and connections in the Group and only the ones that directly relate to the Machine Group.  The default view is to show all processes.  You can change the view by clicking the filter icon above the map.
+
 ![Filter Group](media/oms-service-map/machine-groups-filter.png)
 
-When **All processes** is selected, the map will include all processes and connections on each of the machines in the Group:
+When **All processes** is selected, the map will include all processes and connections on each of the machines in the Group.
+
 ![Machine Group all processes](media/oms-service-map/machine-groups-all.png)
 
-If you change the view to show only **group-connected processes**, the map will be narrowed down to only those processes and connections that are directly connected to other machines in the group, creating a simplified view:
+If you change the view to show only **group-connected processes**, the map will be narrowed down to only those processes and connections that are directly connected to other machines in the group, creating a simplified view.
+
 ![Machine Group filtered processes](media/oms-service-map/machine-groups-filtered.png)
  
 ### Adding machines to a group
@@ -98,10 +105,12 @@ To add machines to an existing group, check the boxes next to the machines you w
  
 ### Removing machines from a group
 In the Groups List, expand the group name to list the machines in the Machine Group.  Then, click on the ellipsis menu next to the machine you want to remove and choose **Remove**.
+
 ![Remove machine from group](media/oms-service-map/machine-groups-remove.png)
 
 ### Removing or renaming a group
 Click on the ellipsis menu next to the group name in the Group List.
+
 ![Machine group menu](media/oms-service-map/machine-groups-menu.png)
 
 
