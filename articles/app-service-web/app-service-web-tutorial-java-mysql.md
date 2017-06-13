@@ -41,6 +41,8 @@ In this tutorial, you learn how to:
 1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 1. [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prepare local MySQL 
@@ -82,7 +84,7 @@ In this step, you clone sample Spring boot app, configure it to use the local My
 From the command prompt, navigate to a working directory and clone the sample repository. 
 
 ```bash
-git clone https://github.com/Azure-Samples/spring-boot-appservice-mysql.git
+git clone https://github.com/azure-samples/mysql-spring-boot-todo
 ```
 
 ### Configure the app to use the MySQL database
@@ -117,7 +119,7 @@ In this step, you create an [Azure Database for MySQL](../mysql/quickstart-creat
 
 Use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Java application in Azure appservice. Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
 ```   
 
@@ -127,7 +129,7 @@ Create a [resource group](../azure-resource-manager/resource-group-overview.md) 
 
 The following example creates a resource group in the North Europe region:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "North Europe"
 ```    
 
@@ -138,12 +140,12 @@ To see the possible values you can use for `--location`, use the [az appservice 
 Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.    
 Substitute your own unique MySQL server name where you see the `<mysql_server_name>` placeholder. This name is part of your MySQL server's hostname, `<mysql_server_name>.mysql.database.azure.com`, so it needs to be globally unique. Also substitute `<admin_user>` and `<admin_password>` with your own values.
 
-```azurecli
+```azurecli-interactive
 az mysql server create --name <mysql_server_name> \ 
---resource-group myResourceGroup \ 
---location "North Europe" \
---admin-user <admin_user> \ 
---admin-password <admin_password>
+    --resource-group myResourceGroup \ 
+    --location "North Europe" \
+    --admin-user <admin_user> \ 
+    --admin-password <admin_password>
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
@@ -166,13 +168,13 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command. 
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
---name allIPs \
---server <mysql_server_name>  \ 
---resource-group myResourceGroup \ 
---start-ip-address 0.0.0.0 \ 
---end-ip-address 255.255.255.255
+    --name allIPs \
+    --server <mysql_server_name>  \ 
+    --resource-group myResourceGroup \ 
+    --start-ip-address 0.0.0.0 \ 
+    --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -213,11 +215,11 @@ quit
 
 Create an Azure App Service plan with the **FREE** pricing tier using the  [az appservice plan create](/cli/azure/appservice/plan#create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
 
-```azurecli
+```azurecli-interactive
 az appservice plan create \
---name myAppServicePlan \ 
---resource-group myResourceGroup \
---sku FREE
+    --name myAppServicePlan \ 
+    --resource-group myResourceGroup \
+    --sku FREE
 ```
 
 When the plan is ready, the Azure CLI shows similar output to the following example:
@@ -242,11 +244,11 @@ When the plan is ready, the Azure CLI shows similar output to the following exam
 
  Use the [az webapp create](/cli/azure/appservice/web#create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
 
-```azurecli
+```azurecli-interactive
 az webapp create \
---name <app_name> \ 
---resource-group myResourceGroup \
---plan myAppServicePlan
+    --name <app_name> \ 
+    --resource-group myResourceGroup \
+    --plan myAppServicePlan
 ```
 
 Substitute the `<app_name>` placeholder with your own unique app name. This unique name is part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can map a custom domain name entry to the web app before you expose it to your users.
@@ -274,13 +276,13 @@ Set up the Java runtime configuration that your app needs with the  [az appservi
 
 The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
-```azurecli
+```azurecli-interactive
 az webapp config set \ 
---name <app_name> \
---resource-group myResourceGroup \ 
---java-version 1.8 \ 
---java-container Tomcat \
---java-container-version 8.0
+    --name <app_name> \
+    --resource-group myResourceGroup \ 
+    --java-version 1.8 \ 
+    --java-container Tomcat \
+    --java-container-version 8.0
 ```
 
 ### Configure the app to use the Azure SQL database
@@ -289,25 +291,25 @@ Before running the sample app, set application settings on the web app to use th
 
 Set application settings using [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) in the CLI:
 
-```azurecli
-az webapp config appsettings set --settings  \ 
-SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" \
---resource-group myResourceGroup \
---name app_name
+```azurecli-interactive
+az webapp config appsettings set \
+    --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" \
+    --resource-group myResourceGroup \
+    --name <app_name>
 ```
 
-```azurecli
-az webapp config appsettings set --settings  \ 
-SPRING_DATASOURCE_USERNAME=Javaapp_user@mysql_server_name  \
---resource-group myResourceGroup \ 
---name app_name
+```azurecli-interactive
+az webapp config appsettings set \
+    --settings SPRING_DATASOURCE_USERNAME=Javaapp_user@mysql_server_name  \
+    --resource-group myResourceGroup \ 
+    --name <app_name>
 ```
 
-```azurecli
-az webapp config appsettings set --settings  \ 
-SPRING_DATASOURCE_URL=Javaapp_password   \
---resource-group myResourceGroup \ 
---name app_name
+```azurecli-interactive
+az webapp config appsettings set \
+    --settings SPRING_DATASOURCE_URL=Javaapp_password \
+    --resource-group myResourceGroup \ 
+    --name <app_name>
 ```
 
 ### Get FTP deployment credentials 
@@ -316,12 +318,12 @@ For this example, FTP to deploy the .WAR file built previously on your local mac
 
 To determine what credentials to pass along in an ftp command to the Web App, Use [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles) command: 
 
-```azurecli
+```azurecli-interactive
 az webapp deployment list-publishing-profiles \ 
---name <app_name> \ 
---resource-group myResourceGroup \
---query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" \ 
---output json
+    --name <app_name> \ 
+    --resource-group myResourceGroup \
+    --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" \ 
+    --output json
 ```
 
 ```JSON
@@ -364,62 +366,63 @@ Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list
 Update the application to include an additional column in the todo list for what day the item was created. Spring Boot handles updating the database schema for you as the data model changes without altering your existing database records.
 
 1. On your local system, open up *src/main/java/com/example/fabrikam/TodoItem.java* and add the following imports to the class:   
-   ```java
-   import java.text.SimpleDateFormat;
-   import java.util.Calendar;
-  ```
+
+    ```java
+    import java.text.SimpleDateFormat;
+    import java.util.Calendar;
+    ```
 
 2. Add a `String` property `timeCreated` to *src/main/java/com/example/fabrikam/TodoItem.java*, initializing it with a timestamp at object creation. Add getters/setters for the new `timeCreated` property while you are editing this file.
 
     ```java
-   private String name;
-   private boolean complete;
-   private String timeCreated;
-   ...
+    private String name;
+    private boolean complete;
+    private String timeCreated;
+    ...
 
-   public TodoItem(String category, String name) {
-      this.category = category;
-      this.name = name;
-      this.complete = false;
-      this.timeCreated = new SimpleDateFormat("MMMM dd, YYYY").format(Calendar.getInstance().getTime());
-   }
-   ...
-   public void setTimeCreated(String timeCreated) {
-      this.timeCreated = timeCreated;
-  }
+    public TodoItem(String category, String name) {
+       this.category = category;
+       this.name = name;
+       this.complete = false;
+       this.timeCreated = new SimpleDateFormat("MMMM dd, YYYY").format(Calendar.getInstance().getTime());
+    }
+    ...
+    public void setTimeCreated(String timeCreated) {
+       this.timeCreated = timeCreated;
+    }
 
-   public String getTimeCreated() {
-       return timeCreated;
-   }
-   ```
+    public String getTimeCreated() {
+        return timeCreated;
+    }
+    ```
 
 3. Update *src/main/java/com/example/fabrikam/TodoDemoController.java* with a line in the `updateTodo` method to set the timestamp:
 
-   ```java
-   item.setComplete(requestItem.isComplete());
-   item.setId(requestItem.getId());
-   item.setTimeCreated(requestItem.getTimeCreated());
-   repository.save(item);
-   ```
+    ```java
+    item.setComplete(requestItem.isComplete());
+    item.setId(requestItem.getId());
+    item.setTimeCreated(requestItem.getTimeCreated());
+    repository.save(item);
+    ```
 
 4. Add support for the new field in the Thymeleaf template. Update *src/main/resources/templates/index.html* with a new table header for the timestamp, and a new field to display the value of the timestamp in each table data row.
 
-   ```html
-   <th>Name</th>
-   <th>Category</th>
-   <th>Time Created</th>
-   <th>Complete</th>
-   ...
-   <td th:text="${item.category}">item_category</td><input type="hidden" th:field="*{todoList[__${i.index}__].category}"/>
-   <td th:text="${item.timeCreated}">item_time_created</td><input type="hidden" th:field="*{todoList[__${i.index}__].timeCreated}"/>
-   <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
-   ```
+    ```html
+    <th>Name</th>
+    <th>Category</th>
+    <th>Time Created</th>
+    <th>Complete</th>
+    ...
+    <td th:text="${item.category}">item_category</td><input type="hidden" th:field="*{todoList[__${i.index}__].category}"/>
+    <td th:text="${item.timeCreated}">item_time_created</td><input type="hidden" th:field="*{todoList[__${i.index}__].timeCreated}"/>
+    <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
+    ```
 
 5. Rebuild the application:
 
-   ```bash
-   mvnw clean package 
-   ```
+    ```bash
+    mvnw clean package 
+    ```
 
 6. FTP the updated .WAR as before, removing the existing *site/wwwroot/webapps/ROOT* directory and *ROOT.war*, then uploading the updated .WAR file as ROOT.war. 
 
@@ -433,7 +436,7 @@ While your Java application runs in Azure App Service, you can get the console l
 
 To start log streaming, use the [az webapp log tail](/cli/azure/appservice/web/log#tail) command.
 
-```azurecli 
+```azurecli-interactive 
 az webapp log tail \
     --name <app_name> \
     --resource-group myResourceGroup 
@@ -464,7 +467,7 @@ These tabs in the blade show the many great features you can add to your web app
 
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
   
-```azurecli 
+```azurecli-interactive
 az group delete --name myResourceGroup 
 ``` 
 

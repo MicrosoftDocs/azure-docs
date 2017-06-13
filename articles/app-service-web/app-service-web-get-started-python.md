@@ -32,6 +32,8 @@ To complete this tutorial:
 1. [Install Python](https://www.python.org/downloads/)
 1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Download the sample
@@ -82,7 +84,7 @@ You’ve created an empty new web app in Azure.
 
 Use the [az appservice web config update](/cli/azure/app-service/web/config#update) command to configure the web app to use Python version `3.4`.
 
-```azurecli
+```azurecli-interactive
 az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 

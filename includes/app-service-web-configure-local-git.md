@@ -6,7 +6,7 @@ App Service supports several ways to deploy content to a web app, such as FTP, l
 
 In the following command, replace *\<app_name>* with your web app's name.
 
-```azurecli
+```azurecli-interactive
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
 ```
 

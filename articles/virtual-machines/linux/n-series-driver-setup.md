@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 06/08/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -101,9 +101,6 @@ Then run commands specific for your distribution.
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT] 
-> Because of a known issue, NVIDIA CUDA driver installation fails on NC24r VMs running CentOS 7.3 or Red Hat Enterprise Linux 7.3.
->
 
 1. Get updates. 
 
@@ -112,8 +109,21 @@ Then run commands specific for your distribution.
 
   sudo reboot
   ```
-
-2. Reconnect to the VM and continue installation with the following commands:
+2. Reconnect to the VM and install the latest Linux Integration Services for Hyper-V:
+ 
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.1.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Reconnect to the VM and continue installation with the following commands:
 
   ```bash
   sudo yum install kernel-devel
@@ -135,13 +145,13 @@ Then run commands specific for your distribution.
 
   The installation can take several minutes. 
 
-3. To optionally install the complete CUDA toolkit, type:
+4. To optionally install the complete CUDA toolkit, type:
 
   ```bash
   sudo yum install cuda
   ```
 
-4. Reboot the VM and proceed to verify the installation.
+5. Reboot the VM and proceed to verify the installation.
 
 
 ### Verify driver installation
@@ -193,14 +203,18 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 
   ```bash
   sudo apt-get update
+
   sudo apt-get upgrade -y
+
   sudo apt-get dist-upgrade -y
+
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
 3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
 
   ```
   blacklist nouveau
+
   blacklist lbm-nouveau
   ```
 
@@ -228,7 +242,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
   ```
   IgnoreSP=TRUE
   ```
-8. Reboot, and proceed to verify the installation.
+8. Reboot the VM and proceed to verify the installation.
 
 
 ### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
@@ -250,15 +264,16 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 
   ```
   blacklist nouveau
+
   blacklist lbm-nouveau
   ```
  
 3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.0.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
  
-  tar xvzf lis-rpms-4.2.0.tar.gz
+  tar xvzf lis-rpms-4.2.1.tar.gz
  
   cd LISISO
  
@@ -285,7 +300,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
   ```
   IgnoreSP=TRUE
   ```
-8. Reboot, and proceed to verify the installation.
+8. Reboot the VM and proceed to verify the installation.
 
 ### Verify driver installation
 
