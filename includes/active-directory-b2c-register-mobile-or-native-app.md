@@ -1,8 +1,6 @@
-[!INCLUDE [active-directory-b2c-portal-add-application](../../Users/patricka/git/azure-docs-pr/includes/active-directory-b2c-portal-add-application.md)]
+[!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Enter a **Name** for the application that describes your application to consumers. For example, you could enter "Contoso B2C app".
-
-![+ Add button in the applications blade](./media/active-directory-b2c-app-registration/b2c-applications-add.png)
 
 Toggle the **Include native client** switch to **Yes**.
 

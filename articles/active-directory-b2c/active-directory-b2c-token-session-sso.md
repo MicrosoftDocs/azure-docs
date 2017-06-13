@@ -27,7 +27,7 @@ This feature gives you fine-grained control, on a [per-policy basis](active-dire
 
 You can use this feature in your B2C tenant as follows:
 
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-settings-blade) on the Azure portal.
+1. Follow these steps to [navigate to the B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
 2. Click **Sign-in policies**. *Note: You can use this feature on any policy type, not just on **Sign-in policies***.
 3. Open a policy by clicking it. For example, click on **B2C_1_SiIn**.
 4. Click **Edit** at the top of the blade.

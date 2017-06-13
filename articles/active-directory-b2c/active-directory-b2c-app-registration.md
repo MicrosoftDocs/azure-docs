@@ -33,7 +33,7 @@ To build an application that accepts consumer sign-up and sign-in, you first nee
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Navigate to the B2C settings
+## Navigate to B2C settings
 
 Log in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. 
 

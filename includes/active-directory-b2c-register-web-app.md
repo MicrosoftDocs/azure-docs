@@ -4,11 +4,11 @@ Enter a **Name** for the application that describes your application to consumer
 
 Toggle the **Web app / Web API** switch to **Yes**.
 
-If your application needs to use [OpenID Connect sign-in](active-directory-b2c-reference-oidc.md), toggle the **Allow implicit flow** toggle to **Yes**.
+If your application needs to use [OpenID Connect sign-in](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md), toggle the **Allow implicit flow** toggle to **Yes**.
 
 The **Reply URLs** are endpoints where Azure AD B2C returns any tokens that your application requests. For example, enter `https://contoso.com/b2capp`.
 
-![Example settings in the new application blade](./media/active-directory-b2c-app-registration/b2c-new-app-settings.png)
+![Example settings in the new application blade](./media/active-directory-b2c-register-web-app/b2c-new-app-settings.png)
 
 Click **Create** to register your application. Your application is now registered and will be listed in the applications list for the B2C tenant.
 
