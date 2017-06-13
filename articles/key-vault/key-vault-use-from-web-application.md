@@ -132,6 +132,7 @@ Another way to authenticate an Azure AD application is by using a Client ID and 
 
 **Get or Create a Certificate**
 For our purposes we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
+
     makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
     pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
