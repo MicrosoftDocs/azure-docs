@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
-ms.date: 05/26/2016
+ms.date: 06/13/2017
 ms.author: rachelap
 
 ---
@@ -57,7 +57,7 @@ This quickstart shows how to create an [Express](http://expressjs.com/) framewor
 
 This section of the tutorial models an API development workflow in which you create Swagger metadata first and use that to scaffold (auto-generate) server code for the API. 
 
-1. Change directory to the *start* folder, then run `yo swaggerize`. Swaggerize creates a Node.js project for your API from the Swagger definition in *api.json*.
+Change directory to the *start* folder, then run `yo swaggerize`. Swaggerize creates a Node.js project for your API from the Swagger definition in *api.json*.
 
     ```bash
     cd start
