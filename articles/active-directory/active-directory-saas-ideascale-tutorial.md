@@ -108,12 +108,16 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/tutorial_ideascale_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.ideascale.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.ideascale.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.ideascale.com`
+	b. In the **Identifier** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `http://<companyname>.ideascale.com`  |
+	| `https://<companyname>.ideascale.com` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact [IdeaScale Client support team](http://support.ideascale.com/) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [IdeaScale Client support team](http://support.ideascale.com/) to get these values. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -123,29 +127,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/tutorial_general_400.png)
 
-6. In a different web browser window, log in to your IdeaScale company site as an administrator.
+6. On the **IdeaScale Configuration** section, click **Configure IdeaScale** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Entity ID** from the **Quick Reference section**.
 
-7. Go to **Community Settings**.
+	![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/tutorial_ideascale_configure.png) 
+
+7. In a different web browser window, log in to your IdeaScale company site as an administrator.
+
+8. Go to **Community Settings**.
    
-    ![Community Settings](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Community Settings")
+    ![Community Settings](./media/active-directory-saas-ideascale-tutorial/ic790847.png "Community Settings")
 
-8. Go to **Security \> Single Signon Settings**.
+9. Go to **Security \> Single Signon Settings**.
    
-    ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/IC790848.png "Single Signon Settings")
+    ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/ic790848.png "Single Signon Settings")
 
-9. As **Single-Signon Type**, select **SAML 2.0**.
+10. As **Single-Signon Type**, select **SAML 2.0**.
    
-    ![Single Signon Type](./media/active-directory-saas-ideascale-tutorial/IC790849.png "Single Signon Type")
+    ![Single Signon Type](./media/active-directory-saas-ideascale-tutorial/ic790849.png "Single Signon Type")
 
-10. On the **Single Signon Settings** dialog, perform the following steps:
+11. On the **Single Signon Settings** dialog, perform the following steps:
    
-    ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/IC790850.png "Single Signon Settings")
+    ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/ic790850.png "Single Signon Settings")
    
-    a. Paste the **SAML Entity ID** value into the **SAML IdP Entity ID** textbox.
+    a. Paste the **SAML Entity ID** value into the **SAML IdP Entity ID** textbox which you have copied from the Azure portal.
 
-    b. Copy the content of your downloaded metadata file, and then paste it into the **SAML IdP Metadata** textbox.
+    b. Copy the content of your downloaded metadata file, and then paste it into the **SAML IdP Metadata** textbox which you have copied from the Azure portal.
 
-    c. Paste the **Sign-Out URL** value into the **Logout Success URL** textbox.
+    c. Paste the **Sign-Out URL** value into the **Logout Success URL** textbox which you have copied from the Azure portal.
 
     d. Click **Save Changes**.
 
@@ -194,17 +202,17 @@ To enable Azure AD users to log into IdeaScale, they must be provisioned in to I
 
 2. Go to **Community Settings**.
    
-    ![Community Settings](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Community Settings")
+    ![Community Settings](./media/active-directory-saas-ideascale-tutorial/ic790847.png "Community Settings")
 
 3. Go to **Basic Settings \> Member Management**.
 
 4. Click **Add Member**.
    
-    ![Member Management](./media/active-directory-saas-ideascale-tutorial/IC790852.png "Member Management")
+    ![Member Management](./media/active-directory-saas-ideascale-tutorial/ic790852.png "Member Management")
 
 5. In the Add New Member section, perform the following steps:
    
-    ![Add New Member](./media/active-directory-saas-ideascale-tutorial/IC790853.png "Add New Member")
+    ![Add New Member](./media/active-directory-saas-ideascale-tutorial/ic790853.png "Add New Member")
    
     a. In the **Email Addresses** textbox, type the email address of a valid AAD account you want to provision.
    
@@ -213,8 +221,8 @@ To enable Azure AD users to log into IdeaScale, they must be provisioned in to I
     >[!NOTE]
     >The Azure Active Directory account holder gets an email with a link to confirm the account before it becomes active.
       
-    >[!NOTE]
-    >You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
+>[!NOTE]
+>You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
  
 
 ### Assigning the Azure AD test user
@@ -249,7 +257,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Testing single sign-on
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the IdeaScale tile in the Access Panel, you should get automatically signed-on to your IdeaScale application.
 
 ## Additional resources
 
