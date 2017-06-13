@@ -1,7 +1,7 @@
 ﻿# Overview
 
 ## [Introduction](storage-introduction.md)
-## [Deciding when to use Blobs, Files, or Data Disks](storage-decide-blobs-files-disks.md)
+## [Choose Blobs, Files, or Data Disks](storage-decide-blobs-files-disks.md)
 
 # Get Started
 
