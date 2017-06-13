@@ -4,8 +4,6 @@
   items:
   - name: About Functions
     href: functions-overview.md
-  - name: Functions Runtime
-    href: functions-runtime-overview.md
   - name: Choose between Flow, Logic Apps, Functions, and WebJobs
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Quickstarts
@@ -59,6 +57,8 @@
       href: functions-reference-fsharp.md
     - name: JavaScript
       href: functions-reference-node.md    
+  - name: Functions Runtime
+    href: functions-runtime-overview.md
 - name: How-to guides
   items:
   - name: Develop
