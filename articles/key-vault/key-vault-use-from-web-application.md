@@ -141,7 +141,7 @@ Make note of the end date and the password for the .pfx (in this example: 07/31/
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
 **Associate the Certificate with an Azure AD application**
-Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure Portal does not support this worklfow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
+Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure Portal does not support this workflow; this can be completed through PowerShell. Run the following commands to assoicate the certificate with the Azure AD application:
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
     $x509.Import("C:\data\KVWebApp.cer")
