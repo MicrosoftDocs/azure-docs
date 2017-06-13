@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 06/13/2017
 ms.author: jeedes
 
 ---
@@ -123,25 +123,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/tutorial_general_400.png)
 
-6. On the **IdeaScale Configuration** section, click **Configure IdeaScale** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Entity ID** from the **Quick Reference section.**
+6. In a different web browser window, log in to your IdeaScale company site as an administrator.
 
-	![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/tutorial_ideascale_configure.png) 
-
-5. In a different web browser window, log in to your IdeaScale company site as an administrator.
-
-6. Go to **Community Settings**.
+7. Go to **Community Settings**.
    
     ![Community Settings](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Community Settings")
 
-7. Go to **Security \> Single Signon Settings**.
+8. Go to **Security \> Single Signon Settings**.
    
     ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/IC790848.png "Single Signon Settings")
 
-8. As **Single-Signon Type**, select **SAML 2.0**.
+9. As **Single-Signon Type**, select **SAML 2.0**.
    
     ![Single Signon Type](./media/active-directory-saas-ideascale-tutorial/IC790849.png "Single Signon Type")
 
-9. On the **Single Signon Settings** dialog, perform the following steps:
+10. On the **Single Signon Settings** dialog, perform the following steps:
    
     ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/IC790850.png "Single Signon Settings")
    
