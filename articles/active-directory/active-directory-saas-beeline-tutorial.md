@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/13/2017
 ms.author: jeedes
 
 ---
@@ -110,7 +110,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://projects.beeline.net/<instancename>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://projects.beeline.net/<instancename>/SSO_External.ashx` or `https://projects.beeline.net/<companyname>/SSO_External.ashx`.
+	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
+	| `https://projects.beeline.net/<companyname>/SSO_External.ashx` |
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BeeLine support team](https://www.beeline.com/contact-us/) to get these values.
@@ -119,40 +123,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_certificate.png) 
 
-5. Your Beeline application expects the SAML assertions in a specific format. Work with [BeeLine support team](https://www.beeline.com/contact-us/) first to identify the correct user identifier, which is mapped into the application. Also take the guidance from [BeeLine support team](https://www.beeline.com/contact-us/) about the attribute, which they want to use for this mapping. Microsoft recommends using the **"NameIdentifier"** attribute as user identifier. You can manage the value of this attribute from the **"Attribute"** tab of the application. The following screenshot shows an example for this. Here we have mapped the nameidentifier claim with the **userprincipalname** attribute, which provides unique user ID, which is sent to the Beeline application in every successful SAML Response.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_07.png) 
-
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
-	
-	| Attribute Name  | Attribute Value |
-	| --------------- | -------------------- |    
-	| nameidentifier  | user.userprincipalname |	
-
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
-
-	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_attribute_04.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_attribute_05.png)
-
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
-
-	> [!NOTE] 
-	> Before you can configure the SAML assertion, you need to contact your [BeeLine support team](https://www.beeline.com/contact-us/) and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application. 
-
-7. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_general_400.png)
 
-8. On the **BeeLine Configuration** section, click **Configure BeeLine** to open **Configure sign-on** window. Copy the **Sign-Out URL** and **SAML Entity ID** from the **Quick Reference section.**
+6. On the **BeeLine Configuration** section, click **Configure BeeLine** to open **Configure sign-on** window. Copy the **Sign-Out URL** and **SAML Entity ID** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_configure.png) 
 
-9. To configure single sign-on on **BeeLine** side, you need to send the downloaded **Metadata XML** and **SAML Entity ID**, **Sign-Out URL** to [BeeLine support team](https://www.beeline.com/contact-us/).
+7. To configure single sign-on on **BeeLine** side, you need to send the downloaded **Metadata XML** and **SAML Entity ID**, **Sign-Out URL** to [BeeLine support team](https://www.beeline.com/contact-us/).
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
