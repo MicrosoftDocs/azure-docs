@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/01/2017
-ms.author: kaanan
+ms.date: 06/13/2017
+ms.author: kanan
 
 ---
 # ExpressRoute partners and peering locations
