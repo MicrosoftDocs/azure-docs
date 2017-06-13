@@ -47,7 +47,7 @@ az login
 
 ### Run restore command
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time "2017-04-13 03:10" --source-server-name mypgserver-20170401
+az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time "2017-04-13T13:10:00-08:00" --source-server mypgserver-20170401
 ```
 
 The `az postgres server restore` command needs the following parameters:
@@ -55,12 +55,12 @@ The `az postgres server restore` command needs the following parameters:
 | --- | --- | --- |
 | --resource-group |  myResourceGroup |  The resource group in which the source server exists.  |
 | --name | mypgserver-restored | The name of the new server that is created by the restore command. |
-| --restore-point-in-time |  | Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source server's oldest backup value. The point in time to restore from (ISO8601 format), for example: "2017-04-26T13:10:00-08:00" |
-| --source-server-name | mypgserver-20170401 | The name or ID of the source server to restore from. |
+| --restore-point-in-time | 2017-04-13T13:10:00-08:00 | Select a point-in-time to restore to. Must be greater than or equal to the source server's oldest backup value. Use ISO8601 date and time format. You may use your own local timezone, or convert to UTC format (Z). |
+| --source-server | mypgserver-20170401 | The name or ID of the source server to restore from. |
 
 Restoring a server to a point-in-time creates a new server, copying as the original server as of the point in time you specify. The location and pricing tier values for the restored server are the same as the source server.
 
-Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
+The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
 ## Next steps
 - [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)
